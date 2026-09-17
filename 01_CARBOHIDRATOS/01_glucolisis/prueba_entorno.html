@@ -88,39 +88,112 @@
 
 
     <!-- ================================================================= -->
-    <!-- CAPA 3: MEDIO EXTRACELULAR Y MEMBRANA PLASMÁTICA (ARRIBA)        -->
+    <!-- CAPA 3: MEDIO EXTRACELULAR, MEMBRANA Y ZOOM MOLECULAR (ARRIBA)   -->
     <!-- ================================================================= -->
     <!-- Medio Extracelular (Fluido intersticial / Sangre) -->
-    <path d="M 0 0 L 1000 0 L 1000 45 Q 500 65 0 45 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1"/>
+    <path d="M 0 0 L 1000 0 L 1000 60 Q 500 85 0 60 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="35" y="32" fill="#64748b" font-size="11" font-weight="800" letter-spacing="1.5">ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)</text>
 
-    <!-- Bicapa Fosfolipídica Ondulada (Azul membrana con doble línea orgánica) -->
-    <path d="M 0 45 Q 500 65 1000 45" fill="none" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/>
-    <path d="M 0 52 Q 500 72 1000 52" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+    <!-- Bicapa Fosfolipídica Ondulada Celular -->
+    <path d="M 0 60 Q 500 85 1000 60" fill="none" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 0 68 Q 500 93 1000 68" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
 
-    <!-- Cabezas polares fosfolipídicas (pequeños destellos sutiles a lo largo de la membrana) -->
-    <g stroke="#0284c7" stroke-width="1.2" opacity="0.4">
-      <line x1="100" y1="45" x2="100" y2="52"/>
-      <line x1="180" y1="47" x2="180" y2="54"/>
-      <line x1="260" y1="49" x2="260" y2="56"/>
-      <line x1="620" y1="49" x2="620" y2="56"/>
-      <line x1="740" y1="47" x2="740" y2="54"/>
-      <line x1="860" y1="45" x2="860" y2="52"/>
+    <!-- Cabezas de fosfolípidos decorativas a lo largo de la bicapa -->
+    <g fill="#0284c7" opacity="0.6">
+      <circle cx="80" cy="58" r="3"/><circle cx="95" cy="59" r="3"/><circle cx="110" cy="60" r="3"/>
+      <circle cx="200" cy="65" r="3"/><circle cx="215" cy="66" r="3"/><circle cx="230" cy="67" r="3"/>
+      <circle cx="650" cy="67" r="3"/><circle cx="665" cy="66" r="3"/><circle cx="680" cy="65" r="3"/>
+      <circle cx="850" cy="60" r="3"/><circle cx="865" cy="59" r="3"/><circle cx="880" cy="58" r="3"/>
     </g>
 
-    <!-- Poro de Transporte Proteico GLUT (Incrustado en la membrana en X=385) -->
-    <g transform="translate(355, 40)">
-      <!-- Lóbulo izquierdo de la proteína transportadora -->
-      <path d="M 0 0 C 8 -8, 20 -8, 24 2 C 26 10, 24 22, 18 26 C 10 28, 2 22, 0 14 Z" fill="#0284c7" stroke="#0369a1" stroke-width="1.8"/>
-      <!-- Lóbulo derecho de la proteína transportadora -->
-      <path d="M 60 0 C 52 -8, 40 -8, 36 2 C 34 10, 36 22, 42 26 C 50 28, 58 22, 60 14 Z" fill="#0284c7" stroke="#0369a1" stroke-width="1.8"/>
-      <!-- Canal de transporte central por donde cruza la molécula -->
-      <ellipse cx="30" cy="12" rx="7" ry="12" fill="#0ea5e9" opacity="0.6"/>
-      <!-- Etiqueta técnica sutil del canal transportador -->
-      <text x="30" y="16" fill="#ffffff" font-size="9" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle">GLUT</text>
+    <!-- ============================================================= -->
+    <!-- EL TRANSPORTADOR GLUT EN LA MEMBRANA REAL (MÁS GRANDE)        -->
+    <!-- ============================================================= -->
+    <g transform="translate(345, 45)">
+      <!-- Lóbulo proteico izquierdo -->
+      <path d="M 0 5 C 10 -12, 28 -12, 34 5 C 38 18, 34 36, 25 42 C 12 45, 2 35, 0 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.2"/>
+      <!-- Lóbulo proteico derecho -->
+      <path d="M 80 5 C 70 -12, 52 -12, 46 5 C 42 18, 46 36, 55 42 C 68 45, 78 35, 80 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.2"/>
+      
+      <!-- Poro o canal transmembrana central acuoso -->
+      <ellipse cx="40" cy="20" rx="10" ry="18" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
+      
+      <!-- Pequeña glucosa cruzando por el canal -->
+      <polygon points="40,14 45,17 45,23 40,26 35,23 35,17" fill="#ffffff" stroke="#ea580c" stroke-width="1.6"/>
+      <circle cx="35" cy="17" r="2" fill="#dc2626"/>
+
+      <!-- Rótulo en la proteína -->
+      <text x="40" y="49" fill="#0369a1" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">GLUT-4</text>
     </g>
 
-    <!-- Flecha biológica de entrada: la glucosa cruzando el canal de la membrana -->
-    <line x1="385" y1="18" x2="385" y2="65" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+    <!-- Línea guía de entrada hacia el citoplasma -->
+    <line x1="385" y1="20" x2="385" y2="45" stroke="#ea580c" stroke-width="2.2"/>
+    <line x1="385" y1="85" x2="385" y2="105" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+
+
+    <!-- ============================================================= -->
+    <!-- ZOOM MOLECULAR / LUPA CIENTÍFICA (A la izquierda del GLUT)    -->
+    <!-- ============================================================= -->
+    <!-- Líneas de proyección cónica que nacen en el GLUT y van hacia la lupa -->
+    <g stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6">
+      <line x1="345" y1="65" x2="225" y2="90" />
+      <line x1="355" y1="45" x2="190" y2="40" />
+    </g>
+
+    <!-- Ventana Circular de Zoom (Lupa de Aumento Molecular) -->
+    <g transform="translate(130, 85)">
+      <!-- Sombra y fondo blanco del lente -->
+      <circle cx="0" cy="0" r="65" fill="#ffffff" stroke="#0284c7" stroke-width="3.5" />
+      <circle cx="0" cy="0" r="62" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+
+      <!-- Bicapa lipídica ampliada cortando la lupa horizontalmente -->
+      <g opacity="0.85">
+        <!-- Capa exterior de fosfolípidos (arriba) -->
+        <g fill="#0284c7">
+          <circle cx="-52" cy="-8" r="5"/><circle cx="-38" cy="-8" r="5"/><circle cx="-24" cy="-8" r="5"/>
+          <circle cx="24" cy="-8" r="5"/><circle cx="38" cy="-8" r="5"/><circle cx="52" cy="-8" r="5"/>
+        </g>
+        <!-- Colas de ácidos grasos (onduladas) -->
+        <g stroke="#94a3b8" stroke-width="1.4" fill="none">
+          <path d="M -52 -3 Q -54 2 -50 7"/><path d="M -38 -3 Q -40 2 -36 7"/><path d="M -24 -3 Q -26 2 -22 7"/>
+          <path d="M 24 -3 Q 22 2 26 7"/><path d="M 38 -3 Q 36 2 40 7"/><path d="M 52 -3 Q 50 2 54 7"/>
+          <path d="M -52 17 Q -54 12 -50 7"/><path d="M -38 17 Q -40 12 -36 7"/><path d="M -24 17 Q -26 12 -22 7"/>
+          <path d="M 24 17 Q 22 12 26 7"/><path d="M 38 17 Q 36 12 40 7"/><path d="M 52 17 Q 50 12 54 7"/>
+        </g>
+        <!-- Capa interior de fosfolípidos (abajo) -->
+        <g fill="#0284c7">
+          <circle cx="-52" cy="22" r="5"/><circle cx="-38" cy="22" r="5"/><circle cx="-24" cy="22" r="5"/>
+          <circle cx="24" cy="22" r="5"/><circle cx="38" cy="22" r="5"/><circle cx="52" cy="22" r="5"/>
+        </g>
+      </g>
+
+      <!-- Proteína Transportadora GLUT en grande dentro de la lupa -->
+      <!-- Subunidad izquierda -->
+      <path d="M -16 -22 C -8 -26, -4 -15, -4 0 C -4 15, -8 26, -16 22 C -24 18, -22 -18, -16 -22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+      <!-- Subunidad derecha -->
+      <path d="M 16 -22 C 8 -26, 4 -15, 4 0 C 4 15, 8 26, 16 22 C 24 18, 22 -18, 16 -22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+
+      <!-- Canal abierto central acuoso -->
+      <ellipse cx="0" cy="0" rx="6" ry="18" fill="#bae6fd" opacity="0.6"/>
+
+      <!-- LA MOLÉCULA DE GLUCOSA EN PLENO CRUCE (Haworth esquemático ampliado) -->
+      <g transform="translate(0, -6)">
+        <polygon points="0,-10 9,-4 9,6 0,12 -9,6 -9,-4" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+        <circle cx="-9" cy="-4" r="3" fill="#ffffff"/>
+        <text x="-9" y="-2" fill="#dc2626" font-size="6" font-weight="900" text-anchor="middle">O</text>
+        <circle cx="14" cy="6" r="4" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>
+        <text x="14" y="8" fill="#ea580c" font-size="5" font-weight="900" text-anchor="middle">OH</text>
+      </g>
+
+      <!-- Flecha de difusión facilitada atravesando el canal hacia abajo -->
+      <path d="M 0 -26 L 0 -15" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+      <path d="M 0 10 L 0 26" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+
+      <!-- Etiqueta explicativa de la lupa -->
+      <rect x="-55" y="44" width="110" height="15" rx="4" fill="#0f172a" opacity="0.85"/>
+      <text x="0" y="55" fill="#ffffff" font-size="8" font-weight="800" text-anchor="middle" letter-spacing="0.5">DIFUSIÓN FACILITADA</text>
+    </g>
+
 
 
     <!-- ================================================================= -->
