@@ -218,7 +218,7 @@ def crear_zona_triosas():
     <path d="M 600 965 Q 600 1000 385 1020" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
     
     <!-- Badge elegante que anuncia la Fase 2 (sin elementos volando) -->
-    <g transform="translate(385, 1005)">
+    <g transform="translate(285, 1005)">
       <rect x="-95" y="-12" width="190" height="24" rx="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
       <text x="0" y="4" fill="#c2410c" font-size="11" font-weight="800" text-anchor="middle">FASE 2: RENDIMIENTO (× 2)</text>
     </g>
