@@ -59,7 +59,7 @@ CABECERA_HTML = f"""<!DOCTYPE html>
 </head>
 <body>
   <div class="lienzo-svg">
-    <svg width="1000" height="2280" viewBox="0 0 1000 2280" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1000" height="2350" viewBox="0 0 1000 2350" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Flecha de flujo metabólico principal (Naranja) -->
         <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -226,7 +226,7 @@ def main():
     # =========================================================================
     # CAPA DE FONDO: ENTORNO BIOLÓGICO CELULAR (Membrana, Citosol y Mitocondria)
     # =========================================================================
-    contenido_svg.append(generar_entorno_celular_svg(ancho=1000, alto=2280, y_mitocondria=2060))
+    contenido_svg.append(generar_entorno_celular_svg(ancho=1000, alto=2350, y_mitocondria=2120))
 
     # =========================================================================
     # CAPA METABÓLICA: RUTA GLUCOLÍTICA ACOPLADA AL ENTORNO
@@ -398,7 +398,7 @@ def main():
 
     # Reacción 10: Piruvato Quinasa (Segunda fosforilación a nivel de sustrato)
     contenido_svg.append(crear_reaccion(
-        x=385, y=1890,
+        x=385, y=1915,
         enzima="Piruvato Quinasa",
         ec="EC 2.7.1.40 (K⁺, Mg²⁺)",
         regulacion="⊕ F-1,6-BP | ⊣ ATP, Alanina",
@@ -409,7 +409,7 @@ def main():
 
     # 10. Piruvato (Fin de la vía citosólica)
     contenido_svg.append(crear_metabolito(
-        x=340, y=1980,
+        x=340, y=2015,
         nombre="Piruvato",
         carbonos="3 Carbonos (× 2)",
         detalle="Destino: cruce al interior mitocondrial",
