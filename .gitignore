@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de bloqueo y temporales de editores
+.~lock.*
+.directory
+.DS_Store
+*.swp
+*.tmp

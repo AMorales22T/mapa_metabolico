@@ -1,0 +1,165 @@
+================================================================================
+ MANUAL DE ESTILO, MEDIDAS Y COMANDOS - MAPA METABÓLICO GIGANTE (UNIVERSITARIO)
+================================================================================
+
+Este documento contiene la guía técnica, medidas exactas, paleta de colores,
+herramientas recomendadas y el RECETARIO DE CÓDIGO para que sepas exactamente
+cómo se dibuja cada elemento (estructuras, flechas rectas, curvas de energía y textos).
+
+--------------------------------------------------------------------------------
+1. PARÁMETROS DE ESTILO Y MEDIDAS (EL "ESTILO EDITORIAL CIENTÍFICO")
+--------------------------------------------------------------------------------
+
+A. ESTRUCTURAS QUÍMICAS (SIN CAJAS, LIBRES EN EL ESPACIO):
+   - Tamaño óptimo en cartulina: ~3.5 a 4.5 cm de diámetro (en pantalla: 70-85 px).
+   - Grosor del trazo de los enlaces: 2.2 a 2.5 pt.
+   - Color de enlaces y carbonos: Negro tinta / grafito (#0f172a).
+   - Oxígeno de anillos o grupos carbonilo: Rojo (#dc2626) en negrita.
+   - Grupo Fosfato resaltado: Círculo o cápsula naranja (#ffedd5 de fondo, #ea580c de borde y texto)
+     con el símbolo "(P)" o "O-PO3(2-)".
+
+B. FLECHAS DE REACCIÓN:
+   - Flecha de flujo principal: Grosor 3.0 pt, continua, color de la familia metabólica (#ea580c).
+   - Reacciones reversibles: Doble flecha paralela (una bajando, otra subiendo).
+   - Pasos omitidos / intermedios: Línea discontinua con patrón (stroke-dasharray="4 3").
+
+C. ENTRADAS Y SALIDAS ENERGÉTICAS (ARCOS CURVOS):
+   - Entrada de energía (gasto): Curva roja discontinua (#dc2626) entrando desde la izquierda
+     con etiqueta: "- 1 ATP" (texto en negrita).
+   - Salida de subproducto: Curva gris (#475569) saliendo hacia abajo/izquierda
+     con etiqueta: "+ 1 ADP".
+   - Generación de poder reductor (ganancia): Curva verde/azul (#059669) saliendo con "+ NADH + H+".
+
+D. TIPOGRAFÍA Y JERARQUÍA DE TEXTO:
+   - Nombres de Metabolitos: Tipografía Sans-serif limpia (Inter, Helvetica o Arial),
+     16 a 18 pt, Peso: 800 (Extra Bold), Color: Negro (#0f172a).
+   - Contador de Carbonos: 12 pt, negrita, color de la ruta (ej. "6 Carbonos" o "[6C]").
+   - Nombre de la Enzima: 13 pt, negrita (#0f172a).
+   - Número EC y Cofactores: 10 pt en tipografía monoespaciada (#64748b), ej: "EC 2.7.1.1 (Mg2+)".
+   - Regulación alostérica: 10 pt negrita, con símbolo "|- Inhibida por..." en rojo (#e11d48)
+     o "(+) Activada por..." en verde (#16a34a).
+
+--------------------------------------------------------------------------------
+2. CÓDIGO CROMÁTICO POR FAMILIAS (PARA ROTULADORES O DIGITAL)
+--------------------------------------------------------------------------------
+
+- CARBOHIDRATOS (Glucólisis, Pentosas, Glucógeno):
+  Naranja Cálido -> #ea580c (acento: #ffedd5)
+
+- MITOCONDRIA / RESPIRACIÓN (PDH, Krebs, Cadena de Transporte):
+  Marrón Ámbar / Dorado / Púrpura -> #b45309 o #8a2be2 (acento: #fef3c7)
+
+- LÍPIDOS (Beta-oxidación, Síntesis de Ácidos Grasos):
+  Amarillo Ocre / Mostaza -> #d97706
+
+- NITROGENO Y AMINOÁCIDOS (Ciclo de la Urea, Desaminación):
+  Verde Azulado / Esmeralda -> #059669 o #0d9488
+
+- MEMBRANAS CELULARES Y TRANSPORTADORES:
+  Azul Membrana -> #0284c7 (bordes y poros de transporte como GLUT y MPC)
+
+--------------------------------------------------------------------------------
+3. ANATOMÍA Y RECETARIO DE CÓDIGO: ¿CÓMO SE CONSTRUYE CADA ELEMENTO?
+--------------------------------------------------------------------------------
+
+Todo el mapa visual se construye con código SVG estándar (que Python escribe
+en un archivo .html o .svg). Estos son los bloques fundamentales:
+
+A. EL TRUCO DEL GRUPO CONTENEDOR <g transform="translate(x, y)">:
+   Para no volverte loco calculando píxeles de cada átomo:
+   Agrupas todo un metabolito o reacción dentro de una etiqueta <g> y solo defines
+   su posición (x, y) una sola vez:
+   
+   <g transform="translate(380, 115)">
+       <!-- Todo lo que pongas aquí adentro tiene coordenadas relativas (0, 0) -->
+   </g>
+
+B. CÓMO SE HACEN LAS FLECHAS CON PUNTA:
+   1. Primero se define la "punta de flecha" (marker) una sola vez en <defs>:
+      <defs>
+        <marker id="arrowFlow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#ea580c" />
+        </marker>
+      </defs>
+
+   2. Luego trazas una línea recta vertical y le dices que use esa punta:
+      <line x1="100" y1="50" x2="100" y2="120" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
+      * x1, y1 = Punto de inicio (arriba).
+      * x2, y2 = Punto final (abajo).
+      * marker-end = Le coloca la punta triangular automáticamente.
+
+C. CÓMO SE HACEN LAS CURVAS DE ENERGÍA (ATP -> ADP):
+   Se usa una curva Bézier cuadrática con la etiqueta <path d="M ... Q ...">:
+   
+   - Entrada de ATP (Curva desde la izquierda hacia la flecha principal):
+     <path d="M -90 15 Q -30 12 -5 32" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+     * "M -90 15": Punto inicial (donde dice -1 ATP).
+     * "Q -30 12": Punto de control que hace la curva suave.
+     * "-5 32": Punto de llegada en la flecha central.
+
+   - Salida de ADP (Curva desde la flecha hacia afuera):
+     <path d="M -5 38 Q -30 58 -90 55" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
+
+D. CÓMO SE PONEN LOS NOMBRES Y TEXTOS:
+   Se usa la etiqueta <text>:
+   
+   <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800">D-Glucosa</text>
+   <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700">6 Carbonos</text>
+   
+   * x e y son la posición de la línea base del texto.
+   * fill: color de la letra.
+   * font-size: tamaño en puntos/píxeles.
+   * text-anchor="middle": si quieres que el texto quede centrado exactamente en x.
+   * text-anchor="end": si quieres que se alinee a la derecha.
+
+E. CÓMO SE CREÓ EL ANILLO QUÍMICO DE GLUCOSA (HAWORTH):
+   El hexágono se crea conectando 6 puntos (coordenadas x,y de cada carbono):
+   
+   <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+   
+   - Oxígeno en la esquina superior izquierda (círculo blanco con la letra O):
+     <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+     <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+   
+   - Enlace hacia el Carbono 6 (línea vertical hacia arriba):
+     <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2.2"/>
+     <text x="0" y="7" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂OH</text>
+   
+   - Grupo Fosfato en el C6 (para Glucosa-6-P):
+     <circle cx="0" cy="-2" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+     <text x="0" y="3" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+--------------------------------------------------------------------------------
+4. CÓMO AUTOMATIZAR TODO ESTO CON PYTHON
+--------------------------------------------------------------------------------
+
+En lugar de escribir SVG a mano, creamos un script en Python (ver 'generador_reacciones.py').
+En Python defines una función sencilla:
+
+def agregar_reaccion(sustrato, producto, enzima, entra_energia=None, sale_energia=None):
+    # Python genera automáticamente el bloque SVG con sus coordenadas,
+    # flechas calculadas y nombres formateados.
+
+Para generar estructuras químicas complejas automáticamente sin dibujarlas:
+Usamos RDKit en Python:
+   $ pip install rdkit
+   
+   from rdkit import Chem
+   from rdkit.Chem import Draw
+   mol = Chem.MolFromSmiles('CC(=O)C(=O)[O-]') # Piruvato
+   Draw.MolToFile(mol, 'piruvato.svg', size=(120, 120))
+
+--------------------------------------------------------------------------------
+5. COMANDOS ÚTILES EN LINUX
+--------------------------------------------------------------------------------
+
+- Ver tu archivo en el navegador:
+  $ xdg-open /home/dolfius/Escritorio/mapa_metabolico/ejemplo_estilo_visual.html
+
+- Ejecutar el generador en Python:
+  $ python3 /home/dolfius/Escritorio/mapa_metabolico/generador_reacciones.py
+
+- Exportar a PDF gigante de imprenta (70x100 cm) con Inkscape:
+  $ sudo apt install inkscape
+  $ inkscape ejemplo_estilo_visual.html --export-filename=mapa_final.pdf
+================================================================================
