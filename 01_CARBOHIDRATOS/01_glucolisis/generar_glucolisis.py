@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-GENERADOR DE LA RUTA GLUCOLÍTICA EN SVG/HTML - VERSIÓN ESPACIOSA
-================================================================
-Ajustado con proporciones editoriales:
-- Espaciado vertical holgado (210 px entre metabolitos)
-- Flechas y curvas de energía compactadas para evitar solapamientos
-- Separación limpia en la zona de triosas (DHAP / GAP / Aldolasa / TPI)
+GENERADOR DE LA RUTA GLUCOLÍTICA EN SVG/HTML - VERSIÓN PERFECCIONADA
+====================================================================
+Correcciones visuales aplicadas:
+- Orden bioquímico estricto en la Fase 2: Enzima (GAPDH) ANTES del producto (1,3-BPG).
+- Zona de Triosas (DHAP / GAP / TPI) con carril exclusivo y sin colisiones de texto.
+- Eliminada la flecha suelta; integrado un badge elegante "FASE 2: RENDIMIENTO (× 2)".
+- Flechas y metabolitos bajados con espaciado equilibrado y respiración visual.
 """
 
 import os
@@ -59,7 +60,7 @@ CABECERA_HTML = """<!DOCTYPE html>
 </head>
 <body>
   <div class="lienzo-svg">
-    <svg width="1000" height="2100" viewBox="0 0 1000 2100" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1000" height="2150" viewBox="0 0 1000 2150" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Flecha de flujo metabólico principal (Naranja) -->
         <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -96,18 +97,33 @@ PIE_HTML = """
 # 2. FUNCIONES GENERADORAS DE ELEMENTOS
 # -----------------------------------------------------------------------------
 
-def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura=""):
-    """Construye el bloque SVG de un metabolito libre con su estructura y textos."""
+def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False):
+    """
+    Construye el bloque SVG de un metabolito libre.
+    Si texto_izquierda=True, coloca el bloque de texto a la izquierda de la estructura
+    (ideal para DHAP, despejando el carril central).
+    """
+    if texto_izquierda:
+        pos_estructura = "translate(150, 0)"
+        pos_texto = "translate(130, 25)"
+        alineacion = 'text-anchor="end"'
+        x_texto = "0"
+    else:
+        pos_estructura = "translate(0, 0)"
+        pos_texto = "translate(135, 25)"
+        alineacion = ''
+        x_texto = "0"
+
     return f"""
       <!-- Metabolito: {nombre} -->
       <g transform="translate({x}, {y})">
-        <g transform="translate(0, 0)">
+        <g transform="{pos_estructura}">
           {svg_estructura}
         </g>
-        <g transform="translate(135, 25)">
-          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800">{nombre}</text>
-          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700">{carbonos}</text>
-          <text x="0" y="34" fill="#64748b" font-size="11">{detalle}</text>
+        <g transform="{pos_texto}">
+          <text x="{x_texto}" y="0" fill="#0f172a" font-size="17" font-weight="800" {alineacion}>{nombre}</text>
+          <text x="{x_texto}" y="18" fill="#ea580c" font-size="12" font-weight="700" {alineacion}>{carbonos}</text>
+          <text x="{x_texto}" y="34" fill="#64748b" font-size="11" {alineacion}>{detalle}</text>
         </g>
       </g>
     """
@@ -115,14 +131,10 @@ def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura=""):
 
 def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_energia="", 
                    reversible=False, es_ganancia=False, salida_agua=False):
-    """
-    Genera el bloque SVG de una reacción con proporciones compactas:
-    - Flecha vertical más estilizada (48 px) para dejar aire con las moléculas.
-    - Curvas de energía más suaves para no chocar arriba ni abajo.
-    """
+    """Genera el bloque SVG de una reacción con proporciones compactas y sin choques."""
     curvas_energia = ""
     
-    # 1. Entrada de energía o reactivo
+    # 1. Entrada de energía o reactivo (a la izquierda)
     if entra_energia:
         color_entrada = "#dc2626" if not es_ganancia else "#475569"
         marcador_entrada = "url(#arrowRed)" if not es_ganancia else "url(#arrowSlate)"
@@ -131,7 +143,7 @@ def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_en
         <text x="-80" y="11" fill="{color_entrada}" font-size="11" font-weight="800" text-anchor="end">{entra_energia}</text>
         """
         
-    # 2. Salida de producto energético
+    # 2. Salida de producto energético (a la izquierda)
     if sale_energia:
         color_salida = "#059669" if es_ganancia else "#475569"
         marcador_salida = "url(#arrowGreen)" if es_ganancia else "url(#arrowSlate)"
@@ -143,11 +155,11 @@ def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_en
     # 3. Salida de agua (para Enolasa)
     if salida_agua:
         curvas_energia += """
-        <path d="M -4 24 Q -25 34 -70 34" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+        <path d="M -4 24 Q -25 34 -70 34" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="{marcador_blue}"/>
         <text x="-75" y="37" fill="#0284c7" font-size="11" font-weight="800" text-anchor="end">- 2 H₂O</text>
         """
 
-    # 4. Flecha principal (48 px de largo, nítida y con aire)
+    # 4. Flecha principal (48 px de largo)
     if reversible:
         flecha_central = """
         <line x1="-3" y1="0" x2="-3" y2="48" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
@@ -177,35 +189,38 @@ def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_en
     """
 
 
-def crear_bifurcacion_aldolasa():
-    """Genera las flechas ramificadas de la Aldolasa y la conexión de la Triosa Fosfato Isomerasa con espacio amplio."""
+def crear_zona_triosas():
+    """Genera la bifurcación limpia de la Aldolasa, la conexión TPI despejada y la transición a la Fase 2."""
     return """
-    <!-- Bifurcación Aldolasa (F-1,6-BP -> DHAP + GAP) -->
-    <g transform="translate(380, 785)">
-      <!-- Flecha diagonal hacia DHAP (izquierda) -->
-      <path d="M -10 0 Q -100 25 -200 65" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-      <!-- Flecha diagonal hacia GAP (derecha) -->
-      <path d="M 10 0 Q 100 25 180 65" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+    <!-- 1. Bifurcación Aldolasa (desde F-1,6-BP hacia DHAP y GAP) -->
+    <g transform="translate(385, 765)">
+      <!-- Flecha suave hacia DHAP (izquierda) -->
+      <path d="M -15 0 Q -120 30 -160 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+      <!-- Flecha suave hacia GAP (derecha) -->
+      <path d="M 15 0 Q 120 30 180 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
       
-      <!-- Datos de la Aldolasa en el centro despejado -->
-      <g transform="translate(0, 22)">
+      <!-- Nombre de la Aldolasa en el centro despejado -->
+      <g transform="translate(0, 26)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800" text-anchor="middle">Aldolasa</text>
         <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 4.1.2.13 (Reversible)</text>
       </g>
     </g>
 
-    <!-- Conexión Reversible DHAP <-> GAP (Triosa Fosfato Isomerasa) entre ambas triosas -->
-    <g transform="translate(280, 930)">
-      <line x1="-30" y1="-3" x2="190" y2="-3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
-      <line x1="190" y1="3" x2="-30" y2="3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
-      <text x="80" y="-10" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">Triosa Fosfato Isomerasa (TPI)</text>
-      <text x="80" y="16" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 5.3.1.1</text>
+    <!-- 2. Triosa Fosfato Isomerasa (TPI): Conexión horizontal libre entre DHAP y GAP -->
+    <g transform="translate(420, 895)">
+      <line x1="-120" y1="-3" x2="110" y2="-3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <line x1="110" y1="3" x2="-120" y2="3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <text x="-5" y="-12" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">Triosa Fosfato Isomerasa (TPI)</text>
+      <text x="-5" y="18" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 5.3.1.1 (⇄)</text>
     </g>
 
-    <!-- Flecha de convergencia hacia la Fase 2 (GAP -> 1,3-BPG x2) -->
-    <g transform="translate(540, 990)">
-      <path d="M 20 0 Q 0 45 -160 75" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
-      <text x="-60" y="45" fill="#ea580c" font-size="12" font-weight="800">× 2 moléculas</text>
+    <!-- 3. Entrada fluida a la Fase 2 (Curva desde GAP hacia el eje central) -->
+    <path d="M 600 965 Q 600 1000 385 1020" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+    
+    <!-- Badge elegante que anuncia la Fase 2 (sin elementos volando) -->
+    <g transform="translate(385, 1005)">
+      <rect x="-95" y="-12" width="190" height="24" rx="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
+      <text x="0" y="4" fill="#c2410c" font-size="11" font-weight="800" text-anchor="middle">FASE 2: RENDIMIENTO (× 2)</text>
     </g>
     """
 
@@ -230,7 +245,7 @@ def main():
 
     # Reacción 1: Hexoquinasa
     contenido_svg.append(crear_reaccion(
-        x=385, y=190,
+        x=385, y=185,
         enzima="Hexoquinasa",
         ec="EC 2.7.1.1 (Mg²⁺)",
         regulacion="⊣ Inhibida por G-6-P",
@@ -240,7 +255,7 @@ def main():
 
     # 2. Glucosa-6-Fosfato
     contenido_svg.append(crear_metabolito(
-        x=340, y=280,
+        x=340, y=270,
         nombre="Glucosa-6-Fosfato",
         carbonos="6 Carbonos (Fosforilada)",
         detalle="Encrucijada: Vía Pentosas / Glucógeno",
@@ -249,7 +264,7 @@ def main():
 
     # Reacción 2: Fosfohexosa Isomerasa
     contenido_svg.append(crear_reaccion(
-        x=385, y=390,
+        x=385, y=375,
         enzima="Fosfohexosa Isomerasa",
         ec="EC 5.3.1.9 (Mg²⁺)",
         reversible=True
@@ -257,7 +272,7 @@ def main():
 
     # 3. Fructosa-6-Fosfato
     contenido_svg.append(crear_metabolito(
-        x=340, y=475,
+        x=340, y=460,
         nombre="Fructosa-6-Fosfato",
         carbonos="6 Carbonos (Furanosa)",
         detalle="Isomerización aldosa → cetosa",
@@ -266,7 +281,7 @@ def main():
 
     # Reacción 3: Fosfofructoquinasa-1 (Paso Limitante Clave)
     contenido_svg.append(crear_reaccion(
-        x=385, y=585,
+        x=385, y=565,
         enzima="Fosfofructoquinasa-1 (PFK-1)",
         ec="EC 2.7.1.11 (Mg²⁺)",
         regulacion="⊕ AMP, F-2,6-BP | ⊣ ATP, Citrato",
@@ -276,49 +291,41 @@ def main():
 
     # 4. Fructosa-1,6-Bisfosfato
     contenido_svg.append(crear_metabolito(
-        x=340, y=675,
+        x=340, y=655,
         nombre="Fructosa-1,6-Bisfosfato",
         carbonos="6 Carbonos (Doble fosfato)",
         detalle="Molécula comprometida a la lisis",
         svg_estructura=FRUCTOSA_1_6_BISFOSFATO
     ))
 
-    # Reacción 4 & 5: Aldolasa + Triosa Fosfato Isomerasa (Bifurcación)
-    contenido_svg.append(crear_bifurcacion_aldolasa())
+    # Zona de Triosas: Aldolasa + TPI + Badge Fase 2
+    contenido_svg.append(crear_zona_triosas())
 
-    # 5a. Dihidroxiacetona Fosfato (DHAP)
+    # 5a. Dihidroxiacetona Fosfato (DHAP) - Con texto a la izquierda para dejar libre el centro
     contenido_svg.append(crear_metabolito(
-        x=70, y=860,
+        x=70, y=845,
         nombre="Dihidroxiacetona-P",
         carbonos="3 Carbonos (Cetosa)",
         detalle="Interconvertible hacia GAP",
-        svg_estructura=DIHIDROXIACETONA_FOSFATO
+        svg_estructura=DIHIDROXIACETONA_FOSFATO,
+        texto_izquierda=True
     ))
 
-    # 5b. Gliceraldehído-3-Fosfato (GAP)
+    # 5b. Gliceraldehído-3-Fosfato (GAP) - A la derecha
     contenido_svg.append(crear_metabolito(
-        x=520, y=860,
+        x=560, y=845,
         nombre="Gliceraldehído-3-P",
         carbonos="3 Carbonos (Aldosa)",
-        detalle="Sustrato activo que continúa la vía",
+        detalle="Sustrato activo que continúa",
         svg_estructura=GLICERALDEHIDO_3_FOSFATO
     ))
 
 
     # ================= FASE 2: RENDIMIENTO ENERGÉTICO (x2) =================
 
-    # 6. 1,3-Bisfosfoglicerato
-    contenido_svg.append(crear_metabolito(
-        x=340, y=1070,
-        nombre="1,3-Bisfosfoglicerato",
-        carbonos="3 Carbonos (× 2)",
-        detalle="Acil-fosfato de muy alta energía",
-        svg_estructura=BISFOSFOGLICERATO_1_3
-    ))
-
-    # Reacción 6: Gliceraldehído-3-Fosfato DH (GAPDH) - Se produce NADH
+    # Reacción 6: Gliceraldehído-3-P DH (GAPDH) - Se produce NADH ANTES del 1,3-BPG
     contenido_svg.append(crear_reaccion(
-        x=385, y=1180,
+        x=385, y=1045,
         enzima="GAPDH (Gliceraldehído-3-P DH)",
         ec="EC 1.2.1.12",
         entra_energia="2 NAD⁺ + 2 Pi",
@@ -327,18 +334,18 @@ def main():
         reversible=True
     ))
 
-    # 7. 3-Fosfoglicerato
+    # 6. 1,3-Bisfosfoglicerato (Producto de GAPDH)
     contenido_svg.append(crear_metabolito(
-        x=340, y=1265,
-        nombre="3-Fosfoglicerato",
+        x=340, y=1140,
+        nombre="1,3-Bisfosfoglicerato",
         carbonos="3 Carbonos (× 2)",
-        detalle="Fosforilación a nivel de sustrato",
-        svg_estructura=FOSFOGLICERATO_3
+        detalle="Acil-fosfato de muy alta energía",
+        svg_estructura=BISFOSFOGLICERATO_1_3
     ))
 
     # Reacción 7: Fosfoglicerato Quinasa - Ganancia neta de ATP
     contenido_svg.append(crear_reaccion(
-        x=385, y=1375,
+        x=385, y=1255,
         enzima="Fosfoglicerato Quinasa",
         ec="EC 2.7.2.3 (Mg²⁺)",
         entra_energia="2 ADP",
@@ -347,59 +354,68 @@ def main():
         reversible=True
     ))
 
-    # 8. 2-Fosfoglicerato
+    # 7. 3-Fosfoglicerato
     contenido_svg.append(crear_metabolito(
-        x=340, y=1460,
-        nombre="2-Fosfoglicerato",
+        x=340, y=1345,
+        nombre="3-Fosfoglicerato",
         carbonos="3 Carbonos (× 2)",
-        detalle="Reordenamiento interno de éster fosfato",
-        svg_estructura=FOSFOGLICERATO_2
+        detalle="Fosforilación a nivel de sustrato",
+        svg_estructura=FOSFOGLICERATO_3
     ))
 
     # Reacción 8: Fosfoglicerato Mutasa
     contenido_svg.append(crear_reaccion(
-        x=385, y=1565,
+        x=385, y=1455,
         enzima="Fosfoglicerato Mutasa",
         ec="EC 5.4.2.11 (Mg²⁺)",
         reversible=True
     ))
 
-    # 9. Fosfoenolpiruvato (PEP)
+    # 8. 2-Fosfoglicerato
     contenido_svg.append(crear_metabolito(
-        x=340, y=1650,
-        nombre="Fosfoenolpiruvato (PEP)",
+        x=340, y=1545,
+        nombre="2-Fosfoglicerato",
         carbonos="3 Carbonos (× 2)",
-        detalle="Enol-fosfato de altísima energía",
-        svg_estructura=FOSFOENOLPIRUVATO
+        detalle="Reordenamiento interno de fosfato",
+        svg_estructura=FOSFOGLICERATO_2
     ))
 
     # Reacción 9: Enolasa (Deshidratación)
     contenido_svg.append(crear_reaccion(
-        x=385, y=1755,
+        x=385, y=1655,
         enzima="Enolasa",
         ec="EC 4.2.1.11 (Mg²⁺)",
         salida_agua=True,
         reversible=True
     ))
 
-    # 10. Piruvato (Fin de la vía)
+    # 9. Fosfoenolpiruvato (PEP)
     contenido_svg.append(crear_metabolito(
-        x=340, y=1840,
-        nombre="Piruvato",
+        x=340, y=1745,
+        nombre="Fosfoenolpiruvato (PEP)",
         carbonos="3 Carbonos (× 2)",
-        detalle="Producto final citosólico → Mitocondria",
-        svg_estructura=PIRUVATO
+        detalle="Enol-fosfato de altísima energía",
+        svg_estructura=FOSFOENOLPIRUVATO
     ))
 
     # Reacción 10: Piruvato Quinasa (Segunda fosforilación a nivel de sustrato)
     contenido_svg.append(crear_reaccion(
-        x=385, y=1945,
+        x=385, y=1855,
         enzima="Piruvato Quinasa",
         ec="EC 2.7.1.40 (K⁺, Mg²⁺)",
         regulacion="⊕ F-1,6-BP | ⊣ ATP, Alanina",
         entra_energia="2 ADP",
         sale_energia="+ 2 ATP",
         es_ganancia=True
+    ))
+
+    # 10. Piruvato (Fin de la vía)
+    contenido_svg.append(crear_metabolito(
+        x=340, y=1945,
+        nombre="Piruvato",
+        carbonos="3 Carbonos (× 2)",
+        detalle="Producto final citosólico → Mitocondria",
+        svg_estructura=PIRUVATO
     ))
 
     # Unir todo el código
@@ -410,7 +426,7 @@ def main():
     with open(ruta_salida, "w", encoding="utf-8") as archivo:
         archivo.write(html_final)
 
-    print(f"✅ ¡Ruta Glucolítica espaciosa generada en: {ruta_salida}!")
+    print(f"✅ ¡Ruta Glucolítica ordenada y generada en: {ruta_salida}!")
 
 
 if __name__ == "__main__":
