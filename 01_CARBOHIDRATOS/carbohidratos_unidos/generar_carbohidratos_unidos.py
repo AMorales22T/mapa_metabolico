@@ -2,18 +2,18 @@
 """
 MAPA INTEGRADO DE CARBOHIDRATOS: GLUCOGÉNESIS • GLUCÓLISIS • PENTOSAS FOSFATO
 =============================================================================
-Versión Cartulina de Alta Legibilidad Editorial y Rigor Bioquímico Universitario.
-- Dimensiones ampliadas (3400 x 2600 px) para impresión en póster/cartulina.
-- Tipografía jerarquizada y escalada (títulos 22-26px, metabolitos 17-18px,
-  enzimas 15-16px, detalles 12-13px, EC 11.5-12px).
-- Canales de conexión limpios con separación absoluta:
-  * Flecha naranja hacia Glucogénesis conecta al C1 de la Haworth de α-D-G1P
-    con el texto ubicado a la izquierda (cero colisión con rótulos).
-  * Flechas moradas hacia el Shunt de Pentosas emergen con canal despejado
-    sin rozar los rótulos de D-Glucosa ni G-6-P.
-- Matriz mitocondrial biológica en la base (reproduciendo y expandiendo
-  el modelo orgánico de Glucólisis con doble membrana, crestas invaginadas,
-  transportador MPC alineado al Piruvato, Complejo PDH y entrada a Krebs).
+Versión Cartulina Limpia y Fiel a los Diseños Originales:
+- Sin globos ni cajas artificiales envolviendo metabolitos o títulos.
+- Eliminados los letreros de cabecera ("Síntesis de Glucógeno", "Eje Glucolítico", "Vía Pentosas").
+- Conexiones horizontales segmentadas limpiamente:
+  * Fosfoglucomutasa: segmento G6P ➔ Reacción con flechas ⇄ y textos ➔ segmento a G1P.
+  * G6PDH: segmento G6P ➔ Reacción con flecha, cofactores (+NADP⁺/+NADPH) y texto ➔ segmento a Lactona.
+- Zoom de Cebadores restaurado exactamente como en Glucogénesis:
+  * Cebador Glucogenina-(Glc)₈ con textos libres a su derecha.
+  * Líneas de proyección cónica punteadas hacia la Lente Circular de Zoom.
+  * Caja explicativa de acoplamiento catalítico y elongación al lado de la lupa.
+- Transcetolasa (TK1) con holgura vertical completa (>100px) debajo de la caja de Síntesis de Nucleótidos.
+- Matriz mitocondrial biológica en la base, amplia y detallada con MPC, PDH y Ciclo de Krebs.
 """
 
 import os
@@ -125,7 +125,7 @@ PIE_HTML = """
 """
 
 def generar_entorno_celular_continuo(ancho, alto):
-    """Genera la membrana continua superior, citoesqueleto y mitocondria inferior."""
+    """Genera la membrana continua superior, citoesqueleto y vesículas."""
     return f"""
     <!-- Fondo Citoplasmático Acuoso -->
     <rect width="{ancho}" height="{alto}" fill="url(#gradCitosolUnificado)"/>
@@ -218,7 +218,7 @@ def generar_entorno_celular_continuo(ancho, alto):
     <!-- ============================================================= -->
     <!-- CITOESQUELETO CONTINUO Y ELEMENTOS CELULARES                  -->
     <!-- ============================================================= -->
-    <g opacity="0.25" stroke="#94a3b8" fill="none">
+    <g opacity="0.22" stroke="#94a3b8" fill="none">
       <path d="M 50 180 Q 800 240 1600 200 T 3350 230" stroke-width="2" stroke-dasharray="14 7"/>
       <path d="M 20 620 Q 900 680 1800 630 T 3380 670" stroke-width="1.8" stroke-dasharray="10 5"/>
       <path d="M 60 1200 Q 1000 1280 2000 1220 T 3340 1260" stroke-width="2" stroke-dasharray="16 8"/>
@@ -226,7 +226,7 @@ def generar_entorno_celular_continuo(ancho, alto):
     </g>
 
     <!-- Vesículas citosólicas translúcidas -->
-    <g opacity="0.4">
+    <g opacity="0.35">
       <circle cx="220" cy="380" r="24" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2"/>
       <circle cx="1100" cy="480" r="26" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
       <circle cx="2180" cy="520" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2"/>
@@ -270,7 +270,6 @@ def generar_mitocondria_biologica(x_inicio=1020, ancho_mito=2350, y_base=2220):
             fill="#fef3c7" stroke="#b45309" stroke-width="2.8" opacity="0.9"/>
 
       <!-- Transportador MPC (Complejo Carrier de Piruvato) incrustado en la membrana -->
-      <!-- Piruvato llega desde el eje glucolítico en x = 1580, que relativo a x_inicio=1020 es dx = 560 -->
       <g transform="translate(530, 22)">
         <rect x="0" y="0" width="60" height="32" rx="8" fill="#b45309" stroke="#78350f" stroke-width="2.2"/>
         <text x="30" y="21" fill="#ffffff" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MPC</text>
@@ -317,8 +316,7 @@ def generar_mitocondria_biologica(x_inicio=1020, ancho_mito=2350, y_base=2220):
 
 def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False, dx_texto=140):
     """
-    Generador modular de metabolitos con tipografía escalada para cartulina.
-    Soporta texto a la derecha o a la izquierda para evitar cruces con flechas.
+    Generador modular de metabolitos LIMPIO (SIN globos ni rectángulos artificiales).
     """
     if texto_izquierda:
         pos_estructura = "translate(0, 0)"
@@ -345,7 +343,7 @@ def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", text
 
 def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_energia="", 
                    reversible=False, es_ganancia=False, salida_agua=False, altura=50):
-    """Generador de reacción vertical estándar con textos claros para póster."""
+    """Generador de reacción vertical estándar."""
     curvas_energia = ""
     if entra_energia:
         color_entrada = "#dc2626" if not es_ganancia else "#475569"
@@ -396,7 +394,7 @@ def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_en
     """
 
 def crear_paso_no_oxidativo(x, y, enzima, ec, sustratos_txt, productos_txt):
-    """Generador de nodo de transferencia no oxidativa con alta visibilidad."""
+    """Generador de nodo de transferencia no oxidativa."""
     return f"""
     <!-- Reacción de Transferencia: {enzima} -->
     <g transform="translate({x}, {y})">
@@ -417,45 +415,18 @@ def generar_mapa_carbohidratos():
     # 1. Capa de entorno celular continuo (Membrana arriba y citoesqueleto)
     svg_parts.append(generar_entorno_celular_continuo(ANCHO_CANVAS, ALTO_CANVAS))
 
-    # 2. Mitocondria Biológica amplia en la base (aprovecha todo el espacio inferior central y derecho)
+    # 2. Mitocondria Biológica amplia en la base
     svg_parts.append(generar_mitocondria_biologica(x_inicio=1020, ancho_mito=2350, y_base=2220))
 
     # =========================================================================
-    # RÓTULOS DE CABECERA DE LAS TRES COLUMNAS (Formato Cartulina)
-    # =========================================================================
-    svg_parts.append("""
-    <!-- Cabeceras de Columna -->
-    <g transform="translate(520, 180)">
-      <rect x="-240" y="-18" width="480" height="38" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="2.2"/>
-      <text x="0" y="7" fill="#b45309" font-size="18" font-weight="900" text-anchor="middle" letter-spacing="1">
-        1. SÍNTESIS DE GLUCÓGENO (GLUCOGÉNESIS)
-      </text>
-    </g>
-
-    <g transform="translate(1580, 180)">
-      <rect x="-240" y="-18" width="480" height="38" rx="10" fill="#eff6ff" stroke="#0284c7" stroke-width="2.2"/>
-      <text x="0" y="7" fill="#0369a1" font-size="18" font-weight="900" text-anchor="middle" letter-spacing="1">
-        2. EJE GLUCOLÍTICO PRINCIPAL (GLUCÓLISIS)
-      </text>
-    </g>
-
-    <g transform="translate(2750, 180)">
-      <rect x="-250" y="-18" width="500" height="38" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.2"/>
-      <text x="0" y="7" fill="#6d28d9" font-size="18" font-weight="900" text-anchor="middle" letter-spacing="1">
-        3. VÍA DE LAS PENTOSAS FOSFATO (SHUNT)
-      </text>
-    </g>
-    """)
-
-    # =========================================================================
-    # RUTA CENTRAL: LA GLUCÓLISIS (EJE X = 1540 a 1580)
+    # RUTA CENTRAL: LA GLUCÓLISIS (EJE X = 1520 a 1580)
     # =========================================================================
     X_GLU = 1520
     X_FLECHA = 1580
 
     # 1. D-Glucosa
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=190,
+        x=X_GLU, y=170,
         nombre="D-Glucosa",
         carbonos="6 Carbonos (Hexosa)",
         detalle="Entrada directa desde el GLUT-4",
@@ -465,7 +436,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 1: Hexoquinasa
     svg_parts.append(crear_reaccion(
-        x=X_FLECHA, y=295,
+        x=X_FLECHA, y=275,
         enzima="Hexoquinasa",
         ec="EC 2.7.1.1 (Mg²⁺)",
         regulacion="⊣ G-6-P | ⊕ Insulina",
@@ -473,59 +444,50 @@ def generar_mapa_carbohidratos():
         sale_energia="+ 1 ADP"
     ))
 
-    # 2. Glucosa-6-Fosfato (EL NODO CENTRAL DISTRIBUIDOR)
-    # Estructura Haworth en (1520, 395)
+    # 2. Glucosa-6-Fosfato (EL NODO CENTRAL DISTRIBUIDOR - LIMPIO, SIN GLOBO)
     svg_parts.append(f"""
-    <!-- Nodo Distribuidor Central: Glucosa-6-Fosfato -->
-    <g transform="translate({X_GLU}, 395)">
+    <!-- Nodo Central: Glucosa-6-Fosfato -->
+    <g transform="translate({X_GLU}, 375)">
       {GLUCOSA_6_FOSFATO}
     </g>
-    <!-- Rótulo de G-6-P ubicado limpiamente debajo de la estructura Haworth -->
-    <g transform="translate({X_FLECHA}, 485)">
-      <rect x="-170" y="-14" width="340" height="48" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.06))"/>
-      <text x="0" y="6" fill="#0f172a" font-size="17" font-weight="800" text-anchor="middle">Glucosa-6-Fosfato (G-6-P)</text>
-      <text x="0" y="24" fill="#ea580c" font-size="12.5" font-weight="700" text-anchor="middle">6 Carbonos (Hexosa Ⓟ) • Nodo Distribuidor Triple</text>
+    <g transform="translate({X_FLECHA}, 465)">
+      <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" text-anchor="middle">Glucosa-6-Fosfato (G-6-P)</text>
+      <text x="0" y="18" fill="#ea580c" font-size="12.5" font-weight="700" text-anchor="middle">6 Carbonos (Hexosa Ⓟ)</text>
     </g>
     """)
 
     # =========================================================================
-    # CONEXIÓN HORIZONTAL DESPEJADA: G-6-P -> GLUCOGÉNESIS (IZQUIERDA)
+    # CONEXIÓN HORIZONTAL SEGMENTADA: G-6-P ⇄ FOSFOGLUCOMUTASA ⇄ G-1-P
     # =========================================================================
-    # Emerge a la izquierda de la Haworth de G6P (x=1470, y=430) y viaja a x=660, y=430
+    # Segmento 1: desde G-6-P (x=1470) hasta Fosfoglucomutasa (x=1070)
+    # Enzima: Fosfoglucomutasa en x=1000 con sus flechas ⇄ sin ser atravesada por líneas
+    # Segmento 2: desde Fosfoglucomutasa (x=930) hasta Haworth de G1P (x=675)
     svg_parts.append("""
-    <!-- Conexión horizontal desde G-6-P hacia la Glucogénesis -->
-    <path d="M 1480 430 L 675 430" fill="none" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
-    
-    <!-- Banner direccional intermedio -->
-    <g transform="translate(1220, 390)">
-      <rect x="-115" y="-14" width="230" height="28" rx="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
-      <text x="0" y="5" fill="#c2410c" font-size="11.5" font-weight="800" text-anchor="middle">
-        ← HACIA SÍNTESIS DE GLUCÓGENO
-      </text>
-    </g>
+    <!-- Conexión horizontal hacia la Glucogénesis (Segmento 1) -->
+    <line x1="1470" y1="410" x2="1080" y2="410" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
 
-    <!-- 1. Reacción Fosfoglucomutasa (en la conexión horizontal despejada) -->
-    <g transform="translate(940, 430)">
-      <!-- Flecha bidireccional -->
-      <line x1="-35" y1="-3" x2="35" y2="-3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
-      <line x1="35" y1="3" x2="-35" y2="3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(0, -22)">
-        <text x="0" y="-14" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#475569" text-anchor="middle">Intermediario: Glucosa-1,6-BP (Ser-OH Ⓟ)</text>
-        <text x="0" y="2" font-family="'Inter', sans-serif" font-size="15" font-weight="800" fill="#0f172a" text-anchor="middle">Fosfoglucomutasa</text>
-        <text x="0" y="16" font-family="'JetBrains Mono', monospace" font-size="11.5" fill="#64748b" text-anchor="middle">EC 5.4.2.2 (⇄)</text>
+    <!-- Reacción Fosfoglucomutasa (Totalmente despejada) -->
+    <g transform="translate(1000, 410)">
+      <line x1="-35" y1="-3" x2="35" y2="-3" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+      <line x1="35" y1="3" x2="-35" y2="3" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(0, -12)">
+        <text x="0" y="-12" font-family="'Inter', sans-serif" font-size="14.5" font-weight="800" fill="#0f172a" text-anchor="middle">Fosfoglucomutasa</text>
+        <text x="0" y="2" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b" text-anchor="middle">EC 5.4.2.2 (⇄)</text>
+        <text x="0" y="-25" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#d97706" text-anchor="middle">Interm. Glucosa-1,6-BP</text>
       </g>
     </g>
+
+    <!-- Conexión horizontal hacia G-1-P (Segmento 2) -->
+    <line x1="920" y1="410" x2="680" y2="410" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
     """)
 
     # =========================================================================
     # RUTA LATERAL IZQUIERDA: GLUCOGÉNESIS
     # =========================================================================
     # 2. α-D-Glucosa-1-Fosfato (G-1-P)
-    # La estructura Haworth se ubica en x=530, y=395.
-    # El texto se posiciona a la IZQUIERDA (texto_izquierda=True), extendiéndose hacia x=200-500.
-    # La flecha naranja llega a x=675, conectando al extremo derecho de la Haworth SIN TOCAR EL TEXTO.
+    # Estructura en x=530, texto a la izquierda sin globos
     svg_parts.append(crear_metabolito(
-        x=530, y=395,
+        x=530, y=375,
         nombre="α-D-Glucosa-1-Fosfato",
         carbonos="6 Carbonos (Fosfato en C1-α)",
         detalle="Sustrato de activación por UTP",
@@ -535,7 +497,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 2: UDP-Glucosa Pirofosforilasa
     svg_parts.append("""
-    <g transform="translate(520, 525)">
+    <g transform="translate(520, 505)">
       <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
       <path d="M -90 10 Q -35 10 -4 22" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
       <text x="-98" y="14" fill="#475569" font-size="12" font-weight="800" text-anchor="end">+ UTP</text>
@@ -551,143 +513,163 @@ def generar_mapa_carbohidratos():
 
     # 3. UDP-Glucosa (Uridina Difosfato Glucosa)
     svg_parts.append(crear_metabolito(
-        x=280, y=625,
-        nombre="UDP-Glucosa (Uridina Difosfato Glucosa)",
-        carbonos="Forma activada de alta energía para la polimerización",
-        detalle="Donador de unidades glucosilo a la Glucógeno Sintasa",
+        x=280, y=605,
+        nombre="UDP-Glucosa",
+        carbonos="Nucleótido-Azúcar activado",
+        detalle="Donador de glucosa de alta energía",
         svg_estructura=UDP_GLUCOSA,
-        dx_texto=295
+        dx_texto=290
     ))
 
-    # Reacción 3: Glucógeno Sintasa
-    svg_parts.append("""
-    <g transform="translate(520, 785)">
-      <line x1="0" y1="0" x2="0" y2="55" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
-      <path d="M -4 30 Q -35 42 -90 42" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
-      <text x="-98" y="46" fill="#dc2626" font-size="12" font-weight="800" text-anchor="end">- UDP (Salida)</text>
-      <g transform="translate(22, 14)">
-        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="800">Glucógeno Sintasa</text>
-        <text x="0" y="16" fill="#64748b" font-size="11.5" font-family="'JetBrains Mono', monospace">EC 2.4.1.11 (Paso Limitante)</text>
-        <text x="0" y="32" fill="#16a34a" font-size="11" font-weight="700">⊕ G-6-P, Insulina (Desfosforilada / Activa)</text>
-        <text x="0" y="46" fill="#e11d48" font-size="11" font-weight="700">⊣ Glucagón, Adrenalina, PKA (Fosforilada / Inactiva)</text>
+    # =========================================================================
+    # 4. CEBADOR MOLECULAR DE GLUCOGENINA + LUPA MOLECULAR (DISEÑO ORIGINAL)
+    # =========================================================================
+    Y_CEBADOR = 770
+    svg_parts.append(f"""
+    <!-- CEBADOR MOLECULAR DE GLUCOGENINA (LIBRE, SIN GLOBO) -->
+    <g transform="translate(140, {Y_CEBADOR})">
+      {CEBADOR_GLUCOGENINA}
+      
+      <!-- Textos del cebador a la derecha -->
+      <g transform="translate(370, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Cebador: Glucogenina-(Glc)₈</text>
+        <text x="0" y="18" fill="#b45309" font-size="11.5" font-weight="700">Dímero autoglucosilante (EC 2.4.1.186)</text>
+        <text x="0" y="34" fill="#64748b" font-size="10.5">• Anclaje covalente en residuo Tyr-194</text>
+        <text x="0" y="48" fill="#dc2626" font-size="10.5" font-weight="800">• Extremo 4-OH libre: Sustrato aceptor</text>
+        <text x="0" y="63" fill="#64748b" font-size="10">Requerido: Glucógeno Sintasa no inicia de novo</text>
       </g>
+    </g>
+
+    <!-- LÍNEAS DE PROYECCIÓN CÓNICA HACIA LA LUPA DE ZOOM MOLECULAR -->
+    <g stroke="#ea580c" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.65">
+      <line x1="435" y1="{Y_CEBADOR + 35}" x2="255" y2="{Y_CEBADOR + 180}"/>
+      <line x1="435" y1="{Y_CEBADOR + 15}" x2="160" y2="{Y_CEBADOR + 140}"/>
+    </g>
+
+    <!-- LUPA DE ZOOM MOLECULAR: ACOPLAMIENTO CATALÍTICO CEBADOR + SINTASA -->
+    <g transform="translate(180, {Y_CEBADOR + 210})">
+      {LUPA_MECANISMO_CEBADOR}
+    </g>
+
+    <!-- EXPLICACIÓN BIOQUÍMICA A LA DERECHA DE LA LUPA -->
+    <g transform="translate(340, {Y_CEBADOR + 175})">
+      <rect x="0" y="0" width="460" height="95" rx="8" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="16" y="22" fill="#1d4ed8" font-size="12" font-weight="900">MECANISMO DE ACOPLAMIENTO Y ELONGACIÓN</text>
+      <text x="16" y="40" fill="#0f172a" font-size="10.5" font-weight="600">
+        1. La <tspan font-weight="800" fill="#2563eb">Glucógeno Sintasa</tspan> abraza el extremo <tspan font-weight="800" fill="#dc2626">4-OH</tspan> de la cadena cebadora.
+      </text>
+      <text x="16" y="58" fill="#0f172a" font-size="10.5" font-weight="600">
+        2. El oxígeno ataca al <tspan font-weight="800" fill="#ea580c">C1</tspan> de la <tspan font-weight="800">UDP-Glucosa</tspan>, expulsando al grupo UDP.
+      </text>
+      <text x="16" y="76" fill="#059669" font-size="10.5" font-weight="800">
+        3. Se forma el nuevo enlace α(1→4) y la cadena se alarga un residuo a la vez.
+      </text>
     </g>
     """)
 
-    # 4. CEBADOR DE GLUCOGENINA + LUPA MOLECULAR
+    # Reacción 3: Glucógeno Sintasa (debajo de la lupa)
+    Y_RX_SINTASA = Y_CEBADOR + 325
     svg_parts.append(f"""
-    <g transform="translate(130, 920)">
-      <!-- Panel de Fondo del Cebador -->
-      <rect x="0" y="0" width="760" height="210" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
-      
-      <!-- Título de la Sección del Cebador -->
-      <g transform="translate(20, 26)">
-        <rect x="0" y="-12" width="440" height="26" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
-        <text x="12" y="5" fill="#92400e" font-size="12" font-weight="900" letter-spacing="0.5">
-          CEBADOR REQUERIDO: DÍMERO DE GLUCOGENINA (EC 2.4.1.186)
-        </text>
-        <text x="0" y="28" fill="#475569" font-size="11.5" font-weight="600">
-          La Sintasa no puede iniciar de novo: requiere una cadena inicial de al menos 8 glucosas unidas a Tyr-194.
-        </text>
-      </g>
-
-      <!-- Estructura del Dímero + Octámero cebador -->
-      <g transform="translate(30, 68)">
-        {CEBADOR_GLUCOGENINA}
-      </g>
-
-      <!-- Lupa de Mecanismo Catalítico Integrada -->
-      <g transform="translate(540, 42)">
-        {LUPA_MECANISMO_CEBADOR}
+    <!-- Reacción: Glucógeno Sintasa -->
+    <g transform="translate(520, {Y_RX_SINTASA})">
+      <line x1="0" y1="0" x2="0" y2="55" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+      <path d="M -4 30 Q -35 42 -90 42" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <text x="-98" y="46" fill="#0284c7" font-size="12" font-weight="800" text-anchor="end">+ UDP libre</text>
+      <g transform="translate(22, 14)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="800">Glucógeno Sintasa</text>
+        <text x="0" y="16" fill="#64748b" font-size="11.5" font-family="'JetBrains Mono', monospace">EC 2.4.1.11 (Paso Limitante Clave)</text>
+        <text x="0" y="32" fill="#16a34a" font-size="11" font-weight="700">⊕ Insulina (PP1), G-6-P</text>
+        <text x="0" y="46" fill="#e11d48" font-size="11" font-weight="700">⊣ Glucagón, Adrenalina (PKA / GSK-3)</text>
       </g>
     </g>
     """)
 
     # Reacción 4: Enzima Ramificante
-    svg_parts.append("""
-    <g transform="translate(520, 1170)">
-      <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+    Y_RX_RAMIF = Y_RX_SINTASA + 95
+    svg_parts.append(f"""
+    <!-- Reacción: Enzima Ramificadora -->
+    <g transform="translate(520, {Y_RX_RAMIF})">
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
       <g transform="translate(22, 14)">
-        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="800">Enzima Ramificante (Amilo-α(1→4)→α(1→6)-transglucosidasa)</text>
-        <text x="0" y="16" fill="#64748b" font-size="11.5" font-family="'JetBrains Mono', monospace">EC 2.4.1.18 (Transfiere bloque de ~7 residuos)</text>
-        <text x="0" y="32" fill="#c2410c" font-size="11" font-weight="700">Genera enlaces α-1,6 cada 8 a 12 residuos (Compactación y solubilidad)</text>
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="800">Enzima Ramificadora del Glucógeno</text>
+        <text x="0" y="16" fill="#64748b" font-size="11.5" font-family="'JetBrains Mono', monospace">EC 2.4.1.18 (Amilo α-1,4 ➔ α-1,6)</text>
+        <text x="0" y="32" fill="#c2410c" font-size="11" font-weight="700">Transfiere bloque de ~7 glucosas; ramifica cada 8-12 residuos</text>
       </g>
     </g>
     """)
 
-    # 5. CADENA DE GLUCÓGENO RAMIFICADA
+    # 5. CADENA DE GLUCÓGENO RAMIFICADA (SIN GLOBO)
+    Y_GLUC = Y_RX_RAMIF + 80
     svg_parts.append(f"""
-    <g transform="translate(130, 1270)">
-      <rect x="0" y="0" width="760" height="230" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
-      <g transform="translate(20, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900">POLÍMERO RAMIFICADO DE GLUCÓGENO</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12.5" font-weight="700">Enlaces lineales α-1,4 y puntos de ramificación α-1,6</text>
-        <text x="0" y="34" fill="#64748b" font-size="11.5">Múltiples extremos no reductores para síntesis y lisis ultrarrápida</text>
-      </g>
-      <g transform="translate(40, 75)">
+    <!-- Polímero de Glucógeno Completo -->
+    <g transform="translate(180, {Y_GLUC})">
+      <g transform="translate(0, 30)">
         {CADENA_GLUCOGENO}
       </g>
-    </g>
-    """)
-
-    # Reacción 5: Maduración y Empaquetamiento
-    svg_parts.append("""
-    <g transform="translate(520, 1535)">
-      <line x1="0" y1="0" x2="0" y2="48" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(22, 14)">
-        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="800">Empaquetamiento Macromolecular y Maduración</text>
-        <text x="0" y="16" fill="#64748b" font-size="11.5" font-family="'JetBrains Mono', monospace">Partículas β (20-30 nm) y Rosetas α en hepatocitos</text>
+      <g transform="translate(420, 20)">
+        <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="900">Glucógeno (n + 1)</text>
+        <text x="0" y="18" fill="#d97706" font-size="12.5" font-weight="800">Polisacárido de Reserva Energética</text>
+        <text x="0" y="34" fill="#64748b" font-size="11">• Enlaces principales α(1→4) y ramas α(1→6)</text>
+        <text x="0" y="48" fill="#b45309" font-size="11" font-weight="700">• Múltiples extremos no reductores para rápida lisis</text>
+        <text x="0" y="63" fill="#64748b" font-size="10.5">Hasta 55,000 unidades de glucosa por partícula</text>
       </g>
     </g>
     """)
 
     # 6. GRÁNULO CITOSÓLICO DE INCLUSIÓN
+    Y_GRANULO = Y_GLUC + 200
     svg_parts.append(f"""
-    <g transform="translate(130, 1630)">
-      <rect x="0" y="0" width="760" height="180" rx="12" fill="#fffbeb" stroke="#d97706" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
-      <g transform="translate(25, 20)">
+    <!-- SECCIÓN ANATÓMICA: EL GRÁNULO DE GLUCÓGENO EN EL CITOSOL -->
+    <g transform="translate(140, {Y_GRANULO})">
+      <rect x="0" y="0" width="760" height="165" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+      <g transform="translate(15, 15)">
         {GRANULO_CITOSOLICO_INCLUSION}
       </g>
-      <g transform="translate(240, 32)">
-        <text x="0" y="0" fill="#92400e" font-size="16" font-weight="900">GRÁNULO CITOSÓLICO DE INCLUSIÓN (~20-30 nm)</text>
-        <text x="0" y="24" fill="#0f172a" font-size="13" font-weight="700">• Insoluble y no membranoso: Almacena hasta 55,000 residuos sin riesgo osmótico.</text>
-        <text x="0" y="44" fill="#dc2626" font-size="13" font-weight="700">• Retención física celular: Nunca cruza la membrana ni sale como polímero.</text>
-        <text x="0" y="64" fill="#047857" font-size="12.5" font-weight="700">• Hígado: Glucógeno ➔ G-1-P ➔ G-6-P ➔ Glucosa libre (vía G-6-Pasa en RE) ➔ Sangre (GLUT-2).</text>
-        <text x="0" y="84" fill="#475569" font-size="12">• Músculo: Carece de Glucosa-6-Fosfatasa; el glucógeno se destina exclusivamente a ATP local.</text>
+      <g transform="translate(180, 24)">
+        <text x="0" y="0" fill="#92400e" font-size="14" font-weight="900">¿POR QUÉ FLOTA EN EL CITOSOL Y CÓMO SALE DE LA CÉLULA?</text>
+        <text x="0" y="20" fill="#0f172a" font-size="11" font-weight="700">
+          • Inclusión no membranosa: Permite almacenar miles de glucosas sin alterar la presión osmótica celular.
+        </text>
+        <text x="0" y="38" fill="#dc2626" font-size="11" font-weight="700">
+          • Nunca sale como polímero: No puede cruzar la membrana plasmática.
+        </text>
+        <text x="0" y="56" fill="#047857" font-size="11" font-weight="700">
+          • En hígado: Glucógeno ➔ G-1-P ➔ G-6-P ➔ Glucosa libre (Glucosa-6-Fosfatasa en RE) ➔ GLUT-2 a sangre.
+        </text>
+        <text x="0" y="74" fill="#475569" font-size="10.5">
+          • En músculo: Carece de Glucosa-6-Fosfatasa; el glucógeno se destina exclusivamente a ATP por Glucólisis.
+        </text>
       </g>
     </g>
     """)
 
     # =========================================================================
-    # CONEXIÓN HORIZONTAL DESPEJADA: G-6-P -> PENTOSAS (DERECHA)
+    # CONEXIÓN HORIZONTAL SEGMENTADA: G-6-P ➔ G6PDH ➔ LACTONA (SHUNT PENTOSAS)
     # =========================================================================
-    # Emerge a la derecha de la Haworth de G6P (x=1680, y=430) y viaja a x=2410, y=430
-    # Canal completamente despejado sin rozar ningún letrero de Glucosa.
+    # Segmento 1: desde G-6-P (x=1680) hasta G6PDH (x=2000)
+    # Enzima: G6PDH en x=2070 con flecha y cofactores limpios sin líneas atravesándola
+    # Segmento 2: desde G6PDH (x=2140) hasta Lactona (x=2430)
     svg_parts.append("""
-    <!-- Conexión horizontal desde G-6-P hacia el Shunt de Pentosas -->
-    <path d="M 1680 430 L 2420 430" fill="none" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
-    
-    <!-- Banner direccional intermedio -->
-    <g transform="translate(1920, 390)">
-      <rect x="-115" y="-14" width="230" height="28" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
-      <text x="0" y="5" fill="#6d28d9" font-size="11.5" font-weight="800" text-anchor="middle">
-        ➔ HACIA EL SHUNT DE PENTOSAS
-      </text>
-    </g>
+    <!-- Conexión horizontal hacia Shunt de Pentosas (Segmento 1) -->
+    <line x1="1680" y1="410" x2="2010" y2="410" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
 
-    <!-- Reacción G6PDH en la conexión horizontal -->
-    <g transform="translate(2160, 430)">
-      <path d="M -40 -14 Q -15 -25 15 -14" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
-      <text x="-35" y="-28" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#475569">+ NADP⁺</text>
+    <!-- Reacción G6PDH (Totalmente despejada) -->
+    <g transform="translate(2080, 410)">
+      <line x1="-35" y1="0" x2="35" y2="0" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
+      <path d="M -35 -12 Q -12 -24 15 -12" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-30" y="-26" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#475569">+ NADP⁺</text>
       
-      <path d="M -40 14 Q -15 25 15 14" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-      <text x="-35" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#059669">+ NADPH + H⁺</text>
+      <path d="M -35 12 Q -12 24 15 12" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+      <text x="-30" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#059669">+ NADPH + H⁺</text>
       
       <g transform="translate(0, -2)">
-        <text x="0" y="-10" font-family="'Inter', sans-serif" font-size="15" font-weight="800" fill="#0f172a" text-anchor="middle">G6PDH</text>
-        <text x="0" y="6" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b" text-anchor="middle">EC 1.1.1.49</text>
+        <text x="0" y="-12" font-family="'Inter', sans-serif" font-size="14.5" font-weight="800" fill="#0f172a" text-anchor="middle">G6PDH</text>
+        <text x="0" y="4" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b" text-anchor="middle">EC 1.1.1.49</text>
       </g>
     </g>
+
+    <!-- Conexión horizontal hacia Lactona (Segmento 2) -->
+    <line x1="2150" y1="410" x2="2430" y2="410" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
     """)
 
     # =========================================================================
@@ -695,7 +677,7 @@ def generar_mapa_carbohidratos():
     # =========================================================================
     # 1. 6-Fosfoglucono-δ-Lactona
     svg_parts.append(crear_metabolito(
-        x=2440, y=395,
+        x=2440, y=375,
         nombre="6-Fosfoglucono-δ-Lactona",
         carbonos="6 Carbonos (Lactona intramolecular)",
         detalle="Primer intermediario oxidativo",
@@ -705,7 +687,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 2: Lactonasa
     svg_parts.append("""
-    <g transform="translate(2760, 440)">
+    <g transform="translate(2760, 420)">
       <line x1="0" y1="0" x2="65" y2="0" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
       <path d="M 12 -14 Q 32 -26 52 -14" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowBlue)"/>
       <text x="32" y="-28" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284c7" text-anchor="middle">+ H₂O</text>
@@ -716,7 +698,7 @@ def generar_mapa_carbohidratos():
 
     # 2. 6-Fosfogluconato
     svg_parts.append(crear_metabolito(
-        x=2860, y=395,
+        x=2860, y=375,
         nombre="6-Fosfogluconato",
         carbonos="6 Carbonos (Ácido aldónico Ⓟ)",
         detalle="Substrato de descarboxilación oxidativa",
@@ -726,7 +708,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 3: 6-Fosfogluconato Deshidrogenasa (Vertical descendente)
     svg_parts.append("""
-    <g transform="translate(2800, 530)">
+    <g transform="translate(2800, 510)">
       <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
       <path d="M -85 10 Q -30 10 -4 20" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
       <text x="-92" y="14" fill="#475569" font-size="12" font-weight="800" text-anchor="end">+ NADP⁺</text>
@@ -746,7 +728,7 @@ def generar_mapa_carbohidratos():
 
     # 3. D-Ribulosa-5-Fosfato
     svg_parts.append(crear_metabolito(
-        x=2720, y=630,
+        x=2720, y=610,
         nombre="D-Ribulosa-5-Fosfato",
         carbonos="5 Carbonos (Cetopentosa Ⓟ)",
         detalle="Encrucijada entre isomerización y epimerización",
@@ -756,7 +738,7 @@ def generar_mapa_carbohidratos():
 
     # Bifurcación Isomerasa / Epimerasa
     svg_parts.append("""
-    <g transform="translate(2800, 775)">
+    <g transform="translate(2800, 750)">
       <!-- Rama Izquierda a Xilulosa-5-P -->
       <path d="M -15 0 Q -100 25 -150 65" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
       <g transform="translate(-140, 20)">
@@ -774,7 +756,7 @@ def generar_mapa_carbohidratos():
 
     # 4a. Xilulosa-5-P (a la izquierda)
     svg_parts.append(crear_metabolito(
-        x=2480, y=860,
+        x=2480, y=835,
         nombre="D-Xilulosa-5-P",
         carbonos="5 Carbonos (Epímero C3)",
         detalle="Donador de 2C a la Transcetolasa",
@@ -784,7 +766,7 @@ def generar_mapa_carbohidratos():
 
     # 4b. Ribosa-5-P (a la derecha)
     svg_parts.append(crear_metabolito(
-        x=2960, y=860,
+        x=2960, y=835,
         nombre="D-Ribosa-5-P",
         carbonos="5 Carbonos (Pentosa Aldosa)",
         detalle="Precursora de Nucleótidos y Ácidos Nucleicos",
@@ -792,21 +774,21 @@ def generar_mapa_carbohidratos():
         dx_texto=140
     ))
 
-    # Salida hacia Síntesis de Nucleótidos desde Ribosa-5-P
+    # Salida hacia Síntesis de Nucleótidos desde Ribosa-5-P (y = 960)
     svg_parts.append("""
-    <g transform="translate(3030, 995)">
-      <line x1="0" y1="0" x2="0" y2="40" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
-      <g transform="translate(0, 48)">
-        <rect x="-105" y="0" width="210" height="42" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
-        <text x="0" y="17" fill="#6d28d9" font-size="12" font-weight="900" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
-        <text x="0" y="32" fill="#7c3aed" font-size="10.5" font-weight="700" text-anchor="middle">PRPP ➔ ARN, ADN, ATP, GTP, CoA</text>
+    <g transform="translate(3030, 955)">
+      <line x1="0" y1="0" x2="0" y2="35" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
+      <g transform="translate(0, 42)">
+        <rect x="-105" y="0" width="210" height="40" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+        <text x="0" y="16" fill="#6d28d9" font-size="12" font-weight="900" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
+        <text x="0" y="30" fill="#7c3aed" font-size="10" font-weight="700" text-anchor="middle">PRPP ➔ ARN, ADN, ATP, GTP</text>
       </g>
     </g>
     """)
 
-    # Fase No Oxidativa: TK1
+    # Fase No Oxidativa: TK1 (DESPEJADA >100 px debajo de la caja morada, en y = 1110)
     svg_parts.append(crear_paso_no_oxidativo(
-        x=2780, y=1055,
+        x=2780, y=1110,
         enzima="Transcetolasa (TK1)",
         ec="EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)",
         sustratos_txt="Xilulosa-5-P (5C) + Ribosa-5-P (5C)",
@@ -815,7 +797,7 @@ def generar_mapa_carbohidratos():
 
     # Sedoheptulosa-7-P (Izquierda)
     svg_parts.append(crear_metabolito(
-        x=2480, y=1160,
+        x=2480, y=1210,
         nombre="Sedoheptulosa-7-P",
         carbonos="7 Carbonos (Heptosa Ⓟ)",
         detalle="Intermediario transitorio de 7C",
@@ -825,7 +807,7 @@ def generar_mapa_carbohidratos():
 
     # GAP (Derecha)
     svg_parts.append(crear_metabolito(
-        x=2960, y=1160,
+        x=2960, y=1210,
         nombre="Gliceraldehído-3-P",
         carbonos="3 Carbonos (Triosa)",
         detalle="Aceptor intermedio",
@@ -835,7 +817,7 @@ def generar_mapa_carbohidratos():
 
     # Transaldolasa (TA)
     svg_parts.append(crear_paso_no_oxidativo(
-        x=2780, y=1295,
+        x=2780, y=1340,
         enzima="Transaldolasa (TA)",
         ec="EC 2.2.1.2 (Base de Schiff con Lys)",
         sustratos_txt="Sedoheptulosa-7-P (7C) + GAP (3C)",
@@ -844,7 +826,7 @@ def generar_mapa_carbohidratos():
 
     # Eritrosa-4-P (Izquierda)
     svg_parts.append(crear_metabolito(
-        x=2480, y=1390,
+        x=2480, y=1440,
         nombre="D-Eritrosa-4-P",
         carbonos="4 Carbonos (Tetrosa)",
         detalle="Precursor de Aminoácidos Aromáticos",
@@ -854,7 +836,7 @@ def generar_mapa_carbohidratos():
 
     # F6P (1er reingreso - Derecha)
     svg_parts.append(crear_metabolito(
-        x=2960, y=1390,
+        x=2960, y=1440,
         nombre="Fructosa-6-Fosfato",
         carbonos="6 Carbonos (Hexosa)",
         detalle="¡1.er Reingreso a la Glucólisis!",
@@ -864,7 +846,7 @@ def generar_mapa_carbohidratos():
 
     # TK2
     svg_parts.append(crear_paso_no_oxidativo(
-        x=2780, y=1530,
+        x=2780, y=1570,
         enzima="Transcetolasa (TK2)",
         ec="EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)",
         sustratos_txt="Xilulosa-5-P (5C) + Eritrosa-4-P (4C)",
@@ -873,7 +855,7 @@ def generar_mapa_carbohidratos():
 
     # F6P (2º reingreso)
     svg_parts.append(crear_metabolito(
-        x=2480, y=1630,
+        x=2480, y=1670,
         nombre="Fructosa-6-Fosfato",
         carbonos="6 Carbonos (Hexosa)",
         detalle="¡2.º Reingreso a la Glucólisis!",
@@ -883,7 +865,7 @@ def generar_mapa_carbohidratos():
 
     # GAP (3er reingreso)
     svg_parts.append(crear_metabolito(
-        x=2960, y=1630,
+        x=2960, y=1670,
         nombre="Gliceraldehído-3-P",
         carbonos="3 Carbonos (Triosa)",
         detalle="¡3.er Reingreso a la Glucólisis!",
@@ -893,7 +875,7 @@ def generar_mapa_carbohidratos():
 
     # BANNER DE BALANCE FINAL DE PENTOSAS
     svg_parts.append("""
-    <g transform="translate(2780, 1800)">
+    <g transform="translate(2780, 1830)">
       <rect x="-260" y="-14" width="520" height="74" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2.2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.06))"/>
       <text x="0" y="14" fill="#6d28d9" font-size="14" font-weight="900" text-anchor="middle">BALANCE TOTAL DE LA FASE NO OXIDATIVA</text>
       <text x="0" y="34" fill="#0f172a" font-size="12.5" font-weight="800" text-anchor="middle">3 Pentosas (5C) ⇄ 2 Fructosa-6-P (6C) + 1 Gliceraldehído-3-P (3C)</text>
@@ -906,17 +888,15 @@ def generar_mapa_carbohidratos():
     # =========================================================================
     svg_parts.append("""
     <!-- RETORNO 1: Fructosa-6-P hacia F6P Central -->
-    <path d="M 2960 1435 C 2400 1350 1950 900 1690 645" fill="none" stroke="#059669" stroke-width="2.8" stroke-dasharray="9 5" marker-end="url(#arrowGreen)"/>
+    <path d="M 2960 1485 C 2400 1400 1950 900 1690 635" fill="none" stroke="#059669" stroke-width="2.8" stroke-dasharray="9 5" marker-end="url(#arrowGreen)"/>
     <g transform="translate(2100, 890)">
-      <rect x="-100" y="-13" width="200" height="26" rx="13" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/>
-      <text x="0" y="5" fill="#047857" font-size="11" font-weight="800" text-anchor="middle">RETORNO: F-6-P A GLUCÓLISIS</text>
+      <text x="0" y="0" fill="#047857" font-size="11" font-weight="800" text-anchor="middle">RETORNO: F-6-P A GLUCÓLISIS</text>
     </g>
 
     <!-- RETORNO 2: GAP hacia GAP Central -->
-    <path d="M 2960 1675 C 2480 1600 2000 1350 1810 1140" fill="none" stroke="#059669" stroke-width="2.8" stroke-dasharray="9 5" marker-end="url(#arrowGreen)"/>
+    <path d="M 2960 1715 C 2480 1640 2000 1350 1810 1140" fill="none" stroke="#059669" stroke-width="2.8" stroke-dasharray="9 5" marker-end="url(#arrowGreen)"/>
     <g transform="translate(2280, 1370)">
-      <rect x="-100" y="-13" width="200" height="26" rx="13" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/>
-      <text x="0" y="5" fill="#047857" font-size="11" font-weight="800" text-anchor="middle">RETORNO: GAP A GLUCÓLISIS</text>
+      <text x="0" y="0" fill="#047857" font-size="11" font-weight="800" text-anchor="middle">RETORNO: GAP A GLUCÓLISIS</text>
     </g>
     """)
 
@@ -925,7 +905,7 @@ def generar_mapa_carbohidratos():
     # =========================================================================
     # Reacción 2: Fosfoglucosa Isomerasa
     svg_parts.append(crear_reaccion(
-        x=X_FLECHA, y=550,
+        x=X_FLECHA, y=530,
         enzima="Fosfoglucosa Isomerasa",
         ec="EC 5.3.1.9 (⇄)",
         reversible=True
@@ -933,7 +913,7 @@ def generar_mapa_carbohidratos():
 
     # 3. Fructosa-6-Fosfato (RECIBE RETORNO DE PENTOSAS)
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=630,
+        x=X_GLU, y=610,
         nombre="Fructosa-6-Fosfato",
         carbonos="6 Carbonos (Cetosa Ⓟ)",
         detalle="Punto receptor de Transcetolasa / Transaldolasa",
@@ -943,7 +923,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 3: PFK-1
     svg_parts.append(crear_reaccion(
-        x=X_FLECHA, y=745,
+        x=X_FLECHA, y=725,
         enzima="Fosfofructoquinasa-1 (PFK-1)",
         ec="EC 2.7.1.11 (Compromiso Clave)",
         regulacion="⊣ ATP, Citrato | ⊕ AMP, F-2,6-BP",
@@ -953,7 +933,7 @@ def generar_mapa_carbohidratos():
 
     # 4. Fructosa-1,6-Bisfosfato
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=845,
+        x=X_GLU, y=825,
         nombre="Fructosa-1,6-Bisfosfato",
         carbonos="6 Carbonos (Fructofuranosa 1,6-Ⓟ)",
         detalle="Molécula simétrica lista para clivaje",
@@ -963,7 +943,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 4: Aldolasa
     svg_parts.append("""
-    <g transform="translate(1580, 960)">
+    <g transform="translate(1580, 940)">
       <line x1="0" y1="0" x2="0" y2="40" stroke="#ea580c" stroke-width="2.8"/>
       <g transform="translate(20, 14)">
         <text x="0" y="0" fill="#0f172a" font-size="14.5" font-weight="800">Aldolasa A (Clivaje C3-C4)</text>
@@ -976,7 +956,7 @@ def generar_mapa_carbohidratos():
 
     # 5a. DHAP y 5b. GAP (Bifurcación simétrica)
     svg_parts.append(crear_metabolito(
-        x=1320, y=1055,
+        x=1320, y=1035,
         nombre="Dihidroxiacetona-Ⓟ",
         carbonos="3 Carbonos (Cetotriosa)",
         detalle="Isomerizada por TPI",
@@ -985,7 +965,7 @@ def generar_mapa_carbohidratos():
     ))
 
     svg_parts.append(crear_metabolito(
-        x=1680, y=1055,
+        x=1680, y=1035,
         nombre="Gliceraldehído-3-Ⓟ",
         carbonos="3 Carbonos (Aldotriosa)",
         detalle="Continúa la vía oxidativa",
@@ -995,7 +975,7 @@ def generar_mapa_carbohidratos():
 
     # TPI (Conexión horizontal reversible entre triosas)
     svg_parts.append("""
-    <g transform="translate(1540, 1090)">
+    <g transform="translate(1540, 1070)">
       <line x1="-70" y1="-3" x2="70" y2="-3" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
       <line x1="70" y1="3" x2="-70" y2="3" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
       <g transform="translate(0, -12)">
@@ -1005,22 +985,19 @@ def generar_mapa_carbohidratos():
     </g>
     """)
 
-    # Convergencia a 2x GAP
+    # Convergencia a 2x GAP (Limpia, sin globo)
     svg_parts.append("""
-    <g transform="translate(1580, 1205)">
-      <path d="M 1720 1150 Q 1720 1185 1580 1205" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(0, 0)">
-        <rect x="-110" y="-13" width="220" height="26" rx="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
-        <text x="0" y="5" fill="#c2410c" font-size="12" font-weight="900" text-anchor="middle">
-          FASE DE BENEFICIO (× 2 TRIOSAS)
-        </text>
-      </g>
+    <g transform="translate(1580, 1180)">
+      <path d="M 1720 1120 Q 1720 1160 1580 1180" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+      <text x="0" y="0" fill="#c2410c" font-size="12.5" font-weight="900" text-anchor="middle">
+        FASE DE BENEFICIO (× 2 TRIOSAS)
+      </text>
     </g>
     """)
 
     # Reacción 6: GAPDH
     svg_parts.append("""
-    <g transform="translate(1580, 1260)">
+    <g transform="translate(1580, 1235)">
       <line x1="-3.5" y1="0" x2="-3.5" y2="52" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
       <line x1="3.5" y1="52" x2="3.5" y2="0" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
       <path d="M -85 10 Q -30 10 -4 20" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
@@ -1036,7 +1013,7 @@ def generar_mapa_carbohidratos():
 
     # 5. 1,3-Bisfosfoglicerato
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=1365,
+        x=X_GLU, y=1345,
         nombre="1,3-Bisfosfoglicerato",
         carbonos="3 Carbonos (Acil-fosfato de alta energía)",
         detalle="Primer intermediario de alto potencial Ⓟ",
@@ -1046,7 +1023,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 7: Fosfoglicerato Quinasa
     svg_parts.append(crear_reaccion(
-        x=X_FLECHA, y=1480,
+        x=X_FLECHA, y=1460,
         enzima="Fosfoglicerato Quinasa",
         ec="EC 2.7.2.3 (Fosforilación a nivel de sustrato)",
         entra_energia="- 2 ADP",
@@ -1057,7 +1034,7 @@ def generar_mapa_carbohidratos():
 
     # 6. 3-Fosfoglicerato
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=1580,
+        x=X_GLU, y=1560,
         nombre="3-Fosfoglicerato",
         carbonos="3 Carbonos (Carboxilato)",
         detalle="Substrato de mutación intramolecular",
@@ -1067,7 +1044,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 8: Fosfoglicerato Mutasa
     svg_parts.append(crear_reaccion(
-        x=X_FLECHA, y=1690,
+        x=X_FLECHA, y=1670,
         enzima="Fosfoglicerato Mutasa",
         ec="EC 5.4.2.1 (Intermediario 2,3-BPG)",
         reversible=True
@@ -1075,7 +1052,7 @@ def generar_mapa_carbohidratos():
 
     # 7. 2-Fosfoglicerato
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=1790,
+        x=X_GLU, y=1770,
         nombre="2-Fosfoglicerato",
         carbonos="3 Carbonos (Éster fosfórico C2)",
         detalle="Substrato para deshidratación",
@@ -1085,7 +1062,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 9: Enolasa
     svg_parts.append(crear_reaccion(
-        x=X_FLECHA, y=1900,
+        x=X_FLECHA, y=1880,
         enzima="Enolasa",
         ec="EC 4.2.1.11 (Mg²⁺, Deshidratación)",
         salida_agua=True,
@@ -1094,7 +1071,7 @@ def generar_mapa_carbohidratos():
 
     # 8. PEP
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=2000,
+        x=X_GLU, y=1980,
         nombre="Fosfoenolpiruvato (PEP)",
         carbonos="3 Carbonos (Enol-fosfato)",
         detalle="Mayor potencial de transferencia Ⓟ (ΔG'° = -61.9 kJ/mol)",
@@ -1104,7 +1081,7 @@ def generar_mapa_carbohidratos():
 
     # Reacción 10: Piruvato Quinasa
     svg_parts.append(crear_reaccion(
-        x=X_FLECHA, y=2110,
+        x=X_FLECHA, y=2090,
         enzima="Piruvato Quinasa",
         ec="EC 2.7.1.40 (K⁺, Mg²⁺)",
         regulacion="⊣ ATP, Alanina | ⊕ F-1,6-BP",
@@ -1113,10 +1090,9 @@ def generar_mapa_carbohidratos():
         es_ganancia=True
     ))
 
-    # 9. Piruvato (Llega en x=1520, y=2200)
-    # Su flecha terminal desciende recta por x=1580 directo hacia el MPC mitocondrial
+    # 9. Piruvato (Llega en x=1520, y=2180)
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=2200,
+        x=X_GLU, y=2180,
         nombre="Piruvato",
         carbonos="3 Carbonos (α-Cetoácido)",
         detalle="Destino terminal: cruce al interior mitocondrial vía MPC",
