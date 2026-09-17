@@ -5,8 +5,10 @@ Estructuras con rigor editorial universitario (Haworth, valencias y cofactores):
 1. GLUCOSA_6_FOSFATO (G-6-P) - Precursor de entrada desde la glucólisis.
 2. GLUCOSA_1_FOSFATO (G-1-P) - Producto de la fosfoglucomutasa con fosfato en C1-α.
 3. UDP_GLUCOSA (Uridina Difosfato Glucosa) - Glucosa activada con enlace pirofosfato a uridina.
-4. CADENA_GLUCOGENO_ALFA_1_4_Y_1_6 - Estructura polimérica detallada mostrando los enlaces
-   glicosídicos α(1→4) lineales y el punto de ramificación α(1→6), además del núcleo de Glucogenina.
+4. CEBADOR_GLUCOGENINA - Estructura molecular real del dímero de Glucogenina con su residuo
+   Tyr-194 y la cadena cebadora autoglucosilada de unidades α(1→4) con extremo libre 4-OH.
+5. CADENA_GLUCOGENO - Estructura polimérica ramificada mostrando los enlaces α(1→4) lineales
+   y el punto de ramificación α(1→6).
 """
 
 # 1. GLUCOSA-6-FOSFATO (G6P)
@@ -88,7 +90,7 @@ UDP_GLUCOSA = """
   <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
   
   <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2"/>
-  <text x="0" y="7" fill="#0f172a" font-size="10.5" font-weight="800" text-anchor="middle">CH₂OH</text>
+  <text x="0" y="7" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">CH₂OH</text>
   <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
   <text x="-22" y="40" fill="#0f172a" font-size="10" font-weight="700">HO</text>
   <line x1="16" y1="58" x2="16" y2="70" stroke="#0f172a" stroke-width="2"/>
@@ -97,38 +99,111 @@ UDP_GLUCOSA = """
   <text x="50" y="81" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
 
   <!-- 2. Puente Pirofosfato (-O-P-O-P-O-) en C1 -->
-  <line x1="72" y1="36" x2="92" y2="48" stroke="#0f172a" stroke-width="2"/>
+  <line x1="72" y1="36" x2="90" y2="48" stroke="#0f172a" stroke-width="2"/>
   <!-- Fosfato 1 (α) -->
-  <circle cx="106" cy="54" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
-  <text x="106" y="58" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
-  <line x1="118" y1="54" x2="132" y2="54" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="104" cy="54" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="104" y="58" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <line x1="116" y1="54" x2="128" y2="54" stroke="#0f172a" stroke-width="2"/>
   <!-- Fosfato 2 (β) -->
-  <circle cx="144" cy="54" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
-  <text x="144" y="58" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <circle cx="140" cy="54" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="140" y="58" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
   
-  <!-- Enlace hacia la Ribosa -->
-  <line x1="156" y1="54" x2="175" y2="46" stroke="#0f172a" stroke-width="2"/>
+  <line x1="152" y1="54" x2="168" y2="46" stroke="#0f172a" stroke-width="2"/>
 
   <!-- 3. Anillo de Ribofuranosa (5 lados) -->
-  <polygon points="190,20 215,30 205,56 175,56 170,30" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-  <circle cx="190" cy="20" r="5" fill="#ffffff"/>
-  <text x="190" y="24" fill="#dc2626" font-size="11" font-weight="800" text-anchor="middle">O</text>
-  <!-- 2'-OH y 3'-OH -->
-  <line x1="175" y1="56" x2="175" y2="68" stroke="#0f172a" stroke-width="1.6"/>
-  <text x="175" y="77" fill="#0f172a" font-size="9" font-weight="700" text-anchor="middle">OH</text>
-  <line x1="205" y1="56" x2="205" y2="68" stroke="#0f172a" stroke-width="1.6"/>
-  <text x="205" y="77" fill="#0f172a" font-size="9" font-weight="700" text-anchor="middle">OH</text>
+  <polygon points="182,20 206,30 196,56 168,56 163,30" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="182" cy="20" r="5" fill="#ffffff"/>
+  <text x="182" y="24" fill="#dc2626" font-size="11" font-weight="800" text-anchor="middle">O</text>
+  <line x1="168" y1="56" x2="168" y2="68" stroke="#0f172a" stroke-width="1.6"/>
+  <text x="168" y="77" fill="#0f172a" font-size="8.5" font-weight="700" text-anchor="middle">OH</text>
+  <line x1="196" y1="56" x2="196" y2="68" stroke="#0f172a" stroke-width="1.6"/>
+  <text x="196" y="77" fill="#0f172a" font-size="8.5" font-weight="700" text-anchor="middle">OH</text>
 
   <!-- 4. Base Nitrogenada: Uracilo (Pirimidina) -->
-  <line x1="215" y1="30" x2="230" y2="24" stroke="#0f172a" stroke-width="2"/>
-  <!-- Anillo de Uracilo -->
-  <rect x="230" y="10" width="38" height="32" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
-  <text x="249" y="26" fill="#0369a1" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">URACILO</text>
-  <text x="249" y="37" fill="#0284c7" font-size="8" font-weight="700" text-anchor="middle">(Base)</text>
+  <line x1="206" y1="30" x2="220" y2="24" stroke="#0f172a" stroke-width="2"/>
+  <rect x="220" y="10" width="36" height="30" rx="5" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
+  <text x="238" y="25" fill="#0369a1" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">URACILO</text>
+  <text x="238" y="35" fill="#0284c7" font-size="7.5" font-weight="700" text-anchor="middle">(Base)</text>
 """
 
 
-# 4. POLÍMERO DE GLUCÓGENO (ENLACES α-1,4 Y RAMIFICACIÓN α-1,6)
+# 4. CEBADOR MOLECULAR DE GLUCOGENINA (ESTRUCTURA QUÍMICA REAL)
+CEBADOR_GLUCOGENINA = """
+  <!-- A) Dímero Proteico de Glucogenina (Subunidad A y B) -->
+  <g transform="translate(0, 10)">
+    <!-- Subunidad A -->
+    <ellipse cx="40" cy="35" rx="38" ry="30" fill="#fef9c3" stroke="#ca8a04" stroke-width="2.2"/>
+    <!-- Subunidad B -->
+    <ellipse cx="65" cy="55" rx="32" ry="26" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+    
+    <text x="45" y="32" fill="#854d0e" font-size="11" font-weight="900" text-anchor="middle">GLUCOGENINA</text>
+    <text x="45" y="44" fill="#a16207" font-size="8.5" font-weight="700" text-anchor="middle">(Homodímero 37 kDa)</text>
+    
+    <!-- Residuo catalítico Tirosina-194 con anillo bencénico -->
+    <g transform="translate(75, 20)">
+      <line x1="0" y1="15" x2="16" y2="15" stroke="#854d0e" stroke-width="2"/>
+      <polygon points="16,15 22,8 34,8 40,15 34,22 22,22" fill="#ffffff" stroke="#854d0e" stroke-width="1.8"/>
+      <text x="28" y="17" fill="#854d0e" font-size="6.5" font-weight="800" text-anchor="middle">Tyr</text>
+      <!-- Enlace O-glicosídico a la glucosa inicial -->
+      <line x1="40" y1="15" x2="52" y2="15" stroke="#dc2626" stroke-width="2.2"/>
+      <circle cx="46" cy="15" r="3.5" fill="#ffffff"/>
+      <text x="46" y="17.5" fill="#dc2626" font-size="7.5" font-weight="900" text-anchor="middle">O</text>
+      <text x="28" y="33" fill="#a16207" font-size="8" font-weight="800" text-anchor="middle">Tyr-194</text>
+    </g>
+  </g>
+
+  <!-- B) Cadena Oligosacárida Cebadora Autoglucosilada (4 a 8 glucosas) -->
+  <!-- Glucosa 1 (unida a Tyr-194) -->
+  <g transform="translate(135, 10)">
+    <polygon points="30,12 44,22 30,34 10,34 0,22 10,12" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <circle cx="10" cy="12" r="3.5" fill="#ffffff"/>
+    <text x="10" y="14.5" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+    <text x="22" y="25" fill="#64748b" font-size="8" font-weight="700" text-anchor="middle">Glc₁</text>
+  </g>
+
+  <!-- Enlace α(1→4) -->
+  <path d="M 179 32 Q 190 39 201 32" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <text x="190" y="37" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- Glucosa 2 -->
+  <g transform="translate(201, 10)">
+    <polygon points="30,12 44,22 30,34 10,34 0,22 10,12" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <circle cx="10" cy="12" r="3.5" fill="#ffffff"/>
+    <text x="10" y="14.5" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+    <text x="22" y="25" fill="#64748b" font-size="8" font-weight="700" text-anchor="middle">Glc₂</text>
+  </g>
+
+  <!-- Enlace α(1→4) discontinuo hacia el extremo -->
+  <path d="M 245 32 Q 256 39 267 32" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <text x="256" y="37" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- Puntos suspensivos de elongación intrínseca (hasta 8 residuos) -->
+  <text x="278" y="25" fill="#d97706" font-size="12" font-weight="900">···</text>
+
+  <!-- Glucosa Terminal (Glc₈) con el extremo 4-OH aceptor -->
+  <g transform="translate(295, 10)">
+    <polygon points="30,12 44,22 30,34 10,34 0,22 10,12" fill="#fefce8" stroke="#ea580c" stroke-width="2"/>
+    <circle cx="10" cy="12" r="3.5" fill="#ffffff"/>
+    <text x="10" y="14.5" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+    <text x="22" y="25" fill="#ea580c" font-size="8" font-weight="800" text-anchor="middle">Glc₈</text>
+    
+    <!-- Extremo 4-OH No Reductor Libre (El sustrato aceptor) -->
+    <line x1="0" y1="22" x2="-10" y2="22" stroke="#ea580c" stroke-width="2"/>
+    <rect x="-42" y="13" width="30" height="18" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="-27" y="25" fill="#b91c1c" font-size="9" font-weight="900" text-anchor="middle">4-OH</text>
+  </g>
+
+  <!-- Rótulo explicativo integrado a la molécula -->
+  <g transform="translate(190, 72)">
+    <rect x="-80" y="-10" width="220" height="20" rx="6" fill="#fefce8" stroke="#ca8a04" stroke-width="1.2"/>
+    <text x="30" y="4" fill="#854d0e" font-size="9" font-weight="800" text-anchor="middle">
+      Cebador: (Glucosa)₈ anclado a Glucogenina
+    </text>
+  </g>
+"""
+
+
+# 5. POLÍMERO DE GLUCÓGENO RAMIFICADO COMPLETO
 CADENA_GLUCOGENO = """
   <!-- A) Glucosa 1 de la cadena principal -->
   <g transform="translate(0, 40)">
@@ -169,7 +244,7 @@ CADENA_GLUCOGENO = """
     <text x="14" y="20" fill="#dc2626" font-size="10" font-weight="800" text-anchor="middle">O</text>
     <line x1="0" y1="28" x2="0" y2="8" stroke="#0f172a" stroke-width="1.8"/>
     <text x="0" y="4" fill="#0f172a" font-size="8" font-weight="700" text-anchor="middle">CH₂OH</text>
-    <text x="68" y="28" fill="#b45309" font-size="9" font-weight="700">Extremo no reductor</text>
+    <text x="68" y="28" fill="#b45309" font-size="8.5" font-weight="700">Extremo no reductor</text>
   </g>
 
   <!-- Enlace α(1→4) continuo en la cadena principal -->
@@ -187,7 +262,7 @@ CADENA_GLUCOGENO = """
     <text x="0" y="4" fill="#0f172a" font-size="8" font-weight="700" text-anchor="middle">CH₂OH</text>
   </g>
 
-  <!-- E) Núcleo de la Proteína GLUCOGENINA (Primer autoglicosilante) -->
+  <!-- E) Núcleo de la Proteína GLUCOGENINA -->
   <g transform="translate(250, 48)">
     <circle cx="28" cy="20" r="24" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/>
     <text x="28" y="16" fill="#854d0e" font-size="9.5" font-weight="900" text-anchor="middle">GLUCOGENINA</text>

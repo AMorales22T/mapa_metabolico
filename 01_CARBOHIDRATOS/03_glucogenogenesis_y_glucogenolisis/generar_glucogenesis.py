@@ -2,15 +2,17 @@
 """
 GENERADOR DE LA RUTA DE LA GLUCOGÉNESIS (SÍNTESIS DE GLUCÓGENO)
 ===============================================================
-Ruta completa generada bajo el estándar editorial de Glucólisis y Pentosas:
-1. Conexión biológica de entrada: Glucosa-6-Fosfato proveniente de la Glucólisis.
+Ruta completa generada bajo el estándar editorial biológico:
+1. Conector biológico de entrada: Glucosa-6-Fosfato proveniente de la Glucólisis.
 2. Reacción 1: Fosfoglucomutasa (G-6-P ⇄ G-1-P) con cofactor Glucosa-1,6-BP.
-3. Reacción 2: UDP-Glucosa Pirofosforilasa (G-1-P + UTP ➔ UDP-Glucosa + PPi).
-   Acoplada a la Pirofosfatasa Inorgánica (PPi + H2O ➔ 2 Pi) que impulsa la síntesis.
-4. Cebador: Núcleo proteico de Glucogenina (Tyr-194).
+3. Reacción 2: UDP-Glucosa Pirofosforilasa (G-1-P + UTP ➔ UDP-Glucosa + PPi)
+   acoplada a la Pirofosfatasa Inorgánica (PPi + H2O ➔ 2 Pi).
+4. El Cebador Molecular Real: Glucogenina dímero con residuo Tyr-194 y cadena
+   (Glucosa)₈ con extremo 4-OH aceptor libre para elongación.
 5. Reacción 3: Glucógeno Sintasa (Elongación de cadenas con enlaces α-1,4).
 6. Reacción 4: Enzima Ramificadora del Glucógeno (Amilo-α(1,4→1,6)-transglucosidasa).
-7. Entorno celular: Membrana, citoesqueleto, polirribosomas y vesículas en citosol.
+7. Polímero de Glucógeno ramificado con enlaces α(1→4) y α(1→6).
+8. Balance energético compacto y limpio.
 """
 
 import os
@@ -18,11 +20,12 @@ from estructuras_glucogeno import (
     GLUCOSA_6_FOSFATO,
     GLUCOSA_1_FOSFATO,
     UDP_GLUCOSA,
+    CEBADOR_GLUCOGENINA,
     CADENA_GLUCOGENO
 )
 
 ANCHO = 1000
-ALTO = 2100
+ALTO = 2150
 
 CABECERA_HTML = f"""<!DOCTYPE html>
 <html lang="es">
@@ -74,9 +77,6 @@ CABECERA_HTML = f"""<!DOCTYPE html>
         </marker>
         <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
           <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
-        </marker>
-        <marker id="arrowAmber" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#d97706" />
         </marker>
 
         <!-- Gradiente Citosólico Biológico -->
@@ -143,15 +143,15 @@ def generar_entorno_celular_glucogeno():
     </g>
     """
 
-def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False):
-    """Bloque SVG de metabolito alineado con estilo editorial."""
+def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False, dx_texto=135):
+    """Bloque SVG de metabolito con desplazamiento de texto ajustable para evitar choques."""
     if texto_izquierda:
-        pos_estructura = "translate(150, 0)"
-        pos_texto = "translate(130, 25)"
+        pos_estructura = f"translate({dx_texto}, 0)"
+        pos_texto = f"translate({dx_texto - 20}, 25)"
         alineacion = 'text-anchor="end"'
     else:
         pos_estructura = "translate(0, 0)"
-        pos_texto = "translate(135, 25)"
+        pos_texto = f"translate({dx_texto}, 25)"
         alineacion = ''
 
     return f"""
@@ -175,13 +175,10 @@ def main():
     contenido_svg.append(generar_entorno_celular_glucogeno())
 
     # =========================================================================
-    # ENTRADA BIOLÓGICA Y CONECTOR DESDE LA GLUCÓLISIS
+    # CONECTOR BIOLÓGICO DESDE LA GLUCÓLISIS (G-6-P)
     # =========================================================================
-    # Anuncio de conexión: esta flecha muestra de dónde viene en el citosol global
     contenido_svg.append("""
-    <!-- Conector de Entrada desde la Glucólisis -->
     <g transform="translate(480, 85)">
-      <!-- Flecha horizontal que entra desde la derecha (donde está el eje de Glucólisis) -->
       <path d="M 380 0 L 120 0" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       <rect x="135" y="-14" width="230" height="26" rx="13" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
       <text x="250" y="3" fill="#c2410c" font-size="10.5" font-weight="800" text-anchor="middle">
@@ -191,30 +188,27 @@ def main():
     """)
 
     # =========================================================================
-    # METABOLITO 1: GLUCOSA-6-FOSFATO (PUNTO DE PARTIDA)
+    # 1. GLUCOSA-6-FOSFATO (G6P)
     # =========================================================================
-    X_EJE = 380
     Y_G6P = 140
-
     contenido_svg.append(crear_metabolito(
         x=340, y=Y_G6P,
         nombre="Glucosa-6-Fosfato",
         carbonos="6 Carbonos (Hexosa Ⓟ)",
-        detalle="Substrato inicial desviado al almacén",
+        detalle="Sustrato inicial desviado al almacén",
         svg_estructura=GLUCOSA_6_FOSFATO
     ))
 
     # =========================================================================
-    # REACCIÓN 1: FOSFOGLUCOMUTASA (ISOMERIZACIÓN DEL FOSFATO C6 ⇄ C1)
+    # REACCIÓN 1: FOSFOGLUCOMUTASA (G-6-P ⇄ G-1-P)
     # =========================================================================
-    # Reacción reversible con el cofactor Glucosa-1,6-Bisfosfato
     contenido_svg.append("""
     <!-- Reacción: Fosfoglucomutasa -->
     <g transform="translate(385, 275)">
       <line x1="-3" y1="0" x2="-3" y2="52" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <line x1="3" y1="52" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       
-      <!-- Cofactor acoplado (G-1,6-BP) -->
+      <!-- Serina fosforilada e intermediario G-1,6-BP -->
       <path d="M -65 10 Q -25 10 -4 20" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
       <text x="-70" y="13" fill="#475569" font-size="10" font-weight="800" text-anchor="end">Ser-OH Fosforilada</text>
       <path d="M -4 30 Q -25 42 -65 42" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
@@ -229,23 +223,21 @@ def main():
     """)
 
     # =========================================================================
-    # METABOLITO 2: α-D-GLUCOSA-1-FOSFATO (G-1-P)
+    # 2. α-D-GLUCOSA-1-FOSFATO (G-1-P)
     # =========================================================================
     Y_G1P = 385
-
     contenido_svg.append(crear_metabolito(
         x=340, y=Y_G1P,
         nombre="α-D-Glucosa-1-Fosfato",
         carbonos="6 Carbonos (Fosfato en C1-α)",
         detalle="Fosfato activo en carbono anomérico",
-        svg_estructura=GLUCOSA_1_FOSFATO
+        svg_estructura=GLUCOSA_1_FOSFATO,
+        dx_texto=180
     ))
 
     # =========================================================================
     # REACCIÓN 2: UDP-GLUCOSA PIROFOSFORILASA + PIROFOSFATASA INORGÁNICA
     # =========================================================================
-    # Este paso consume UTP y genera PPi, que es rápidamente hidrolizado por la
-    # pirofosfatasa inorgánica (desplazamiento termodinámico irreversible)
     contenido_svg.append("""
     <!-- Reacción: UDP-Glucosa Pirofosforilasa -->
     <g transform="translate(385, 545)">
@@ -259,7 +251,7 @@ def main():
       <path d="M -4 36 Q -25 48 -75 48" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
       <text x="-80" y="52" fill="#475569" font-size="10.5" font-weight="800" text-anchor="end">+ PPᵢ (Pirofosfato)</text>
 
-      <!-- ACOPLAMIENTO EXERGÓNICO: Pirofosfatasa Inorgánica -->
+      <!-- Acoplamiento Exergónico Pirofosfatasa -->
       <path d="M -80 60 Q -110 75 -130 65" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
       <g transform="translate(-85, 78)">
         <text x="0" y="0" fill="#059669" font-size="9.5" font-weight="800" text-anchor="end">PPᵢ + H₂O ➔ 2 Pᵢ</text>
@@ -275,43 +267,37 @@ def main():
     """)
 
     # =========================================================================
-    # METABOLITO 3: UDP-GLUCOSA (DONADOR ACTIVADO DE MONÓMEROS)
+    # 3. UDP-GLUCOSA (CON TEXTO TOTALMENTE DESPEJADO A LA DERECHA)
     # =========================================================================
     Y_UDPG = 690
-
+    # Desplazamos el bloque a x=220 y el texto a dx_texto=280 para dar 280px de aire limpio
     contenido_svg.append(crear_metabolito(
-        x=280, y=Y_UDPG,
+        x=220, y=Y_UDPG,
         nombre="UDP-Glucosa",
         carbonos="Nucleótido-Azúcar activado",
         detalle="Donador de glucosa de alta energía libre",
-        svg_estructura=UDP_GLUCOSA
+        svg_estructura=UDP_GLUCOSA,
+        dx_texto=280
     ))
 
     # =========================================================================
-    # CEBADOR BIOLÓGICO: GLUCOGENINA (EL INICIO DE LA PARTÍCULA)
+    # 4. EL CEBADOR MOLECULAR REAL: GLUCOGENINA CON CADENA (GLUCOSA)8
     # =========================================================================
-    contenido_svg.append("""
-    <!-- Cuadro explicativo del cebador Glucogenina -->
-    <g transform="translate(250, 860)">
-      <rect x="0" y="0" width="500" height="90" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="1.8"/>
-      
-      <!-- Icono proteína dímero -->
-      <g transform="translate(35, 45)">
-        <circle cx="0" cy="0" r="22" fill="#fde047" stroke="#a16207" stroke-width="2"/>
-        <text x="0" y="4" fill="#713f12" font-size="9.5" font-weight="900" text-anchor="middle">GLG</text>
-      </g>
+    Y_CEBADOR = 855
 
-      <g transform="translate(80, 25)">
-        <text x="0" y="0" fill="#854d0e" font-size="12" font-weight="900">CEBADOR REQUERIDO: PROTEÍNA GLUCOGENINA (EC 2.4.1.186)</text>
-        <text x="0" y="16" fill="#713f12" font-size="10" font-weight="600">
-          La Glucógeno Sintasa NO puede iniciar cadenas de novo; requiere un cebador.
-        </text>
-        <text x="0" y="32" fill="#a16207" font-size="9.5" font-weight="700">
-          • La Glucogenina se autoglucosila en su Tyr-194 uniendo hasta 8 residuos de glucosa.
-        </text>
-        <text x="0" y="47" fill="#64748b" font-size="9">
-          • Una vez formado el cebador (Glucosa)₈, la Glucógeno Sintasa toma el control.
-        </text>
+    contenido_svg.append(f"""
+    <!-- ESTRUCTURA MOLECULAR DEL CEBADOR DE GLUCOGENINA -->
+    <g transform="translate(180, {Y_CEBADOR})">
+      <!-- Estructura química dibujada -->
+      {CEBADOR_GLUCOGENINA}
+      
+      <!-- Textos descriptivos despejados a la derecha -->
+      <g transform="translate(370, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Cebador: Glucogenina-(Glc)₈</text>
+        <text x="0" y="18" fill="#b45309" font-size="11.5" font-weight="700">Dímero autoglucosilante (EC 2.4.1.186)</text>
+        <text x="0" y="34" fill="#64748b" font-size="10.5">• Anclaje covalente en residuo Tyr-194</text>
+        <text x="0" y="48" fill="#ea580c" font-size="10.5" font-weight="700">• Extremo 4-OH libre: Sustrato aceptor</text>
+        <text x="0" y="63" fill="#64748b" font-size="10">Requerido: La Glucógeno Sintasa no puede iniciar de novo</text>
       </g>
     </g>
     """)
@@ -321,13 +307,13 @@ def main():
     # =========================================================================
     contenido_svg.append("""
     <!-- Reacción: Glucógeno Sintasa -->
-    <g transform="translate(385, 980)">
+    <g transform="translate(385, 1020)">
       <line x1="0" y1="0" x2="0" y2="65" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
 
-      <!-- Salida de UDP libre que será fosforilado a UTP por el ATP -->
+      <!-- Salida de UDP libre -->
       <path d="M -4 30 Q -25 42 -75 42" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
       <text x="-80" y="45" fill="#0284c7" font-size="11" font-weight="800" text-anchor="end">+ UDP libre</text>
-      <text x="-80" y="58" fill="#64748b" font-size="9" text-anchor="end">(Regenerable: UDP + ATP ⇄ UTP + ADP)</text>
+      <text x="-80" y="58" fill="#64748b" font-size="9" text-anchor="end">(UDP + ATP ⇄ UTP + ADP)</text>
 
       <g transform="translate(20, 16)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Glucógeno Sintasa</text>
@@ -343,22 +329,22 @@ def main():
     # =========================================================================
     contenido_svg.append("""
     <!-- Reacción: Enzima Ramificadora -->
-    <g transform="translate(385, 1130)">
+    <g transform="translate(385, 1170)">
       <line x1="0" y1="0" x2="0" y2="55" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
 
       <g transform="translate(20, 14)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Enzima Ramificadora del Glucógeno</text>
         <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">Amilo-α(1,4→1,6)-transglucosidasa (EC 2.4.1.18)</text>
-        <text x="0" y="27" fill="#b45309" font-size="9.5" font-weight="700">Corta bloque de 6-7 glucosas y lo une en C6 formando rama α(1→6)</text>
-        <text x="0" y="40" fill="#64748b" font-size="9">Genera ramificaciones cada 8 a 12 glucosas (aumenta solubilidad y velocidad de degradación)</text>
+        <text x="0" y="27" fill="#b45309" font-size="9.5" font-weight="700">Transfiere bloque terminal de ~7 glucosas al C6</text>
+        <text x="0" y="40" fill="#64748b" font-size="9">Crea ramas α(1→6) cada 8-12 glucosas (aumenta solubilidad y velocidad metabólica)</text>
       </g>
     </g>
     """)
 
     # =========================================================================
-    # PRODUCTO FINAL: EL POLÍMERO DE GLUCÓGENO RAMIFICADO
+    # PRODUCTO FINAL: POLÍMERO DE GLUCÓGENO RAMIFICADO
     # =========================================================================
-    Y_GLUC = 1270
+    Y_GLUC = 1310
 
     contenido_svg.append(f"""
     <!-- Polímero de Glucógeno Completo -->
@@ -377,33 +363,24 @@ def main():
     """)
 
     # =========================================================================
-    # RESUMEN BIOENERGÉTICO Y CONEXIÓN CON LA GLUCOGENÓLISIS
+    # BALANCE ENERGÉTICO COMPACTO (DISCRETO Y ELEGANTE)
     # =========================================================================
     contenido_svg.append("""
-    <g transform="translate(200, 1580)">
-      <rect x="0" y="0" width="600" height="150" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.8"/>
-      
-      <text x="20" y="26" fill="#0f172a" font-size="13" font-weight="900">BALANCE ENERGÉTICO DE LA GLUCOGÉNESIS</text>
-      <text x="20" y="48" fill="#475569" font-size="11" font-weight="700">
-        Glucosa + ATP + UTP + Glucógeno(n) + H₂O ➔ Glucógeno(n+1) + ADP + UDP + 2 Pᵢ
+    <!-- Balance Energético Compacto -->
+    <g transform="translate(260, 1620)">
+      <rect x="0" y="0" width="480" height="75" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+      <text x="16" y="20" fill="#0f172a" font-size="11" font-weight="900">BALANCE ENERGÉTICO NETO</text>
+      <text x="16" y="38" fill="#475569" font-size="9.5" font-weight="600">
+        Glucosa + 1 ATP + 1 UTP + Glucógeno(n) ➔ Glucógeno(n+1) + ADP + UDP + 2 Pᵢ
       </text>
-      <text x="20" y="70" fill="#b91c1c" font-size="10.5" font-weight="700">
-        • Costo energético neto: 2 enlaces fosfato de alta energía (1 ATP en Hexoquinasa + 1 UTP en UDPG-Pirofosforilasa).
+      <text x="16" y="55" fill="#b91c1c" font-size="9" font-weight="700">
+        • Costo: 2 enlaces fosfato (~97% de eficiencia de almacenamiento)
       </text>
-      <text x="20" y="90" fill="#047857" font-size="10.5" font-weight="700">
-        • Eficiencia de almacenamiento: ~97% de la energía original de la glucosa se conserva en el gránulo.
-      </text>
-
-      <line x1="20" y1="108" x2="580" y2="108" stroke="#cbd5e1" stroke-width="1"/>
-      
-      <!-- Anticipo de la Glucogenólisis -->
-      <g transform="translate(20, 128)">
-        <text x="0" y="0" fill="#d97706" font-size="10.5" font-weight="800">
-          ⇄ RETORNO A GLUCOLISIS (GLUCOGENÓLISIS):
-        </text>
-        <text x="260" y="0" fill="#64748b" font-size="10">
-          Glucógeno Fosforilasa (+ Pᵢ) libera G-1-P sin gastar ATP ➔ Fosfoglucomutasa ➔ G-6-P.
-        </text>
+      <!-- Retorno Glucogenolisis -->
+      <g transform="translate(300, 20)">
+        <text x="0" y="0" fill="#d97706" font-size="9" font-weight="800">⇄ Glucogenólisis:</text>
+        <text x="0" y="16" fill="#64748b" font-size="8.5">Fosforilasa (+ Pᵢ) libera G-1-P</text>
+        <text x="0" y="28" fill="#64748b" font-size="8.5">sin gastar ATP ➔ G-6-P</text>
       </g>
     </g>
     """)
@@ -414,7 +391,7 @@ def main():
     ruta_salida = os.path.join(os.path.dirname(__file__), "Glucogenesis.html")
     with open(ruta_salida, "w", encoding="utf-8") as f:
         f.write(html_final)
-    print(f"✅ Lámina de la Glucogénesis generada con éxito en: {ruta_salida}")
+    print(f"✅ Lámina de Glucogénesis actualizada con éxito en: {ruta_salida}")
 
 if __name__ == "__main__":
     main()
