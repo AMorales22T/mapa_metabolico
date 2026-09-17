@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """
-GENERADOR DE LA RUTA GLUCOLÍTICA EN SVG/HTML - VERSIÓN PERFECCIONADA
-====================================================================
-Correcciones visuales aplicadas:
-- Orden bioquímico estricto en la Fase 2: Enzima (GAPDH) ANTES del producto (1,3-BPG).
-- Zona de Triosas (DHAP / GAP / TPI) con carril exclusivo y sin colisiones de texto.
-- Eliminada la flecha suelta; integrado un badge elegante "FASE 2: RENDIMIENTO (× 2)".
-- Flechas y metabolitos bajados con espaciado equilibrado y respiración visual.
+GENERADOR DE LA RUTA GLUCOLÍTICA INTEGRADA EN SU ENTORNO CELULAR REAL
+=====================================================================
+Fusiona:
+1. Capa de fondo celular: Membrana plasmática, GLUT con zoom macro, citoesqueleto y mitocondria.
+2. Capa metabólica: Los 11 metabolitos y 10 reacciones de la Glucólisis acoplados biológicamente.
 """
 
 import os
@@ -23,44 +21,45 @@ from estructuras_glucosa import (
     FOSFOENOLPIRUVATO,
     PIRUVATO
 )
+from entorno_celular import DEFS_ENTORNO_CELULAR, generar_entorno_celular_svg
 
 # -----------------------------------------------------------------------------
 # 1. PLANTILLAS BASE DE HTML Y SVG
 # -----------------------------------------------------------------------------
-CABECERA_HTML = """<!DOCTYPE html>
+CABECERA_HTML = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vía Glucolítica - Mapa Metabólico</title>
+  <title>Vía Glucolítica en Citosol Biológico Real</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
       font-family: 'Inter', sans-serif;
-      background: #f1f5f9;
+      background: #e2e8f0;
       color: #0f172a;
       padding: 30px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .lienzo-svg {
+    }}
+    .lienzo-svg {{
       width: 1000px;
       background: #ffffff;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
       overflow: hidden;
-    }
-    svg { display: block; width: 100%; height: auto; }
+    }}
+    svg {{ display: block; width: 100%; height: auto; }}
   </style>
 </head>
 <body>
   <div class="lienzo-svg">
-    <svg width="1000" height="2150" viewBox="0 0 1000 2150" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1000" height="2280" viewBox="0 0 1000 2280" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Flecha de flujo metabólico principal (Naranja) -->
         <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -82,6 +81,8 @@ CABECERA_HTML = """<!DOCTYPE html>
         <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
           <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
         </marker>
+
+        {DEFS_ENTORNO_CELULAR}
       </defs>
 """
 
@@ -98,21 +99,15 @@ PIE_HTML = """
 # -----------------------------------------------------------------------------
 
 def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False):
-    """
-    Construye el bloque SVG de un metabolito libre.
-    Si texto_izquierda=True, coloca el bloque de texto a la izquierda de la estructura
-    (ideal para DHAP, despejando el carril central).
-    """
+    """Construye el bloque SVG de un metabolito libre con su estructura y textos."""
     if texto_izquierda:
         pos_estructura = "translate(150, 0)"
         pos_texto = "translate(130, 25)"
         alineacion = 'text-anchor="end"'
-        x_texto = "0"
     else:
         pos_estructura = "translate(0, 0)"
         pos_texto = "translate(135, 25)"
         alineacion = ''
-        x_texto = "0"
 
     return f"""
       <!-- Metabolito: {nombre} -->
@@ -121,9 +116,9 @@ def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", text
           {svg_estructura}
         </g>
         <g transform="{pos_texto}">
-          <text x="{x_texto}" y="0" fill="#0f172a" font-size="17" font-weight="800" {alineacion}>{nombre}</text>
-          <text x="{x_texto}" y="18" fill="#ea580c" font-size="12" font-weight="700" {alineacion}>{carbonos}</text>
-          <text x="{x_texto}" y="34" fill="#64748b" font-size="11" {alineacion}>{detalle}</text>
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" {alineacion}>{nombre}</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" {alineacion}>{carbonos}</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" {alineacion}>{detalle}</text>
         </g>
       </g>
     """
@@ -134,7 +129,7 @@ def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_en
     """Genera el bloque SVG de una reacción con proporciones compactas y sin choques."""
     curvas_energia = ""
     
-    # 1. Entrada de energía o reactivo (a la izquierda)
+    # 1. Entrada de energía o reactivo
     if entra_energia:
         color_entrada = "#dc2626" if not es_ganancia else "#475569"
         marcador_entrada = "url(#arrowRed)" if not es_ganancia else "url(#arrowSlate)"
@@ -143,7 +138,7 @@ def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_en
         <text x="-80" y="11" fill="{color_entrada}" font-size="11" font-weight="800" text-anchor="end">{entra_energia}</text>
         """
         
-    # 2. Salida de producto energético (a la izquierda)
+    # 2. Salida de producto energético
     if sale_energia:
         color_salida = "#059669" if es_ganancia else "#475569"
         marcador_salida = "url(#arrowGreen)" if es_ganancia else "url(#arrowSlate)"
@@ -155,11 +150,11 @@ def crear_reaccion(x, y, enzima, ec="", regulacion="", entra_energia="", sale_en
     # 3. Salida de agua (para Enolasa)
     if salida_agua:
         curvas_energia += """
-        <path d="M -4 24 Q -25 34 -70 34" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="{marcador_blue}"/>
+        <path d="M -4 24 Q -25 34 -70 34" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
         <text x="-75" y="37" fill="#0284c7" font-size="11" font-weight="800" text-anchor="end">- 2 H₂O</text>
         """
 
-    # 4. Flecha principal (48 px de largo)
+    # 4. Flecha principal (48 px)
     if reversible:
         flecha_central = """
         <line x1="-3" y1="0" x2="-3" y2="48" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
@@ -193,13 +188,9 @@ def crear_zona_triosas():
     """Genera la bifurcación limpia de la Aldolasa, la conexión TPI despejada y la transición a la Fase 2."""
     return """
     <!-- 1. Bifurcación Aldolasa (desde F-1,6-BP hacia DHAP y GAP) -->
-    <g transform="translate(385, 765)">
-      <!-- Flecha suave hacia DHAP (izquierda) -->
+    <g transform="translate(385, 800)">
       <path d="M -15 0 Q -120 30 -160 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-      <!-- Flecha suave hacia GAP (derecha) -->
       <path d="M 15 0 Q 120 30 180 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-      
-      <!-- Nombre de la Aldolasa en el centro despejado -->
       <g transform="translate(0, 26)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800" text-anchor="middle">Aldolasa</text>
         <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 4.1.2.13 (Reversible)</text>
@@ -207,7 +198,7 @@ def crear_zona_triosas():
     </g>
 
     <!-- 2. Triosa Fosfato Isomerasa (TPI): Conexión horizontal libre entre DHAP y GAP -->
-    <g transform="translate(420, 895)">
+    <g transform="translate(420, 930)">
       <line x1="-120" y1="-3" x2="110" y2="-3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <line x1="110" y1="3" x2="-120" y2="3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <text x="-5" y="-12" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">Triosa Fosfato Isomerasa (TPI)</text>
@@ -215,10 +206,10 @@ def crear_zona_triosas():
     </g>
 
     <!-- 3. Entrada fluida a la Fase 2 (Curva desde GAP hacia el eje central) -->
-    <path d="M 600 965 Q 600 1000 385 1020" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+    <path d="M 600 1000 Q 600 1035 385 1055" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
     
-    <!-- Badge elegante que anuncia la Fase 2 (sin elementos volando) -->
-    <g transform="translate(285, 1005)">
+    <!-- Badge elegante que anuncia la Fase 2 -->
+    <g transform="translate(385, 1040)">
       <rect x="-95" y="-12" width="190" height="24" rx="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
       <text x="0" y="4" fill="#c2410c" font-size="11" font-weight="800" text-anchor="middle">FASE 2: RENDIMIENTO (× 2)</text>
     </g>
@@ -232,20 +223,27 @@ def crear_zona_triosas():
 def main():
     contenido_svg = []
 
-    # ================= FASE 1: INVERSIÓN DE ENERGÍA =================
+    # =========================================================================
+    # CAPA DE FONDO: ENTORNO BIOLÓGICO CELULAR (Membrana, Citosol y Mitocondria)
+    # =========================================================================
+    contenido_svg.append(generar_entorno_celular_svg(ancho=1000, alto=2280, y_mitocondria=2060))
 
-    # 1. D-Glucosa
+    # =========================================================================
+    # CAPA METABÓLICA: RUTA GLUCOLÍTICA ACOPLADA AL ENTORNO
+    # =========================================================================
+
+    # 1. D-Glucosa (Recibida justo debajo de la membrana plasmática por el GLUT)
     contenido_svg.append(crear_metabolito(
-        x=340, y=70,
+        x=340, y=115,
         nombre="D-Glucosa",
         carbonos="6 Carbonos (Hexosa)",
-        detalle="Sustrato inicial de la glucólisis",
+        detalle="Sustrato libre en citoplasma",
         svg_estructura=GLUCOSA
     ))
 
     # Reacción 1: Hexoquinasa
     contenido_svg.append(crear_reaccion(
-        x=385, y=185,
+        x=385, y=225,
         enzima="Hexoquinasa",
         ec="EC 2.7.1.1 (Mg²⁺)",
         regulacion="⊣ Inhibida por G-6-P",
@@ -255,7 +253,7 @@ def main():
 
     # 2. Glucosa-6-Fosfato
     contenido_svg.append(crear_metabolito(
-        x=340, y=270,
+        x=340, y=310,
         nombre="Glucosa-6-Fosfato",
         carbonos="6 Carbonos (Fosforilada)",
         detalle="Encrucijada: Vía Pentosas / Glucógeno",
@@ -264,7 +262,7 @@ def main():
 
     # Reacción 2: Fosfohexosa Isomerasa
     contenido_svg.append(crear_reaccion(
-        x=385, y=375,
+        x=385, y=415,
         enzima="Fosfohexosa Isomerasa",
         ec="EC 5.3.1.9 (Mg²⁺)",
         reversible=True
@@ -272,7 +270,7 @@ def main():
 
     # 3. Fructosa-6-Fosfato
     contenido_svg.append(crear_metabolito(
-        x=340, y=460,
+        x=340, y=500,
         nombre="Fructosa-6-Fosfato",
         carbonos="6 Carbonos (Furanosa)",
         detalle="Isomerización aldosa → cetosa",
@@ -281,7 +279,7 @@ def main():
 
     # Reacción 3: Fosfofructoquinasa-1 (Paso Limitante Clave)
     contenido_svg.append(crear_reaccion(
-        x=385, y=565,
+        x=385, y=605,
         enzima="Fosfofructoquinasa-1 (PFK-1)",
         ec="EC 2.7.1.11 (Mg²⁺)",
         regulacion="⊕ AMP, F-2,6-BP | ⊣ ATP, Citrato",
@@ -291,7 +289,7 @@ def main():
 
     # 4. Fructosa-1,6-Bisfosfato
     contenido_svg.append(crear_metabolito(
-        x=340, y=655,
+        x=340, y=695,
         nombre="Fructosa-1,6-Bisfosfato",
         carbonos="6 Carbonos (Doble fosfato)",
         detalle="Molécula comprometida a la lisis",
@@ -301,9 +299,9 @@ def main():
     # Zona de Triosas: Aldolasa + TPI + Badge Fase 2
     contenido_svg.append(crear_zona_triosas())
 
-    # 5a. Dihidroxiacetona Fosfato (DHAP) - Con texto a la izquierda para dejar libre el centro
+    # 5a. Dihidroxiacetona Fosfato (DHAP) - Con texto a la izquierda
     contenido_svg.append(crear_metabolito(
-        x=70, y=845,
+        x=70, y=880,
         nombre="Dihidroxiacetona-P",
         carbonos="3 Carbonos (Cetosa)",
         detalle="Interconvertible hacia GAP",
@@ -313,7 +311,7 @@ def main():
 
     # 5b. Gliceraldehído-3-Fosfato (GAP) - A la derecha
     contenido_svg.append(crear_metabolito(
-        x=560, y=845,
+        x=560, y=880,
         nombre="Gliceraldehído-3-P",
         carbonos="3 Carbonos (Aldosa)",
         detalle="Sustrato activo que continúa",
@@ -323,9 +321,9 @@ def main():
 
     # ================= FASE 2: RENDIMIENTO ENERGÉTICO (x2) =================
 
-    # Reacción 6: Gliceraldehído-3-P DH (GAPDH) - Se produce NADH ANTES del 1,3-BPG
+    # Reacción 6: Gliceraldehído-3-P DH (GAPDH) - Se produce NADH
     contenido_svg.append(crear_reaccion(
-        x=385, y=1045,
+        x=385, y=1080,
         enzima="GAPDH (Gliceraldehído-3-P DH)",
         ec="EC 1.2.1.12",
         entra_energia="2 NAD⁺ + 2 Pi",
@@ -334,9 +332,9 @@ def main():
         reversible=True
     ))
 
-    # 6. 1,3-Bisfosfoglicerato (Producto de GAPDH)
+    # 6. 1,3-Bisfosfoglicerato
     contenido_svg.append(crear_metabolito(
-        x=340, y=1140,
+        x=340, y=1175,
         nombre="1,3-Bisfosfoglicerato",
         carbonos="3 Carbonos (× 2)",
         detalle="Acil-fosfato de muy alta energía",
@@ -345,7 +343,7 @@ def main():
 
     # Reacción 7: Fosfoglicerato Quinasa - Ganancia neta de ATP
     contenido_svg.append(crear_reaccion(
-        x=385, y=1255,
+        x=385, y=1290,
         enzima="Fosfoglicerato Quinasa",
         ec="EC 2.7.2.3 (Mg²⁺)",
         entra_energia="2 ADP",
@@ -356,7 +354,7 @@ def main():
 
     # 7. 3-Fosfoglicerato
     contenido_svg.append(crear_metabolito(
-        x=340, y=1345,
+        x=340, y=1380,
         nombre="3-Fosfoglicerato",
         carbonos="3 Carbonos (× 2)",
         detalle="Fosforilación a nivel de sustrato",
@@ -365,7 +363,7 @@ def main():
 
     # Reacción 8: Fosfoglicerato Mutasa
     contenido_svg.append(crear_reaccion(
-        x=385, y=1455,
+        x=385, y=1490,
         enzima="Fosfoglicerato Mutasa",
         ec="EC 5.4.2.11 (Mg²⁺)",
         reversible=True
@@ -373,7 +371,7 @@ def main():
 
     # 8. 2-Fosfoglicerato
     contenido_svg.append(crear_metabolito(
-        x=340, y=1545,
+        x=340, y=1580,
         nombre="2-Fosfoglicerato",
         carbonos="3 Carbonos (× 2)",
         detalle="Reordenamiento interno de fosfato",
@@ -382,7 +380,7 @@ def main():
 
     # Reacción 9: Enolasa (Deshidratación)
     contenido_svg.append(crear_reaccion(
-        x=385, y=1655,
+        x=385, y=1690,
         enzima="Enolasa",
         ec="EC 4.2.1.11 (Mg²⁺)",
         salida_agua=True,
@@ -391,7 +389,7 @@ def main():
 
     # 9. Fosfoenolpiruvato (PEP)
     contenido_svg.append(crear_metabolito(
-        x=340, y=1745,
+        x=340, y=1780,
         nombre="Fosfoenolpiruvato (PEP)",
         carbonos="3 Carbonos (× 2)",
         detalle="Enol-fosfato de altísima energía",
@@ -400,7 +398,7 @@ def main():
 
     # Reacción 10: Piruvato Quinasa (Segunda fosforilación a nivel de sustrato)
     contenido_svg.append(crear_reaccion(
-        x=385, y=1855,
+        x=385, y=1890,
         enzima="Piruvato Quinasa",
         ec="EC 2.7.1.40 (K⁺, Mg²⁺)",
         regulacion="⊕ F-1,6-BP | ⊣ ATP, Alanina",
@@ -409,12 +407,12 @@ def main():
         es_ganancia=True
     ))
 
-    # 10. Piruvato (Fin de la vía)
+    # 10. Piruvato (Fin de la vía citosólica)
     contenido_svg.append(crear_metabolito(
-        x=340, y=1945,
+        x=340, y=1980,
         nombre="Piruvato",
         carbonos="3 Carbonos (× 2)",
-        detalle="Producto final citosólico → Mitocondria",
+        detalle="Destino: cruce al interior mitocondrial",
         svg_estructura=PIRUVATO
     ))
 
@@ -426,7 +424,7 @@ def main():
     with open(ruta_salida, "w", encoding="utf-8") as archivo:
         archivo.write(html_final)
 
-    print(f"✅ ¡Ruta Glucolítica ordenada y generada en: {ruta_salida}!")
+    print(f"✅ ¡Ruta Glucolítica integrada en entorno celular generada en: {ruta_salida}!")
 
 
 if __name__ == "__main__":

@@ -42,7 +42,7 @@ DEFS_ENTORNO_CELULAR = """
 # =============================================================================
 # DIBUJO DEL ENTORNO BIOLÓGICO COMPLETO
 # =============================================================================
-def generar_entorno_celular_svg(ancho=1000, alto=2150):
+def generar_entorno_celular_svg(ancho=1000, alto=2280, y_mitocondria=2060):
     """
     Retorna todo el código SVG del dibujo celular orgánico.
     No incluye carteles ni palabras tipo 'CITOSOL', todo es dibujo puramente biológico.
@@ -207,7 +207,7 @@ def generar_entorno_celular_svg(ancho=1000, alto=2150):
     <!-- CAPA 4: LA MITOCONDRIA BIOLÓGICA REAL (ABAJO)                     -->
     <!-- ================================================================= -->
     <!-- Forma orgánica arriñonada mitocondrial que envuelve el fondo -->
-    <g transform="translate(0, 1980)">
+    <g transform="translate(0, {y_mitocondria})">
       <!-- Membrana Mitocondrial Externa Lisa (Ámbar) -->
       <path d="M 0 50 Q 250 15 500 35 T {ancho} 25 L {ancho} 200 L 0 200 Z" fill="url(#gradMitocondria)" stroke="#b45309" stroke-width="3.5"/>
       
