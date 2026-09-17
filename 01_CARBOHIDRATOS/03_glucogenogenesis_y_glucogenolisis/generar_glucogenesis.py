@@ -2,17 +2,21 @@
 """
 GENERADOR DE LA RUTA DE LA GLUCOGÉNESIS (SÍNTESIS DE GLUCÓGENO)
 ===============================================================
-Ruta completa generada bajo el estándar editorial biológico:
-1. Conector biológico de entrada: Glucosa-6-Fosfato proveniente de la Glucólisis.
-2. Reacción 1: Fosfoglucomutasa (G-6-P ⇄ G-1-P) con cofactor Glucosa-1,6-BP.
+Ruta completa con rigor editorial biológico y zoom mecanístico:
+1. Conector biológico: G-6-P desde la Glucólisis.
+2. Reacción 1: Fosfoglucomutasa (G-6-P ⇄ G-1-P) con cofactor G-1,6-BP.
 3. Reacción 2: UDP-Glucosa Pirofosforilasa (G-1-P + UTP ➔ UDP-Glucosa + PPi)
    acoplada a la Pirofosfatasa Inorgánica (PPi + H2O ➔ 2 Pi).
 4. El Cebador Molecular Real: Glucogenina dímero con residuo Tyr-194 y cadena
-   (Glucosa)₈ con extremo 4-OH aceptor libre para elongación.
-5. Reacción 3: Glucógeno Sintasa (Elongación de cadenas con enlaces α-1,4).
-6. Reacción 4: Enzima Ramificadora del Glucógeno (Amilo-α(1,4→1,6)-transglucosidasa).
-7. Polímero de Glucógeno ramificado con enlaces α(1→4) y α(1→6).
-8. Balance energético compacto y limpio.
+   (Glucosa)₈ con extremo 4-OH aceptor libre.
+5. LUPA DE ZOOM MOLECULAR: Acoplamiento activo entre el extremo 4-OH del cebador
+   y el bolsillo catalítico de la Glucógeno Sintasa, ataque Sn2 y salida de UDP.
+6. Reacción 3: Glucógeno Sintasa (Elongación de cadenas α-1,4).
+7. Reacción 4: Enzima Ramificadora del Glucógeno (Amilo-α(1,4→1,6)-transglucosidasa).
+8. Polímero de Glucógeno ramificado con enlaces α(1→4) y α(1→6).
+9. El Gránulo Citosólico de Inclusión: Por qué se almacena como orgánulo no
+   membranoso insoluble en el citosol y cómo sale únicamente como glucosa libre.
+10. Balance energético compacto.
 """
 
 import os
@@ -21,11 +25,13 @@ from estructuras_glucogeno import (
     GLUCOSA_1_FOSFATO,
     UDP_GLUCOSA,
     CEBADOR_GLUCOGENINA,
-    CADENA_GLUCOGENO
+    LUPA_MECANISMO_CEBADOR,
+    CADENA_GLUCOGENO,
+    GRANULO_CITOSOLICO_INCLUSION
 )
 
 ANCHO = 1000
-ALTO = 2150
+ALTO = 2450
 
 CABECERA_HTML = f"""<!DOCTYPE html>
 <html lang="es">
@@ -119,8 +125,8 @@ def generar_entorno_celular_glucogeno():
       <path d="M 40 180 Q 300 120 600 190 T 960 160" stroke-width="1.5" stroke-dasharray="8 6"/>
       <path d="M 50 480 Q 350 540 650 490 T 950 510" stroke-width="1.5" stroke-dasharray="7 7"/>
       <path d="M 40 920 Q 280 860 620 930 T 960 890" stroke-width="1.6" stroke-dasharray="8 5"/>
-      <path d="M 60 1380 Q 340 1440 680 1390 T 950 1410" stroke-width="1.5" stroke-dasharray="8 6"/>
-      <path d="M 50 1820 Q 350 1760 650 1830 T 960 1790" stroke-width="1.6" stroke-dasharray="6 6"/>
+      <path d="M 60 1480 Q 340 1540 680 1490 T 950 1510" stroke-width="1.5" stroke-dasharray="8 6"/>
+      <path d="M 50 1980 Q 350 1920 650 1990 T 960 1950" stroke-width="1.6" stroke-dasharray="6 6"/>
     </g>
 
     <!-- Polirribosomas flotando en el citosol -->
@@ -128,8 +134,8 @@ def generar_entorno_celular_glucogeno():
       <circle cx="140" cy="140" r="2.5"/><circle cx="146" cy="142" r="2"/><circle cx="144" cy="148" r="2.3"/>
       <circle cx="820" cy="220" r="2.5"/><circle cx="826" cy="222" r="2"/><circle cx="824" cy="228" r="2.3"/>
       <circle cx="150" cy="720" r="2.5"/><circle cx="156" cy="722" r="2"/><circle cx="154" cy="728" r="2.3"/>
-      <circle cx="880" cy="1150" r="2.5"/><circle cx="886" cy="1152" r="2"/><circle cx="884" cy="1158" r="2.3"/>
-      <circle cx="140" cy="1620" r="2.5"/><circle cx="146" cy="1622" r="2"/><circle cx="144" cy="1628" r="2.3"/>
+      <circle cx="880" cy="1250" r="2.5"/><circle cx="886" cy="1252" r="2"/><circle cx="884" cy="1258" r="2.3"/>
+      <circle cx="140" cy="1820" r="2.5"/><circle cx="146" cy="1822" r="2"/><circle cx="144" cy="1828" r="2.3"/>
     </g>
 
     <!-- Vesículas citosólicas translúcidas -->
@@ -138,13 +144,13 @@ def generar_entorno_celular_glucogeno():
       <circle cx="180" cy="380" r="16" fill="none" stroke="#7dd3fc" stroke-width="1"/>
       <circle cx="850" cy="820" r="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 2"/>
       <circle cx="850" cy="820" r="17" fill="none" stroke="#fbbf24" stroke-width="1"/>
-      <circle cx="160" cy="1250" r="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
-      <circle cx="160" cy="1250" r="19" fill="none" stroke="#7dd3fc" stroke-width="1"/>
+      <circle cx="160" cy="1350" r="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
+      <circle cx="160" cy="1350" r="19" fill="none" stroke="#7dd3fc" stroke-width="1"/>
     </g>
     """
 
 def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False, dx_texto=135):
-    """Bloque SVG de metabolito con desplazamiento de texto ajustable para evitar choques."""
+    """Bloque SVG de metabolito con desplazamiento de texto ajustable."""
     if texto_izquierda:
         pos_estructura = f"translate({dx_texto}, 0)"
         pos_texto = f"translate({dx_texto - 20}, 25)"
@@ -208,7 +214,6 @@ def main():
       <line x1="-3" y1="0" x2="-3" y2="52" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <line x1="3" y1="52" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       
-      <!-- Serina fosforilada e intermediario G-1,6-BP -->
       <path d="M -65 10 Q -25 10 -4 20" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
       <text x="-70" y="13" fill="#475569" font-size="10" font-weight="800" text-anchor="end">Ser-OH Fosforilada</text>
       <path d="M -4 30 Q -25 42 -65 42" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
@@ -243,15 +248,12 @@ def main():
     <g transform="translate(385, 545)">
       <line x1="0" y1="0" x2="0" y2="70" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
 
-      <!-- Entrada de UTP -->
       <path d="M -75 12 Q -25 12 -4 24" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
       <text x="-80" y="15" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">- 1 UTP</text>
 
-      <!-- Salida de PPi -->
       <path d="M -4 36 Q -25 48 -75 48" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
       <text x="-80" y="52" fill="#475569" font-size="10.5" font-weight="800" text-anchor="end">+ PPᵢ (Pirofosfato)</text>
 
-      <!-- Acoplamiento Exergónico Pirofosfatasa -->
       <path d="M -80 60 Q -110 75 -130 65" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
       <g transform="translate(-85, 78)">
         <text x="0" y="0" fill="#059669" font-size="9.5" font-weight="800" text-anchor="end">PPᵢ + H₂O ➔ 2 Pᵢ</text>
@@ -267,10 +269,9 @@ def main():
     """)
 
     # =========================================================================
-    # 3. UDP-GLUCOSA (CON TEXTO TOTALMENTE DESPEJADO A LA DERECHA)
+    # 3. UDP-GLUCOSA (TEXTO TOTALMENTE DESPEJADO A LA DERECHA)
     # =========================================================================
     Y_UDPG = 690
-    # Desplazamos el bloque a x=220 y el texto a dx_texto=280 para dar 280px de aire limpio
     contenido_svg.append(crear_metabolito(
         x=220, y=Y_UDPG,
         nombre="UDP-Glucosa",
@@ -281,36 +282,62 @@ def main():
     ))
 
     # =========================================================================
-    # 4. EL CEBADOR MOLECULAR REAL: GLUCOGENINA CON CADENA (GLUCOSA)8
+    # 4. EL CEBADOR MOLECULAR REAL (GLUCOGENINA) + LUPA DE ZOOM MOLECULAR
     # =========================================================================
-    Y_CEBADOR = 855
+    Y_CEBADOR = 860
 
     contenido_svg.append(f"""
-    <!-- ESTRUCTURA MOLECULAR DEL CEBADOR DE GLUCOGENINA -->
-    <g transform="translate(180, {Y_CEBADOR})">
-      <!-- Estructura química dibujada -->
+    <!-- CEBADOR MOLECULAR DE GLUCOGENINA -->
+    <g transform="translate(140, {Y_CEBADOR})">
       {CEBADOR_GLUCOGENINA}
       
-      <!-- Textos descriptivos despejados a la derecha -->
+      <!-- Textos del cebador a la derecha -->
       <g transform="translate(370, 25)">
         <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Cebador: Glucogenina-(Glc)₈</text>
         <text x="0" y="18" fill="#b45309" font-size="11.5" font-weight="700">Dímero autoglucosilante (EC 2.4.1.186)</text>
         <text x="0" y="34" fill="#64748b" font-size="10.5">• Anclaje covalente en residuo Tyr-194</text>
-        <text x="0" y="48" fill="#ea580c" font-size="10.5" font-weight="700">• Extremo 4-OH libre: Sustrato aceptor</text>
-        <text x="0" y="63" fill="#64748b" font-size="10">Requerido: La Glucógeno Sintasa no puede iniciar de novo</text>
+        <text x="0" y="48" fill="#dc2626" font-size="10.5" font-weight="800">• Extremo 4-OH libre: Sustrato aceptor</text>
+        <text x="0" y="63" fill="#64748b" font-size="10">Requerido: Glucógeno Sintasa no inicia de novo</text>
       </g>
+    </g>
+
+    <!-- LÍNEAS DE PROYECCIÓN CÓNICA HACIA LA LUPA DE ZOOM MOLECULAR -->
+    <g stroke="#ea580c" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.65">
+      <line x1="435" y1="{Y_CEBADOR + 35}" x2="255" y2="{Y_CEBADOR + 180}"/>
+      <line x1="435" y1="{Y_CEBADOR + 15}" x2="160" y2="{Y_CEBADOR + 140}"/>
+    </g>
+
+    <!-- LUPA DE ZOOM MOLECULAR: ACOPLAMIENTO CATALÍTICO CEBADOR + SINTASA -->
+    <g transform="translate(180, {Y_CEBADOR + 210})">
+      {LUPA_MECANISMO_CEBADOR}
+    </g>
+
+    <!-- EXPLICACIÓN BIOQUÍMICA A LA DERECHA DE LA LUPA -->
+    <g transform="translate(340, {Y_CEBADOR + 175})">
+      <rect x="0" y="0" width="460" height="95" rx="8" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="16" y="22" fill="#1d4ed8" font-size="12" font-weight="900">MECANISMO DE ACOPLAMIENTO Y ELONGACIÓN</text>
+      <text x="16" y="40" fill="#0f172a" font-size="10.5" font-weight="600">
+        1. La <tspan font-weight="800" fill="#2563eb">Glucógeno Sintasa</tspan> abraza el extremo <tspan font-weight="800" fill="#dc2626">4-OH</tspan> de la cadena cebadora.
+      </text>
+      <text x="16" y="58" fill="#0f172a" font-size="10.5" font-weight="600">
+        2. El oxígeno ataca al <tspan font-weight="800" fill="#ea580c">C1</tspan> de la <tspan font-weight="800">UDP-Glucosa</tspan>, expulsando al grupo UDP.
+      </text>
+      <text x="16" y="76" fill="#059669" font-size="10.5" font-weight="800">
+        3. Se forma el nuevo enlace α(1→4) y la cadena se alarga un residuo a la vez.
+      </text>
     </g>
     """)
 
     # =========================================================================
     # REACCIÓN 3: GLUCÓGENO SINTASA (ELONGACIÓN LINEAL α-1,4)
     # =========================================================================
-    contenido_svg.append("""
+    Y_RX_SINTASA = Y_CEBADOR + 335
+
+    contenido_svg.append(f"""
     <!-- Reacción: Glucógeno Sintasa -->
-    <g transform="translate(385, 1020)">
+    <g transform="translate(385, {Y_RX_SINTASA})">
       <line x1="0" y1="0" x2="0" y2="65" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
 
-      <!-- Salida de UDP libre -->
       <path d="M -4 30 Q -25 42 -75 42" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
       <text x="-80" y="45" fill="#0284c7" font-size="11" font-weight="800" text-anchor="end">+ UDP libre</text>
       <text x="-80" y="58" fill="#64748b" font-size="9" text-anchor="end">(UDP + ATP ⇄ UTP + ADP)</text>
@@ -327,9 +354,11 @@ def main():
     # =========================================================================
     # REACCIÓN 4: ENZIMA RAMIFICADORA DEL GLUCÓGENO (AMILO α-1,4 ➔ α-1,6)
     # =========================================================================
-    contenido_svg.append("""
+    Y_RX_RAMIF = Y_RX_SINTASA + 95
+
+    contenido_svg.append(f"""
     <!-- Reacción: Enzima Ramificadora -->
-    <g transform="translate(385, 1170)">
+    <g transform="translate(385, {Y_RX_RAMIF})">
       <line x1="0" y1="0" x2="0" y2="55" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
 
       <g transform="translate(20, 14)">
@@ -344,7 +373,7 @@ def main():
     # =========================================================================
     # PRODUCTO FINAL: POLÍMERO DE GLUCÓGENO RAMIFICADO
     # =========================================================================
-    Y_GLUC = 1310
+    Y_GLUC = Y_RX_RAMIF + 85
 
     contenido_svg.append(f"""
     <!-- Polímero de Glucógeno Completo -->
@@ -357,26 +386,70 @@ def main():
         <text x="0" y="18" fill="#d97706" font-size="12" font-weight="800">Polisacárido de Reserva Energética</text>
         <text x="0" y="34" fill="#64748b" font-size="10.5">Enlaces principales: α(1→4) glicosídicos</text>
         <text x="0" y="48" fill="#b45309" font-size="10.5" font-weight="700">Puntos de ramificación: α(1→6) cada 8-12 glucosas</text>
-        <text x="0" y="63" fill="#64748b" font-size="10">Partícula esférica citoplasmática (Gránulos β en músculo e hígado)</text>
+        <text x="0" y="63" fill="#64748b" font-size="10">Hasta 55,000 unidades de glucosa por gránulo</text>
       </g>
     </g>
     """)
 
     # =========================================================================
-    # BALANCE ENERGÉTICO COMPACTO (DISCRETO Y ELEGANTE)
+    # EL GRÁNULO CITOSÓLICO DE INCLUSIÓN: BIOLOGÍA DE ALMACENAMIENTO Y EXPORTACIÓN
     # =========================================================================
-    contenido_svg.append("""
+    Y_GRANULO = Y_GLUC + 175
+
+    contenido_svg.append(f"""
+    <!-- SECCIÓN ANATÓMICA: EL GRÁNULO DE GLUCÓGENO EN EL CITOSOL -->
+    <g transform="translate(180, {Y_GRANULO})">
+      <rect x="0" y="0" width="680" height="155" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+      
+      <!-- Dibujo de la inclusión citoplasmática esférica -->
+      <g transform="translate(15, 12)">
+        {GRANULO_CITOSOLICO_INCLUSION}
+      </g>
+
+      <!-- Explicación fisiológica: por qué está en citosol y cómo sale -->
+      <g transform="translate(160, 22)">
+        <text x="0" y="0" fill="#92400e" font-size="12.5" font-weight="900">¿POR QUÉ FLOTA EN EL CITOSOL Y CÓMO SALE DE LA CÉLULA?</text>
+        
+        <text x="0" y="20" fill="#0f172a" font-size="10" font-weight="700">
+          • <tspan fill="#b45309">Orgánulo de Inclusión no membranoso:</tspan> En hígado y músculo, el glucógeno forma gránulos densos
+        </text>
+        <text x="12" y="34" fill="#475569" font-size="9.5">
+          inmóviles de 20 a 30 nm (rosetas β). Permite almacenar miles de glucosas sin alterar la presión osmótica celular.
+        </text>
+
+        <text x="0" y="52" fill="#0f172a" font-size="10" font-weight="700">
+          • <tspan fill="#dc2626">El glucógeno NUNCA sale como polímero:</tspan> Es insoluble y demasiado gigante para cruzar membranas.
+        </text>
+
+        <text x="0" y="70" fill="#0f172a" font-size="10" font-weight="700">
+          • <tspan fill="#059669">¿Cómo sale entonces? (Solo en el hígado):</tspan> La <tspan font-weight="800">Glucógeno Fosforilasa</tspan> lo degrada in situ
+        </text>
+        <text x="12" y="84" fill="#047857" font-size="9.5">
+          a G-1-P ➔ G-6-P ➔ la <tspan font-weight="800">Glucosa-6-Fosfatasa</tspan> (en REL) quita el fosfato y <tspan font-weight="800">solo la Glucosa libre</tspan> sale a la sangre por GLUT-2.
+        </text>
+        <text x="12" y="98" fill="#64748b" font-size="9">
+          (En el músculo, no hay G-6-Pasa: la glucosa se queda al 100% dentro para su propia contracción).
+        </text>
+      </g>
+    </g>
+    """)
+
+    # =========================================================================
+    # BALANCE ENERGÉTICO COMPACTO
+    # =========================================================================
+    Y_BALANCE = Y_GRANULO + 175
+
+    contenido_svg.append(f"""
     <!-- Balance Energético Compacto -->
-    <g transform="translate(260, 1620)">
-      <rect x="0" y="0" width="480" height="75" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+    <g transform="translate(260, {Y_BALANCE})">
+      <rect x="0" y="0" width="480" height="72" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
       <text x="16" y="20" fill="#0f172a" font-size="11" font-weight="900">BALANCE ENERGÉTICO NETO</text>
       <text x="16" y="38" fill="#475569" font-size="9.5" font-weight="600">
         Glucosa + 1 ATP + 1 UTP + Glucógeno(n) ➔ Glucógeno(n+1) + ADP + UDP + 2 Pᵢ
       </text>
       <text x="16" y="55" fill="#b91c1c" font-size="9" font-weight="700">
-        • Costo: 2 enlaces fosfato (~97% de eficiencia de almacenamiento)
+        • Costo: 2 enlaces fosfato de alta energía (~97% de eficiencia de almacenamiento)
       </text>
-      <!-- Retorno Glucogenolisis -->
       <g transform="translate(300, 20)">
         <text x="0" y="0" fill="#d97706" font-size="9" font-weight="800">⇄ Glucogenólisis:</text>
         <text x="0" y="16" fill="#64748b" font-size="8.5">Fosforilasa (+ Pᵢ) libera G-1-P</text>
@@ -391,7 +464,7 @@ def main():
     ruta_salida = os.path.join(os.path.dirname(__file__), "Glucogenesis.html")
     with open(ruta_salida, "w", encoding="utf-8") as f:
         f.write(html_final)
-    print(f"✅ Lámina de Glucogénesis actualizada con éxito en: {ruta_salida}")
+    print(f"✅ Lámina de Glucogénesis con Zoom y Gránulo Citosólico generada en: {ruta_salida}")
 
 if __name__ == "__main__":
     main()
