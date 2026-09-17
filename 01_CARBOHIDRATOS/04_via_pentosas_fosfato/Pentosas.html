@@ -89,15 +89,15 @@
       <circle cx="120" cy="1580" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
     </g>
 
-    <!-- Entrada lateral desde el eje glucolítico -->
-    <g transform="translate(60, 115)">
-      <path d="M 0 0 L 260 0" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
-      <text x="10" y="-10" fill="#c2410c" font-size="11" font-weight="800">← Entrada lateral desde Glucosa-6-P (Glucólisis)</text>
+    <!-- Entrada lateral rediseñada: termina con 60 px de aire antes de la G6P -->
+    <g transform="translate(60, 60)">
+      <path d="M 0 0 L 190 0 Q 230 0 250 25" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
+      <text x="5" y="-10" fill="#c2410c" font-size="11" font-weight="800">← Entrada lateral desde Glucosa-6-P (Glucólisis)</text>
     </g>
     
 
       <!-- Metabolito: Glucosa-6-Fosfato -->
-      <g transform="translate(340, 80)">
+      <g transform="translate(340, 90)">
         <g transform="translate(0, 0)">
           
   <!-- Anillo de piranosa (6 lados) -->
@@ -136,7 +136,7 @@
     
 
     <!-- Reacción: Glucosa-6-P Deshidrogenasa (G6PDH) -->
-    <g transform="translate(385, 190)">
+    <g transform="translate(385, 200)">
       <line x1="0" y1="0" x2="0" y2="46" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       
         <path d="M -75 8 Q -25 8 -4 18" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
@@ -153,7 +153,7 @@
     
 
       <!-- Metabolito: 6-Fosfoglucono-δ-Lactona -->
-      <g transform="translate(340, 275)">
+      <g transform="translate(340, 285)">
         <g transform="translate(0, 0)">
           
   <!-- Anillo de lactona de 6 vértices -->
@@ -194,7 +194,7 @@
     
 
     <!-- Reacción: 6-Fosfogluconolactonasa -->
-    <g transform="translate(385, 380)">
+    <g transform="translate(385, 390)">
       <line x1="0" y1="0" x2="0" y2="46" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       
         <path d="M -75 12 Q -25 12 -4 22" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
@@ -209,7 +209,7 @@
     
 
       <!-- Metabolito: 6-Fosfogluconato -->
-      <g transform="translate(340, 460)">
+      <g transform="translate(340, 470)">
         <g transform="translate(0, 0)">
           
   <!-- C1: Grupo Carboxilato COO- arriba -->
@@ -243,7 +243,7 @@
     
 
     <!-- Reacción: 6-Fosfogluconato Deshidrogenasa -->
-    <g transform="translate(385, 640)">
+    <g transform="translate(385, 650)">
       <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       
         <path d="M -75 8 Q -25 8 -4 18" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
@@ -263,7 +263,7 @@
     
 
       <!-- Metabolito: D-Ribulosa-5-Fosfato -->
-      <g transform="translate(340, 735)">
+      <g transform="translate(340, 745)">
         <g transform="translate(0, 0)">
           
   <!-- C1: CH2OH arriba -->
@@ -296,18 +296,20 @@
       </g>
     
 
-    <!-- Ramificación amplia de la Ribulosa-5-P -->
-    <g transform="translate(385, 895)">
+    <!-- Ramificación amplia de la Ribulosa-5-P (sin solapamiento de textos) -->
+    <g transform="translate(385, 905)">
       <!-- Rama Izquierda (Epimerasa -> Xilulosa-5-P) -->
       <path d="M -20 0 Q -110 30 -160 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(-160, 20)">
-        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800">Fosfopentosa Epimerasa</text>
-        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 5.1.3.1 (⇄)</text>
+      <!-- Texto de Epimerasa a la izquierda con text-anchor='end' para no pisar la curva -->
+      <g transform="translate(-175, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" text-anchor="end">Fosfopentosa Epimerasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="end">EC 5.1.3.1 (⇄)</text>
       </g>
 
       <!-- Rama Derecha (Isomerasa -> Ribosa-5-P) -->
       <path d="M 20 0 Q 110 30 180 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(130, 20)">
+      <!-- Texto de Isomerasa a la derecha sin pisar la curva -->
+      <g transform="translate(175, 25)">
         <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800">Fosfopentosa Isomerasa</text>
         <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 5.3.1.6 (⇄)</text>
       </g>
@@ -315,7 +317,7 @@
     
 
       <!-- Metabolito: D-Xilulosa-5-P -->
-      <g transform="translate(70, 980)">
+      <g transform="translate(70, 990)">
         <g transform="translate(150, 0)">
           
   <!-- C1: CH2OH arriba -->
@@ -348,7 +350,7 @@
     
 
       <!-- Metabolito: D-Ribosa-5-P -->
-      <g transform="translate(560, 980)">
+      <g transform="translate(560, 990)">
         <g transform="translate(0, 0)">
           
   <!-- Anillo furanosa de 5 lados (Pentosa aldosa cíclica) -->
@@ -383,22 +385,23 @@
       </g>
     
 
-    <!-- Salida destacada hacia Síntesis de Nucleótidos -->
-    <g transform="translate(730, 1085)">
-      <path d="M 0 0 L 0 45" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
-      <rect x="-85" y="50" width="170" height="36" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
-      <text x="0" y="66" fill="#6d28d9" font-size="11" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
-      <text x="0" y="80" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
+    <!-- Salida Lateral hacia Síntesis de Nucleótidos (a la derecha de Ribosa-5-P) -->
+    <g transform="translate(710, 1015)">
+      <path d="M 0 0 L 45 0" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+      <g transform="translate(55, -18)">
+        <rect x="0" y="0" width="180" height="38" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
+        <text x="90" y="16" fill="#6d28d9" font-size="10" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
+        <text x="90" y="29" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
+      </g>
     </g>
     
 
     <!-- Reacción de Transferencia: Transcetolasa (TK1) -->
-    <g transform="translate(385, 1110)">
-      <!-- Doble flecha reversible vertical -->
+    <g transform="translate(385, 1140)">
       <line x1="-3" y1="0" x2="-3" y2="45" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <line x1="3" y1="45" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
 
-      <g transform="translate(18, 12)">
+      <g transform="translate(18, 10)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Transcetolasa (TK1)</text>
         <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)</text>
         <text x="0" y="28" fill="#c2410c" font-size="10" font-weight="700">Xilulosa-5-P (5C) + Ribosa-5-P (5C) ⇄ GAP (3C) + Sedoheptulosa-7-P (7C)</text>
@@ -407,7 +410,7 @@
     
 
       <!-- Metabolito: Sedoheptulosa-7-P -->
-      <g transform="translate(70, 1185)">
+      <g transform="translate(70, 1220)">
         <g transform="translate(150, 0)">
           
   <text x="40" y="14" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HO-CH₂</text>
@@ -427,13 +430,13 @@
         <g transform="translate(130, 25)">
           <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" text-anchor="end">Sedoheptulosa-7-P</text>
           <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">7 Carbonos (Cetosa)</text>
-          <text x="0" y="34" fill="#64748b" font-size="11" text-anchor="end">Intermediario mayor de la vía</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" text-anchor="end">Intermediario de 7C</text>
         </g>
       </g>
     
 
       <!-- Metabolito: Gliceraldehído-3-P -->
-      <g transform="translate(560, 1185)">
+      <g transform="translate(560, 1220)">
         <g transform="translate(0, 0)">
           
   <!-- C1: HC=O -->
@@ -453,19 +456,18 @@
         </g>
         <g transform="translate(135, 25)">
           <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Gliceraldehído-3-P</text>
-          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Triosa aldosa)</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Triosa)</text>
           <text x="0" y="34" fill="#64748b" font-size="11" >Intermediario transferible</text>
         </g>
       </g>
     
 
     <!-- Reacción de Transferencia: Transaldolasa (TA) -->
-    <g transform="translate(385, 1340)">
-      <!-- Doble flecha reversible vertical -->
+    <g transform="translate(385, 1380)">
       <line x1="-3" y1="0" x2="-3" y2="45" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <line x1="3" y1="45" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
 
-      <g transform="translate(18, 12)">
+      <g transform="translate(18, 10)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Transaldolasa (TA)</text>
         <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.2.1.2 (Base de Schiff con Lisina)</text>
         <text x="0" y="28" fill="#c2410c" font-size="10" font-weight="700">Sedoheptulosa-7-P (7C) + GAP (3C) ⇄ Fructosa-6-P (6C) + Eritrosa-4-P (4C)</text>
@@ -474,7 +476,7 @@
     
 
       <!-- Metabolito: D-Eritrosa-4-P -->
-      <g transform="translate(70, 1420)">
+      <g transform="translate(70, 1460)">
         <g transform="translate(150, 0)">
           
   <!-- C1: Aldehído HC=O -->
@@ -495,14 +497,14 @@
         </g>
         <g transform="translate(130, 25)">
           <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" text-anchor="end">D-Eritrosa-4-P</text>
-          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">4 Carbonos (Tetrosa aldosa)</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">4 Carbonos (Tetrosa)</text>
           <text x="0" y="34" fill="#64748b" font-size="11" text-anchor="end">Aceptor para segunda transcetolasa</text>
         </g>
       </g>
     
 
       <!-- Metabolito: Fructosa-6-Fosfato -->
-      <g transform="translate(560, 1420)">
+      <g transform="translate(560, 1460)">
         <g transform="translate(0, 0)">
           
   <!-- Anillo furanosa de 5 lados -->
@@ -538,12 +540,11 @@
     
 
     <!-- Reacción de Transferencia: Transcetolasa (TK2) -->
-    <g transform="translate(385, 1580)">
-      <!-- Doble flecha reversible vertical -->
+    <g transform="translate(385, 1620)">
       <line x1="-3" y1="0" x2="-3" y2="45" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <line x1="3" y1="45" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
 
-      <g transform="translate(18, 12)">
+      <g transform="translate(18, 10)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Transcetolasa (TK2)</text>
         <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)</text>
         <text x="0" y="28" fill="#c2410c" font-size="10" font-weight="700">2ª Xilulosa-5-P (5C) + Eritrosa-4-P (4C) ⇄ Fructosa-6-P (6C) + GAP (3C)</text>
@@ -552,7 +553,7 @@
     
 
       <!-- Metabolito: Fructosa-6-Fosfato (2ª) -->
-      <g transform="translate(70, 1670)">
+      <g transform="translate(70, 1700)">
         <g transform="translate(150, 0)">
           
   <!-- Anillo furanosa de 5 lados -->
@@ -588,7 +589,7 @@
     
 
       <!-- Metabolito: Gliceraldehído-3-P -->
-      <g transform="translate(560, 1670)">
+      <g transform="translate(560, 1700)">
         <g transform="translate(0, 0)">
           
   <!-- C1: HC=O -->
@@ -608,14 +609,14 @@
         </g>
         <g transform="translate(135, 25)">
           <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Gliceraldehído-3-P</text>
-          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Triosa aldosa)</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Triosa)</text>
           <text x="0" y="34" fill="#64748b" font-size="11" >→ Reingreso al eje glucolítico</text>
         </g>
       </g>
     
 
     <!-- Banner de Balance y Cierre -->
-    <g transform="translate(385, 1860)">
+    <g transform="translate(385, 1890)">
       <rect x="-240" y="0" width="480" height="75" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.06))"/>
       <text x="0" y="24" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">BALANCE TOTAL DE LA FASE NO OXIDATIVA</text>
       <text x="0" y="42" fill="#ea580c" font-size="11" font-weight="900" text-anchor="middle">3 Pentosas (5C) ⇄ 2 Fructosa-6-P (6C) + 1 Gliceraldehído-3-P (3C)</text>
@@ -623,7 +624,7 @@
     </g>
 
     <!-- Flecha de reingreso hacia la izquierda -->
-    <g transform="translate(145, 1895)">
+    <g transform="translate(145, 1925)">
       <path d="M 0 0 L -80 0" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
       <text x="-90" y="-10" fill="#c2410c" font-size="10" font-weight="800" text-anchor="end">← Reingreso directo a Glucólisis</text>
     </g>

@@ -2,14 +2,11 @@
 """
 GENERADOR DE LA VÍA DE LAS PENTOSAS FOSFATO COMPLETA (SVG/HTML)
 ===============================================================
-Incluye:
-1. Fase Oxidativa (Irreversible): G6PDH (NADPH), Lactonasa, 6-Fosfogluconato DH (NADPH + CO2).
-2. Fase No Oxidativa TOTALMENTE DESARROLLADA con todas sus moléculas:
-   - Transcetolasa 1 (X5P + R5P ⇄ GAP + S7P)
-   - Transaldolasa (S7P + GAP ⇄ F6P + E4P)
-   - Transcetolasa 2 (X5P + E4P ⇄ F6P + GAP)
-   - Conexión a Síntesis de Nucleótidos desde Ribosa-5-P.
-   - Entorno biológico de Citosol (sin textos de carteles).
+Correcciones visuales aplicadas:
+1. Entrada lateral rediseñada con holgura: ya no toca el grupo fosfato de la G6P.
+2. Enzima Fosfopentosa Epimerasa recolocada para no montarse sobre la flecha curva.
+3. Caja morada de Síntesis de Nucleótidos reubicada lateralmente a la derecha de la Ribosa-5-P
+   (despejando totalmente la Transcetolasa 1).
 """
 
 import os
@@ -135,10 +132,10 @@ def generar_citosol_pentosas_svg(ancho=1000, alto=2150):
       <circle cx="120" cy="1580" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
     </g>
 
-    <!-- Entrada lateral desde el eje glucolítico -->
-    <g transform="translate(60, 115)">
-      <path d="M 0 0 L 260 0" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
-      <text x="10" y="-10" fill="#c2410c" font-size="11" font-weight="800">← Entrada lateral desde Glucosa-6-P (Glucólisis)</text>
+    <!-- Entrada lateral rediseñada: termina con 60 px de aire antes de la G6P -->
+    <g transform="translate(60, 60)">
+      <path d="M 0 0 L 190 0 Q 230 0 250 25" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
+      <text x="5" y="-10" fill="#c2410c" font-size="11" font-weight="800">← Entrada lateral desde Glucosa-6-P (Glucólisis)</text>
     </g>
     """
 
@@ -222,11 +219,10 @@ def crear_paso_no_oxidativo(x, y, enzima, ec, sustratos_txt, productos_txt):
     return f"""
     <!-- Reacción de Transferencia: {enzima} -->
     <g transform="translate({x}, {y})">
-      <!-- Doble flecha reversible vertical -->
       <line x1="-3" y1="0" x2="-3" y2="45" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
       <line x1="3" y1="45" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
 
-      <g transform="translate(18, 12)">
+      <g transform="translate(18, 10)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">{enzima}</text>
         <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">{ec}</text>
         <text x="0" y="28" fill="#c2410c" font-size="10" font-weight="700">{sustratos_txt} ⇄ {productos_txt}</text>
@@ -247,12 +243,12 @@ def main():
     contenido_svg.append(generar_citosol_pentosas_svg(ancho=1000, alto=2150))
 
     # =========================================================================
-    # FASE 1: FASE OXIDATIVA (DESAHOGADA, CERO AMONTONAMIENTO)
+    # FASE 1: FASE OXIDATIVA
     # =========================================================================
 
-    # 1. Glucosa-6-Fosfato
+    # 1. Glucosa-6-Fosfato (Despejada de la flecha de entrada)
     contenido_svg.append(crear_metabolito(
-        x=340, y=80,
+        x=340, y=90,
         nombre="Glucosa-6-Fosfato",
         carbonos="6 Carbonos (Hexosa)",
         detalle="Entrada al Shunt de Pentosas",
@@ -261,7 +257,7 @@ def main():
 
     # Reacción 1: G6PDH
     contenido_svg.append(crear_reaccion_oxidativa(
-        x=385, y=190,
+        x=385, y=200,
         enzima="Glucosa-6-P Deshidrogenasa (G6PDH)",
         ec="EC 1.1.1.49 (Paso Limitante Clave)",
         regulacion="⊣ NADPH | ⊕ NADP⁺, Insulina",
@@ -270,7 +266,7 @@ def main():
 
     # 2. 6-Fosfoglucono-δ-lactona
     contenido_svg.append(crear_metabolito(
-        x=340, y=275,
+        x=340, y=285,
         nombre="6-Fosfoglucono-δ-Lactona",
         carbonos="6 Carbonos (Lactona)",
         detalle="Éster intramolecular hidrolizable",
@@ -279,15 +275,15 @@ def main():
 
     # Reacción 2: Lactonasa (+ H2O)
     contenido_svg.append(crear_reaccion_oxidativa(
-        x=385, y=380,
+        x=385, y=390,
         enzima="6-Fosfogluconolactonasa",
         ec="EC 3.1.1.31 (Mg²⁺)",
         entra_agua=True
     ))
 
-    # 3. 6-Fosfogluconato (Cadena lineal de 135 px)
+    # 3. 6-Fosfogluconato (Cadena lineal de 135 px de altura)
     contenido_svg.append(crear_metabolito(
-        x=340, y=460,
+        x=340, y=470,
         nombre="6-Fosfogluconato",
         carbonos="6 Carbonos (Cadena lineal)",
         detalle="Ácido descarboxilable",
@@ -295,9 +291,9 @@ def main():
     ))
 
     # Reacción 3: 6-Fosfogluconato DH (Descarboxilación Oxidativa)
-    # Espaciado holgado: en y = 640 (45 px de aire limpio)
+    # Ubicada en y = 650 (50 px de aire libre con el fosfato de arriba)
     contenido_svg.append(crear_reaccion_oxidativa(
-        x=385, y=640,
+        x=385, y=650,
         enzima="6-Fosfogluconato Deshidrogenasa",
         ec="EC 1.1.1.44 (Descarboxilación)",
         genera_nadph=True,
@@ -306,7 +302,7 @@ def main():
 
     # 4. D-Ribulosa-5-Fosfato (Fin de la fase oxidativa)
     contenido_svg.append(crear_metabolito(
-        x=340, y=735,
+        x=340, y=745,
         nombre="D-Ribulosa-5-Fosfato",
         carbonos="5 Carbonos (Pentosa Cetosa)",
         detalle="Cruce a la fase no oxidativa",
@@ -315,23 +311,25 @@ def main():
 
 
     # =========================================================================
-    # FASE 2: FASE NO OXIDATIVA TOTALMENTE DESARROLLADA
+    # FASE 2: FASE NO OXIDATIVA
     # =========================================================================
 
-    # Ramificación amplia desde Ribulosa-5-P hacia los dos lados
+    # Ramificación amplia desde Ribulosa-5-P con textos despejados
     contenido_svg.append("""
-    <!-- Ramificación amplia de la Ribulosa-5-P -->
-    <g transform="translate(385, 895)">
+    <!-- Ramificación amplia de la Ribulosa-5-P (sin solapamiento de textos) -->
+    <g transform="translate(385, 905)">
       <!-- Rama Izquierda (Epimerasa -> Xilulosa-5-P) -->
       <path d="M -20 0 Q -110 30 -160 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(-160, 20)">
-        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800">Fosfopentosa Epimerasa</text>
-        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 5.1.3.1 (⇄)</text>
+      <!-- Texto de Epimerasa a la izquierda con text-anchor='end' para no pisar la curva -->
+      <g transform="translate(-175, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" text-anchor="end">Fosfopentosa Epimerasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="end">EC 5.1.3.1 (⇄)</text>
       </g>
 
       <!-- Rama Derecha (Isomerasa -> Ribosa-5-P) -->
       <path d="M 20 0 Q 110 30 180 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(130, 20)">
+      <!-- Texto de Isomerasa a la derecha sin pisar la curva -->
+      <g transform="translate(175, 25)">
         <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800">Fosfopentosa Isomerasa</text>
         <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 5.3.1.6 (⇄)</text>
       </g>
@@ -340,7 +338,7 @@ def main():
 
     # 5a. D-Xilulosa-5-Fosfato (A la izquierda)
     contenido_svg.append(crear_metabolito(
-        x=70, y=980,
+        x=70, y=990,
         nombre="D-Xilulosa-5-P",
         carbonos="5 Carbonos (Epímero C3)",
         detalle="Donador de 2C (TPP)",
@@ -350,29 +348,32 @@ def main():
 
     # 5b. D-Ribosa-5-Fosfato (A la derecha)
     contenido_svg.append(crear_metabolito(
-        x=560, y=980,
+        x=560, y=990,
         nombre="D-Ribosa-5-P",
         carbonos="5 Carbonos (Pentosa Aldosa)",
         detalle="Precursora de Nucleótidos",
         svg_estructura=RIBOSA_5_FOSFATO
     ))
 
-    # Salida lateral hacia Síntesis de Nucleótidos (ADN/ARN/ATP)
+    # SALIDA LATERAL DERECHA: SÍNTESIS DE NUCLEÓTIDOS (Completamente a la derecha, despejando la Transcetolasa)
     contenido_svg.append("""
-    <!-- Salida destacada hacia Síntesis de Nucleótidos -->
-    <g transform="translate(730, 1085)">
-      <path d="M 0 0 L 0 45" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
-      <rect x="-85" y="50" width="170" height="36" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
-      <text x="0" y="66" fill="#6d28d9" font-size="11" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
-      <text x="0" y="80" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
+    <!-- Salida Lateral hacia Síntesis de Nucleótidos (a la derecha de Ribosa-5-P) -->
+    <g transform="translate(710, 1015)">
+      <path d="M 0 0 L 45 0" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+      <g transform="translate(55, -18)">
+        <rect x="0" y="0" width="180" height="38" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
+        <text x="90" y="16" fill="#6d28d9" font-size="10" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
+        <text x="90" y="29" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
+      </g>
     </g>
     """)
 
     # -------------------------------------------------------------------------
     # PASO 1 NO OXIDATIVO: TRANSCETOLASA 1 (X5P + R5P ⇄ S7P + GAP)
+    # Totalmente libre y sin colisiones en Y = 1140
     # -------------------------------------------------------------------------
     contenido_svg.append(crear_paso_no_oxidativo(
-        x=385, y=1110,
+        x=385, y=1140,
         enzima="Transcetolasa (TK1)",
         ec="EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)",
         sustratos_txt="Xilulosa-5-P (5C) + Ribosa-5-P (5C)",
@@ -382,19 +383,19 @@ def main():
     # Productos del Paso 1:
     # Sedoheptulosa-7-P (7C) a la izquierda
     contenido_svg.append(crear_metabolito(
-        x=70, y=1185,
+        x=70, y=1220,
         nombre="Sedoheptulosa-7-P",
         carbonos="7 Carbonos (Cetosa)",
-        detalle="Intermediario mayor de la vía",
+        detalle="Intermediario de 7C",
         svg_estructura=SEDOHEPTULOSA_7_FOSFATO,
         texto_izquierda=True
     ))
 
     # Gliceraldehído-3-P (3C) a la derecha
     contenido_svg.append(crear_metabolito(
-        x=560, y=1185,
+        x=560, y=1220,
         nombre="Gliceraldehído-3-P",
-        carbonos="3 Carbonos (Triosa aldosa)",
+        carbonos="3 Carbonos (Triosa)",
         detalle="Intermediario transferible",
         svg_estructura=GLICERALDEHIDO_3_FOSFATO
     ))
@@ -403,7 +404,7 @@ def main():
     # PASO 2 NO OXIDATIVO: TRANSALDOLASA (S7P + GAP ⇄ F6P + E4P)
     # -------------------------------------------------------------------------
     contenido_svg.append(crear_paso_no_oxidativo(
-        x=385, y=1340,
+        x=385, y=1380,
         enzima="Transaldolasa (TA)",
         ec="EC 2.2.1.2 (Base de Schiff con Lisina)",
         sustratos_txt="Sedoheptulosa-7-P (7C) + GAP (3C)",
@@ -411,19 +412,19 @@ def main():
     ))
 
     # Productos del Paso 2:
-    # Eritrosa-4-P (4C) a la izquierda (queda lista para la Transcetolasa 2)
+    # Eritrosa-4-P (4C) a la izquierda
     contenido_svg.append(crear_metabolito(
-        x=70, y=1420,
+        x=70, y=1460,
         nombre="D-Eritrosa-4-P",
-        carbonos="4 Carbonos (Tetrosa aldosa)",
+        carbonos="4 Carbonos (Tetrosa)",
         detalle="Aceptor para segunda transcetolasa",
         svg_estructura=ERITROSA_4_FOSFATO,
         texto_izquierda=True
     ))
 
-    # Fructosa-6-P (6C) a la derecha (¡Primer producto que reingresa a Glucólisis!)
+    # Fructosa-6-P (6C) a la derecha (¡Primer reingreso a Glucólisis!)
     contenido_svg.append(crear_metabolito(
-        x=560, y=1420,
+        x=560, y=1460,
         nombre="Fructosa-6-Fosfato",
         carbonos="6 Carbonos (Furanosa)",
         detalle="→ Reingreso al eje glucolítico",
@@ -434,7 +435,7 @@ def main():
     # PASO 3 NO OXIDATIVO: TRANSCETOLASA 2 (X5P + E4P ⇄ F6P + GAP)
     # -------------------------------------------------------------------------
     contenido_svg.append(crear_paso_no_oxidativo(
-        x=385, y=1580,
+        x=385, y=1620,
         enzima="Transcetolasa (TK2)",
         ec="EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)",
         sustratos_txt="2ª Xilulosa-5-P (5C) + Eritrosa-4-P (4C)",
@@ -444,7 +445,7 @@ def main():
     # Productos finales del Paso 3 (Reingreso total a Glucólisis):
     # Segunda Fructosa-6-P a la izquierda
     contenido_svg.append(crear_metabolito(
-        x=70, y=1670,
+        x=70, y=1700,
         nombre="Fructosa-6-Fosfato (2ª)",
         carbonos="6 Carbonos (Furanosa)",
         detalle="→ Reingreso al eje glucolítico",
@@ -454,9 +455,9 @@ def main():
 
     # Gliceraldehído-3-P (3C) a la derecha
     contenido_svg.append(crear_metabolito(
-        x=560, y=1670,
+        x=560, y=1700,
         nombre="Gliceraldehído-3-P",
-        carbonos="3 Carbonos (Triosa aldosa)",
+        carbonos="3 Carbonos (Triosa)",
         detalle="→ Reingreso al eje glucolítico",
         svg_estructura=GLICERALDEHIDO_3_FOSFATO
     ))
@@ -466,7 +467,7 @@ def main():
     # -------------------------------------------------------------------------
     contenido_svg.append("""
     <!-- Banner de Balance y Cierre -->
-    <g transform="translate(385, 1860)">
+    <g transform="translate(385, 1890)">
       <rect x="-240" y="0" width="480" height="75" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.06))"/>
       <text x="0" y="24" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">BALANCE TOTAL DE LA FASE NO OXIDATIVA</text>
       <text x="0" y="42" fill="#ea580c" font-size="11" font-weight="900" text-anchor="middle">3 Pentosas (5C) ⇄ 2 Fructosa-6-P (6C) + 1 Gliceraldehído-3-P (3C)</text>
@@ -474,7 +475,7 @@ def main():
     </g>
 
     <!-- Flecha de reingreso hacia la izquierda -->
-    <g transform="translate(145, 1895)">
+    <g transform="translate(145, 1925)">
       <path d="M 0 0 L -80 0" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
       <text x="-90" y="-10" fill="#c2410c" font-size="10" font-weight="800" text-anchor="end">← Reingreso directo a Glucólisis</text>
     </g>
@@ -488,7 +489,7 @@ def main():
     with open(ruta_salida, "w", encoding="utf-8") as archivo:
         archivo.write(html_final)
 
-    print(f"✅ ¡Vía de las Pentosas Fosfato completa y desarrollada en: {ruta_salida}!")
+    print(f"✅ ¡Vía de las Pentosas Fosfato con colisiones corregidas en: {ruta_salida}!")
 
 
 if __name__ == "__main__":
