@@ -200,3 +200,73 @@ SEDOHEPTULOSA_7_FOSFATO = """
   <circle cx="40" cy="112" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="116" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 """
+
+
+# =============================================================================
+# 8. D-ERITROSA-4-FOSFATO (E4P) - Aldosa de 4 carbonos (Aceptor en Transcetolasa 2)
+# =============================================================================
+ERITROSA_4_FOSFATO = """
+  <!-- C1: Aldehído HC=O -->
+  <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
+  <line x1="40" y1="20" x2="40" y2="34" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2 y C3: (CHOH)2 -->
+  <text x="40" y="46" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="50" x2="40" y2="62" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="74" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="78" x2="40" y2="90" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C4: CH2-O-P -->
+  <text x="40" y="100" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <circle cx="40" cy="120" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="124" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+"""
+
+
+# =============================================================================
+# 9. GLICERALDEHÍDO-3-FOSFATO (GAP) - Triosa aldosa (3C)
+# =============================================================================
+GLICERALDEHIDO_3_FOSFATO = """
+  <!-- C1: HC=O -->
+  <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
+  <line x1="40" y1="20" x2="40" y2="38" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: H-C-OH -->
+  <text x="40" y="48" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="53" x2="40" y2="70" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C3: CH2-O-P -->
+  <text x="40" y="80" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <line x1="40" y1="84" x2="40" y2="94" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="40" cy="106" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="110" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+"""
+
+
+# =============================================================================
+# 10. FRUCTOSA-6-FOSFATO (F6P) - Furanosa (6C), producto que retorna a Glucólisis
+# =============================================================================
+FRUCTOSA_6_FOSFATO = """
+  <!-- Anillo furanosa de 5 lados -->
+  <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno superior -->
+  <circle cx="35" cy="18" r="7" fill="#ffffff"/>
+  <text x="35" y="22" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- C1 (derecha): CH2OH libre -->
+  <line x1="68" y1="38" x2="88" y2="24" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="94" y="22" fill="#0f172a" font-size="10" font-weight="800">CH₂OH</text>
+
+  <!-- C6 (izquierda): Fosfato -->
+  <line x1="2" y1="38" x2="-10" y2="18" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="-16" cy="6" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="10" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+  <!-- C3 y C4 con -OH abajo -->
+  <line x1="52" y1="68" x2="52" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="18" y1="68" x2="18" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
+"""
