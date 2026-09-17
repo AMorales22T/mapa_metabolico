@@ -348,32 +348,35 @@ def main():
 
     # 5b. D-Ribosa-5-Fosfato (A la derecha)
     contenido_svg.append(crear_metabolito(
-        x=560, y=990,
+        x=560, y=980,
         nombre="D-Ribosa-5-P",
         carbonos="5 Carbonos (Pentosa Aldosa)",
         detalle="Precursora de Nucleótidos",
         svg_estructura=RIBOSA_5_FOSFATO
     ))
 
-    # SALIDA LATERAL DERECHA: SÍNTESIS DE NUCLEÓTIDOS (Completamente a la derecha, despejando la Transcetolasa)
+    # SALIDA HACIA SÍNTESIS DE NUCLEÓTIDOS: Bajada vertical limpia debajo de Ribosa-5-P
     contenido_svg.append("""
-    <!-- Salida Lateral hacia Síntesis de Nucleótidos (a la derecha de Ribosa-5-P) -->
-    <g transform="translate(710, 1015)">
-      <path d="M 0 0 L 45 0" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
-      <g transform="translate(55, -18)">
-        <rect x="0" y="0" width="180" height="38" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
-        <text x="90" y="16" fill="#6d28d9" font-size="10" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
-        <text x="90" y="29" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
+    <!-- Salida hacia Síntesis de Nucleótidos (Despejada de Ribosa-5-P y de Transcetolasa) -->
+    <g transform="translate(730, 1035)">
+      <!-- Flecha vertical púrpura que desciende hacia la caja -->
+      <line x1="0" y1="0" x2="0" y2="35" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+      
+      <!-- Caja elegante de Nucleótidos -->
+      <g transform="translate(0, 42)">
+        <rect x="-95" y="0" width="190" height="38" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(124,58,237,0.1))"/>
+        <text x="0" y="16" fill="#6d28d9" font-size="10" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
+        <text x="0" y="29" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
       </g>
     </g>
     """)
 
     # -------------------------------------------------------------------------
     # PASO 1 NO OXIDATIVO: TRANSCETOLASA 1 (X5P + R5P ⇄ S7P + GAP)
-    # Totalmente libre y sin colisiones en Y = 1140
+    # Ubicada en Y = 1170 (con 60 px de aire libre debajo de la caja morada)
     # -------------------------------------------------------------------------
     contenido_svg.append(crear_paso_no_oxidativo(
-        x=385, y=1140,
+        x=385, y=1170,
         enzima="Transcetolasa (TK1)",
         ec="EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)",
         sustratos_txt="Xilulosa-5-P (5C) + Ribosa-5-P (5C)",
@@ -383,7 +386,7 @@ def main():
     # Productos del Paso 1:
     # Sedoheptulosa-7-P (7C) a la izquierda
     contenido_svg.append(crear_metabolito(
-        x=70, y=1220,
+        x=70, y=1250,
         nombre="Sedoheptulosa-7-P",
         carbonos="7 Carbonos (Cetosa)",
         detalle="Intermediario de 7C",
@@ -393,7 +396,7 @@ def main():
 
     # Gliceraldehído-3-P (3C) a la derecha
     contenido_svg.append(crear_metabolito(
-        x=560, y=1220,
+        x=560, y=1250,
         nombre="Gliceraldehído-3-P",
         carbonos="3 Carbonos (Triosa)",
         detalle="Intermediario transferible",
@@ -404,7 +407,7 @@ def main():
     # PASO 2 NO OXIDATIVO: TRANSALDOLASA (S7P + GAP ⇄ F6P + E4P)
     # -------------------------------------------------------------------------
     contenido_svg.append(crear_paso_no_oxidativo(
-        x=385, y=1380,
+        x=385, y=1400,
         enzima="Transaldolasa (TA)",
         ec="EC 2.2.1.2 (Base de Schiff con Lisina)",
         sustratos_txt="Sedoheptulosa-7-P (7C) + GAP (3C)",
@@ -414,7 +417,7 @@ def main():
     # Productos del Paso 2:
     # Eritrosa-4-P (4C) a la izquierda
     contenido_svg.append(crear_metabolito(
-        x=70, y=1460,
+        x=70, y=1480,
         nombre="D-Eritrosa-4-P",
         carbonos="4 Carbonos (Tetrosa)",
         detalle="Aceptor para segunda transcetolasa",
@@ -424,7 +427,7 @@ def main():
 
     # Fructosa-6-P (6C) a la derecha (¡Primer reingreso a Glucólisis!)
     contenido_svg.append(crear_metabolito(
-        x=560, y=1460,
+        x=560, y=1480,
         nombre="Fructosa-6-Fosfato",
         carbonos="6 Carbonos (Furanosa)",
         detalle="→ Reingreso al eje glucolítico",
