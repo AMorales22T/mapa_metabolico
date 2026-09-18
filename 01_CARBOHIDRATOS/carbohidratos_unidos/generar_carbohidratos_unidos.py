@@ -40,8 +40,85 @@ from estructuras_glucogeno import (
     LUPA_MECANISMO_CEBADOR, CADENA_GLUCOGENO, GRANULO_CITOSOLICO_INCLUSION
 )
 
-ANCHO_CANVAS = 3400
-ALTO_CANVAS = 2600
+# Lienzo horizontal para cartulina: deja tres corredores legibles y una base
+# mitocondrial amplia, sin cambiar las proporciones de las rutas individuales.
+ANCHO_CANVAS = 3600
+ALTO_CANVAS = 2940
+
+# ============================================================================
+# CONTRATO DE LAYOUT DEL MAPA UNIFICADO
+# ============================================================================
+# Estas reglas sólo afectan a este mapa integrado. Las rutas individuales
+# siguen siendo sus propias composiciones y no se modifican.
+MODO_BOCETO = False
+
+BANDAS = {
+    # (y_inicial, y_final): el eje Y depende del compartimento celular.
+    "extracelular": (0, 140),
+    "citosol": (140, 2380),
+    "matriz_mitocondrial": (2380, ALTO_CANVAS),
+}
+
+CARRILES_CITOSOL = {
+    # Cada ruta conserva este intervalo X de principio a fin.
+    "glucogenesis_glucogenolisis": (100, 1050),
+    "glucolisis_gluconeogenesis": (1150, 2050),
+    "pentosas_fosfato": (2350, 3500),
+    # Espacio reservado para futuras rutas citosólicas.
+    "reserva_citosolica": (2050, 2350),
+}
+
+CARRILES_MITOCONDRIA = {
+    "entrada_piruvato_pdh": (500, 2050),
+    "ciclo_krebs": (1650, 2800),
+    "reserva_matriz": (2650, 3350),
+}
+
+# Nodos de unión: se registran una vez y las rutas futuras deben apuntar aquí.
+# La estructura molecular completa se dibuja sólo en el nodo maestro; las
+# conexiones secundarias serán flechas, no copias de la molécula.
+NODOS_UNION = {
+    "glucosa_6_fosfato": {
+        "x": 1520, "y": 375, "banda": "citosol",
+        "carril": "glucolisis_gluconeogenesis",
+    },
+    "piruvato": {
+        "x": 1520, "y": 2180, "banda": "citosol",
+        "carril": "glucolisis_gluconeogenesis",
+    },
+    "acetil_coa": {
+        "x": 2500, "y": 2650, "banda": "matriz_mitocondrial",
+        "carril": "ciclo_krebs",
+    },
+}
+
+
+def validar_contrato_layout():
+    """Falla pronto si un nodo compartido se sale de su banda o carril."""
+    for nombre, nodo in NODOS_UNION.items():
+        y_min, y_max = BANDAS[nodo["banda"]]
+        if not y_min <= nodo["y"] <= y_max:
+            raise ValueError(f"Nodo {nombre} fuera de su banda: y={nodo['y']}")
+
+        carriles = CARRILES_CITOSOL if nodo["banda"] == "citosol" else CARRILES_MITOCONDRIA
+        x_min, x_max = carriles[nodo["carril"]]
+        if not x_min <= nodo["x"] <= x_max:
+            raise ValueError(f"Nodo {nombre} fuera de su carril: x={nodo['x']}")
+
+
+def punto_nodo(nombre):
+    """Devuelve el punto maestro para que una ruta futura pueda conectarse."""
+    try:
+        nodo = NODOS_UNION[nombre]
+    except KeyError as exc:
+        raise KeyError(f"Nodo de unión no registrado: {nombre}") from exc
+    return nodo["x"], nodo["y"]
+
+
+def flecha_a_nodo(nombre, x_origen, y_origen, color="#059669", dash="9 5"):
+    """Genera una conexión secundaria hacia un nodo ya existente."""
+    x_destino, y_destino = punto_nodo(nombre)
+    return f'<path d="M {x_origen} {y_origen} L {x_destino} {y_destino}" fill="none" stroke="{color}" stroke-width="2.8" stroke-dasharray="{dash}" marker-end="url(#arrowGreen)"/>'
 
 CABECERA_HTML = f"""<!DOCTYPE html>
 <html lang="es">
@@ -101,12 +178,18 @@ CABECERA_HTML = f"""<!DOCTYPE html>
 
         <!-- Gradientes celulares -->
         <linearGradient id="gradCitosolUnificado" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
-          <stop offset="5%" stop-color="#f8fafc" stop-opacity="0.9" />
-          <stop offset="50%" stop-color="#f0fdf4" stop-opacity="0.25" />
-          <stop offset="85%" stop-color="#f8fafc" stop-opacity="0.9" />
-          <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
+          <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+          <stop offset="5%" stop-color="#f0fdf4" stop-opacity="0.8" />
+          <stop offset="50%" stop-color="#f8fafc" stop-opacity="0.5" />
+          <stop offset="90%" stop-color="#f0fdf4" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#f8fafc" stop-opacity="1" />
         </linearGradient>
+
+        <radialGradient id="haloCitosolUnificado" cx="50%" cy="48%" r="72%">
+          <stop offset="0%" stop-color="#bbf7d0" stop-opacity="0.14" />
+          <stop offset="55%" stop-color="#dcfce7" stop-opacity="0.07" />
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+        </radialGradient>
 
         <radialGradient id="gradMitocondria" cx="50%" cy="100%" r="90%">
           <stop offset="0%" stop-color="#fef3c7" stop-opacity="1" />
@@ -130,28 +213,48 @@ def generar_entorno_celular_continuo(ancho, alto):
     <!-- Fondo Citoplasmático Acuoso -->
     <rect width="{ancho}" height="{alto}" fill="url(#gradCitosolUnificado)"/>
 
+    <!-- El citosol se percibe como un medio acuoso, no como una caja cerrada. -->
+    <ellipse cx="{ancho/2}" cy="1280" rx="{ancho*0.47}" ry="1090" fill="url(#haloCitosolUnificado)"/>
+    <g transform="translate(155, 215)" opacity="0.88">
+      <text x="0" y="0" fill="#166534" font-size="18" font-weight="900" letter-spacing="2.2">CITOSOL</text>
+      <path d="M 0 12 Q 130 25 280 12" fill="none" stroke="#4ade80" stroke-width="2"/>
+      <text x="0" y="34" fill="#15803d" font-size="11.5" font-weight="700">Medio acuoso celular: las rutas se cruzan, se ramifican y regresan aquí</text>
+    </g>
+
+    <!-- Ondulaciones de flujo citosólico: dan profundidad sin encerrar las rutas -->
+    <g fill="none" stroke="#86efac" opacity="0.22">
+      <path d="M 80 520 Q 720 450 1320 540 T 2500 520 T 3520 560" stroke-width="3" stroke-dasharray="18 14"/>
+      <path d="M 80 920 Q 650 1010 1240 900 T 2500 940 T 3520 880" stroke-width="2" stroke-dasharray="12 16"/>
+      <path d="M 80 1800 Q 720 1710 1350 1810 T 2500 1780 T 3520 1840" stroke-width="2.5" stroke-dasharray="20 18"/>
+    </g>
+
+    <!-- Polirribosomas flotantes: textura celular tomada del diseño de Glucólisis -->
+    <g fill="#64748b" opacity="0.23">
+      <g transform="translate(140, 410)"><circle cx="0" cy="0" r="4"/><circle cx="11" cy="3" r="3"/><circle cx="18" cy="11" r="3.5"/><circle cx="8" cy="16" r="3"/><circle cx="-3" cy="12" r="3.5"/></g>
+      <g transform="translate(3330, 470)"><circle cx="0" cy="0" r="4"/><circle cx="11" cy="3" r="3"/><circle cx="18" cy="11" r="3.5"/><circle cx="8" cy="16" r="3"/><circle cx="-3" cy="12" r="3.5"/></g>
+      <g transform="translate(1160, 1480)"><circle cx="0" cy="0" r="4"/><circle cx="11" cy="3" r="3"/><circle cx="18" cy="11" r="3.5"/><circle cx="8" cy="16" r="3"/><circle cx="-3" cy="12" r="3.5"/></g>
+      <g transform="translate(2250, 1970)"><circle cx="0" cy="0" r="4"/><circle cx="11" cy="3" r="3"/><circle cx="18" cy="11" r="3.5"/><circle cx="8" cy="16" r="3"/><circle cx="-3" cy="12" r="3.5"/></g>
+    </g>
+
     <!-- ============================================================= -->
     <!-- MEMBRANA PLASMÁTICA CONTINUA (CRUZA TODO EL CITOSOL ARRIBA)   -->
     <!-- ============================================================= -->
     <!-- Espacio Extracelular / Sangre -->
-    <path d="M 0 0 L {ancho} 0 L {ancho} 80 Q {ancho*0.5} 92 0 80 Z" fill="#f1f5f9"/>
-    <line x1="0" y1="80" x2="{ancho}" y2="80" stroke="#cbd5e1" stroke-width="2.5"/>
-    <text x="{ancho/2}" y="38" font-family="'Inter', sans-serif" font-size="15" font-weight="900" fill="#475569" text-anchor="middle" letter-spacing="3">
-      ESPACIO EXTRACELULAR (TORRENTE SANGUÍNEO • LÍQUIDO INTERSTICIAL • [GLUCOSA] ≈ 5 mM)
+    <path d="M 0 0 L {ancho} 0 L {ancho} 60 Q {ancho*0.5} 86 0 60 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="35" y="32" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#64748b" letter-spacing="1.5">
+      ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)
     </text>
 
-    <!-- Bicapa Fosfolipídica Continua (y = 80 a 140) -->
-    <!-- Hoja Externa -->
-    <rect x="0" y="80" width="{ancho}" height="28" fill="#e2e8f0" opacity="0.6"/>
-    <!-- Colas Hidrofóbicas -->
-    <rect x="0" y="94" width="{ancho}" height="26" fill="#f8fafc" opacity="0.9"/>
-    <!-- Hoja Interna (Citosólica) -->
-    <rect x="0" y="120" width="{ancho}" height="20" fill="#e2e8f0" opacity="0.6"/>
-    <line x1="0" y1="140" x2="{ancho}" y2="140" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 4"/>
+    <!-- Bicapa fosfolipídica ondulada, como en 01_glucolisis -->
+    <path d="M 0 60 Q {ancho*0.25} 88 {ancho*0.5} 60 T {ancho} 60" fill="none" stroke="#0284c7" stroke-width="9" stroke-linecap="round"/>
+    <path d="M 0 69 Q {ancho*0.25} 97 {ancho*0.5} 69 T {ancho} 69" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
 
-    <!-- Cabezas polares fosfolípidos vectoriales a lo largo de la membrana -->
-    <g fill="#0284c7" opacity="0.75">
-      {' '.join([f'<circle cx="{i}" cy="{84 + (i%4)}" r="3"/><circle cx="{i}" cy="{96 + (i%4)}" r="3"/>' for i in range(25, ancho, 30)])}
+    <!-- Cabezas polares decorativas siguiendo la onda -->
+    <g fill="#0284c7" opacity="0.65">
+      <circle cx="120" cy="64" r="3"/><circle cx="135" cy="66" r="3"/><circle cx="150" cy="68" r="3"/>
+      <circle cx="860" cy="71" r="3"/><circle cx="875" cy="70" r="3"/><circle cx="890" cy="68" r="3"/>
+      <circle cx="2700" cy="69" r="3"/><circle cx="2715" cy="67" r="3"/><circle cx="2730" cy="65" r="3"/>
+      <circle cx="3370" cy="64" r="3"/><circle cx="3385" cy="63" r="3"/><circle cx="3400" cy="62" r="3"/>
     </g>
 
     <!-- ============================================================= -->
@@ -239,78 +342,95 @@ def generar_mitocondria_biologica(x_inicio=1020, ancho_mito=2350, y_base=2220):
     Genera la mitocondria biológica completa en la base, amplia y detallada
     con doble membrana, crestas invaginadas, MPC y acople con PDH y Krebs.
     """
+    x_piruvato_global, _ = punto_nodo("piruvato")
+    x_acetil_global, y_acetil_global = punto_nodo("acetil_coa")
+    x_piruvato_local = x_piruvato_global - x_inicio
+    x_acetil_local = x_acetil_global - x_inicio
+    y_acetil_local = y_acetil_global - y_base
+
     return f"""
     <!-- ================================================================= -->
-    <!-- MITOCONDRIA BIOLÓGICA REAL (BASE AMPLIA Y PROFUNDA)               -->
+    <!-- MITOCONDRIA: ORGANELO CONECTADO Y ABIERTO A FUTURAS RUTAS          -->
     <!-- ================================================================= -->
     <g id="mitocondria-organelo" transform="translate({x_inicio}, {y_base})">
-      <!-- Membrana Mitocondrial Externa Lisa (MME - Ámbar Cálido) -->
-      <path d="M 0 55 C 350 10, 800 15, 1250 40 C 1700 65, 2050 20, {ancho_mito} 45 L {ancho_mito} 360 L 0 360 Z" 
-            fill="url(#gradMitocondria)" stroke="#b45309" stroke-width="4"/>
-      
-      <!-- Espacio Intermembrana (EIM - Compartimento de acumulación de H⁺) -->
-      <path d="M 0 72 C 350 27, 800 32, 1250 57 C 1700 82, 2050 37, {ancho_mito} 62" 
-            fill="none" stroke="#78350f" stroke-width="2.5" stroke-dasharray="7 4"/>
+      <!-- Membrana externa: forma arriñonada, ya no una franja flotante -->
+      <path d="M -485 235 C -455 105, -220 28, 75 78 C 360 18, 650 36, 910 70
+               C 1190 20, 1470 48, 1670 78 C 1970 30, 2250 68, 2310 170
+               C 2365 270, 2270 414, 2050 468 C 1690 520, 1330 465, 1010 488
+               C 650 515, 220 520, -120 470 C -390 430, -540 350, -485 235 Z"
+            fill="url(#gradMitocondria)" stroke="#92400e" stroke-width="6"/>
 
-      <!-- Crestas Mitocondriales Reales (Invaginaciones profundas de la MMI) -->
-      <!-- Cresta Izquierda (Zona 1) -->
-      <path d="M 80 140 C 160 80, 200 170, 300 110 C 370 170, 310 220, 160 200 Z" 
-            fill="#fef3c7" stroke="#b45309" stroke-width="2.8" opacity="0.9"/>
-      <!-- Cresta Central-Izquierda (Zona 2) -->
-      <path d="M 380 160 C 450 110, 520 180, 600 130 C 670 180, 620 230, 480 210 Z" 
-            fill="#fef3c7" stroke="#b45309" stroke-width="2.8" opacity="0.9"/>
-      <!-- Cresta Central-Derecha (Zona 3) -->
-      <path d="M 820 150 C 920 90, 980 170, 1080 120 C 1160 170, 1100 220, 950 205 Z" 
-            fill="#fef3c7" stroke="#b45309" stroke-width="2.8" opacity="0.9"/>
-      <!-- Cresta Derecha Grande (Zona 4) -->
-      <path d="M 1400 140 C 1520 80, 1600 160, 1720 110 C 1820 160, 1760 220, 1550 200 Z" 
-            fill="#fef3c7" stroke="#b45309" stroke-width="2.8" opacity="0.9"/>
-      <!-- Cresta Extremo Derecho (Zona 5) -->
-      <path d="M 1950 130 C 2050 80, 2120 160, 2220 110 C 2300 160, 2250 220, 2080 205 Z" 
-            fill="#fef3c7" stroke="#b45309" stroke-width="2.8" opacity="0.9"/>
+      <!-- Espacio intermembrana: doble contorno reconocible -->
+      <path d="M -420 245 C -380 145, -190 82, 80 112 C 360 62, 650 78, 900 108
+               C 1190 68, 1460 88, 1640 110 C 1930 72, 2170 98, 2255 180
+               C 2300 260, 2200 365, 2020 415 C 1680 458, 1320 410, 1000 432
+               C 650 458, 270 470, -100 420 C -350 385, -475 330, -420 245 Z"
+            fill="#fffbeb" fill-opacity="0.55" stroke="#b45309" stroke-width="3" stroke-dasharray="10 6"/>
 
-      <!-- Transportador MPC (Complejo Carrier de Piruvato) incrustado en la membrana -->
-      <g transform="translate(530, 22)">
-        <rect x="0" y="0" width="60" height="32" rx="8" fill="#b45309" stroke="#78350f" stroke-width="2.2"/>
-        <text x="30" y="21" fill="#ffffff" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MPC</text>
+      <!-- Matriz mitocondrial: gran espacio interno para futuras rutas -->
+      <path d="M -350 260 C -250 170, -60 145, 145 168 C 350 118, 560 150, 710 165
+               C 960 120, 1210 145, 1430 170 C 1700 130, 1970 155, 2110 215
+               C 2160 280, 2070 335, 1900 360 C 1600 395, 1300 350, 1010 375
+               C 700 395, 360 410, 80 365 C -120 350, -400 330, -350 260 Z"
+            fill="#fef3c7" fill-opacity="0.52" stroke="#d97706" stroke-width="3"/>
+
+      <!-- Crestas internas onduladas, dejando corredores libres entre ellas -->
+      <g fill="none" stroke="#b45309" stroke-width="5" stroke-linecap="round" opacity="0.72">
+        <path d="M -300 275 C -210 205, -135 315, -45 238 C 35 180, 100 290, 180 225"/>
+        <path d="M 215 315 C 300 240, 370 350, 455 275 C 525 220, 590 325, 665 260"/>
+        <path d="M 300 245 C 390 180, 465 300, 555 225 C 635 170, 700 300, 790 235"/>
+        <path d="M 915 290 C 1010 215, 1080 330, 1175 250 C 1260 190, 1335 315, 1420 245"/>
+        <path d="M 1535 295 C 1630 220, 1700 330, 1790 255 C 1865 205, 1930 300, 2000 250"/>
+      </g>
+      <g fill="#fef9c3" stroke="#d97706" stroke-width="2" opacity="0.82">
+        <ellipse cx="430" cy="275" rx="82" ry="27"/>
+        <ellipse cx="1045" cy="300" rx="92" ry="28"/>
+        <ellipse cx="1660" cy="300" rx="90" ry="27"/>
       </g>
 
-      <!-- Flecha vertical de translocación del Piruvato cruzando el MPC -->
-      <line x1="560" y1="-8" x2="560" y2="70" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
+      <!-- Título integrado en el propio orgánulo -->
+      <text x="1280" y="145" fill="#78350f" font-size="22" font-weight="900" letter-spacing="1.4">MATRIZ MITOCONDRIAL</text>
+      <text x="1280" y="169" fill="#92400e" font-size="12" font-weight="700">Conversión del piruvato y oxidación aeróbica</text>
 
-      <!-- Rótulo de Transportador MPC -->
-      <g transform="translate(605, 38)">
-        <text x="0" y="0" fill="#78350f" font-size="12" font-weight="900">Transportador Mitocondrial de Piruvato (MPC-1 / MPC-2)</text>
-        <text x="0" y="14" fill="#92400e" font-size="10.5" font-weight="700">Simporte H⁺ / Piruvato a través de la Membrana Mitocondrial Interna</text>
+      <!-- MPC en el punto de contacto con el piruvato -->
+      <g transform="translate(530, 78)">
+        <rect x="0" y="0" width="66" height="38" rx="9" fill="#92400e" stroke="#78350f" stroke-width="2.5"/>
+        <text x="33" y="25" fill="#ffffff" font-size="15" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MPC</text>
+      </g>
+      <circle cx="505" cy="97" r="18" fill="#92400e"/>
+      <text x="505" y="103" fill="#ffffff" font-size="15" font-weight="900" text-anchor="middle">1</text>
+      <text x="620" y="94" fill="#78350f" font-size="13" font-weight="900">TRANSPORTE</text>
+      <text x="620" y="112" fill="#92400e" font-size="10.5" font-weight="700">Piruvato + H⁺ atraviesan MPC</text>
+
+      <!-- Conexión visible desde el piruvato citosólico hasta el MPC -->
+      <path d="M {x_piruvato_local} -200 C {x_piruvato_local + 20} -145, 560 -45, 563 80" fill="none" stroke="#ea580c" stroke-width="4" stroke-dasharray="12 8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Flecha de lectura: del transportador hacia PDH -->
+      <path d="M 600 110 C 690 105, 735 135, 770 168" fill="none" stroke="#ea580c" stroke-width="4" marker-end="url(#arrowFlow)"/>
+
+      <!-- PDH como segunda estación dentro de la matriz -->
+      <g transform="translate(965, 145)">
+        <circle cx="-290" cy="28" r="18" fill="#c2410c"/>
+        <text x="-290" y="34" fill="#ffffff" font-size="15" font-weight="900" text-anchor="middle">2</text>
+        <rect x="-245" y="0" width="500" height="86" rx="14" fill="#fff7ed" fill-opacity="0.96" stroke="#c2410c" stroke-width="2.5"/>
+        <text x="5" y="25" fill="#78350f" font-size="16" font-weight="900" text-anchor="middle">PDH: PIRUVATO ➔ ACETIL-CoA</text>
+        <text x="5" y="47" fill="#c2410c" font-size="12" font-weight="800" text-anchor="middle">+ CoA-SH + NAD⁺ ➔ CO₂ + NADH</text>
+        <text x="5" y="68" fill="#64748b" font-size="11" text-anchor="middle">E1 (TPP) • E2 (Lipoamida) • E3 (FAD)</text>
       </g>
 
-      <!-- Bloque Bioquímico: Complejo Piruvato Deshidrogenasa (PDH) -->
-      <g transform="translate(560, 95)">
-        <rect x="-210" y="0" width="420" height="74" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="2.2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.08))"/>
-        <text x="0" y="22" fill="#78350f" font-size="15" font-weight="900" text-anchor="middle">COMPLEJO PIRUVATO DESHIDROGENASA (PDH)</text>
-        <text x="0" y="42" fill="#c2410c" font-size="12" font-weight="800" text-anchor="middle">Piruvato + CoA-SH + NAD⁺ ➔ Acetil-CoA + CO₂ + NADH + H⁺</text>
-        <text x="0" y="59" fill="#64748b" font-size="11" text-anchor="middle">E1 (TPP) • E2 (Lipoamida) • E3 (FAD / NAD⁺) • EC 1.2.4.1 (Irreversible)</text>
+      <!-- Entrada al ciclo de Krebs, como tercer paso explícito -->
+      <path d="M 1220 205 C 1320 240, 1390 268, 1450 290" fill="none" stroke="#ea580c" stroke-width="4" marker-end="url(#arrowFlow)"/>
+      <g transform="translate({x_acetil_local}, {y_acetil_local})">
+        <circle cx="-285" cy="32" r="18" fill="#d97706"/>
+        <text x="-285" y="38" fill="#ffffff" font-size="15" font-weight="900" text-anchor="middle">3</text>
+        <rect x="-240" y="0" width="520" height="72" rx="12" fill="#fffbeb" fill-opacity="0.96" stroke="#d97706" stroke-width="2.5"/>
+        <text x="20" y="26" fill="#92400e" font-size="15" font-weight="900" text-anchor="middle">ACETIL-CoA ➔ CICLO DE KREBS</text>
+        <text x="20" y="49" fill="#b45309" font-size="12" font-weight="700" text-anchor="middle">+ Oxalacetato ➔ Citrato (6C)</text>
       </g>
 
-      <!-- Flecha desde PDH hacia Acetil-CoA / Krebs -->
-      <line x1="560" y1="169" x2="560" y2="198" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
-
-      <!-- Bloque: Ingreso al Ciclo de Krebs -->
-      <g transform="translate(560, 202)">
-        <rect x="-230" y="0" width="460" height="60" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
-        <text x="0" y="24" fill="#92400e" font-size="15" font-weight="900" text-anchor="middle">ACETIL-CoA (2C) ➔ DESTINO: CICLO DE KREBS (TCA)</text>
-        <text x="0" y="45" fill="#b45309" font-size="12" font-weight="700" text-anchor="middle">Condensación con Oxalacetato (4C) vía Citrato Sintasa ➔ Citrato (6C)</text>
-      </g>
-
-      <!-- Paneles Explicativos de la Matriz Mitocondrial a la derecha -->
-      <g transform="translate(1320, 110)">
-        <rect x="0" y="0" width="950" height="155" rx="12" fill="#ffffff" stroke="#d97706" stroke-width="2.2" opacity="0.95"/>
-        <text x="25" y="32" fill="#78350f" font-size="18" font-weight="900">MATRIZ MITOCONDRIAL: HUB AERÓBICO DE OXIDACIÓN Y ENERGÍA</text>
-        <text x="25" y="60" fill="#0f172a" font-size="13" font-weight="700">• Rendimiento Energético Total: Oxidación aeróbica completa de Glucosa ➔ 30 a 32 ATP.</text>
-        <text x="25" y="82" fill="#c2410c" font-size="13" font-weight="700">• Cadena de Transporte de Electrones: Los NADH y FADH₂ alimentan los Complejos I-IV en la MMI.</text>
-        <text x="25" y="104" fill="#047857" font-size="12.5" font-weight="700">• Destino Anaplerótico: El Piruvato también puede carboxilarse a Oxalacetato vía Piruvato Carboxilasa.</text>
-        <text x="25" y="128" fill="#64748b" font-size="12">• Fosforilación Oxidativa: Gradiente electroquímico de protones en el EIM activa la ATP Sintasa (F₀F₁).</text>
-      </g>
+      <!-- Zona libre para ampliar el mapa mitocondrial -->
+      <text x="2070" y="300" fill="#92400e" font-size="12" font-weight="800" opacity="0.72">NADH / FADH₂ → cadena respiratoria</text>
+      <path d="M 1970 320 Q 2150 350 2260 300" fill="none" stroke="#b45309" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.62"/>
     </g>
     """
 
@@ -327,11 +447,13 @@ def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", text
         pos_texto = f"translate({dx_texto}, 28)"
         alineacion = ''
 
+    estructura_render = "" if MODO_BOCETO else svg_estructura
+
     return f"""
     <!-- Metabolito: {nombre} -->
     <g transform="translate({x}, {y})">
       <g transform="{pos_estructura}">
-        {svg_estructura}
+        {estructura_render}
       </g>
       <g transform="{pos_texto}">
         <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" {alineacion}>{nombre}</text>
@@ -410,19 +532,26 @@ def crear_paso_no_oxidativo(x, y, enzima, ec, sustratos_txt, productos_txt):
 
 def generar_mapa_carbohidratos():
     """Compila las tres rutas conectadas biológicamente en el citosol unificado."""
+    validar_contrato_layout()
     svg_parts = []
 
     # 1. Capa de entorno celular continuo (Membrana arriba y citoesqueleto)
     svg_parts.append(generar_entorno_celular_continuo(ANCHO_CANVAS, ALTO_CANVAS))
 
     # 2. Mitocondria Biológica amplia en la base
-    svg_parts.append(generar_mitocondria_biologica(x_inicio=1020, ancho_mito=2350, y_base=2220))
+    svg_parts.append(generar_mitocondria_biologica(
+        x_inicio=1020,
+        ancho_mito=2350,
+        y_base=BANDAS["matriz_mitocondrial"][0]
+    ))
 
     # =========================================================================
     # RUTA CENTRAL: LA GLUCÓLISIS (EJE X = 1520 a 1580)
     # =========================================================================
-    X_GLU = 1520
+    X_GLU = punto_nodo("glucosa_6_fosfato")[0]
     X_FLECHA = 1580
+    Y_G6P = punto_nodo("glucosa_6_fosfato")[1]
+    X_PIRUVATO, Y_PIRUVATO = punto_nodo("piruvato")
 
     # 1. D-Glucosa
     svg_parts.append(crear_metabolito(
@@ -447,7 +576,7 @@ def generar_mapa_carbohidratos():
     # 2. Glucosa-6-Fosfato (EL NODO CENTRAL DISTRIBUIDOR - LIMPIO, SIN GLOBO)
     svg_parts.append(f"""
     <!-- Nodo Central: Glucosa-6-Fosfato -->
-    <g transform="translate({X_GLU}, 375)">
+    <g transform="translate({X_GLU}, {Y_G6P})">
       {GLUCOSA_6_FOSFATO}
     </g>
     <g transform="translate({X_FLECHA}, 465)">
@@ -1090,9 +1219,9 @@ def generar_mapa_carbohidratos():
         es_ganancia=True
     ))
 
-    # 9. Piruvato (Llega en x=1520, y=2180)
+    # 9. Piruvato: nodo maestro compartido con la mitocondria
     svg_parts.append(crear_metabolito(
-        x=X_GLU, y=2180,
+        x=X_PIRUVATO, y=Y_PIRUVATO,
         nombre="Piruvato",
         carbonos="3 Carbonos (α-Cetoácido)",
         detalle="Destino terminal: cruce al interior mitocondrial vía MPC",
