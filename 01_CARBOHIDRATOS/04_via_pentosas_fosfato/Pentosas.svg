@@ -1,0 +1,602 @@
+<svg width="1000" height="2150" viewBox="0 0 1000 2150" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Marcadores de flechas -->
+        <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
+        </marker>
+        <marker id="arrowNADPH" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#059669" />
+        </marker>
+        <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+        </marker>
+        <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
+        </marker>
+        <marker id="arrowPurple" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#7c3aed" />
+        </marker>
+
+        <!-- Fondo del Citosol Celular -->
+        <linearGradient id="gradCitosolPentosas" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+          <stop offset="15%" stop-color="#f0fdf4" stop-opacity="0.7" />
+          <stop offset="60%" stop-color="#f8fafc" stop-opacity="0.5" />
+          <stop offset="100%" stop-color="#f0fdf4" stop-opacity="0.7" />
+        </linearGradient>
+      </defs>
+
+    <!-- Fondo acuoso citoplasmático -->
+    <rect x="0" y="0" width="1000" height="2150" fill="url(#gradCitosolPentosas)" />
+
+    <!-- Citoesqueleto: filamentos sutiles atravesando el espacio celular -->
+    <g opacity="0.3" stroke="#94a3b8" fill="none">
+      <path d="M 30 180 Q 300 120 600 190 T 970 160" stroke-width="1.5" stroke-dasharray="8 6" />
+      <path d="M 50 380 Q 350 440 650 390 T 960 410" stroke-width="1.4" stroke-dasharray="6 6" />
+      <path d="M 40 680 Q 280 620 580 690 T 950 660" stroke-width="1.5" stroke-dasharray="8 5" />
+      <path d="M 60 1050 Q 340 1110 620 1060 T 970 1080" stroke-width="1.6" stroke-dasharray="7 7" />
+      <path d="M 40 1420 Q 320 1360 640 1430 T 960 1390" stroke-width="1.5" stroke-dasharray="8 6" />
+      <path d="M 50 1780 Q 350 1840 680 1790 T 970 1810" stroke-width="1.4" stroke-dasharray="6 6" />
+    </g>
+
+    <!-- Polirribosomas celulares flotantes -->
+    <g fill="#94a3b8" opacity="0.25">
+      <circle cx="120" cy="140" r="2.5"/><circle cx="126" cy="142" r="2"/><circle cx="124" cy="148" r="2.3"/>
+      <circle cx="860" cy="240" r="2.5"/><circle cx="867" cy="242" r="2"/><circle cx="864" cy="248" r="2.3"/>
+      <circle cx="130" cy="560" r="2.5"/><circle cx="136" cy="563" r="2.2"/><circle cx="133" cy="568" r="2"/>
+      <circle cx="880" cy="920" r="2.5"/><circle cx="887" cy="923" r="2"/><circle cx="883" cy="928" r="2.2"/>
+      <circle cx="130" cy="1320" r="2.5"/><circle cx="136" cy="1323" r="2.2"/><circle cx="133" cy="1328" r="2"/>
+      <circle cx="870" cy="1680" r="2.5"/><circle cx="877" cy="1683" r="2"/><circle cx="873" cy="1688" r="2.2"/>
+    </g>
+
+    <!-- Vesículas citosólicas translúcidas -->
+    <g opacity="0.3">
+      <circle cx="130" cy="320" r="20" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
+      <circle cx="880" cy="620" r="24" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
+      <circle cx="120" cy="1580" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
+    </g>
+
+    <!-- Entrada lateral rediseñada: termina con 60 px de aire antes de la G6P -->
+    <g transform="translate(60, 60)">
+      <path d="M 0 0 L 190 0 Q 230 0 250 25" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
+      <text x="5" y="-10" fill="#c2410c" font-size="11" font-weight="800">← Entrada lateral desde Glucosa-6-P (Glucólisis)</text>
+    </g>
+    
+
+      <!-- Metabolito: Glucosa-6-Fosfato -->
+      <g transform="translate(340, 90)">
+        <g transform="translate(0, 0)">
+          
+  <!-- Anillo de piranosa (6 lados) -->
+  <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno del anillo -->
+  <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+  <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- Carbono 6 con Grupo Fosfato destacado -->
+  <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="0" cy="-2" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="0" y="3" fill="#c2410c" font-size="12" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <text x="-20" y="2" fill="#ea580c" font-size="9" font-weight="700" text-anchor="end">O-PO₃²⁻</text>
+
+  <!-- Grupos hidroxilo (-OH) -->
+  <line x1="72" y1="36" x2="88" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="98" y="40" fill="#0f172a" font-size="11" font-weight="700">OH</text>
+
+  <line x1="50" y1="58" x2="50" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="50" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="16" y1="58" x2="16" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="16" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">HO</text>
+
+  <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Glucosa-6-Fosfato</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Hexosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >Entrada al Shunt de Pentosas</text>
+        </g>
+      </g>
+    
+
+    <!-- Reacción: Glucosa-6-P Deshidrogenasa (G6PDH) -->
+    <g transform="translate(385, 200)">
+      <line x1="0" y1="0" x2="0" y2="46" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      
+        <path d="M -75 8 Q -25 8 -4 18" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-80" y="11" fill="#475569" font-size="11" font-weight="800" text-anchor="end">NADP⁺</text>
+        <path d="M -4 24 Q -25 34 -75 34" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowNADPH)"/>
+        <text x="-80" y="37" fill="#059669" font-size="11" font-weight="800" text-anchor="end">+ NADPH + H⁺</text>
+        
+      <g transform="translate(18, 12)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="800">Glucosa-6-P Deshidrogenasa (G6PDH)</text>
+        <text x="0" y="13" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 1.1.1.49 (Paso Limitante Clave)</text>
+        <text x="0" y="26" fill="#e11d48" font-size="10" font-weight="700">⊣ NADPH | ⊕ NADP⁺, Insulina</text>
+      </g>
+    </g>
+    
+
+      <!-- Metabolito: 6-Fosfoglucono-δ-Lactona -->
+      <g transform="translate(340, 285)">
+        <g transform="translate(0, 0)">
+          
+  <!-- Anillo de lactona de 6 vértices -->
+  <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno éster intramolecular del anillo -->
+  <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+  <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- C1: Doble enlace carbonilo de la lactona (C=O) -->
+  <line x1="72" y1="34" x2="88" y2="25" stroke="#0f172a" stroke-width="2"/>
+  <line x1="74" y1="38" x2="90" y2="29" stroke="#0f172a" stroke-width="2"/>
+  <text x="98" y="28" fill="#dc2626" font-size="13" font-weight="900">O</text>
+
+  <!-- C6 con Grupo Fosfato -->
+  <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="0" cy="-2" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="0" y="3" fill="#c2410c" font-size="12" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <text x="-20" y="2" fill="#ea580c" font-size="9" font-weight="700" text-anchor="end">O-PO₃²⁻</text>
+
+  <!-- Grupos hidroxilo en C2, C3 y C4 -->
+  <line x1="50" y1="58" x2="50" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="50" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="16" y1="58" x2="16" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="16" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">HO</text>
+
+  <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >6-Fosfoglucono-δ-Lactona</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Lactona)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >Éster intramolecular hidrolizable</text>
+        </g>
+      </g>
+    
+
+    <!-- Reacción: 6-Fosfogluconolactonasa -->
+    <g transform="translate(385, 390)">
+      <line x1="0" y1="0" x2="0" y2="46" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      
+        <path d="M -75 12 Q -25 12 -4 22" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+        <text x="-80" y="15" fill="#0284c7" font-size="11" font-weight="800" text-anchor="end">+ H₂O</text>
+        
+      <g transform="translate(18, 12)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="800">6-Fosfogluconolactonasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 3.1.1.31 (Mg²⁺)</text>
+        
+      </g>
+    </g>
+    
+
+      <!-- Metabolito: 6-Fosfogluconato -->
+      <g transform="translate(340, 470)">
+        <g transform="translate(0, 0)">
+          
+  <!-- C1: Grupo Carboxilato COO- arriba -->
+  <text x="40" y="14" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="18" x2="40" y2="30" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: H-C-OH -->
+  <text x="40" y="40" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="44" x2="40" y2="52" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C3: HO-C-H -->
+  <text x="40" y="62" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">HO-C-H</text>
+  <line x1="40" y1="66" x2="40" y2="74" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C4 y C5: (CHOH)2 -->
+  <text x="40" y="84" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">(CHOH)₂</text>
+  <line x1="40" y1="88" x2="40" y2="96" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C6: CH2-O-P con grupo fosfato -->
+  <text x="40" y="106" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <circle cx="40" cy="126" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="130" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >6-Fosfogluconato</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Cadena lineal)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >Ácido descarboxilable</text>
+        </g>
+      </g>
+    
+
+    <!-- Reacción: 6-Fosfogluconato Deshidrogenasa -->
+    <g transform="translate(385, 650)">
+      <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      
+        <path d="M -75 8 Q -25 8 -4 18" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-80" y="11" fill="#475569" font-size="11" font-weight="800" text-anchor="end">NADP⁺</text>
+        <path d="M -4 24 Q -25 34 -75 34" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowNADPH)"/>
+        <text x="-80" y="37" fill="#059669" font-size="11" font-weight="800" text-anchor="end">+ NADPH + H⁺</text>
+        
+        <path d="M -4 38 Q -30 50 -75 50" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-80" y="53" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ CO₂ ↑</text>
+        
+      <g transform="translate(18, 12)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="800">6-Fosfogluconato Deshidrogenasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 1.1.1.44 (Descarboxilación)</text>
+        
+      </g>
+    </g>
+    
+
+      <!-- Metabolito: D-Ribulosa-5-Fosfato -->
+      <g transform="translate(340, 745)">
+        <g transform="translate(0, 0)">
+          
+  <!-- C1: CH2OH arriba -->
+  <text x="40" y="14" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂OH</text>
+  <line x1="40" y1="18" x2="40" y2="32" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: C=O (Grupo carbonilo cetona) -->
+  <text x="40" y="44" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
+  <line x1="47" y1="39" x2="65" y2="39" stroke="#0f172a" stroke-width="2"/>
+  <line x1="47" y1="43" x2="65" y2="43" stroke="#0f172a" stroke-width="2"/>
+  <text x="73" y="45" fill="#dc2626" font-size="13" font-weight="900">O</text>
+
+  <!-- Enlace C2 a C3 -->
+  <line x1="40" y1="49" x2="40" y2="60" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3 y C4: (CHOH)2 -->
+  <text x="40" y="70" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">(CHOH)₂</text>
+
+  <!-- C5: CH2-O-P -->
+  <line x1="40" y1="75" x2="40" y2="86" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="96" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <circle cx="40" cy="116" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="120" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >D-Ribulosa-5-Fosfato</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >5 Carbonos (Pentosa Cetosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >Cruce a la fase no oxidativa</text>
+        </g>
+      </g>
+    
+
+    <!-- Ramificación amplia de la Ribulosa-5-P (sin solapamiento de textos) -->
+    <g transform="translate(385, 905)">
+      <!-- Rama Izquierda (Epimerasa -> Xilulosa-5-P) -->
+      <path d="M -20 0 Q -110 30 -160 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+      <!-- Texto de Epimerasa a la izquierda con text-anchor='end' para no pisar la curva -->
+      <g transform="translate(-175, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" text-anchor="end">Fosfopentosa Epimerasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="end">EC 5.1.3.1 (⇄)</text>
+      </g>
+
+      <!-- Rama Derecha (Isomerasa -> Ribosa-5-P) -->
+      <path d="M 20 0 Q 110 30 180 70" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+      <!-- Texto de Isomerasa a la derecha sin pisar la curva -->
+      <g transform="translate(175, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800">Fosfopentosa Isomerasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 5.3.1.6 (⇄)</text>
+      </g>
+    </g>
+    
+
+      <!-- Metabolito: D-Xilulosa-5-P -->
+      <g transform="translate(70, 990)">
+        <g transform="translate(150, 0)">
+          
+  <!-- C1: CH2OH arriba -->
+  <text x="40" y="14" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HO-CH₂</text>
+  <line x1="40" y1="18" x2="40" y2="32" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: C=O -->
+  <text x="40" y="44" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
+  <line x1="47" y1="39" x2="65" y2="39" stroke="#0f172a" stroke-width="2"/>
+  <line x1="47" y1="43" x2="65" y2="43" stroke="#0f172a" stroke-width="2"/>
+  <text x="73" y="45" fill="#dc2626" font-size="13" font-weight="900">O</text>
+
+  <!-- Enlace C2 a C3 (Inversión epimérica de -OH) -->
+  <line x1="40" y1="49" x2="40" y2="60" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="70" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">HO-C-H</text>
+
+  <!-- C4 y C5: CHOH - CH2O-P -->
+  <line x1="40" y1="75" x2="40" y2="86" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="96" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <circle cx="40" cy="116" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="120" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+        </g>
+        <g transform="translate(130, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" text-anchor="end">D-Xilulosa-5-P</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">5 Carbonos (Epímero C3)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" text-anchor="end">Donador de 2C (TPP)</text>
+        </g>
+      </g>
+    
+
+      <!-- Metabolito: D-Ribosa-5-P -->
+      <g transform="translate(560, 980)">
+        <g transform="translate(0, 0)">
+          
+  <!-- Anillo furanosa de 5 lados (Pentosa aldosa cíclica) -->
+  <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno superior del anillo -->
+  <circle cx="35" cy="18" r="7" fill="#ffffff"/>
+  <text x="35" y="22" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- C1 (derecha): OH anomérico -->
+  <line x1="68" y1="38" x2="84" y2="38" stroke="#0f172a" stroke-width="2"/>
+  <text x="94" y="42" fill="#0f172a" font-size="10" font-weight="700">OH</text>
+
+  <!-- C5 (izquierda): Grupo Fosfato -->
+  <line x1="2" y1="38" x2="-10" y2="18" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="-16" cy="6" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="10" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+  <!-- C2 y C3 con grupos -OH abajo -->
+  <line x1="52" y1="68" x2="52" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="18" y1="68" x2="18" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >D-Ribosa-5-P</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >5 Carbonos (Pentosa Aldosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >Precursora de Nucleótidos</text>
+        </g>
+      </g>
+    
+
+    <!-- Salida hacia Síntesis de Nucleótidos (Despejada de Ribosa-5-P y de Transcetolasa) -->
+    <g transform="translate(730, 1035)">
+      <!-- Flecha vertical púrpura que desciende hacia la caja -->
+      <line x1="0" y1="0" x2="0" y2="35" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+      
+      <!-- Caja elegante de Nucleótidos -->
+      <g transform="translate(0, 42)">
+        <rect x="-95" y="0" width="190" height="38" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(124,58,237,0.1))"/>
+        <text x="0" y="16" fill="#6d28d9" font-size="10" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
+        <text x="0" y="29" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción de Transferencia: Transcetolasa (TK1) -->
+    <g transform="translate(385, 1170)">
+      <line x1="-3" y1="0" x2="-3" y2="45" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <line x1="3" y1="45" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+
+      <g transform="translate(18, 10)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Transcetolasa (TK1)</text>
+        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)</text>
+        <text x="0" y="28" fill="#c2410c" font-size="10" font-weight="700">Xilulosa-5-P (5C) + Ribosa-5-P (5C) ⇄ GAP (3C) + Sedoheptulosa-7-P (7C)</text>
+      </g>
+    </g>
+    
+
+      <!-- Metabolito: Sedoheptulosa-7-P -->
+      <g transform="translate(70, 1250)">
+        <g transform="translate(150, 0)">
+          
+  <text x="40" y="14" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HO-CH₂</text>
+  <line x1="40" y1="18" x2="40" y2="30" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C2: C=O -->
+  <text x="40" y="42" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C=O</text>
+  <line x1="40" y1="46" x2="40" y2="56" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3-C6: Poliol de 4C -->
+  <text x="40" y="66" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">(CHOH)₄</text>
+  <line x1="40" y1="70" x2="40" y2="82" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C7: CH2-O-P -->
+  <text x="40" y="92" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <circle cx="40" cy="112" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="116" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+        </g>
+        <g transform="translate(130, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" text-anchor="end">Sedoheptulosa-7-P</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">7 Carbonos (Cetosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" text-anchor="end">Intermediario de 7C</text>
+        </g>
+      </g>
+    
+
+      <!-- Metabolito: Gliceraldehído-3-P -->
+      <g transform="translate(560, 1250)">
+        <g transform="translate(0, 0)">
+          
+  <!-- C1: HC=O -->
+  <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
+  <line x1="40" y1="20" x2="40" y2="38" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: H-C-OH -->
+  <text x="40" y="48" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="53" x2="40" y2="70" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C3: CH2-O-P -->
+  <text x="40" y="80" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <line x1="40" y1="84" x2="40" y2="94" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="40" cy="106" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="110" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Gliceraldehído-3-P</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Triosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >Intermediario transferible</text>
+        </g>
+      </g>
+    
+
+    <!-- Reacción de Transferencia: Transaldolasa (TA) -->
+    <g transform="translate(385, 1400)">
+      <line x1="-3" y1="0" x2="-3" y2="45" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <line x1="3" y1="45" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+
+      <g transform="translate(18, 10)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Transaldolasa (TA)</text>
+        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.2.1.2 (Base de Schiff con Lisina)</text>
+        <text x="0" y="28" fill="#c2410c" font-size="10" font-weight="700">Sedoheptulosa-7-P (7C) + GAP (3C) ⇄ Fructosa-6-P (6C) + Eritrosa-4-P (4C)</text>
+      </g>
+    </g>
+    
+
+      <!-- Metabolito: D-Eritrosa-4-P -->
+      <g transform="translate(70, 1480)">
+        <g transform="translate(150, 0)">
+          
+  <!-- C1: Aldehído HC=O -->
+  <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
+  <line x1="40" y1="20" x2="40" y2="34" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2 y C3: (CHOH)2 -->
+  <text x="40" y="46" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="50" x2="40" y2="62" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="74" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="78" x2="40" y2="90" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C4: CH2-O-P -->
+  <text x="40" y="100" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <circle cx="40" cy="120" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="124" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+        </g>
+        <g transform="translate(130, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" text-anchor="end">D-Eritrosa-4-P</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">4 Carbonos (Tetrosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" text-anchor="end">Aceptor para segunda transcetolasa</text>
+        </g>
+      </g>
+    
+
+      <!-- Metabolito: Fructosa-6-Fosfato -->
+      <g transform="translate(560, 1480)">
+        <g transform="translate(0, 0)">
+          
+  <!-- Anillo furanosa de 5 lados -->
+  <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno superior -->
+  <circle cx="35" cy="18" r="7" fill="#ffffff"/>
+  <text x="35" y="22" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- C1 (derecha): CH2OH libre -->
+  <line x1="68" y1="38" x2="88" y2="24" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="94" y="22" fill="#0f172a" font-size="10" font-weight="800">CH₂OH</text>
+
+  <!-- C6 (izquierda): Fosfato -->
+  <line x1="2" y1="38" x2="-10" y2="18" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="-16" cy="6" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="10" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+  <!-- C3 y C4 con -OH abajo -->
+  <line x1="52" y1="68" x2="52" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="18" y1="68" x2="18" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Fructosa-6-Fosfato</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Furanosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >→ Reingreso al eje glucolítico</text>
+        </g>
+      </g>
+    
+
+    <!-- Reacción de Transferencia: Transcetolasa (TK2) -->
+    <g transform="translate(385, 1620)">
+      <line x1="-3" y1="0" x2="-3" y2="45" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <line x1="3" y1="45" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+
+      <g transform="translate(18, 10)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Transcetolasa (TK2)</text>
+        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.2.1.1 (Cofactor: TPP, Mg²⁺)</text>
+        <text x="0" y="28" fill="#c2410c" font-size="10" font-weight="700">2ª Xilulosa-5-P (5C) + Eritrosa-4-P (4C) ⇄ Fructosa-6-P (6C) + GAP (3C)</text>
+      </g>
+    </g>
+    
+
+      <!-- Metabolito: Fructosa-6-Fosfato (2ª) -->
+      <g transform="translate(70, 1700)">
+        <g transform="translate(150, 0)">
+          
+  <!-- Anillo furanosa de 5 lados -->
+  <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno superior -->
+  <circle cx="35" cy="18" r="7" fill="#ffffff"/>
+  <text x="35" y="22" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- C1 (derecha): CH2OH libre -->
+  <line x1="68" y1="38" x2="88" y2="24" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="94" y="22" fill="#0f172a" font-size="10" font-weight="800">CH₂OH</text>
+
+  <!-- C6 (izquierda): Fosfato -->
+  <line x1="2" y1="38" x2="-10" y2="18" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="-16" cy="6" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="10" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+  <!-- C3 y C4 con -OH abajo -->
+  <line x1="52" y1="68" x2="52" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="18" y1="68" x2="18" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
+
+        </g>
+        <g transform="translate(130, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" text-anchor="end">Fructosa-6-Fosfato (2ª)</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">6 Carbonos (Furanosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" text-anchor="end">→ Reingreso al eje glucolítico</text>
+        </g>
+      </g>
+    
+
+      <!-- Metabolito: Gliceraldehído-3-P -->
+      <g transform="translate(560, 1700)">
+        <g transform="translate(0, 0)">
+          
+  <!-- C1: HC=O -->
+  <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
+  <line x1="40" y1="20" x2="40" y2="38" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: H-C-OH -->
+  <text x="40" y="48" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="53" x2="40" y2="70" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C3: CH2-O-P -->
+  <text x="40" y="80" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <line x1="40" y1="84" x2="40" y2="94" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="40" cy="106" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="110" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Gliceraldehído-3-P</text>
+          <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Triosa)</text>
+          <text x="0" y="34" fill="#64748b" font-size="11" >→ Reingreso al eje glucolítico</text>
+        </g>
+      </g>
+    
+
+    <!-- Banner de Balance y Cierre -->
+    <g transform="translate(385, 1890)">
+      <rect x="-240" y="0" width="480" height="75" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.06))"/>
+      <text x="0" y="24" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">BALANCE TOTAL DE LA FASE NO OXIDATIVA</text>
+      <text x="0" y="42" fill="#ea580c" font-size="11" font-weight="900" text-anchor="middle">3 Pentosas (5C) ⇄ 2 Fructosa-6-P (6C) + 1 Gliceraldehído-3-P (3C)</text>
+      <text x="0" y="58" fill="#64748b" font-size="10" text-anchor="middle">Todos los carbonos se reciclan de vuelta hacia la Glucólisis en citosol</text>
+    </g>
+
+    <!-- Flecha de reingreso hacia la izquierda -->
+    <g transform="translate(145, 1925)">
+      <path d="M 0 0 L -80 0" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
+      <text x="-90" y="-10" fill="#c2410c" font-size="10" font-weight="800" text-anchor="end">← Reingreso directo a Glucólisis</text>
+    </g>
+    
+    </svg>

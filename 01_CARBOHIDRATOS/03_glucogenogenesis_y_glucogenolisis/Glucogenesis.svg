@@ -1,0 +1,599 @@
+<svg width="1000" height="2450" viewBox="0 0 1000 2450" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Marcadores de flujo -->
+        <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
+        </marker>
+        <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
+        </marker>
+        <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+        </marker>
+        <marker id="arrowGreen" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#059669" />
+        </marker>
+        <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
+        </marker>
+
+        <!-- Gradiente Citosólico Biológico -->
+        <linearGradient id="gradCitosolGlucogeno" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+          <stop offset="15%" stop-color="#f8fafc" stop-opacity="0.8" />
+          <stop offset="50%" stop-color="#fffbeb" stop-opacity="0.35" />
+          <stop offset="85%" stop-color="#f8fafc" stop-opacity="0.8" />
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
+        </linearGradient>
+      </defs>
+
+    <!-- Fondo acuoso del citosol -->
+    <rect x="0" y="0" width="1000" height="2450" fill="url(#gradCitosolGlucogeno)"/>
+
+    <!-- Membrana plasmática biológica (borde superior) -->
+    <g opacity="0.85">
+      <path d="M 0 60 Q 250 45 500 55 T 1000 50" fill="none" stroke="#0284c7" stroke-width="6"/>
+      <path d="M 0 68 Q 250 53 500 63 T 1000 58" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <g fill="#0284c7" opacity="0.6">
+        <circle cx="80" cy="56" r="2.5"/><circle cx="95" cy="57" r="2.5"/><circle cx="110" cy="58" r="2.5"/>
+        <circle cx="450" cy="54" r="2.5"/><circle cx="465" cy="55" r="2.5"/><circle cx="480" cy="56" r="2.5"/>
+        <circle cx="820" cy="51" r="2.5"/><circle cx="835" cy="52" r="2.5"/><circle cx="850" cy="53" r="2.5"/>
+      </g>
+    </g>
+
+    <!-- Filamentos de Citoesqueleto que cruzan el citoplasma -->
+    <g opacity="0.32" stroke="#94a3b8" fill="none">
+      <path d="M 40 180 Q 300 120 600 190 T 960 160" stroke-width="1.5" stroke-dasharray="8 6"/>
+      <path d="M 50 480 Q 350 540 650 490 T 950 510" stroke-width="1.5" stroke-dasharray="7 7"/>
+      <path d="M 40 920 Q 280 860 620 930 T 960 890" stroke-width="1.6" stroke-dasharray="8 5"/>
+      <path d="M 60 1480 Q 340 1540 680 1490 T 950 1510" stroke-width="1.5" stroke-dasharray="8 6"/>
+      <path d="M 50 1980 Q 350 1920 650 1990 T 960 1950" stroke-width="1.6" stroke-dasharray="6 6"/>
+    </g>
+
+    <!-- Polirribosomas flotando en el citosol -->
+    <g fill="#94a3b8" opacity="0.25">
+      <circle cx="140" cy="140" r="2.5"/><circle cx="146" cy="142" r="2"/><circle cx="144" cy="148" r="2.3"/>
+      <circle cx="820" cy="220" r="2.5"/><circle cx="826" cy="222" r="2"/><circle cx="824" cy="228" r="2.3"/>
+      <circle cx="150" cy="720" r="2.5"/><circle cx="156" cy="722" r="2"/><circle cx="154" cy="728" r="2.3"/>
+      <circle cx="880" cy="1250" r="2.5"/><circle cx="886" cy="1252" r="2"/><circle cx="884" cy="1258" r="2.3"/>
+      <circle cx="140" cy="1820" r="2.5"/><circle cx="146" cy="1822" r="2"/><circle cx="144" cy="1828" r="2.3"/>
+    </g>
+
+    <!-- Vesículas citosólicas translúcidas -->
+    <g opacity="0.28">
+      <circle cx="180" cy="380" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
+      <circle cx="180" cy="380" r="16" fill="none" stroke="#7dd3fc" stroke-width="1"/>
+      <circle cx="850" cy="820" r="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 2"/>
+      <circle cx="850" cy="820" r="17" fill="none" stroke="#fbbf24" stroke-width="1"/>
+      <circle cx="160" cy="1350" r="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4 2"/>
+      <circle cx="160" cy="1350" r="19" fill="none" stroke="#7dd3fc" stroke-width="1"/>
+    </g>
+    
+
+    <g transform="translate(480, 85)">
+      <path d="M 380 0 L 120 0" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <rect x="135" y="-14" width="230" height="26" rx="13" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
+      <text x="250" y="3" fill="#c2410c" font-size="10.5" font-weight="800" text-anchor="middle">
+        PROVIENE DE LA GLUCÓLISIS (G-6-P)
+      </text>
+    </g>
+    
+
+    <!-- Metabolito: Glucosa-6-Fosfato -->
+    <g transform="translate(340, 140)">
+      <g transform="translate(0, 0)">
+        
+  <!-- Anillo Piranosa de 6 lados -->
+  <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+  <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+  <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="0" cy="-2" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="0" y="3" fill="#c2410c" font-size="12" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <text x="-20" y="2" fill="#ea580c" font-size="9" font-weight="700" text-anchor="end">O-PO₃²⁻</text>
+
+  <line x1="72" y1="36" x2="88" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="98" y="40" fill="#0f172a" font-size="11" font-weight="700">OH</text>
+  <line x1="50" y1="58" x2="50" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="50" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">OH</text>
+  <line x1="16" y1="58" x2="16" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="16" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">HO</text>
+  <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
+
+      </g>
+      <g transform="translate(135, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="800" >Glucosa-6-Fosfato</text>
+        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Hexosa Ⓟ)</text>
+        <text x="0" y="34" fill="#64748b" font-size="11" >Sustrato inicial desviado al almacén</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: Fosfoglucomutasa -->
+    <g transform="translate(385, 275)">
+      <line x1="-3" y1="0" x2="-3" y2="52" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <line x1="3" y1="52" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      
+      <path d="M -65 10 Q -25 10 -4 20" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-70" y="13" fill="#475569" font-size="10" font-weight="800" text-anchor="end">Ser-OH Fosforilada</text>
+      <path d="M -4 30 Q -25 42 -65 42" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-70" y="45" fill="#475569" font-size="9.5" font-weight="700" text-anchor="end">(Interm. G-1,6-BP)</text>
+
+      <g transform="translate(20, 14)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Fosfoglucomutasa</text>
+        <text x="0" y="14" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 5.4.2.2 (Mg²⁺, Reversible ⇄)</text>
+        <text x="0" y="28" fill="#d97706" font-size="9.5" font-weight="700">Mecanismo: Transferencia intramolecular de Ⓟ</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: α-D-Glucosa-1-Fosfato -->
+    <g transform="translate(340, 385)">
+      <g transform="translate(0, 0)">
+        
+  <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+  <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+  <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="0" y="7" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂OH</text>
+
+  <!-- C1: Configuración ALFA con Grupo Fosfato hacia ABAJO -->
+  <line x1="72" y1="36" x2="88" y2="52" stroke="#0f172a" stroke-width="2.2"/>
+  <line x1="72" y1="36" x2="84" y2="24" stroke="#0f172a" stroke-width="1.6"/>
+  <text x="91" y="22" fill="#64748b" font-size="9" font-weight="700">H</text>
+
+  <circle cx="102" cy="62" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="102" y="67" fill="#c2410c" font-size="12" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <text x="122" y="66" fill="#ea580c" font-size="9" font-weight="700">O-PO₃²⁻</text>
+  <text x="102" y="86" fill="#ea580c" font-size="8.5" font-weight="800" text-anchor="middle">(C1-α)</text>
+
+  <line x1="50" y1="58" x2="50" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="50" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">OH</text>
+  <line x1="16" y1="58" x2="16" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="16" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">HO</text>
+  <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
+
+      </g>
+      <g transform="translate(180, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="800" >α-D-Glucosa-1-Fosfato</text>
+        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Fosfato en C1-α)</text>
+        <text x="0" y="34" fill="#64748b" font-size="11" >Fosfato activo en carbono anomérico</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: UDP-Glucosa Pirofosforilasa -->
+    <g transform="translate(385, 545)">
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+
+      <path d="M -75 12 Q -25 12 -4 24" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="-80" y="15" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">- 1 UTP</text>
+
+      <path d="M -4 36 Q -25 48 -75 48" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-80" y="52" fill="#475569" font-size="10.5" font-weight="800" text-anchor="end">+ PPᵢ (Pirofosfato)</text>
+
+      <path d="M -80 60 Q -110 75 -130 65" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+      <g transform="translate(-85, 78)">
+        <text x="0" y="0" fill="#059669" font-size="9.5" font-weight="800" text-anchor="end">PPᵢ + H₂O ➔ 2 Pᵢ</text>
+        <text x="0" y="12" fill="#047857" font-size="8.5" font-weight="700" text-anchor="end">ΔG'° = -19.2 kJ/mol (Irreversible)</text>
+      </g>
+
+      <g transform="translate(20, 20)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">UDP-Glucosa Pirofosforilasa</text>
+        <text x="0" y="14" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 2.7.7.9 (Mg²⁺)</text>
+        <text x="0" y="28" fill="#16a34a" font-size="9.5" font-weight="700">⊕ Impulsada por hidrólisis de PPᵢ</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: UDP-Glucosa -->
+    <g transform="translate(220, 690)">
+      <g transform="translate(0, 0)">
+        
+  <!-- 1. Anillo de Glucosa -->
+  <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+  <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+  <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+  
+  <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2"/>
+  <text x="0" y="7" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">CH₂OH</text>
+  <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="-22" y="40" fill="#0f172a" font-size="10" font-weight="700">HO</text>
+  <line x1="16" y1="58" x2="16" y2="70" stroke="#0f172a" stroke-width="2"/>
+  <text x="16" y="81" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
+  <line x1="50" y1="58" x2="50" y2="70" stroke="#0f172a" stroke-width="2"/>
+  <text x="50" y="81" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
+
+  <!-- 2. Puente Pirofosfato (-O-P-O-P-O-) en C1 -->
+  <line x1="72" y1="36" x2="90" y2="48" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="104" cy="54" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="104" y="58" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <line x1="116" y1="54" x2="128" y2="54" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="140" cy="54" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="140" y="58" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+  
+  <line x1="152" y1="54" x2="168" y2="46" stroke="#0f172a" stroke-width="2"/>
+
+  <!-- 3. Anillo de Ribofuranosa -->
+  <polygon points="182,20 206,30 196,56 168,56 163,30" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="182" cy="20" r="5" fill="#ffffff"/>
+  <text x="182" y="24" fill="#dc2626" font-size="11" font-weight="800" text-anchor="middle">O</text>
+  <line x1="168" y1="56" x2="168" y2="68" stroke="#0f172a" stroke-width="1.6"/>
+  <text x="168" y="77" fill="#0f172a" font-size="8.5" font-weight="700" text-anchor="middle">OH</text>
+  <line x1="196" y1="56" x2="196" y2="68" stroke="#0f172a" stroke-width="1.6"/>
+  <text x="196" y="77" fill="#0f172a" font-size="8.5" font-weight="700" text-anchor="middle">OH</text>
+
+  <!-- 4. Base Nitrogenada: Uracilo -->
+  <line x1="206" y1="30" x2="220" y2="24" stroke="#0f172a" stroke-width="2"/>
+  <rect x="220" y="10" width="36" height="30" rx="5" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
+  <text x="238" y="25" fill="#0369a1" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">URACILO</text>
+  <text x="238" y="35" fill="#0284c7" font-size="7.5" font-weight="700" text-anchor="middle">(Base)</text>
+
+      </g>
+      <g transform="translate(280, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="800" >UDP-Glucosa</text>
+        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >Nucleótido-Azúcar activado</text>
+        <text x="0" y="34" fill="#64748b" font-size="11" >Donador de glucosa de alta energía libre</text>
+      </g>
+    </g>
+    
+
+    <!-- CEBADOR MOLECULAR DE GLUCOGENINA -->
+    <g transform="translate(140, 860)">
+      
+  <!-- Dímero Proteico de Glucogenina -->
+  <g transform="translate(0, 10)">
+    <ellipse cx="40" cy="35" rx="38" ry="30" fill="#fef9c3" stroke="#ca8a04" stroke-width="2.2"/>
+    <ellipse cx="65" cy="55" rx="32" ry="26" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+    <text x="45" y="32" fill="#854d0e" font-size="11" font-weight="900" text-anchor="middle">GLUCOGENINA</text>
+    <text x="45" y="44" fill="#a16207" font-size="8.5" font-weight="700" text-anchor="middle">(Dímero 37 kDa)</text>
+    
+    <!-- Residuo Tirosina-194 -->
+    <g transform="translate(75, 20)">
+      <line x1="0" y1="15" x2="16" y2="15" stroke="#854d0e" stroke-width="2"/>
+      <polygon points="16,15 22,8 34,8 40,15 34,22 22,22" fill="#ffffff" stroke="#854d0e" stroke-width="1.8"/>
+      <text x="28" y="17" fill="#854d0e" font-size="6.5" font-weight="800" text-anchor="middle">Tyr</text>
+      <line x1="40" y1="15" x2="52" y2="15" stroke="#dc2626" stroke-width="2.2"/>
+      <circle cx="46" cy="15" r="3.5" fill="#ffffff"/>
+      <text x="46" y="17.5" fill="#dc2626" font-size="7.5" font-weight="900" text-anchor="middle">O</text>
+      <text x="28" y="33" fill="#a16207" font-size="8" font-weight="800" text-anchor="middle">Tyr-194</text>
+    </g>
+  </g>
+
+  <!-- Cadena Cebadora Autoglucosilada (Glucosa 1 hasta 8) -->
+  <g transform="translate(135, 10)">
+    <polygon points="30,12 44,22 30,34 10,34 0,22 10,12" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <circle cx="10" cy="12" r="3.5" fill="#ffffff"/>
+    <text x="10" y="14.5" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+    <text x="22" y="25" fill="#64748b" font-size="8" font-weight="700" text-anchor="middle">Glc₁</text>
+  </g>
+
+  <path d="M 179 32 Q 190 39 201 32" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <text x="190" y="37" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+
+  <g transform="translate(201, 10)">
+    <polygon points="30,12 44,22 30,34 10,34 0,22 10,12" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <circle cx="10" cy="12" r="3.5" fill="#ffffff"/>
+    <text x="10" y="14.5" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+    <text x="22" y="25" fill="#64748b" font-size="8" font-weight="700" text-anchor="middle">Glc₂</text>
+  </g>
+
+  <path d="M 245 32 Q 256 39 267 32" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <text x="256" y="37" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+
+  <text x="278" y="25" fill="#d97706" font-size="12" font-weight="900">···</text>
+
+  <!-- Glucosa Terminal (Glc8) con extremo 4-OH libre -->
+  <g transform="translate(295, 10)">
+    <polygon points="30,12 44,22 30,34 10,34 0,22 10,12" fill="#fefce8" stroke="#ea580c" stroke-width="2"/>
+    <circle cx="10" cy="12" r="3.5" fill="#ffffff"/>
+    <text x="10" y="14.5" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">O</text>
+    <text x="22" y="25" fill="#ea580c" font-size="8" font-weight="800" text-anchor="middle">Glc₈</text>
+    
+    <!-- Extremo 4-OH aceptor -->
+    <line x1="0" y1="22" x2="-10" y2="22" stroke="#ea580c" stroke-width="2"/>
+    <rect x="-42" y="13" width="30" height="18" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="-27" y="25" fill="#b91c1c" font-size="9" font-weight="900" text-anchor="middle">4-OH</text>
+  </g>
+
+      
+      <!-- Textos del cebador a la derecha -->
+      <g transform="translate(370, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Cebador: Glucogenina-(Glc)₈</text>
+        <text x="0" y="18" fill="#b45309" font-size="11.5" font-weight="700">Dímero autoglucosilante (EC 2.4.1.186)</text>
+        <text x="0" y="34" fill="#64748b" font-size="10.5">• Anclaje covalente en residuo Tyr-194</text>
+        <text x="0" y="48" fill="#dc2626" font-size="10.5" font-weight="800">• Extremo 4-OH libre: Sustrato aceptor</text>
+        <text x="0" y="63" fill="#64748b" font-size="10">Requerido: Glucógeno Sintasa no inicia de novo</text>
+      </g>
+    </g>
+
+    <!-- LÍNEAS DE PROYECCIÓN CÓNICA HACIA LA LUPA DE ZOOM MOLECULAR -->
+    <g stroke="#ea580c" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.65">
+      <line x1="435" y1="895" x2="255" y2="1040"/>
+      <line x1="435" y1="875" x2="160" y2="1000"/>
+    </g>
+
+    <!-- LUPA DE ZOOM MOLECULAR: ACOPLAMIENTO CATALÍTICO CEBADOR + SINTASA -->
+    <g transform="translate(180, 1070)">
+      
+  <!-- Marco Circular de la Lupa de Aumento -->
+  <circle cx="0" cy="0" r="105" fill="#ffffff" stroke="#ea580c" stroke-width="3.5"/>
+  <circle cx="0" cy="0" r="100" fill="#f8fafc" stroke="#fed7aa" stroke-width="1"/>
+
+  <!-- Bolsillo Catalítico de la Glucógeno Sintasa (Cleft proteico) -->
+  <path d="M -85,-40 C -40,-75 40,-75 85,-40 C 95,-10 80,70 50,85 C 0,95 -60,85 -85,50 Z" 
+        fill="#eff6ff" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="0" y="-72" fill="#1d4ed8" font-size="9.5" font-weight="900" text-anchor="middle">
+    BOLSILLO ACTIVO: GLUCÓGENO SINTASA
+  </text>
+
+  <!-- 1. Extremo No Reductor del Cebador (Izquierda dentro de la lupa) -->
+  <g transform="translate(-65, -15)">
+    <polygon points="26,10 38,20 26,30 8,30 0,20 8,10" fill="#fefce8" stroke="#ea580c" stroke-width="2"/>
+    <circle cx="8" cy="10" r="3" fill="#ffffff"/>
+    <text x="8" y="12.5" fill="#dc2626" font-size="6.5" font-weight="800" text-anchor="middle">O</text>
+    <text x="18" y="23" fill="#9a3412" font-size="7.5" font-weight="800" text-anchor="middle">Glc(n)</text>
+    
+    <!-- Oxígeno 4-OH nucleofílico -->
+    <circle cx="-2" cy="20" r="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.8"/>
+    <text x="-2" y="23" fill="#b91c1c" font-size="8" font-weight="900" text-anchor="middle">O:⁻</text>
+    <text x="-2" y="34" fill="#dc2626" font-size="7" font-weight="800" text-anchor="middle">4-OH</text>
+  </g>
+
+  <!-- Flecha de Ataque Nucleofílico hacia el Carbono 1 de la UDP-Glucosa -->
+  <path d="M -60 5 Q -25 -15 5 -5" fill="none" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arrowRed)"/>
+  <text x="-28" y="-14" fill="#dc2626" font-size="7.5" font-weight="900" text-anchor="middle">Ataque Sn2</text>
+
+  <!-- 2. Molécula entrante de UDP-Glucosa (Derecha dentro de la lupa) -->
+  <g transform="translate(10, -25)">
+    <!-- Glucosa entrante -->
+    <polygon points="26,10 38,20 26,30 8,30 0,20 8,10" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <circle cx="8" cy="10" r="3" fill="#ffffff"/>
+    <text x="8" y="12.5" fill="#dc2626" font-size="6.5" font-weight="800" text-anchor="middle">O</text>
+    <text x="18" y="23" fill="#0f172a" font-size="7.5" font-weight="800" text-anchor="middle">Glc</text>
+    <!-- Carbono 1 electrophilic -->
+    <circle cx="0" cy="20" r="3" fill="#fed7aa"/>
+    <text x="0" y="31" fill="#ea580c" font-size="7" font-weight="900" text-anchor="middle">C1-α</text>
+
+    <!-- Enlace saliente hacia el UDP -->
+    <line x1="38" y1="20" x2="52" y2="20" stroke="#0284c7" stroke-width="2" stroke-dasharray="3 2"/>
+    <circle cx="58" cy="20" r="8" fill="#dbeafe" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="58" y="23" fill="#0369a1" font-size="7" font-weight="900" text-anchor="middle">UDP</text>
+    <text x="58" y="34" fill="#0284c7" font-size="6.5" font-weight="700" text-anchor="middle">(Sale)</text>
+  </g>
+
+  <!-- 3. Formación del nuevo enlace α(1→4) y salida de UDP -->
+  <g transform="translate(0, 48)">
+    <rect x="-85" y="-12" width="170" height="24" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="0" y="3" fill="#15803d" font-size="8.5" font-weight="800" text-anchor="middle">
+      Nuevo Enlace α(1→4) Creado + UDP Libre
+    </text>
+  </g>
+
+  <!-- Etiqueta de la lupa -->
+  <rect x="-65" y="86" width="130" height="15" rx="4" fill="#0f172a" opacity="0.9"/>
+  <text x="0" y="97" fill="#ffffff" font-size="7.5" font-weight="800" text-anchor="middle" letter-spacing="0.5">
+    MECANISMO DE ELONGACIÓN
+  </text>
+
+    </g>
+
+    <!-- EXPLICACIÓN BIOQUÍMICA A LA DERECHA DE LA LUPA -->
+    <g transform="translate(340, 1035)">
+      <rect x="0" y="0" width="460" height="95" rx="8" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="16" y="22" fill="#1d4ed8" font-size="12" font-weight="900">MECANISMO DE ACOPLAMIENTO Y ELONGACIÓN</text>
+      <text x="16" y="40" fill="#0f172a" font-size="10.5" font-weight="600">
+        1. La <tspan font-weight="800" fill="#2563eb">Glucógeno Sintasa</tspan> abraza el extremo <tspan font-weight="800" fill="#dc2626">4-OH</tspan> de la cadena cebadora.
+      </text>
+      <text x="16" y="58" fill="#0f172a" font-size="10.5" font-weight="600">
+        2. El oxígeno ataca al <tspan font-weight="800" fill="#ea580c">C1</tspan> de la <tspan font-weight="800">UDP-Glucosa</tspan>, expulsando al grupo UDP.
+      </text>
+      <text x="16" y="76" fill="#059669" font-size="10.5" font-weight="800">
+        3. Se forma el nuevo enlace α(1→4) y la cadena se alarga un residuo a la vez.
+      </text>
+    </g>
+    
+
+    <!-- Reacción: Glucógeno Sintasa -->
+    <g transform="translate(385, 1195)">
+      <line x1="0" y1="0" x2="0" y2="65" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+
+      <path d="M -4 30 Q -25 42 -75 42" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+      <text x="-80" y="45" fill="#0284c7" font-size="11" font-weight="800" text-anchor="end">+ UDP libre</text>
+      <text x="-80" y="58" fill="#64748b" font-size="9" text-anchor="end">(UDP + ATP ⇄ UTP + ADP)</text>
+
+      <g transform="translate(20, 16)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Glucógeno Sintasa</text>
+        <text x="0" y="14" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 2.4.1.11 (Paso Limitante Clave)</text>
+        <text x="0" y="28" fill="#16a34a" font-size="9.5" font-weight="700">⊕ Insulina (vía Fosfoproteína Fosfatasa PP1), G-6-P</text>
+        <text x="0" y="41" fill="#e11d48" font-size="9.5" font-weight="700">⊣ Glucagón, Adrenalina (vía PKA / GSK-3 fosforilante)</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: Enzima Ramificadora -->
+    <g transform="translate(385, 1290)">
+      <line x1="0" y1="0" x2="0" y2="55" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+
+      <g transform="translate(20, 14)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Enzima Ramificadora del Glucógeno</text>
+        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">Amilo-α(1,4→1,6)-transglucosidasa (EC 2.4.1.18)</text>
+        <text x="0" y="27" fill="#b45309" font-size="9.5" font-weight="700">Transfiere bloque terminal de ~7 glucosas al C6</text>
+        <text x="0" y="40" fill="#64748b" font-size="9">Crea ramas α(1→6) cada 8-12 glucosas (aumenta solubilidad y velocidad metabólica)</text>
+      </g>
+    </g>
+    
+
+    <!-- Polímero de Glucógeno Completo -->
+    <g transform="translate(260, 1375)">
+      <g transform="translate(0, 40)">
+        
+  <!-- Glucosa 1 principal -->
+  <g transform="translate(0, 40)">
+    <polygon points="40,16 58,28 40,46 14,46 0,28 14,16" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <circle cx="14" cy="16" r="5" fill="#ffffff"/>
+    <text x="14" y="20" fill="#dc2626" font-size="10" font-weight="800" text-anchor="middle">O</text>
+    <line x1="0" y1="28" x2="0" y2="8" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="0" y="4" fill="#0f172a" font-size="8" font-weight="700" text-anchor="middle">CH₂OH</text>
+  </g>
+
+  <!-- Enlace α(1→4) -->
+  <path d="M 58 68 Q 72 78 86 68" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <circle cx="72" cy="73" r="4" fill="#ffffff"/>
+  <text x="72" y="76" fill="#dc2626" font-size="9" font-weight="900" text-anchor="middle">O</text>
+  <text x="72" y="90" fill="#c2410c" font-size="9" font-weight="800" text-anchor="middle">α(1→4)</text>
+
+  <!-- Glucosa 2 de ramificación -->
+  <g transform="translate(86, 40)">
+    <polygon points="40,16 58,28 40,46 14,46 0,28 14,16" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <circle cx="14" cy="16" r="5" fill="#ffffff"/>
+    <text x="14" y="20" fill="#dc2626" font-size="10" font-weight="800" text-anchor="middle">O</text>
+    <line x1="0" y1="28" x2="0" y2="10" stroke="#0f172a" stroke-width="2"/>
+    <text x="0" y="4" fill="#d97706" font-size="8.5" font-weight="800" text-anchor="middle">-CH₂-</text>
+  </g>
+
+  <!-- Enlace α(1→6) -->
+  <path d="M 86 36 Q 86 16 110 0" fill="none" stroke="#d97706" stroke-width="2.5"/>
+  <circle cx="86" cy="16" r="4" fill="#ffffff"/>
+  <text x="86" y="19" fill="#dc2626" font-size="9" font-weight="900" text-anchor="middle">O</text>
+  <text x="56" y="18" fill="#d97706" font-size="9" font-weight="800">α(1→6)</text>
+
+  <!-- Glucosa en la rama superior -->
+  <g transform="translate(110, -35)">
+    <polygon points="40,16 58,28 40,46 14,46 0,28 14,16" fill="#fefce8" stroke="#d97706" stroke-width="2"/>
+    <circle cx="14" cy="16" r="5" fill="#ffffff"/>
+    <text x="14" y="20" fill="#dc2626" font-size="10" font-weight="800" text-anchor="middle">O</text>
+    <line x1="0" y1="28" x2="0" y2="8" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="0" y="4" fill="#0f172a" font-size="8" font-weight="700" text-anchor="middle">CH₂OH</text>
+    <text x="68" y="28" fill="#b45309" font-size="8.5" font-weight="700">Extremo no reductor</text>
+  </g>
+
+  <path d="M 144 68 Q 158 78 172 68" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <circle cx="158" cy="73" r="4" fill="#ffffff"/>
+  <text x="158" y="76" fill="#dc2626" font-size="9" font-weight="900" text-anchor="middle">O</text>
+  <text x="158" y="90" fill="#c2410c" font-size="9" font-weight="800" text-anchor="middle">α(1→4)</text>
+
+  <g transform="translate(172, 40)">
+    <polygon points="40,16 58,28 40,46 14,46 0,28 14,16" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <circle cx="14" cy="16" r="5" fill="#ffffff"/>
+    <text x="14" y="20" fill="#dc2626" font-size="10" font-weight="800" text-anchor="middle">O</text>
+    <line x1="0" y1="28" x2="0" y2="8" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="0" y="4" fill="#0f172a" font-size="8" font-weight="700" text-anchor="middle">CH₂OH</text>
+  </g>
+
+  <g transform="translate(250, 48)">
+    <circle cx="28" cy="20" r="24" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/>
+    <text x="28" y="16" fill="#854d0e" font-size="9.5" font-weight="900" text-anchor="middle">GLUCOGENINA</text>
+    <text x="28" y="28" fill="#a16207" font-size="8" font-weight="700" text-anchor="middle">(Tyr-194)</text>
+    <line x1="-20" y1="20" x2="4" y2="20" stroke="#ca8a04" stroke-width="2.2" stroke-dasharray="3 2"/>
+  </g>
+
+      </g>
+      <g transform="translate(380, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="900">Glucógeno (n + 1)</text>
+        <text x="0" y="18" fill="#d97706" font-size="12" font-weight="800">Polisacárido de Reserva Energética</text>
+        <text x="0" y="34" fill="#64748b" font-size="10.5">Enlaces principales: α(1→4) glicosídicos</text>
+        <text x="0" y="48" fill="#b45309" font-size="10.5" font-weight="700">Puntos de ramificación: α(1→6) cada 8-12 glucosas</text>
+        <text x="0" y="63" fill="#64748b" font-size="10">Hasta 55,000 unidades de glucosa por gránulo</text>
+      </g>
+    </g>
+    
+
+    <!-- SECCIÓN ANATÓMICA: EL GRÁNULO DE GLUCÓGENO EN EL CITOSOL -->
+    <g transform="translate(180, 1550)">
+      <rect x="0" y="0" width="680" height="155" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+      
+      <!-- Dibujo de la inclusión citoplasmática esférica -->
+      <g transform="translate(15, 12)">
+        
+  <!-- Gránulo esférico densamente ramificado (Inclusión Citoplasmática ~20-30 nm) -->
+  <g transform="translate(0, 0)">
+    <!-- Fondo del cuerpo de inclusión -->
+    <circle cx="65" cy="65" r="58" fill="#fffbeb" stroke="#d97706" stroke-width="2.5" stroke-dasharray="6 3"/>
+    <circle cx="65" cy="65" r="48" fill="#fef3c7" opacity="0.6"/>
+    
+    <!-- Centro del gránulo: Dímero de Glucogenina -->
+    <circle cx="65" cy="65" r="10" fill="#ca8a04"/>
+    <text x="65" y="68" fill="#ffffff" font-size="7" font-weight="900" text-anchor="middle">GLG</text>
+
+    <!-- Ramas concéntricas de glucosa (12 niveles concéntricos) -->
+    <g fill="#d97706" opacity="0.85">
+      <!-- Nivel 1 -->
+      <circle cx="52" cy="55" r="3.5"/><circle cx="78" cy="55" r="3.5"/><circle cx="52" cy="75" r="3.5"/><circle cx="78" cy="75" r="3.5"/>
+      <!-- Nivel 2 -->
+      <circle cx="40" cy="45" r="3"/><circle cx="90" cy="45" r="3"/><circle cx="40" cy="85" r="3"/><circle cx="90" cy="85" r="3"/>
+      <circle cx="65" cy="38" r="3"/><circle cx="65" cy="92" r="3"/><circle cx="38" cy="65" r="3"/><circle cx="92" cy="65" r="3"/>
+      <!-- Nivel 3 (superficie externa con extremos no reductores) -->
+      <circle cx="30" cy="35" r="2.5"/><circle cx="100" cy="35" r="2.5"/><circle cx="30" cy="95" r="2.5"/><circle cx="100" cy="95" r="2.5"/>
+      <circle cx="65" cy="20" r="2.5"/><circle cx="65" cy="110" r="2.5"/><circle cx="20" cy="65" r="2.5"/><circle cx="110" cy="65" r="2.5"/>
+      <circle cx="45" cy="24" r="2.5"/><circle cx="85" cy="24" r="2.5"/><circle cx="45" cy="106" r="2.5"/><circle cx="85" cy="106" r="2.5"/>
+    </g>
+
+    <!-- Líneas de ramificación -->
+    <g stroke="#d97706" stroke-width="1.2" opacity="0.6">
+      <line x1="65" y1="65" x2="52" y2="55"/><line x1="65" y1="65" x2="78" y2="55"/>
+      <line x1="65" y1="65" x2="52" y2="75"/><line x1="65" y1="65" x2="78" y2="75"/>
+      <line x1="52" y1="55" x2="40" y2="45"/><line x1="78" y1="55" x2="90" y2="45"/>
+      <line x1="52" y1="75" x2="40" y2="85"/><line x1="78" y1="75" x2="90" y2="85"/>
+    </g>
+
+    <!-- Enzimas asociadas ancladas a la superficie del gránulo -->
+    <rect x="95" y="45" width="28" height="16" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="1.2"/>
+    <text x="109" y="56" fill="#c2410c" font-size="7" font-weight="900" text-anchor="middle">SINTASA</text>
+
+    <rect x="5" y="70" width="34" height="16" rx="4" fill="#fecdd3" stroke="#e11d48" stroke-width="1.2"/>
+    <text x="22" y="81" fill="#9f1239" font-size="6.5" font-weight="900" text-anchor="middle">FOSFORILASA</text>
+  </g>
+
+      </g>
+
+      <!-- Explicación fisiológica: por qué está en citosol y cómo sale -->
+      <g transform="translate(160, 22)">
+        <text x="0" y="0" fill="#92400e" font-size="12.5" font-weight="900">¿POR QUÉ FLOTA EN EL CITOSOL Y CÓMO SALE DE LA CÉLULA?</text>
+        
+        <text x="0" y="20" fill="#0f172a" font-size="10" font-weight="700">
+          • <tspan fill="#b45309">Orgánulo de Inclusión no membranoso:</tspan> En hígado y músculo, el glucógeno forma gránulos densos
+        </text>
+        <text x="12" y="34" fill="#475569" font-size="9.5">
+          inmóviles de 20 a 30 nm (rosetas β). Permite almacenar miles de glucosas sin alterar la presión osmótica celular.
+        </text>
+
+        <text x="0" y="52" fill="#0f172a" font-size="10" font-weight="700">
+          • <tspan fill="#dc2626">El glucógeno NUNCA sale como polímero:</tspan> Es insoluble y demasiado gigante para cruzar membranas.
+        </text>
+
+        <text x="0" y="70" fill="#0f172a" font-size="10" font-weight="700">
+          • <tspan fill="#059669">¿Cómo sale entonces? (Solo en el hígado):</tspan> La <tspan font-weight="800">Glucógeno Fosforilasa</tspan> lo degrada in situ
+        </text>
+        <text x="12" y="84" fill="#047857" font-size="9.5">
+          a G-1-P ➔ G-6-P ➔ la <tspan font-weight="800">Glucosa-6-Fosfatasa</tspan> (en REL) quita el fosfato y <tspan font-weight="800">solo la Glucosa libre</tspan> sale a la sangre por GLUT-2.
+        </text>
+        <text x="12" y="98" fill="#64748b" font-size="9">
+          (En el músculo, no hay G-6-Pasa: la glucosa se queda al 100% dentro para su propia contracción).
+        </text>
+      </g>
+    </g>
+    
+
+    <!-- Balance Energético Compacto -->
+    <g transform="translate(260, 1725)">
+      <rect x="0" y="0" width="480" height="72" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+      <text x="16" y="20" fill="#0f172a" font-size="11" font-weight="900">BALANCE ENERGÉTICO NETO</text>
+      <text x="16" y="38" fill="#475569" font-size="9.5" font-weight="600">
+        Glucosa + 1 ATP + 1 UTP + Glucógeno(n) ➔ Glucógeno(n+1) + ADP + UDP + 2 Pᵢ
+      </text>
+      <text x="16" y="55" fill="#b91c1c" font-size="9" font-weight="700">
+        • Costo: 2 enlaces fosfato de alta energía (~97% de eficiencia de almacenamiento)
+      </text>
+      <g transform="translate(300, 20)">
+        <text x="0" y="0" fill="#d97706" font-size="9" font-weight="800">⇄ Glucogenólisis:</text>
+        <text x="0" y="16" fill="#64748b" font-size="8.5">Fosforilasa (+ Pᵢ) libera G-1-P</text>
+        <text x="0" y="28" fill="#64748b" font-size="8.5">sin gastar ATP ➔ G-6-P</text>
+      </g>
+    </g>
+    
+    </svg>
