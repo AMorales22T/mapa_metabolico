@@ -15,36 +15,23 @@ Salidas: Cadena_Transporte_Electrones.html y Cadena_Transporte_Electrones.svg
 
 import os
 
-from estructuras_cadena_transporte import (
-    NADH,
-    NAD_PLUS,
-    FADH2,
-    FAD,
-    UBIQUINONA,
-    UBIQUINOL,
-    CITOCROMO_C,
-    OXIGENO,
-    AGUA,
-    SUCCINATO,
-    FUMARATO,
-)
 from entorno_cte import DEFS_ENTORNO_CTE, generar_entorno_cte_svg
 
 # -----------------------------------------------------------------------------
 # 1. GEOMETRÍA GENERAL DEL LIENZO
 # -----------------------------------------------------------------------------
-ANCHO_CANVAS = 1700
-ALTO_CANVAS = 2200
+ANCHO_CANVAS = 1150
+ALTO_CANVAS = 1740
 
-Y_MME = 112
-Y_EIM_INI = 132
-Y_EIM_FIN = 545
-Y_MMI_INI = 545
-Y_MMI_FIN = 645
-Y_MATRIZ_INI = 645
+Y_MME = 90
+Y_EIM_INI = 104
+Y_EIM_FIN = 330
+Y_MMI_INI = 330
+Y_MMI_FIN = 430
+Y_MATRIZ_INI = 430
 
 # Coordenada X central de cada complejo
-X_I, X_II, X_Q, X_III, X_CYC, X_IV, X_V = 180, 470, 655, 855, 1015, 1230, 1510
+X_I, X_II, X_Q, X_III, X_CYC, X_IV, X_V = 120, 300, 405, 520, 620, 730, 950
 
 # Paleta por complejo (familia mitocondrial del Manual de Estilo)
 COL_I, COL_I_CLARO = "#0369a1", "#e0f2fe"
@@ -225,28 +212,31 @@ def _borde_membrana(y_ini=495, y_fin=690):
 def complejo_i():
     """Complejo I: NADH:ubiquinona oxidorreductasa (L invertida, 4 H⁺ bombeados)."""
     return f"""
-    <!-- ===== COMPLEJO I: brazo hidrofóbico + brazo hidrofílico matricial ===== -->
-    <path d="M 60 520 Q 60 495 85 495 L 275 495 Q 300 495 300 520 L 300 665
-             Q 300 690 275 690 L 258 690 L 258 985 Q 258 1010 233 1010
-             L 128 1010 Q 103 1010 103 985 L 103 690 L 85 690 Q 60 690 60 665 Z"
-          fill="{COL_I_CLARO}" stroke="{COL_I}" stroke-width="2.8"/>
+    <!-- ===== COMPLEJO I: brazo transmembrana + brazo hidrofílico matricial ===== -->
+    <rect x="45" y="336" width="150" height="88" rx="16"
+          fill="{COL_I_CLARO}" stroke="{COL_I}" stroke-width="2.6"/>
+    <path d="M 62 424 L 178 424 L 178 548 Q 178 562 164 562 L 76 562 Q 62 562 62 548 Z"
+          fill="{COL_I_CLARO}" stroke="{COL_I}" stroke-width="2.6"/>
+
     <!-- Subunidades sugeridas -->
-    <line x1="130" y1="500" x2="130" y2="686" stroke="{COL_I}" stroke-width="1.1" stroke-dasharray="5 5" opacity="0.5"/>
-    <line x1="200" y1="500" x2="200" y2="686" stroke="{COL_I}" stroke-width="1.1" stroke-dasharray="5 5" opacity="0.5"/>
-    <line x1="103" y1="800" x2="258" y2="800" stroke="{COL_I}" stroke-width="1.1" stroke-dasharray="5 5" opacity="0.5"/>
-    <line x1="103" y1="905" x2="258" y2="905" stroke="{COL_I}" stroke-width="1.1" stroke-dasharray="5 5" opacity="0.5"/>
-    <text x="180" y="576" fill="{COL_I}" font-size="14" font-weight="900" text-anchor="middle">Complejo I</text>
-    <text x="180" y="596" fill="#0f172a" font-size="9" font-weight="700" text-anchor="middle"
-          font-family="'JetBrains Mono', monospace">NADH:ubiquinona oxidorreductasa</text>
-    <!-- Centro FMN y centros Fe-S en el brazo matricial -->
-    <circle cx="180" cy="730" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1.4"/>
-    <text x="180" y="734" fill="#78350f" font-size="6.5" font-weight="900" text-anchor="middle">FMN</text>
-    <circle cx="150" cy="800" r="5" fill="#dc2626" stroke="#991b1b" stroke-width="1.2"/>
-    <circle cx="210" cy="860" r="5" fill="#dc2626" stroke="#991b1b" stroke-width="1.2"/>
-    <circle cx="160" cy="920" r="5" fill="#dc2626" stroke="#991b1b" stroke-width="1.2"/>
-    <text x="180" y="982" fill="#991b1b" font-size="8.5" font-weight="800" text-anchor="middle">8 centros [Fe-S]</text>
-    <text x="180" y="836" fill="#0f172a" font-size="8.5" font-weight="800"
-          transform="rotate(-90 180 836)" text-anchor="middle">NADH ➔ FMN ➔ Fe-S ➔ Q</text>
+    <line x1="95" y1="338" x2="95" y2="422" stroke="{COL_I}" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+    <line x1="145" y1="338" x2="145" y2="422" stroke="{COL_I}" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+    <line x1="64" y1="492" x2="176" y2="492" stroke="{COL_I}" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+
+    <!-- Identificación dentro del propio complejo (sin chips flotantes) -->
+    <text x="120" y="370" fill="{COL_I}" font-size="12.5" font-weight="900" text-anchor="middle">Complejo I</text>
+    <text x="120" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">NADH:ubiquinona oxidorreductasa</text>
+    <text x="120" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 1.6.5.3 • 4 H⁺ bombeados</text>
+
+    <!-- Cadena FMN ➔ centros Fe-S -->
+    <text x="120" y="440" fill="#0f172a" font-size="7" font-weight="800" text-anchor="middle">NADH ➔ FMN ➔ Fe-S ➔ Q</text>
+    <circle cx="115" cy="456" r="5.5" fill="#f59e0b" stroke="#b45309" stroke-width="1.3"/>
+    <text x="115" y="459" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">FMN</text>
+    <circle cx="88" cy="488" r="4.5" fill="#dc2626" stroke="#991b1b" stroke-width="1.1"/>
+    <circle cx="148" cy="506" r="4.5" fill="#dc2626" stroke="#991b1b" stroke-width="1.1"/>
+    <circle cx="95" cy="528" r="4.5" fill="#dc2626" stroke="#991b1b" stroke-width="1.1"/>
+    <text x="120" y="550" fill="#991b1b" font-size="6.8" font-weight="800" text-anchor="middle">8 centros [Fe-S]</text>
     """
 
 
@@ -254,46 +244,49 @@ def complejo_ii():
     """Complejo II: Succinato deshidrogenasa (única enzima del ciclo de Krebs unida a membrana)."""
     return f"""
     <!-- ===== COMPLEJO II: SDH (FAD covalente, no bombea protones) ===== -->
-    <path d="M 385 520 Q 385 495 410 495 L 535 495 Q 560 495 560 520 L 560 665
-             Q 560 690 535 690 L 425 690 Q 400 690 400 665 L 400 520 Z"
-          fill="{COL_II_CLARO}" stroke="{COL_II}" stroke-width="2.8"/>
-    <!-- Dominio matricial con la subunidad catalítica -->
-    <rect x="410" y="680" width="120" height="150" rx="22" fill="{COL_II_CLARO}" stroke="{COL_II}" stroke-width="2.8"/>
-    <text x="470" y="700" fill="{COL_II}" font-size="13" font-weight="900" text-anchor="middle">Complejo II</text>
-    <text x="470" y="716" fill="#0f172a" font-size="8.5" font-weight="700" text-anchor="middle"
-          font-family="'JetBrains Mono', monospace">Succinato DH (SDH)</text>
+    <rect x="245" y="336" width="110" height="88" rx="16"
+          fill="{COL_II_CLARO}" stroke="{COL_II}" stroke-width="2.6"/>
+    <rect x="255" y="424" width="90" height="132" rx="16"
+          fill="{COL_II_CLARO}" stroke="{COL_II}" stroke-width="2.6"/>
+
+    <text x="300" y="370" fill="{COL_II}" font-size="12" font-weight="900" text-anchor="middle">Complejo II</text>
+    <text x="300" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">Succinato DH (SDH)</text>
+    <text x="300" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 1.3.5.1 • 0 H⁺</text>
+
     <!-- Subunidades SDHA / SDHB / SDHC-SDHD -->
-    <rect x="418" y="726" width="104" height="30" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
-    <text x="470" y="746" fill="#78350f" font-size="8.5" font-weight="900" text-anchor="middle">SDHA • FAD</text>
-    <rect x="418" y="762" width="104" height="28" rx="10" fill="#d1fae5" stroke="#047857" stroke-width="1.4"/>
-    <text x="470" y="781" fill="#065f46" font-size="8.5" font-weight="900" text-anchor="middle">SDHB • [Fe-S]</text>
-    <text x="470" y="812" fill="#0369a1" font-size="8.5" font-weight="800" text-anchor="middle">SDHC / SDHD (hemo b)</text>
-    <!-- Sitio catalítico -->
-    <text x="470" y="860" fill="#78350f" font-size="9.5" font-weight="800" text-anchor="middle">Succinato ➔ Fumarato</text>
+    <rect x="264" y="436" width="72" height="22" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+    <text x="300" y="451" fill="#78350f" font-size="6.8" font-weight="900" text-anchor="middle">SDHA • FAD</text>
+    <rect x="264" y="464" width="72" height="22" rx="8" fill="#d1fae5" stroke="#047857" stroke-width="1.2"/>
+    <text x="300" y="479" fill="#065f46" font-size="6.8" font-weight="900" text-anchor="middle">SDHB • [Fe-S]</text>
+    <text x="300" y="504" fill="#0369a1" font-size="6.8" font-weight="800" text-anchor="middle">SDHC / SDHD (hemo b)</text>
+    <text x="300" y="530" fill="#78350f" font-size="8" font-weight="800" text-anchor="middle">Succinato ➔ Fumarato</text>
     """
 
 
 def complejo_iii():
     """Complejo III: Citocromo bc₁ con el ciclo Q (4 H⁺ bombeados)."""
     return f"""
-    <!-- ===== COMPLEJO III: bc₁ con dominio en el EIM ===== -->
-    <path d="M 768 520 Q 768 495 793 495 L 927 495 Q 952 495 952 520 L 952 665
-             Q 952 690 927 690 L 793 690 Q 768 690 768 665 Z"
-          fill="{COL_III_CLARO}" stroke="{COL_III}" stroke-width="2.8"/>
-    <!-- Dominio soluble en el espacio intermembrana (Rieske / cit c₁) -->
-    <rect x="795" y="404" width="130" height="92" rx="22" fill="{COL_III_CLARO}" stroke="{COL_III}" stroke-width="2.8"/>
-    <text x="860" y="440" fill="{COL_III}" font-size="13" font-weight="900" text-anchor="middle">Complejo III</text>
-    <text x="860" y="456" fill="#0f172a" font-size="8.5" font-weight="700" text-anchor="middle"
-          font-family="'JetBrains Mono', monospace">Citocromo bc₁</text>
-    <text x="860" y="480" fill="#4c1d95" font-size="8.5" font-weight="800" text-anchor="middle">Cit c₁ ➔ citocromo c</text>
-    <!-- Grupos hemo -->
-    <circle cx="810" cy="560" r="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.6"/>
-    <text x="810" y="563" fill="#5b21b6" font-size="6.5" font-weight="900" text-anchor="middle">bL</text>
-    <circle cx="910" cy="600" r="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.6"/>
-    <text x="910" y="603" fill="#5b21b6" font-size="6.5" font-weight="900" text-anchor="middle">bH</text>
-    <text x="860" y="556" fill="#5b21b6" font-size="9" font-weight="800" text-anchor="middle">Ciclo Q</text>
-    <text x="860" y="586" fill="#0f172a" font-size="8" font-weight="700" text-anchor="middle">QH₂ ➔ Q•⁻ ➔ Q</text>
-    <text x="860" y="668" fill="#0f172a" font-size="8.5" font-weight="800" text-anchor="middle">2 e⁻ por ciclo • 4 H⁺ al EIM</text>
+    <!-- ===== COMPLEJO III: bc₁ con dominio soluble en el EIM ===== -->
+    <rect x="450" y="336" width="140" height="88" rx="16"
+          fill="{COL_III_CLARO}" stroke="{COL_III}" stroke-width="2.6"/>
+    <rect x="472" y="258" width="96" height="78" rx="16"
+          fill="{COL_III_CLARO}" stroke="{COL_III}" stroke-width="2.6"/>
+
+    <text x="520" y="284" fill="{COL_III}" font-size="12" font-weight="900" text-anchor="middle">Complejo III</text>
+    <text x="520" y="298" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">Citocromo bc₁</text>
+    <text x="520" y="312" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 7.1.1.8 • 4 H⁺</text>
+    <text x="520" y="326" fill="#4c1d95" font-size="6.8" font-weight="800" text-anchor="middle">Cit c₁ ➔ citocromo c</text>
+
+    <!-- Grupos hemo bL / bH y ciclo Q -->
+    <circle cx="482" cy="372" r="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+    <text x="482" y="375" fill="#5b21b6" font-size="5.5" font-weight="900" text-anchor="middle">bL</text>
+    <circle cx="558" cy="402" r="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+    <text x="558" y="405" fill="#5b21b6" font-size="5.5" font-weight="900" text-anchor="middle">bH</text>
+    <text x="520" y="360" fill="#5b21b6" font-size="8" font-weight="800" text-anchor="middle">Ciclo Q</text>
+    <text x="520" y="390" fill="#0f172a" font-size="6.8" font-weight="700" text-anchor="middle">QH₂ ➔ Q•⁻ ➔ Q</text>
+    <text x="520" y="418" fill="#0f172a" font-size="7" font-weight="800" text-anchor="middle">2 e⁻ • 4 H⁺ al EIM</text>
     """
 
 
@@ -301,22 +294,27 @@ def complejo_iv():
     """Complejo IV: Citocromo c oxidasa (reduce el O₂ a agua, 2 H⁺ bombeados)."""
     return f"""
     <!-- ===== COMPLEJO IV: citocromo c oxidasa (COX) ===== -->
-    <path d="M 1135 520 Q 1135 495 1160 495 L 1330 495 Q 1355 495 1355 520 L 1355 665
-             Q 1355 690 1330 690 L 1160 690 Q 1135 690 1135 665 Z"
-          fill="{COL_IV_CLARO}" stroke="{COL_IV}" stroke-width="2.8"/>
-    <!-- Dominio matricial (sitio de reducción del O₂) -->
-    <rect x="1175" y="680" width="140" height="112" rx="22" fill="{COL_IV_CLARO}" stroke="{COL_IV}" stroke-width="2.8"/>
-    <text x="1245" y="576" fill="{COL_IV}" font-size="14" font-weight="900" text-anchor="middle">Complejo IV</text>
-    <text x="1245" y="596" fill="#0f172a" font-size="8.5" font-weight="700" text-anchor="middle"
-          font-family="'JetBrains Mono', monospace">Citocromo c oxidasa</text>
+    <rect x="660" y="336" width="140" height="88" rx="16"
+          fill="{COL_IV_CLARO}" stroke="{COL_IV}" stroke-width="2.6"/>
+    <rect x="678" y="424" width="104" height="108" rx="16"
+          fill="{COL_IV_CLARO}" stroke="{COL_IV}" stroke-width="2.6"/>
+
+    <text x="730" y="370" fill="{COL_IV}" font-size="12.5" font-weight="900" text-anchor="middle">Complejo IV</text>
+    <text x="730" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">Citocromo c oxidasa</text>
+    <text x="730" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 7.1.1.9 • 2 H⁺</text>
+
     <!-- Centros redox -->
-    <circle cx="1180" cy="740" r="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
-    <text x="1180" y="743" fill="#78350f" font-size="6" font-weight="900" text-anchor="middle">CuA</text>
-    <circle cx="1245" cy="760" r="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
-    <text x="1245" y="763" fill="#78350f" font-size="6" font-weight="900" text-anchor="middle">hema</text>
-    <circle cx="1310" cy="740" r="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
-    <text x="1310" y="743" fill="#78350f" font-size="6" font-weight="900" text-anchor="middle">CuB</text>
-    <text x="1245" y="786" fill="#7c2d12" font-size="8.5" font-weight="800" text-anchor="middle">O₂ + 4 H⁺ + 4 e⁻</text>
+    <circle cx="695" cy="450" r="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+    <text x="695" y="453" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">CuA</text>
+    <circle cx="730" cy="472" r="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+    <text x="730" y="475" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">hema</text>
+    <circle cx="765" cy="450" r="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+    <text x="765" y="453" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">CuB</text>
+
+    <!-- Aceptor final de electrones -->
+    <text x="730" y="506" fill="#7c2d12" font-size="7.5" font-weight="800" text-anchor="middle">O₂ + 4 H⁺ + 4 e⁻</text>
+    <text x="730" y="521" fill="#7c2d12" font-size="7.5" font-weight="800" text-anchor="middle">➔ 2 H₂O</text>
     """
 
 
@@ -325,32 +323,32 @@ def atp_sintasa():
     return f"""
     <!-- ===== ATP SINTASA (F₀F₁) ===== -->
     <!-- F₀: sector transmembrana (canal de protones) -->
-    <path d="M 1445 520 Q 1445 495 1470 495 L 1570 495 Q 1595 495 1595 520 L 1595 665
-             Q 1595 690 1570 690 L 1470 690 Q 1445 690 1445 665 Z"
-          fill="{COL_V_CLARO}" stroke="{COL_V}" stroke-width="2.8"/>
+    <rect x="880" y="336" width="130" height="88" rx="16"
+          fill="{COL_V_CLARO}" stroke="{COL_V}" stroke-width="2.6"/>
     <!-- Eje central (subunidad γ) -->
-    <rect x="1507" y="690" width="26" height="80" rx="10" fill="#fda4af" stroke="{COL_V}" stroke-width="2"/>
+    <rect x="932" y="424" width="26" height="42" rx="9" fill="#fda4af" stroke="{COL_V}" stroke-width="1.8"/>
     <!-- F₁: cabeza catalítica -->
-    <rect x="1430" y="770" width="180" height="210" rx="46" fill="{COL_V_CLARO}" stroke="{COL_V}" stroke-width="2.8"/>
+    <rect x="862" y="466" width="166" height="150" rx="42"
+          fill="{COL_V_CLARO}" stroke="{COL_V}" stroke-width="2.6"/>
     <!-- Tallo periférico (b₂ / OSCP) -->
-    <path d="M 1420 600 L 1420 900 Q 1420 940 1445 950" fill="none" stroke="{COL_V}" stroke-width="9" stroke-linecap="round" opacity="0.75"/>
-    <text x="1330" y="700" fill="{COL_V}" font-size="9" font-weight="800" text-anchor="middle"
-          transform="rotate(-90 1330 700)">Tallo periférico b₂ / OSCP</text>
+    <path d="M 850 372 L 850 546 Q 850 578 872 586"
+          fill="none" stroke="{COL_V}" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
 
-    <text x="1520" y="576" fill="{COL_V}" font-size="13" font-weight="900" text-anchor="middle">ATP Sintasa</text>
-    <text x="1520" y="594" fill="#0f172a" font-size="8" font-weight="700" text-anchor="middle"
-          font-family="'JetBrains Mono', monospace">F₀F₁ (Complejo V)</text>
-    <text x="1520" y="530" fill="#9f1239" font-size="9" font-weight="900" text-anchor="middle">F₀</text>
+    <text x="945" y="350" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">F₀</text>
+    <text x="945" y="370" fill="{COL_V}" font-size="12" font-weight="900" text-anchor="middle">ATP Sintasa</text>
+    <text x="945" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">F₀F₁ (Complejo V)</text>
+    <text x="945" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 7.1.2.2</text>
 
     <!-- Cabeza F₁ con las tres conformaciones catalíticas -->
-    <text x="1520" y="806" fill="{COL_V}" font-size="12" font-weight="900" text-anchor="middle">F₁</text>
-    <circle cx="1475" cy="845" r="17" fill="#ffffff" stroke="{COL_V}" stroke-width="1.8"/>
-    <text x="1475" y="849" fill="#9f1239" font-size="9" font-weight="900" text-anchor="middle">β-L</text>
-    <circle cx="1565" cy="845" r="17" fill="#ffffff" stroke="{COL_V}" stroke-width="1.8"/>
-    <text x="1565" y="849" fill="#9f1239" font-size="9" font-weight="900" text-anchor="middle">β-T</text>
-    <circle cx="1520" cy="905" r="17" fill="#ffffff" stroke="{COL_V}" stroke-width="1.8"/>
-    <text x="1520" y="909" fill="#9f1239" font-size="9" font-weight="900" text-anchor="middle">β-O</text>
-    <text x="1520" y="955" fill="#9f1239" font-size="9" font-weight="800" text-anchor="middle">Rotación γ (3 H⁺ / vuelta)</text>
+    <text x="945" y="492" fill="{COL_V}" font-size="11" font-weight="900" text-anchor="middle">F₁</text>
+    <circle cx="905" cy="524" r="15" fill="#ffffff" stroke="{COL_V}" stroke-width="1.6"/>
+    <text x="905" y="528" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-L</text>
+    <circle cx="985" cy="524" r="15" fill="#ffffff" stroke="{COL_V}" stroke-width="1.6"/>
+    <text x="985" y="528" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-T</text>
+    <circle cx="945" cy="566" r="15" fill="#ffffff" stroke="{COL_V}" stroke-width="1.6"/>
+    <text x="945" y="570" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-O</text>
+    <text x="945" y="602" fill="#9f1239" font-size="6.8" font-weight="800" text-anchor="middle">Rotación γ • 3 H⁺ / vuelta</text>
     """
 
 
@@ -360,31 +358,29 @@ def atp_sintasa():
 def ruta_electrones():
     """Trazado discontinuo del flujo de electrones: I/II ➔ Q ➔ III ➔ cit c ➔ IV ➔ O₂."""
     return f"""
-    <!-- ===== FLUJO DE ELECTRONES (línea roja discontinua) ===== -->
-    <g fill="none" stroke="#dc2626" stroke-width="2.4" stroke-dasharray="9 6">
-      <path d="M 300 590 L 630 590" marker-end="url(#arrowElectron)"/>
-      <path d="M 560 590 L 630 590" marker-end="url(#arrowElectron)"/>
-      <path d="M 682 590 L 764 590" marker-end="url(#arrowElectron)"/>
-      <path d="M 952 590 L 996 590" marker-end="url(#arrowElectron)"/>
-      <path d="M 1042 590 L 1131 590" marker-end="url(#arrowElectron)"/>
-      <path d="M 1245 695 L 1245 862" marker-end="url(#arrowElectron)"/>
+    <!-- ===== FLUJO DE ELECTRONES (línea roja discontinua sobre la bicapa) ===== -->
+    <g fill="none" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="8 5">
+      <path d="M 195 380 L 381 380" marker-end="url(#arrowElectron)"/>
+      <path d="M 355 380 L 381 380" marker-end="url(#arrowElectron)"/>
+      <path d="M 429 380 L 446 380" marker-end="url(#arrowElectron)"/>
+      <path d="M 590 380 L 599 380" marker-end="url(#arrowElectron)"/>
+      <path d="M 641 380 L 656 380" marker-end="url(#arrowElectron)"/>
     </g>
 
-    <!-- Transportador móvil: UBIQUINONA (Q ⇄ QH₂) en la bicapa -->
-    <g transform="translate({X_Q}, 590)">
-      <polygon points="0,-17 15,-8 15,9 0,18 -15,9 -15,-8" fill="#fef3c7" stroke="{COL_Q}" stroke-width="2.2"/>
-      <text x="0" y="4" fill="#92400e" font-size="11" font-weight="900" text-anchor="middle">Q</text>
-      <polyline points="-15,-8 -26,-16 -36,-6 -46,-14" fill="none" stroke="{COL_Q}" stroke-width="2"/>
-      <text x="0" y="34" fill="#92400e" font-size="9" font-weight="900" text-anchor="middle">Q ⇄ QH₂</text>
+    <!-- Transportador móvil liposoluble: UBIQUINONA (Q ⇄ QH₂) -->
+    <g transform="translate({X_Q}, 380)">
+      <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8"
+               fill="#fef3c7" stroke="{COL_Q}" stroke-width="2"/>
+      <text x="0" y="4" fill="#92400e" font-size="9.5" font-weight="900" text-anchor="middle">Q</text>
     </g>
+    <text x="{X_Q}" y="412" fill="#92400e" font-size="8" font-weight="900" text-anchor="middle">Q ⇄ QH₂</text>
 
-    <!-- Transportador móvil: CITOCROMO c (proteína soluble del EIM) -->
-    <g transform="translate({X_CYC}, 590)">
-      <circle cx="0" cy="0" r="19" fill="#cffafe" stroke="{COL_CYC}" stroke-width="2.4"/>
-      <rect x="-7" y="-7" width="14" height="14" rx="3" fill="#ffedd5" stroke="#b45309" stroke-width="1.5"/>
-      <text x="0" y="4" fill="#b45309" font-size="8" font-weight="900" text-anchor="middle">Fe</text>
-      <text x="0" y="36" fill="#0e7490" font-size="9" font-weight="900" text-anchor="middle">Cit c</text>
+    <!-- Transportador móvil soluble: CITOCROMO c -->
+    <g transform="translate({X_CYC}, 380)">
+      <circle cx="0" cy="0" r="18" fill="#cffafe" stroke="{COL_CYC}" stroke-width="2.2"/>
+      <text x="0" y="4" fill="#0e7490" font-size="8.5" font-weight="900" text-anchor="middle">cit c</text>
     </g>
+    <text x="{X_CYC}" y="412" fill="#0e7490" font-size="8" font-weight="900" text-anchor="middle">Fe³⁺ ⇄ Fe²⁺</text>
     """
 
 
@@ -392,32 +388,31 @@ def bombeo_protones():
     """Arcos de bombeo de H⁺ desde la matriz hacia el EIM a través de I, III y IV."""
     return f"""
     <!-- ===== BOMBEO DE PROTONES H⁺ (matriz ➔ EIM) ===== -->
-    <g fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round">
-      <path d="M 268 730 Q 330 660 330 520 Q 330 400 292 320" marker-end="url(#arrowFlow)"/>
-      <path d="M 938 740 Q 1000 660 1000 520 Q 1000 400 962 320" marker-end="url(#arrowFlow)"/>
-      <path d="M 1342 700 Q 1390 640 1390 520 Q 1390 420 1362 350" marker-end="url(#arrowFlow)"/>
+    <g fill="none" stroke="#ea580c" stroke-width="2.8" stroke-linecap="round">
+      <path d="M 182 434 Q 235 392 235 330 Q 235 262 190 226" marker-end="url(#arrowFlow)"/>
+      <path d="M 578 434 Q 630 392 630 330 Q 630 264 590 230" marker-end="url(#arrowFlow)"/>
+      <path d="M 792 434 Q 830 392 830 330 Q 830 268 806 240" marker-end="url(#arrowFlow)"/>
     </g>
-    <g font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#c2410c">
-      <text x="352" y="430">4 H⁺</text>
-      <text x="1022" y="430">4 H⁺</text>
-      <text x="1398" y="470">2 H⁺</text>
+    <g font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">
+      <text x="250" y="266">4 H⁺</text>
+      <text x="646" y="272">4 H⁺</text>
+      <text x="844" y="292">2 H⁺</text>
     </g>
 
     <!-- ===== RETORNO DE PROTONES POR LA ATP SINTASA (EIM ➔ matriz) ===== -->
-    <path d="M 1620 320 Q 1690 430 1690 560 Q 1690 690 1610 780"
-          fill="none" stroke="#ea580c" stroke-width="3.4" stroke-linecap="round" marker-end="url(#arrowFlow)"/>
-    <text x="1636" y="440" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#c2410c">
-      ≈ 4 H⁺ / ATP
-    </text>
+    <path d="M 1020 236 Q 1090 290 1085 346 Q 1080 398 1010 424 Q 972 440 950 462"
+          fill="none" stroke="#ea580c" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrowFlow)"/>
+    <text x="988" y="286" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">≈ 4 H⁺</text>
+    <text x="988" y="300" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">por ATP</text>
 
-    <!-- Acoplamiento quimiosmótico -->
-    <g transform="translate(1080, 300)">
-      <rect x="0" y="0" width="330" height="46" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.8" opacity="0.95"/>
-      <text x="165" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#9a3412" text-anchor="middle">
+    <!-- Acoplamiento quimiosmótico (cartel de estilo) -->
+    <g transform="translate(60, 150)">
+      <rect x="0" y="0" width="330" height="42" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.6" opacity="0.95"/>
+      <text x="165" y="17" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#9a3412" text-anchor="middle">
         ACOPLAMIENTO QUIMIOSMÓTICO (MITCHELL, 1961)
       </text>
-      <text x="165" y="34" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#475569" text-anchor="middle">
-        El bombeo de H⁺ crea la fuerza protón-motriz que impulsa la síntesis de ATP
+      <text x="165" y="32" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#475569" text-anchor="middle">
+        El gradiente de H⁺ (Δp) impulsa la síntesis de ATP
       </text>
     </g>
     """
@@ -426,50 +421,48 @@ def bombeo_protones():
 def reacciones_matriz():
     """Donantes de electrones, reducción del O₂ y síntesis de ATP en la matriz."""
     return f"""
-    <!-- ===== REACCIÓN DEL ACEPTOR FINAL DE ELECTRONES: O₂ ➔ H₂O ===== -->
-    <g transform="translate(1150, 880)">
-      {OXIGENO}
-      <text x="18" y="86" fill="#dc2626" font-size="11" font-weight="900" text-anchor="middle">O₂</text>
+    <!-- ===== DONANTE 1: NADH ➔ Complejo I ===== -->
+    <g transform="translate(40, 620)">
+      <rect x="0" y="0" width="150" height="54" rx="10" fill="#dcfce7" stroke="#059669" stroke-width="1.8"/>
+      <text x="75" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="900"
+            fill="#065f46" text-anchor="middle">NADH + H⁺</text>
+      <text x="75" y="34" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">10 H⁺ bombeados</text>
+      <text x="75" y="47" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">≈ 2.5 ATP</text>
     </g>
-    <path d="M 1205 905 L 1300 905" fill="none" stroke="#dc2626" stroke-width="2.6" marker-end="url(#arrowElectron)"/>
-    <g transform="translate(1315, 880)">
-      {AGUA}
+    <path d="M 115 616 L 115 570" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+    <text x="126" y="598" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#047857">e⁻</text>
+
+    <!-- ===== DONANTE 2: FADH₂ ➔ Complejo II (vía ubiquinona) ===== -->
+    <g transform="translate(240, 620)">
+      <rect x="0" y="0" width="150" height="54" rx="10" fill="#dcfce7" stroke="#059669" stroke-width="1.8"/>
+      <text x="75" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="900"
+            fill="#065f46" text-anchor="middle">FADH₂</text>
+      <text x="75" y="34" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">6 H⁺ bombeados</text>
+      <text x="75" y="47" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">≈ 1.5 ATP</text>
     </g>
-    <text x="1345" y="972" fill="#0284c7" font-size="10.5" font-weight="900" text-anchor="middle">2 H₂O</text>
-    <g transform="translate(1255, 1000)">
-      <rect x="0" y="0" width="250" height="24" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.6"/>
-      <text x="125" y="16" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800"
-            fill="#075985" text-anchor="middle">O₂ + 4 H⁺ + 4 e⁻ ➔ 2 H₂O</text>
-    </g>
+    <path d="M 315 616 Q 315 590 302 568" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+    <text x="322" y="598" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#047857">e⁻</text>
 
-    <!-- ===== DONANTE 1: NADH (brazo matricial del Complejo I) ===== -->
-    {crear_especie(60, 1052, "NADH", "10 H⁺ bombeados ➔ ≈ 2.5 ATP", NADH,
-                   escala=0.68, dx_texto=178, pos_texto="derecha",
-                   detalle2="Donado por el ciclo de Krebs y las lanzaderas")}
-    <path d="M 160 1040 Q 170 1010 178 986" fill="none" stroke="#059669" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
-
-    <!-- ===== DONANTE 2: FADH₂ (a través de la ubiquinona) ===== -->
-    {crear_especie(330, 1052, "FADH₂", "6 H⁺ bombeados ➔ ≈ 1.5 ATP", FADH2,
-                   escala=0.62, dx_texto=118, pos_texto="derecha",
-                   detalle2="Lanzadera del glicerol-3-P y β-oxidación")}
-    <path d="M 430 1040 Q 450 940 466 846" fill="none" stroke="#059669" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
-
-    <!-- ===== SÍNTESIS DE ATP EN LA CABEZA F₁ ===== -->
-    <g transform="translate(1300, 1082)">
-      <rect x="0" y="0" width="150" height="34" rx="17" fill="#ffffff" stroke="#475569" stroke-width="1.8"/>
-      <text x="75" y="22" font-family="'Inter', sans-serif" font-size="13" font-weight="900"
+    <!-- ===== SÍNTESIS DE ATP EN LA CABEZA F₁ (fosforilación oxidativa) ===== -->
+    <g transform="translate(860, 646)">
+      <rect x="0" y="0" width="170" height="32" rx="16" fill="#ffffff" stroke="#475569" stroke-width="1.8"/>
+      <text x="85" y="21" font-family="'Inter', sans-serif" font-size="12" font-weight="900"
             fill="#334155" text-anchor="middle">ADP + Pi</text>
     </g>
-    <path d="M 1455 1090 Q 1470 1040 1480 990" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <path d="M 945 642 L 945 622" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
 
-    <g transform="translate(1550, 1082)">
-      <rect x="0" y="0" width="150" height="34" rx="17" fill="#dcfce7" stroke="#059669" stroke-width="2.2"/>
-      <text x="75" y="23" font-family="'Inter', sans-serif" font-size="15" font-weight="900"
+    <g transform="translate(860, 700)">
+      <rect x="0" y="0" width="170" height="34" rx="17" fill="#dcfce7" stroke="#059669" stroke-width="2.2"/>
+      <text x="85" y="23" font-family="'Inter', sans-serif" font-size="14" font-weight="900"
             fill="#065f46" text-anchor="middle">ATP + H₂O</text>
     </g>
-    <path d="M 1580 985 Q 1600 1040 1615 1080" fill="none" stroke="#059669" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
-    <text x="1520" y="1140" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700"
-          fill="#065f46" text-anchor="middle">Fosforilación oxidativa: la energía del gradiente se convierte en ATP</text>
+    <path d="M 1032 610 Q 1085 660 1035 698" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+    <text x="945" y="756" font-family="'Inter', sans-serif" font-size="9" font-weight="700"
+          fill="#065f46" text-anchor="middle">Fosforilación oxidativa</text>
     """
 
 
@@ -478,103 +471,103 @@ def reacciones_matriz():
 # -----------------------------------------------------------------------------
 def crear_paneles_informativos():
     contenido_q = f"""
-      <g transform="translate(24, 66)">
-        {UBIQUINONA}
-        <text x="97" y="122" fill="#92400e" font-size="12" font-weight="900" text-anchor="middle">Ubiquinona (CoQ₁₀)</text>
-        <text x="97" y="138" fill="#475569" font-size="10" text-anchor="middle">Forma oxidada • muy lipófila</text>
+      <g transform="translate(20, 54)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#92400e">¿QUÉ ES LA UBIQUINONA (CoQ₁₀)?</text>
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Benzoquinona con cola isoprenoide de 10 unidades, marcadamente lipófila.</text>
+        <text x="0" y="38" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Único transportador móvil NO proteico: difunde dentro de la bicapa.</text>
+        <text x="0" y="56" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Recoge los electrones del Complejo I y del Complejo II.</text>
       </g>
-      <g transform="translate(300, 66)">
-        {UBIQUINOL}
-        <text x="97" y="122" fill="#92400e" font-size="12" font-weight="900" text-anchor="middle">Ubiquinol (QH₂)</text>
-        <text x="97" y="138" fill="#475569" font-size="10" text-anchor="middle">Forma reducida • dona 2 e⁻</text>
+      <g transform="translate(20, 148)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#92400e">CICLO Q (Complejo III: bifurcación de electrones)</text>
+        <rect x="0" y="10" width="490" height="30" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.3"/>
+        <text x="12" y="30" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800" fill="#9a3412">QH₂  ➔  Q•⁻ (semiquinona)  ➔  Q</text>
+        <text x="0" y="58" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Rama de baja energía (hemo bL ➔ bH): reduce Q a semiquinona.</text>
+        <text x="0" y="76" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Rama de alta energía (Rieske ➔ cit c₁): reduce al citocromo c.</text>
+        <text x="0" y="94" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Se transfieren 2 e⁻ por ciclo y se translocan 4 H⁺ al EIM.</text>
       </g>
-      <g transform="translate(24, 232)">
-        <rect x="0" y="0" width="742" height="34" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.4"/>
-        <text x="14" y="22" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#92400e">
-          CICLO Q (Complejo III): QH₂ ➔ Q•⁻ (semiquinona) ➔ Q; transfiere 1 e⁻ por cada una de sus dos ramas (bL / bH).
-        </text>
-      </g>
-      <g transform="translate(24, 274)">
-        <rect x="0" y="0" width="742" height="34" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
-        <text x="14" y="22" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#334155">
-          Brazo hidrofóbico: difunde dentro de la bicapa entre I, II y III, sin abandonar la membrana.
-        </text>
+      <g transform="translate(20, 278)">
+        <rect x="0" y="0" width="490" height="112" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.3"/>
+        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#92400e">ESCALA DE POTENCIALES DE REDUCCIÓN (E°')</text>
+        <text x="12" y="42" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">NAD⁺ / NADH .......... −0.32 V</text>
+        <text x="12" y="60" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">Q / QH₂ .................. +0.04 V</text>
+        <text x="12" y="78" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">cit c (Fe³⁺/Fe²⁺) ...... +0.22 V</text>
+        <text x="12" y="96" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">O₂ / H₂O ................ +0.82 V</text>
       </g>
     """
 
     contenido_citc = f"""
-      <g transform="translate(26, 70)">
-        {CITOCROMO_C}
-        <text x="80" y="146" fill="#0e7490" font-size="12" font-weight="900" text-anchor="middle">Citocromo c</text>
-        <text x="80" y="162" fill="#475569" font-size="10" text-anchor="middle">Grupo hemo c • Fe³⁺ ⇄ Fe²⁺</text>
+      <g transform="translate(20, 54)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0e7490">¿QUÉ ES EL CITOCROMO c?</text>
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Proteína globular soluble (~12.4 kDa) del espacio intermembrana.</text>
+        <text x="0" y="38" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Hemo c unido de forma covalente por dos enlaces tioéter a Cys.</text>
+        <text x="0" y="56" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Transporta UN solo electrón entre el Complejo III y el Complejo IV.</text>
+        <text x="0" y="74" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155">• Ciclo redox del hierro: Fe³⁺ ⇄ Fe²⁺; nunca abandona el EIM.</text>
       </g>
-      <g transform="translate(280, 74)">
-        <rect x="0" y="0" width="486" height="104" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
-        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0e7490">TRANSPORTADOR MÓVIL SOLUBLE DEL EIM</text>
-        <text x="12" y="38" font-family="'Inter', sans-serif" font-size="9.5" fill="#155e75">• Transporta 1 solo electrón por molécula (no 2 como la ubiquinona).</text>
-        <text x="12" y="54" font-family="'Inter', sans-serif" font-size="9.5" fill="#155e75">• 2 enlaces tioéter covalentes a Cys (hemo unido de forma irreversible).</text>
-        <text x="12" y="70" font-family="'Inter', sans-serif" font-size="9.5" fill="#155e75">• Ligandos axiales: His18 (quinto) y Met80 (sexto).</text>
-        <text x="12" y="88" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0891b2">• Choca con cit c₁ (III) y con CuA (IV) en la cara externa de la MMI.</text>
+      <g transform="translate(20, 148)">
+        <rect x="0" y="0" width="490" height="112" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.3"/>
+        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0e7490">ESTRUCTURA Y LIGANDOS AXIALES</text>
+        <text x="12" y="40" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#155e75">• Ligando axial proximal: His18</text>
+        <text x="12" y="58" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#155e75">• Ligando axial distal: Met80</text>
+        <text x="12" y="76" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#155e75">• Cadena polipeptídica de ~104 residuos</text>
+        <text x="12" y="96" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#0891b2">• Permite el salto de e⁻ del cit c₁ (III) hacia CuA (IV).</text>
       </g>
-      <g transform="translate(26, 240)">
-        <rect x="0" y="0" width="742" height="68" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
-        <text x="14" y="20" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#334155">PAPEL DEL CITOCROMO c EN LA APOPTOSIS</text>
-        <text x="14" y="38" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569">• Su liberación al citosol activa la caspasa-9 y la vía intrínseca de muerte celular programada.</text>
-        <text x="14" y="54" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569">• La forma mitocondrial es una proteína globular básica de ~12.4 kDa, muy conservada evolutivamente.</text>
+      <g transform="translate(20, 278)">
+        <rect x="0" y="0" width="490" height="112" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.3"/>
+        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#334155">PAPEL DEL CITOCROMO c EN LA APOPTOSIS</text>
+        <text x="12" y="40" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569">• Su liberación al citosol activa la caspasa-9 (vía intrínseca).</text>
+        <text x="12" y="58" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569">• Forma el apoptosoma junto con Apaf-1 y el citocromo c.</text>
+        <text x="12" y="76" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569">• Es una de las proteínas más conservadas de la evolución.</text>
+        <text x="12" y="96" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0369a1">• También actúa como eliminador de radicales superóxido.</text>
       </g>
     """
 
     contenido_rendimiento = f"""
-      <g transform="translate(20, 52)">
-        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a">BOMBEO DE PROTONES Y RELACIÓN P/O (ESTEQUIOMETRÍA MODERNA)</text>
-        <rect x="0" y="10" width="750" height="116" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.3"/>
-        <text x="12" y="30" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="800" fill="#92400e">DONANTE        H⁺ BOMBEADOS (I / III / IV)      H⁺ TOTALES      ATP ESTIMADOS</text>
-        <text x="12" y="52" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#334155">NADH           4 / 4 / 2                       10              ≈ 2.5 ATP</text>
-        <text x="12" y="72" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#334155">FADH₂          — / 4 / 2                       6               ≈ 1.5 ATP</text>
-        <text x="12" y="92" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#334155">(desde el Complejo II los e⁻ entran directamente a la ubiquinona)</text>
-        <text x="12" y="112" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#9a3412">Coste real ≈ 4 H⁺ por ATP (3 F₀F₁ + 1 translocasa ANT/Pi)</text>
+      <g transform="translate(20, 54)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a">BOMBEO DE PROTONES POR COMPLEJO</text>
+        <rect x="0" y="10" width="490" height="106" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.3"/>
+        <text x="12" y="28" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#92400e">DONANTE     I / III / IV     H⁺ TOTALES</text>
+        <text x="12" y="48" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">NADH        4 / 4 / 2         10</text>
+        <text x="12" y="68" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">FADH₂       — / 4 / 2          6</text>
+        <text x="12" y="88" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">Succinato   —  / —  / —        0</text>
+        <text x="12" y="106" font-family="'Inter', sans-serif" font-size="9" fill="#9a3412">El Complejo II no bombea: cede los e⁻ directamente a la ubiquinona.</text>
       </g>
-      <g transform="translate(20, 188)">
-        <rect x="0" y="0" width="750" height="86" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.3"/>
-        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#15803d">BALANCE FINAL DE LA RESPIRACIÓN CELULAR (GLUCOSA)</text>
-        <text x="12" y="39" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" fill="#166534">Glucólisis (2 ATP + 2 NADH) + PDH (2 × 2.5 ATP) + Krebs (2 ATP + 6 NADH + 2 FADH₂)</text>
-        <text x="12" y="57" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" fill="#166534">10 NADH × 2.5 + 2 FADH₂ × 1.5 + 4 ATP (sustrato) = 30 - 32 ATP por glucosa</text>
-        <text x="12" y="76" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#047857">Rendimiento cercano al 34 % • el resto se disipa como calor corporal</text>
+      <g transform="translate(20, 194)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a">RELACIÓN P/O Y COSTE REAL DEL ATP</text>
+        <rect x="0" y="10" width="490" height="96" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.3"/>
+        <text x="12" y="30" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">NADH:  10 H⁺ ÷ 4 = 2.5 ATP</text>
+        <text x="12" y="50" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#334155">FADH₂:  6 H⁺ ÷ 4 = 1.5 ATP</text>
+        <text x="12" y="70" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#9a3412">Coste = 4 H⁺ por ATP</text>
+        <text x="12" y="88" font-family="'Inter', sans-serif" font-size="9" fill="#475569">3 H⁺ por la F₀F₁ + 1 H⁺ por la translocasa ANT/Pi.</text>
       </g>
-      <g transform="translate(20, 288)">
-        <rect x="0" y="0" width="750" height="80" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.3"/>
-        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#334155">ACOPLAMIENTO Y CONTROL RESPIRATORIO</text>
-        <text x="12" y="38" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569">• La cadena está acoplada: sin ADP (estado 4) el bombeo de H⁺ se frena y el O₂ casi no se consume.</text>
-        <text x="12" y="54" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569">• Al aumentar [ADP] (estado 3) se acelera el flujo de electrones: control respiratorio.</text>
-        <text x="12" y="70" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0369a1">• Regulación por la disponibilidad de NADH/FADH₂ y por el potencial de membrana Δψ.</text>
+      <g transform="translate(20, 330)">
+        <rect x="0" y="0" width="490" height="60" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.3"/>
+        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#15803d">BALANCE FINAL DE LA RESPIRACIÓN CELULAR</text>
+        <text x="12" y="38" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#166534">10 NADH × 2.5 + 2 FADH₂ × 1.5 + 4 ATP = 30 - 32 ATP / glucosa</text>
+        <text x="12" y="54" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#047857">Rendimiento ≈ 34 % • el resto se disipa como calor corporal.</text>
       </g>
     """
 
     contenido_inhibidores = f"""
-      <g transform="translate(20, 52)">
-        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a">INHIBIDORES ESPECÍFICOS DE CADA COMPLEJO (VENENOS Y FÁRMACOS)</text>
-        <g transform="translate(0, 12)">
-          <rect x="0" y="0" width="362" height="152" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.3"/>
-          <text x="12" y="20" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800" fill="#991b1b">⊣ COMPLEJO I: Rotenona, Amital, Piericidina</text>
-          <text x="12" y="38" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800" fill="#991b1b">⊣ COMPLEJO II: Malonato (competitivo con succinato)</text>
-          <text x="12" y="56" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800" fill="#991b1b">⊣ COMPLEJO III: Antimicina A, Mixotiazol</text>
-          <text x="12" y="74" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800" fill="#991b1b">⊣ COMPLEJO IV: Cianuro, CO, Azida, H₂S</text>
-          <text x="12" y="92" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800" fill="#991b1b">⊣ ATP SINTASA: Oligomicina (subunidad c de F₀)</text>
-          <text x="12" y="112" font-family="'Inter', sans-serif" font-size="9" fill="#7f1d1d">• Cianuro y CO bloquean el hema a₃: la respiración se detiene por completo.</text>
-          <text x="12" y="128" font-family="'Inter', sans-serif" font-size="9" fill="#7f1d1d">• El malonato es un análogo estructural del succinato (inhibición competitiva).</text>
-          <text x="12" y="144" font-family="'Inter', sans-serif" font-size="9" fill="#7f1d1d">• Con cianuro el gradiente de H⁺ desaparece y el NADH queda totalmente reducido.</text>
-        </g>
-        <g transform="translate(386, 12)">
-          <rect x="0" y="0" width="364" height="152" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.3"/>
-          <text x="12" y="20" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#1e40af">DESACOPLADORES Y TERMOGÉNESIS</text>
-          <text x="12" y="40" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" fill="#1e3a8a">• 2,4-Dinitrofenol (DNP): transporta H⁺ a favor de gradiente</text>
-          <text x="12" y="56" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" fill="#1e3a8a">• Valinomicina (ionóforo de K⁺) y FCCP (protón) rompen Δp</text>
-          <text x="12" y="72" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" fill="#1e3a8a">• UCP1 = termogenina del tejido adiposo pardo</text>
-          <text x="12" y="92" font-family="'Inter', sans-serif" font-size="9" fill="#1e3a8a">Al desacoplar, el flujo de e⁻ se acelera, el O₂ se consume</text>
-          <text x="12" y="106" font-family="'Inter', sans-serif" font-size="9" fill="#1e3a8a">sin control y la energía sale como CALOR, no como ATP.</text>
-          <text x="12" y="126" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#1d4ed8">Consecuencia: hipertermia (el DNP causó muertes en los años 30).</text>
-          <text x="12" y="142" font-family="'Inter', sans-serif" font-size="9" fill="#1e3a8a">Fisiológicamente, UCP1 es la base de la producción de calor en hibernantes.</text>
-        </g>
+      <g transform="translate(20, 54)">
+        <rect x="0" y="0" width="490" height="182" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.3"/>
+        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#991b1b">INHIBIDORES ESPECÍFICOS (⊣)</text>
+        <text x="12" y="42" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#991b1b">⊣ Complejo I: rotenona, amital, piericidina</text>
+        <text x="12" y="60" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#991b1b">⊣ Complejo II: malonato (competitivo con succinato)</text>
+        <text x="12" y="78" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#991b1b">⊣ Complejo III: antimicina A, mixotiazol</text>
+        <text x="12" y="96" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#991b1b">⊣ Complejo IV: cianuro, CO, azida, H₂S</text>
+        <text x="12" y="114" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#991b1b">⊣ ATP sintasa: oligomicina (subunidad c de F₀)</text>
+        <text x="12" y="136" font-family="'Inter', sans-serif" font-size="9" fill="#7f1d1d">• Cianuro y CO bloquean el hemo a₃: paro respiratorio total.</text>
+        <text x="12" y="152" font-family="'Inter', sans-serif" font-size="9" fill="#7f1d1d">• El malonato es un análogo estructural del succinato.</text>
+        <text x="12" y="168" font-family="'Inter', sans-serif" font-size="9" fill="#7f1d1d">• Con cianuro el NADH queda totalmente reducido y Δp colapsa.</text>
+      </g>
+      <g transform="translate(20, 262)">
+        <rect x="0" y="0" width="490" height="128" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.3"/>
+        <text x="12" y="20" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#1e40af">DESACOPLADORES Y TERMOGÉNESIS</text>
+        <text x="12" y="42" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#1e3a8a">• 2,4-dinitrofenol (DNP): transporta H⁺ a favor de gradiente</text>
+        <text x="12" y="60" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#1e3a8a">• FCCP y valinomicina: colapsan la fuerza protón-motriz</text>
+        <text x="12" y="78" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#1e3a8a">• UCP1 (termogenina) del tejido adiposo pardo</text>
+        <text x="12" y="100" font-family="'Inter', sans-serif" font-size="9" fill="#1e3a8a">El flujo de e⁻ se acelera y la energía se disipa como CALOR, no como ATP.</text>
+        <text x="12" y="118" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#1d4ed8">Consecuencia clínica: hipertermia (el DNP causó muertes en los años 30).</text>
       </g>
     """
 
@@ -582,40 +575,40 @@ def crear_paneles_informativos():
     <!-- ================================================================= -->
     <!-- PANELES EDUCATIVOS UNIVERSITARIOS (PARTE INFERIOR DE LA MATRIZ)   -->
     <!-- ================================================================= -->
-    {crear_tarjeta(40, 1260, 790, 400, "ZOOM MOLECULAR: UBIQUINONA (CoQ₁₀) Y CICLO Q", COL_Q, "#fffbeb", contenido_q)}
-    {crear_tarjeta(870, 1260, 790, 400, "ZOOM MOLECULAR: CITOCROMO c", COL_CYC, "#ecfeff", contenido_citc)}
-    {crear_tarjeta(40, 1690, 790, 400, "ESTOEQUIOMETRÍA Y RENDIMIENTO ENERGÉTICO (P/O)", "#047857", "#f0fdf4", contenido_rendimiento)}
-    {crear_tarjeta(870, 1690, 790, 400, "INHIBIDORES, DESACOPLADORES Y REGULACIÓN", "#dc2626", "#fef2f2", contenido_inhibidores)}
+    {crear_tarjeta(30, 790, 530, 410, "ZOOM MOLECULAR: UBIQUINONA (CoQ₁₀) Y CICLO Q", COL_Q, "#fffbeb", contenido_q)}
+    {crear_tarjeta(590, 790, 530, 410, "ZOOM MOLECULAR: CITOCROMO c", COL_CYC, "#ecfeff", contenido_citc)}
+    {crear_tarjeta(30, 1220, 530, 410, "ESTOEQUIOMETRÍA P/O Y RENDIMIENTO ENERGÉTICO", "#047857", "#f0fdf4", contenido_rendimiento)}
+    {crear_tarjeta(590, 1220, 530, 410, "INHIBIDORES, DESACOPLADORES Y REGULACIÓN", "#dc2626", "#fef2f2", contenido_inhibidores)}
     """
 
 
 def leyenda_final():
     """Franja de leyenda cromática del flujo de información del mapa."""
     return f"""
-    <g transform="translate(40, 2110)">
-      <rect x="0" y="0" width="1620" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
-      <text x="24" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a">LEYENDA</text>
-      <g transform="translate(110, 8)">
-        <line x1="0" y1="8" x2="46" y2="8" stroke="#dc2626" stroke-width="2.6" stroke-dasharray="9 6"/>
-        <text x="56" y="12" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#475569">Flujo de electrones (e⁻)</text>
+    <g transform="translate(30, 1655)">
+      <rect x="0" y="0" width="1090" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+      <text x="20" y="23" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a">LEYENDA</text>
+      <g transform="translate(95, 8)">
+        <line x1="0" y1="8" x2="40" y2="8" stroke="#dc2626" stroke-width="2.4" stroke-dasharray="8 5"/>
+        <text x="48" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#475569">Flujo de electrones (e⁻)</text>
       </g>
-      <g transform="translate(340, 8)">
-        <line x1="0" y1="8" x2="46" y2="8" stroke="#ea580c" stroke-width="3"/>
-        <text x="56" y="12" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#475569">Bombeo de protones (H⁺)</text>
+      <g transform="translate(265, 8)">
+        <line x1="0" y1="8" x2="40" y2="8" stroke="#ea580c" stroke-width="2.8"/>
+        <text x="48" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#475569">Bombeo de protones (H⁺)</text>
       </g>
-      <g transform="translate(620, 8)">
-        <rect x="0" y="0" width="16" height="16" rx="4" fill="#dcfce7" stroke="#059669" stroke-width="1.6"/>
-        <text x="26" y="12" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#475569">Ganancia energética / poder reductor</text>
+      <g transform="translate(470, 8)">
+        <rect x="0" y="0" width="15" height="15" rx="4" fill="#dcfce7" stroke="#059669" stroke-width="1.5"/>
+        <text x="23" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#475569">Ganancia / poder reductor</text>
       </g>
-      <g transform="translate(1000, 8)">
-        <rect x="0" y="0" width="16" height="16" rx="4" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
-        <text x="26" y="12" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#475569">Grupo fosfato (Ⓟ)</text>
+      <g transform="translate(680, 8)">
+        <rect x="0" y="0" width="15" height="15" rx="4" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="23" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#475569">Grupo fosfato (Ⓟ)</text>
       </g>
-      <g transform="translate(1270, 8)">
-        <rect x="0" y="0" width="16" height="16" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
-        <text x="26" y="12" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#475569">Inhibidor (⊣) / desacoplador</text>
+      <g transform="translate(870, 8)">
+        <rect x="0" y="0" width="15" height="15" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="23" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#475569">Inhibidor (⊣) / desacoplador</text>
       </g>
-      <text x="24" y="44" font-family="'Inter', sans-serif" font-size="10" font-style="italic" fill="#64748b">
+      <text x="20" y="44" font-family="'Inter', sans-serif" font-size="9.5" font-style="italic" fill="#64748b">
         Mapa 03 • Cadena Transportadora de Electrones y ATP Sintasa • Bioquímica Metabólica Universitaria
       </text>
     </g>
@@ -646,12 +639,6 @@ def construir_cuerpo_svg():
     partes.append(ruta_electrones())
     partes.append(bombeo_protones())
     partes.append(reacciones_matriz())
-
-    # Rótulos superiores de los complejos (chips)
-    partes.append(crear_chip(60, 320, "Complejo I", "EC 1.6.5.3 • 4 H⁺", COL_I, COL_I_CLARO, 240))
-    partes.append(crear_chip(385, 414, "Complejo II", "EC 1.3.5.1 • 0 H⁺", COL_II, COL_II_CLARO, 180))
-    partes.append(crear_chip(1130, 414, "Complejo IV", "EC 7.1.1.9 • 2 H⁺", COL_IV, COL_IV_CLARO, 200))
-    partes.append(crear_chip(1410, 414, "ATP Sintasa", "EC 7.1.2.2 • F₀F₁", COL_V, COL_V_CLARO, 200))
 
     # Paneles educativos y leyenda
     partes.append(crear_paneles_informativos())
