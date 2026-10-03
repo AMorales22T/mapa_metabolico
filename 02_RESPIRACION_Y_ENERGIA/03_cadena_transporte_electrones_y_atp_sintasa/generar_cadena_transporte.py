@@ -21,7 +21,7 @@ from entorno_cte import DEFS_ENTORNO_CTE, generar_entorno_cte_svg
 # 1. GEOMETRÍA GENERAL DEL LIENZO
 # -----------------------------------------------------------------------------
 ANCHO_CANVAS = 1150
-ALTO_CANVAS = 1740
+ALTO_CANVAS = 820
 
 Y_MME = 90
 Y_EIM_INI = 104
@@ -224,9 +224,9 @@ def complejo_i():
     <line x1="64" y1="492" x2="176" y2="492" stroke="{COL_I}" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
 
     <!-- Identificación dentro del propio complejo (sin chips flotantes) -->
-    <text x="120" y="370" fill="{COL_I}" font-size="12.5" font-weight="900" text-anchor="middle">Complejo I</text>
-    <text x="120" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">NADH:ubiquinona oxidorreductasa</text>
-    <text x="120" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+    <text x="120" y="362" fill="{COL_I}" font-size="12" font-weight="900" text-anchor="middle" font-family="'Inter', sans-serif">Complejo I</text>
+    <text x="120" y="380" fill="#0f172a" font-size="7.2" font-weight="700" text-anchor="middle" font-family="'Inter', sans-serif">NADH:ubiquinona oxidorreductasa</text>
+    <text x="120" y="398" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
           font-family="'JetBrains Mono', monospace">EC 1.6.5.3 • 4 H⁺ bombeados</text>
 
     <!-- Cadena FMN ➔ centros Fe-S -->
@@ -249,9 +249,9 @@ def complejo_ii():
     <rect x="255" y="424" width="90" height="132" rx="16"
           fill="{COL_II_CLARO}" stroke="{COL_II}" stroke-width="2.6"/>
 
-    <text x="300" y="370" fill="{COL_II}" font-size="12" font-weight="900" text-anchor="middle">Complejo II</text>
-    <text x="300" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">Succinato DH (SDH)</text>
-    <text x="300" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+    <text x="300" y="362" fill="{COL_II}" font-size="12" font-weight="900" text-anchor="middle" font-family="'Inter', sans-serif">Complejo II</text>
+    <text x="300" y="380" fill="#0f172a" font-size="7.2" font-weight="700" text-anchor="middle" font-family="'Inter', sans-serif">Succinato DH (SDH)</text>
+    <text x="300" y="398" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
           font-family="'JetBrains Mono', monospace">EC 1.3.5.1 • 0 H⁺</text>
 
     <!-- Subunidades SDHA / SDHB / SDHC-SDHD -->
@@ -360,7 +360,8 @@ def ruta_electrones():
     return f"""
     <!-- ===== FLUJO DE ELECTRONES (línea roja discontinua sobre la bicapa) ===== -->
     <g fill="none" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="8 5">
-      <path d="M 195 380 L 381 380" marker-end="url(#arrowElectron)"/>
+      <!-- Complejo I ➔ Q (arco superior que evita cortar el Complejo II) -->
+      <path d="M 195 352 C 220 326, 370 326, 395 365" marker-end="url(#arrowElectron)"/>
       <path d="M 355 380 L 381 380" marker-end="url(#arrowElectron)"/>
       <path d="M 429 380 L 446 380" marker-end="url(#arrowElectron)"/>
       <path d="M 590 380 L 599 380" marker-end="url(#arrowElectron)"/>
@@ -640,9 +641,9 @@ def construir_cuerpo_svg():
     partes.append(bombeo_protones())
     partes.append(reacciones_matriz())
 
-    # Paneles educativos y leyenda
-    partes.append(crear_paneles_informativos())
-    partes.append(leyenda_final())
+    # Paneles educativos y leyenda (¡Eliminados a petición del usuario para ahorrar espacio!)
+    # partes.append(crear_paneles_informativos())
+    # partes.append(leyenda_final())
 
     return "\n".join(partes)
 

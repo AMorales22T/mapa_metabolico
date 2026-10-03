@@ -358,12 +358,12 @@ def main():
     # SALIDA HACIA SÍNTESIS DE NUCLEÓTIDOS: Bajada vertical limpia debajo de Ribosa-5-P
     contenido_svg.append("""
     <!-- Salida hacia Síntesis de Nucleótidos (Despejada de Ribosa-5-P y de Transcetolasa) -->
-    <g transform="translate(730, 1035)">
+    <g transform="translate(730, 1055)">
       <!-- Flecha vertical púrpura que desciende hacia la caja -->
-      <line x1="0" y1="0" x2="0" y2="35" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
       
       <!-- Caja elegante de Nucleótidos -->
-      <g transform="translate(0, 42)">
+      <g transform="translate(0, 35)">
         <rect x="-95" y="0" width="190" height="38" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(124,58,237,0.1))"/>
         <text x="0" y="16" fill="#6d28d9" font-size="10" font-weight="800" text-anchor="middle">SÍNTESIS DE NUCLEÓTIDOS</text>
         <text x="0" y="29" fill="#7c3aed" font-size="9" font-weight="600" text-anchor="middle">ATP • GTP • ARN • ADN • PRPP</text>
@@ -477,20 +477,30 @@ def main():
       <text x="0" y="58" fill="#64748b" font-size="10" text-anchor="middle">Todos los carbonos se reciclan de vuelta hacia la Glucólisis en citosol</text>
     </g>
 
-    <!-- Flecha de reingreso hacia la izquierda -->
+    <!-- Flecha de reingreso hacia la izquierda contenida dentro del canvas -->
     <g transform="translate(145, 1925)">
-      <path d="M 0 0 L -80 0" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
-      <text x="-90" y="-10" fill="#c2410c" font-size="10" font-weight="800" text-anchor="end">← Reingreso directo a Glucólisis</text>
+      <path d="M 0 0 L -100 0" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrowFlow)"/>
+      <text x="-50" y="-8" fill="#c2410c" font-size="10" font-weight="800" text-anchor="middle">← Retorno a Glucólisis</text>
     </g>
     """)
 
     # Unir todo el código
     html_final = CABECERA_HTML + "\n".join(contenido_svg) + PIE_HTML
 
-    # Escribir el archivo Pentosas.html
-    ruta_salida = os.path.join(os.path.dirname(__file__), "Pentosas.html")
+    dir_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_salida = os.path.join(dir_actual, "Pentosas.html")
     with open(ruta_salida, "w", encoding="utf-8") as archivo:
         archivo.write(html_final)
+
+    # Extraer y escribir Pentosas.svg puro
+    inicio_svg = html_final.find("<svg ")
+    fin_svg = html_final.rfind("</svg>") + 6
+    if inicio_svg != -1 and fin_svg != -1:
+        svg_puro = html_final[inicio_svg:fin_svg]
+        ruta_svg = os.path.join(dir_actual, "Pentosas.svg")
+        with open(ruta_svg, "w", encoding="utf-8") as f_svg:
+            f_svg.write(svg_puro)
+        print(f"✅ SVG puro guardado en: {ruta_svg}")
 
     print(f"✅ ¡Vía de las Pentosas Fosfato con colisiones corregidas en: {ruta_salida}!")
 

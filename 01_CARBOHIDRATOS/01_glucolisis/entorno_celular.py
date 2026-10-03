@@ -99,7 +99,7 @@ def generar_entorno_celular_svg(ancho=1000, alto=2280, y_mitocondria=2060):
     <!-- ================================================================= -->
     <!-- Medio Extracelular (Fluido intersticial / Sangre) -->
     <path d="M 0 0 L {ancho} 0 L {ancho} 60 Q 500 85 0 60 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="35" y="32" fill="#64748b" font-size="11" font-weight="800" letter-spacing="1.5">ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)</text>
+    <text x="460" y="32" fill="#64748b" font-size="11" font-weight="800" letter-spacing="1.5">ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)</text>
 
     <!-- Bicapa Fosfolipídica Ondulada Celular -->
     <path d="M 0 60 Q 500 85 {ancho} 60" fill="none" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>

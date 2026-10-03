@@ -119,7 +119,7 @@ def generar_entorno_mitocondrial_svg(ancho=1150, alto=2450, y_mme=95, y_mmi=155)
     <path d="M 0 {y_mme + 6} Q {ancho/2} {y_mme + 12} {ancho} {y_mme + 6} L {ancho} {y_mmi} Q {ancho/2} {y_mmi + 6} 0 {y_mmi} Z" fill="url(#gradEIM)" />
     <!-- Protones H+ acumulados en EIM -->
     <g font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" opacity="0.6">
-      <text x="90" y="{y_mme + 38}">H⁺</text><text x="180" y="{y_mme + 42}">H⁺</text>
+      <text x="320" y="{y_mme + 38}">H⁺</text><text x="440" y="{y_mme + 42}">H⁺</text>
       <text x="560" y="{y_mme + 39}">H⁺</text><text x="680" y="{y_mme + 43}">H⁺</text>
       <text x="860" y="{y_mme + 40}">H⁺</text><text x="980" y="{y_mme + 44}">H⁺</text>
     </g>
@@ -183,8 +183,8 @@ def generar_entorno_mitocondrial_svg(ancho=1150, alto=2450, y_mme=95, y_mmi=155)
       <text x="68" y="-10" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#047857">Q ➔ QH₂</text>
 
       <!-- Rótulos de la lupa -->
-      <rect x="-80" y="-78" width="160" height="18" rx="4" fill="#0f172a" opacity="0.9"/>
-      <text x="0" y="-66" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">COMPLEJO II (SDH) EN MMI</text>
-      <text x="0" y="-84" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#b45309" text-anchor="middle">ÚNICA ENZIMA INTEGRAL DE MEMBRANA</text>
+      <rect x="-80" y="-74" width="160" height="20" rx="4" fill="#0f172a" opacity="0.9"/>
+      <text x="0" y="-60" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">COMPLEJO II (SDH) EN MMI</text>
+      <text x="0" y="-80" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#b45309" text-anchor="middle">ÚNICA ENZIMA INTEGRAL DE MEMBRANA</text>
     </g>
     """

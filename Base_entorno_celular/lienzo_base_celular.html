@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lienzo Base — Mapa Metabólico Celular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul-membrana: #0284c7;
+    --azul-membrana-claro: #38bdf8;
+    --gris-extracelular: #f8fafc;
+    --verde-citosol: #f0fdf4;
+    --gris-citosol: #f1f5f9;
+    --gris-ribosoma: #94a3b8;
+    --ambar-mito-fill: #fef3c7;
+    --ambar-mito-stroke: #b45309;
+    --ambar-mito-oscuro: #78350f;
+    --ambar-mito-inter: #fffbeb;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #cbd5e1;
+    font-family: 'Inter', sans-serif;
+  }
+  .lienzo-scroll {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .lienzo {
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    margin: 40px;
+    display: block;
+  }
+  .etiqueta-region {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    fill: #64748b;
+    letter-spacing: 2px;
+  }
+  .rotulo-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<div class="lienzo-scroll">
+  <svg class="lienzo" width="5000" height="4000" viewBox="0 0 5000 4000" xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+      <!-- Gradiente radial del citosol acuoso -->
+      <radialGradient id="gradCitosol" cx="48%" cy="38%" r="75%">
+        <stop offset="0%" stop-color="#f0fdf4" stop-opacity="1" />
+        <stop offset="55%" stop-color="#f0fdf4" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="#f1f5f9" stop-opacity="1" />
+      </radialGradient>
+
+      <!-- Gradiente del medio extracelular -->
+      <linearGradient id="gradExtracelular" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+        <stop offset="100%" stop-color="#eef2f6" stop-opacity="1" />
+      </linearGradient>
+
+      <!-- Gradiente radial de la matriz mitocondrial -->
+      <radialGradient id="gradMitocondria" cx="55%" cy="90%" r="95%">
+        <stop offset="0%" stop-color="#fef3c7" stop-opacity="1" />
+        <stop offset="60%" stop-color="#fffbeb" stop-opacity="0.95" />
+        <stop offset="100%" stop-color="#fef9c3" stop-opacity="0.9" />
+      </radialGradient>
+
+      <!-- Patrón biológico de ribosomas libres flotando en el citosol -->
+      <pattern id="patronRibosomas" width="140" height="140" patternUnits="userSpaceOnUse">
+        <g fill="#94a3b8" opacity="0.35">
+          <circle cx="20" cy="24" r="4"/><circle cx="29" cy="27" r="3.3"/><circle cx="26" cy="34" r="3.6"/><circle cx="16" cy="32" r="3.4"/>
+          <circle cx="95" cy="60" r="4"/><circle cx="104" cy="63" r="3.3"/><circle cx="101" cy="70" r="3.6"/><circle cx="91" cy="68" r="3.4"/>
+          <circle cx="50" cy="105" r="4"/><circle cx="59" cy="108" r="3.3"/><circle cx="56" cy="115" r="3.6"/><circle cx="46" cy="113" r="3.4"/>
+          <circle cx="120" cy="15" r="3.2"/><circle cx="127" cy="19" r="2.8"/>
+        </g>
+      </pattern>
+
+      <clipPath id="clipLienzo">
+        <rect x="0" y="0" width="5000" height="4000" />
+      </clipPath>
+    </defs>
+
+    <g clip-path="url(#clipLienzo)">
+
+    <!-- ============================================================= -->
+    <!-- CAPA 0: FONDO GENERAL (fallback bajo todas las capas)          -->
+    <!-- ============================================================= -->
+    <rect x="0" y="0" width="5000" height="4000" fill="#ffffff" />
+
+
+    <!-- ============================================================= -->
+    <!-- CAPA CITOSOL — fondo, patrón de ribosomas y citoesqueleto      -->
+    <!-- ============================================================= -->
+    <g id="capa_citosol">
+
+      <!-- Fondo acuoso del citosol -->
+      <rect x="0" y="185" width="5000" height="2800" fill="url(#gradCitosol)" />
+
+      <!-- Patrón de ribosomas libres -->
+      <rect x="0" y="185" width="5000" height="2800" fill="url(#patronRibosomas)" />
+
+      <!-- Red de microfilamentos del citoesqueleto -->
+      <g stroke="#94a3b8" fill="none" opacity="0.3">
+        <path d="M -20,380 Q 600,300 1200,400 T 2400,360 T 3600,420 T 5020,380" stroke-width="2.2" stroke-dasharray="14 10" />
+        <path d="M -20,720 Q 700,820 1400,740 T 2800,800 T 4200,750 T 5020,790" stroke-width="2" stroke-dasharray="12 10" />
+        <path d="M -20,1150 Q 800,1060 1600,1180 T 3200,1100 T 4600,1170 T 5020,1130" stroke-width="2.2" stroke-dasharray="14 10" />
+        <path d="M -20,1580 Q 650,1680 1500,1560 T 3000,1650 T 4400,1580 T 5020,1620" stroke-width="2" stroke-dasharray="12 9" />
+        <path d="M -20,2020 Q 900,1930 1700,2050 T 3300,1970 T 4700,2040 T 5020,2000" stroke-width="2.2" stroke-dasharray="14 10" />
+        <path d="M -20,2450 Q 750,2560 1550,2420 T 3100,2510 T 4500,2450 T 5020,2480" stroke-width="2" stroke-dasharray="12 9" />
+        <path d="M -20,2780 Q 850,2700 1650,2800 T 3250,2730 T 4650,2790 T 5020,2760" stroke-width="2" stroke-dasharray="12 9" />
+      </g>
+
+      <!-- Etiqueta de región (orientación, sin contenido metabólico) -->
+      <text x="70" y="260" class="etiqueta-region" font-size="26">CITOSOL</text>
+
+    </g>
+
+
+    <!-- ============================================================= -->
+    <!-- CAPA MEMBRANA — medio extracelular + bicapa + canales sutiles  -->
+    <!-- ============================================================= -->
+    <g id="capa_membrana">
+
+      <!-- Medio extracelular -->
+      <path d="M 0,0 L 5000,0 L 5000,110 Q 2500,150 0,110 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="90" y="60" class="etiqueta-region" font-size="24">ESPACIO EXTRACELULAR</text>
+
+      <!-- Bicapa fosfolipídica ondulada, gruesa (línea principal) -->
+      <path d="M 0,150 Q 300,108 600,150 Q 900,192 1200,150 Q 1500,102 1800,150 Q 2100,200 2400,150
+               Q 2700,106 3000,150 Q 3300,196 3600,150 Q 3900,100 4200,150 Q 4500,198 4800,150 Q 5000,128 5000,140"
+            fill="none" stroke="#0284c7" stroke-width="9" stroke-linecap="round" />
+
+      <!-- Línea interior clara de la bicapa -->
+      <path d="M 0,168 Q 300,126 600,168 Q 900,210 1200,168 Q 1500,120 1800,168 Q 2100,218 2400,168
+               Q 2700,124 3000,168 Q 3300,214 3600,168 Q 3900,118 4200,168 Q 4500,216 4800,168 Q 5000,146 5000,158"
+            fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+
+      <!-- Par de canales proteicos sutiles embebidos en la membrana -->
+      <g fill="#0369a1" stroke="#075985" stroke-width="2" opacity="0.85">
+        <rect x="1155" y="118" width="90" height="66" rx="20" />
+        <rect x="3550" y="118" width="90" height="66" rx="20" />
+      </g>
+      <g fill="none" stroke="#bae6fd" stroke-width="2" opacity="0.7">
+        <rect x="1170" y="132" width="60" height="38" rx="12" />
+        <rect x="3565" y="132" width="60" height="38" rx="12" />
+      </g>
+
+    </g>
+
+
+    <!-- ============================================================= -->
+    <!-- CAPA MITOCONDRIA — silueta arriñonada, membranas y crestas     -->
+    <!-- ============================================================= -->
+    <g id="capa_mitocondria">
+
+      <!-- Membrana mitocondrial externa (silueta de frijol / arriñonada) -->
+      <path d="M 1250,4000 L 1250,3480
+               C 1250,3180 1460,2930 1770,2850
+               C 2010,2788 2180,2900 2225,3060
+               C 2262,3195 2170,3300 2020,3300
+               C 1922,3300 1868,3204 1918,3108
+               C 1985,2980 2170,2978 2320,3040
+               C 2610,3160 2860,2980 3055,2830
+               C 3350,2605 3705,2645 3955,2830
+               C 4255,3045 4655,2905 5000,2762
+               L 5000,4000 Z"
+            fill="url(#gradMitocondria)" stroke="#b45309" stroke-width="4.5" />
+
+      <!-- Espacio intermembrana -->
+      <path d="M 1310,4000 L 1310,3495
+               C 1310,3215 1500,2985 1780,2910
+               C 2000,2852 2150,2952 2190,3080
+               C 2222,3188 2148,3270 2030,3270
+               C 1950,3270 1908,3195 1948,3120
+               C 2000,3018 2155,3016 2290,3070
+               C 2555,3178 2790,3010 2970,2872
+               C 3250,2660 3580,2696 3810,2872
+               C 4090,3070 4460,2942 4780,2812
+               L 4940,2760 4940,4000 Z"
+            fill="none" stroke="#78350f" stroke-width="2.5" stroke-dasharray="10 6" opacity="0.85" />
+
+      <!-- Crestas mitocondriales (pliegues profundos de la membrana interna) -->
+      <g fill="none" stroke="#b45309" stroke-width="7" stroke-linecap="round" opacity="0.9">
+        <path d="M 1700,3620 C 1850,3420 1950,3620 2100,3460 C 2220,3620 2100,3760 1900,3730 C 1780,3710 1650,3720 1700,3620 Z" fill="#fef3c7" stroke-width="5" />
+        <path d="M 2650,3700 C 2820,3480 2980,3700 3150,3520 C 3290,3700 3140,3860 2900,3820 C 2760,3800 2600,3800 2650,3700 Z" fill="#fef3c7" stroke-width="5" />
+        <path d="M 3550,3760 C 3730,3540 3920,3780 4100,3580 C 4260,3780 4090,3940 3820,3900 C 3660,3880 3500,3870 3550,3760 Z" fill="#fef3c7" stroke-width="5" />
+        <path d="M 4300,3550 Q 4550,3420 4800,3560" stroke-width="6" opacity="0.7" />
+        <path d="M 2050,3900 Q 2350,3830 2650,3910" stroke-width="6" opacity="0.7" />
+      </g>
+
+      <!-- Etiqueta de región -->
+      <text x="1300" y="2960" class="etiqueta-region" font-size="26" fill="#92400e">MITOCONDRIA</text>
+      <text x="1300" y="2995" class="rotulo-mono" font-size="15" fill="#78350f" letter-spacing="0.5">MATRIZ MITOCONDRIAL</text>
+
+    </g>
+
+    </g> <!-- fin clip -->
+
+  </svg>
+</div>
+
+</body>
+</html>

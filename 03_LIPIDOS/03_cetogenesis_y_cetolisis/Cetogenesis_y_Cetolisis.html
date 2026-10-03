@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cetogénesis y Cetólisis con Lupa de Proyección Interórgano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 30px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lienzo-svg {
+      width: 1100px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+    svg { display: block; width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="lienzo-svg">
+    <svg width="1100" height="2250" viewBox="0 0 1100 2250" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Flecha de flujo metabólico principal (Ámbar / Naranja) -->
+        <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
+        </marker>
+        <!-- Flecha de cofactor / Coenzima A (Púrpura) -->
+        <marker id="arrowPurple" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#7c3aed" />
+        </marker>
+        <!-- Flecha de gasto / reactivo (Roja) -->
+        <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
+        </marker>
+        <!-- Flecha de poder reductor NADH (Verde esmeralda) -->
+        <marker id="arrowGreen" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#059669" />
+        </marker>
+        <!-- Flecha de subproducto / gas (Gris pizarra) -->
+        <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+        </marker>
+        <!-- Flecha de agua (Azul) -->
+        <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
+        </marker>
+
+        
+    <!-- Gradiente del Citosol Celular Hepático (arriba) -->
+    <linearGradient id="gradCitosolCeto" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+      <stop offset="60%" stop-color="#f0fdf4" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#f8fafc" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Gradiente de la Matriz Mitocondrial Hepática (Cálido y Luminoso) -->
+    <radialGradient id="gradMatrizCeto" cx="50%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#fffbeb" stop-opacity="1" />
+      <stop offset="50%" stop-color="#fef3c7" stop-opacity="0.95" />
+      <stop offset="85%" stop-color="#fef9c3" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#fef08a" stop-opacity="0.85" />
+    </radialGradient>
+
+    <!-- Gradiente del Espacio Intermembrana / Membrana Plasmática -->
+    <linearGradient id="gradBicapaCeto" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#ffedd5" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#fed7aa" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Gradiente del Capilar Sanguíneo en la Lupa -->
+    <linearGradient id="gradCapilarZoom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe4e6" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#fecdd3" stop-opacity="0.7" />
+    </linearGradient>
+
+    <!-- Gradiente Mitocondrial de la Célula Extrahepática en la Lupa -->
+    <radialGradient id="gradExtraZoom" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#f0f9ff" stop-opacity="1" />
+      <stop offset="70%" stop-color="#e0f2fe" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.8" />
+    </radialGradient>
+
+      </defs>
+
+    <!-- ================================================================= -->
+    <!-- CAPA 1: MATRIZ MITOCONDRIAL HEPÁTICA (ZONA DE CETOGÉNESIS)        -->
+    <!-- ================================================================= -->
+    <rect x="0" y="0" width="1100" height="980" fill="url(#gradMatrizCeto)" />
+
+    <!-- Crestas Mitocondriales Profundas (Pliegues orgánicos sutiles al fondo) -->
+    <g fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" opacity="0.22">
+      <path d="M 60 180 C 180 120, 260 240, 420 170" />
+      <path d="M 60 420 C 220 360, 310 490, 480 430" />
+      <path d="M 700 160 C 850 110, 930 220, 1060 170" />
+      <path d="M 660 380 C 810 320, 920 460, 1050 410" />
+      <path d="M 720 620 C 860 570, 940 700, 1050 640" />
+    </g>
+
+    <!-- Rótulo de orientación biológica sutil (idéntico a Glucolisis.svg) -->
+    <text x="45" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#78350f" letter-spacing="2">
+      HÍGADO • MATRIZ MITOCONDRIAL (SÍNTESIS DE CUERPOS CETÓNICOS)
+    </text>
+
+
+    <!-- ================================================================= -->
+    <!-- CAPA 2: MEMBRANA Y CANAL TRANSPORTADOR MCT PROTEICO REAL          -->
+    <!-- ================================================================= -->
+    <!-- Espacio / Membrana Mitocondrial y Plasmática combinada (y = 980 a 1080) -->
+    <rect x="0" y="980" width="1100" height="100" fill="url(#gradCitosolCeto)" />
+    
+    <!-- Bicapa Fosfolipídica Ondulada (y = 1000) -->
+    <path d="M 0 1000 Q 550 1020 1100 1000" fill="none" stroke="#b45309" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 0 1008 Q 550 1028 1100 1008" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Cabezas de fosfolípidos de la bicapa -->
+    <g fill="#b45309" opacity="0.6">
+      <circle cx="80" cy="998" r="3.2"/><circle cx="100" cy="999" r="3.2"/><circle cx="120" cy="1000" r="3.2"/>
+      <circle cx="240" cy="1005" r="3.2"/><circle cx="260" cy="1006" r="3.2"/><circle cx="280" cy="1007" r="3.2"/>
+      <circle cx="480" cy="1009" r="3.2"/><circle cx="500" cy="1009" r="3.2"/><circle cx="520" cy="1008" r="3.2"/>
+      <circle cx="680" cy="1006" r="3.2"/><circle cx="700" cy="1005" r="3.2"/><circle cx="720" cy="1004" r="3.2"/>
+      <circle cx="920" cy="999" r="3.2"/><circle cx="940" cy="998" r="3.2"/><circle cx="960" cy="997" r="3.2"/>
+    </g>
+
+    <!-- Rótulo de membrana discreto y limpio -->
+    <text x="350" y="968" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#92400e" letter-spacing="1.5">
+      MEMBRANA CELULAR • CARRIERS MCT
+    </text>
+
+    <!-- TRANSPORTADOR MCT PROTEICO EMBEBIDO EN LA MEMBRANA (Acetoacetato - Eje x=380) -->
+    <g id="ceto-carrier-mct1" data-arrastrable="1" transform="translate(340, 985)">
+      <!-- Lóbulo proteico izquierdo -->
+      <path d="M 0 5 C 10 -12, 28 -12, 34 5 C 38 18, 34 36, 25 42 C 12 45, 2 35, 0 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.2"/>
+      <!-- Lóbulo proteico derecho -->
+      <path d="M 80 5 C 70 -12, 52 -12, 46 5 C 42 18, 46 36, 55 42 C 68 45, 78 35, 80 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.2"/>
+      <!-- Poro central acuoso -->
+      <ellipse cx="40" cy="20" rx="10" ry="18" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
+      <!-- Rótulo proteico en el canal -->
+      <text x="40" y="24" fill="#0369a1" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MCT1</text>
+    </g>
+
+    <!-- TRANSPORTADOR MCT PROTEICO EMBEBIDO EN LA MEMBRANA (D-β-Hidroxibutirato - Eje x=770) -->
+    <g id="ceto-carrier-mct2" data-arrastrable="1" transform="translate(730, 985)">
+      <!-- Lóbulo proteico izquierdo -->
+      <path d="M 0 5 C 10 -12, 28 -12, 34 5 C 38 18, 34 36, 25 42 C 12 45, 2 35, 0 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.2"/>
+      <!-- Lóbulo proteico derecho -->
+      <path d="M 80 5 C 70 -12, 52 -12, 46 5 C 42 18, 46 36, 55 42 C 68 45, 78 35, 80 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.2"/>
+      <!-- Poro central acuoso -->
+      <ellipse cx="40" cy="20" rx="10" ry="18" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
+      <!-- Rótulo proteico en el canal -->
+      <text x="40" y="24" fill="#0369a1" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MCT2</text>
+    </g>
+
+
+    <!-- ================================================================= -->
+    <!-- CAPA 3: PROYECCIÓN CÓNICA Y LUPA / ZOOM CIENTÍFICO INTERÓRGANO    -->
+    <!-- ================================================================= -->
+    <!-- Fondo acuoso del medio extracelular y capilar sanguíneo (y = 1080 a 2200) -->
+    <rect x="0" y="1080" width="1100" height="1120" fill="url(#gradCitosolCeto)" />
+
+    <!-- Filamentos sutiles de matriz extracelular -->
+    <g opacity="0.3" stroke="#94a3b8" fill="none">
+      <path d="M 40 1150 Q 300 1110 600 1160 T 1060 1130" stroke-width="1.5" stroke-dasharray="8 6" />
+      <path d="M 40 1350 Q 350 1400 700 1340 T 1060 1370" stroke-width="1.4" stroke-dasharray="6 6" />
+    </g>
+
+    <!-- Líneas de proyección cónica hacia la Lupa de Cetólisis Extrahepática -->
+    <g stroke="#0284c7" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.55">
+      <line x1="380" y1="1040" x2="160" y2="1240" />
+      <line x1="770" y1="1040" x2="940" y2="1240" />
+    </g>
+
+    <!-- VENTANA CIRCULAR / LUPA DE ZOOM CIENTÍFICO (Extrahepático) -->
+    <!-- Marco de lente de la Lupa de aumento -->
+    <!-- Marco de lente de la Lupa de aumento -->
+    <g id="ceto-lupa-extrahepatico" data-arrastrable="1" transform="translate(550, 1750)">
+      <!-- Sombra y borde de la lente circular -->
+      <circle cx="0" cy="0" r="510" fill="#ffffff" stroke="#0284c7" stroke-width="4.5" />
+      <circle cx="0" cy="0" r="504" fill="url(#gradExtraZoom)" stroke="#38bdf8" stroke-width="1.5" />
+
+      <!-- Fondo superior dentro de la lupa: Micro-Capilar Sanguíneo en arco -->
+      <path d="M -500 -430 Q 0 -400 500 -430 L 500 -505 Q 0 -475 -500 -505 Z" fill="url(#gradCapilarZoom)" opacity="0.6"/>
+      <path d="M -500 -430 Q 0 -400 500 -430" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="6 4"/>
+      
+      <!-- Glóbulos rojos flotando en el micro-capilar dentro de la lupa -->
+      <g fill="#f43f5e" opacity="0.5">
+        <ellipse cx="-340" cy="-465" rx="14" ry="9" transform="rotate(-15 -340 -465)"/>
+        <ellipse cx="-180" cy="-450" rx="13" ry="8" transform="rotate(10 -180 -450)"/>
+        <ellipse cx="220" cy="-455" rx="14" ry="9" transform="rotate(-8 220 -455)"/>
+        <ellipse cx="380" cy="-470" rx="13" ry="8" transform="rotate(20 380 -470)"/>
+      </g>
+
+      <!-- Rótulo integrado en la cima del lente de aumento -->
+      <g transform="translate(0, -475)">
+        <rect x="-240" y="-15" width="480" height="30" rx="15" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+        <circle cx="-218" cy="0" r="6" fill="#0284c7"/>
+        <text x="-200" y="4.5" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#075985" letter-spacing="1">
+          LUPA CIENTÍFICA: TEJIDOS DIANA (CEREBRO / CORAZÓN / MÚSCULO)
+        </text>
+      </g>
+      
+      <!-- Subtítulo de especificidad enzimática colocado discretamente bajo el capilar -->
+      <text x="0" y="-420" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0284c7" text-anchor="middle">
+        Oxidación mitocondrial periférica dependiente de Tioforasa (SCOT / OXCT1)
+      </text>
+    </g>
+    
+
+    <!-- Metabolito: 2 x Acetil-CoA -->
+    <g id="ceto-met-2acetilcoa" data-arrastrable="1" transform="translate(280, 95)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetil-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Cápsula S-CoA -->
+  <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
+  <line x1="48" y1="28" x2="72" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+
+  <!-- Carbonilo C1 -->
+  <line x1="69" y1="28" x2="69" y2="12" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="75" y1="28" x2="75" y2="12" stroke="#dc2626" stroke-width="2.1" />
+  <text x="72" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- Metilo C2 -->
+  <line x1="72" y1="28" x2="94" y2="40" />
+  <text x="98" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(210, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">2 x Acetil-CoA</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[2C cada uno] Exceso proveniente de β-oxidación</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 160 L 380 220" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    <!-- Salida de CoA-SH -->
+    <path d="M 380 185 Q 430 185 470 170" stroke="#7c3aed" stroke-width="2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrowPurple)"/>
+    <text x="480" y="173" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#7c3aed">+ CoA-SH liberado</text>
+    
+
+    <!-- Enzima 1: Tiolasa Mitocondrial (ACAT1) -->
+    <g id="ceto-enz-tiolasa" data-arrastrable="1" transform="translate(80, 190)">
+      <circle cx="-12" cy="-4" r="9" fill="#0f172a" />
+      <text x="-12" y="0" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+      
+      <text x="5" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#0f172a">Tiolasa Mitocondrial (ACAT1)</text>
+      <text x="5" y="14" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" fill="#64748b">EC 2.3.1.9</text>
+      <text x="5" y="29" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">Condensación de Claisen reversible</text>
+    </g>
+    
+
+    <!-- Metabolito: Acetoacetil-CoA -->
+    <g id="ceto-met-acetoacetilcoa" data-arrastrable="1" transform="translate(280, 230)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetoacetil-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Cápsula CoA-S a la izquierda -->
+  <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
+  <line x1="48" y1="28" x2="70" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+
+  <!-- C1 Carbonilo tioéster -->
+  <line x1="67" y1="28" x2="67" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="73" y1="28" x2="73" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="70" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C2 metileno (alfa) -->
+  <line x1="70" y1="28" x2="94" y2="44" />
+  <circle cx="94" cy="44" r="3" fill="#ea580c" stroke="none"/>
+  <text x="94" y="58" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C3 Carbonilo beta (cetona) -->
+  <line x1="94" y1="44" x2="118" y2="28" />
+  <line x1="115" y1="28" x2="115" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="121" y1="28" x2="121" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="118" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C4 metilo terminal -->
+  <line x1="118" y1="28" x2="140" y2="42" />
+  <text x="144" y="46" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(210, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">Acetoacetil-CoA</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[4C] Intermediario activado</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 300 L 380 370" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+    <!-- Entrada de Acetil-CoA -->
+    <path d="M 520 310 Q 440 310 380 330" stroke="#ea580c" stroke-width="2" fill="none" marker-end="url(#arrowFlow)"/>
+    <text x="530" y="313" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#ea580c">+ Acetil-CoA [2C] + H₂O</text>
+    
+    <!-- Salida de CoA-SH -->
+    <path d="M 380 345 Q 440 360 480 360" stroke="#7c3aed" stroke-width="2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrowPurple)"/>
+    <text x="490" y="364" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#7c3aed">+ CoA-SH</text>
+    
+
+    <!-- Enzima 2: HMG-CoA Sintasa Mitocondrial (HMGCS2) -->
+    <g id="ceto-enz-hmgsintasa" data-arrastrable="1" transform="translate(40, 330)">
+      <circle cx="-12" cy="-4" r="9" fill="#0f172a" />
+      <text x="-12" y="0" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+      
+      <text x="5" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#0f172a">HMG-CoA Sintasa Mitocondrial (HMGCS2)</text>
+      <text x="5" y="14" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" fill="#64748b">EC 2.3.3.10</text>
+      <text x="5" y="29" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">★ MARCAPASOS: Inducida por ayuno / glucagón / SIRT3</text>
+    </g>
+    
+
+    <!-- Metabolito: HMG-CoA -->
+    <g id="ceto-met-hmgcoa" data-arrastrable="1" transform="translate(280, 385)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-hmg-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Cápsula CoA-S a la izquierda -->
+  <rect x="2" y="27" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="25" y="42" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
+  <line x1="48" y1="38" x2="70" y2="38" stroke="#7c3aed" stroke-width="2.3"/>
+
+  <!-- C1 Carbonilo tioéster -->
+  <line x1="67" y1="38" x2="67" y2="22" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="73" y1="38" x2="73" y2="22" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="70" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C2 metileno -->
+  <line x1="70" y1="38" x2="95" y2="38" />
+
+  <!-- C3 central ramificado con OH y CH3 -->
+  <line x1="95" y1="38" x2="120" y2="38" />
+  <circle cx="120" cy="38" r="3.2" fill="#0f172a" stroke="none"/>
+  <!-- C3 OH arriba -->
+  <line x1="120" y1="38" x2="120" y2="18" stroke="#0284c7" stroke-width="2.2"/>
+  <text x="120" y="13" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
+  <!-- C3 CH3 ramificación abajo -->
+  <line x1="120" y1="38" x2="120" y2="56" />
+  <text x="120" y="69" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
+
+  <!-- C4 metileno -->
+  <line x1="120" y1="38" x2="145" y2="38" />
+
+  <!-- C5 carboxilato terminal (COO⁻) -->
+  <line x1="145" y1="38" x2="168" y2="24" />
+  <text x="172" y="27" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+</g>
+
+      </g>
+      <g transform="translate(210, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">HMG-CoA</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[6C] 3-Hidroxi-3-Metilglutaril-CoA</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 465 L 380 530" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+    <!-- Salida de Acetil-CoA regenerado -->
+    <path d="M 380 495 Q 440 495 480 480" stroke="#ea580c" stroke-width="2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrowFlow)"/>
+    <text x="490" y="484" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#ea580c">+ Acetil-CoA [2C] regenerado</text>
+    
+
+    <!-- Enzima 3: HMG-CoA Liasa Mitocondrial (HMGCL) -->
+    <g id="ceto-enz-hmgliasa" data-arrastrable="1" transform="translate(70, 495)">
+      <circle cx="-12" cy="-4" r="9" fill="#0f172a" />
+      <text x="-12" y="0" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+      
+      <text x="5" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#0f172a">HMG-CoA Liasa Mitocondrial (HMGCL)</text>
+      <text x="5" y="14" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" fill="#64748b">EC 4.1.3.4</text>
+      <text x="5" y="29" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">Escisión C-C exclusiva de la matriz mitocondrial</text>
+    </g>
+    
+
+    <!-- Metabolito: Acetoacetato -->
+    <g id="ceto-met-acetoacetato-hep" data-arrastrable="1" transform="translate(280, 545)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetoacetato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Grupo Carboxilato terminal C1 (COO⁻) -->
+  <text x="18" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
+  <line x1="56" y1="24" x2="80" y2="38" />
+
+  <!-- C2 metileno central (CH2) -->
+  <circle cx="80" cy="38" r="3" fill="#ea580c" stroke="none"/>
+  <text x="80" y="52" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C3 Carbonilo beta (cetona) -->
+  <line x1="80" y1="38" x2="108" y2="24" />
+  <line x1="105" y1="24" x2="105" y2="8" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="111" y1="24" x2="111" y2="8" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="108" y="4" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C4 metilo terminal -->
+  <line x1="108" y1="24" x2="132" y2="38" />
+  <text x="136" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(185, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">Acetoacetato</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[4C] 1er Cuerpo Cetónico Generado</text>
+      </g>
+    </g>
+    
+
+    <!-- Flujo hacia Acetona -->
+    <text x="110" y="570" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#dc2626">Descarboxilación espontánea (-CO₂)</text>
+    <text x="110" y="583" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#64748b">No enzimática / Lenta</text>
+    <path d="M 280 595 Q 180 625 120 675" stroke="#64748b" stroke-width="2.2" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowSlate)"/>
+    
+
+    <!-- Metabolito: Acetona -->
+    <g id="ceto-met-acetona" data-arrastrable="1" transform="translate(30, 680)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetona" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1 Metilo izquierdo -->
+  <text x="18" y="38" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">H₃C</text>
+  <line x1="42" y1="34" x2="68" y2="20" />
+
+  <!-- C2 Carbonilo central (C=O) -->
+  <circle cx="68" cy="20" r="3" fill="#0f172a" stroke="none"/>
+  <line x1="65" y1="20" x2="65" y2="4" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="71" y1="20" x2="71" y2="4" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="68" y="0" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C3 Metilo derecho -->
+  <line x1="68" y1="20" x2="94" y2="34" />
+  <text x="98" y="38" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(135, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">Acetona</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[3C] Volátil, exhalada en aliento</text>
+      </g>
+    </g>
+    
+
+    <!-- Flujo hacia D-beta-hidroxibutirato partiendo limpiamente de la molécula -->
+    <path d="M 420 595 Q 560 610 710 680" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+    <!-- Reacción Redox con NADH bien visible -->
+    <path d="M 530 635 Q 580 655 630 635" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+    <text x="525" y="668" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#059669">NADH + H⁺ ➔ NAD⁺</text>
+    <text x="525" y="680" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#64748b">(Regulado por relación NADH/NAD⁺)</text>
+    
+
+    <!-- Enzima 4: D-β-Hidroxibutirato DH (BDH1) -->
+    <g id="ceto-enz-bdh1-hep" data-arrastrable="1" transform="translate(570, 515)">
+      <circle cx="-12" cy="-4" r="9" fill="#0f172a" />
+      <text x="-12" y="0" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">4</text>
+      
+      <text x="5" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#0f172a">D-β-Hidroxibutirato DH (BDH1)</text>
+      <text x="5" y="14" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" fill="#64748b">EC 1.1.1.30</text>
+      <text x="5" y="29" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">Reversible según potencial redox mitocondrial</text>
+    </g>
+    
+
+    <!-- Metabolito: D-β-Hidroxibutirato -->
+    <g id="ceto-met-hidroxibutirato-hep" data-arrastrable="1" transform="translate(680, 680)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-hidroxibutirato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Grupo Carboxilato terminal C1 (COO⁻) -->
+  <text x="18" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
+  <line x1="56" y1="24" x2="80" y2="38" />
+
+  <!-- C2 metileno (alfa) -->
+  <circle cx="80" cy="38" r="3" fill="#ea580c" stroke="none"/>
+  <text x="80" y="52" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C3 beta-alcohol (-OH) -->
+  <line x1="80" y1="38" x2="108" y2="24" />
+  <circle cx="108" cy="24" r="3" fill="#0284c7" stroke="none"/>
+  <line x1="108" y1="24" x2="108" y2="6" stroke="#0284c7" stroke-width="2.2"/>
+  <text x="108" y="2" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
+
+  <!-- C4 metilo terminal -->
+  <line x1="108" y1="24" x2="132" y2="38" />
+  <text x="136" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(200, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">D-β-Hidroxibutirato</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[4C] Forma predominante en sangre (~4:1)</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 620 L 380 985" stroke="#ea580c" stroke-width="2.5" fill="none"/>
+    <path d="M 380 1025 L 380 1090" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+
+    <!-- Salida D-beta-hidroxibutirato hacia transportador MCT2 (y = 985) -->
+    <path d="M 770 755 L 770 985" stroke="#ea580c" stroke-width="2.5" fill="none"/>
+    <path d="M 770 1025 L 770 1090" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+
+    <!-- Acetona volátil que escapa hacia el aliento -->
+    <path d="M 120 750 L 120 950" stroke="#64748b" stroke-width="2" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowSlate)"/>
+    <g id="ceto-pulmones" data-arrastrable="1" transform="translate(35, 960)">
+      <rect x="0" y="0" width="170" height="42" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="85" y="18" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#334155" text-anchor="middle">EXHALACIÓN PULMONAR</text>
+      <text x="85" y="32" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#64748b" text-anchor="middle">Aliento cetósico olor frutal</text>
+    </g>
+    
+
+    <!-- Metabolito: Acetoacetato -->
+    <g id="ceto-met-acetoacetato-plasma" data-arrastrable="1" transform="translate(280, 1380)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetoacetato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Grupo Carboxilato terminal C1 (COO⁻) -->
+  <text x="18" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
+  <line x1="56" y1="24" x2="80" y2="38" />
+
+  <!-- C2 metileno central (CH2) -->
+  <circle cx="80" cy="38" r="3" fill="#ea580c" stroke="none"/>
+  <text x="80" y="52" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C3 Carbonilo beta (cetona) -->
+  <line x1="80" y1="38" x2="108" y2="24" />
+  <line x1="105" y1="24" x2="105" y2="8" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="111" y1="24" x2="111" y2="8" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="108" y="4" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C4 metilo terminal -->
+  <line x1="108" y1="24" x2="132" y2="38" />
+  <text x="136" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(185, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">Acetoacetato</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[4C] Tránsito capilar soluble libre</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: D-β-Hidroxibutirato -->
+    <g id="ceto-met-hidroxibutirato-plasma" data-arrastrable="1" transform="translate(680, 1380)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-hidroxibutirato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Grupo Carboxilato terminal C1 (COO⁻) -->
+  <text x="18" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
+  <line x1="56" y1="24" x2="80" y2="38" />
+
+  <!-- C2 metileno (alfa) -->
+  <circle cx="80" cy="38" r="3" fill="#ea580c" stroke="none"/>
+  <text x="80" y="52" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C3 beta-alcohol (-OH) -->
+  <line x1="80" y1="38" x2="108" y2="24" />
+  <circle cx="108" cy="24" r="3" fill="#0284c7" stroke="none"/>
+  <line x1="108" y1="24" x2="108" y2="6" stroke="#0284c7" stroke-width="2.2"/>
+  <text x="108" y="2" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
+
+  <!-- C4 metilo terminal -->
+  <line x1="108" y1="24" x2="132" y2="38" />
+  <text x="136" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(200, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">D-β-Hidroxibutirato</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[4C] Captación periférica por MCT1</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 1450 L 380 1580" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+
+    <!-- Curva de reoxidación hacia el Acetoacetato -->
+    <path d="M 770 1450 Q 640 1495 490 1605" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+    <!-- Generación de 1 NADH -->
+    <path d="M 640 1550 Q 590 1575 540 1550" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+    <text x="510" y="1590" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#059669">NAD⁺ ➔ NADH + H⁺ (+2.5 ATP)</text>
+    
+
+    <!-- Enzima 5: D-β-Hidroxibutirato DH (BDH1) -->
+    <g id="ceto-enz-bdh1-extra" data-arrastrable="1" transform="translate(700, 1470)">
+      <circle cx="-12" cy="-4" r="9" fill="#0f172a" />
+      <text x="-12" y="0" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">5</text>
+      
+      <text x="5" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#0f172a">D-β-Hidroxibutirato DH (BDH1)</text>
+      <text x="5" y="14" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" fill="#64748b">EC 1.1.1.30</text>
+      <text x="5" y="29" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">Reoxidación en matriz periférica</text>
+    </g>
+    
+
+    <!-- Metabolito: Acetoacetato -->
+    <g id="ceto-met-acetoacetato-extra" data-arrastrable="1" transform="translate(280, 1600)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetoacetato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Grupo Carboxilato terminal C1 (COO⁻) -->
+  <text x="18" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
+  <line x1="56" y1="24" x2="80" y2="38" />
+
+  <!-- C2 metileno central (CH2) -->
+  <circle cx="80" cy="38" r="3" fill="#ea580c" stroke="none"/>
+  <text x="80" y="52" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C3 Carbonilo beta (cetona) -->
+  <line x1="80" y1="38" x2="108" y2="24" />
+  <line x1="105" y1="24" x2="105" y2="8" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="111" y1="24" x2="111" y2="8" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="108" y="4" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C4 metilo terminal -->
+  <line x1="108" y1="24" x2="132" y2="38" />
+  <text x="136" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(185, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">Acetoacetato</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[4C] Substrato de activación obligada</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 1660 L 380 1770" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+    <!-- Transferencia acoplada de Succinil-CoA a Succinato -->
+    <path d="M 480 1685 Q 430 1720 480 1755" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+    
+
+    <g id="ceto-badge-succinilcoa" data-arrastrable="1" transform="translate(490, 1675)">
+      
+<g class="badge-succinil" stroke="#0f172a" stroke-width="2" fill="none">
+  <!-- Mini molécula Succinil-CoA -->
+  <rect x="0" y="0" width="105" height="26" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.4"/>
+  <text x="52" y="17" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#6d28d9" stroke="none" text-anchor="middle">Succinil-CoA [4C]</text>
+</g>
+
+    </g>
+    <g id="ceto-badge-succinato" data-arrastrable="1" transform="translate(490, 1745)">
+      
+<g class="badge-succinato" stroke="#0f172a" stroke-width="2" fill="none">
+  <!-- Mini molécula Succinato -->
+  <rect x="0" y="0" width="95" height="26" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.4"/>
+  <text x="47" y="17" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#047857" stroke="none" text-anchor="middle">Succinato [4C]</text>
+</g>
+
+    </g>
+    
+
+    <!-- Enzima 6: Tioforasa (SCOT / OXCT1) -->
+    <g id="ceto-enz-tioforasa" data-arrastrable="1" transform="translate(40, 1710)">
+      <circle cx="-12" cy="-4" r="9" fill="#0f172a" />
+      <text x="-12" y="0" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">6</text>
+      
+      <text x="5" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#0f172a">Tioforasa (SCOT / OXCT1)</text>
+      <text x="5" y="14" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" fill="#64748b">EC 2.8.3.5</text>
+      <text x="5" y="29" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">★ ENZIMA EXCLUSIVA EXTRAHEPÁTICA: Ausente en hígado</text>
+    </g>
+    
+
+    <!-- Metabolito: Acetoacetil-CoA -->
+    <g id="ceto-met-acetoacetilcoa-extra" data-arrastrable="1" transform="translate(280, 1785)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetoacetil-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Cápsula CoA-S a la izquierda -->
+  <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
+  <line x1="48" y1="28" x2="70" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+
+  <!-- C1 Carbonilo tioéster -->
+  <line x1="67" y1="28" x2="67" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="73" y1="28" x2="73" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="70" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C2 metileno (alfa) -->
+  <line x1="70" y1="28" x2="94" y2="44" />
+  <circle cx="94" cy="44" r="3" fill="#ea580c" stroke="none"/>
+  <text x="94" y="58" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C3 Carbonilo beta (cetona) -->
+  <line x1="94" y1="44" x2="118" y2="28" />
+  <line x1="115" y1="28" x2="115" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="121" y1="28" x2="121" y2="12" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="118" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C4 metilo terminal -->
+  <line x1="118" y1="28" x2="140" y2="42" />
+  <text x="144" y="46" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(210, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">Acetoacetil-CoA</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[4C] Forma tioéster reactiva activada</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 1860 L 380 1940" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+    <!-- Entrada de CoA-SH -->
+    <path d="M 490 1890 Q 440 1900 390 1900" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+    <text x="500" y="1895" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#7c3aed">+ CoA-SH</text>
+    
+
+    <!-- Enzima 7: Tiolasa Mitocondrial (ACAT1) -->
+    <g id="ceto-enz-tiolasa-extra" data-arrastrable="1" transform="translate(90, 1895)">
+      <circle cx="-12" cy="-4" r="9" fill="#0f172a" />
+      <text x="-12" y="0" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">7</text>
+      
+      <text x="5" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#0f172a">Tiolasa Mitocondrial (ACAT1)</text>
+      <text x="5" y="14" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600" fill="#64748b">EC 2.3.1.9</text>
+      <text x="5" y="29" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#dc2626">Tiólisis exergónica: Clivaje en 2 unidades de 2C</text>
+    </g>
+    
+
+    <!-- Metabolito: 2 x Acetil-CoA -->
+    <g id="ceto-met-2acetilcoa-extra" data-arrastrable="1" transform="translate(280, 1955)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetil-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Cápsula S-CoA -->
+  <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
+  <line x1="48" y1="28" x2="72" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+
+  <!-- Carbonilo C1 -->
+  <line x1="69" y1="28" x2="69" y2="12" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="75" y1="28" x2="75" y2="12" stroke="#dc2626" stroke-width="2.1" />
+  <text x="72" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- Metilo C2 -->
+  <line x1="72" y1="28" x2="94" y2="40" />
+  <text x="98" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(210, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14.5" font-weight="900" fill="#0f172a">2 x Acetil-CoA</text>
+        <text x="0" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ea580c">[2C cada uno] Combustión aeróbica celular</text>
+      </g>
+    </g>
+    
+
+    <path d="M 380 2035 L 380 2105" stroke="#ea580c" stroke-width="2.5" fill="none" marker-end="url(#arrowFlow)"/>
+    
+    <g id="ceto-destino-krebs" data-arrastrable="1" transform="translate(250, 2110)">
+      <rect x="0" y="0" width="280" height="42" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+      <circle cx="20" cy="21" r="7" fill="#ea580c"/>
+      <text x="38" y="26" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#9a3412">INGRESO AL CICLO DE KREBS (TCA)</text>
+    </g>
+    <text x="545" y="2136" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ea580c">Rinde ~20 ATP netos por cada Acetoacetato oxidado</text>
+    
+    </svg>
+  </div>
+</body>
+</html>

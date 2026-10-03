@@ -441,29 +441,39 @@ def main():
 
     contenido_svg.append(f"""
     <!-- Balance Energético Compacto -->
-    <g transform="translate(260, {Y_BALANCE})">
-      <rect x="0" y="0" width="480" height="72" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
-      <text x="16" y="20" fill="#0f172a" font-size="11" font-weight="900">BALANCE ENERGÉTICO NETO</text>
-      <text x="16" y="38" fill="#475569" font-size="9.5" font-weight="600">
-        Glucosa + 1 ATP + 1 UTP + Glucógeno(n) ➔ Glucógeno(n+1) + ADP + UDP + 2 Pᵢ
+    <g transform="translate(190, {Y_BALANCE})">
+      <rect x="0" y="0" width="620" height="92" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+      <text x="20" y="22" fill="#0f172a" font-size="12" font-weight="900">BALANCE ENERGÉTICO NETO</text>
+      <text x="20" y="40" fill="#475569" font-size="10" font-weight="600">
+        Glucogénesis: Glucosa + 1 ATP + 1 UTP + Glucógeno(n) ➔ Glucógeno(n+1) + ADP + UDP + 2 Pᵢ
       </text>
-      <text x="16" y="55" fill="#b91c1c" font-size="9" font-weight="700">
+      <text x="20" y="56" fill="#b91c1c" font-size="9.5" font-weight="700">
         • Costo: 2 enlaces fosfato de alta energía (~97% de eficiencia de almacenamiento)
       </text>
-      <g transform="translate(300, 20)">
-        <text x="0" y="0" fill="#d97706" font-size="9" font-weight="800">⇄ Glucogenólisis:</text>
-        <text x="0" y="16" fill="#64748b" font-size="8.5">Fosforilasa (+ Pᵢ) libera G-1-P</text>
-        <text x="0" y="28" fill="#64748b" font-size="8.5">sin gastar ATP ➔ G-6-P</text>
-      </g>
+      <line x1="20" y1="65" x2="600" y2="65" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="20" y="80" fill="#d97706" font-size="9.5" font-weight="800">⇄ Glucogenólisis:</text>
+      <text x="120" y="80" fill="#64748b" font-size="9">Fosforilasa (+ Pᵢ) libera G-1-P sin gastar ATP ➔ G-6-P para glucólisis inmediata</text>
     </g>
     """)
 
     # Ensamblar todo
     html_final = CABECERA_HTML + "\n".join(contenido_svg) + PIE_HTML
 
-    ruta_salida = os.path.join(os.path.dirname(__file__), "Glucogenesis.html")
+    dir_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_salida = os.path.join(dir_actual, "Glucogenesis.html")
     with open(ruta_salida, "w", encoding="utf-8") as f:
         f.write(html_final)
+
+    # Extraer y escribir Glucogenesis.svg puro
+    inicio_svg = html_final.find("<svg ")
+    fin_svg = html_final.rfind("</svg>") + 6
+    if inicio_svg != -1 and fin_svg != -1:
+        svg_puro = html_final[inicio_svg:fin_svg]
+        ruta_svg = os.path.join(dir_actual, "Glucogenesis.svg")
+        with open(ruta_svg, "w", encoding="utf-8") as f_svg:
+            f_svg.write(svg_puro)
+        print(f"✅ SVG puro guardado en: {ruta_svg}")
+
     print(f"✅ Lámina de Glucogénesis con Zoom y Gránulo Citosólico generada en: {ruta_salida}")
 
 if __name__ == "__main__":

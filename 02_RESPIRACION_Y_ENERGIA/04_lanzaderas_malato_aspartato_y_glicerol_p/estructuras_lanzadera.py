@@ -71,8 +71,8 @@ ASPARTATO = """
   <line x1="33" y1="48" x2="22" y2="48" />
   <text x="14" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
-  <line x1="47" y1="48" x2="62" y2="48" stroke="#2563eb" stroke-width="2"/>
-  <text x="69" y="52" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
+  <line x1="46" y1="48" x2="58" y2="48" stroke="#2563eb" stroke-width="2"/>
+  <text x="63" y="52" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
 
   <!-- Enlace C2 - C3 -->
   <line x1="40" y1="54" x2="40" y2="70" />
@@ -97,8 +97,8 @@ GLUTAMATO = """
   <line x1="33" y1="43" x2="22" y2="43" />
   <text x="14" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
-  <line x1="47" y1="43" x2="62" y2="43" stroke="#2563eb" stroke-width="2"/>
-  <text x="69" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
+  <line x1="46" y1="43" x2="58" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <text x="63" y="47" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
 
   <!-- Enlace C2 - C3 -->
   <line x1="40" y1="49" x2="40" y2="62" />

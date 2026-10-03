@@ -198,12 +198,12 @@ def generar_entorno_cte_svg(ancho=1150, alto=1740, y_mme=90, y_eim_ini=104,
           stroke="#d97706" stroke-width="1.1" stroke-dasharray="5 4" opacity="0.6"/>
     {_fila_fosfolipidos(ancho, y_mmi_ini + 8, hacia_abajo=True)}
     {_fila_fosfolipidos(ancho, y_mmi_fin - 8, hacia_abajo=False)}
-    <text x="{ancho - 20}" y="{y_mmi_fin + 22}" font-family="'Inter', sans-serif" font-size="9.5"
-          font-weight="800" fill="#92400e" text-anchor="end">Membrana Mitocondrial Interna (MMI) • bicapa impermeable a H⁺</text>
+    <text x="520" y="{y_mmi_fin + 35}" font-family="'Inter', sans-serif" font-size="9"
+          font-weight="800" fill="#92400e" text-anchor="middle">Membrana Mitocondrial Interna (MMI) • bicapa impermeable a H⁺</text>
 
     <!-- ================================================================= -->
     <!-- CAPA 5: MATRIZ MITOCONDRIAL (RÓTULO DE COMPARTIMENTO)             -->
     <!-- ================================================================= -->
-    <text x="{ancho - 20}" y="{y_mmi_fin + 162}" font-family="'Inter', sans-serif" font-size="9.5"
-          font-weight="900" fill="#92400e" letter-spacing="1" text-anchor="end">MATRIZ MITOCONDRIAL • pH ≈ 7.8 • [H⁺] BAJA</text>
+    <text x="520" y="{y_mmi_fin + 54}" font-family="'Inter', sans-serif" font-size="9"
+          font-weight="900" fill="#92400e" letter-spacing="1" text-anchor="middle">MATRIZ MITOCONDRIAL • pH ≈ 7.8 • [H⁺] BAJA</text>
     """

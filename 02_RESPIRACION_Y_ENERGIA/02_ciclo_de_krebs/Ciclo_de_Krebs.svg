@@ -133,7 +133,7 @@
     <path d="M 0 101 Q 575.0 107 1150 101 L 1150 155 Q 575.0 161 0 155 Z" fill="url(#gradEIM)" />
     <!-- Protones H+ acumulados en EIM -->
     <g font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" opacity="0.6">
-      <text x="90" y="133">H⁺</text><text x="180" y="137">H⁺</text>
+      <text x="320" y="133">H⁺</text><text x="440" y="137">H⁺</text>
       <text x="560" y="134">H⁺</text><text x="680" y="138">H⁺</text>
       <text x="860" y="135">H⁺</text><text x="980" y="139">H⁺</text>
     </g>
@@ -197,9 +197,9 @@
       <text x="68" y="-10" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="800" fill="#047857">Q ➔ QH₂</text>
 
       <!-- Rótulos de la lupa -->
-      <rect x="-80" y="-78" width="160" height="18" rx="4" fill="#0f172a" opacity="0.9"/>
-      <text x="0" y="-66" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">COMPLEJO II (SDH) EN MMI</text>
-      <text x="0" y="-84" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#b45309" text-anchor="middle">ÚNICA ENZIMA INTEGRAL DE MEMBRANA</text>
+      <rect x="-80" y="-74" width="160" height="20" rx="4" fill="#0f172a" opacity="0.9"/>
+      <text x="0" y="-60" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">COMPLEJO II (SDH) EN MMI</text>
+      <text x="0" y="-80" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#b45309" text-anchor="middle">ÚNICA ENZIMA INTEGRAL DE MEMBRANA</text>
     </g>
     
 
@@ -927,7 +927,7 @@
   <text x="96" y="98" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle">COO⁻</text>
 
   <!-- Etiqueta sutil de conformación geométrica -->
-  <text x="56" y="82" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#64748b" text-anchor="middle">(trans)</text>
+  <text x="36" y="76" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#64748b" text-anchor="middle">(trans)</text>
 </g>
 
         </g>

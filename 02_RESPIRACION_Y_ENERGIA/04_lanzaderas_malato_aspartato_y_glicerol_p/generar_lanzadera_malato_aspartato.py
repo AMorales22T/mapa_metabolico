@@ -117,15 +117,15 @@ PIE_HTML = """
 # FUNCIONES GENERADORAS DE ELEMENTOS (IDÉNTICAS A GLUCÓLISIS)
 # =============================================================================
 
-def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False):
+def crear_metabolito(x, y, nombre, carbonos, detalle="", svg_estructura="", texto_izquierda=False, dx_texto=105):
     """Construye el bloque SVG de un metabolito libre con su estructura y textos (igual que en Glucólisis)."""
     if texto_izquierda:
-        pos_estructura = "translate(110, 0)"
-        pos_texto = "translate(95, 25)"
+        pos_estructura = f"translate({dx_texto + 15}, 0)"
+        pos_texto = f"translate({dx_texto}, 25)"
         alineacion = 'text-anchor="end"'
     else:
         pos_estructura = "translate(0, 0)"
-        pos_texto = "translate(95, 25)"
+        pos_texto = f"translate({dx_texto}, 25)"
         alineacion = ''
 
     return f"""
@@ -384,11 +384,11 @@ def generar_svg_lanzadera():
     <path d="M 830 355 L 735 355 Q 715 355 715 167 L 705 167" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
     """)
 
-    # Retorno de α-Cetoglutarato a través de MMI hacia Citosol y cAST
+    # Retorno de α-Cetoglutarato a través de MMI hacia Citosol y cAST (rodea por debajo a L-Malato)
     svg.append("""
-    <path d="M 605 167 L 500 167 Q 400 167 310 260 L 155 350" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arrowFlow)"/>
+    <path d="M 605 167 L 490 167 Q 445 167 445 205 Q 445 240 375 240 L 260 240 Q 185 240 155 350" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arrowFlow)"/>
     <!-- Pill indicador estilo Glucólisis -->
-    <g transform="translate(420, 210)">
+    <g transform="translate(350, 240)">
       <rect x="-45" y="-9" width="90" height="18" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>
       <text x="0" y="4" fill="#c2410c" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" text-anchor="middle">α-KG ➔ cAST</text>
     </g>

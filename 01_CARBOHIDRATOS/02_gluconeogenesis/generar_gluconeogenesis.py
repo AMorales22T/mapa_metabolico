@@ -160,9 +160,8 @@ def generar_entorno_gluconeogenesis(ancho, alto, y_mito=2220):
     <!-- ================================================================= -->
     <!-- Medio Extracelular (Fluido intersticial / Sangre) -->
     <path d="M 0 0 L {ancho} 0 L {ancho} 60 Q {ancho*0.5} 85 0 60 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="35" y="32" fill="#64748b" font-size="11" font-weight="800" letter-spacing="1.5">
-      ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL • [GLUCEMIA AYUNO] ≈ 70-100 mg/dL)
-    </text>
+    <text x="35" y="24" fill="#64748b" font-size="10.5" font-weight="800" letter-spacing="1">ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)</text>
+    <text x="35" y="42" fill="#0284c7" font-size="9.5" font-weight="700">[GLUCEMIA AYUNO] ≈ 70-100 mg/dL</text>
 
     <!-- Bicapa Fosfolipídica Ondulada Celular (Azul de Glucólisis) -->
     <path d="M 0 60 Q {ancho*0.5} 85 {ancho} 60" fill="none" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
@@ -234,7 +233,7 @@ def generar_entorno_gluconeogenesis(ancho, alto, y_mito=2220):
       <line x1="675" y1="-8" x2="675" y2="55" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
 
       <!-- Rótulo de la Matriz Mitocondrial -->
-      <g transform="translate(70, 95)">
+      <g transform="translate(60, 85)">
         <text x="0" y="0" fill="#78350f" font-size="16" font-weight="900" letter-spacing="1">MATRIZ MITOCONDRIAL</text>
         <text x="0" y="18" fill="#92400e" font-size="11.5" font-weight="700">Compartimento de inicio: Bypass 1A (Piruvato Carboxilasa)</text>
       </g>
@@ -315,8 +314,8 @@ def generar_lupa_malato(x=170, y=2320):
     </g>
 
     <!-- Caja explicativa al lado de la lupa -->
-    <g transform="translate({x + 95}, {y - 40})">
-      <rect x="0" y="0" width="370" height="85" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.8" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.06))"/>
+    <g transform="translate({x + 85}, {y - 40})">
+      <rect x="0" y="0" width="330" height="85" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.8" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.06))"/>
       <text x="14" y="20" fill="#047857" font-size="12" font-weight="900">MECANISMO DE LANZADERA DE MALATO</text>
       <text x="14" y="38" fill="#0f172a" font-size="10.5" font-weight="700">
         1. La MMI es totalmente impermeable a Oxalacetato (OAA).
@@ -411,7 +410,7 @@ def generar_mapa_gluconeogenesis():
     svg_parts.append(generar_entorno_gluconeogenesis(ANCHO_CANVAS, ALTO_CANVAS, y_mito=2220))
 
     # 2. Lupa Molecular de la Lanzadera de Malato (en la matriz izquierda)
-    svg_parts.append(generar_lupa_malato(x=175, y=2360))
+    svg_parts.append(generar_lupa_malato(x=150, y=2460))
 
     X_EJE = 620
     X_FLECHA = 675
@@ -419,28 +418,18 @@ def generar_mapa_gluconeogenesis():
     # =========================================================================
     # FASE 1: BASE MITOCONDRIAL (AMPLIA, HOLGADA Y ORGÁNICA)
     # =========================================================================
-    # Piruvato Mitocondrial
-    svg_parts.append(crear_metabolito(
-        x=X_EJE, y=2320,
-        nombre="Piruvato (Mitocondrial)",
-        carbonos="3 Carbonos (α-Cetoácido)",
-        detalle="Ingreso por MPC • Sustrato inicial de la Gluconeogénesis",
-        svg_estructura=PIRUVATO,
-        dx_texto=140
-    ))
-
-    # Entrada de Lactato (Ciclo de Cori) a la derecha de Piruvato
+    # Entrada de Lactato (Ciclo de Cori) a un nivel superior limpio y despejado
     svg_parts.append(f"""
     <!-- Vía del Lactato (Ciclo de Cori) -->
-    <g transform="translate(940, 2300)">
+    <g transform="translate(1000, 2310)">
       {LACTATO}
       <g transform="translate(100, 25)">
         <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="800">L-Lactato</text>
         <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700">Ciclo de Cori (Músculo/Eritrocitos)</text>
       </g>
     </g>
-    <!-- Flecha Lactato ➔ Piruvato con LDH -->
-    <g transform="translate(860, 2345)">
+    <!-- Flecha Lactato ➔ Piruvato con LDH horizontal despejada -->
+    <g transform="translate(860, 2335)">
       <line x1="70" y1="0" x2="-80" y2="0" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       <path d="M 50 -12 Q 0 -22 -50 -12" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
       <text x="0" y="-26" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">+ NAD⁺</text>
@@ -450,10 +439,20 @@ def generar_mapa_gluconeogenesis():
     </g>
     """)
 
+    # Piruvato Mitocondrial (Bajado a y=2420)
+    svg_parts.append(crear_metabolito(
+        x=X_EJE, y=2420,
+        nombre="Piruvato (Mitocondrial)",
+        carbonos="3 Carbonos (α-Cetoácido)",
+        detalle="Ingreso por MPC • Sustrato inicial de la Gluconeogénesis",
+        svg_estructura=PIRUVATO,
+        dx_texto=130
+    ))
+
     # Reacción: Piruvato Carboxilasa (Bypass 1A)
     svg_parts.append("""
     <!-- Reacción: Piruvato Carboxilasa (PC) -->
-    <g transform="translate(675, 2450)">
+    <g transform="translate(675, 2530)">
       <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
       <path d="M -85 10 Q -30 10 -4 22" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
       <text x="-92" y="14" fill="#dc2626" font-size="12" font-weight="800" text-anchor="end">- 1 ATP + HCO₃⁻ (CO₂)</text>
@@ -469,7 +468,7 @@ def generar_mapa_gluconeogenesis():
 
     # Oxalacetato mitocondrial
     svg_parts.append(crear_metabolito(
-        x=X_EJE, y=2540,
+        x=X_EJE, y=2620,
         nombre="Oxalacetato (OAA Mitocondrial)",
         carbonos="4 Carbonos (Dicarboxilato α-Cetoácido)",
         detalle="La MMI carece de transportador directo para OAA",
@@ -480,7 +479,7 @@ def generar_mapa_gluconeogenesis():
     # Reacción: MDH Mitocondrial (mMDH hacia la izquierda)
     svg_parts.append("""
     <!-- Reacción Malato Deshidrogenasa Mitocondrial (mMDH) -->
-    <g transform="translate(580, 2590)">
+    <g transform="translate(580, 2670)">
       <line x1="0" y1="0" x2="-140" y2="0" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       <path d="M -25 -14 Q -70 -26 -115 -14" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
       <text x="-70" y="-28" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">+ NADH + H⁺ ➔ + NAD⁺</text>
@@ -491,9 +490,9 @@ def generar_mapa_gluconeogenesis():
     </g>
     """)
 
-    # L-Malato mitocondrial (x = 350, y = 2540)
+    # L-Malato mitocondrial (x = 350, y = 2620)
     svg_parts.append(crear_metabolito(
-        x=350, y=2540,
+        x=350, y=2620,
         nombre="L-Malato (Mitocondrial)",
         carbonos="4 Carbonos (Hidroxiácido)",
         detalle="Forma transportable a través del carrier OGC",
@@ -504,7 +503,7 @@ def generar_mapa_gluconeogenesis():
     # Trayectoria de salida de Malato cruzando la MMI hacia el citosol
     svg_parts.append("""
     <!-- Malato sube cruzando la membrana mitocondrial -->
-    <path d="M 405 2540 L 405 2200" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowFlow)"/>
+    <path d="M 405 2620 L 405 2200" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowFlow)"/>
     """)
 
     # =========================================================================
@@ -798,7 +797,7 @@ def generar_mapa_gluconeogenesis():
     svg_parts.append("""
     <!-- PANEL DE BALANCE ENERGÉTICO GLOBAL -->
     <g transform="translate(920, 1270)">
-      <rect x="0" y="0" width="390" height="230" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
+      <rect x="0" y="0" width="390" height="245" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
       <text x="20" y="30" fill="#0f172a" font-size="15" font-weight="900">BALANCE ENERGÉTICO GLOBAL</text>
       <text x="20" y="52" fill="#c2410c" font-size="12" font-weight="800">Costo estequiométrico por 1 Glucosa:</text>
       <text x="20" y="78" fill="#dc2626" font-size="12.5" font-weight="700">• 2 Piruvato Carboxilasa ➔ - 2 ATP</text>
@@ -808,10 +807,9 @@ def generar_mapa_gluconeogenesis():
       
       <line x1="20" y1="154" x2="370" y2="154" stroke="#e2e8f0" stroke-width="1.5"/>
       <text x="20" y="176" fill="#0f172a" font-size="12.5" font-weight="900">GASTO TOTAL: 6 Enlaces ~P</text>
-      <text x="20" y="196" fill="#64748b" font-size="11">
-        2 Piruvato + 4 ATP + 2 GTP + 2 NADH + 6 H₂O ➔ Glucosa + 4 ADP + 2 GDP + 6 Pi + 2 NAD⁺
-      </text>
-      <text x="20" y="214" fill="#047857" font-size="11" font-weight="700">ΔG'° ≈ -37.7 kJ/mol (Fisiológicamente Irreversible)</text>
+      <text x="20" y="196" fill="#64748b" font-size="10.5">2 Piruvato + 4 ATP + 2 GTP + 2 NADH + 6 H₂O ➔</text>
+      <text x="20" y="210" fill="#64748b" font-size="10.5">Glucosa + 4 ADP + 2 GDP + 6 Pi + 2 NAD⁺</text>
+      <text x="20" y="228" fill="#047857" font-size="10.5" font-weight="700">ΔG'° ≈ -37.7 kJ/mol (Fisiológicamente Irreversible)</text>
     </g>
 
     <!-- PANEL DE PRECURSORES GLUCONEOGÉNICOS -->
@@ -834,9 +832,21 @@ def generar_mapa_gluconeogenesis():
     # Ensamblar HTML completo
     html_final = CABECERA_HTML + "\n".join(svg_parts) + PIE_HTML
 
-    ruta_salida = os.path.join(os.path.dirname(__file__), "Gluconeogenesis.html")
+    dir_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_salida = os.path.join(dir_actual, "Gluconeogenesis.html")
     with open(ruta_salida, "w", encoding="utf-8") as f:
         f.write(html_final)
+
+    # Extraer y escribir Gluconeogenesis.svg puro
+    inicio_svg = html_final.find("<svg ")
+    fin_svg = html_final.rfind("</svg>") + 6
+    if inicio_svg != -1 and fin_svg != -1:
+        svg_puro = html_final[inicio_svg:fin_svg]
+        ruta_svg = os.path.join(dir_actual, "Gluconeogenesis.svg")
+        with open(ruta_svg, "w", encoding="utf-8") as f_svg:
+            f_svg.write(svg_puro)
+        print(f"✅ SVG puro guardado en: {ruta_svg}")
+
     print(f"✅ Mapa Individual de Gluconeogénesis generado con éxito en: {ruta_salida}")
 
 if __name__ == "__main__":

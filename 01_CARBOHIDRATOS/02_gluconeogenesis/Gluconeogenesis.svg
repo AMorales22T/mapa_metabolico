@@ -75,9 +75,8 @@
     <!-- ================================================================= -->
     <!-- Medio Extracelular (Fluido intersticial / Sangre) -->
     <path d="M 0 0 L 1350 0 L 1350 60 Q 675.0 85 0 60 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="35" y="32" fill="#64748b" font-size="11" font-weight="800" letter-spacing="1.5">
-      ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL • [GLUCEMIA AYUNO] ≈ 70-100 mg/dL)
-    </text>
+    <text x="35" y="24" fill="#64748b" font-size="10.5" font-weight="800" letter-spacing="1">ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)</text>
+    <text x="35" y="42" fill="#0284c7" font-size="9.5" font-weight="700">[GLUCEMIA AYUNO] ≈ 70-100 mg/dL</text>
 
     <!-- Bicapa Fosfolipídica Ondulada Celular (Azul de Glucólisis) -->
     <path d="M 0 60 Q 675.0 85 1350 60" fill="none" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
@@ -149,7 +148,7 @@
       <line x1="675" y1="-8" x2="675" y2="55" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
 
       <!-- Rótulo de la Matriz Mitocondrial -->
-      <g transform="translate(70, 95)">
+      <g transform="translate(60, 85)">
         <text x="0" y="0" fill="#78350f" font-size="16" font-weight="900" letter-spacing="1">MATRIZ MITOCONDRIAL</text>
         <text x="0" y="18" fill="#92400e" font-size="11.5" font-weight="700">Compartimento de inicio: Bypass 1A (Piruvato Carboxilasa)</text>
       </g>
@@ -170,12 +169,12 @@
     <!-- ============================================================= -->
     <!-- Líneas de proyección cónica desde el transportador OGC hacia la lupa -->
     <g stroke="#047857" stroke-width="1.3" stroke-dasharray="4 3" opacity="0.65">
-      <line x1="370" y1="2242" x2="240" y2="2315" />
-      <line x1="370" y1="2255" x2="215" y2="2420" />
+      <line x1="370" y1="2242" x2="215" y2="2415" />
+      <line x1="370" y1="2255" x2="190" y2="2520" />
     </g>
 
     <!-- Ventana Circular de Zoom (Lupa Molecular) -->
-    <g transform="translate(175, 2360)">
+    <g transform="translate(150, 2460)">
       <!-- Fondo y bordes de la lupa -->
       <circle cx="0" cy="0" r="75" fill="#ffffff" stroke="#047857" stroke-width="3.5" />
       <circle cx="0" cy="0" r="71" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1.2" />
@@ -223,8 +222,8 @@
     </g>
 
     <!-- Caja explicativa al lado de la lupa -->
-    <g transform="translate(270, 2320)">
-      <rect x="0" y="0" width="370" height="85" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.8" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.06))"/>
+    <g transform="translate(235, 2420)">
+      <rect x="0" y="0" width="330" height="85" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.8" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.06))"/>
       <text x="14" y="20" fill="#047857" font-size="12" font-weight="900">MECANISMO DE LANZADERA DE MALATO</text>
       <text x="14" y="38" fill="#0f172a" font-size="10.5" font-weight="700">
         1. La MMI es totalmente impermeable a Oxalacetato (OAA).
@@ -238,35 +237,8 @@
     </g>
     
 
-    <!-- Metabolito: Piruvato (Mitocondrial) -->
-    <g transform="translate(620, 2320)">
-      <g transform="translate(0, 0)">
-        
-  <!-- C1: Carboxilato COO- -->
-  <text x="40" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
-  <line x1="40" y1="22" x2="40" y2="40" stroke="#0f172a" stroke-width="2.2"/>
-
-  <!-- C2: C=O (Grupo carbonilo) -->
-  <text x="40" y="50" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
-  <line x1="47" y1="44" x2="66" y2="44" stroke="#0f172a" stroke-width="2"/>
-  <line x1="47" y1="48" x2="66" y2="48" stroke="#0f172a" stroke-width="2"/>
-  <text x="74" y="50" fill="#dc2626" font-size="13" font-weight="800">O</text>
-
-  <!-- C3: Grupo metilo CH3 -->
-  <line x1="40" y1="55" x2="40" y2="74" stroke="#0f172a" stroke-width="2.2"/>
-  <text x="40" y="86" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">CH₃</text>
-
-      </g>
-      <g transform="translate(140, 28)">
-        <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Piruvato (Mitocondrial)</text>
-        <text x="0" y="20" fill="#ea580c" font-size="13" font-weight="700" >3 Carbonos (α-Cetoácido)</text>
-        <text x="0" y="37" fill="#475569" font-size="12" font-weight="600" >Ingreso por MPC • Sustrato inicial de la Gluconeogénesis</text>
-      </g>
-    </g>
-    
-
     <!-- Vía del Lactato (Ciclo de Cori) -->
-    <g transform="translate(940, 2300)">
+    <g transform="translate(1000, 2310)">
       
 <g class="molecula-lactato" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- C1 Carboxilato Superior -->
@@ -291,8 +263,8 @@
         <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700">Ciclo de Cori (Músculo/Eritrocitos)</text>
       </g>
     </g>
-    <!-- Flecha Lactato ➔ Piruvato con LDH -->
-    <g transform="translate(860, 2345)">
+    <!-- Flecha Lactato ➔ Piruvato con LDH horizontal despejada -->
+    <g transform="translate(860, 2335)">
       <line x1="70" y1="0" x2="-80" y2="0" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       <path d="M 50 -12 Q 0 -22 -50 -12" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
       <text x="0" y="-26" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">+ NAD⁺</text>
@@ -302,8 +274,35 @@
     </g>
     
 
+    <!-- Metabolito: Piruvato (Mitocondrial) -->
+    <g transform="translate(620, 2420)">
+      <g transform="translate(0, 0)">
+        
+  <!-- C1: Carboxilato COO- -->
+  <text x="40" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="40" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: C=O (Grupo carbonilo) -->
+  <text x="40" y="50" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
+  <line x1="47" y1="44" x2="66" y2="44" stroke="#0f172a" stroke-width="2"/>
+  <line x1="47" y1="48" x2="66" y2="48" stroke="#0f172a" stroke-width="2"/>
+  <text x="74" y="50" fill="#dc2626" font-size="13" font-weight="800">O</text>
+
+  <!-- C3: Grupo metilo CH3 -->
+  <line x1="40" y1="55" x2="40" y2="74" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="86" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">CH₃</text>
+
+      </g>
+      <g transform="translate(130, 28)">
+        <text x="0" y="0" fill="#0f172a" font-size="17" font-weight="800" >Piruvato (Mitocondrial)</text>
+        <text x="0" y="20" fill="#ea580c" font-size="13" font-weight="700" >3 Carbonos (α-Cetoácido)</text>
+        <text x="0" y="37" fill="#475569" font-size="12" font-weight="600" >Ingreso por MPC • Sustrato inicial de la Gluconeogénesis</text>
+      </g>
+    </g>
+    
+
     <!-- Reacción: Piruvato Carboxilasa (PC) -->
-    <g transform="translate(675, 2450)">
+    <g transform="translate(675, 2530)">
       <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
       <path d="M -85 10 Q -30 10 -4 22" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
       <text x="-92" y="14" fill="#dc2626" font-size="12" font-weight="800" text-anchor="end">- 1 ATP + HCO₃⁻ (CO₂)</text>
@@ -318,7 +317,7 @@
     
 
     <!-- Metabolito: Oxalacetato (OAA Mitocondrial) -->
-    <g transform="translate(620, 2540)">
+    <g transform="translate(620, 2620)">
       <g transform="translate(0, 0)">
         
 <g class="molecula-oxalacetato" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -357,7 +356,7 @@
     
 
     <!-- Reacción Malato Deshidrogenasa Mitocondrial (mMDH) -->
-    <g transform="translate(580, 2590)">
+    <g transform="translate(580, 2670)">
       <line x1="0" y1="0" x2="-140" y2="0" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
       <path d="M -25 -14 Q -70 -26 -115 -14" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
       <text x="-70" y="-28" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">+ NADH + H⁺ ➔ + NAD⁺</text>
@@ -369,7 +368,7 @@
     
 
     <!-- Metabolito: L-Malato (Mitocondrial) -->
-    <g transform="translate(350, 2540)">
+    <g transform="translate(350, 2620)">
       <g transform="translate(0, 0)">
         
 <g class="molecula-malato" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -408,7 +407,7 @@
     
 
     <!-- Malato sube cruzando la membrana mitocondrial -->
-    <path d="M 405 2540 L 405 2200" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowFlow)"/>
+    <path d="M 405 2620 L 405 2200" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowFlow)"/>
     
 
     <!-- Metabolito: L-Malato (Citosólico) -->
@@ -1014,7 +1013,7 @@
 
     <!-- PANEL DE BALANCE ENERGÉTICO GLOBAL -->
     <g transform="translate(920, 1270)">
-      <rect x="0" y="0" width="390" height="230" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
+      <rect x="0" y="0" width="390" height="245" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
       <text x="20" y="30" fill="#0f172a" font-size="15" font-weight="900">BALANCE ENERGÉTICO GLOBAL</text>
       <text x="20" y="52" fill="#c2410c" font-size="12" font-weight="800">Costo estequiométrico por 1 Glucosa:</text>
       <text x="20" y="78" fill="#dc2626" font-size="12.5" font-weight="700">• 2 Piruvato Carboxilasa ➔ - 2 ATP</text>
@@ -1024,10 +1023,9 @@
       
       <line x1="20" y1="154" x2="370" y2="154" stroke="#e2e8f0" stroke-width="1.5"/>
       <text x="20" y="176" fill="#0f172a" font-size="12.5" font-weight="900">GASTO TOTAL: 6 Enlaces ~P</text>
-      <text x="20" y="196" fill="#64748b" font-size="11">
-        2 Piruvato + 4 ATP + 2 GTP + 2 NADH + 6 H₂O ➔ Glucosa + 4 ADP + 2 GDP + 6 Pi + 2 NAD⁺
-      </text>
-      <text x="20" y="214" fill="#047857" font-size="11" font-weight="700">ΔG'° ≈ -37.7 kJ/mol (Fisiológicamente Irreversible)</text>
+      <text x="20" y="196" fill="#64748b" font-size="10.5">2 Piruvato + 4 ATP + 2 GTP + 2 NADH + 6 H₂O ➔</text>
+      <text x="20" y="210" fill="#64748b" font-size="10.5">Glucosa + 4 ADP + 2 GDP + 6 Pi + 2 NAD⁺</text>
+      <text x="20" y="228" fill="#047857" font-size="10.5" font-weight="700">ΔG'° ≈ -37.7 kJ/mol (Fisiológicamente Irreversible)</text>
     </g>
 
     <!-- PANEL DE PRECURSORES GLUCONEOGÉNICOS -->

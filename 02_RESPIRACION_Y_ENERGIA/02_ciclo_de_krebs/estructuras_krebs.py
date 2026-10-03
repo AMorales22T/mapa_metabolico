@@ -310,7 +310,7 @@ FUMARATO = """
   <text x="96" y="98" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle">COO⁻</text>
 
   <!-- Etiqueta sutil de conformación geométrica -->
-  <text x="56" y="82" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#64748b" text-anchor="middle">(trans)</text>
+  <text x="36" y="76" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#64748b" text-anchor="middle">(trans)</text>
 </g>
 """
 

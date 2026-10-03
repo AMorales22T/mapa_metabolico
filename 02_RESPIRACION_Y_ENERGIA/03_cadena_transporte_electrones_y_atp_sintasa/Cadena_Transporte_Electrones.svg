@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1150" height="820" viewBox="0 0 1150 820" xmlns="http://www.w3.org/2000/svg">
+
+      <defs>
+        <!-- Flecha de flujo metabólico principal (Naranja) -->
+        <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
+        </marker>
+        <!-- Flecha de flujo de electrones (Roja) -->
+        <marker id="arrowElectron" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#dc2626" />
+        </marker>
+        <!-- Flecha de gasto / reactivo (Roja) -->
+        <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
+        </marker>
+        <!-- Flecha de salida de subproducto (Gris pizarra) -->
+        <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+        </marker>
+        <!-- Flecha de ganancia / poder reductor (Verde esmeralda) -->
+        <marker id="arrowGreen" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#059669" />
+        </marker>
+        <!-- Flecha de agua / transporte (Azul) -->
+        <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
+        </marker>
+        <!-- Flecha de la familia mitocondrial (Ámbar) -->
+        <marker id="arrowAmber" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#b45309" />
+        </marker>
+
+        
+    <!-- Gradiente del citosol (arriba) -->
+    <linearGradient id="cteGradCitosol" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+      <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Gradiente del Espacio Intermembrana (EIM): cálido y ácido, rico en H⁺ -->
+    <linearGradient id="cteGradEIM" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5" stop-opacity="0.55" />
+      <stop offset="70%" stop-color="#fed7aa" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#fdba74" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Gradiente de la Matriz Mitocondrial (ámbar cálido y luminoso) -->
+    <radialGradient id="cteGradMatriz" cx="50%" cy="35%" r="85%">
+      <stop offset="0%" stop-color="#fffbeb" stop-opacity="1" />
+      <stop offset="45%" stop-color="#fef3c7" stop-opacity="0.96" />
+      <stop offset="85%" stop-color="#fef9c3" stop-opacity="0.92" />
+      <stop offset="100%" stop-color="#fef08a" stop-opacity="0.88" />
+    </radialGradient>
+
+    <!-- Gradiente del interior de la bicapa lipídica -->
+    <linearGradient id="cteGradBicapa" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#fef3c7" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#fde68a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Gradiente de las crestas mitocondriales -->
+    <linearGradient id="cteGradCresta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#fef3c7" stop-opacity="0.8" />
+    </linearGradient>
+
+      </defs>
+
+    <!-- ================================================================= -->
+    <!-- CAPA 1: MATRIZ MITOCONDRIAL DE FONDO                              -->
+    <!-- ================================================================= -->
+    <rect x="0" y="0" width="1150" height="820" fill="url(#cteGradMatriz)" />
+
+    <!-- Crestas mitocondriales (invaginaciones de la MMI, sólo en el margen libre) -->
+    <g fill="url(#cteGradCresta)" stroke="#d97706" stroke-width="1.8" opacity="0.4">
+      <path d="M 0 470 C 70 470, 92 510, 88 560 C 84 600, 50 620, 0 628 Z" />
+      <path d="M 1150 500 C 1080 500, 1058 540, 1062 590 C 1066 630, 1100 650, 1150 658 Z" />
+      <path d="M 0 690 C 60 690, 80 715, 76 745 C 72 765, 40 775, 0 780 Z" />
+    </g>
+
+    <!-- ADN mitocondrial circular (ADNmt) y mitorribosomas -->
+    <g fill="none" stroke="#b45309" stroke-width="1.2" opacity="0.22">
+      <path d="M 1020 560 C 1050 534, 1090 554, 1080 592 C 1070 630, 1028 638, 1008 606 Z" stroke-dasharray="4 3"/>
+    </g>
+    <g fill="#b45309" opacity="0.22">
+      <circle cx="1235" cy="470" r="0"/>
+      <circle cx="1090" cy="700" r="2.6"/><circle cx="1098" cy="703" r="2"/><circle cx="1094" cy="709" r="2.3"/>
+      <circle cx="35" cy="720" r="2.6"/><circle cx="43" cy="723" r="2"/><circle cx="39" cy="729" r="2.3"/>
+    </g>
+    <g opacity="0.22">
+      <ellipse cx="120" cy="700" rx="8" ry="5.5" fill="#78350f" stroke="#92400e" stroke-width="1.2"/>
+      <ellipse cx="1060" cy="620" rx="8" ry="5.5" fill="#78350f" stroke="#92400e" stroke-width="1.2"/>
+    </g>
+
+    <!-- ================================================================= -->
+    <!-- CAPA 2: CITOSOL, MME Y PORINA VDAC                                -->
+    <!-- ================================================================= -->
+    <path d="M 0 0 L 1150 0 L 1150 90 Q 575.0 96 0 90 Z" fill="url(#cteGradCitosol)" />
+    <g opacity="0.28" stroke="#94a3b8" fill="none">
+      <path d="M 20 22 Q 380 10 760 24 T 1130 18" stroke-width="1.4" stroke-dasharray="8 6"/>
+      <path d="M 40 50 Q 400 62 800 46 T 1110 54" stroke-width="1.2" stroke-dasharray="6 5"/>
+    </g>
+    <text x="20" y="24" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900"
+          fill="#64748b" letter-spacing="1.2">CITOSOL • Lanzaderas malato-aspartato y glicerol-3-P</text>
+
+    <!-- Membrana Mitocondrial Externa (MME) -->
+    <path d="M 0 90 Q 575.0 96 1150 90" fill="none" stroke="#78350f" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 0 93 Q 575.0 99 1150 93" fill="none" stroke="#b45309" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="1130" y="82" font-family="'Inter', sans-serif" font-size="9"
+          font-weight="700" fill="#78350f" text-anchor="end">Membrana Mitocondrial Externa (MME)</text>
+
+    <!-- Porina VDAC (paso libre de nucleótidos y metabolitos pequeños) -->
+    <g transform="translate(760, 79)">
+      <rect x="0" y="0" width="34" height="22" rx="6" fill="#f97316" stroke="#c2410c" stroke-width="1.6"/>
+      <ellipse cx="17" cy="11" rx="7.5" ry="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.1"/>
+      <text x="17" y="29" font-family="'JetBrains Mono', monospace" font-size="7.5"
+            font-weight="900" fill="#9a3412" text-anchor="middle">VDAC</text>
+    </g>
+
+    <!-- ================================================================= -->
+    <!-- CAPA 3: ESPACIO INTERMEMBRANA Y GRADIENTE DE PROTONES             -->
+    <!-- ================================================================= -->
+    <path d="M 0 96 Q 575.0 102 1150 96
+             L 1150 330 Q 575.0 336 0 330 Z"
+          fill="url(#cteGradEIM)" />
+
+    <text x="45" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="395" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="465" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="605" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="675" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="745" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="815" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="885" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="955" y="170" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.32">H⁺</text>
+    <text x="45" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="395" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="465" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="605" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="675" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="745" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="815" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="885" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="955" y="225" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.47">H⁺</text>
+    <text x="45" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="395" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="465" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="605" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="675" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="745" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="815" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="885" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+    <text x="955" y="280" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ea580c" opacity="0.62">H⁺</text>
+
+    <text x="20" y="126" font-family="'Inter', sans-serif" font-size="9.5"
+          font-weight="900" fill="#9a3412" letter-spacing="1">ESPACIO INTERMEMBRANA (EIM) • pH ≈ 6.8 • [H⁺] ALTA</text>
+
+    <!-- Barra lateral del gradiente electroquímico -->
+    <g transform="translate(18, 144)">
+      <rect x="0" y="0" width="11" height="166" rx="5.5" fill="#fdba74" stroke="#ea580c" stroke-width="1.2"/>
+      <text x="18" y="16" font-family="'JetBrains Mono', monospace" font-size="8"
+            font-weight="700" fill="#9a3412">Δp ≈ 200 mV</text>
+    </g>
+
+    <!-- ================================================================= -->
+    <!-- CAPA 4: MEMBRANA MITOCONDRIAL INTERNA (BICAPA LIPÍDICA)           -->
+    <!-- ================================================================= -->
+    <rect x="0" y="330" width="1150" height="100" fill="url(#cteGradBicapa)"/>
+    <line x1="0" y1="380.0" x2="1150" y2="380.0"
+          stroke="#d97706" stroke-width="1.1" stroke-dasharray="5 4" opacity="0.6"/>
+    <circle cx="18" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 15.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 20.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="48" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 45.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 50.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="78" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 75.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 80.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="108" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 105.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 110.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="138" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 135.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 140.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="168" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 165.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 170.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="198" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 195.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 200.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="228" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 225.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 230.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="258" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 255.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 260.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="288" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 285.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 290.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="318" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 315.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 320.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="348" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 345.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 350.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="378" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 375.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 380.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="408" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 405.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 410.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="438" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 435.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 440.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="468" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 465.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 470.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="498" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 495.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 500.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="528" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 525.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 530.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="558" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 555.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 560.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="588" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 585.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 590.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="618" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 615.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 620.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="648" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 645.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 650.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="678" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 675.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 680.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="708" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 705.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 710.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="738" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 735.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 740.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="768" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 765.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 770.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="798" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 795.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 800.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="828" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 825.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 830.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="858" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 855.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 860.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="888" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 885.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 890.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="918" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 915.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 920.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="948" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 945.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 950.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="978" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 975.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 980.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1008" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1005.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1010.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1038" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1035.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1040.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1068" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1065.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1070.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1098" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1095.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1100.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1128" cy="338" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1125.8 343 q -2.4 8 1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1130.2 343 q 2.4 8 -1.3 15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="18" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 15.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 20.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="48" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 45.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 50.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="78" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 75.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 80.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="108" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 105.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 110.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="138" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 135.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 140.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="168" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 165.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 170.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="198" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 195.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 200.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="228" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 225.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 230.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="258" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 255.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 260.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="288" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 285.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 290.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="318" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 315.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 320.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="348" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 345.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 350.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="378" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 375.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 380.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="408" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 405.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 410.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="438" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 435.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 440.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="468" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 465.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 470.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="498" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 495.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 500.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="528" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 525.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 530.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="558" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 555.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 560.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="588" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 585.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 590.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="618" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 615.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 620.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="648" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 645.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 650.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="678" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 675.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 680.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="708" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 705.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 710.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="738" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 735.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 740.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="768" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 765.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 770.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="798" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 795.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 800.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="828" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 825.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 830.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="858" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 855.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 860.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="888" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 885.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 890.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="918" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 915.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 920.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="948" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 945.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 950.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="978" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 975.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 980.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1008" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1005.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1010.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1038" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1035.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1040.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1068" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1065.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1070.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1098" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1095.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1100.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <circle cx="1128" cy="422" r="4.2" fill="#d97706" opacity="0.85"/>
+    <path d="M 1125.8 417 q -2.4 -8 1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <path d="M 1130.2 417 q 2.4 -8 -1.3 -15" fill="none" stroke="#d97706" stroke-width="1" opacity="0.45"/>
+    <text x="520" y="465" font-family="'Inter', sans-serif" font-size="9"
+          font-weight="800" fill="#92400e" text-anchor="middle">Membrana Mitocondrial Interna (MMI) • bicapa impermeable a H⁺</text>
+
+    <!-- ================================================================= -->
+    <!-- CAPA 5: MATRIZ MITOCONDRIAL (RÓTULO DE COMPARTIMENTO)             -->
+    <!-- ================================================================= -->
+    <text x="520" y="484" font-family="'Inter', sans-serif" font-size="9"
+          font-weight="900" fill="#92400e" letter-spacing="1" text-anchor="middle">MATRIZ MITOCONDRIAL • pH ≈ 7.8 • [H⁺] BAJA</text>
+    
+
+    <!-- ===== COMPLEJO I: brazo transmembrana + brazo hidrofílico matricial ===== -->
+    <rect x="45" y="336" width="150" height="88" rx="16"
+          fill="#e0f2fe" stroke="#0369a1" stroke-width="2.6"/>
+    <path d="M 62 424 L 178 424 L 178 548 Q 178 562 164 562 L 76 562 Q 62 562 62 548 Z"
+          fill="#e0f2fe" stroke="#0369a1" stroke-width="2.6"/>
+
+    <!-- Subunidades sugeridas -->
+    <line x1="95" y1="338" x2="95" y2="422" stroke="#0369a1" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+    <line x1="145" y1="338" x2="145" y2="422" stroke="#0369a1" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+    <line x1="64" y1="492" x2="176" y2="492" stroke="#0369a1" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+
+    <!-- Identificación dentro del propio complejo (sin chips flotantes) -->
+    <text x="120" y="362" fill="#0369a1" font-size="12" font-weight="900" text-anchor="middle" font-family="'Inter', sans-serif">Complejo I</text>
+    <text x="120" y="380" fill="#0f172a" font-size="7.2" font-weight="700" text-anchor="middle" font-family="'Inter', sans-serif">NADH:ubiquinona oxidorreductasa</text>
+    <text x="120" y="398" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 1.6.5.3 • 4 H⁺ bombeados</text>
+
+    <!-- Cadena FMN ➔ centros Fe-S -->
+    <text x="120" y="440" fill="#0f172a" font-size="7" font-weight="800" text-anchor="middle">NADH ➔ FMN ➔ Fe-S ➔ Q</text>
+    <circle cx="115" cy="456" r="5.5" fill="#f59e0b" stroke="#b45309" stroke-width="1.3"/>
+    <text x="115" y="459" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">FMN</text>
+    <circle cx="88" cy="488" r="4.5" fill="#dc2626" stroke="#991b1b" stroke-width="1.1"/>
+    <circle cx="148" cy="506" r="4.5" fill="#dc2626" stroke="#991b1b" stroke-width="1.1"/>
+    <circle cx="95" cy="528" r="4.5" fill="#dc2626" stroke="#991b1b" stroke-width="1.1"/>
+    <text x="120" y="550" fill="#991b1b" font-size="6.8" font-weight="800" text-anchor="middle">8 centros [Fe-S]</text>
+    
+
+    <!-- ===== COMPLEJO II: SDH (FAD covalente, no bombea protones) ===== -->
+    <rect x="245" y="336" width="110" height="88" rx="16"
+          fill="#d1fae5" stroke="#047857" stroke-width="2.6"/>
+    <rect x="255" y="424" width="90" height="132" rx="16"
+          fill="#d1fae5" stroke="#047857" stroke-width="2.6"/>
+
+    <text x="300" y="362" fill="#047857" font-size="12" font-weight="900" text-anchor="middle" font-family="'Inter', sans-serif">Complejo II</text>
+    <text x="300" y="380" fill="#0f172a" font-size="7.2" font-weight="700" text-anchor="middle" font-family="'Inter', sans-serif">Succinato DH (SDH)</text>
+    <text x="300" y="398" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 1.3.5.1 • 0 H⁺</text>
+
+    <!-- Subunidades SDHA / SDHB / SDHC-SDHD -->
+    <rect x="264" y="436" width="72" height="22" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+    <text x="300" y="451" fill="#78350f" font-size="6.8" font-weight="900" text-anchor="middle">SDHA • FAD</text>
+    <rect x="264" y="464" width="72" height="22" rx="8" fill="#d1fae5" stroke="#047857" stroke-width="1.2"/>
+    <text x="300" y="479" fill="#065f46" font-size="6.8" font-weight="900" text-anchor="middle">SDHB • [Fe-S]</text>
+    <text x="300" y="504" fill="#0369a1" font-size="6.8" font-weight="800" text-anchor="middle">SDHC / SDHD (hemo b)</text>
+    <text x="300" y="530" fill="#78350f" font-size="8" font-weight="800" text-anchor="middle">Succinato ➔ Fumarato</text>
+    
+
+    <!-- ===== COMPLEJO III: bc₁ con dominio soluble en el EIM ===== -->
+    <rect x="450" y="336" width="140" height="88" rx="16"
+          fill="#ede9fe" stroke="#7c3aed" stroke-width="2.6"/>
+    <rect x="472" y="258" width="96" height="78" rx="16"
+          fill="#ede9fe" stroke="#7c3aed" stroke-width="2.6"/>
+
+    <text x="520" y="284" fill="#7c3aed" font-size="12" font-weight="900" text-anchor="middle">Complejo III</text>
+    <text x="520" y="298" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">Citocromo bc₁</text>
+    <text x="520" y="312" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 7.1.1.8 • 4 H⁺</text>
+    <text x="520" y="326" fill="#4c1d95" font-size="6.8" font-weight="800" text-anchor="middle">Cit c₁ ➔ citocromo c</text>
+
+    <!-- Grupos hemo bL / bH y ciclo Q -->
+    <circle cx="482" cy="372" r="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+    <text x="482" y="375" fill="#5b21b6" font-size="5.5" font-weight="900" text-anchor="middle">bL</text>
+    <circle cx="558" cy="402" r="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+    <text x="558" y="405" fill="#5b21b6" font-size="5.5" font-weight="900" text-anchor="middle">bH</text>
+    <text x="520" y="360" fill="#5b21b6" font-size="8" font-weight="800" text-anchor="middle">Ciclo Q</text>
+    <text x="520" y="390" fill="#0f172a" font-size="6.8" font-weight="700" text-anchor="middle">QH₂ ➔ Q•⁻ ➔ Q</text>
+    <text x="520" y="418" fill="#0f172a" font-size="7" font-weight="800" text-anchor="middle">2 e⁻ • 4 H⁺ al EIM</text>
+    
+
+    <!-- ===== COMPLEJO IV: citocromo c oxidasa (COX) ===== -->
+    <rect x="660" y="336" width="140" height="88" rx="16"
+          fill="#fef3c7" stroke="#b45309" stroke-width="2.6"/>
+    <rect x="678" y="424" width="104" height="108" rx="16"
+          fill="#fef3c7" stroke="#b45309" stroke-width="2.6"/>
+
+    <text x="730" y="370" fill="#b45309" font-size="12.5" font-weight="900" text-anchor="middle">Complejo IV</text>
+    <text x="730" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">Citocromo c oxidasa</text>
+    <text x="730" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 7.1.1.9 • 2 H⁺</text>
+
+    <!-- Centros redox -->
+    <circle cx="695" cy="450" r="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+    <text x="695" y="453" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">CuA</text>
+    <circle cx="730" cy="472" r="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+    <text x="730" y="475" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">hema</text>
+    <circle cx="765" cy="450" r="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.4"/>
+    <text x="765" y="453" fill="#78350f" font-size="5.2" font-weight="900" text-anchor="middle">CuB</text>
+
+    <!-- Aceptor final de electrones -->
+    <text x="730" y="506" fill="#7c2d12" font-size="7.5" font-weight="800" text-anchor="middle">O₂ + 4 H⁺ + 4 e⁻</text>
+    <text x="730" y="521" fill="#7c2d12" font-size="7.5" font-weight="800" text-anchor="middle">➔ 2 H₂O</text>
+    
+
+    <!-- ===== ATP SINTASA (F₀F₁) ===== -->
+    <!-- F₀: sector transmembrana (canal de protones) -->
+    <rect x="880" y="336" width="130" height="88" rx="16"
+          fill="#ffe4e6" stroke="#be123c" stroke-width="2.6"/>
+    <!-- Eje central (subunidad γ) -->
+    <rect x="932" y="424" width="26" height="42" rx="9" fill="#fda4af" stroke="#be123c" stroke-width="1.8"/>
+    <!-- F₁: cabeza catalítica -->
+    <rect x="862" y="466" width="166" height="150" rx="42"
+          fill="#ffe4e6" stroke="#be123c" stroke-width="2.6"/>
+    <!-- Tallo periférico (b₂ / OSCP) -->
+    <path d="M 850 372 L 850 546 Q 850 578 872 586"
+          fill="none" stroke="#be123c" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+
+    <text x="945" y="350" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">F₀</text>
+    <text x="945" y="370" fill="#be123c" font-size="12" font-weight="900" text-anchor="middle">ATP Sintasa</text>
+    <text x="945" y="385" fill="#0f172a" font-size="7" font-weight="700" text-anchor="middle">F₀F₁ (Complejo V)</text>
+    <text x="945" y="400" fill="#64748b" font-size="6.8" font-weight="700" text-anchor="middle"
+          font-family="'JetBrains Mono', monospace">EC 7.1.2.2</text>
+
+    <!-- Cabeza F₁ con las tres conformaciones catalíticas -->
+    <text x="945" y="492" fill="#be123c" font-size="11" font-weight="900" text-anchor="middle">F₁</text>
+    <circle cx="905" cy="524" r="15" fill="#ffffff" stroke="#be123c" stroke-width="1.6"/>
+    <text x="905" y="528" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-L</text>
+    <circle cx="985" cy="524" r="15" fill="#ffffff" stroke="#be123c" stroke-width="1.6"/>
+    <text x="985" y="528" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-T</text>
+    <circle cx="945" cy="566" r="15" fill="#ffffff" stroke="#be123c" stroke-width="1.6"/>
+    <text x="945" y="570" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-O</text>
+    <text x="945" y="602" fill="#9f1239" font-size="6.8" font-weight="800" text-anchor="middle">Rotación γ • 3 H⁺ / vuelta</text>
+    
+
+    <!-- ===== FLUJO DE ELECTRONES (línea roja discontinua sobre la bicapa) ===== -->
+    <g fill="none" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="8 5">
+      <!-- Complejo I ➔ Q (arco superior que evita cortar el Complejo II) -->
+      <path d="M 195 352 C 220 326, 370 326, 395 365" marker-end="url(#arrowElectron)"/>
+      <path d="M 355 380 L 381 380" marker-end="url(#arrowElectron)"/>
+      <path d="M 429 380 L 446 380" marker-end="url(#arrowElectron)"/>
+      <path d="M 590 380 L 599 380" marker-end="url(#arrowElectron)"/>
+      <path d="M 641 380 L 656 380" marker-end="url(#arrowElectron)"/>
+    </g>
+
+    <!-- Transportador móvil liposoluble: UBIQUINONA (Q ⇄ QH₂) -->
+    <g transform="translate(405, 380)">
+      <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8"
+               fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="0" y="4" fill="#92400e" font-size="9.5" font-weight="900" text-anchor="middle">Q</text>
+    </g>
+    <text x="405" y="412" fill="#92400e" font-size="8" font-weight="900" text-anchor="middle">Q ⇄ QH₂</text>
+
+    <!-- Transportador móvil soluble: CITOCROMO c -->
+    <g transform="translate(620, 380)">
+      <circle cx="0" cy="0" r="18" fill="#cffafe" stroke="#0891b2" stroke-width="2.2"/>
+      <text x="0" y="4" fill="#0e7490" font-size="8.5" font-weight="900" text-anchor="middle">cit c</text>
+    </g>
+    <text x="620" y="412" fill="#0e7490" font-size="8" font-weight="900" text-anchor="middle">Fe³⁺ ⇄ Fe²⁺</text>
+    
+
+    <!-- ===== BOMBEO DE PROTONES H⁺ (matriz ➔ EIM) ===== -->
+    <g fill="none" stroke="#ea580c" stroke-width="2.8" stroke-linecap="round">
+      <path d="M 182 434 Q 235 392 235 330 Q 235 262 190 226" marker-end="url(#arrowFlow)"/>
+      <path d="M 578 434 Q 630 392 630 330 Q 630 264 590 230" marker-end="url(#arrowFlow)"/>
+      <path d="M 792 434 Q 830 392 830 330 Q 830 268 806 240" marker-end="url(#arrowFlow)"/>
+    </g>
+    <g font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">
+      <text x="250" y="266">4 H⁺</text>
+      <text x="646" y="272">4 H⁺</text>
+      <text x="844" y="292">2 H⁺</text>
+    </g>
+
+    <!-- ===== RETORNO DE PROTONES POR LA ATP SINTASA (EIM ➔ matriz) ===== -->
+    <path d="M 1020 236 Q 1090 290 1085 346 Q 1080 398 1010 424 Q 972 440 950 462"
+          fill="none" stroke="#ea580c" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrowFlow)"/>
+    <text x="988" y="286" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">≈ 4 H⁺</text>
+    <text x="988" y="300" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">por ATP</text>
+
+    <!-- Acoplamiento quimiosmótico (cartel de estilo) -->
+    <g transform="translate(60, 150)">
+      <rect x="0" y="0" width="330" height="42" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.6" opacity="0.95"/>
+      <text x="165" y="17" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#9a3412" text-anchor="middle">
+        ACOPLAMIENTO QUIMIOSMÓTICO (MITCHELL, 1961)
+      </text>
+      <text x="165" y="32" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#475569" text-anchor="middle">
+        El gradiente de H⁺ (Δp) impulsa la síntesis de ATP
+      </text>
+    </g>
+    
+
+    <!-- ===== DONANTE 1: NADH ➔ Complejo I ===== -->
+    <g transform="translate(40, 620)">
+      <rect x="0" y="0" width="150" height="54" rx="10" fill="#dcfce7" stroke="#059669" stroke-width="1.8"/>
+      <text x="75" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="900"
+            fill="#065f46" text-anchor="middle">NADH + H⁺</text>
+      <text x="75" y="34" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">10 H⁺ bombeados</text>
+      <text x="75" y="47" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">≈ 2.5 ATP</text>
+    </g>
+    <path d="M 115 616 L 115 570" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+    <text x="126" y="598" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#047857">e⁻</text>
+
+    <!-- ===== DONANTE 2: FADH₂ ➔ Complejo II (vía ubiquinona) ===== -->
+    <g transform="translate(240, 620)">
+      <rect x="0" y="0" width="150" height="54" rx="10" fill="#dcfce7" stroke="#059669" stroke-width="1.8"/>
+      <text x="75" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="900"
+            fill="#065f46" text-anchor="middle">FADH₂</text>
+      <text x="75" y="34" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">6 H⁺ bombeados</text>
+      <text x="75" y="47" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700"
+            fill="#047857" text-anchor="middle">≈ 1.5 ATP</text>
+    </g>
+    <path d="M 315 616 Q 315 590 302 568" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+    <text x="322" y="598" font-family="'Inter', sans-serif" font-size="8" font-weight="800" fill="#047857">e⁻</text>
+
+    <!-- ===== SÍNTESIS DE ATP EN LA CABEZA F₁ (fosforilación oxidativa) ===== -->
+    <g transform="translate(860, 646)">
+      <rect x="0" y="0" width="170" height="32" rx="16" fill="#ffffff" stroke="#475569" stroke-width="1.8"/>
+      <text x="85" y="21" font-family="'Inter', sans-serif" font-size="12" font-weight="900"
+            fill="#334155" text-anchor="middle">ADP + Pi</text>
+    </g>
+    <path d="M 945 642 L 945 622" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+
+    <g transform="translate(860, 700)">
+      <rect x="0" y="0" width="170" height="34" rx="17" fill="#dcfce7" stroke="#059669" stroke-width="2.2"/>
+      <text x="85" y="23" font-family="'Inter', sans-serif" font-size="14" font-weight="900"
+            fill="#065f46" text-anchor="middle">ATP + H₂O</text>
+    </g>
+    <path d="M 1032 610 Q 1085 660 1035 698" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+    <text x="945" y="756" font-family="'Inter', sans-serif" font-size="9" font-weight="700"
+          fill="#065f46" text-anchor="middle">Fosforilación oxidativa</text>
+    
+</svg>

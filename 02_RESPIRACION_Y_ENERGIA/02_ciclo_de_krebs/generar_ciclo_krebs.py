@@ -687,7 +687,16 @@ def main():
     with open(ruta_salida, "w", encoding="utf-8") as archivo:
         archivo.write(html_final)
 
-    print(f"✅ ¡Ciclo de Krebs vertical generado con éxito en: {ruta_salida}!")
+    # Extraer y guardar SVG directo
+    idx_svg_inicio = html_final.find("<svg")
+    idx_svg_fin = html_final.find("</svg>") + 6
+    if idx_svg_inicio != -1 and idx_svg_fin != -1:
+        svg_final = html_final[idx_svg_inicio:idx_svg_fin]
+        ruta_svg = os.path.join(os.path.dirname(__file__), "Ciclo_de_Krebs.svg")
+        with open(ruta_svg, "w", encoding="utf-8") as archivo:
+            archivo.write(svg_final)
+
+    print(f"✅ ¡Ciclo de Krebs vertical generado con éxito en: {ruta_salida} y SVG!")
 
 
 if __name__ == "__main__":

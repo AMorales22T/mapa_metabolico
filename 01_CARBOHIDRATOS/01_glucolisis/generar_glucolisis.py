@@ -420,9 +420,20 @@ def main():
     html_final = CABECERA_HTML + "\n".join(contenido_svg) + PIE_HTML
 
     # Escribir el archivo Glucolisis.html
-    ruta_salida = os.path.join(os.path.dirname(__file__), "Glucolisis.html")
+    dir_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_salida = os.path.join(dir_actual, "Glucolisis.html")
     with open(ruta_salida, "w", encoding="utf-8") as archivo:
         archivo.write(html_final)
+
+    # Extraer y escribir el archivo Glucolisis.svg puro
+    inicio_svg = html_final.find("<svg ")
+    fin_svg = html_final.rfind("</svg>") + 6
+    if inicio_svg != -1 and fin_svg != -1:
+        svg_puro = html_final[inicio_svg:fin_svg]
+        ruta_svg = os.path.join(dir_actual, "Glucolisis.svg")
+        with open(ruta_svg, "w", encoding="utf-8") as f_svg:
+            f_svg.write(svg_puro)
+        print(f"✅ SVG puro guardado en: {ruta_svg}")
 
     print(f"✅ ¡Ruta Glucolítica integrada en entorno celular generada en: {ruta_salida}!")
 

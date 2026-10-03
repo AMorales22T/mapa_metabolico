@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lienzo Base — Mapa Metabólico de Alta Densidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:#e2e8f0; font-family:'Inter',sans-serif; }
+  .lienzo-scroll { width:100vw; height:100vh; overflow:auto; display:flex; justify-content:center; align-items:flex-start; }
+  .lienzo { background:#ffffff; box-shadow:0 20px 60px rgba(0,0,0,0.15); margin:40px; display:block; }
+  .texto-frontera { font-family:'JetBrains Mono',monospace; font-weight:700; fill:#94a3b8; font-size: 24px; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+
+<div class="lienzo-scroll">
+  <svg class="lienzo" width="6000" height="4500" viewBox="0 0 6000 4500" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- FONDO 100% BLANCO -->
+    <rect x="0" y="0" width="6000" height="4500" fill="#ffffff" />
+
+    <!-- 1. MEMBRANA CELULAR -->
+    <g id="frontera_celular">
+      <line x1="0" y1="150" x2="6000" y2="150" stroke="#94a3b8" stroke-width="4" stroke-dasharray="25 15"/>
+      <text x="50" y="110" class="texto-frontera" fill="#64748b">ESPACIO EXTRACELULAR</text>
+      <text x="50" y="200" class="texto-frontera" fill="#0284c7">CITOSOL</text>
+    </g>
+
+    <!-- 2. MITOCONDRIA -->
+    <g id="frontera_mitocondria">
+      <rect x="1500" y="2700" width="3000" height="1700" rx="150" fill="none" stroke="#b45309" stroke-width="8" stroke-dasharray="30 20"/>
+      <rect x="1530" y="2730" width="2940" height="1640" rx="120" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="15 15"/>
+      <text x="1560" y="2820" class="texto-frontera" fill="#b45309" font-size="36">MITOCONDRIA</text>
+    </g>
+
+    <!-- AQUÍ SE INYECTARÁN LAS RUTAS DESDE PYTHON -->
+    <g id="capa_rutas_metabolicas">
+    </g>
+
+  </svg>
+</div>
+
+</body>
+</html>

@@ -174,7 +174,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >Oxalacetato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >4 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >α-Cetoácido</text>
@@ -226,7 +226,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >L-Malato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >4 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >α-Hidroxiácido</text>
@@ -266,7 +266,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >L-Malato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >4 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >Pool de Krebs</text>
@@ -321,7 +321,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >Oxalacetato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >4 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >Pool de Krebs / mAST</text>
@@ -374,7 +374,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >α-Cetoglutarato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >5 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >α-Cetoácido (Pool Krebs)</text>
@@ -383,9 +383,9 @@
     
     <path d="M 830 355 L 735 355 Q 715 355 715 167 L 705 167" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
     
-    <path d="M 605 167 L 500 167 Q 400 167 310 260 L 155 350" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arrowFlow)"/>
+    <path d="M 605 167 L 490 167 Q 445 167 445 205 Q 445 240 375 240 L 260 240 Q 185 240 155 350" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arrowFlow)"/>
     <!-- Pill indicador estilo Glucólisis -->
-    <g transform="translate(420, 210)">
+    <g transform="translate(350, 240)">
       <rect x="-45" y="-9" width="90" height="18" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>
       <text x="0" y="4" fill="#c2410c" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" text-anchor="middle">α-KG ➔ cAST</text>
     </g>
@@ -419,8 +419,8 @@
   <line x1="33" y1="48" x2="22" y2="48" />
   <text x="14" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
-  <line x1="47" y1="48" x2="62" y2="48" stroke="#2563eb" stroke-width="2"/>
-  <text x="69" y="52" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
+  <line x1="46" y1="48" x2="58" y2="48" stroke="#2563eb" stroke-width="2"/>
+  <text x="63" y="52" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
 
   <!-- Enlace C2 - C3 -->
   <line x1="40" y1="54" x2="40" y2="70" />
@@ -434,7 +434,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >L-Aspartato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >4 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >Precursor de OAA</text>
@@ -455,8 +455,8 @@
   <line x1="33" y1="43" x2="22" y2="43" />
   <text x="14" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
-  <line x1="47" y1="43" x2="62" y2="43" stroke="#2563eb" stroke-width="2"/>
-  <text x="69" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
+  <line x1="46" y1="43" x2="58" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <text x="63" y="47" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
 
   <!-- Enlace C2 - C3 -->
   <line x1="40" y1="49" x2="40" y2="62" />
@@ -474,7 +474,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >L-Glutamato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >5 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >Portador amino (citosol)</text>
@@ -506,8 +506,8 @@
   <line x1="33" y1="43" x2="22" y2="43" />
   <text x="14" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
-  <line x1="47" y1="43" x2="62" y2="43" stroke="#2563eb" stroke-width="2"/>
-  <text x="69" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
+  <line x1="46" y1="43" x2="58" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <text x="63" y="47" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
 
   <!-- Enlace C2 - C3 -->
   <line x1="40" y1="49" x2="40" y2="62" />
@@ -525,7 +525,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >L-Glutamato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >5 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >Sustrato de mAST</text>
@@ -549,8 +549,8 @@
   <line x1="33" y1="48" x2="22" y2="48" />
   <text x="14" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
-  <line x1="47" y1="48" x2="62" y2="48" stroke="#2563eb" stroke-width="2"/>
-  <text x="69" y="52" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
+  <line x1="46" y1="48" x2="58" y2="48" stroke="#2563eb" stroke-width="2"/>
+  <text x="63" y="52" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none">⁺NH₃</text>
 
   <!-- Enlace C2 - C3 -->
   <line x1="40" y1="54" x2="40" y2="70" />
@@ -564,7 +564,7 @@
 </g>
 
         </g>
-        <g transform="translate(95, 25)">
+        <g transform="translate(105, 25)">
           <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="16" font-weight="800" >L-Aspartato</text>
           <text x="0" y="18" fill="#ea580c" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" >4 Carbonos</text>
           <text x="0" y="33" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5" >Exportable a citosol</text>
