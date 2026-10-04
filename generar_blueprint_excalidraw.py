@@ -182,7 +182,10 @@ add_rect(960, 190, 370, 180, stroke="#059669", bg="#ecfdf5", label="VÍA PENTOSA
 add_rect(1360, 190, 250, 280, stroke="#7c3aed", bg="#f5f3ff", label="SÍNTESIS NUCLEÓTIDOS", sub="Ribosa-5P ➔ PRPP\n➔ Purinas (IMP, AMP, GMP)\n➔ Pirimidinas (UMP, CTP, dTTP)\n➔ Degradación a Ácido Úrico", stroke_width=2, stroke_style="dashed", text_color="#6d28d9")
 
 # E. LÍPIDOS CITOSÓLICOS / LIPOGÉNESIS (Lateral Izquierdo)
-add_rect(90, 380, 360, 220, stroke="#16a34a", bg="#f0fdf4", label="LÍPIDOS CITOSÓLICOS & LIPOGÉNESIS", sub="• DHAP ➔ Glicerol-3-P ➔ Triglicéridos (TAG)\n• Citrato (sale de mitocondria) ➔ Acetil-CoA citosol\n• Acetil-CoA ➔ Malonil-CoA (ACC) ➔ Palmitato (FAS)\n[Requiere NADPH de Pentosas Fosfato]", stroke_width=2, stroke_style="dashed", text_color="#15803d")
+add_rect(90, 380, 360, 110, stroke="#16a34a", bg="#f0fdf4", label="LÍPIDOS: LIPOGÉNESIS (CITOSOL)", sub="• Citrato (CIC) ➔ Acetil-CoA (ACLY)\n• Acetil-CoA ➔ Malonil-CoA (ACC) ➔ Palmitato (FAS)\n[Requiere NADPH de Pentosas Fosfato y Enzima Málica]", stroke_width=2, text_color="#15803d")
+
+# E2. SÍNTESIS DE COLESTEROL (Lateral Izquierdo Medio / REL)
+add_rect(90, 500, 360, 115, stroke="#d97706", bg="#fffbeb", label="SÍNTESIS DE COLESTEROL (VÍA MEVALONATO)", sub="• 2 Acetil-CoA ➔ Acetoacetil-CoA ➔ HMG-CoA\n• HMGCR (REL, -2 NADPH, Diana Estatinas) ➔ Mevalonato\n• Mevalonato ➔ IPP (5C) ➔ FPP (15C) ➔ Escualeno (30C) ➔ Colesterol (27C)", stroke_width=2, text_color="#b45309")
 
 # F. CICLO DE LA UREA: FASE CITOSÓLICA (Lateral Derecho)
 add_rect(1060, 400, 270, 200, stroke="#2563eb", bg="#eff6ff", label="UREA: FASE CITOSÓLICA", sub="Citrulina (sale de mitocondria)\n➔ Argininosuccinato (ASS + Aspartato)\n➔ Fumarato + Arginina (ASL)\n➔ UREA (Excreción) + Ornitina (retorna)", stroke_width=2, stroke_style="dashed", text_color="#1d4ed8")

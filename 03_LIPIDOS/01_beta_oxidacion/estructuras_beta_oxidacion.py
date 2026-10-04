@@ -19,7 +19,7 @@ def _badge_coa(x=0, y=0):
     return f"""
     <g transform="translate({x}, {y})">
       <rect x="0" y="-11" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
-      <text x="23" y="4" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" text-anchor="middle">S-CoA</text>
+      <text x="23" y="4" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" text-anchor="middle" stroke="none">S-CoA</text>
     </g>
     """
 

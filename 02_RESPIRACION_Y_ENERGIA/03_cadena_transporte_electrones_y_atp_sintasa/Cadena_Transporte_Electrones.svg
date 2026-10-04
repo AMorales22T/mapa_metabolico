@@ -528,7 +528,7 @@
     <text x="985" y="528" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-T</text>
     <circle cx="945" cy="566" r="15" fill="#ffffff" stroke="#be123c" stroke-width="1.6"/>
     <text x="945" y="570" fill="#9f1239" font-size="8" font-weight="900" text-anchor="middle">β-O</text>
-    <text x="945" y="602" fill="#9f1239" font-size="6.8" font-weight="800" text-anchor="middle">Rotación γ • 3 H⁺ / vuelta</text>
+    <text x="945" y="602" fill="#9f1239" font-size="6.8" font-weight="800" text-anchor="middle">Rotación γ (360°) • ≈ 8 H⁺ / vuelta (➔ 3 ATP)</text>
     
 
     <!-- ===== FLUJO DE ELECTRONES (línea roja discontinua sobre la bicapa) ===== -->
