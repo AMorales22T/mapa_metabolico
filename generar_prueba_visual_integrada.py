@@ -27,8 +27,19 @@ sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "01_beta_oxidacion"))
 sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "02_sintesis_acidos_grasos_lipogenesis"))
 sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "03_cetogenesis_y_cetolisis"))
 sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "04_colesterol_y_lipoproteinas"))
+sys.path.append(os.path.join(DIR_BASE, "04_NITROGENO_Y_AMINOACIDOS", "01_transaminacion_y_desaminacion"))
 
 # Estructuras químicas
+from estructuras_aminoacidos import (
+    ALANINA as AMINO_ALANINA,
+    GLUTAMATO as AMINO_GLUTAMATO,
+    ALFA_CETOGLUTARATO as AMINO_AKG,
+    ASPARTATO_AMINO as AMINO_ASPARTATO,
+    OXALACETATO_AMINO as AMINO_OAA,
+    ION_AMONIO as AMINO_NH4,
+    GLUTAMINA as AMINO_GLUTAMINA,
+    PLP_COENZIMA as AMINO_PLP
+)
 from estructuras_glucosa import (
     GLUCOSA, GLUCOSA_6_FOSFATO, FRUCTOSA_6_FOSFATO, FRUCTOSA_1_6_BISFOSFATO,
     DIHIDROXIACETONA_FOSFATO, GLICERALDEHIDO_3_FOSFATO, BISFOSFOGLICERATO_1_3,
@@ -82,7 +93,10 @@ def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=
           <text x="{tx}" y="{ty + 16}" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" {align}>[{carbonos}]</text>
         </g>
         """
-    tx = dx if text_right else -20
+    if text_right:
+        tx = dx
+    else:
+        tx = dx if dx != 135 else -20
     align = "" if text_right else 'text-anchor="end"'
     return f"""
     <!-- Metabolito Libre: {nombre} -->
@@ -373,10 +387,10 @@ def construir_mapa_organico():
         <path d="M 1600 {y_mito + 1420} C 1800 {y_mito + 1240}, 2050 {y_mito + 1480}, 2250 {y_mito + 1320}"/>
       </g>
 
-      <!-- Rótulo de la Matriz integrado orgánicamente -->
-      <g transform="translate(1900, {y_mito + 250})" opacity="0.85">
-        <text x="0" y="0" fill="#78350f" font-size="24" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="4">MATRIZ MITOCONDRIAL</text>
-        <text x="0" y="24" fill="#92400e" font-size="12.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Oxidación celular • Descarboxilación • Respiración</text>
+      <!-- Rótulo de la Matriz integrado orgánicamente (despejado en la zona superior de la matriz sobre Krebs) -->
+      <g transform="translate(1140, {y_mito + 45})" opacity="0.85">
+        <text x="0" y="0" fill="#78350f" font-size="22" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="4" text-anchor="middle">MATRIZ MITOCONDRIAL</text>
+        <text x="0" y="20" fill="#92400e" font-size="12" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Oxidación celular • Descarboxilación • Respiración</text>
       </g>
 
       <!-- Transportador MPC en el punto de contacto con el Piruvato (X=1680) -->
@@ -521,8 +535,8 @@ def construir_mapa_organico():
     # 3. Ribulosa-5-P
     partes.append(nodo_libre(x_p, y_p + 370, "Ribulosa-5-Fosfato", "5C", RIBULOSA_5_FOSFATO, "m_ru5p", text_right=True, dx=145))
 
-    # Ramas: Xilulosa-5P y Ribosa-5P
-    partes.append(nodo_libre(x_p - 100, y_p + 500, "Xilulosa-5-P", "5C", XILULOSA_5_FOSFATO, "m_xu5p", text_right=False))
+    # Ramas: Xilulosa-5P y Ribosa-5P (texto de Xilulosa estrictamente a la izquierda de la estructura)
+    partes.append(nodo_libre(x_p - 110, y_p + 500, "Xilulosa-5-P", "5C", XILULOSA_5_FOSFATO, "m_xu5p", text_right=False, dx=-30))
     partes.append(nodo_libre(x_p + 280, y_p + 500, "Ribosa-5-P", "5C", RIBOSA_5_FOSFATO, "m_r5p"))
     partes.append(f"""
     <path d="M {x_p + 20} {y_p + 430} L {x_p - 50} {y_p + 495}" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
@@ -533,18 +547,18 @@ def construir_mapa_organico():
     """)
 
     # Sedoheptulosa-7P y Eritrosa-4P
-    partes.append(nodo_libre(x_p - 100, y_p + 660, "Sedoheptulosa-7-P", "7C", SEDOHEPTULOSA_7_FOSFATO, "m_s7p", text_right=False))
+    partes.append(nodo_libre(x_p - 110, y_p + 660, "Sedoheptulosa-7-P", "7C", SEDOHEPTULOSA_7_FOSFATO, "m_s7p", text_right=False, dx=-30))
     partes.append(nodo_libre(x_p + 280, y_p + 660, "Eritrosa-4-P", "4C", ERITROSA_4_FOSFATO, "m_e4p"))
     partes.append(f"""
     <text x="{x_p + 90}" y="{y_p + 600}" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transcetolasa 1 (TK1) ⇄</text>
     <text x="{x_p + 90}" y="{y_p + 760}" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transaldolasa ⇄ Retorno a F6P y GAP</text>
 
-    <!-- Retornos elegantes sin cajas -->
-    <path d="M {x_p - 110} {y_p + 775} C {x_p - 350} {y_p + 775} {x_g + 400} {y_g + paso_y * 2 + 35} {x_g + 160} {y_g + paso_y * 2 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
-    <text x="{(x_p + x_g)//2 + 100}" y="{y_g + paso_y * 2 + 22}" fill="#059669" font-size="12" font-weight="800" font-family="'Inter', sans-serif">Retorno: Fructosa-6-P</text>
+    <!-- Retornos de Transaldolasa: Canal citosólico fluido (Y=1200-1350) que rodea el bloque de aminoácidos -->
+    <path d="M {x_p - 110} {y_p + 775} C {x_p - 350} {y_p + 775}, 2100 1200, {x_g + 200} {y_g + paso_y * 2 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
+    <text x="2100" y="1190" fill="#059669" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: Fructosa-6-P</text>
 
-    <path d="M {x_p - 110} {y_p + 815} C {x_p - 350} {y_p + 815} {x_g + 450} {y_g + paso_y * 4 + 35} {x_g + 300} {y_g + paso_y * 4 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
-    <text x="{(x_p + x_g)//2 + 150}" y="{y_g + paso_y * 4 + 22}" fill="#059669" font-size="12" font-weight="800" font-family="'Inter', sans-serif">Retorno: GAP</text>
+    <path d="M {x_p - 110} {y_p + 815} C {x_p - 350} {y_p + 815}, 2100 1320, {x_g + 280} {y_g + paso_y * 4 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
+    <text x="2100" y="1310" fill="#059669" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: GAP</text>
     """)
     partes.append('</g>')
 
@@ -1063,11 +1077,166 @@ def construir_mapa_organico():
     
     partes.append(f'</g>')
 
+    # =========================================================================
+    # 12. METABOLISMO DEL NITRÓGENO Y AMINOÁCIDOS: TRANSAMINACIÓN Y DESAMINACIÓN
+    # =========================================================================
+    x_aa = 2160
+    y_aa = 380
+    partes.append(f'<g id="ruta_transaminacion_desaminacion">')
+
+    # Rótulo de la vía en el citosol
+    partes.append(f'''
+    <g id="banner_aminoacidos" data-arrastrable="1" transform="translate({x_aa + 110}, {y_aa - 70})">
+      <rect x="-170" y="-14" width="340" height="28" rx="14" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8"/>
+      <text x="0" y="4" fill="#0f766e" font-size="12" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="1">
+        TRANSAMINACIÓN Y DESAMINACIÓN OXIDATIVA
+      </text>
+    </g>
+    ''')
+
+    # 1. Transportador en membrana plasmática: Captación de Alanina desde sangre
+    partes.append(f'''
+    <g id="carrier_lat1" data-arrastrable="1" transform="translate({x_aa - 40}, 55)">
+      <rect x="0" y="0" width="80" height="26" rx="6" fill="#0d9488" stroke="#0f766e" stroke-width="2"/>
+      <text x="40" y="17" fill="#ffffff" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">LAT-1 / ASCT2</text>
+      <line x1="40" y1="26" x2="40" y2="70" stroke="#0d9488" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+    </g>
+    ''')
+
+    # 2. L-Alanina en citosol (entró de sangre / ciclo glucosa-alanina)
+    partes.append(nodo_libre(x_aa - 80, y_aa, "L-Alanina", "3C", AMINO_ALANINA, "m_ala_integ", text_right=True, dx=140))
+
+    # Reacción ALT / GPT (Alanina + α-KG ⇄ Piruvato + Glutamato)
+    partes.append(f'''
+    <g id="rx_alt_integ" data-arrastrable="1" transform="translate({x_aa}, {y_aa + 115})">
+      <line x1="-3" y1="0" x2="-3" y2="75" stroke="#0d9488" stroke-width="2" marker-end="url(#arrowTeal)"/>
+      <line x1="3" y1="75" x2="3" y2="0" stroke="#0d9488" stroke-width="2" marker-end="url(#arrowTeal)"/>
+      <!-- Arco de recolección de nitrógeno acoplado con α-KG ➔ Glutamato -->
+      <path d="M 65 10 Q 15 38 65 65" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlueAmino)"/>
+      <text x="70" y="8" fill="#64748b" font-size="9.5" font-family="'Inter', sans-serif">α-Cetoglutarato</text>
+      <text x="70" y="72" fill="#1d4ed8" font-size="10" font-weight="800" font-family="'Inter', sans-serif">Glutamato</text>
+
+      <g transform="translate(-15, 38)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">ALT / GPT</text>
+        <text x="0" y="13" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="end">EC 2.6.1.2 (PLP)</text>
+      </g>
+    </g>
+    ''')
+
+    # 3. Piruvato resultante de ALT en citosol
+    partes.append(nodo_libre(x_aa - 80, y_aa + 230, "Piruvato (de Alanina)", "3C", PIRUVATO, "m_pyr_ala_integ", text_right=True, dx=140))
+
+    # Conexión directa hacia la Glucólisis (hacia x_g = 1680)
+    partes.append(f'''
+    <path d="M {x_aa - 80} {y_aa + 270} C {x_aa - 200} {y_aa + 270}, 1950 1700, 1900 1735" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
+    <text x="{x_aa - 180}" y="{y_aa + 320}" fill="#c2410c" font-size="11" font-weight="800" font-family="'Inter', sans-serif">➔ Conexión con Piruvato Citosólico</text>
+    ''')
+
+    # 4. L-Glutamato (colector común de nitrógeno en citosol)
+    partes.append(nodo_libre(x_aa + 180, y_aa + 380, "L-Glutamato", "5C", AMINO_GLUTAMATO, "m_glu_integ", text_right=True, dx=140))
+
+    # 5. Rama Citosólica de Glutamina Sintetasa (Destoxificación a Glutamina)
+    partes.append(nodo_libre(x_aa + 180, y_aa + 620, "L-Glutamina", "5C", AMINO_GLUTAMINA, "m_gln_integ", text_right=True, dx=140))
+    partes.append(f'''
+    <g id="rx_glns_integ" data-arrastrable="1" transform="translate({x_aa + 220}, {y_aa + 510})">
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#0d9488" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+      <path d="M -50 15 Q -15 15 -3 30" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrowBlueAmino)"/>
+      <text x="-55" y="18" fill="#1d4ed8" font-size="9.5" font-weight="800" text-anchor="end">+ NH₄⁺</text>
+      <path d="M -50 35 Q -20 35 -3 45" fill="none" stroke="#dc2626" stroke-width="1.6" marker-end="url(#arrowRed)"/>
+      <text x="-55" y="38" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- 1 ATP</text>
+      <g transform="translate(15, 38)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">Glutamina Sintetasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 6.3.1.2</text>
+      </g>
+    </g>
+    ''')
+
+    # Exportación de Glutamina al torrente sanguíneo superior
+    partes.append(f'''
+    <path d="M {x_aa + 335} {y_aa + 710} Q {x_aa + 420} {y_aa + 710} {x_aa + 420} 500 L {x_aa + 420} 70" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowTeal)"/>
+    <text x="{x_aa + 435}" y="300" fill="#0f766e" font-size="11" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(90 {x_aa + 435} 300)">EXPORTACIÓN DE GLUTAMINA A SANGRE ➔</text>
+    ''')
+
+    # 6. Importación de Glutamato a la Mitocondria a través de AGC / GC1
+    x_agc = 2060
+    y_agc = y_mito - 35
+    y_gldh_start = y_mito + 110
+    partes.append(f'''
+    <g id="carrier_agc_mmi" data-arrastrable="1" transform="translate({x_agc - 45}, {y_agc - 15})">
+      <rect x="0" y="0" width="90" height="34" rx="8" fill="#b45309" stroke="#78350f" stroke-width="2"/>
+      <text x="45" y="21" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">AGC / GC1</text>
+      <text x="45" y="47" fill="#78350f" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Carrier Glutamato</text>
+    </g>
+    <path d="M {x_aa + 180} {y_aa + 440} C {x_aa + 120} {y_aa + 600}, {x_agc} {y_mito - 120}, {x_agc} {y_agc - 18}" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowTeal)"/>
+    <!-- Tránsito desde AGC hacia L-Glutamato dentro de la matriz -->
+    <path d="M {x_agc} {y_agc + 22} L {x_agc} {y_gldh_start - 10}" fill="none" stroke="#0d9488" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#arrowTeal)"/>
+    ''')
+
+    # 7. MATRIZ MITOCONDRIAL: Glutamato en la Matriz (elevado para no interferir con Krebs->CTE)
+    partes.append(nodo_libre(x_agc - 40, y_gldh_start, "L-Glutamato (Matriz)", "5C", AMINO_GLUTAMATO, "m_glu_mito_integ", text_right=True, dx=145))
+
+    # Reacción GLDH (Glutamato Deshidrogenasa)
+    partes.append(f'''
+    <g id="rx_gldh_integ" data-arrastrable="1" transform="translate({x_agc}, {y_gldh_start + 105})">
+      <line x1="-3" y1="0" x2="-3" y2="70" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
+      <line x1="3" y1="70" x2="3" y2="0" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
+      
+      <!-- Entrada NAD(P)+ / Salida NAD(P)H -->
+      <path d="M -75 14 Q -25 14 -4 24" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+      <text x="-80" y="17" fill="#059669" font-size="10" font-weight="800" text-anchor="end">+ NAD(P)⁺ + H₂O</text>
+      
+      <path d="M -4 46 Q -25 56 -75 56" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+      <text x="-80" y="60" fill="#059669" font-size="10" font-weight="800" text-anchor="end">+ NAD(P)H + H⁺</text>
+
+      <!-- Salida de Amonio libre hacia la derecha -->
+      <path d="M 4 35 Q 50 35 90 60" fill="none" stroke="#2563eb" stroke-width="2.4" marker-end="url(#arrowBlueAmino)"/>
+      <text x="95" y="70" fill="#1d4ed8" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">➔ + NH₄⁺</text>
+
+      <!-- Textos y Alosterismo a la derecha bien despejados -->
+      <g transform="translate(20, 10)">
+        <text x="0" y="0" fill="#0f172a" font-size="12.5" font-weight="900" font-family="'Inter', sans-serif">Glutamato Deshidrogenasa (GLDH)</text>
+        <text x="0" y="14" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 1.4.1.3 (Mitocondrial)</text>
+        <text x="0" y="27" fill="#16a34a" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">(+) Activada por ADP, GDP</text>
+        <text x="0" y="39" fill="#e11d48" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">(-) Inhibida por ATP, GTP</text>
+      </g>
+    </g>
+    ''')
+
+    # 8. Productos de GLDH:
+    # A. α-Cetoglutarato regenerado en matriz mitocondrial (hacia la izquierda, Y=2360)
+    partes.append(nodo_libre(x_agc - 210, y_gldh_start + 150, "α-Cetoglutarato", "5C", AMINO_AKG, "m_akg_gldh_integ", text_right=False, dx=-25))
+    # Ramificación de la flecha de GLDH hacia la estructura de α-Cetoglutarato
+    partes.append(f'''
+    <path d="M {x_agc - 5} {y_gldh_start + 175} Q {x_agc - 40} {y_gldh_start + 195} {x_agc - 100} {y_gldh_start + 195}" fill="none" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
+    ''')
+    # Conexión directa hacia el Ciclo de Krebs (nodo de alfa-cetoglutarato en x_k=1140, y_k + paso_k*3 = 2765)
+    partes.append(f'''
+    <path d="M {x_agc - 230} {y_gldh_start + 230} C {x_agc - 400} {y_gldh_start + 230}, 1450 {y_k + paso_k * 3 - 30}, {x_k + 160} {y_k + paso_k * 3 + 10}" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
+    <text x="{x_agc - 340}" y="{y_gldh_start + 250}" fill="#78350f" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">➔ Reingreso directo al Ciclo de Krebs (α-KG)</text>
+    ''')
+
+    # B. Ion Amonio (NH4+) libre en matriz (hacia la derecha, Y=2360)
+    partes.append(nodo_libre(x_agc + 120, y_gldh_start + 150, "Ion Amonio (NH₄⁺)", "Nitrógeno", AMINO_NH4, "m_nh4_integ", text_right=True, dx=85))
+    # Conexión hacia el Ciclo de la Urea (CPS-1)
+    partes.append(f'''
+    <path d="M {x_agc + 190} {y_gldh_start + 185} Q {x_agc + 260} {y_gldh_start + 200} {x_agc + 270} {y_gldh_start + 260}" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowBlueAmino)"/>
+    <text x="{x_agc + 280}" y="{y_gldh_start + 255}" fill="#1d4ed8" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">➔ ENTRADA AL CICLO DE LA UREA</text>
+    <text x="{x_agc + 280}" y="{y_gldh_start + 272}" fill="#64748b" font-size="10" font-family="'Inter', sans-serif">Carbamoil Fosfato Sintetasa I (CPS-1)</text>
+    ''')
+
+    partes.append(f'</g>')
+
     # Defs y Marcadores
     defs_svg = f"""
     <defs>
       <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
         <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
+      </marker>
+      <marker id="arrowTeal" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M 0 0 L 6 3 L 0 6 Z" fill="#0d9488" />
+      </marker>
+      <marker id="arrowBlueAmino" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M 0 0 L 6 3 L 0 6 Z" fill="#2563eb" />
       </marker>
       <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
         <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
