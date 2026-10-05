@@ -28,6 +28,7 @@ sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "02_sintesis_acidos_grasos_
 sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "03_cetogenesis_y_cetolisis"))
 sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "04_colesterol_y_lipoproteinas"))
 sys.path.append(os.path.join(DIR_BASE, "04_NITROGENO_Y_AMINOACIDOS", "01_transaminacion_y_desaminacion"))
+sys.path.append(os.path.join(DIR_BASE, "04_NITROGENO_Y_AMINOACIDOS", "02_ciclo_de_la_urea"))
 
 # Estructuras químicas
 from estructuras_aminoacidos import (
@@ -39,6 +40,18 @@ from estructuras_aminoacidos import (
     ION_AMONIO as AMINO_NH4,
     GLUTAMINA as AMINO_GLUTAMINA,
     PLP_COENZIMA as AMINO_PLP
+)
+from estructuras_urea import (
+    IONES_INICIALES as UREA_IONES_INICIALES,
+    CARBAMOIL_FOSFATO as UREA_CARBAMOIL_P,
+    ORNITINA as UREA_ORNITINA,
+    CITRULINA as UREA_CITRULINA,
+    ASPARTATO as UREA_ASPARTATO,
+    ARGININOSUCCINATO as UREA_ARGININOSUCCINATO,
+    FUMARATO as UREA_FUMARATO,
+    ARGININA as UREA_ARGININA,
+    UREA as UREA_MOL,
+    N_ACETILGLUTAMATO as UREA_NAG
 )
 from estructuras_glucosa import (
     GLUCOSA, GLUCOSA_6_FOSFATO, FRUCTOSA_6_FOSFATO, FRUCTOSA_1_6_BISFOSFATO,
@@ -76,21 +89,23 @@ from estructuras_colesterol import (
     MEVALONATO, ISOPENTENIL_PP, FARNESIL_PP, ESCUALENO, LANOSTEROL, COLESTEROL
 )
 
-ANCHO_CANVAS = 4000
+ANCHO_CANVAS = 4900
 ALTO_CANVAS = 4200
 
-def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=135, dy=24, text_pos="side"):
+def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=135, dy=24, text_pos="side", detalle=""):
     """Metabolito 100% libre sin tarjetas ni globos."""
     if text_pos == "top":
         align = 'text-anchor="middle"'
         tx = dx if dx != 135 else 70
         ty = dy if dy != 24 else -22
+        txt_det = f'<text x="{tx}" y="{ty + 30}" fill="#64748b" font-size="9.5" font-weight="600" font-family="\'Inter\', sans-serif" {align}>{detalle}</text>' if detalle else ""
         return f"""
         <!-- Metabolito Libre: {nombre} -->
         <g id="{id_nodo}" data-arrastrable="1" transform="translate({x}, {y})">
           <g>{svg_mol}</g>
           <text x="{tx}" y="{ty}" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" {align}>{nombre}</text>
           <text x="{tx}" y="{ty + 16}" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" {align}>[{carbonos}]</text>
+          {txt_det}
         </g>
         """
     if text_right:
@@ -98,12 +113,14 @@ def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=
     else:
         tx = dx if dx != 135 else -20
     align = "" if text_right else 'text-anchor="end"'
+    txt_det = f'<text x="{tx}" y="{dy + 32}" fill="#64748b" font-size="9.5" font-weight="600" font-family="\'Inter\', sans-serif" {align}>{detalle}</text>' if detalle else ""
     return f"""
     <!-- Metabolito Libre: {nombre} -->
     <g id="{id_nodo}" data-arrastrable="1" transform="translate({x}, {y})">
       <g>{svg_mol}</g>
       <text x="{tx}" y="{dy}" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" {align}>{nombre}</text>
       <text x="{tx}" y="{dy + 17}" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" {align}>[{carbonos}]</text>
+      {txt_det}
     </g>
     """
 
@@ -140,6 +157,76 @@ def reaccion_libre(x, y, h, enzima, entra="", sale="", es_ganancia=False, revers
       <text x="{text_dx}" y="{h//2 + 4}" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" {anchor_attr}>{enzima}</text>
     </g>
     """
+
+def generar_bloque_autoria(x=3820, y=3540):
+    """
+    Genera el bloque institucional / autoría de código abierto en la esquina inferior derecha
+    con código QR escaneable vectorial de alta resolución hacia el repositorio de GitHub.
+    """
+    qr_path = "M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM13,2H14V3H13zM16,2H17V3H16zM17,2H18V3H17zM18,2H19V3H18zM20,2H21V3H20zM21,2H22V3H21zM22,2H23V3H22zM23,2H24V3H23zM25,2H26V3H25zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM11,3H12V4H11zM12,3H13V4H12zM13,3H14V4H13zM14,3H15V4H14zM17,3H18V4H17zM20,3H21V4H20zM22,3H23V4H22zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM12,4H13V5H12zM16,4H17V5H16zM22,4H23V5H22zM23,4H24V5H23zM24,4H25V5H24zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM10,5H11V6H10zM11,5H12V6H11zM12,5H13V6H12zM14,5H15V6H14zM17,5H18V6H17zM20,5H21V6H20zM21,5H22V6H21zM24,5H25V6H24zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM11,6H12V7H11zM16,6H17V7H16zM17,6H18V7H17zM18,6H19V7H18zM19,6H20V7H19zM22,6H23V7H22zM23,6H24V7H23zM25,6H26V7H25zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM11,7H12V8H11zM12,7H13V8H12zM16,7H17V8H16zM19,7H20V8H19zM21,7H22V8H21zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM10,9H11V10H10zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM18,9H19V10H18zM21,9H22V10H21zM22,9H23V10H22zM23,9H24V10H23zM26,9H27V10H26zM2,10H3V11H2zM4,10H5V11H4zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM11,10H12V11H11zM12,10H13V11H12zM14,10H15V11H14zM15,10H16V11H15zM18,10H19V11H18zM19,10H20V11H19zM21,10H22V11H21zM25,10H26V11H25zM28,10H29V11H28zM29,10H30V11H29zM30,10H31V11H30zM31,10H32V11H31zM32,10H33V11H32zM2,11H3V12H2zM3,11H4V12H3zM5,11H6V12H5zM6,11H7V12H6zM11,11H12V12H11zM13,11H14V12H13zM14,11H15V12H14zM15,11H16V12H15zM19,11H20V12H19zM22,11H23V12H22zM25,11H26V12H25zM28,11H29V12H28zM29,11H30V12H29zM31,11H32V12H31zM32,11H33V12H32zM33,11H34V12H33zM34,11H35V12H34zM2,12H3V13H2zM3,12H4V13H3zM5,12H6V13H5zM7,12H8V13H7zM8,12H9V13H8zM11,12H12V13H11zM12,12H13V13H12zM15,12H16V13H15zM16,12H17V13H16zM17,12H18V13H17zM19,12H20V13H19zM22,12H23V13H22zM24,12H25V13H24zM26,12H27V13H26zM27,12H28V13H27zM30,12H31V13H30zM32,12H33V13H32zM33,12H34V13H33zM2,13H3V14H2zM3,13H4V14H3zM5,13H6V14H5zM11,13H12V14H11zM12,13H13V14H12zM13,13H14V14H13zM15,13H16V14H15zM19,13H20V14H19zM20,13H21V14H20zM23,13H24V14H23zM24,13H25V14H24zM26,13H27V14H26zM30,13H31V14H30zM31,13H32V14H31zM32,13H33V14H32zM33,13H34V14H33zM2,14H3V15H2zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM8,14H9V15H8zM10,14H11V15H10zM13,14H14V15H13zM14,14H15V15H14zM16,14H17V15H16zM17,14H18V15H17zM18,14H19V15H18zM22,14H23V15H22zM25,14H26V15H25zM26,14H27V15H26zM27,14H28V15H27zM30,14H31V15H30zM31,14H32V15H31zM3,15H4V16H3zM4,15H5V16H4zM6,15H7V16H6zM9,15H10V16H9zM10,15H11V16H10zM11,15H12V16H11zM14,15H15V16H14zM17,15H18V16H17zM20,15H21V16H20zM25,15H26V16H25zM28,15H29V16H28zM32,15H33V16H32zM33,15H34V16H33zM34,15H35V16H34zM2,16H3V17H2zM3,16H4V17H3zM8,16H9V17H8zM9,16H10V17H9zM12,16H13V17H12zM13,16H14V17H13zM15,16H16V17H15zM17,16H18V17H17zM18,16H19V17H18zM19,16H20V17H19zM20,16H21V17H20zM22,16H23V17H22zM24,16H25V17H24zM26,16H27V17H26zM27,16H28V17H27zM28,16H29V17H28zM32,16H33V17H32zM33,16H34V17H33zM4,17H5V18H4zM6,17H7V18H6zM9,17H10V18H9zM10,17H11V18H10zM11,17H12V18H11zM12,17H13V18H12zM13,17H14V18H13zM14,17H15V18H14zM16,17H17V18H16zM17,17H18V18H17zM20,17H21V18H20zM23,17H24V18H23zM27,17H28V18H27zM28,17H29V18H28zM31,17H32V18H31zM32,17H33V18H32zM4,18H5V19H4zM8,18H9V19H8zM11,18H12V19H11zM12,18H13V19H12zM13,18H14V19H13zM17,18H18V19H17zM18,18H19V19H18zM19,18H20V19H19zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM27,18H28V19H27zM29,18H30V19H29zM30,18H31V19H30zM34,18H35V19H34zM3,19H4V20H3zM5,19H6V20H5zM13,19H14V20H13zM14,19H15V20H14zM15,19H16V20H15zM20,19H21V20H20zM22,19H23V20H22zM25,19H26V20H25zM28,19H29V20H28zM29,19H30V20H29zM31,19H32V20H31zM32,19H33V20H32zM34,19H35V20H34zM2,20H3V21H2zM5,20H6V21H5zM6,20H7V21H6zM7,20H8V21H7zM8,20H9V21H8zM12,20H13V21H12zM16,20H17V21H16zM17,20H18V21H17zM18,20H19V21H18zM20,20H21V21H20zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM26,20H27V21H26zM29,20H30V21H29zM30,20H31V21H30zM32,20H33V21H32zM33,20H34V21H33zM4,21H5V22H4zM6,21H7V22H6zM7,21H8V22H7zM10,21H11V22H10zM13,21H14V22H13zM15,21H16V22H15zM21,21H22V22H21zM22,21H23V22H22zM23,21H24V22H23zM24,21H25V22H24zM27,21H28V22H27zM29,21H30V22H29zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM33,21H34V22H33zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM8,22H9V23H8zM10,22H11V23H10zM16,22H17V23H16zM17,22H18V23H17zM20,22H21V23H20zM21,22H22V23H21zM23,22H24V23H23zM26,22H27V23H26zM27,22H28V23H27zM29,22H30V23H29zM30,22H31V23H30zM31,22H32V23H31zM33,22H34V23H33zM34,22H35V23H34zM2,23H3V24H2zM5,23H6V24H5zM9,23H10V24H9zM12,23H13V24H12zM13,23H14V24H13zM15,23H16V24H15zM17,23H18V24H17zM18,23H19V24H18zM22,23H23V24H22zM23,23H24V24H23zM25,23H26V24H25zM28,23H29V24H28zM32,23H33V24H32zM34,23H35V24H34zM2,24H3V25H2zM6,24H7V25H6zM8,24H9V25H8zM11,24H12V25H11zM12,24H13V25H12zM13,24H14V25H13zM14,24H15V25H14zM15,24H16V25H15zM16,24H17V25H16zM20,24H21V25H20zM21,24H22V25H21zM27,24H28V25H27zM31,24H32V25H31zM32,24H33V25H32zM33,24H34V25H33zM2,25H3V26H2zM4,25H5V26H4zM5,25H6V26H5zM6,25H7V26H6zM7,25H8V26H7zM11,25H12V26H11zM13,25H14V26H13zM14,25H15V26H14zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM21,25H22V26H21zM22,25H23V26H22zM23,25H24V26H23zM24,25H25V26H24zM25,25H26V26H25zM27,25H28V26H27zM28,25H29V26H28zM30,25H31V26H30zM31,25H32V26H31zM32,25H33V26H32zM33,25H34V26H33zM34,25H35V26H34zM2,26H3V27H2zM4,26H5V27H4zM6,26H7V27H6zM8,26H9V27H8zM9,26H10V27H9zM11,26H12V27H11zM14,26H15V27H14zM18,26H19V27H18zM19,26H20V27H19zM21,26H22V27H21zM24,26H25V27H24zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM32,26H33V27H32zM33,26H34V27H33zM34,26H35V27H34zM10,27H11V28H10zM11,27H12V28H11zM12,27H13V28H12zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM18,27H19V28H18zM19,27H20V28H19zM20,27H21V28H20zM21,27H22V28H21zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM34,27H35V28H34zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM11,28H12V29H11zM15,28H16V29H15zM16,28H17V29H16zM17,28H18V29H17zM18,28H19V29H18zM19,28H20V29H19zM22,28H23V29H22zM24,28H25V29H24zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM14,29H15V30H14zM15,29H16V30H15zM17,29H18V30H17zM18,29H19V30H18zM19,29H20V30H19zM20,29H21V30H20zM22,29H23V30H22zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM34,29H35V30H34zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM11,30H12V31H11zM12,30H13V31H12zM15,30H16V31H15zM16,30H17V31H16zM17,30H18V31H17zM18,30H19V31H18zM21,30H22V31H21zM22,30H23V31H22zM23,30H24V31H23zM24,30H25V31H24zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM31,30H32V31H31zM33,30H34V31H33zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM13,31H14V32H13zM15,31H16V32H15zM17,31H18V32H17zM19,31H20V32H19zM20,31H21V32H20zM25,31H26V32H25zM26,31H27V32H26zM27,31H28V32H27zM30,31H31V32H30zM31,31H32V32H31zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM10,32H11V33H10zM11,32H12V33H11zM13,32H14V33H13zM15,32H16V33H15zM17,32H18V33H17zM18,32H19V33H18zM22,32H23V33H22zM24,32H25V33H24zM28,32H29V33H28zM29,32H30V33H29zM31,32H32V33H31zM2,33H3V34H2zM8,33H9V34H8zM11,33H12V34H11zM13,33H14V34H13zM14,33H15V34H14zM15,33H16V34H15zM16,33H17V34H16zM17,33H18V34H17zM20,33H21V34H20zM23,33H24V34H23zM24,33H25V34H24zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM13,34H14V35H13zM14,34H15V35H14zM17,34H18V35H17zM19,34H20V35H19zM24,34H25V35H24zM25,34H26V35H25zM26,34H27V35H26zM28,34H29V35H28zM29,34H30V35H29zM33,34H34V35H33z"
+    return f'''
+    <!-- BLOQUE INSTITUCIONAL Y AUTORÍA DE CÓDIGO ABIERTO (ADOLFO MORALES TENA) -->
+    <g id="bloque_autoria" data-arrastrable="1" transform="translate({x}, {y})" filter="url(#shadowCard)">
+      <!-- Fondo de la tarjeta -->
+      <rect width="740" height="440" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8" />
+      
+      <!-- Barra superior de acento degradado -->
+      <path d="M 0 22 Q 0 0 22 0 L 718 0 Q 740 0 740 22 L 740 10 L 0 10 Z" fill="url(#gradHeaderAutoria)" />
+
+      <!-- Badge superior -->
+      <rect x="35" y="26" width="275" height="24" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
+      <text x="172" y="42" fill="#0369a1" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="1">METABOLISMO Y SU REGULACIÓN</text>
+
+      <!-- Título principal -->
+      <text x="35" y="80" fill="#0f172a" font-size="21" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">MAPA METABÓLICO INTEGRADO</text>
+      <text x="35" y="102" fill="#475569" font-size="12.5" font-weight="700" font-family="'Inter', sans-serif">Topología Celular &amp; Arquitectura Vectorial Algorítmica</text>
+
+      <line x1="35" y1="118" x2="705" y2="118" stroke="#e2e8f0" stroke-width="1.5" />
+
+      <!-- Columna Izquierda: Autor y Tecnologías -->
+      <text x="35" y="146" fill="#64748b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" letter-spacing="1.2">AUTOR:</text>
+      <text x="35" y="174" fill="#0f172a" font-size="20" font-weight="900" font-family="'Inter', sans-serif">Adolfo Morales Tena</text>
+      <text x="35" y="195" fill="#0284c7" font-size="12.5" font-weight="700" font-family="'Inter', sans-serif">Estudiante • Investigador</text>
+
+      <text x="35" y="230" fill="#64748b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" letter-spacing="1.2">TECNOLOGÍAS &amp; METODOLOGÍA:</text>
+      <text x="35" y="252" fill="#334155" font-size="11.5" font-weight="600" font-family="'Inter', sans-serif">• Código abierto desarrollado algorítmicamente en Python 3</text>
+      <text x="35" y="272" fill="#334155" font-size="11.5" font-weight="600" font-family="'Inter', sans-serif">• Renderizado nativo SVG 1.1 sin pérdida de resolución (Ultra HD)</text>
+      <text x="35" y="292" fill="#334155" font-size="11.5" font-weight="600" font-family="'Inter', sans-serif">• Interactividad web: HTML5, CSS3, JavaScript (Drag &amp; Drop / Zoom)</text>
+      <text x="35" y="312" fill="#334155" font-size="11.5" font-weight="600" font-family="'Inter', sans-serif">• Rigor bioquímico: Célula eucariota, enzimas EC y cofactores</text>
+
+      <!-- Badge Licencia -->
+      <g transform="translate(35, 332)">
+        <rect x="0" y="0" width="135" height="22" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+        <text x="67" y="15" fill="#475569" font-size="10" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle">⚖ Licencia MIT</text>
+      </g>
+
+      <!-- Botón / Enlace GitHub -->
+      <g transform="translate(35, 368)">
+        <a href="https://github.com/AMorales22T/mapa_metabolico-" target="_blank">
+          <rect x="0" y="0" width="475" height="50" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" style="cursor: pointer;" />
+          <g transform="translate(14, 13)">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="#ffffff" />
+          </g>
+          <text x="48" y="22" fill="#94a3b8" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">REPOSITORIO DE CÓDIGO ABIERTO EN GITHUB:</text>
+          <text x="48" y="39" fill="#38bdf8" font-size="12" font-weight="700" font-family="'JetBrains Mono', monospace">https://github.com/AMorales22T/mapa_metabolico-</text>
+        </a>
+      </g>
+
+      <!-- Columna Derecha: Código QR limpio sin texto innecesario -->
+      <g transform="translate(535, 140)">
+        <rect x="0" y="0" width="170" height="170" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+        
+        <!-- Marco blanco para el QR -->
+        <g transform="translate(13, 13)">
+          <rect x="0" y="0" width="144" height="144" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+          <!-- QR escalado a 130px (130 / 37 = 3.5135) -->
+          <g transform="translate(7, 7) scale(3.5135)">
+            <path d="{qr_path}" fill="#0f172a" />
+          </g>
+        </g>
+      </g>
+    </g>
+    '''
 
 def cargar_cte_original_usuario():
     """
@@ -274,12 +361,21 @@ def construir_mapa_organico():
         <ellipse cx="0" cy="0" rx="24" ry="15" fill="url(#gradEritrocito)" stroke="#7f1d1d" stroke-width="1.6"/>
         <ellipse cx="0" cy="0" rx="12" ry="7" fill="url(#gradEritrocitoCentro)" opacity="0.7"/>
       </g>
+      <!-- Eritrocitos 4 (Zona derecha ampliada - Ciclo de la Urea y Excreción) -->
+      <g transform="translate(4150, 36) rotate(12)">
+        <ellipse cx="0" cy="0" rx="25" ry="16" fill="url(#gradEritrocito)" stroke="#7f1d1d" stroke-width="1.8"/>
+        <ellipse cx="0" cy="0" rx="13" ry="8" fill="url(#gradEritrocitoCentro)" opacity="0.75"/>
+      </g>
+      <g transform="translate(4650, 42) rotate(-15)">
+        <ellipse cx="0" cy="0" rx="24" ry="15" fill="url(#gradEritrocito)" stroke="#7f1d1d" stroke-width="1.6"/>
+        <ellipse cx="0" cy="0" rx="12" ry="7" fill="url(#gradEritrocitoCentro)" opacity="0.7"/>
+      </g>
     </g>
 
     <!-- Albúmina sérica y Lipoproteínas en el plasma -->
     <g opacity="0.6">
-      <ellipse cx="480" cy="24" rx="16" ry="11" fill="#fef08a" stroke="#ca8a04" stroke-width="1.2"/>
-      <text x="480" y="27" fill="#854d0e" font-size="7.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">ALBÚMINA</text>
+      <ellipse cx="420" cy="24" rx="16" ry="11" fill="#fef08a" stroke="#ca8a04" stroke-width="1.2"/>
+      <text x="420" y="27" fill="#854d0e" font-size="7.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">ALBÚMINA</text>
       <ellipse cx="2950" cy="28" rx="18" ry="12" fill="#fed7aa" stroke="#ea580c" stroke-width="1.2"/>
       <text x="2950" y="32" fill="#9a3412" font-size="7.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">VLDL / HDL</text>
     </g>
@@ -349,8 +445,10 @@ def construir_mapa_organico():
       <path d="M 100 {y_mito + 180} 
                C 260 {y_mito - 30}, 850 {y_mito - 90}, 1520 {y_mito - 40}
                C 1950 {y_mito - 110}, 2650 {y_mito - 80}, 3350 {y_mito - 30}
-               C 3750 {y_mito + 30}, 3920 {y_mito + 220}, 3880 {y_mito + 700}
-               C 3820 {y_mito + 1750}, 2850 {y_mito + 1950}, 1900 {y_mito + 1930}
+               C 3850 {y_mito - 40}, 4350 {y_mito - 20}, 4740 {y_mito + 20}
+               C 4880 {y_mito + 100}, 4880 {y_mito + 500}, 4850 {y_mito + 900}
+               C 4820 {y_mito + 1400}, 4760 {y_mito + 1800}, 4400 {y_mito + 1940}
+               C 3900 {y_mito + 1960}, 2850 {y_mito + 1950}, 1900 {y_mito + 1930}
                C 1100 {y_mito + 1950}, 300 {y_mito + 1850}, 140 {y_mito + 1300}
                C 60 {y_mito + 800}, 50 {y_mito + 400}, 100 {y_mito + 180} Z"
             fill="url(#gradMitocondria)" stroke="#92400e" stroke-width="6"/>
@@ -359,8 +457,10 @@ def construir_mapa_organico():
       <path d="M 150 {y_mito + 195} 
                C 300 {y_mito}, 870 {y_mito - 55}, 1520 {y_mito - 10}
                C 1940 {y_mito - 75}, 2640 {y_mito - 45}, 3320 {y_mito}
-               C 3680 {y_mito + 55}, 3850 {y_mito + 235}, 3815 {y_mito + 690}
-               C 3760 {y_mito + 1710}, 2830 {y_mito + 1900}, 1900 {y_mito + 1885}
+               C 3820 {y_mito - 10}, 4320 {y_mito + 10}, 4700 {y_mito + 45}
+               C 4830 {y_mito + 115}, 4830 {y_mito + 490}, 4805 {y_mito + 880}
+               C 4775 {y_mito + 1370}, 4715 {y_mito + 1750}, 4370 {y_mito + 1895}
+               C 3880 {y_mito + 1910}, 2830 {y_mito + 1900}, 1900 {y_mito + 1885}
                C 1120 {y_mito + 1900}, 350 {y_mito + 1805}, 190 {y_mito + 1275}
                C 110 {y_mito + 790}, 100 {y_mito + 405}, 150 {y_mito + 195} Z"
             fill="#fffbeb" fill-opacity="0.6" stroke="#b45309" stroke-width="3" stroke-dasharray="12 7"/>
@@ -369,8 +469,10 @@ def construir_mapa_organico():
       <path d="M 210 {y_mito + 220} 
                C 360 {y_mito + 45}, 900 {y_mito}, 1520 {y_mito + 35}
                C 1920 {y_mito - 25}, 2620 {y_mito}, 3280 {y_mito + 45}
-               C 3610 {y_mito + 95}, 3770 {y_mito + 260}, 3740 {y_mito + 670}
-               C 3690 {y_mito + 1660}, 2800 {y_mito + 1845}, 1900 {y_mito + 1830}
+               C 3780 {y_mito + 35}, 4280 {y_mito + 50}, 4650 {y_mito + 80}
+               C 4770 {y_mito + 140}, 4770 {y_mito + 480}, 4750 {y_mito + 850}
+               C 4720 {y_mito + 1330}, 4660 {y_mito + 1700}, 4330 {y_mito + 1845}
+               C 3850 {y_mito + 1855}, 2800 {y_mito + 1845}, 1900 {y_mito + 1830}
                C 1150 {y_mito + 1845}, 410 {y_mito + 1755}, 260 {y_mito + 1245}
                C 180 {y_mito + 780}, 170 {y_mito + 425}, 210 {y_mito + 220} Z"
             fill="#fef3c7" fill-opacity="0.4" stroke="#d97706" stroke-width="3.5"/>
@@ -454,7 +556,7 @@ def construir_mapa_organico():
     partes.append(reaccion_libre(x_g + 220, y_g + paso_y * 7 + 105, 52, "Enolasa (-H₂O)", reversible=True, id_rx="rx_eno"))
 
     # 9. PEP
-    partes.append(nodo_libre(x_g + 180, y_g + paso_y * 8, "Fosfoenolpiruvato", "3C", FOSFOENOLPIRUVATO, "m_pep"))
+    partes.append(nodo_libre(x_g + 180, y_g + paso_y * 8, "Fosfoenolpiruvato", "3C", FOSFOENOLPIRUVATO, "m_pep", dx=115))
     partes.append(reaccion_libre(x_g + 220, y_g + paso_y * 8 + 105, 52, "Piruvato Cinasa", entra="+ ADP", sale="+ ATP", es_ganancia=True, id_rx="rx_pk"))
 
     # 10. Piruvato (Citosol)
@@ -535,8 +637,8 @@ def construir_mapa_organico():
     # 3. Ribulosa-5-P
     partes.append(nodo_libre(x_p, y_p + 370, "Ribulosa-5-Fosfato", "5C", RIBULOSA_5_FOSFATO, "m_ru5p", text_right=True, dx=145))
 
-    # Ramas: Xilulosa-5P y Ribosa-5P (texto de Xilulosa estrictamente a la izquierda de la estructura)
-    partes.append(nodo_libre(x_p - 110, y_p + 500, "Xilulosa-5-P", "5C", XILULOSA_5_FOSFATO, "m_xu5p", text_right=False, dx=-30))
+    # Ramas: Xilulosa-5P y Ribosa-5P (texto de Xilulosa superior para despejar el canal citosólico)
+    partes.append(nodo_libre(x_p - 110, y_p + 500, "Xilulosa-5-P", "5C", XILULOSA_5_FOSFATO, "m_xu5p", text_pos="top", dy=-20))
     partes.append(nodo_libre(x_p + 280, y_p + 500, "Ribosa-5-P", "5C", RIBOSA_5_FOSFATO, "m_r5p"))
     partes.append(f"""
     <path d="M {x_p + 20} {y_p + 430} L {x_p - 50} {y_p + 495}" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
@@ -546,19 +648,19 @@ def construir_mapa_organico():
     <text x="{x_p + 200}" y="{y_p + 460}" fill="#047857" font-size="10.5" font-family="'Inter', sans-serif">Fosfopentosa Isomerasa</text>
     """)
 
-    # Sedoheptulosa-7P y Eritrosa-4P
-    partes.append(nodo_libre(x_p - 110, y_p + 660, "Sedoheptulosa-7-P", "7C", SEDOHEPTULOSA_7_FOSFATO, "m_s7p", text_right=False, dx=-30))
+    # Sedoheptulosa-7P y Eritrosa-4P (texto de Sedoheptulosa superior para despejar el canal citosólico)
+    partes.append(nodo_libre(x_p - 110, y_p + 660, "Sedoheptulosa-7-P", "7C", SEDOHEPTULOSA_7_FOSFATO, "m_s7p", text_pos="top", dy=-20))
     partes.append(nodo_libre(x_p + 280, y_p + 660, "Eritrosa-4-P", "4C", ERITROSA_4_FOSFATO, "m_e4p"))
     partes.append(f"""
     <text x="{x_p + 90}" y="{y_p + 600}" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transcetolasa 1 (TK1) ⇄</text>
     <text x="{x_p + 90}" y="{y_p + 760}" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transaldolasa ⇄ Retorno a F6P y GAP</text>
 
-    <!-- Retornos de Transaldolasa: Canal citosólico fluido (Y=1200-1350) que rodea el bloque de aminoácidos -->
-    <path d="M {x_p - 110} {y_p + 775} C {x_p - 350} {y_p + 775}, 2100 1200, {x_g + 200} {y_g + paso_y * 2 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
-    <text x="2100" y="1190" fill="#059669" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: Fructosa-6-P</text>
+    <!-- Retornos de Transaldolasa y Transcetolasa hacia Glucólisis (rutas despejadas sin colisiones) -->
+    <path d="M {x_p - 140} {y_p + 760} C 2420 700, 2350 455, 2180 455 C 2060 455, 1940 475, {x_g + 160} {y_g + paso_y * 2 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
+    <text x="2020" y="440" fill="#059669" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: Fructosa-6-P ➔</text>
 
-    <path d="M {x_p - 110} {y_p + 815} C {x_p - 350} {y_p + 815}, 2100 1320, {x_g + 280} {y_g + paso_y * 4 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
-    <text x="2100" y="1310" fill="#059669" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: GAP</text>
+    <path d="M {x_p - 140} {y_p + 800} C 2280 1100, 2120 920, {x_g + 200} {y_g + paso_y * 4 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
+    <text x="2350" y="1080" fill="#059669" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: GAP ➔</text>
     """)
     partes.append('</g>')
 
@@ -647,7 +749,7 @@ def construir_mapa_organico():
         </g>
 
         <!-- Estructura Citosólica 1: Oxalacetato -->
-        <g transform="translate({cx_lupa - 225}, {cy_lupa - 220})">
+        <g transform="translate({cx_lupa - 235}, {cy_lupa - 220})">
           {LANZ_OAA}
           <text x="40" y="145" fill="#0f172a" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Oxalacetato</text>
           <text x="40" y="160" fill="#ea580c" font-size="10" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[4C]</text>
@@ -674,10 +776,10 @@ def construir_mapa_organico():
         <text x="{cx_lupa + 140}" y="{cy_lupa - 35}" fill="#0284c7" font-size="9.5" font-weight="800">Malato²⁻ cruza hacia matriz ➔</text>
 
         <!-- Transaminación Citosólica GOT1 (Aspartato que sube por Aralar ➔ regenera Oxalacetato) -->
-        <g transform="translate({cx_lupa - 150}, {cy_lupa - 85})">
-          <path d="M 60 15 C 30 -5, -15 -10, -35 -40" fill="none" stroke="#db2777" stroke-width="2.6" marker-end="url(#arrowRed)"/>
-          <text x="10" y="-3" fill="#be123c" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">GOT1 (cAST)</text>
-          <text x="10" y="10" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif" text-anchor="middle">+ α-KG ➔ + Glu</text>
+        <g transform="translate({cx_lupa - 95}, {cy_lupa - 85})">
+          <path d="M 5 20 C -15 -5, -60 -15, -95 -45" fill="none" stroke="#db2777" stroke-width="2.6" marker-end="url(#arrowRed)"/>
+          <text x="0" y="-5" fill="#be123c" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">GOT1 (cAST)</text>
+          <text x="0" y="8" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif" text-anchor="middle">+ α-KG ➔ + Glu</text>
         </g>
 
         <!-- =========================================================== -->
@@ -694,19 +796,19 @@ def construir_mapa_organico():
           <line x1="0" y1="0" x2="-130" y2="0" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
           <text x="-65" y="-12" fill="#0f172a" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">mMDH</text>
           <path d="M 0 14 Q -65 38 -130 14" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
-          <text x="-65" y="44" fill="#059669" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">+ NADH + H⁺</text>
-          <text x="-65" y="58" fill="#047857" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">➔ alimenta Complejo I (2.5 ATP)</text>
+          <text x="-50" y="44" fill="#059669" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">+ NADH + H⁺</text>
+          <text x="-50" y="58" fill="#047857" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">➔ Complejo I (2.5 ATP)</text>
         </g>
 
         <!-- Estructura Matricial 2: Oxalacetato en la Matriz -->
-        <g transform="translate({cx_lupa - 225}, {cy_lupa + 75})">
+        <g transform="translate({cx_lupa - 200}, {cy_lupa + 65})">
           {LANZ_OAA}
-          <text x="40" y="145" fill="#0f172a" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Oxalacetato (Matriz)</text>
+          <text x="40" y="140" fill="#0f172a" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Oxalacetato (Matriz)</text>
         </g>
 
         <!-- Transaminación Matricial GOT2 (Oxalacetato ➔ Aspartato) -->
-        <g transform="translate({cx_lupa - 150}, {cy_lupa + 50})">
-          <path d="M -35 25 C -15 0, 30 -5, 60 15" fill="none" stroke="#db2777" stroke-width="2.6" marker-end="url(#arrowRed)"/>
+        <g transform="translate({cx_lupa - 130}, {cy_lupa + 45})">
+          <path d="M -25 25 C -5 0, 30 -5, 50 15" fill="none" stroke="#db2777" stroke-width="2.6" marker-end="url(#arrowRed)"/>
           <text x="10" y="-3" fill="#be123c" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">GOT2 (mAST)</text>
           <text x="10" y="10" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif" text-anchor="middle">+ Glu ➔ + α-KG</text>
         </g>
@@ -899,12 +1001,17 @@ def construir_mapa_organico():
     partes.append(nodo_libre(x_lipo, y_lipo - paso_l*2, "Citrato (Citosólico)", "6C", CITRATO, "m_citrato_cito", text_right=True, dx=175))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l*2 + 75, 48, "ATP Citrato Liasa", entra="+ ATP + CoA", sale="+ OAA", id_rx="rx_acly"))
     
-    partes.append(nodo_libre(x_lipo, y_lipo - paso_l, "Acetil-CoA (Citosólico)", "2C", ACETIL_COA, "m_acetil_coa_cito", text_right=True, dx=180))
+    partes.append(nodo_libre(x_lipo, y_lipo - paso_l, "Acetil-CoA (Citosólico)", "2C", ACETIL_COA, "m_acetil_coa_cito", text_pos="top", dy=-18))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l + 75, 48, "ACC (Acetil-CoA Carboxilasa)", entra="+ ATP + CO2", sale="+ ADP", id_rx="rx_acc"))
     
     partes.append(f'''
-    <path d="M 1250 2380 Q 2200 2200, {x_lipo - 30} 690" fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-dasharray="10 5" marker-end="url(#arrowBlue)"/>
-    <text x="2200" y="2180" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif">Transportador de Tricarboxilatos (CIC) ➔</text>
+    <!-- Lanzadera de Citrato: Translocación desde matriz a citosol vía transportador CIC en MMI (X=1915), evitando MPC -->
+    <path d="M 1250 2380 C 1500 2380, 1750 2260, 1945 2140 C 2080 1980, 2500 1300, {x_lipo - 30} 690" fill="none" stroke="#0ea5e9" stroke-width="2.6" stroke-dasharray="10 5" marker-end="url(#arrowBlue)"/>
+    <g id="transportador_cic" data-arrastrable="1" transform="translate(1915, 2115)">
+      <rect x="0" y="0" width="60" height="28" rx="7" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+      <text x="30" y="18" fill="#ffffff" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CIC</text>
+    </g>
+    <text x="1945" y="2100" fill="#0284c7" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Lanzadera de Citrato ➔</text>
     ''')
 
     partes.append(nodo_libre(x_lipo, y_lipo, "Malonil-CoA", "3C", MALONIL_COA, "m_malonil", text_right=True, dx=180))
@@ -933,37 +1040,37 @@ def construir_mapa_organico():
     
     # Conexión desde Acetil-CoA citosólico hacia la vía del colesterol
     partes.append(f'''
-    <path d="M {x_lipo + 190} {y_lipo - paso_l + 30} Q {x_col - 80} {y_lipo - paso_l + 30}, {x_col} {y_col}" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-    <text x="{x_lipo + 210}" y="{y_lipo - paso_l + 18}" fill="#9a3412" font-size="12" font-weight="900" font-family="'Inter', sans-serif">➔ Vía del Mevalonato</text>
+    <path d="M {x_lipo + 100} {y_lipo - paso_l + 30} Q {x_col - 80} {y_lipo - paso_l + 30}, {x_col} {y_col}" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <text x="3340" y="{y_lipo - paso_l + 15}" fill="#9a3412" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">➔ Vía del Mevalonato</text>
     ''')
 
     # Mevalonato (producto irreversible del marcapasos HMGCR)
-    partes.append(nodo_libre(x_col, y_col, "Mevalonato", "6C", MEVALONATO, "m_mevalonato_integ", text_right=True, dx=205))
+    partes.append(nodo_libre(x_col, y_col, "Mevalonato", "6C", MEVALONATO, "m_mevalonato_integ", text_pos="top", dy=-18))
     partes.append(reaccion_libre(x_col + 60, y_col + 75, 45, "Mevalonato Quinasa / Descarboxilasa", entra="- 3 ATP", sale="+ CO2 + Pi", id_rx="rx_col1"))
     
     # Isopentenil Pirofosfato (IPP)
-    partes.append(nodo_libre(x_col, y_col + paso_col, "Isopentenil-PP (IPP)", "5C", ISOPENTENIL_PP, "m_ipp_integ", text_right=True, dx=205))
+    partes.append(nodo_libre(x_col, y_col + paso_col, "Isopentenil-PP (IPP)", "5C", ISOPENTENIL_PP, "m_ipp_integ", text_pos="top", dy=-18))
     partes.append(reaccion_libre(x_col + 60, y_col + paso_col + 75, 45, "Preniltransferasas", entra="+ 2 IPP", sale="+ 2 PPi", id_rx="rx_col2"))
     
     # Farnesil Pirofosfato (FPP)
-    partes.append(nodo_libre(x_col, y_col + paso_col*2, "Farnesil-PP (FPP)", "15C", FARNESIL_PP, "m_fpp_integ", text_right=True, dx=200))
+    partes.append(nodo_libre(x_col, y_col + paso_col*2, "Farnesil-PP (FPP)", "15C", FARNESIL_PP, "m_fpp_integ", text_pos="top", dy=-18))
     partes.append(reaccion_libre(x_col + 60, y_col + paso_col*2 + 75, 45, "Escualeno Sintasa", entra="- NADPH", sale="+ 2 PPi", es_ganancia=False, id_rx="rx_col3"))
     
     # Escualeno
-    partes.append(nodo_libre(x_col, y_col + paso_col*3, "Escualeno", "30C", ESCUALENO, "m_escualeno_integ", text_right=True, dx=210))
+    partes.append(nodo_libre(x_col, y_col + paso_col*3, "Escualeno", "30C", ESCUALENO, "m_escualeno_integ", text_pos="top", dy=-18))
     partes.append(reaccion_libre(x_col + 60, y_col + paso_col*3 + 75, 45, "Oxidoscualeno Ciclasa", entra="- NADPH + O2", sale="+ H2O", id_rx="rx_col4"))
     
     # Lanosterol
-    partes.append(nodo_libre(x_col, y_col + paso_col*4, "Lanosterol", "30C", LANOSTEROL, "m_lanosterol_integ", text_right=True, dx=200))
+    partes.append(nodo_libre(x_col, y_col + paso_col*4, "Lanosterol", "30C", LANOSTEROL, "m_lanosterol_integ", text_pos="top", dy=-18))
     partes.append(reaccion_libre(x_col + 60, y_col + paso_col*4 + 75, 45, "Vías de Bloch &amp; Kandutsch (19 pasos)", entra="- NADPH + O2", sale="+ 3 CO2", id_rx="rx_col5"))
     
     # Colesterol Final
-    partes.append(nodo_libre(x_col, y_col + paso_col*5, "COLESTEROL", "27C", COLESTEROL, "m_colesterol_integ", text_right=True, dx=285))
+    partes.append(nodo_libre(x_col, y_col + paso_col*5, "COLESTEROL", "27C", COLESTEROL, "m_colesterol_integ", text_pos="top", dy=-18))
     
-    # Conexiones funcionales de destino del Colesterol
+    # Conexiones funcionales de destino del Colesterol (asciende por X=3860 hasta la membrana plasmática en Y=74)
     partes.append(f'''
-    <path d="M {x_col + 280} {y_col + paso_col*5 + 35} Q 3920 {y_col + paso_col*5 + 35}, 3920 200" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowBlue)"/>
-    <text x="3905" y="500" fill="#0369a1" font-size="12" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(-90 3905 500)">➔ Destino a Membrana Plasmática (Balsas Lipídicas)</text>
+    <path d="M {x_col + 240} {y_col + paso_col*5 + 35} Q 3860 {y_col + paso_col*5 + 35}, 3860 74" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowBlue)"/>
+    <text x="3875" y="500" fill="#0369a1" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(-90 3875 500)">➔ DESTINO A MEMBRANA PLASMÁTICA (BALSAS LIPÍDICAS)</text>
     ''')
     partes.append(f'</g>')
 
@@ -978,17 +1085,17 @@ def construir_mapa_organico():
 
     # Sangre -> Citosol -> Mitocondria
     # Palmitato en sangre (unido a Albúmina dentro del torrente vascular superior)
-    x_palm_sangre = 480
+    x_palm_sangre = 510
     partes.append(nodo_libre(x_palm_sangre, 24, "Palmitato (Sanguíneo / Albúmina)", "16C", PALMITATO_LIBRE, "m_palmitato_sangre", text_right=True, dx=140))
     
     # Cruce de la membrana plasmática hacia citosol por transportador CD36 / FAT
     partes.append(f'''
-    <path d="M {x_palm_sangre - 40} 60 L {x_palm_sangre - 40} 78 L {x_box + 20} {y_box - 1220}" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-    <g transform="translate({x_palm_sangre - 80}, 68)">
+    <path d="M 500 55 L 500 96 L {x_box + 20} {y_box - 1220}" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <g transform="translate(460, 68)">
       <rect x="0" y="0" width="80" height="26" rx="6" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
       <text x="40" y="17" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CD36/FAT</text>
     </g>
-    <text x="{x_palm_sangre + 10}" y="85" fill="#0284c7" font-size="10" font-weight="800" font-family="'Inter', sans-serif">Captación celular ➔</text>
+    <text x="550" y="110" fill="#0284c7" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Captación celular ➔</text>
     ''')
     
     # 1. Palmitato Citosólico
@@ -1080,13 +1187,13 @@ def construir_mapa_organico():
     # =========================================================================
     # 12. METABOLISMO DEL NITRÓGENO Y AMINOÁCIDOS: TRANSAMINACIÓN Y DESAMINACIÓN
     # =========================================================================
-    x_aa = 2160
+    x_aa = 2140
     y_aa = 380
     partes.append(f'<g id="ruta_transaminacion_desaminacion">')
 
-    # Rótulo de la vía en el citosol
+    # Rótulo de la vía en el citosol (elevado a Y=170 para no interferir con G6PDH en Y=335)
     partes.append(f'''
-    <g id="banner_aminoacidos" data-arrastrable="1" transform="translate({x_aa + 110}, {y_aa - 70})">
+    <g id="banner_aminoacidos" data-arrastrable="1" transform="translate({x_aa}, 170)">
       <rect x="-170" y="-14" width="340" height="28" rx="14" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8"/>
       <text x="0" y="4" fill="#0f766e" font-size="12" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="1">
         TRANSAMINACIÓN Y DESAMINACIÓN OXIDATIVA
@@ -1104,7 +1211,7 @@ def construir_mapa_organico():
     ''')
 
     # 2. L-Alanina en citosol (entró de sangre / ciclo glucosa-alanina)
-    partes.append(nodo_libre(x_aa - 80, y_aa, "L-Alanina", "3C", AMINO_ALANINA, "m_ala_integ", text_right=True, dx=140))
+    partes.append(nodo_libre(x_aa, y_aa, "L-Alanina", "3C", AMINO_ALANINA, "m_ala_integ", text_right=True, dx=110))
 
     # Reacción ALT / GPT (Alanina + α-KG ⇄ Piruvato + Glutamato)
     partes.append(f'''
@@ -1124,26 +1231,26 @@ def construir_mapa_organico():
     ''')
 
     # 3. Piruvato resultante de ALT en citosol
-    partes.append(nodo_libre(x_aa - 80, y_aa + 230, "Piruvato (de Alanina)", "3C", PIRUVATO, "m_pyr_ala_integ", text_right=True, dx=140))
+    partes.append(nodo_libre(x_aa, y_aa + 230, "Piruvato (de Alanina)", "3C", PIRUVATO, "m_pyr_ala_integ", text_right=True, dx=110))
 
-    # Conexión directa hacia la Glucólisis (hacia x_g = 1680)
+    # Conexión directa hacia la Glucólisis (desciende por canal citosólico despejado en X=2135)
     partes.append(f'''
-    <path d="M {x_aa - 80} {y_aa + 270} C {x_aa - 200} {y_aa + 270}, 1950 1700, 1900 1735" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
-    <text x="{x_aa - 180}" y="{y_aa + 320}" fill="#c2410c" font-size="11" font-weight="800" font-family="'Inter', sans-serif">➔ Conexión con Piruvato Citosólico</text>
+    <text x="{x_aa}" y="{y_aa + 305}" fill="#c2410c" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Pool de Piruvato (➔ MPC) ↓</text>
+    <path d="M {x_aa} {y_aa + 320} C 2135 {y_aa + 345}, 2135 800, 2135 1550 C 2135 1630, 2060 1675, 1880 1675" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
     ''')
 
-    # 4. L-Glutamato (colector común de nitrógeno en citosol)
-    partes.append(nodo_libre(x_aa + 180, y_aa + 380, "L-Glutamato", "5C", AMINO_GLUTAMATO, "m_glu_integ", text_right=True, dx=140))
+    # 4. L-Glutamato (colector común de nitrógeno en citosol - centrado en X=2280 con texto superior)
+    partes.append(nodo_libre(2280, y_aa + 380, "L-Glutamato", "5C", AMINO_GLUTAMATO, "m_glu_integ", text_pos="top", dy=-18))
 
     # 5. Rama Citosólica de Glutamina Sintetasa (Destoxificación a Glutamina)
-    partes.append(nodo_libre(x_aa + 180, y_aa + 620, "L-Glutamina", "5C", AMINO_GLUTAMINA, "m_gln_integ", text_right=True, dx=140))
+    partes.append(nodo_libre(2280, y_aa + 630, "L-Glutamina", "5C", AMINO_GLUTAMINA, "m_gln_integ", text_pos="top", dy=-18))
     partes.append(f'''
-    <g id="rx_glns_integ" data-arrastrable="1" transform="translate({x_aa + 220}, {y_aa + 510})">
+    <g id="rx_glns_integ" data-arrastrable="1" transform="translate(2280, {y_aa + 505})">
       <line x1="0" y1="0" x2="0" y2="70" stroke="#0d9488" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
-      <path d="M -50 15 Q -15 15 -3 30" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrowBlueAmino)"/>
-      <text x="-55" y="18" fill="#1d4ed8" font-size="9.5" font-weight="800" text-anchor="end">+ NH₄⁺</text>
-      <path d="M -50 35 Q -20 35 -3 45" fill="none" stroke="#dc2626" stroke-width="1.6" marker-end="url(#arrowRed)"/>
-      <text x="-55" y="38" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- 1 ATP</text>
+      <path d="M -25 15 Q -8 15 -3 30" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrowBlueAmino)"/>
+      <text x="-28" y="18" fill="#1d4ed8" font-size="9" font-weight="800" text-anchor="end">+ NH₄⁺</text>
+      <path d="M -25 35 Q -10 35 -3 45" fill="none" stroke="#dc2626" stroke-width="1.6" marker-end="url(#arrowRed)"/>
+      <text x="-28" y="38" fill="#dc2626" font-size="9" font-weight="800" text-anchor="end">- 1 ATP</text>
       <g transform="translate(15, 38)">
         <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">Glutamina Sintetasa</text>
         <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 6.3.1.2</text>
@@ -1151,10 +1258,10 @@ def construir_mapa_organico():
     </g>
     ''')
 
-    # Exportación de Glutamina al torrente sanguíneo superior
+    # Exportación de Glutamina al torrente sanguíneo superior (vía canal despejado en X=2390 hacia Y=74)
     partes.append(f'''
-    <path d="M {x_aa + 335} {y_aa + 710} Q {x_aa + 420} {y_aa + 710} {x_aa + 420} 500 L {x_aa + 420} 70" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowTeal)"/>
-    <text x="{x_aa + 435}" y="300" fill="#0f766e" font-size="11" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(90 {x_aa + 435} 300)">EXPORTACIÓN DE GLUTAMINA A SANGRE ➔</text>
+    <path d="M 2340 {y_aa + 640} Q 2390 {y_aa + 640} 2390 850 L 2390 74" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowTeal)"/>
+    <text x="2405" y="520" fill="#0f766e" font-size="11" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(-90 2405 520)">EXPORTACIÓN DE GLUTAMINA A SANGRE ➔</text>
     ''')
 
     # 6. Importación de Glutamato a la Mitocondria a través de AGC / GC1
@@ -1167,7 +1274,7 @@ def construir_mapa_organico():
       <text x="45" y="21" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">AGC / GC1</text>
       <text x="45" y="47" fill="#78350f" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Carrier Glutamato</text>
     </g>
-    <path d="M {x_aa + 180} {y_aa + 440} C {x_aa + 120} {y_aa + 600}, {x_agc} {y_mito - 120}, {x_agc} {y_agc - 18}" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowTeal)"/>
+    <path d="M 2240 {y_aa + 400} C 2200 {y_aa + 440}, 2200 950, 2200 1200 C 2200 1500, {x_agc} 1750, {x_agc} {y_agc - 18}" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowTeal)"/>
     <!-- Tránsito desde AGC hacia L-Glutamato dentro de la matriz -->
     <path d="M {x_agc} {y_agc + 22} L {x_agc} {y_gldh_start - 10}" fill="none" stroke="#0d9488" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#arrowTeal)"/>
     ''')
@@ -1209,22 +1316,346 @@ def construir_mapa_organico():
     partes.append(f'''
     <path d="M {x_agc - 5} {y_gldh_start + 175} Q {x_agc - 40} {y_gldh_start + 195} {x_agc - 100} {y_gldh_start + 195}" fill="none" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
     ''')
-    # Conexión directa hacia el Ciclo de Krebs (nodo de alfa-cetoglutarato en x_k=1140, y_k + paso_k*3 = 2765)
+    # Conexión directa hacia el Ciclo de Krebs (bordeando limpiamente por arriba de NADH & FADH2 para no solapar el badge)
     partes.append(f'''
-    <path d="M {x_agc - 230} {y_gldh_start + 230} C {x_agc - 400} {y_gldh_start + 230}, 1450 {y_k + paso_k * 3 - 30}, {x_k + 160} {y_k + paso_k * 3 + 10}" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
-    <text x="{x_agc - 340}" y="{y_gldh_start + 250}" fill="#78350f" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">➔ Reingreso directo al Ciclo de Krebs (α-KG)</text>
+    <path d="M {x_agc - 210} {y_gldh_start + 205} C 1720 2520, 1500 2550, 1420 2620 C 1370 2660, 1330 2710, {x_k + 160} {y_k + paso_k * 3 - 10}" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
+    <text x="1600" y="2520" fill="#78350f" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">➔ Reingreso directo al Ciclo de Krebs (α-KG)</text>
     ''')
 
     # B. Ion Amonio (NH4+) libre en matriz (hacia la derecha, Y=2360)
     partes.append(nodo_libre(x_agc + 120, y_gldh_start + 150, "Ion Amonio (NH₄⁺)", "Nitrógeno", AMINO_NH4, "m_nh4_integ", text_right=True, dx=85))
-    # Conexión hacia el Ciclo de la Urea (CPS-1)
+    # Conexión directa hacia el Ciclo de la Urea (CPS-1) bordeando por debajo del marco de la CTE
     partes.append(f'''
-    <path d="M {x_agc + 190} {y_gldh_start + 185} Q {x_agc + 260} {y_gldh_start + 200} {x_agc + 270} {y_gldh_start + 260}" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowBlueAmino)"/>
-    <text x="{x_agc + 280}" y="{y_gldh_start + 255}" fill="#1d4ed8" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">➔ ENTRADA AL CICLO DE LA UREA</text>
-    <text x="{x_agc + 280}" y="{y_gldh_start + 272}" fill="#64748b" font-size="10" font-family="'Inter', sans-serif">Carbamoil Fosfato Sintetasa I (CPS-1)</text>
+    <!-- Canal conductor de Amonio hacia la Carbamoil Fosfato Sintetasa I (CPS-1) -->
+    <g id="canal_amonio_hacia_urea" data-arrastrable="1">
+      <path d="M {x_agc + 190} {y_gldh_start + 185} Q {x_agc + 230} {y_gldh_start + 200} {x_agc + 230} 2520 L {x_agc + 230} 3360 Q {x_agc + 230} 3380 {x_agc + 250} 3380 L 4120 3380 Q 4140 3380 4140 3340 L 4140 3260" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="8 5" marker-end="url(#arrowBlueAmino)"/>
+      <g transform="translate(3050, 3368)">
+        <rect x="-195" y="-13" width="390" height="26" rx="8" fill="#1e293b" opacity="0.9" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="0" y="4" fill="#93c5fd" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CANAL MATRICIAL DE NH₄⁺ ➔ SÍNTESIS DE UREA (CPS-1)</text>
+      </g>
+    </g>
     ''')
 
     partes.append(f'</g>')
+
+    # =========================================================================
+    # 13. CICLO DE LA UREA Y BICICLO DE KREBS (CUADRANTE DERECHO - ENTORNO REAL)
+    # =========================================================================
+    x_u_l = 4100  # Carril Izquierdo (Carbamoil-P, CPS-1, Aspartato, Fumarato, Biciclo)
+    x_u_c = 4420  # Carril Central (Flujo principal: Citrulina, Arg-Succ, Arginina, Urea)
+    x_u_r = 4700  # Carril Derecho (Lanzadera de Ornitina, ORNT1)
+
+    partes.append(f'''
+    <!-- ================================================================= -->
+    <!-- RUTA 13: CICLO DE LA UREA (DESINTOXICACIÓN HEPÁTICA DE NITRÓGENO)   -->
+    <!-- ================================================================= -->
+    <g id="ruta_ciclo_urea">
+      <!-- Rótulo de la Ruta flotando libremente en citosol superior (despejado a la izquierda de la excreción) -->
+      <g id="rotulo_ciclo_urea" data-arrastrable="1" transform="translate(4210, 235)">
+        <text x="0" y="0" fill="#0f766e" font-size="24" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="3">CICLO DE LA UREA</text>
+        <text x="0" y="24" fill="#64748b" font-size="12" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Desintoxicación Hepática de Amonio • Biciclo de Krebs • Excreción Renal</text>
+      </g>
+    ''')
+
+    # -------------------------------------------------------------------------
+    # FASE MATRICIAL MITOCONDRIAL (Y > 2160)
+    # -------------------------------------------------------------------------
+
+    # 1. Sustratos Iniciales (NH4+ libre + HCO3-)
+    partes.append(nodo_libre(
+        x_u_l - 40, 3240,
+        "Sustratos de Nitrógeno", "NH₄⁺ + HCO₃⁻",
+        UREA_IONES_INICIALES, "m_u_sustratos_inicio",
+        text_right=True, dx=190,
+        detalle="Amonio aportado por GLDH matricial"
+    ))
+
+    # Reacción 1: CPS-1 (Carbamoil Fosfato Sintetasa I)
+    partes.append(f'''
+    <g id="rx_u_cps1" data-arrastrable="1" transform="translate({x_u_l}, 3060)">
+      <!-- Flecha vertical ascendente -->
+      <line x1="0" y1="120" x2="0" y2="-10" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Entrada de 2 ATP (lado izquierdo) -->
+      <path d="M -75 90 Q -25 90 -4 65" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="-80" y="93" fill="#dc2626" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- 2 ATP</text>
+
+      <!-- Salida de 2 ADP + Pi (lado izquierdo) -->
+      <path d="M -4 35 Q -25 20 -75 20" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-80" y="24" fill="#475569" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ 2 ADP + Pi</text>
+
+      <!-- Metadatos de CPS-1 -->
+      <g transform="translate(20, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="12.5" font-weight="900" font-family="'Inter', sans-serif">Carbamoil Fosfato Sintetasa I (CPS-1)</text>
+        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 6.3.4.16 (Mitocondrial)</text>
+        <text x="0" y="27" fill="#16a34a" font-size="10" font-weight="800" font-family="'Inter', sans-serif">⊕ N-Acetilglutamato (NAG) activador obligado</text>
+        <text x="0" y="40" fill="#b45309" font-size="9" font-weight="700" font-family="'Inter', sans-serif">Paso limitante irreversible</text>
+      </g>
+    </g>
+    ''')
+
+    # 2. Carbamoil Fosfato (1C)
+    partes.append(nodo_libre(
+        x_u_l - 40, 2860,
+        "Carbamoil Fosfato", "1C",
+        UREA_CARBAMOIL_P, "m_u_carbamoil_p",
+        text_right=True, dx=140,
+        detalle="1ᵉʳ nitrógeno activado en anhidro fosfato"
+    ))
+
+    # 3. L-Ornitina en Matriz Mitocondrial (X=4700, texto orientado hacia el interior de la matriz)
+    partes.append(nodo_libre(
+        x_u_r - 40, 2860,
+        "L-Ornitina (Matriz)", "5C",
+        UREA_ORNITINA, "m_u_ornitina_mito",
+        text_right=False, dx=-15,
+        detalle="Aceptor regenerado por ORNT1 ↻"
+    ))
+
+    # Reacción 2: OTC (Ornitina Transcarbamilasa)
+    partes.append(f'''
+    <g id="rx_u_otc" data-arrastrable="1" transform="translate({x_u_c}, 2670)">
+      <!-- Curva desde Carbamoil-P hacia OTC -->
+      <path d="M -200 160 Q -70 60 -4 20" fill="none" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+      <!-- Curva desde Ornitina matricial hacia OTC -->
+      <path d="M 220 160 Q 90 60 4 20" fill="none" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+      <!-- Flecha vertical ascendente hacia Citrulina -->
+      <line x1="0" y1="20" x2="0" y2="-65" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Salida de Pi libre (lado izquierdo) -->
+      <path d="M -4 -15 Q -35 -25 -75 -25" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-80" y="-21" fill="#475569" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Pi (Fosfato libre)</text>
+
+      <!-- Metadatos de OTC (en 2 líneas compactas para no invadir carril de Ornitina) -->
+      <g transform="translate(18, 12)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="900" font-family="'Inter', sans-serif">Ornitina Transcarbamilasa</text>
+        <text x="0" y="13" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">OTC • EC 2.1.3.3 (Mitocondrial)</text>
+        <text x="0" y="25" fill="#0f766e" font-size="9" font-weight="700" font-family="'Inter', sans-serif">Formación del grupo ureido</text>
+      </g>
+    </g>
+    ''')
+
+    # 4. L-Citrulina en Matriz Mitocondrial
+    partes.append(nodo_libre(
+        x_u_c - 40, 2370,
+        "L-Citrulina (Matriz)", "6C",
+        UREA_CITRULINA, "m_u_citrulina_mito",
+        text_right=True, dx=140,
+        detalle="1ᵉʳ nitrógeno fijado ➔ Exportación"
+    ))
+
+    # -------------------------------------------------------------------------
+    # FASE TRANSLOCACIÓN MMI (Y ≈ 2160)
+    # -------------------------------------------------------------------------
+
+    # A. Transportador SLC25A13 (Citrina) en el carril central
+    partes.append(f'''
+    <g id="trans_u_citrina" data-arrastrable="1" transform="translate({x_u_c}, 2160)">
+      <!-- Flechas de translocación ascendente de Citrulina -->
+      <path d="M 0 160 L 0 25" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)" fill="none"/>
+      <path d="M 0 -25 L 0 -130" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)" fill="none"/>
+
+      <!-- Cápsula del transportador sobre MMI -->
+      <rect x="-60" y="-18" width="120" height="36" rx="8" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">SLC25A13</text>
+      <text x="0" y="30" fill="#78350f" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Citrina (Exportador Citrulina)</text>
+    </g>
+    ''')
+
+    # B. Transportador SLC25A15 (ORNT1) en el carril derecho
+    partes.append(f'''
+    <g id="trans_u_ornt1" data-arrastrable="1" transform="translate({x_u_r}, 2160)">
+      <!-- Cápsula del transportador sobre MMI -->
+      <rect x="-60" y="-18" width="120" height="36" rx="8" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">SLC25A15</text>
+      <text x="0" y="30" fill="#1e40af" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">ORNT1 (Carrier Ornitina)</text>
+    </g>
+    ''')
+
+    # -------------------------------------------------------------------------
+    # FASE CITOSÓLICA (Y < 2160)
+    # -------------------------------------------------------------------------
+
+    # 5. L-Citrulina en Citosol
+    partes.append(nodo_libre(
+        x_u_c - 40, 1960,
+        "L-Citrulina (Citosol)", "6C",
+        UREA_CITRULINA, "m_u_citrulina_cito",
+        text_right=True, dx=140,
+        detalle="Recibida por SLC25A13 para condensación"
+    ))
+
+    # 6. Donador lateral de nitrógeno: L-Aspartato (en carril izquierdo)
+    partes.append(nodo_libre(
+        x_u_l - 20, 1810,
+        "L-Aspartato", "4C",
+        UREA_ASPARTATO, "m_u_aspartato",
+        text_right=False, dx=-15,
+        detalle="Aporta el 2º nitrógeno de la urea"
+    ))
+
+    # Reacción 3: ASS (Argininosuccinato Sintetasa)
+    partes.append(f'''
+    <g id="rx_u_ass" data-arrastrable="1" transform="translate({x_u_c}, 1760)">
+      <!-- Flecha ascendente desde Citrulina -->
+      <line x1="0" y1="130" x2="0" y2="-10" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Entrada diagonal de L-Aspartato desde carril izquierdo -->
+      <path d="M -220 50 Q -90 50 -4 25" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+
+      <!-- Entrada de 1 ATP (lado derecho) -->
+      <path d="M 65 65 Q 25 65 4 45" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="70" y="68" fill="#dc2626" font-size="11" font-weight="800" font-family="'Inter', sans-serif">- 1 ATP</text>
+
+      <!-- Salida de AMP + PPi (lado derecho) -->
+      <path d="M 4 15 Q 25 5 65 5" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="70" y="9" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">+ AMP + PPi (➔ 2 Pi)</text>
+
+      <!-- Metadatos de ASS (formato compacto de 2 líneas) -->
+      <g transform="translate(18, -12)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="900" font-family="'Inter', sans-serif">Argininosuccinato</text>
+        <text x="0" y="13" fill="#0f172a" font-size="12" font-weight="900" font-family="'Inter', sans-serif">Sintetasa (ASS)</text>
+        <text x="0" y="26" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 6.3.4.5 (Citosólica)</text>
+        <text x="0" y="38" fill="#15803d" font-size="9" font-weight="700" font-family="'Inter', sans-serif">Intermedio Citrulil-AMP activado</text>
+      </g>
+    </g>
+    ''')
+
+    # 7. L-Argininosuccinato (10C) - Intermediario que une ambos nitrógenos
+    partes.append(nodo_libre(
+        x_u_c - 50, 1480,
+        "L-Argininosuccinato", "10C",
+        UREA_ARGININOSUCCINATO, "m_u_argininosuccinato",
+        text_right=True, dx=165,
+        detalle="Condensado Citrulina-Aspartato"
+    ))
+
+    # Reacción 4: ASL (Argininosuccinato Liasa)
+    partes.append(f'''
+    <g id="rx_u_asl" data-arrastrable="1" transform="translate({x_u_c}, 1340)">
+      <!-- Flecha vertical ascendente hacia Arginina -->
+      <line x1="0" y1="100" x2="0" y2="-10" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Salida lateral hacia la IZQUIERDA de FUMARATO -->
+      <path d="M -4 45 Q -80 45 -180 45" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      <text x="-190" y="40" fill="#c2410c" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">⮜ + Fumarato (4C)</text>
+
+      <!-- Metadatos de la ASL -->
+      <g transform="translate(18, 15)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="900" font-family="'Inter', sans-serif">Argininosuccinato Liasa (ASL)</text>
+        <text x="0" y="13" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 4.3.2.1 (Eliminación trans)</text>
+        <text x="0" y="25" fill="#be185d" font-size="9" font-weight="700" font-family="'Inter', sans-serif">Escisión del esqueleto de 4C</text>
+      </g>
+    </g>
+    ''')
+
+    # 8. Fumarato libre resultante (carril izquierdo, X=4080, Y=1340)
+    partes.append(nodo_libre(
+        x_u_l - 20, 1340,
+        "Fumarato", "4C",
+        UREA_FUMARATO, "m_u_fumarato",
+        text_right=False, dx=-15,
+        detalle="Subproducto de escisión trans"
+    ))
+
+    # Biciclo de Krebs (Krebs Bicycle Shunt): Reconexión Fumarato ➔ Aspartato
+    partes.append(f'''
+    <g id="biciclo_krebs_shunt" data-arrastrable="1">
+      <path d="M {x_u_l - 20} 1410 C {x_u_l - 120} 1450, {x_u_l - 120} 1750, {x_u_l - 20} 1790" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="7 4" marker-end="url(#arrowFlow)"/>
+      <g transform="translate({x_u_l - 120}, 1560)">
+        <text x="0" y="0" fill="#c2410c" font-size="11" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">BICICLO DE KREBS ↻</text>
+        <text x="0" y="14" fill="#475569" font-size="9" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">+ H₂O (Fumarasa) ➔ L-Malato</text>
+        <text x="0" y="27" fill="#475569" font-size="9" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">+ NAD⁺ (MDH1) ➔ OAA</text>
+        <text x="0" y="40" fill="#475569" font-size="9" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">+ Glu (GOT1) ➔ Asp</text>
+      </g>
+    </g>
+    ''')
+
+    # 9. L-Arginina (6C) (carril central, X=4420, Y=1160)
+    partes.append(nodo_libre(
+        x_u_c - 40, 1160,
+        "L-Arginina", "6C",
+        UREA_ARGININA, "m_u_arginina",
+        text_right=True, dx=145,
+        detalle="Grupo guanidino cargado"
+    ))
+
+    # Reacción 5: Arginasa 1 (ARG1) - Bifurcación hacia Urea y Ornitina
+    partes.append(f'''
+    <g id="rx_u_arg1" data-arrastrable="1" transform="translate({x_u_c}, 980)">
+      <!-- Entrada de Agua para la hidrólisis -->
+      <path d="M -75 35 Q -25 35 -4 50" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <text x="-80" y="38" fill="#0284c7" font-size="11" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">+ H₂O</text>
+
+      <!-- Flecha vertical hacia UREA -->
+      <line x1="0" y1="120" x2="0" y2="-90" stroke="#dc2626" stroke-width="2.8" marker-end="url(#arrowRed)"/>
+
+      <!-- Flecha curva hacia la derecha hacia Ornitina citosólica (X=4700) -->
+      <path d="M 0 50 Q 80 50 200 15" fill="none" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowTeal)"/>
+      <text x="120" y="34" fill="#0f766e" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">➔ Retorno Ornitina</text>
+
+      <!-- Metadatos de ARG1 (lado izquierdo) -->
+      <g transform="translate(-20, -10)">
+        <text x="0" y="-15" fill="#0f172a" font-size="12.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">Arginasa 1 (ARG1)</text>
+        <text x="0" y="-2" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="end">EC 3.5.3.1 (Mn²⁺)</text>
+        <text x="0" y="11" fill="#15803d" font-size="9.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="end">Hidrólisis terminal hepática</text>
+      </g>
+    </g>
+    ''')
+
+    # 10. L-Ornitina Citosólica (Regenerada, X=4700, Y=960)
+    partes.append(nodo_libre(
+        x_u_r - 20, 960,
+        "L-Ornitina (Citosol)", "5C",
+        UREA_ORNITINA, "m_u_ornitina_cito",
+        text_right=True, dx=115,
+        detalle="Regenerada tras hidrólisis"
+    ))
+
+    # Canal de retorno de Ornitina hacia ORNT1 (descenso por carril X=4700 con badge central)
+    partes.append(f'''
+    <g id="canal_retorno_ornitina" data-arrastrable="1">
+      <!-- Descenso desde Ornitina citosol (Y=1060) hasta ORNT1 (Y=2140) -->
+      <path d="M {x_u_r} 1060 L {x_u_r} 2140" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-dasharray="8 5" marker-end="url(#arrowBlueAmino)"/>
+      <!-- Continuación desde ORNT1 (Y=2180) hasta Ornitina matriz (Y=2850) -->
+      <path d="M {x_u_r} 2180 L {x_u_r} 2850" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-dasharray="8 5" marker-end="url(#arrowBlueAmino)"/>
+      
+      <!-- Insignia informativa en el carril -->
+      <g transform="translate({x_u_r}, 1600)">
+        <rect x="-85" y="-12" width="170" height="24" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+        <text x="0" y="4" fill="#1d4ed8" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">↓ ORNT1 (SLC25A15)</text>
+      </g>
+    </g>
+    ''')
+
+    # 11. UREA (Carbamida) - Producto final de desecho (X=4420, Y=780)
+    partes.append(nodo_libre(
+        x_u_c - 30, 780,
+        "UREA (Carbamida)", "1C",
+        UREA_MOL, "m_u_urea",
+        text_right=True, dx=110,
+        detalle="Diamida neutra no tóxica (2 nitrógenos)"
+    ))
+
+    # 12. Excreción directa de Urea al torrente sanguíneo superior (Y=750 ➔ Y=74)
+    partes.append(f'''
+    <g id="excrecion_urea_sangre" data-arrastrable="1">
+      <path d="M {x_u_c} 750 L {x_u_c} 74" fill="none" stroke="#dc2626" stroke-width="3.2" stroke-dasharray="8 4" marker-end="url(#arrowRed)"/>
+      <text x="{x_u_c + 18}" y="520" fill="#b91c1c" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(-90 {x_u_c + 18} 520)">➔ EXCRECIÓN DE UREA AL TORRENTE SANGUÍNEO HEPÁTICO (➔ RIÑÓN)</text>
+
+      <!-- Biomarcador vascular en el capilar superior -->
+      <ellipse cx="{x_u_c}" cy="38" rx="26" ry="16" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+      <text x="{x_u_c}" y="42" fill="#dc2626" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">UREA</text>
+      <text x="{x_u_c}" y="60" fill="#fca5a5" font-size="7.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Excreción</text>
+    </g>
+    ''')
+
+    partes.append(f'</g>')
+
+    # 14. BLOQUE INSTITUCIONAL Y AUTORÍA DE CÓDIGO ABIERTO
+    partes.append(generar_bloque_autoria(3820, 3540))
 
     # Defs y Marcadores
     defs_svg = f"""
@@ -1238,6 +1669,12 @@ def construir_mapa_organico():
       <marker id="arrowBlueAmino" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
         <path d="M 0 0 L 6 3 L 0 6 Z" fill="#2563eb" />
       </marker>
+      <marker id="arrowCobalt" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M 0 0 L 6 3 L 0 6 Z" fill="#1d4ed8" />
+      </marker>
+      <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+        <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+      </marker>
       <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
         <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
       </marker>
@@ -1247,6 +1684,16 @@ def construir_mapa_organico():
       <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
         <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
       </marker>
+
+      <linearGradient id="gradHeaderAutoria" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#0284c7" />
+        <stop offset="50%" stop-color="#0d9488" />
+        <stop offset="100%" stop-color="#10b981" />
+      </linearGradient>
+
+      <filter id="shadowCard" x="-5%" y="-5%" width="110%" height="115%">
+        <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12" />
+      </filter>
 
       <linearGradient id="gradCitosolUnificado" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />

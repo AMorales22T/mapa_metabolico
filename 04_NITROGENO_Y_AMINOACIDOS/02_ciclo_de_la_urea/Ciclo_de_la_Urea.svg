@@ -1,0 +1,761 @@
+<svg width="1000" height="2120" viewBox="0 0 1000 2120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        
+    <!-- Gradiente de la Matriz Mitocondrial (Ámbar cálido editorial) -->
+    <linearGradient id="gradMatrizUrea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.95" />
+      <stop offset="60%" stop-color="#fffbeb" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#fef9c3" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Gradiente Citosol Acuoso -->
+    <linearGradient id="gradCitosolUrea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+      <stop offset="15%" stop-color="#f0fdfa" stop-opacity="0.85" />
+      <stop offset="70%" stop-color="#f8fafc" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Gradiente Vascular Renal / Sanguíneo -->
+    <linearGradient id="gradVascularUrea" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fee2e2" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#fecaca" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Marcadores de Flechas Editoriales -->
+    <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#0d9488" />
+    </marker>
+    <marker id="arrowOrange" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
+    </marker>
+    <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
+    </marker>
+    <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+    </marker>
+    <marker id="arrowGreen" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#059669" />
+    </marker>
+    <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
+    </marker>
+    <marker id="arrowCobalt" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#2563eb" />
+    </marker>
+
+      </defs>
+      
+    <!-- ================================================================= -->
+    <!-- 1. FONDO CITOSÓLICO COMPLETO                                      -->
+    <!-- ================================================================= -->
+    <rect x="0" y="0" width="1000" height="2120" fill="url(#gradCitosolUrea)" />
+
+    <!-- Citoesqueleto y microtúbulos en citosol -->
+    <g opacity="0.22" stroke="#94a3b8" fill="none">
+      <path d="M 30 850 Q 300 800 650 860 T 960 830" stroke-width="1.6" stroke-dasharray="8 6" />
+      <path d="M 40 1200 Q 350 1260 700 1210 T 960 1240" stroke-width="1.5" stroke-dasharray="7 6" />
+      <path d="M 30 1650 Q 300 1590 620 1660 T 960 1620" stroke-width="1.5" stroke-dasharray="8 5" />
+    </g>
+
+    <!-- ================================================================= -->
+    <!-- 2. MATRIZ MITOCONDRIAL (PARTE SUPERIOR: Y=0 a Y=620)     -->
+    <!-- ================================================================= -->
+    <path d="M 0 0 L 1000 0 L 1000 620 Q 600 645 0 620 Z" fill="url(#gradMatrizUrea)" stroke="#b45309" stroke-width="3"/>
+    
+    <!-- Ribete de membrana externa y crestas decorativas suaves -->
+    <path d="M 60 110 C 130 65, 160 135, 230 85" fill="none" stroke="#d97706" stroke-width="2" opacity="0.35"/>
+    <path d="M 780 105 C 850 55, 880 125, 950 75" fill="none" stroke="#d97706" stroke-width="2" opacity="0.35"/>
+
+    <!-- Título de la Matriz Mitocondrial (sin recuadros) -->
+    <g transform="translate(50, 42)">
+      <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#92400e" letter-spacing="2">MATRIZ MITOCONDRIAL</text>
+      <text x="0" y="18" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#b45309">Fase 1: Fijación de Amonio y Formación de Citrulina</text>
+    </g>
+
+    <!-- ================================================================= -->
+    <!-- 3. MEMBRANA MITOCONDRIAL INTERNA (MMI) Y TRANSPORTADORES          -->
+    <!-- ================================================================= -->
+    <g transform="translate(0, 620)">
+      <!-- Bicapa lipídica representada con doble trazo suave -->
+      <path d="M 0 0 Q 600 25 1000 0" fill="none" stroke="#ea580c" stroke-width="8" opacity="0.75" stroke-linecap="round"/>
+      <path d="M 0 10 Q 600 35 1000 10" fill="none" stroke="#fed7aa" stroke-width="4" opacity="0.9" stroke-linecap="round"/>
+      <path d="M 0 20 Q 600 45 1000 20" fill="none" stroke="#ea580c" stroke-width="8" opacity="0.75" stroke-linecap="round"/>
+
+      <!-- Etiqueta de la MMI -->
+      <g transform="translate(50, 26)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">MEMBRANA MITOCONDRIAL INTERNA (MMI)</text>
+      </g>
+
+      <!-- TRANSPORTADOR 1: CITRINA / SLC25A13 (Salida de Citrulina en X=440) -->
+      <g transform="translate(420, -12)">
+        <rect x="0" y="0" width="80" height="42" rx="10" fill="#0d9488" stroke="#0f766e" stroke-width="2"/>
+        <text x="40" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">SLC25A13</text>
+        <text x="40" y="32" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="800" fill="#ccfbf1" text-anchor="middle">Citrina</text>
+      </g>
+
+      <!-- TRANSPORTADOR 2: ORNT1 / SLC25A15 (Retorno de Ornitina en X=820) -->
+      <g transform="translate(780, -12)">
+        <rect x="0" y="0" width="80" height="42" rx="10" fill="#2563eb" stroke="#1d4ed8" stroke-width="2"/>
+        <text x="40" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">SLC25A15</text>
+        <text x="40" y="32" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="800" fill="#eff6ff" text-anchor="middle">ORNT1</text>
+      </g>
+    </g>
+
+    <!-- ================================================================= -->
+    <!-- 4. CITOSOL HEPATOCITARIO (PARTE INFERIOR)                         -->
+    <!-- ================================================================= -->
+    <!-- Título del Citosol (sin recuadros) -->
+    <g transform="translate(50, 675)">
+      <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#0284c7" letter-spacing="2">CITOSOL HEPATOCITARIO</text>
+      <text x="0" y="18" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#64748b">Fase 2: Incorporación de Aspartato, Arginina y Excreción</text>
+    </g>
+
+    <!-- Lecho Vascular / Torrente Sanguíneo (sin cajas artificiales) -->
+    <path d="M 0 2045 Q 500.0 2025 1000 2045 L 1000 2120 L 0 2120 Z" fill="url(#gradVascularUrea)" stroke="#dc2626" stroke-width="2.5" opacity="0.9"/>
+    <!-- Glóbulos rojos tenues en el capilar -->
+    <g opacity="0.6">
+      <ellipse cx="200.0" cy="2085" rx="18" ry="10" fill="#ef4444" stroke="#7f1d1d" stroke-width="1.2" transform="rotate(-8, 200.0, 2085)"/>
+      <ellipse cx="800.0" cy="2080" rx="20" ry="11" fill="#ef4444" stroke="#7f1d1d" stroke-width="1.2" transform="rotate(12, 800.0, 2080)"/>
+    </g>
+    <text x="500.0" y="2090" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#991b1b" text-anchor="middle" letter-spacing="1">TORRENTE SANGUÍNEO • EXCRECIÓN RENAL</text>
+    
+      <!-- Metabolito: Sustratos Iniciales de Nitrógeno -->
+      <g transform="translate(140, 75)">
+        <g transform="translate(0, 0)">
+          
+<g class="mol-iones-inicio" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ion Amonio libre (NH4+) -->
+  <g transform="translate(0, 0)">
+    <rect x="0" y="8" width="68" height="30" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+    <text x="34" y="29" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH₄⁺</text>
+  </g>
+  <text x="80" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#64748b" stroke="none">+</text>
+  <!-- Bicarbonato (HCO3-) -->
+  <g transform="translate(98, 0)">
+    <rect x="0" y="8" width="76" height="30" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+    <text x="38" y="29" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">HCO₃⁻</text>
+  </g>
+</g>
+
+        </g>
+        <g transform="translate(190, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">Sustratos Iniciales de Nitrógeno</text>
+          <text x="0" y="18" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">NH₄⁺ (Amonio libre) + HCO₃⁻ (Bicarbonato)</text>
+          <text x="0" y="33" fill="#64748b" font-size="10.5" font-family="'Inter', sans-serif">Amonio aportado por GLDH mitocondrial</text>
+          
+        </g>
+      </g>
+    
+    <g transform="translate(250, 140)">
+      <!-- Flecha vertical descendente -->
+      <line x1="0" y1="0" x2="0" y2="65" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+      <!-- Entrada de 2 ATP -->
+      <path d="M -80 10 Q -30 10 -5 20" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="-85" y="13" fill="#dc2626" font-family="'Inter', sans-serif" font-size="11" font-weight="800" text-anchor="end">- 2 ATP</text>
+
+      <!-- Salida de 2 ADP + Pi -->
+      <path d="M -5 45 Q -30 55 -80 55" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-85" y="59" fill="#475569" font-family="'Inter', sans-serif" font-size="11" font-weight="800" text-anchor="end">+ 2 ADP + Pi</text>
+
+      <!-- Metadatos de CPS-1 -->
+      <g transform="translate(20, 18)">
+        <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900">Carbamoil Fosfato Sintetasa I (CPS-1)</text>
+        <text x="0" y="14" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">EC 6.3.4.16 (Mitocondrial)</text>
+        <text x="0" y="27" fill="#16a34a" font-family="'Inter', sans-serif" font-size="10" font-weight="800">⊕ N-Acetilglutamato (NAG) obligado</text>
+      </g>
+    </g>
+    
+      <!-- Metabolito: Carbamoil Fosfato -->
+      <g transform="translate(140, 220)">
+        <g transform="translate(0, 0)">
+          
+<g class="mol-carbamoil-p" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Grupo Amino (H2N) -->
+  <text x="12" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">H₂N</text>
+  <!-- Enlace simple N-C -->
+  <line x1="28" y1="34" x2="44" y2="34" stroke="#2563eb" stroke-width="2.2"/>
+  
+  <!-- Carbono Carbonilo (C) -->
+  <text x="52" y="38" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  
+  <!-- Doble enlace C=O (arriba) -->
+  <line x1="49" y1="26" x2="49" y2="12" stroke="#dc2626" stroke-width="2.2"/>
+  <line x1="55" y1="26" x2="55" y2="12" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="52" y="8" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  
+  <!-- Enlace simple C-O -->
+  <line x1="60" y1="34" x2="76" y2="34" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="84" y="38" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  
+  <!-- Enlace O-P -->
+  <line x1="92" y1="34" x2="108" y2="34" stroke="#ea580c" stroke-width="2.2"/>
+  <!-- Grupo Fosfato de alta energía -->
+  <circle cx="122" cy="34" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2.2"/>
+  <text x="122" y="39" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+</g>
+
+        </g>
+        <g transform="translate(150, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">Carbamoil Fosfato</text>
+          <text x="0" y="18" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">1 Carbono [1C] (Anhidro fosfato)</text>
+          <text x="0" y="33" fill="#64748b" font-size="10.5" font-family="'Inter', sans-serif">Enlace fosfato de alta energía</text>
+          <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Aporta 1ᵉʳ nitrógeno de urea ➔</text>
+        </g>
+      </g>
+    
+        <!-- Metabolito: L-Ornitina (Matriz) -->
+        <g transform="translate(650, 85)">
+          <g transform="translate(0, 0)">
+            <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">L-Ornitina (Matriz)</text>
+            <text x="0" y="16" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">5 Carbonos [5C]</text>
+            <text x="0" y="30" fill="#64748b" font-size="10" font-family="'Inter', sans-serif">Aceptor de carbamoilo</text>
+            <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Regenerada por ORNT1 ↻</text>
+          </g>
+          <g transform="translate(0, 60)">
+            
+<g class="mol-ornitina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: Grupo Carboxilato (COO-) -->
+  <text x="36" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="36" y1="21" x2="36" y2="35" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: Carbono Alfa (CH) -->
+  <text x="36" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- Grupo Amino Alfa (+NH3) -->
+  <line x1="48" y1="43" x2="64" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <rect x="66" y="31" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="85" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- Enlace C2-C3 -->
+  <line x1="36" y1="52" x2="36" y2="66" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3: CH2 -->
+  <text x="36" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3-C4 -->
+  <line x1="36" y1="83" x2="36" y2="97" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C4: CH2 -->
+  <text x="36" y="109" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C4-C5 -->
+  <line x1="36" y1="114" x2="36" y2="128" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C5: CH2 -->
+  <text x="36" y="140" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C5 a Grupo Amino Delta -->
+  <line x1="36" y1="145" x2="36" y2="159" stroke="#2563eb" stroke-width="2"/>
+  <rect x="17" y="161" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="36" y="177" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+</g>
+
+          </g>
+        </g>
+        
+    <g transform="translate(460, 315)">
+      <!-- Flecha diagonal desde Carbamoil-P hacia OTC -->
+      <path d="M -160 -30 Q -70 -10 -5 10" fill="none" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+      <!-- Flecha diagonal descendente desde Ornitina (mito) hacia OTC -->
+      <path d="M 205 -10 Q 105 -5 5 10" fill="none" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+      <!-- Flecha vertical resultante hacia Citrulina -->
+      <line x1="0" y1="12" x2="0" y2="75" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Salida de Pi libre -->
+      <path d="M -4 42 Q -35 52 -75 52" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-80" y="56" fill="#475569" font-family="'Inter', sans-serif" font-size="11" font-weight="800" text-anchor="end">+ Pi (Fosfato libre)</text>
+
+      <!-- Metadatos de la OTC -->
+      <g transform="translate(20, 32)">
+        <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900">Ornitina Transcarbamilasa (OTC)</text>
+        <text x="0" y="14" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">EC 2.1.3.3 (Mitocondrial)</text>
+        <text x="0" y="27" fill="#0f766e" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700">Formación de enlace ureido</text>
+      </g>
+    </g>
+    
+      <!-- Metabolito: L-Citrulina (Matriz) -->
+      <g transform="translate(380, 405)">
+        <g transform="translate(0, 0)">
+          
+<g class="mol-citrulina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: COO- -->
+  <text x="36" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="36" y1="21" x2="36" y2="35" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: Carbono Alfa (CH) -->
+  <text x="36" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- Amino Alfa (+NH3) -->
+  <line x1="48" y1="43" x2="64" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <rect x="66" y="31" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="85" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- Enlace C2-C3 -->
+  <line x1="36" y1="52" x2="36" y2="66" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3: CH2 -->
+  <text x="36" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3-C4 -->
+  <line x1="36" y1="83" x2="36" y2="97" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C4: CH2 -->
+  <text x="36" y="109" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C4-C5 -->
+  <line x1="36" y1="114" x2="36" y2="128" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C5: CH2 -->
+  <text x="36" y="140" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C5 a Nitrogeno Delta (NH) -->
+  <line x1="36" y1="145" x2="36" y2="159" stroke="#2563eb" stroke-width="2"/>
+  <text x="36" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+
+  <!-- Enlace horizontal hacia Grupo Ureido -->
+  <line x1="48" y1="167" x2="64" y2="167" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C6: Carbono Ureido (C) -->
+  <text x="72" y="171" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+
+  <!-- Doble enlace C=O (hacia abajo) -->
+  <line x1="69" y1="175" x2="69" y2="189" stroke="#dc2626" stroke-width="2.2"/>
+  <line x1="75" y1="175" x2="75" y2="189" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="72" y="202" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- Enlace simple C-NH2 -->
+  <line x1="80" y1="167" x2="96" y2="167" stroke="#2563eb" stroke-width="2"/>
+  <text x="110" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH₂</text>
+</g>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">L-Citrulina (Matriz)</text>
+          <text x="0" y="18" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">6 Carbonos [6C] (Derivado ureido)</text>
+          <text x="0" y="33" fill="#64748b" font-size="10.5" font-family="'Inter', sans-serif">1ᵉʳ nitrógeno fijado</text>
+          <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Exportación a citosol ➔</text>
+        </g>
+      </g>
+    
+    <g id="translocacion_citrulina">
+      <path d="M 460 600 L 460 720" stroke="#0d9488" stroke-width="3" marker-end="url(#arrowFlow)" fill="none"/>
+      <text x="400" y="660" fill="#0f766e" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" text-anchor="end">Exportación de Citrulina ➔</text>
+    </g>
+    
+    <g id="translocacion_ornitina">
+      <!-- Retorno cerrado: Ornitina citosólica (755, 1680) ➔ carril X=820 ➔ cruza ORNT1 ➔ Ornitina matriz (755, 180) -->
+      <path d="M 755 1680 L 820 1680 L 820 180 L 755 180" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowCobalt)"/>
+      <text x="832" y="1145" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#1d4ed8">↑ RETORNO ORNT1</text>
+    </g>
+    
+      <!-- Metabolito: L-Citrulina (Citosol) -->
+      <g transform="translate(380, 730)">
+        <g transform="translate(0, 0)">
+          
+<g class="mol-citrulina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: COO- -->
+  <text x="36" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="36" y1="21" x2="36" y2="35" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: Carbono Alfa (CH) -->
+  <text x="36" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- Amino Alfa (+NH3) -->
+  <line x1="48" y1="43" x2="64" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <rect x="66" y="31" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="85" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- Enlace C2-C3 -->
+  <line x1="36" y1="52" x2="36" y2="66" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3: CH2 -->
+  <text x="36" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3-C4 -->
+  <line x1="36" y1="83" x2="36" y2="97" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C4: CH2 -->
+  <text x="36" y="109" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C4-C5 -->
+  <line x1="36" y1="114" x2="36" y2="128" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C5: CH2 -->
+  <text x="36" y="140" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C5 a Nitrogeno Delta (NH) -->
+  <line x1="36" y1="145" x2="36" y2="159" stroke="#2563eb" stroke-width="2"/>
+  <text x="36" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+
+  <!-- Enlace horizontal hacia Grupo Ureido -->
+  <line x1="48" y1="167" x2="64" y2="167" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C6: Carbono Ureido (C) -->
+  <text x="72" y="171" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+
+  <!-- Doble enlace C=O (hacia abajo) -->
+  <line x1="69" y1="175" x2="69" y2="189" stroke="#dc2626" stroke-width="2.2"/>
+  <line x1="75" y1="175" x2="75" y2="189" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="72" y="202" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- Enlace simple C-NH2 -->
+  <line x1="80" y1="167" x2="96" y2="167" stroke="#2563eb" stroke-width="2"/>
+  <text x="110" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH₂</text>
+</g>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">L-Citrulina (Citosol)</text>
+          <text x="0" y="18" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">6 Carbonos [6C]</text>
+          <text x="0" y="33" fill="#64748b" font-size="10.5" font-family="'Inter', sans-serif">Recibida por SLC25A13</text>
+          <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Sustrato para condensación</text>
+        </g>
+      </g>
+    
+        <!-- Metabolito: L-Aspartato -->
+        <g transform="translate(110, 820)">
+          <g transform="translate(0, 0)">
+            <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">L-Aspartato</text>
+            <text x="0" y="16" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">4 Carbonos [4C]</text>
+            <text x="0" y="30" fill="#64748b" font-size="10" font-family="'Inter', sans-serif">Aportado por AST (Transaminación)</text>
+            <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Dona 2º nitrógeno de urea ➔</text>
+          </g>
+          <g transform="translate(0, 60)">
+            
+<g class="mol-aspartato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: COO- superior -->
+  <text x="36" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="36" y1="21" x2="36" y2="35" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: Carbono Alfa (CH) -->
+  <text x="36" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- Amino Alfa (+NH3) donador al ciclo -->
+  <line x1="48" y1="43" x2="64" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <rect x="66" y="31" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="85" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- Enlace C2-C3 -->
+  <line x1="36" y1="52" x2="36" y2="66" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3: CH2 -->
+  <text x="36" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3-C4 -->
+  <line x1="36" y1="83" x2="36" y2="97" stroke="#dc2626" stroke-width="2.2"/>
+  <!-- C4: COO- distal -->
+  <text x="36" y="109" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+          </g>
+        </g>
+        
+    <g transform="translate(460, 930)">
+      <!-- Entrada horizontal de Aspartato desde la izquierda -->
+      <path d="M -210 45 Q -90 45 -5 18" fill="none" stroke="#2563eb" stroke-width="2.4" marker-end="url(#arrowCobalt)"/>
+
+      <!-- Flecha principal descendente -->
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Entrada de ATP (a la derecha) -->
+      <path d="M 60 10 Q 25 10 5 20" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="65" y="14" fill="#dc2626" font-family="'Inter', sans-serif" font-size="11" font-weight="800">- 1 ATP</text>
+
+      <!-- Salida de AMP + PPi (a la derecha) -->
+      <path d="M 5 45 Q 25 58 65 58" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="70" y="62" fill="#475569" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800">+ AMP + PPi (➔ 2 Pi)</text>
+
+      <!-- Metadatos de la ASS -->
+      <g transform="translate(20, 26)">
+        <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900">Argininosuccinato Sintetasa (ASS)</text>
+        <text x="0" y="14" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">EC 6.3.4.5 (Citosólica)</text>
+        <text x="0" y="27" fill="#15803d" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700">Intermedio Citrulil-AMP activado</text>
+      </g>
+    </g>
+    
+      <!-- Metabolito: L-Argininosuccinato -->
+      <g transform="translate(340, 1000)">
+        <g transform="translate(0, 0)">
+          
+<g class="mol-argininosuccinato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- PARTE IZQUIERDA: ESQUELETO DE LA CITRULINA (C1 a C5) -->
+  <g transform="translate(0, 0)">
+    <!-- C1: COO- -->
+    <text x="36" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+    <line x1="36" y1="21" x2="36" y2="35" stroke="#0f172a" stroke-width="2.2"/>
+    <!-- C2: CH -->
+    <text x="36" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+    <line x1="48" y1="43" x2="64" y2="43" stroke="#2563eb" stroke-width="2"/>
+    <rect x="66" y="31" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+    <text x="85" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+    <!-- C3: CH2 -->
+    <line x1="36" y1="52" x2="36" y2="66" stroke="#0f172a" stroke-width="2.2"/>
+    <text x="36" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+    <!-- C4: CH2 -->
+    <line x1="36" y1="83" x2="36" y2="97" stroke="#0f172a" stroke-width="2.2"/>
+    <text x="36" y="109" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+    <!-- C5: CH2 -->
+    <line x1="36" y1="114" x2="36" y2="128" stroke="#0f172a" stroke-width="2.2"/>
+    <text x="36" y="140" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+    <!-- Enlace a NH -->
+    <line x1="36" y1="145" x2="36" y2="159" stroke="#2563eb" stroke-width="2"/>
+    <text x="36" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+
+    <!-- Enlace horizontal hacia Carbono Guanidino C6 -->
+    <line x1="48" y1="167" x2="64" y2="167" stroke="#0f172a" stroke-width="2.2"/>
+    <!-- C6: Carbono Central Guanidino -->
+    <text x="72" y="171" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+
+    <!-- Doble enlace C = ⁺NH2 (arriba) -->
+    <line x1="69" y1="159" x2="69" y2="145" stroke="#2563eb" stroke-width="2.2"/>
+    <line x1="75" y1="159" x2="75" y2="145" stroke="#2563eb" stroke-width="2.2"/>
+    <rect x="53" y="123" width="38" height="20" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+    <text x="72" y="137" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₂</text>
+
+    <!-- Enlace simple C6 - NH puente -->
+    <line x1="80" y1="167" x2="96" y2="167" stroke="#2563eb" stroke-width="2"/>
+    <text x="108" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+  </g>
+
+  <!-- PARTE DERECHA: FRAGMENTO DEL SUCCINATO / ASPARTATO (C7 a C10) -->
+  <g transform="translate(108, 0)">
+    <!-- Enlace NH puente a C7 (CH) -->
+    <line x1="12" y1="167" x2="28" y2="167" stroke="#0f172a" stroke-width="2.2"/>
+    <!-- C7: CH -->
+    <text x="38" y="171" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+
+    <!-- Enlace arriba C7 a C8 (COO-) -->
+    <line x1="38" y1="159" x2="38" y2="145" stroke="#dc2626" stroke-width="2.2"/>
+    <text x="38" y="139" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+
+    <!-- Enlace abajo C7 a C9 (CH2) -->
+    <line x1="38" y1="176" x2="38" y2="190" stroke="#0f172a" stroke-width="2.2"/>
+    <text x="38" y="202" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+    <!-- Enlace C9 a C10 (COO-) -->
+    <line x1="38" y1="207" x2="38" y2="221" stroke="#dc2626" stroke-width="2.2"/>
+    <text x="38" y="233" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  </g>
+</g>
+
+        </g>
+        <g transform="translate(175, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">L-Argininosuccinato</text>
+          <text x="0" y="18" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">10 Carbonos [10C]</text>
+          <text x="0" y="33" fill="#64748b" font-size="10.5" font-family="'Inter', sans-serif">Condensado Citrulina-Asp</text>
+          <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Escisión trans por ASL</text>
+        </g>
+      </g>
+    
+    <g transform="translate(460, 1270)">
+      <!-- Flecha vertical hacia Arginina -->
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Salida lateral hacia la IZQUIERDA de FUMARATO -->
+      <path d="M -5 32 Q -110 32 -195 32" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowOrange)"/>
+      <text x="-90" y="22" fill="#c2410c" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" text-anchor="middle">⮜ + Fumarato (4C)</text>
+
+      <!-- Metadatos de la ASL (a la derecha) -->
+      <g transform="translate(20, 24)">
+        <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900">Argininosuccinato Liasa (ASL)</text>
+        <text x="0" y="14" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">EC 4.3.2.1 (Eliminación trans)</text>
+        <text x="0" y="27" fill="#be185d" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700">Escisión del esqueleto de 4C</text>
+      </g>
+    </g>
+    
+        <!-- Metabolito: Fumarato -->
+        <g transform="translate(110, 1230)">
+          <g transform="translate(0, 0)">
+            <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">Fumarato</text>
+            <text x="0" y="16" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">4 Carbonos [4C] (trans-Dicarboxilato)</text>
+            <text x="0" y="30" fill="#64748b" font-size="10" font-family="'Inter', sans-serif">Subproducto de la escisión</text>
+            <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Conexión al Ciclo de Krebs (Biciclo)</text>
+          </g>
+          <g transform="translate(0, 60)">
+            
+<g class="mol-fumarato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: COO- superior izquierdo -->
+  <text x="24" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="32" y1="22" x2="48" y2="38" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: Carbono alqueno (CH) -->
+  <text x="56" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+
+  <!-- Doble enlace trans C2 = C3 -->
+  <line x1="66" y1="45" x2="88" y2="63" stroke="#0f172a" stroke-width="2.6"/>
+  <line x1="70" y1="39" x2="92" y2="57" stroke="#0f172a" stroke-width="1.8"/>
+
+  <!-- C3: Carbono alqueno (CH) -->
+  <text x="98" y="73" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+
+  <!-- C4: COO- inferior derecho -->
+  <line x1="106" y1="78" x2="122" y2="94" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="130" y="106" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+          </g>
+        </g>
+        
+    <g id="biciclo_krebs_carril_izquierdo">
+      <!-- Línea ascendente desde Fumarato (Y=1220) hacia Aspartato (Y=1000) -->
+      <path d="M 185 1220 L 185 1020" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#arrowOrange)" fill="none"/>
+      <text x="185" y="1125" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#c2410c" text-anchor="middle">↑ FUMARATO ➔ ASPARTATO</text>
+    </g>
+    
+      <!-- Metabolito: L-Arginina -->
+      <g transform="translate(380, 1350)">
+        <g transform="translate(0, 0)">
+          
+<g class="mol-arginina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: COO- -->
+  <text x="36" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="36" y1="21" x2="36" y2="35" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: Carbono Alfa (CH) -->
+  <text x="36" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- Amino Alfa (+NH3) -->
+  <line x1="48" y1="43" x2="64" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <rect x="66" y="31" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="85" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- Enlace C2-C3 -->
+  <line x1="36" y1="52" x2="36" y2="66" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3: CH2 -->
+  <text x="36" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3-C4 -->
+  <line x1="36" y1="83" x2="36" y2="97" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C4: CH2 -->
+  <text x="36" y="109" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C4-C5 -->
+  <line x1="36" y1="114" x2="36" y2="128" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C5: CH2 -->
+  <text x="36" y="140" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C5 a Nitrogeno Delta (NH) -->
+  <line x1="36" y1="145" x2="36" y2="159" stroke="#2563eb" stroke-width="2"/>
+  <text x="36" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+
+  <!-- Enlace horizontal hacia Carbono Guanidino C6 -->
+  <line x1="48" y1="167" x2="64" y2="167" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C6: Carbono Central Guanidino -->
+  <text x="72" y="171" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+
+  <!-- Doble enlace C = ⁺NH2 (arriba) -->
+  <line x1="69" y1="159" x2="69" y2="145" stroke="#2563eb" stroke-width="2.2"/>
+  <line x1="75" y1="159" x2="75" y2="145" stroke="#2563eb" stroke-width="2.2"/>
+  <rect x="53" y="123" width="38" height="20" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="72" y="137" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₂</text>
+
+  <!-- Enlace simple C6 - NH2 -->
+  <line x1="80" y1="167" x2="96" y2="167" stroke="#2563eb" stroke-width="2"/>
+  <text x="110" y="171" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH₂</text>
+</g>
+
+        </g>
+        <g transform="translate(135, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">L-Arginina</text>
+          <text x="0" y="18" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">6 Carbonos [6C] (Aminoácido)</text>
+          <text x="0" y="33" fill="#64748b" font-size="10.5" font-family="'Inter', sans-serif">Grupo guanidino cargado</text>
+          <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Sustrato de la Arginasa</text>
+        </g>
+      </g>
+    
+    <g transform="translate(460, 1560)">
+      <!-- Flecha curva que gira hacia la derecha hacia Ornitina citosólica (X=650) -->
+      <path d="M 0 0 L 0 35 Q 0 100 55 100 L 185 100" fill="none" stroke="#0d9488" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+
+      <!-- Entrada de Agua (+ H2O) para la hidrólisis -->
+      <path d="M -60 15 Q -20 15 -5 30" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <text x="-65" y="19" fill="#0284c7" font-family="'Inter', sans-serif" font-size="11" font-weight="900" text-anchor="end">+ H₂O</text>
+
+      <!-- Salida descendente hacia la UREA (Excreción en X=460) -->
+      <path d="M 0 45 L 0 260" fill="none" stroke="#dc2626" stroke-width="2.6" marker-end="url(#arrowRed)"/>
+      <text x="-15" y="160" fill="#dc2626" font-family="'Inter', sans-serif" font-size="11" font-weight="900" text-anchor="end">Salida de UREA ➔</text>
+
+      <!-- Metadatos de la Arginasa -->
+      <g transform="translate(60, 36)">
+        <text x="0" y="0" fill="#0f172a" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900">Arginasa 1 (ARG1)</text>
+        <text x="0" y="14" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">EC 3.5.3.1 (Mn²⁺)</text>
+        <text x="0" y="27" fill="#15803d" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700">Hidrólisis terminal</text>
+      </g>
+    </g>
+    
+        <!-- Metabolito: L-Ornitina (Citosol) -->
+        <g transform="translate(650, 1560)">
+          <g transform="translate(0, 0)">
+            <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">L-Ornitina (Citosol)</text>
+            <text x="0" y="16" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">5 Carbonos [5C]</text>
+            <text x="0" y="30" fill="#64748b" font-size="10" font-family="'Inter', sans-serif">Regenerada tras hidrólisis</text>
+            <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Retorno vía ORNT1 ↻</text>
+          </g>
+          <g transform="translate(0, 60)">
+            
+<g class="mol-ornitina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: Grupo Carboxilato (COO-) -->
+  <text x="36" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="36" y1="21" x2="36" y2="35" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: Carbono Alfa (CH) -->
+  <text x="36" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- Grupo Amino Alfa (+NH3) -->
+  <line x1="48" y1="43" x2="64" y2="43" stroke="#2563eb" stroke-width="2"/>
+  <rect x="66" y="31" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="85" y="47" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- Enlace C2-C3 -->
+  <line x1="36" y1="52" x2="36" y2="66" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C3: CH2 -->
+  <text x="36" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3-C4 -->
+  <line x1="36" y1="83" x2="36" y2="97" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C4: CH2 -->
+  <text x="36" y="109" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C4-C5 -->
+  <line x1="36" y1="114" x2="36" y2="128" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C5: CH2 -->
+  <text x="36" y="140" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C5 a Grupo Amino Delta -->
+  <line x1="36" y1="145" x2="36" y2="159" stroke="#2563eb" stroke-width="2"/>
+  <rect x="17" y="161" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="36" y="177" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+</g>
+
+          </g>
+        </g>
+        
+      <!-- Metabolito: UREA (Carbamida) -->
+      <g transform="translate(416, 1830)">
+        <g transform="translate(0, 0)">
+          
+<g class="mol-urea" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Oxígeno Carbonilo (arriba) -->
+  <text x="44" y="16" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- Doble enlace C=O -->
+  <line x1="41" y1="21" x2="41" y2="35" stroke="#dc2626" stroke-width="2.2"/>
+  <line x1="47" y1="21" x2="47" y2="35" stroke="#dc2626" stroke-width="2.2"/>
+
+  <!-- Carbono central (C) -->
+  <text x="44" y="48" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+
+  <!-- Enlace diagonal hacia H2N izquierdo -->
+  <line x1="36" y1="52" x2="22" y2="64" stroke="#2563eb" stroke-width="2.2"/>
+  <text x="12" y="76" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">H₂N</text>
+
+  <!-- Enlace diagonal hacia NH2 derecho -->
+  <line x1="52" y1="52" x2="66" y2="64" stroke="#2563eb" stroke-width="2.2"/>
+  <text x="76" y="76" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH₂</text>
+</g>
+
+        </g>
+        <g transform="translate(100, 25)">
+          <text x="0" y="0" fill="#0f172a" font-size="15.5" font-weight="800" font-family="'Inter', sans-serif">UREA (Carbamida)</text>
+          <text x="0" y="18" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace">1 Carbono [1C] (Diamida)</text>
+          <text x="0" y="33" fill="#64748b" font-size="10.5" font-family="'Inter', sans-serif">Compuesto neutro y no tóxico</text>
+          <text x="0" y="44" fill="#0d9488" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Contiene ambos nitrógenos de desecho</text>
+        </g>
+      </g>
+    
+    <g id="canalizacion_urea_capilar">
+      <path d="M 460 1920 L 460 2040" fill="none" stroke="#dc2626" stroke-width="2.8" marker-end="url(#arrowRed)"/>
+      <text x="475" y="1980" fill="#991b1b" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900">➔ Excreción hacia Torrente Sanguíneo y Riñón</text>
+    </g>
+    
+    </svg>
