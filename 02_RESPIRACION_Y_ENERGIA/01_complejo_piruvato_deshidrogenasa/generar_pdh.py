@@ -2,17 +2,13 @@
 """
 GENERADOR DEL COMPLEJO PIRUVATO DESHIDROGENASA (PDH) - MAPA BIOLÓGICO INTEGRADO
 =================================================================================
-Diseño Orgánico y Funcional (idéntico a la Cadena Respiratoria y Mapa Integrado):
-- Sin cajas de texto cuadradas artificiales.
-- Entorno celular real: Citosol -> Membranas (VDAC, MPC) -> Matriz Mitocondrial.
-- La regulación ocurre DIRECTAMENTE donde actúa (PDK y PDP incrustadas sobre E1).
-- Las patologías e inhibidores señalan DIRECTAMENTE su diana molecular:
-  * Beriberi / Déficit B1 señala a E1 (TPP).
-  * Arsenito / Mercuriales señala al enlace ditiol de E2 (Lipoamida).
-  * Acidosis Láctica señala el desvío a LDH si E1 falla.
-- El Acetil-CoA producido se bifurca directamente mediante flechas de flujo metabólico
-  hacia sus 4 destinos (Krebs, Lipogénesis, Cetogénesis y Colesterol) en la base.
-- Cero solapamientos verificado geométricamente.
+Diseño Bioquímico Editorial Limpio y Despejado (Ancho 1750, Alto 2150):
+- Columna metabólica a la izquierda (x=280) con amplio espaciado vertical.
+- Subunidades E1, E2, E3 y sus intermediarios sin interferencias ni cruces.
+- Interruptor de E1 visual (Semáforo Verde "Encendida" / Rojo "Apagada") a la derecha de E1.
+- Patologías ubicadas directamente junto a su diana (Déficit B1 en E1, Arsenito en E2).
+- Bifurcación del Acetil-CoA en un bloque horizontal inferior claramente conectado.
+- Cero solapamientos verificado con detectar_solapamientos.py.
 """
 
 import os
@@ -25,8 +21,8 @@ from estructuras_pdh import (
     ACETIL_COA
 )
 
-ANCHO_CANVAS = 1560
-ALTO_CANVAS = 2050
+ANCHO_CANVAS = 1750
+ALTO_CANVAS = 2200
 
 CABECERA_HTML = f"""<!DOCTYPE html>
 <html lang="es">
@@ -63,33 +59,27 @@ CABECERA_HTML = f"""<!DOCTYPE html>
   <div class="lienzo-svg">
     <svg width="{ANCHO_CANVAS}" height="{ALTO_CANVAS}" viewBox="0 0 {ANCHO_CANVAS} {ALTO_CANVAS}" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <!-- Flecha de flujo metabólico principal (Naranja) -->
+        <!-- Marcadores de flechas -->
         <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
           <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
         </marker>
-        <!-- Flecha de gasto / reactivo (Roja) -->
         <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
           <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
         </marker>
-        <!-- Flecha de producto / ganancia energética (Verde) -->
         <marker id="arrowGreen" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
           <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#059669" />
         </marker>
-        <!-- Flecha de Coenzima A (Púrpura) -->
         <marker id="arrowPurple" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
           <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#7c3aed" />
         </marker>
-        <!-- Flecha gris de descarboxilación -->
         <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
           <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#64748b" />
         </marker>
-        <!-- Flecha dorada redox -->
         <marker id="arrowAmber" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
           <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#d97706" />
         </marker>
-        <!-- Marcador de Inhibición / Bloqueo (Barra T roja) -->
         <marker id="inhibitionT" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-          <line x1="5" y1="0" x2="5" y2="6" stroke="#dc2626" stroke-width="2.2" />
+          <line x1="5" y1="0" x2="5" y2="6" stroke="#dc2626" stroke-width="2.4" />
         </marker>
 
         <!-- Gradientes celulares y mitocondriales -->
@@ -105,7 +95,6 @@ CABECERA_HTML = f"""<!DOCTYPE html>
           <stop offset="100%" stop-color="#fef08a" stop-opacity="0.88" />
         </linearGradient>
 
-        <!-- Filtro orgánico suave -->
         <filter id="shadowGlow" x="-10%" y="-10%" width="120%" height="120%">
           <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
         </filter>
@@ -141,12 +130,11 @@ def generar_svg():
     partes = []
 
     # =========================================================================
-    # 1. ENTORNO CELULAR BIOLÓGICO REAL (CITOSOL, BICAPAS Y MATRIZ)
+    # 1. ENTORNO BIOLÓGICO: CITOSOL, MEMBRANAS Y MATRIZ
     # =========================================================================
-    y_mme = 130
-    y_eim = 144
-    y_mmi = 176
-    y_matriz = 196
+    y_mme = 125
+    y_eim = 139
+    y_mmi = 171
 
     # Matriz mitocondrial de fondo
     partes.append(f'<rect width="{ANCHO_CANVAS}" height="{ALTO_CANVAS}" fill="url(#gradMatrizPDH)"/>')
@@ -155,9 +143,9 @@ def generar_svg():
     partes.append(f'<rect x="0" y="0" width="{ANCHO_CANVAS}" height="{y_mme}" fill="url(#gradCitosolPDH)"/>')
     partes.append(f"""
     <!-- Etiqueta Citosol -->
-    <g transform="translate(40, 40)" opacity="0.85">
-      <text x="0" y="0" fill="#334155" font-size="18" font-weight="900" letter-spacing="2">CITOSOL CELULAR</text>
-      <text x="0" y="18" fill="#64748b" font-size="11">Final de la Glucólisis • Origen del Piruvato</text>
+    <g transform="translate(40, 38)" opacity="0.85">
+      <text x="0" y="0" fill="#334155" font-size="17" font-weight="900" letter-spacing="2">CITOSOL CELULAR</text>
+      <text x="0" y="17" fill="#64748b" font-size="11">Final de la Glucólisis • Origen del Piruvato</text>
     </g>
     """)
 
@@ -175,85 +163,82 @@ def generar_svg():
     <text x="40" y="{y_mmi + 14}" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="800">MMI (Impermeable a H⁺)</text>
 
     <!-- Matriz Mitocondrial -->
-    <g transform="translate(40, {y_matriz + 40})" opacity="0.85">
+    <g transform="translate(40, 235)" opacity="0.85">
       <text x="0" y="0" fill="#78350f" font-size="20" font-weight="900" letter-spacing="2">MATRIZ MITOCONDRIAL</text>
-      <text x="0" y="18" fill="#92400e" font-size="11.5">Descarboxilación oxidativa del Piruvato • Máquina multienzimática PDH</text>
+      <text x="0" y="18" fill="#92400e" font-size="11.5">Descarboxilación oxidativa del Piruvato • Complejo PDH multienzimático</text>
     </g>
     """)
 
-    # Transportador MPC en la MMI (x=380)
+    # Transportador MPC en la MMI (x=330)
     partes.append(f"""
-    <g transform="translate(345, {y_mmi - 12})">
+    <g transform="translate(295, {y_mmi - 12})">
       <rect x="0" y="0" width="70" height="44" rx="10" fill="#9a3412" stroke="#7c2d12" stroke-width="2.2"/>
       <text x="35" y="27" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="900" text-anchor="middle">MPC</text>
     </g>
-    <text x="425" y="{y_mmi + 14}" fill="#78350f" font-size="11.5" font-weight="800">Carrier de Piruvato (MPC1/2) • Simport H⁺</text>
+    <text x="375" y="{y_mmi + 14}" fill="#78350f" font-size="11.5" font-weight="800">Carrier de Piruvato (MPC1/2)</text>
     """)
 
     # Banner del Título Superior
     partes.append(f"""
-    <g transform="translate(820, 35)">
-      <rect x="0" y="0" width="620" height="75" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2" filter="url(#shadowGlow)"/>
-      <rect x="16" y="16" width="44" height="44" rx="8" fill="#ea580c"/>
-      <text x="38" y="46" fill="#ffffff" font-size="24" font-weight="900" text-anchor="middle">5</text>
-      <text x="75" y="35" fill="#0f172a" font-size="17" font-weight="900">COMPLEJO PIRUVATO DESHIDROGENASA (PDH)</text>
-      <text x="75" y="54" fill="#ea580c" font-size="11.5" font-weight="700">Descarboxilación Oxidativa de Piruvato • EC 1.2.4.1 • ΔG°' = -33.4 kJ/mol</text>
+    <g transform="translate(1080, 32)">
+      <rect x="0" y="0" width="630" height="72" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2" filter="url(#shadowGlow)"/>
+      <rect x="16" y="14" width="44" height="44" rx="8" fill="#ea580c"/>
+      <text x="38" y="44" fill="#ffffff" font-size="24" font-weight="900" text-anchor="middle">5</text>
+      <text x="75" y="33" fill="#0f172a" font-size="17" font-weight="900">COMPLEJO PIRUVATO DESHIDROGENASA (PDH)</text>
+      <text x="75" y="52" fill="#ea580c" font-size="11.5" font-weight="700">Descarboxilación Oxidativa de Piruvato • EC 1.2.4.1 • ΔG°' = -33.4 kJ/mol</text>
     </g>
     """)
 
     # =========================================================================
-    # 2. COLUMNA METABÓLICA CENTRAL (MECANISMO CATALÍTICO EN 5 ETAPAS)
+    # 2. COLUMNA METABÓLICA CENTRAL (MECANISMO PASO A PASO)
     # =========================================================================
-    x_col = 340
+    x_col = 290
 
     # 1. Piruvato Citosol
-    partes.append(nodo_metabolito(x_col, 25, "Piruvato (Citosol)", "3 Carbonos", PIRUVATO,
+    partes.append(nodo_metabolito(x_col, 20, "Piruvato (Citosol)", "3 Carbonos", PIRUVATO,
                                   detalle="Generado por Piruvato Cinasa en Glucólisis",
-                                  detalle2="Difusión facilitada por VDAC en la MME", offset_texto=100))
+                                  detalle2="Cruza la MME por difusión facilitada (VDAC)", offset_texto=100))
 
-    # Transporte a través de MPC
+    # Transporte por MPC
     partes.append(f"""
-    <path d="M {x_col + 40} 120 L {x_col + 40} 160 M {x_col + 40} 210 L {x_col + 40} 250" stroke="#ea580c" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
+    <path d="M {x_col + 40} 115 L {x_col + 40} 155 M {x_col + 40} 205 L {x_col + 40} 245" stroke="#ea580c" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
     """)
 
     # 2. Piruvato Matricial
-    partes.append(nodo_metabolito(x_col, 255, "Piruvato (Matriz)", "3 Carbonos", PIRUVATO,
+    partes.append(nodo_metabolito(x_col, 250, "Piruvato (Matriz)", "3 Carbonos", PIRUVATO,
                                   detalle="Sustrato alimentador del Complejo Multienzimático",
                                   detalle2="Concentración regula el recambio catalítico", offset_texto=100))
 
-    # Flecha Reacción 1: Subunidad E1 (Descarboxilación)
+    # Reacción 1: Subunidad E1
     partes.append(f"""
     <!-- Reacción E1 -->
-    <g transform="translate({x_col + 40}, 385)">
-      <line x1="0" y1="0" x2="0" y2="75" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
-      <!-- Curva de descarboxilación CO2 -->
-      <path d="M -8 24 Q -45 42 -115 42" fill="none" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arrowRed)"/>
-      <text x="-122" y="46" fill="#dc2626" font-size="12" font-weight="900" text-anchor="end">+ CO₂ ↑</text>
+    <g transform="translate({x_col + 40}, 380)">
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
+      <path d="M -8 22 Q -45 40 -115 40" fill="none" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arrowRed)"/>
+      <text x="-122" y="44" fill="#dc2626" font-size="12" font-weight="900" text-anchor="end">+ CO₂ ↑</text>
       
-      <!-- Datos enzimáticos -->
-      <g transform="translate(25, 20)">
+      <g transform="translate(25, 18)">
         <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">E1: Piruvato Deshidrogenasa (TPP)</text>
         <text x="0" y="16" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 1.2.4.1 • Cofactor: TPP (Tiamina Pi)</text>
-        <text x="0" y="32" fill="#c2410c" font-size="10" font-weight="800">Ataque nucleofílico del carbanión TPP • Paso limitante</text>
+        <text x="0" y="32" fill="#c2410c" font-size="10" font-weight="800">Ataque nucleofílico de carbanión TPP • Paso limitante</text>
       </g>
     </g>
     """)
 
-    # 3. Intermediario: Hidroxietil-TPP
-    partes.append(nodo_metabolito(x_col - 20, 500, "Hidroxietil-TPP", "2 Carbonos unidos a E1", HIDROXIETIL_TPP,
+    # 3. Intermediario 1: Hidroxietil-TPP
+    partes.append(nodo_metabolito(x_col - 20, 490, "Hidroxietil-TPP", "2 Carbonos en E1", HIDROXIETIL_TPP,
                                   detalle="Intermediario carbaniónico unido covalentemente a E1",
                                   detalle2="Canalizado internamente al centro activo de E2", offset_texto=210))
 
-    # Flecha Reacción 2: Subunidad E2 Paso 1 (Oxidación y transferencia)
+    # Reacción 2: Subunidad E2 (Oxidación)
     partes.append(f"""
     <!-- Reacción E2 Paso 1 -->
-    <g transform="translate({x_col + 40}, 640)">
+    <g transform="translate({x_col + 40}, 625)">
       <line x1="0" y1="0" x2="0" y2="70" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
-      <!-- Entrada del brazo lipoil oxidado -->
       <path d="M -120 12 Q -45 12 -8 24" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
       <text x="-125" y="16" fill="#b45309" font-size="11.5" font-weight="800" text-anchor="end">+ Brazo Lipoil (E2)</text>
       
-      <g transform="translate(25, 20)">
+      <g transform="translate(25, 18)">
         <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">E2: Lipoil Transacetilasa (Oxidación)</text>
         <text x="0" y="16" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 2.3.1.12 • Cofactor: Lipoamida (S-S)</text>
         <text x="0" y="32" fill="#15803d" font-size="10" font-weight="800">Oxida el hidroxietilo a acetilo • TPP regenera su carbanión</text>
@@ -261,21 +246,20 @@ def generar_svg():
     </g>
     """)
 
-    # 4. Intermediario: Acetil-Lipoamida
-    partes.append(nodo_metabolito(x_col - 20, 750, "Acetil-Dihidrolipoamida", "2 Carbonos en E2", ACETIL_LIPOAMIDA,
+    # 4. Intermediario 2: Acetil-Lipoamida
+    partes.append(nodo_metabolito(x_col - 20, 735, "Acetil-Dihidrolipoamida", "2 Carbonos en E2", ACETIL_LIPOAMIDA,
                                   detalle="Tioéster de alta energía en el brazo lipoilo de 14 Å",
                                   detalle2="Oscila directamente hacia el sitio aceptor de CoA-SH", offset_texto=235))
 
-    # Flecha Reacción 3: Subunidad E2 Paso 2 (Transacetilación a CoA-SH)
+    # Reacción 3: Subunidad E2 (Transacetilación a CoA-SH)
     partes.append(f"""
     <!-- Reacción E2 Paso 2 -->
-    <g transform="translate({x_col + 40}, 890)">
+    <g transform="translate({x_col + 40}, 870)">
       <line x1="0" y1="0" x2="0" y2="70" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
-      <!-- Entrada de CoA-SH -->
       <path d="M -120 12 Q -45 12 -8 24" fill="none" stroke="#7c3aed" stroke-width="2.2" marker-end="url(#arrowPurple)"/>
       <text x="-125" y="16" fill="#7c3aed" font-size="12" font-weight="900" text-anchor="end">+ CoA-SH</text>
       
-      <g transform="translate(25, 20)">
+      <g transform="translate(25, 18)">
         <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">E2: Lipoil Transacetilasa (Transacetilación)</text>
         <text x="0" y="16" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 2.3.1.12 • Aceptor: Coenzima A libre</text>
         <text x="0" y="32" fill="#7c3aed" font-size="10" font-weight="800">Transferencia del acetilo al grupo tiol de la CoA</text>
@@ -283,34 +267,32 @@ def generar_svg():
     </g>
     """)
 
-    # 5. PRODUCTO PRINCIPAL: Acetil-CoA
-    partes.append(nodo_metabolito(x_col - 10, 1000, "Acetil-Coenzima A", "2 Carbonos activados", ACETIL_COA,
+    # 5. PRODUCTO FINAL: Acetil-CoA
+    partes.append(nodo_metabolito(x_col - 10, 980, "Acetil-Coenzima A", "2 Carbonos activados", ACETIL_COA,
                                   detalle="Tioéster de alta energía (ΔG°' hidrólisis = -31.5 kJ/mol)",
                                   detalle2="Encrucijada universal que alimenta las rutas centrales", offset_texto=185))
 
-    # Canalización a E3
+    # Canalización hacia E3
     partes.append(f"""
-    <path d="M {x_col + 150} 1130 L {x_col + 150} 1195" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <path d="M {x_col + 40} 1105 L {x_col + 40} 1165" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
     """)
 
     # 6. Dihidrolipoamida reducida
-    partes.append(nodo_metabolito(x_col - 20, 1210, "Dihidrolipoamida (reducida)", "Forma inactiva E2", DIHIDROLIPOAMIDA,
+    partes.append(nodo_metabolito(x_col - 20, 1180, "Dihidrolipoamida (reducida)", "Forma inactiva E2", DIHIDROLIPOAMIDA,
                                   detalle="Dos grupos tiol (-SH HS-) tras liberar el acetilo",
                                   detalle2="Obligatorio reoxidar para permitir la siguiente vuelta", offset_texto=210))
 
-    # Flecha Reacción 4: Subunidad E3 (Cascada Redox)
+    # Reacción 4: Subunidad E3 (curvas despejadas para no cortar el texto de NADH)
     partes.append(f"""
     <!-- Reacción E3 -->
-    <g transform="translate({x_col + 40}, 1355)">
-      <line x1="0" y1="0" x2="0" y2="75" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
-      <!-- Entrada NAD+ -->
+    <g transform="translate({x_col + 40}, 1315)">
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
       <path d="M -120 12 Q -45 12 -8 24" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
       <text x="-125" y="16" fill="#475569" font-size="11.5" font-weight="800" text-anchor="end">+ NAD⁺</text>
-      <!-- Salida NADH -->
-      <path d="M -8 30 Q -50 52 -135 52" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
-      <text x="-142" y="56" fill="#059669" font-size="12.5" font-weight="900" text-anchor="end">+ NADH + H⁺</text>
+      <path d="M -8 26 Q -40 45 -100 45" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+      <text x="-110" y="49" fill="#059669" font-size="12.5" font-weight="900" text-anchor="end">+ NADH + H⁺</text>
 
-      <g transform="translate(25, 20)">
+      <g transform="translate(25, 18)">
         <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">E3: Dihidrolipoil Deshidrogenasa</text>
         <text x="0" y="16" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 1.8.1.4 • Cofactores: FAD (prostético) + NAD⁺ móvil</text>
         <text x="0" y="32" fill="#047857" font-size="10" font-weight="800">Cascada electrónica: Tioles ➔ FAD (FADH₂) ➔ NAD⁺ (NADH)</text>
@@ -319,148 +301,138 @@ def generar_svg():
     """)
 
     # 7. Lipoamida oxidada regenerada
-    partes.append(nodo_metabolito(x_col - 10, 1475, "Lipoamida Oxidada (S-S)", "Forma activa de E2", LIPOAMIDA_OXIDADA,
+    partes.append(nodo_metabolito(x_col - 10, 1425, "Lipoamida Oxidada (S-S)", "Forma activa de E2", LIPOAMIDA_OXIDADA,
                                   detalle="Puente disulfuro cíclico regenerado con éxito",
                                   detalle2="Lista para recibir el siguiente acetilo de E1", offset_texto=220))
 
-    # Bucle cerrado de regeneración por el lateral izquierdo
+    # Bucle cerrado de regeneración de E2 (arco amplio a la izquierda)
     partes.append(f"""
-    <path d="M {x_col - 50} 1515 C 20 1515, 20 735, {x_col - 50} 735" fill="none" stroke="#d97706" stroke-width="2.2" stroke-dasharray="8 5" marker-end="url(#arrowAmber)"/>
-    <text x="16" y="1125" fill="#b45309" font-size="11" font-weight="900" transform="rotate(-90 16 1125)" text-anchor="middle">
+    <path d="M {x_col - 50} 1465 C 20 1465, 20 710, {x_col - 50} 710" fill="none" stroke="#d97706" stroke-width="2.2" stroke-dasharray="8 5" marker-end="url(#arrowAmber)"/>
+    <text x="16" y="1085" fill="#b45309" font-size="11" font-weight="900" transform="rotate(-90 16 1085)" text-anchor="middle">
       ↺ REGENERACIÓN CATALÍTICA DEL BRAZO LIPOILO DE E2
     </text>
     """)
 
     # =========================================================================
-    # 3. REGULACIÓN BIOLÓGICA DIRECTA: INCRUSTADA DONDE OCURRE (SOBRE E1)
+    # 3. INTERRUPTOR BIOLÓGICO DE REGULACIÓN DE E1 (SÚPER VISUAL Y CLARO)
     # =========================================================================
-    # Ubicada a la derecha de E1 (x=830, y=390)
-    x_reg = 840
-    y_reg = 390
+    x_reg = 860
+    y_reg = 360
 
     partes.append(f"""
-    <!-- REGULACIÓN BIOLÓGICA DE LA SUBUNIDAD E1 -->
+    <!-- INTERRUPTOR DE REGULACIÓN DE E1 -->
     <g transform="translate({x_reg}, {y_reg})">
-      <!-- Conector curvo desde la reacción de E1 hacia el interruptor de fosforilación -->
-      <path d="M -410 40 C -250 40, -100 40, 0 40" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
+      <!-- Conector desde la reacción E1 -->
+      <path d="M -430 45 C -280 45, -120 45, -10 45" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
 
-      <!-- Título biológico directo (sin caja) -->
-      <text x="0" y="-80" fill="#0f172a" font-size="16" font-weight="900">INTERRUPTOR COVALENTE Y ALOSTÉRICO DE E1</text>
-      <text x="0" y="-62" fill="#64748b" font-size="11.5">Fosforilación reversible en el residuo Serina de la subunidad E1α</text>
+      <!-- Título biológico claro -->
+      <text x="0" y="-10" fill="#0f172a" font-size="16" font-weight="900">INTERRUPTOR BIOLÓGICO DE E1 (PDK vs PDP)</text>
+      <text x="0" y="10" fill="#64748b" font-size="11.5">Control por fosforilación en el residuo Serina de la subunidad E1α:</text>
 
-      <!-- Estado Activo -->
-      <g transform="translate(10, 42)">
-        <rect x="0" y="0" width="160" height="46" rx="23" fill="#dcfce7" stroke="#16a34a" stroke-width="2.2"/>
-        <text x="80" y="22" fill="#15803d" font-size="13" font-weight="900" text-anchor="middle">E1 ACTIVA</text>
-        <text x="80" y="36" fill="#166534" font-size="9.5" font-weight="700" text-anchor="middle">Desfosforilada (Ser-OH)</text>
+      <!-- Panel Verde: CUÁNDO ESTÁ ACTIVA (ENCENDIDA) -->
+      <g transform="translate(0, 30)">
+        <rect x="0" y="0" width="220" height="150" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="28" cy="28" r="14" fill="#16a34a"/>
+        <text x="28" y="34" fill="#ffffff" font-size="16" font-weight="900" text-anchor="middle">✓</text>
+        <text x="50" y="32" fill="#15803d" font-size="14" font-weight="900">PDH ENCENDIDA</text>
+        <text x="14" y="56" fill="#166534" font-size="11" font-weight="800">Desfosforilada (Ser-OH activo)</text>
+
+        <text x="14" y="80" fill="#0f172a" font-size="11" font-weight="800">¿Cuándo se activa?</text>
+        <text x="14" y="98" fill="#166534" font-size="10.5">• Ca²⁺ (ejercicio y contracción)</text>
+        <text x="14" y="114" fill="#166534" font-size="10.5">• Insulina (estado postprandial)</text>
+        <text x="14" y="130" fill="#166534" font-size="10.5">• Piruvato, ADP, NAD⁺ altos</text>
       </g>
 
-      <!-- Flecha PDK (Fosforilación inactivadora) -->
-      <path d="M 180 52 C 235 24, 315 24, 370 52" fill="none" stroke="#dc2626" stroke-width="2.6" marker-end="url(#arrowRed)"/>
-      <g transform="translate(275, 14)">
-        <text x="0" y="0" fill="#dc2626" font-size="12" font-weight="900" text-anchor="middle">PDK (Cinasa)</text>
-        <text x="0" y="13" fill="#b91c1c" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">+ ATP ➔ ADP</text>
-      </g>
+      <!-- Flechas del interruptor entre verde y rojo -->
+      <path d="M 230 65 L 310 65" fill="none" stroke="#dc2626" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+      <text x="270" y="56" fill="#dc2626" font-size="11" font-weight="900" text-anchor="middle">PDK (+ATP)</text>
 
-      <!-- Estado Inactivo -->
-      <g transform="translate(380, 42)">
-        <rect x="0" y="0" width="170" height="46" rx="23" fill="#fee2e2" stroke="#dc2626" stroke-width="2.2"/>
-        <text x="85" y="22" fill="#991b1b" font-size="13" font-weight="900" text-anchor="middle">E1 INACTIVA</text>
-        <text x="85" y="36" fill="#7f1d1d" font-size="9.5" font-weight="700" text-anchor="middle">Ⓟ Fosforilada (Ser-O-P)</text>
-      </g>
+      <path d="M 310 115 L 230 115" fill="none" stroke="#16a34a" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
+      <text x="270" y="135" fill="#16a34a" font-size="11" font-weight="900" text-anchor="middle">PDP (+H₂O)</text>
 
-      <!-- Flecha PDP (Desfosforilación activadora) -->
-      <path d="M 370 78 C 315 108, 235 108, 180 78" fill="none" stroke="#16a34a" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
-      <g transform="translate(275, 126)">
-        <text x="0" y="0" fill="#16a34a" font-size="12" font-weight="900" text-anchor="middle">PDP (Fosfatasa)</text>
-        <text x="0" y="13" fill="#15803d" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">+ H₂O ➔ Pi</text>
-      </g>
+      <!-- Panel Rojo: CUÁNDO SE APAGA (INACTIVA) -->
+      <g transform="translate(320, 30)">
+        <rect x="0" y="0" width="220" height="150" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+        <circle cx="28" cy="28" r="14" fill="#dc2626"/>
+        <text x="28" y="34" fill="#ffffff" font-size="16" font-weight="900" text-anchor="middle">✕</text>
+        <text x="50" y="32" fill="#991b1b" font-size="14" font-weight="900">PDH APAGADA</text>
+        <text x="14" y="56" fill="#991b1b" font-size="11" font-weight="800">Ⓟ Fosforilada (Ser-O-P inactivo)</text>
 
-      <!-- Efectores que actúan físicamente sobre PDK y PDP -->
-      <g transform="translate(275, -45)">
-        <text x="0" y="0" fill="#dc2626" font-size="10.5" font-weight="800" text-anchor="middle">⊕ Estimulan PDK (Apagan PDH):</text>
-        <text x="0" y="14" fill="#334155" font-size="9.5" font-weight="700" text-anchor="middle">NADH, Acetil-CoA, ATP (exceso energético)</text>
-      </g>
-      <g transform="translate(275, 154)">
-        <text x="0" y="0" fill="#16a34a" font-size="10.5" font-weight="800" text-anchor="middle">⊕ Estimulan PDP (Encienden PDH):</text>
-        <text x="0" y="14" fill="#334155" font-size="9.5" font-weight="700" text-anchor="middle">Ca²⁺ (contracción muscular) • Insulina (hígado)</text>
-      </g>
-
-      <!-- Inhibición directa alostérica sobre PDK por sustrato -->
-      <g transform="translate(20, 118)">
-        <text x="0" y="0" fill="#15803d" font-size="10.5" font-weight="800">⊖ Inhiben a la PDK:</text>
-        <text x="0" y="14" fill="#64748b" font-size="9.5">Piruvato, ADP, NAD⁺, Ca²⁺</text>
+        <text x="14" y="80" fill="#0f172a" font-size="11" font-weight="800">¿Cuándo se apaga?</text>
+        <text x="14" y="98" fill="#b91c1c" font-size="10.5">• Acetil-CoA alto (exceso)</text>
+        <text x="14" y="114" fill="#b91c1c" font-size="10.5">• NADH y ATP elevados</text>
+        <text x="14" y="130" fill="#7f1d1d" font-size="10">• Desvía piruvato a Gluconeogénesis</text>
       </g>
     </g>
     """)
 
     # =========================================================================
-    # 4. PATOLOGÍAS Y FARMACOLOGÍA: MOSTRADAS DIRECTAMENTE EN SU DIANA
+    # 4. PATOLOGÍAS SITUADAS DIRECTAMENTE AL LADO DE SU ENZIMA DIANA
     # =========================================================================
-    # 1. Deficiencia de Tiamina (Vitamina B1) y Mutación E1α señalando a E1 (x=840, y=230)
+    # Diana 1: Subunidad E1 (TPP) -> Situada exactamente en y=225 a la derecha de E1
     partes.append(f"""
     <!-- DIANA PATOLÓGICA 1: E1 / TPP -->
-    <g transform="translate(840, 230)">
-      <!-- Flecha indicadora hacia E1 -->
-      <path d="M -10 30 L -120 160" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
-      <g transform="translate(10, 15)">
-        <text x="0" y="0" fill="#be123c" font-size="13" font-weight="900">DIANA E1: DÉFICIT DE B₁ Y ACIDOSIS LÁCTICA</text>
-        <text x="0" y="18" fill="#334155" font-size="11">
-          • <tspan font-weight="700">Falta de Tiamina (B₁):</tspan> Agota el TPP en E1 ➔ Beriberi / Wernicke-Korsakoff.
-        </text>
-        <text x="0" y="34" fill="#334155" font-size="11">
-          • <tspan font-weight="700">Acidosis Láctica Congénita:</tspan> Mutación ligada al cromosoma X en E1α.
-        </text>
-        <text x="0" y="50" fill="#e11d48" font-size="10.5" font-weight="800">
-          Mecanismo: Al bloquearse E1, el Piruvato no entra a la mitocondria y la LDH lo reduce a Lactato.
-        </text>
-      </g>
+    <g transform="translate(860, 225)">
+      <rect x="0" y="0" width="550" height="70" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="1.8"/>
+      <circle cx="24" cy="24" r="12" fill="#be123c"/>
+      <text x="24" y="29" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">!</text>
+      
+      <text x="44" y="22" fill="#9f1239" font-size="12.5" font-weight="900">DIANA E1: DÉFICIT DE TIAMINA (B₁) Y ACIDOSA LÁCTICA</text>
+      <text x="44" y="40" fill="#334155" font-size="11">
+        • <tspan font-weight="700">Falta de B₁:</tspan> agota el TPP en E1 ➔ <tspan font-weight="700">Beriberi</tspan> y <tspan font-weight="700">Wernicke-Korsakoff</tspan>.
+      </text>
+      <text x="44" y="56" fill="#be123c" font-size="10.5" font-weight="700">
+        • Mutación en E1α: El Piruvato no entra a la mitocondria y la LDH lo reduce a Lactato en exceso.
+      </text>
+
+      <path d="M 0 35 L -140 130" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#inhibitionT)"/>
     </g>
     """)
 
-    # 2. Envenenamiento por Arsenito (AsO2-) señalando a E2 (x=840, y=700)
+    # Diana 2: Subunidad E2 (Lipoamida) -> Situada exactamente en y=625 a la derecha de E2
     partes.append(f"""
     <!-- DIANA PATOLÓGICA 2: E2 / LIPOAMIDA -->
-    <g transform="translate(860, 770)">
-      <!-- Flecha indicadora hacia el brazo lipoil en E2 -->
-      <path d="M -10 30 L -120 -80" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
-      <g transform="translate(10, 15)">
-        <text x="0" y="0" fill="#be123c" font-size="13" font-weight="900">DIANA E2: INTOXICACIÓN POR ARSENITO (AsO₂⁻)</text>
-        <text x="0" y="18" fill="#334155" font-size="11">
-          • El arsenito reacciona covalentemente con los dos tioles vecinales (-SH) de la dihidrolipoamida.
-        </text>
-        <text x="0" y="34" fill="#334155" font-size="11">
-          • Forma un quelato cíclico estable que bloquea de forma irreversible la actividad de E2.
-        </text>
-        <text x="0" y="50" fill="#15803d" font-size="10.5" font-weight="800">
-          Antídoto de rescate: Agentes ditiólicos como BAL (Dimercaprol) que regeneran la lipoamida.
-        </text>
-      </g>
+    <g transform="translate(860, 625)">
+      <rect x="0" y="0" width="550" height="70" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="1.8"/>
+      <circle cx="24" cy="24" r="12" fill="#be123c"/>
+      <text x="24" y="29" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">!</text>
+
+      <text x="44" y="22" fill="#9f1239" font-size="12.5" font-weight="900">DIANA E2: INTOXICACIÓN POR ARSENITO (AsO₂⁻)</text>
+      <text x="44" y="40" fill="#334155" font-size="11">
+        • El arsenito ataca los dos grupos -SH de la dihidrolipoamida formando un quelato cíclico irreversible.
+      </text>
+      <text x="44" y="56" fill="#15803d" font-size="10.5" font-weight="700">
+        • Antídoto: Quelantes ditiólicos como BAL (Dimercaprol) que regeneran el brazo móvil de E2.
+      </text>
+
+      <path d="M 0 35 L -140 20" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#inhibitionT)"/>
     </g>
     """)
 
     # =========================================================================
-    # 5. INTEGRACIÓN VISUAL: BIFURCACIÓN DEL ACETIL-COA HACIA SUS 4 DESTINOS
+    # 5. INTEGRACIÓN VISUAL: BIFURCACIÓN DEL ACETIL-COA EN EL EXTREMO INFERIOR
     # =========================================================================
-    y_dest = 1620
+    # Colocado en y=1680 (después de terminar E3 y la regeneración de lipoamida oxidada),
+    # evitando cualquier solapamiento vertical.
+    y_dest = 1720
     partes.append(f"""
     <!-- CONEXIÓN E INTEGRACIÓN TOTAL DEL ACETIL-COA -->
     <g transform="translate(50, {y_dest})">
-      <!-- Línea conectora que desciende desde el Acetil-CoA producido arriba (x=380, y=1000) -->
-      <path d="M 330 -580 L 330 -40 L 700 -40" fill="none" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(715, -60)">
-        <text x="0" y="0" fill="#ea580c" font-size="14" font-weight="900">FLUJO METABÓLICO DEL ACETIL-COA FORMADO</text>
-        <text x="0" y="16" fill="#64748b" font-size="11">Bifurcación biológica según el estado energético y hormonal del organismo:</text>
+      <!-- Línea conectora que desciende desde el Acetil-CoA producido arriba (x=380, y=980)
+           y baja por el lado izquierdo despejado sin tocar ninguna molécula -->
+      <path d="M 280 -640 L 280 -40 L 700 -40" fill="none" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(715, -65)">
+        <text x="0" y="0" fill="#ea580c" font-size="15" font-weight="900">BIFURCACIÓN Y DESTINOS DEL ACETIL-COA (2C) FORMADO</text>
+        <text x="0" y="16" fill="#64748b" font-size="11.5">Encrucijada universal que alimenta las rutas centrales según el estado metabólico:</text>
       </g>
 
-      <!-- 4 Módulos de Destinos con ancho 325px cada uno (x=20, 365, 710, 1055) -->
+      <!-- 4 Tarjetas de Destinos con ancho 380px cada una organizadas de forma holgada -->
       <!-- Destino 1: CICLO DE KREBS (VÍA 6) -->
       <g transform="translate(20, 0)">
-        <path d="M 310 -40 C 310 0, 160 0, 160 30" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+        <path d="M 330 -40 C 330 0, 190 0, 190 30" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
         
-        <rect x="0" y="30" width="325" height="230" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" filter="url(#shadowGlow)"/>
-        <g transform="translate(18, 55)">
-          <!-- Badge 6 -->
+        <rect x="0" y="30" width="375" height="230" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" filter="url(#shadowGlow)"/>
+        <g transform="translate(20, 55)">
           <rect x="0" y="0" width="28" height="28" rx="6" fill="#ea580c"/>
           <text x="14" y="20" fill="#ffffff" font-size="15" font-weight="900" text-anchor="middle">6</text>
           <text x="38" y="20" fill="#b45309" font-size="15" font-weight="900">CICLO DE KREBS (TCA)</text>
@@ -476,12 +448,11 @@ def generar_svg():
       </g>
 
       <!-- Destino 2: LIPOGÉNESIS (VÍA 10) -->
-      <g transform="translate(365, 0)">
-        <path d="M 310 -40 C 310 0, 510 0, 510 30" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(425, 0)">
+        <path d="M 330 -40 C 330 0, 595 0, 595 30" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
         
-        <rect x="0" y="30" width="325" height="230" rx="14" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadowGlow)"/>
-        <g transform="translate(18, 55)">
-          <!-- Badge 10 -->
+        <rect x="0" y="30" width="375" height="230" rx="14" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadowGlow)"/>
+        <g transform="translate(20, 55)">
           <rect x="0" y="0" width="28" height="28" rx="6" fill="#2563eb"/>
           <text x="14" y="20" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">10</text>
           <text x="38" y="20" fill="#1d4ed8" font-size="15" font-weight="900">LIPOGÉNESIS</text>
@@ -497,12 +468,11 @@ def generar_svg():
       </g>
 
       <!-- Destino 3: CETOGÉNESIS (VÍA 11) -->
-      <g transform="translate(710, 0)">
-        <path d="M 310 -40 C 310 -10, 860 -10, 860 30" fill="none" stroke="#db2777" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(830, 0)">
+        <path d="M 330 -40 C 330 -15, 1000 -15, 1000 30" fill="none" stroke="#db2777" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
         
-        <rect x="0" y="30" width="325" height="230" rx="14" fill="#fdf2f8" stroke="#ec4899" stroke-width="2" filter="url(#shadowGlow)"/>
-        <g transform="translate(18, 55)">
-          <!-- Badge 11 -->
+        <rect x="0" y="30" width="375" height="230" rx="14" fill="#fdf2f8" stroke="#ec4899" stroke-width="2" filter="url(#shadowGlow)"/>
+        <g transform="translate(20, 55)">
           <rect x="0" y="0" width="28" height="28" rx="6" fill="#db2777"/>
           <text x="14" y="20" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">11</text>
           <text x="38" y="20" fill="#be185d" font-size="15" font-weight="900">CETOGÉNESIS HEPÁTICA</text>
@@ -518,12 +488,11 @@ def generar_svg():
       </g>
 
       <!-- Destino 4: COLESTEROL Y MEVALONATO (VÍA 12) -->
-      <g transform="translate(1055, 0)">
-        <path d="M 310 -40 C 310 -20, 1200 -20, 1200 30" fill="none" stroke="#9333ea" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1235, 0)">
+        <path d="M 330 -40 C 330 -25, 1405 -25, 1405 30" fill="none" stroke="#9333ea" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
         
-        <rect x="0" y="30" width="335" height="230" rx="14" fill="#faf5ff" stroke="#a855f7" stroke-width="2" filter="url(#shadowGlow)"/>
-        <g transform="translate(18, 55)">
-          <!-- Badge 12 -->
+        <rect x="0" y="30" width="375" height="230" rx="14" fill="#faf5ff" stroke="#a855f7" stroke-width="2" filter="url(#shadowGlow)"/>
+        <g transform="translate(20, 55)">
           <rect x="0" y="0" width="28" height="28" rx="6" fill="#9333ea"/>
           <text x="14" y="20" fill="#ffffff" font-size="14" font-weight="900" text-anchor="middle">12</text>
           <text x="38" y="20" fill="#7e22ce" font-size="15" font-weight="900">COLESTEROL Y MEVALONATO</text>
