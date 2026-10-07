@@ -33,6 +33,7 @@ from estructuras_gluconeogenesis import (
 sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "01_glucolisis"))
 sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "03_glucogenogenesis_y_glucogenolisis"))
 sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "04_via_pentosas_fosfato"))
+sys.path.append(os.path.join(DIR_BASE, "02_RESPIRACION_Y_ENERGIA", "01_complejo_piruvato_deshidrogenasa"))
 sys.path.append(os.path.join(DIR_BASE, "02_RESPIRACION_Y_ENERGIA", "02_ciclo_de_krebs"))
 sys.path.append(os.path.join(DIR_BASE, "02_RESPIRACION_Y_ENERGIA", "03_cadena_transporte_electrones_y_atp_sintasa"))
 sys.path.append(os.path.join(DIR_BASE, "02_RESPIRACION_Y_ENERGIA", "04_lanzaderas_malato_aspartato_y_glicerol_p"))
@@ -42,6 +43,13 @@ sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "03_cetogenesis_y_cetolisis
 sys.path.append(os.path.join(DIR_BASE, "03_LIPIDOS", "04_colesterol_y_lipoproteinas"))
 sys.path.append(os.path.join(DIR_BASE, "04_NITROGENO_Y_AMINOACIDOS", "01_transaminacion_y_desaminacion"))
 sys.path.append(os.path.join(DIR_BASE, "04_NITROGENO_Y_AMINOACIDOS", "02_ciclo_de_la_urea"))
+
+from estructuras_pdh import (
+    HIDROXIETIL_TPP as PDH_HIDROXIETIL_TPP,
+    ACETIL_LIPOAMIDA as PDH_ACETIL_LIPOAMIDA,
+    DIHIDROLIPOAMIDA as PDH_DIHIDROLIPOAMIDA,
+    LIPOAMIDA_OXIDADA as PDH_LIPOAMIDA_OXIDADA
+)
 
 # Estructuras químicas
 from estructuras_aminoacidos import (
@@ -1095,16 +1103,23 @@ def construir_mapa_organico():
     partes.append(badge_via(5, x_k + 460, y_k - 10))
     partes.append(badge_via(6, x_k - 40, y_k + paso_k * 4))
 
-    # Complejo PDH (Transición MPC ➔ Acetil-CoA)
+    # Complejo PDH (Transición MPC ➔ Acetil-CoA) con Ancla de Zoom Molecular
     partes.append(f"""
-    <!-- Reacción PDH -->
+    <!-- Reacción PDH con Ancla de Zoom -->
     <path d="M 1680 {y_mito - 10} C 1680 {y_k - 20}, {x_k + 400} {y_k - 20}, {x_k + 370} {y_k + 10}" fill="none" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
-    <text x="{x_k + 500}" y="{y_k - 5}" fill="#c2410c" font-size="13" font-weight="900" font-family="'Inter', sans-serif">Complejo PDH (E1, E2, E3)</text>
-    <text x="{x_k + 500}" y="{y_k + 14}" fill="#64748b" font-size="11" font-family="'Inter', sans-serif">+ CoA-SH + NAD⁺ ➔ CO₂ + NADH</text>
-    <g transform="translate({x_k + 500}, {y_k + 30})">
-      <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800">⊕ Piruvato, ADP, NAD⁺, Ca²⁺</text>
-      <text x="0" y="12" fill="#dc2626" font-size="9" font-weight="800">⊖ Acetil-CoA, NADH, ATP</text>
-      <text x="0" y="24" fill="#ca8a04" font-size="9" font-weight="800">Ⓟ P (PDK) = inactiva · PDP activa (Ca²⁺/Insulina)</text>
+    <g id="ancla_pdh_molecular" transform="translate({x_k + 500}, {y_k - 10})">
+      <text x="0" y="5" fill="#c2410c" font-size="13" font-weight="900" font-family="'Inter', sans-serif">Complejo PDH (E1, E2, E3)</text>
+      <text x="0" y="24" fill="#64748b" font-size="11" font-family="'Inter', sans-serif">+ CoA-SH + NAD⁺ ➔ CO₂ + NADH</text>
+      <g transform="translate(0, 40)">
+        <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800">⊕ Piruvato, ADP, NAD⁺, Ca²⁺</text>
+        <text x="0" y="12" fill="#dc2626" font-size="9" font-weight="800">⊖ Acetil-CoA, NADH, ATP</text>
+        <text x="0" y="24" fill="#ca8a04" font-size="9" font-weight="800">Ⓟ P (PDK) = inactiva · PDP activa (Ca²⁺/Insulina)</text>
+      </g>
+      <!-- Indicador de Zoom hacia la Lupa Molecular abajo -->
+      <g transform="translate(0, 78)">
+        <rect x="-6" y="-12" width="220" height="24" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.3"/>
+        <text x="104" y="3" fill="#15803d" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">🔍 Ver Detalle en Lupa PDH (abajo) ➔</text>
+      </g>
     </g>
     """)
 
@@ -1159,6 +1174,244 @@ def construir_mapa_organico():
     </g>
     """)
     partes.append('</g>')
+
+    # =========================================================================
+    # 7B. LUPA MOLECULAR: COMPLEJO PIRUVATO DESHIDROGENASA (PDH) - VÍA 5
+    # =========================================================================
+    # Marco panorámico rectangular con bisel cian (idéntico a la Lupa de la CTE)
+    # Ubicado en la zona matricial media-inferior: X=1460, Y=3440, W=800, H=700
+    x_pdh_marco = 1460
+    y_pdh_marco = 3440
+    w_pdh_marco = 800
+    h_pdh_marco = 700
+
+    partes.append(f"""
+    <!-- ================================================================= -->
+    <!-- LUPA MOLECULAR: COMPLEJO PIRUVATO DESHIDROGENASA (PDH)            -->
+    <!-- ================================================================= -->
+    <g id="lupa_piruvato_deshidrogenasa" data-arrastrable="1">
+
+      <!-- 1. Rayo Conector desde el punto de anclaje (x=1640, y=2235) hasta la Lupa -->
+      <!-- Curva que desciende limpia por el corredor X=1510 entre Krebs y la transaminación -->
+      <path d="M 1640 2315 C 1530 2360, 1510 2440, 1510 2560 L 1510 3340 L {x_pdh_marco + 120} {y_pdh_marco}" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1535, 3050)">
+        <rect x="0" y="-12" width="220" height="24" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+        <text x="110" y="4" fill="#c2410c" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Desglose de Subunidades E1-E2-E3 ➔</text>
+      </g>
+
+      <!-- 2. Cuerpo y Bisel de la Lente Panorámica de Zoom (Estilo CTE) -->
+      <rect x="{x_pdh_marco - 6}" y="{y_pdh_marco - 6}" width="{w_pdh_marco + 12}" height="{h_pdh_marco + 12}" rx="24" fill="#ffffff" stroke="#0284c7" stroke-width="5"/>
+      <rect x="{x_pdh_marco}" y="{y_pdh_marco}" width="{w_pdh_marco}" height="{h_pdh_marco}" rx="20" fill="#ffffff" stroke="#38bdf8" stroke-width="2" stroke-dasharray="8 4"/>
+
+      <!-- ClipPath para recortar el interior panorámico -->
+      <defs>
+        <clipPath id="clipLupaPDH">
+          <rect x="{x_pdh_marco}" y="{y_pdh_marco}" width="{w_pdh_marco}" height="{h_pdh_marco}" rx="20"/>
+        </clipPath>
+      </defs>
+
+      <!-- 3. Contenido Interior con Aumento: Mecanismo + Regulación + Toxicología -->
+      <g clip-path="url(#clipLupaPDH)">
+        <!-- Fondo cálido de matriz ampliada -->
+        <rect x="{x_pdh_marco}" y="{y_pdh_marco}" width="{w_pdh_marco}" height="{h_pdh_marco}" fill="#fffdf7"/>
+
+        <g transform="translate({x_pdh_marco + 20}, {y_pdh_marco + 15})">
+          <!-- Cabecera Interior de la Lupa -->
+          <g transform="translate(0, 10)">
+            <rect x="0" y="0" width="32" height="26" rx="6" fill="#ea580c"/>
+            <text x="16" y="18" fill="#ffffff" font-size="14" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">5</text>
+            <text x="42" y="18" fill="#0f172a" font-size="14.5" font-weight="900" font-family="'Inter', sans-serif">🔍 ZOOM MOLECULAR: COMPLEJO PIRUVATO DESHIDROGENASA (PDH)</text>
+            <text x="42" y="32" fill="#ea580c" font-size="10" font-weight="700" font-family="'Inter', sans-serif">EC 1.2.4.1 (E1) • EC 2.3.1.12 (E2) • EC 1.8.1.4 (E3) • ΔG°' = -33.4 kJ/mol</text>
+          </g>
+
+          <!-- Línea divisoria vertical entre mecanismo (izq) y regulación (der) -->
+          <line x1="385" y1="50" x2="385" y2="665" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <!-- =========================================================== -->
+          <!-- COLUMNA IZQUIERDA: MECANISMO CATALÍTICO PASO A PASO         -->
+          <!-- =========================================================== -->
+          <g transform="translate(0, 52)">
+            <text x="0" y="12" fill="#c2410c" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">I. MECANISMO DE REACCIÓN MULTIENZIMÁTICO</text>
+
+            <!-- 1. Piruvato entra -->
+            <g transform="translate(10, 28)">
+              <rect x="0" y="0" width="125" height="28" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+              <text x="62" y="18" fill="#9a3412" font-size="11" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">Piruvato (3C)</text>
+              <text x="140" y="18" fill="#64748b" font-size="9.5" font-family="'Inter', sans-serif">Sustrato alimentador</text>
+            </g>
+
+            <!-- Reacción E1 -->
+            <path d="M 72 60 L 72 115" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+            <path d="M 68 85 Q 30 95 10 95" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+            <text x="5" y="99" fill="#dc2626" font-size="10" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">+ CO₂ ↑</text>
+            <g transform="translate(90, 78)">
+              <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">E1: Piruvato DH (TPP)</text>
+              <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">Descarboxilación oxidativa</text>
+              <text x="0" y="25" fill="#ea580c" font-size="8.5" font-weight="700" font-family="'Inter', sans-serif">Ataque nucleofílico del TPP</text>
+            </g>
+
+            <!-- Intermediario 1: Hidroxietil-TPP -->
+            <g transform="translate(10, 120)">
+              <rect x="0" y="0" width="155" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+              <text x="77" y="19" fill="#1e293b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Hidroxietil-TPP (E1)</text>
+              <text x="170" y="19" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">Intermediario carbanión</text>
+            </g>
+
+            <!-- Reacción E2 Paso 1: Oxidación -->
+            <path d="M 72 155 L 72 210" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+            <path d="M 12 178 Q 42 178 68 185" fill="none" stroke="#d97706" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+            <text x="8" y="182" fill="#b45309" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Lipoamida (S-S)</text>
+            <g transform="translate(90, 168)">
+              <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">E2: Transacetilasa (Oxidación)</text>
+              <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">Brazo oscilante de 14 Å</text>
+            </g>
+
+            <!-- Intermediario 2: Acetil-Lipoamida -->
+            <g transform="translate(10, 215)">
+              <rect x="0" y="0" width="160" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+              <text x="80" y="19" fill="#1e293b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Acetil-Lipoamida (E2)</text>
+            </g>
+
+            <!-- Reacción E2 Paso 2: Transacetilación a CoA -->
+            <path d="M 72 250 L 72 305" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+            <path d="M 12 272 Q 42 272 68 280" fill="none" stroke="#7c3aed" stroke-width="1.8" marker-end="url(#arrowPurple)"/>
+            <text x="8" y="276" fill="#7c3aed" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH</text>
+            <path d="M 78 285 Q 110 295 135 295" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+            <text x="140" y="299" fill="#ea580c" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif">➔ Acetil-CoA</text>
+
+            <!-- Intermediario 3: Dihidrolipoamida reducida -->
+            <g transform="translate(10, 310)">
+              <rect x="0" y="0" width="170" height="30" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+              <text x="85" y="19" fill="#991b1b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Dihidrolipoamida (SH HS)</text>
+            </g>
+
+            <!-- Reacción E3: Reoxidación por FAD y NAD+ -->
+            <path d="M 72 345 L 72 405" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+            <path d="M 12 365 Q 42 365 68 373" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+            <text x="8" y="369" fill="#475569" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ NAD⁺</text>
+            <path d="M 76 380 Q 115 390 140 390" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+            <text x="145" y="394" fill="#059669" font-size="10" font-weight="900" font-family="'Inter', sans-serif">+ NADH + H⁺</text>
+            <g transform="translate(85, 355)">
+              <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">E3: Dihidrolipoil DH</text>
+              <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">FAD prostético ➔ NAD⁺</text>
+            </g>
+
+            <!-- Lipoamida regenerada -->
+            <g transform="translate(10, 410)">
+              <rect x="0" y="0" width="170" height="30" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+              <text x="85" y="19" fill="#15803d" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Lipoamida Oxidada (S-S) ↺</text>
+            </g>
+
+            <!-- Retorno cíclico de lipoamida oxidada bordeando por x=275 -->
+            <path d="M 185 425 C 275 425, 275 190, 180 190" fill="none" stroke="#d97706" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arrowAmber)"/>
+            <text x="282" y="310" fill="#b45309" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" transform="rotate(90 282 310)">↺ CICLO REDOX E2-E3</text>
+          </g>
+
+          <!-- =========================================================== -->
+          <!-- COLUMNA DERECHA: REGULACIÓN DINÁMICA Y DIANAS TOXICOLÓGICAS  -->
+          <!-- =========================================================== -->
+          <g transform="translate(405, 52)">
+            <text x="0" y="12" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">II. CONTROL COVALENTE Y ALOSTÉRICO</text>
+
+            <!-- Circuito PDK / PDP -->
+            <g transform="translate(0, 30)">
+              <!-- Estimuladores de PDK -->
+              <g transform="translate(180, 0)">
+                <text x="0" y="0" fill="#dc2626" font-size="10" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⊕ Estimulan PDK (Apagan):</text>
+                <text x="0" y="13" fill="#7f1d1d" font-size="9" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">NADH, Acetil-CoA, ATP</text>
+                <path d="M 0 17 L 0 35" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+              </g>
+
+              <!-- Nodo E1 Activa -->
+              <g transform="translate(10, 60)">
+                <ellipse cx="55" cy="0" rx="55" ry="20" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+                <text x="55" y="-2" fill="#15803d" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">E1 ACTIVA</text>
+                <text x="55" y="10" fill="#166534" font-size="8.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Ser-OH (Desfosforilada)</text>
+              </g>
+
+              <!-- Flecha PDK Inactivadora arqueada bien por encima -->
+              <path d="M 125 44 C 155 12, 205 12, 235 44" fill="none" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arrowRed)"/>
+              <g transform="translate(180, 18)">
+                <text x="0" y="0" fill="#dc2626" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">PDK (+ATP)</text>
+              </g>
+
+              <!-- Nodo E1 Inactiva -->
+              <g transform="translate(245, 60)">
+                <ellipse cx="58" cy="0" rx="58" ry="20" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                <text x="58" y="-2" fill="#991b1b" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">E1 INACTIVA</text>
+                <text x="58" y="10" fill="#7f1d1d" font-size="8.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Ⓟ Ser-O-P (Fosforilada)</text>
+              </g>
+
+              <!-- Flecha PDP Activadora arqueada bien por debajo -->
+              <path d="M 235 76 C 205 116, 155 116, 125 76" fill="none" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+              <g transform="translate(180, 94)">
+                <text x="0" y="0" fill="#16a34a" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">PDP (+H₂O)</text>
+              </g>
+
+              <!-- Estimuladores de PDP -->
+              <g transform="translate(180, 128)">
+                <path d="M 0 0 L 0 -10" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+                <text x="0" y="14" fill="#16a34a" font-size="10" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⊕ Estimulan PDP (Encienden):</text>
+                <text x="0" y="27" fill="#14532d" font-size="9" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Ca²⁺ (músculo) • Insulina (hígado)</text>
+              </g>
+
+              <!-- Inhibidores de PDK -->
+              <g transform="translate(10, 128)">
+                <text x="0" y="0" fill="#15803d" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">⊣ Inhiben PDK:</text>
+                <text x="0" y="13" fill="#334155" font-size="8.5" font-family="'Inter', sans-serif">Piruvato, ADP, NAD⁺</text>
+              </g>
+            </g>
+
+            <!-- Retroinhibición directa por producto -->
+            <g transform="translate(0, 195)">
+              <line x1="0" y1="0" x2="360" y2="0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <text x="0" y="18" fill="#0f172a" font-size="11" font-weight="900" font-family="'Inter', sans-serif">RETROINHIBICIÓN DIRECTA POR PRODUCTO</text>
+              
+              <g transform="translate(0, 34)">
+                <path d="M 5 6 L 45 6" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
+                <text x="52" y="10" fill="#dc2626" font-size="10" font-weight="900" font-family="'Inter', sans-serif">⊣ E2:</text>
+                <text x="85" y="10" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif">Inhibida por <tspan font-weight="800" fill="#b91c1c">Acetil-CoA</tspan> (competitivo)</text>
+              </g>
+
+              <g transform="translate(0, 56)">
+                <path d="M 5 6 L 45 6" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
+                <text x="52" y="10" fill="#dc2626" font-size="10" font-weight="900" font-family="'Inter', sans-serif">⊣ E3:</text>
+                <text x="85" y="10" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif">Inhibida por cociente elevado <tspan font-weight="800" fill="#b91c1c">NADH/NAD⁺</tspan></text>
+              </g>
+            </g>
+
+            <!-- =========================================================== -->
+            <!-- CORRELACIÓN CLÍNICA Y FARMACOLÓGICA DIRECTA                  -->
+            <!-- =========================================================== -->
+            <g transform="translate(0, 290)">
+              <line x1="0" y1="0" x2="360" y2="0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <text x="0" y="18" fill="#be123c" font-size="11" font-weight="900" font-family="'Inter', sans-serif">III. CORRELACIÓN CLÍNICA Y TOXICOLOGÍA</text>
+
+              <!-- Diana 1: E1 / TPP -->
+              <g transform="translate(0, 34)">
+                <rect x="0" y="0" width="355" height="58" rx="6" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.2"/>
+                <g transform="translate(10, 15)">
+                  <text x="0" y="0" fill="#be123c" font-size="10" font-weight="900" font-family="'Inter', sans-serif">DIANA E1: DÉFICIT DE TIAMINA (B₁) &amp; ACIDOSIS LÁCTICA</text>
+                  <text x="0" y="13" fill="#334155" font-size="8.5" font-family="'Inter', sans-serif">• Carencia B₁ ➔ Agota TPP ➔ <tspan font-weight="700">Beriberi</tspan> y <tspan font-weight="700">Wernicke-Korsakoff</tspan></text>
+                  <text x="0" y="25" fill="#be123c" font-size="8.5" font-weight="700" font-family="'Inter', sans-serif">• Piruvato acumulado se reduce a Lactato por la LDH</text>
+                </g>
+              </g>
+
+              <!-- Diana 2: E2 / Arsenito -->
+              <g transform="translate(0, 102)">
+                <rect x="0" y="0" width="355" height="58" rx="6" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.2"/>
+                <g transform="translate(10, 15)">
+                  <text x="0" y="0" fill="#be123c" font-size="10" font-weight="900" font-family="'Inter', sans-serif">DIANA E2: ENVENENAMIENTO POR ARSENITO (AsO₂⁻)</text>
+                  <text x="0" y="13" fill="#334155" font-size="8.5" font-family="'Inter', sans-serif">• Quelato cíclico irreversible con tioles (-SH) de lipoamida</text>
+                  <text x="0" y="25" fill="#15803d" font-size="8.5" font-weight="700" font-family="'Inter', sans-serif">• Antídoto de rescate: BAL (Dimercaprol ditiol)</text>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    """)
 
     # =========================================================================
     # 8. MATRIZ DERECHA: CADENA RESPIRATORIA REAL DEL USUARIO (CON ZOOM)
@@ -1609,7 +1862,7 @@ def construir_mapa_organico():
     # Conexión directa hacia el Ciclo de Krebs
     partes.append(f'''
     <path d="M {x_agc - 260} {y_gldh_start + 270} C 1720 2520, 1500 2550, 1420 2620 C 1370 2660, 1330 2710, {x_k + 160} {y_k + paso_k * 3 - 10}" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
-    <text x="1600" y="2520" fill="#78350f" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">➔ Reingreso directo al Ciclo de Krebs (α-KG)</text>
+    <text x="1650" y="2520" fill="#78350f" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">➔ Reingreso al Ciclo de Krebs (α-KG)</text>
     ''')
 
     # B. Ion Amonio (NH4+) libre en matriz (hacia la derecha, espaciado a X=x_agc + 160)
