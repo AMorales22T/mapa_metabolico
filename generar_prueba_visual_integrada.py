@@ -1265,17 +1265,17 @@ def construir_mapa_organico():
     partes.append(f'<g id="ruta_lipogenesis">')
     partes.append(badge_via(10, x_lipo - 30, y_lipo - paso_l*2 - 20))
 
-    partes.append(nodo_libre(x_lipo, y_lipo - paso_l*2, "Citrato (Citosólico)", "6C", CITRATO, "m_citrato_cito", text_right=True, dx=200))
-    partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l*2 + 75, 48, "ATP Citrato Liasa", entra="+ ATP + CoA", sale="+ OAA", id_rx="rx_acly"))
-    partes.append(etiqueta_regulacion("acly", x_lipo + 210, y_lipo - paso_l*2 + 85, dx=0, dy=0))
+    partes.append(nodo_libre(x_lipo, y_lipo - paso_l*2 - 60, "Citrato (Citosólico)", "6C", CITRATO, "m_citrato_cito", text_right=True, dx=220))
+    partes.append(reaccion_libre(x_lipo + 90, y_lipo - paso_l*2 + 65, 52, "ATP Citrato Liasa", entra="+ ATP + CoA", sale="+ OAA", id_rx="rx_acly"))
+    partes.append(etiqueta_regulacion("acly", x_lipo + 260, y_lipo - paso_l*2 + 75, dx=0, dy=0))
     
-    partes.append(nodo_libre(x_lipo, y_lipo - paso_l, "Acetil-CoA (Citosólico)", "2C", ACETIL_COA, "m_acetil_coa_cito", text_pos="top", dy=-18))
+    partes.append(nodo_libre(x_lipo, y_lipo - paso_l, "Acetil-CoA (Citosólico)", "2C", ACETIL_COA, "m_acetil_coa_cito", text_pos="top", dx=60, dy=-22))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l + 75, 48, "ACC (Acetil-CoA Carboxilasa)", entra="+ ATP + CO2", sale="+ ADP", id_rx="rx_acc"))
     partes.append(etiqueta_regulacion("acc", x_lipo + 260, y_lipo - paso_l + 85, dx=0, dy=0))
     
     partes.append(f'''
     <!-- Lanzadera de Citrato: Translocación desde matriz a citosol vía transportador CIC en MMI (X=1915), evitando MPC -->
-    <path d="M 1250 2380 C 1500 2480, 1850 2320, 1945 2140 C 2080 1920, 2750 1200, {x_lipo - 30} 690" fill="none" stroke="#0ea5e9" stroke-width="2.6" stroke-dasharray="10 5" marker-end="url(#arrowBlue)"/>
+    <path d="M 1250 2380 C 1500 2480, 1850 2320, 1945 2140 C 2080 1920, 2700 1100, {x_lipo - 60} {y_lipo - paso_l*2 - 10}" fill="none" stroke="#0ea5e9" stroke-width="2.6" stroke-dasharray="10 5" marker-end="url(#arrowBlue)"/>
     <g id="transportador_cic" data-arrastrable="1" transform="translate(1915, 2115)">
       <rect x="0" y="0" width="60" height="28" rx="7" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
       <text x="30" y="18" fill="#ffffff" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CIC</text>
@@ -1310,48 +1310,51 @@ def construir_mapa_organico():
     partes.append(badge_via(12, x_col - 40, y_col - 260))
 
     # Inserción de Acetoacetil-CoA y HMG-CoA citosólicos + HMG-CoA Reductasa
-    y_acetoac_col = y_col - 240
-    y_hmg_col = y_col - 120
-    partes.append(nodo_libre(x_col, y_acetoac_col, "Acetoacetil-CoA (Citosol)", "4C", ACETOACETIL_COA_COLEST, "m_acetoac_col", text_pos="top", dy=-18))
-    partes.append(reaccion_libre(x_col + 60, y_acetoac_col + 65, 40, "HMG-CoA Sintasa (Citosólica)", entra="+ Acetil-CoA", id_rx="rx_hmgs_cito"))
-
-    partes.append(nodo_libre(x_col, y_hmg_col, "HMG-CoA (Citosol)", "6C", HMG_COA_CITOSOL, "m_hmg_col", text_pos="top", dy=-18))
-    partes.append(reaccion_libre(x_col + 60, y_hmg_col + 65, 45, "HMG-CoA Reductasa (HMGCR)", entra="- 2 NADPH", sale="+ CoA", id_rx="rx_hmgcr"))
-    partes.append(etiqueta_regulacion("hmgcr", x_col + 250, y_hmg_col + 70, dx=0, dy=0))
-
+    # Espaciado holgado: Acetoacetil-CoA (Y=520), HMG-CoA (Y=680), Mevalonato (Y=860)
+    y_acetoac_col = 520
+    y_hmg_col = 680
+    y_mev = 860
     
-    # Conexión desde Acetil-CoA citosólico hacia la vía del colesterol
+    # Conexión fluida desde Acetil-CoA citosólico (X=3080, Y=825) hacia Acetoacetil-CoA citosólico (X=3560, Y=520)
+    # Bordeando suavemente hacia arriba para no atravesar ningún texto
     partes.append(f'''
-    <path d="M {x_lipo + 100} {y_lipo - paso_l + 30} Q {x_col - 80} {y_lipo - paso_l + 30}, {x_col} {y_col}" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-    <text x="3340" y="{y_lipo - paso_l + 15}" fill="#9a3412" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">➔ Vía del Mevalonato</text>
+    <path d="M {x_lipo + 140} {y_lipo - paso_l + 10} C 3260 {y_lipo - paso_l + 10}, 3340 {y_acetoac_col + 20}, {x_col - 20} {y_acetoac_col + 20}" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <text x="3340" y="{y_acetoac_col - 5}" fill="#9a3412" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">➔ Vía del Mevalonato (2 Acetil-CoA)</text>
     ''')
 
+    partes.append(nodo_libre(x_col, y_acetoac_col, "Acetoacetil-CoA (Citosol)", "4C", ACETOACETIL_COA_COLEST, "m_acetoac_col", text_pos="top", dx=70, dy=-22))
+    partes.append(reaccion_libre(x_col + 60, y_acetoac_col + 65, 45, "HMG-CoA Sintasa (Citosólica)", entra="+ Acetil-CoA", id_rx="rx_hmgs_cito"))
+
+    partes.append(nodo_libre(x_col, y_hmg_col, "HMG-CoA (Citosol)", "6C", HMG_COA_CITOSOL, "m_hmg_col", text_pos="top", dx=70, dy=-22))
+    partes.append(reaccion_libre(x_col + 60, y_hmg_col + 65, 48, "HMG-CoA Reductasa (HMGCR)", entra="- 2 NADPH", sale="+ CoA", id_rx="rx_hmgcr"))
+    partes.append(etiqueta_regulacion("hmgcr", x_col + 250, y_hmg_col + 70, dx=0, dy=0))
+
     # Mevalonato (producto irreversible del marcapasos HMGCR)
-    partes.append(nodo_libre(x_col, y_col, "Mevalonato", "6C", MEVALONATO, "m_mevalonato_integ", text_pos="top", dy=-18))
-    partes.append(reaccion_libre(x_col + 60, y_col + 75, 45, "Mevalonato Quinasa / Descarboxilasa", entra="- 3 ATP", sale="+ CO2 + Pi", id_rx="rx_col1"))
+    partes.append(nodo_libre(x_col, y_mev, "Mevalonato", "6C", MEVALONATO, "m_mevalonato_integ", text_pos="top", dx=70, dy=-22))
+    partes.append(reaccion_libre(x_col + 60, y_mev + 75, 45, "Mevalonato Quinasa / Descarboxilasa", entra="- 3 ATP", sale="+ CO2 + Pi", id_rx="rx_col1"))
     
     # Isopentenil Pirofosfato (IPP)
-    partes.append(nodo_libre(x_col, y_col + paso_col, "Isopentenil-PP (IPP)", "5C", ISOPENTENIL_PP, "m_ipp_integ", text_pos="top", dy=-18))
-    partes.append(reaccion_libre(x_col + 60, y_col + paso_col + 75, 45, "Preniltransferasas", entra="+ 2 IPP", sale="+ 2 PPi", id_rx="rx_col2"))
+    partes.append(nodo_libre(x_col, y_mev + paso_col, "Isopentenil-PP (IPP)", "5C", ISOPENTENIL_PP, "m_ipp_integ", text_pos="top", dy=-18))
+    partes.append(reaccion_libre(x_col + 60, y_mev + paso_col + 75, 45, "Preniltransferasas", entra="+ 2 IPP", sale="+ 2 PPi", id_rx="rx_col2"))
     
     # Farnesil Pirofosfato (FPP)
-    partes.append(nodo_libre(x_col, y_col + paso_col*2, "Farnesil-PP (FPP)", "15C", FARNESIL_PP, "m_fpp_integ", text_pos="top", dy=-18))
-    partes.append(reaccion_libre(x_col + 60, y_col + paso_col*2 + 75, 45, "Escualeno Sintasa", entra="- NADPH", sale="+ 2 PPi", es_ganancia=False, id_rx="rx_col3"))
+    partes.append(nodo_libre(x_col, y_mev + paso_col*2, "Farnesil-PP (FPP)", "15C", FARNESIL_PP, "m_fpp_integ", text_pos="top", dy=-18))
+    partes.append(reaccion_libre(x_col + 60, y_mev + paso_col*2 + 75, 45, "Escualeno Sintasa", entra="- NADPH", sale="+ 2 PPi", es_ganancia=False, id_rx="rx_col3"))
     
     # Escualeno
-    partes.append(nodo_libre(x_col, y_col + paso_col*3, "Escualeno", "30C", ESCUALENO, "m_escualeno_integ", text_pos="top", dy=-18))
-    partes.append(reaccion_libre(x_col + 60, y_col + paso_col*3 + 75, 45, "Oxidoscualeno Ciclasa", entra="- NADPH + O2", sale="+ H2O", id_rx="rx_col4"))
+    partes.append(nodo_libre(x_col, y_mev + paso_col*3, "Escualeno", "30C", ESCUALENO, "m_escualeno_integ", text_pos="top", dy=-18))
+    partes.append(reaccion_libre(x_col + 60, y_mev + paso_col*3 + 75, 45, "Oxidoscualeno Ciclasa", entra="- NADPH + O2", sale="+ H2O", id_rx="rx_col4"))
     
     # Lanosterol
-    partes.append(nodo_libre(x_col, y_col + paso_col*4, "Lanosterol", "30C", LANOSTEROL, "m_lanosterol_integ", text_pos="top", dy=-18))
-    partes.append(reaccion_libre(x_col + 60, y_col + paso_col*4 + 75, 45, "Vías de Bloch &amp; Kandutsch (19 pasos)", entra="- NADPH + O2", sale="+ 3 CO2", id_rx="rx_col5"))
+    partes.append(nodo_libre(x_col, y_mev + paso_col*4, "Lanosterol", "30C", LANOSTEROL, "m_lanosterol_integ", text_pos="top", dy=-18))
+    partes.append(reaccion_libre(x_col + 60, y_mev + paso_col*4 + 75, 45, "Vías de Bloch &amp; Kandutsch (19 pasos)", entra="- NADPH + O2", sale="+ 3 CO2", id_rx="rx_col5"))
     
     # Colesterol Final
-    partes.append(nodo_libre(x_col, y_col + paso_col*5, "COLESTEROL", "27C", COLESTEROL, "m_colesterol_integ", text_pos="top", dy=-18))
+    partes.append(nodo_libre(x_col, y_mev + paso_col*5, "COLESTEROL", "27C", COLESTEROL, "m_colesterol_integ", text_pos="top", dy=-18))
     
     # Conexiones funcionales de destino del Colesterol (asciende por X=3860 hasta la membrana plasmática en Y=74)
     partes.append(f'''
-    <path d="M {x_col + 240} {y_col + paso_col*5 + 35} Q 3860 {y_col + paso_col*5 + 35}, 3860 74" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowBlue)"/>
+    <path d="M {x_col + 240} {y_mev + paso_col*5 + 35} Q 3860 {y_mev + paso_col*5 + 35}, 3860 74" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowBlue)"/>
     <text x="3875" y="500" fill="#0369a1" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(-90 3875 500)">➔ DESTINO A MEMBRANA PLASMÁTICA (BALSAS LIPÍDICAS)</text>
     ''')
     partes.append(f'</g>')
@@ -1449,17 +1452,17 @@ def construir_mapa_organico():
     partes.append(f'<g id="ruta_ceto">')
     partes.append(badge_via(11, x_ceto - 40, y_ceto - 20))
     
-    partes.append(nodo_libre(x_ceto, y_ceto, "Acetoacetil-CoA", "4C", ACETOACETIL_COA, "m_acetoac_coa", text_right=True, dx=160))
+    partes.append(nodo_libre(x_ceto, y_ceto, "Acetoacetil-CoA", "4C", ACETOACETIL_COA, "m_acetoac_coa", text_right=True, dx=220))
     partes.append(reaccion_libre(x_ceto + 60, y_ceto + 70, 40, "HMG-CoA Sintasa", entra="+ Acetil-CoA", id_rx="rx_ceto1"))
     partes.append(etiqueta_regulacion("hmgcs2", x_ceto + 200, y_ceto + 80, dx=0, dy=0))
     
-    partes.append(nodo_libre(x_ceto, y_ceto + paso_c, "HMG-CoA", "6C", HMG_COA, "m_hmg_coa", text_right=True, dx=200))
+    partes.append(nodo_libre(x_ceto, y_ceto + paso_c, "HMG-CoA", "6C", HMG_COA, "m_hmg_coa", text_right=True, dx=220))
     partes.append(reaccion_libre(x_ceto + 60, y_ceto + paso_c + 70, 40, "HMG-CoA Liasa", sale="+ Acetil-CoA", id_rx="rx_ceto2"))
     
-    partes.append(nodo_libre(x_ceto, y_ceto + paso_c*2, "Acetoacetato", "4C", ACETOACETATO, "m_acetoacetato", text_right=True, dx=160))
+    partes.append(nodo_libre(x_ceto, y_ceto + paso_c*2, "Acetoacetato", "4C", ACETOACETATO, "m_acetoacetato", text_right=True, dx=220))
     partes.append(reaccion_libre(x_ceto + 60, y_ceto + paso_c*2 + 70, 40, "β-Hidroxibutirato DH", entra="+ NADH", sale="+ NAD+", id_rx="rx_ceto3"))
     
-    partes.append(nodo_libre(x_ceto, y_ceto + paso_c*3, "D-β-Hidroxibutirato", "4C", D_BETA_HIDROXIBUTIRATO, "m_betahidroxi", text_right=True, dx=160))
+    partes.append(nodo_libre(x_ceto, y_ceto + paso_c*3, "D-β-Hidroxibutirato", "4C", D_BETA_HIDROXIBUTIRATO, "m_betahidroxi", text_right=True, dx=220))
     
     # Línea rosa de exportación que sale hacia abajo y luego dobla a la izquierda en X=35, evitando cruzar cualquier texto
     y_ceto_bottom = y_ceto + paso_c*3 + 70
@@ -1569,48 +1572,48 @@ def construir_mapa_organico():
     # 7. MATRIZ MITOCONDRIAL: Glutamato en la Matriz (elevado para no interferir con Krebs->CTE)
     partes.append(nodo_libre(x_agc - 40, y_gldh_start, "L-Glutamato (Matriz)", "5C", AMINO_GLUTAMATO, "m_glu_mito_integ", text_right=True, dx=145))
 
-    # Reacción GLDH (Glutamato Deshidrogenasa)
+    # Reacción GLDH (Glutamato Deshidrogenasa) - Arquitectura espaciosa y despejada
     partes.append(f'''
-    <g id="rx_gldh_integ" data-arrastrable="1" transform="translate({x_agc}, {y_gldh_start + 105})">
+    <g id="rx_gldh_integ" data-arrastrable="1" transform="translate({x_agc + 10}, {y_gldh_start + 135})">
       <line x1="-3" y1="0" x2="-3" y2="70" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
       <line x1="3" y1="70" x2="3" y2="0" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
       
-      <!-- Entrada NAD(P)+ / Salida NAD(P)H -->
-      <path d="M -75 14 Q -25 14 -4 24" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-      <text x="-80" y="17" fill="#059669" font-size="10" font-weight="800" text-anchor="end">+ NAD(P)⁺ + H₂O</text>
+      <!-- Entrada NAD(P)+ / Salida NAD(P)H en arco izquierdo despejado -->
+      <path d="M -90 10 Q -35 10 -4 20" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+      <text x="-95" y="14" fill="#059669" font-size="9.5" font-weight="800" text-anchor="end">+ NAD(P)⁺ + H₂O</text>
       
-      <path d="M -4 46 Q -25 56 -75 56" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-      <text x="-80" y="60" fill="#059669" font-size="10" font-weight="800" text-anchor="end">+ NAD(P)H + H⁺</text>
+      <path d="M -4 46 Q -35 56 -90 56" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+      <text x="-95" y="60" fill="#059669" font-size="9.5" font-weight="800" text-anchor="end">+ NAD(P)H + H⁺</text>
 
       <!-- Salida de Amonio libre hacia la derecha -->
-      <path d="M 4 35 Q 50 35 90 60" fill="none" stroke="#2563eb" stroke-width="2.4" marker-end="url(#arrowBlueAmino)"/>
-      <text x="95" y="70" fill="#1d4ed8" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">➔ + NH₄⁺</text>
+      <path d="M 4 35 Q 60 35 120 60" fill="none" stroke="#2563eb" stroke-width="2.4" marker-end="url(#arrowBlueAmino)"/>
+      <text x="125" y="68" fill="#1d4ed8" font-size="11" font-weight="900" font-family="'Inter', sans-serif">➔ + NH₄⁺</text>
 
       <!-- Textos y Alosterismo a la derecha bien despejados -->
-      <g transform="translate(20, 10)">
-        <text x="0" y="0" fill="#0f172a" font-size="12.5" font-weight="900" font-family="'Inter', sans-serif">Glutamato Deshidrogenasa (GLDH)</text>
+      <g transform="translate(45, -10)">
+        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="900" font-family="'Inter', sans-serif">Glutamato Deshidrogenasa (GLDH)</text>
         <text x="0" y="14" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 1.4.1.3 (Mitocondrial)</text>
-        <text x="0" y="27" fill="#16a34a" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">(+) Activada por ADP, GDP</text>
-        <text x="0" y="39" fill="#e11d48" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">(-) Inhibida por ATP, GTP</text>
+        <text x="0" y="27" fill="#16a34a" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">⊕ ADP, GDP (activa)</text>
+        <text x="0" y="39" fill="#e11d48" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">⊖ ATP, GTP (inhibe)</text>
       </g>
     </g>
     ''')
 
     # 8. Productos de GLDH:
-    # A. α-Cetoglutarato regenerado en matriz mitocondrial (hacia la izquierda, Y=2360)
-    partes.append(nodo_libre(x_agc - 210, y_gldh_start + 150, "α-Cetoglutarato", "5C", AMINO_AKG, "m_akg_gldh_integ", text_right=False, dx=-25))
+    # A. α-Cetoglutarato regenerado en matriz mitocondrial (hacia la izquierda, espaciado a X=x_agc - 260)
+    partes.append(nodo_libre(x_agc - 260, y_gldh_start + 225, "α-Cetoglutarato", "5C", AMINO_AKG, "m_akg_gldh_integ", text_right=False, dx=-30))
     # Ramificación de la flecha de GLDH hacia la estructura de α-Cetoglutarato
     partes.append(f'''
-    <path d="M {x_agc - 5} {y_gldh_start + 175} Q {x_agc - 40} {y_gldh_start + 195} {x_agc - 100} {y_gldh_start + 195}" fill="none" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
+    <path d="M {x_agc - 5} {y_gldh_start + 205} Q {x_agc - 80} {y_gldh_start + 245} {x_agc - 150} {y_gldh_start + 245}" fill="none" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrowTeal)"/>
     ''')
-    # Conexión directa hacia el Ciclo de Krebs (bordeando limpiamente por arriba de NADH & FADH2 para no solapar el badge)
+    # Conexión directa hacia el Ciclo de Krebs
     partes.append(f'''
-    <path d="M {x_agc - 210} {y_gldh_start + 205} C 1720 2520, 1500 2550, 1420 2620 C 1370 2660, 1330 2710, {x_k + 160} {y_k + paso_k * 3 - 10}" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
+    <path d="M {x_agc - 260} {y_gldh_start + 270} C 1720 2520, 1500 2550, 1420 2620 C 1370 2660, 1330 2710, {x_k + 160} {y_k + paso_k * 3 - 10}" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
     <text x="1600" y="2520" fill="#78350f" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">➔ Reingreso directo al Ciclo de Krebs (α-KG)</text>
     ''')
 
-    # B. Ion Amonio (NH4+) libre en matriz (hacia la derecha, Y=2360)
-    partes.append(nodo_libre(x_agc + 120, y_gldh_start + 150, "Ion Amonio (NH₄⁺)", "Nitrógeno", AMINO_NH4, "m_nh4_integ", text_right=True, dx=85))
+    # B. Ion Amonio (NH4+) libre en matriz (hacia la derecha, espaciado a X=x_agc + 160)
+    partes.append(nodo_libre(x_agc + 170, y_gldh_start + 225, "Ion Amonio (NH₄⁺)", "Nitrógeno", AMINO_NH4, "m_nh4_integ", text_right=True, dx=85))
     # Conexión directa hacia el Ciclo de la Urea (CPS-1) bordeando por debajo del marco de la CTE
     partes.append(f'''
     <!-- Canal conductor de Amonio hacia la Carbamoil Fosfato Sintetasa I (CPS-1) -->
