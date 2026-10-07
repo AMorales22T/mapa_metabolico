@@ -16,7 +16,20 @@ Implementa fielmente el diseño orgánico celular:
 import os
 import sys
 
+import sys
+import os
+
 DIR_BASE = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(DIR_BASE, "06_REGULACION_Y_LEYENDA"))
+import regulacion
+
+sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "02_gluconeogenesis"))
+from estructuras_gluconeogenesis import (
+    OXALACETATO as GLUCONEO_OXALACETATO,
+    MALATO as GLUCONEO_MALATO,
+    RE_GLUCOSA_6_FOSFATASA
+)
+
 sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "01_glucolisis"))
 sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "03_glucogenogenesis_y_glucogenolisis"))
 sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "04_via_pentosas_fosfato"))
@@ -86,11 +99,11 @@ from estructuras_ceto import (
     ACETOACETIL_COA, HMG_COA, ACETOACETATO, D_BETA_HIDROXIBUTIRATO, ACETONA
 )
 from estructuras_colesterol import (
-    MEVALONATO, ISOPENTENIL_PP, FARNESIL_PP, ESCUALENO, LANOSTEROL, COLESTEROL
+    ACETOACETIL_COA_COLEST, HMG_COA_CITOSOL, MEVALONATO, ISOPENTENIL_PP, FARNESIL_PP, ESCUALENO, LANOSTEROL, COLESTEROL
 )
 
 ANCHO_CANVAS = 4900
-ALTO_CANVAS = 4200
+ALTO_CANVAS = 4750
 
 def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=135, dy=24, text_pos="side", detalle=""):
     """Metabolito 100% libre sin tarjetas ni globos."""
@@ -121,6 +134,51 @@ def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=
       <text x="{tx}" y="{dy}" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" {align}>{nombre}</text>
       <text x="{tx}" y="{dy + 17}" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" {align}>[{carbonos}]</text>
       {txt_det}
+    </g>
+    """
+
+
+def badge_via(n, x, y):
+    """Badge circular numerado de vía metabólica para la leyenda."""
+    return f"""
+    <g class="badge-via" transform="translate({x}, {y})">
+      <circle cx="0" cy="0" r="13" fill="#0284c7" stroke="#ffffff" stroke-width="2.2" />
+      <text x="0" y="4.5" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">{n}</text>
+    </g>
+    """
+
+def etiqueta_regulacion(id_enzima, x, y, dx=0, dy=0, anchor="start"):
+    """
+    Genera etiqueta compacta de regulación alostérica y covalente:
+    ⊕ Verde para activadores, ⊖ Rojo para inhibidores, Ⓟ Amarillo para fosforilación, ⚡ Azul para control hormonal.
+    """
+    e = regulacion.ENZIMAS_POR_ID.get(id_enzima)
+    if not e:
+        return ""
+    lineas = []
+    if e.get("activadores"):
+        lineas.append((f"⊕ {', '.join(e['activadores'])}", "#16a34a"))
+    if e.get("inhibidores"):
+        lineas.append((f"⊖ {', '.join(e['inhibidores'])}", "#dc2626"))
+    if e.get("mapa_cov"):
+        lineas.append((f"Ⓟ {e['mapa_cov']}", "#ca8a04"))
+    if e.get("mapa_hor"):
+        lineas.append((f"⚡ {e['mapa_hor']}", "#0284c7"))
+
+    if not lineas:
+        return ""
+
+    spans = []
+    curr_y = dy
+    for txt, col in lineas:
+        anchor_attr = f'text-anchor="{anchor}"' if anchor != "start" else ""
+        font_attr = "font-family=\"'Inter', sans-serif\""
+        spans.append(f'<text x="{dx}" y="{curr_y}" fill="{col}" font-size="9" font-weight="800" {font_attr} {anchor_attr}>{txt}</text>')
+        curr_y += 12
+
+    return f"""
+    <g class="etiqueta-regulacion" transform="translate({x}, {y})">
+      {''.join(spans)}
     </g>
     """
 
@@ -158,7 +216,125 @@ def reaccion_libre(x, y, h, enzima, entra="", sale="", es_ganancia=False, revers
     </g>
     """
 
-def generar_bloque_autoria(x=3820, y=3540):
+
+def generar_bloque_leyenda(x=120, y=4220):
+    """
+    Genera la Leyenda General con:
+    1. Lista numerada de 14 vías con sus badges coincidentes con el mapa.
+    2. Clave de símbolos (⊕, ⊖, Ⓟ, ⚡, ⇄, →, - - →, ▭, [nC]).
+    3. Código de colores biológicos.
+    """
+    filas_vias = []
+    # Dividir las 14 vías en 2 columnas de 7
+    col1 = regulacion.VIAS[:7]
+    col2 = regulacion.VIAS[7:]
+
+    svg_col1 = []
+    y_pos = 0
+    for v in col1:
+        svg_col1.append(f"""
+        <g transform="translate(0, {y_pos})">
+          <circle cx="12" cy="0" r="10" fill="#0284c7" />
+          <text x="12" y="3.5" fill="#ffffff" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">{v['n']}</text>
+          <text x="30" y="3" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">{v['nombre']}</text>
+          <text x="30" y="16" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">{v['resumen'][:55]}</text>
+        </g>
+        """)
+        y_pos += 44
+
+    svg_col2 = []
+    y_pos = 0
+    for v in col2:
+        svg_col2.append(f"""
+        <g transform="translate(0, {y_pos})">
+          <circle cx="12" cy="0" r="10" fill="#0284c7" />
+          <text x="12" y="3.5" fill="#ffffff" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">{v['n']}</text>
+          <text x="30" y="3" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">{v['nombre']}</text>
+          <text x="30" y="16" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">{v['resumen'][:55]}</text>
+        </g>
+        """)
+        y_pos += 44
+
+    # Símbolos y colores (Columna 3)
+    simbolos_items = []
+    y_sim = 0
+    for sim, desc in regulacion.SIMBOLOS:
+        simbolos_items.append(f"""
+        <g transform="translate(0, {y_sim})">
+          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">{sim}</text>
+          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">{desc}</text>
+        </g>
+        """)
+        y_sim += 26
+
+    colores = [
+        ("#ea580c", "Flujo principal de carbono"),
+        ("#7c3aed", "Bypass Gluconeogénesis (4 enzimas)"),
+        ("#b45309", "Glucógeno (Síntesis y lisis)"),
+        ("#059669", "Pentosas fosfato &amp; Shunt"),
+        ("#2563eb", "Aminoácidos &amp; Ciclo de la Urea"),
+        ("#16a34a", "⊕ Activador alostérico"),
+        ("#dc2626", "⊖ Inhibidor alostérico / Gasto ATP"),
+        ("#ca8a04", "Ⓟ Modificación covalente activa/inactiva")
+    ]
+    colores_items = []
+    y_col = 0
+    for c_hex, c_desc in colores:
+        colores_items.append(f"""
+        <g transform="translate(0, {y_col})">
+          <circle cx="6" cy="0" r="5" fill="{c_hex}"/>
+          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">{c_desc}</text>
+        </g>
+        """)
+        y_col += 24
+
+    return f"""
+    <!-- BLOQUE INSTITUCIONAL: LEYENDA GENERAL DE VÍAS METABÓLICAS Y REGULACIÓN -->
+    <g id="bloque_leyenda" data-arrastrable="1" transform="translate({x}, {y})" filter="url(#shadowCard)">
+      <!-- Fondo -->
+      <rect width="3650" height="460" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8" />
+      <path d="M 0 22 Q 0 0 22 0 L 3628 0 Q 3650 0 3650 22 L 3650 10 L 0 10 Z" fill="url(#gradHeaderAutoria)" />
+
+      <!-- Encabezado -->
+      <g transform="translate(35, 30)">
+        <rect x="0" y="0" width="230" height="24" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
+        <text x="115" y="16" fill="#0369a1" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="1">GUÍA Y CONVENCIONES</text>
+        <text x="250" y="18" fill="#0f172a" font-size="19" font-weight="900" font-family="'Inter', sans-serif">LEYENDA DE VÍAS METABÓLICAS &amp; CONTROL ALOSTÉRICO / COVALENTE</text>
+        <rect x="1350" y="-3" width="760" height="28" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+        <text x="1360" y="15" fill="#92400e" font-size="11" font-weight="800" font-family="'Inter', sans-serif">⚠️ Célula didáctica/hepática: Gluconeogénesis, Cetogénesis y Ciclo de la Urea ocurren primordialmente en hepatocito</text>
+      </g>
+      <line x1="35" y1="68" x2="3615" y2="68" stroke="#e2e8f0" stroke-width="1.5" />
+
+      <!-- Columnas 1 y 2: Vías (1 a 14) -->
+      <g transform="translate(40, 100)">
+        <text x="0" y="-12" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">VÍAS METABÓLICAS (1–7):</text>
+        {''.join(svg_col1)}
+      </g>
+      <g transform="translate(940, 100)">
+        <text x="0" y="-12" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">VÍAS METABÓLICAS (8–14):</text>
+        {''.join(svg_col2)}
+      </g>
+
+      <line x1="1840" y1="85" x2="1840" y2="430" stroke="#f1f5f9" stroke-width="2" />
+
+      <!-- Columna 3: Símbolos -->
+      <g transform="translate(1870, 100)">
+        <text x="0" y="-12" fill="#0f766e" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">CONVENCIONES Y EFECTORES:</text>
+        {''.join(simbolos_items)}
+      </g>
+
+      <line x1="2670" y1="85" x2="2670" y2="430" stroke="#f1f5f9" stroke-width="2" />
+
+      <!-- Columna 4: Código de Colores -->
+      <g transform="translate(2700, 100)">
+        <text x="0" y="-12" fill="#b45309" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">CÓDIGO DE COLORES EDITORIAL:</text>
+        {''.join(colores_items)}
+      </g>
+    </g>
+    """
+
+def generar_bloque_autoria(x=3820, y=4230):
     """
     Genera el bloque institucional / autoría de código abierto en la esquina inferior derecha
     con código QR escaneable vectorial de alta resolución hacia el repositorio de GitHub.
@@ -374,8 +550,8 @@ def construir_mapa_organico():
 
     <!-- Albúmina sérica y Lipoproteínas en el plasma -->
     <g opacity="0.6">
-      <ellipse cx="420" cy="24" rx="16" ry="11" fill="#fef08a" stroke="#ca8a04" stroke-width="1.2"/>
-      <text x="420" y="27" fill="#854d0e" font-size="7.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">ALBÚMINA</text>
+      <ellipse cx="490" cy="24" rx="16" ry="11" fill="#fef08a" stroke="#ca8a04" stroke-width="1.2"/>
+      <text x="490" y="27" fill="#854d0e" font-size="7.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">ALBÚMINA</text>
       <ellipse cx="2950" cy="28" rx="18" ry="12" fill="#fed7aa" stroke="#ea580c" stroke-width="1.2"/>
       <text x="2950" y="32" fill="#9a3412" font-size="7.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">VLDL / HDL</text>
     </g>
@@ -515,7 +691,9 @@ def construir_mapa_organico():
     
     # 1. Glucosa
     partes.append(nodo_libre(x_g - 40, y_g, "D-Glucosa", "6C", GLUCOSA, "m_glucosa"))
+    partes.append(badge_via(1, x_g - 80, y_g + 30))
     partes.append(reaccion_libre(x_g, y_g + 105, 52, "Hexocinasa", entra="-1 ATP", sale="+1 ADP", id_rx="rx_hk"))
+    partes.append(etiqueta_regulacion("hk", x_g + 95, y_g + 115, dx=0, dy=0))
 
     # 2. G6P
     partes.append(nodo_libre(x_g - 40, y_g + paso_y, "Glucosa-6-Fosfato", "6C", GLUCOSA_6_FOSFATO, "m_g6p"))
@@ -524,6 +702,19 @@ def construir_mapa_organico():
     # 3. F6P
     partes.append(nodo_libre(x_g - 40, y_g + paso_y * 2, "Fructosa-6-Fosfato", "6C", FRUCTOSA_6_FOSFATO, "m_f6p"))
     partes.append(reaccion_libre(x_g, y_g + paso_y * 2 + 105, 52, "PFK-1", entra="-1 ATP", sale="+1 ADP", id_rx="rx_pfk1"))
+    partes.append(etiqueta_regulacion("pfk1", x_g + 95, y_g + paso_y * 2 + 115, dx=0, dy=0))
+    partes.append("""
+      <!-- Mini-recuadro regulador: Enzima Bifuncional PFK-2 / FBPasa-2 -->
+      <g id="recuadro_pfk2_fbpasa2" transform="translate(1360, 485)">
+        <rect x="0" y="0" width="220" height="90" rx="8" fill="#f8fafc" stroke="#7c3aed" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+        <text x="110" y="18" fill="#5b21b6" font-size="11" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">PFK-2 / FBPasa-2</text>
+        <text x="110" y="32" fill="#6d28d9" font-size="9.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Enzima Tándem Reguladora</text>
+        <line x1="12" y1="40" x2="208" y2="40" stroke="#ddd6fe" stroke-width="1"/>
+        <text x="15" y="55" fill="#16a34a" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">⚡ Insulina (PP2A) ➔ ↑ F-2,6-BP</text>
+        <text x="15" y="69" fill="#dc2626" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">⚡ Glucagón (PKA) ➔ ↓ F-2,6-BP</text>
+        <text x="15" y="82" fill="#0284c7" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">F-2,6-BP: ⊕ PFK-1 / ⊖ FBPasa-1</text>
+      </g>
+""")
 
     # 4. F-1,6-BP
     partes.append(nodo_libre(x_g - 40, y_g + paso_y * 3, "Fructosa-1,6-Bisfosfato", "6C", FRUCTOSA_1_6_BISFOSFATO, "m_fbp"))
@@ -558,6 +749,7 @@ def construir_mapa_organico():
     # 9. PEP
     partes.append(nodo_libre(x_g + 180, y_g + paso_y * 8, "Fosfoenolpiruvato", "3C", FOSFOENOLPIRUVATO, "m_pep", dx=115))
     partes.append(reaccion_libre(x_g + 220, y_g + paso_y * 8 + 105, 52, "Piruvato Cinasa", entra="+ ADP", sale="+ ATP", es_ganancia=True, id_rx="rx_pk"))
+    partes.append(etiqueta_regulacion("pk", x_g + 325, y_g + paso_y * 8 + 115, dx=0, dy=0))
 
     # 10. Piruvato (Citosol)
     partes.append(nodo_libre(x_g + 180, y_g + paso_y * 9, "Piruvato", "3C", PIRUVATO, "m_pyr_cito"))
@@ -568,15 +760,65 @@ def construir_mapa_organico():
     """)
     partes.append('</g>')
 
+
+    # =========================================================================
+    # 3B. VÍA DE LA GLUCONEOGÉNESIS (BYPASSES ESPECÍFICOS HEPÁTICOS) - VÍA 2
+    # =========================================================================
+    partes.append(f"""
+    <!-- RUTA 2: GLUCONEOGÉNESIS (BYPASSES EN COLOR PÚRPURA / VIOLETA) -->
+    <g id="ruta_gluconeogenesis">
+      {badge_via(2, 1190, 240)}
+      <!-- Título de la vía -->
+      <text x="1225" y="245" fill="#7c3aed" font-size="14" font-weight="900" font-family="'Inter', sans-serif">GLUCONEOGÉNESIS (Bypasses reversos)</text>
+
+      <!-- 1. BYPASS MITOCONDRIAL: Piruvato Carboxilasa (PC) -->
+      <!-- Flecha desde el Piruvato en Matriz (1680, 2180) hacia Oxalacetato Matricial (1220, 2220) -->
+      <path d="M 1660 2180 C 1520 2200, 1380 2210, 1260 2220" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1360, 2185)">
+        <text x="0" y="0" fill="#6d28d9" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Piruvato Carboxilasa (PC)</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 6.4.1.1 (- 1 ATP, Biotina)</text>
+        <text x="0" y="25" fill="#16a34a" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⊕ Acetil-CoA (activador obligado)</text>
+      </g>
+
+      <!-- 2. BYPASS CITOSÓLICO 1: PEPCK (OAA ➔ PEP) -->
+      <!-- PEPCK sube de Oxalacetato citosólico hacia PEP en Glucólisis -->
+      <path d="M 1620 1820 Q 1580 1620 1740 1560" fill="none" stroke="#7c3aed" stroke-width="2.6" stroke-dasharray="8 4" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1420, 1680)">
+        <text x="0" y="0" fill="#6d28d9" font-size="12" font-weight="900" font-family="'Inter', sans-serif">PEPCK (Citosólica)</text>
+        <text x="0" y="14" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 4.1.1.32 (- 1 GTP ➔ + CO₂)</text>
+        <text x="0" y="26" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⚡ Glucagón/Cortisol ↑ (gen)</text>
+      </g>
+
+      <!-- 3. BYPASS 2: Fructosa-1,6-bisfosfatasa-1 (FBPasa-1) -->
+      <path d="M 1620 680 Q 1590 600 1620 520" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1420, 600)">
+        <text x="0" y="0" fill="#6d28d9" font-size="12" font-weight="900" font-family="'Inter', sans-serif">FBPasa-1</text>
+        <text x="0" y="13" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 3.1.3.11 (+ H₂O ➔ + Pi)</text>
+        <text x="0" y="25" fill="#16a34a" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⊕ Citrato</text>
+        <text x="0" y="37" fill="#dc2626" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⊖ AMP, F-2,6-BP</text>
+      </g>
+
+      <!-- 4. BYPASS 3: Glucosa-6-Fosfatasa en el Retículo Endoplásmico -->
+      <path d="M 1620 330 Q 1570 260 1620 180" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1380, 275)">
+        <rect x="-8" y="-12" width="230" height="48" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.2"/>
+        <text x="0" y="2" fill="#5b21b6" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">Glucosa-6-Fosfatasa (RE)</text>
+        <text x="0" y="15" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 3.1.3.9 (+ H₂O ➔ + Pi)</text>
+        <text x="0" y="28" fill="#b45309" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">Hepatocito/Riñón • Lumen del RE</text>
+      </g>
+    </g>
+    """)
+
     # =========================================================================
     # 4. IZQUIERDA: METABOLISMO DEL GLUCÓGENO (LIBRE EN CITOSOL)
     # =========================================================================
     x_glc = 520
     y_glc = 340
     partes.append(f'<g id="ruta_glucogeno">')
+    partes.append(badge_via(3, 440, 310))
     
     # G1P
-    partes.append(nodo_libre(x_glc + 450, y_glc, "Glucosa-1-Fosfato", "6C", GLUCOSA_1_FOSFATO, "m_g1p"))
+    partes.append(nodo_libre(x_glc + 450, y_glc, "Glucosa-1-Fosfato", "6C", GLUCOSA_1_FOSFATO, "m_g1p", text_right=True, dx=175))
 
     # Conexión G6P ⇄ G1P
     partes.append(f"""
@@ -597,16 +839,27 @@ def construir_mapa_organico():
     """)
 
     # Cadena de Glucógeno
-    partes.append(nodo_libre(x_glc - 80, y_glc + 220, "Glucógeno (n+1)", "Polímero", CADENA_GLUCOGENO, "m_glucogeno_cadena"))
+    partes.append(nodo_libre(x_glc - 80, y_glc + 220, "Glucógeno (n+1)", "Polímero", CADENA_GLUCOGENO, "m_glucogeno_cadena", text_pos="top", dx=140, dy=-25))
     partes.append(f"""
     <g id="rx_sintesis_degradacion_glucogeno" data-arrastrable="1">
       <!-- Síntesis -->
       <path d="M {x_glc + 150} {y_udpg + 65} Q {x_glc + 70} {y_glc + 150} {x_glc + 10} {y_glc + 215}" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
       <text x="{x_glc + 120}" y="{y_glc + 145}" fill="#b45309" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Glucógeno Sintasa</text>
+      <g transform="translate({x_glc + 120}, {y_glc + 160})">
+        <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800">⊕ G6P</text>
+        <text x="0" y="12" fill="#ca8a04" font-size="9" font-weight="800">Ⓟ P = inactiva (GSK-3/PKA)</text>
+        <text x="0" y="24" fill="#0284c7" font-size="9" font-weight="800">⚡ Insulina ↑ · Glucagón ↓</text>
+      </g>
 
       <!-- Glucogenólisis (degradación) -->
       <path d="M {x_glc + 80} {y_glc + 310} Q {x_glc + 320} {y_glc + 360} {x_glc + 500} {y_glc + 85}" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arrowFlow)"/>
       <text x="{x_glc + 330}" y="{y_glc + 345}" fill="#c2410c" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Glucógeno Fosforilasa (+Pi ➔ G1P)</text>
+      <g transform="translate({x_glc + 330}, {y_glc + 360})">
+        <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800">⊕ AMP, Ca²⁺</text>
+        <text x="0" y="12" fill="#dc2626" font-size="9" font-weight="800">⊖ ATP, G6P, Glucosa</text>
+        <text x="0" y="24" fill="#ca8a04" font-size="9" font-weight="800">Ⓟ P = activa (Fosforilasa quinasa)</text>
+        <text x="0" y="36" fill="#0284c7" font-size="9" font-weight="800">⚡ Glucagón/Adrenalina ↑</text>
+      </g>
     </g>
     """)
     partes.append('</g>')
@@ -617,6 +870,7 @@ def construir_mapa_organico():
     x_p = 2580
     y_p = 300
     partes.append(f'<g id="ruta_pentosas">')
+    partes.append(badge_via(4, 2520, 260))
 
     # Entrada G6PDH desde G6P
     partes.append(f"""
@@ -627,6 +881,7 @@ def construir_mapa_organico():
     """)
 
     # 1. Lactona
+    partes.append(etiqueta_regulacion("g6pdh", x_p - 110, y_p + 15, dx=0, dy=0, anchor="end"))
     partes.append(nodo_libre(x_p, y_p, "6-P-Gluconolactona", "6C", FOSFOGLUCONO_LACTONA_6, "m_lactona", text_right=True, dx=145))
     partes.append(reaccion_libre(x_p + 50, y_p + 105, 36, "Lactonasa (+ H₂O)", id_rx="rx_lactonasa"))
 
@@ -656,11 +911,11 @@ def construir_mapa_organico():
     <text x="{x_p + 90}" y="{y_p + 760}" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transaldolasa ⇄ Retorno a F6P y GAP</text>
 
     <!-- Retornos de Transaldolasa y Transcetolasa hacia Glucólisis (rutas despejadas sin colisiones) -->
-    <path d="M {x_p - 140} {y_p + 760} C 2420 700, 2350 455, 2180 455 C 2060 455, 1940 475, {x_g + 160} {y_g + paso_y * 2 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
+    <path d="M {x_p - 140} {y_p + 760} C 2550 560, 2450 420, 2080 430 C 1960 435, 1880 480, {x_g + 160} {y_g + paso_y * 2 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
     <text x="2020" y="440" fill="#059669" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: Fructosa-6-P ➔</text>
 
-    <path d="M {x_p - 140} {y_p + 800} C 2280 1100, 2120 920, {x_g + 200} {y_g + paso_y * 4 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
-    <text x="2350" y="1080" fill="#059669" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: GAP ➔</text>
+    <path d="M {x_p - 140} {y_p + 800} C 2500 1150, 2180 1150, {x_g + 200} {y_g + paso_y * 4 + 35}" fill="none" stroke="#059669" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
+    <text x="2350" y="1140" fill="#059669" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Retorno a Glucólisis: GAP ➔</text>
     """)
     partes.append('</g>')
 
@@ -673,6 +928,7 @@ def construir_mapa_organico():
     x_ancla_mmi = 780
     y_ancla_mmi = y_mito - 30
 
+    partes.append(badge_via(8, 710, y_ancla_mmi - 25))
     partes.append(f"""
     <!-- ================================================================= -->
     <!-- LUPA DE AUMENTO MOLECULAR: LANZADERA MALATO-ASPARTATO             -->
@@ -836,6 +1092,8 @@ def construir_mapa_organico():
     paso_k = 175  # Paso vertical holgado para que cada intermediario de Krebs respire plenamente
 
     partes.append(f'<g id="ruta_krebs">')
+    partes.append(badge_via(5, x_k + 460, y_k - 10))
+    partes.append(badge_via(6, x_k - 40, y_k + paso_k * 4))
 
     # Complejo PDH (Transición MPC ➔ Acetil-CoA)
     partes.append(f"""
@@ -843,6 +1101,11 @@ def construir_mapa_organico():
     <path d="M 1680 {y_mito - 10} C 1680 {y_k - 20}, {x_k + 400} {y_k - 20}, {x_k + 370} {y_k + 10}" fill="none" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
     <text x="{x_k + 500}" y="{y_k - 5}" fill="#c2410c" font-size="13" font-weight="900" font-family="'Inter', sans-serif">Complejo PDH (E1, E2, E3)</text>
     <text x="{x_k + 500}" y="{y_k + 14}" fill="#64748b" font-size="11" font-family="'Inter', sans-serif">+ CoA-SH + NAD⁺ ➔ CO₂ + NADH</text>
+    <g transform="translate({x_k + 500}, {y_k + 30})">
+      <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800">⊕ Piruvato, ADP, NAD⁺, Ca²⁺</text>
+      <text x="0" y="12" fill="#dc2626" font-size="9" font-weight="800">⊖ Acetil-CoA, NADH, ATP</text>
+      <text x="0" y="24" fill="#ca8a04" font-size="9" font-weight="800">Ⓟ P (PDK) = inactiva · PDP activa (Ca²⁺/Insulina)</text>
+    </g>
     """)
 
     # Acetil-CoA
@@ -864,10 +1127,12 @@ def construir_mapa_organico():
     # Isocitrato
     partes.append(nodo_libre(x_k + 10, y_k + paso_k * 2, "Isocitrato", "6C", ISOCITRATO, "m_isocitrato", text_right=True, dx=140))
     partes.append(reaccion_libre(x_k + 55, y_k + paso_k * 2 + 130, 38, "Isocitrato DH", entra="+ NAD⁺", sale="+ NADH + CO₂", es_ganancia=True, id_rx="rx_icdh", text_dx=-16, text_anchor="end"))
+    partes.append(etiqueta_regulacion("icdh", x_k - 120, y_k + paso_k * 2 + 140, dx=0, dy=0, anchor="end"))
 
     # Alfa-Cetoglutarato
     partes.append(nodo_libre(x_k + 10, y_k + paso_k * 3, "α-Cetoglutarato", "5C", KREBS_ALFA_CETOGLUTARATO, "m_akg", text_right=True, dx=140))
     partes.append(reaccion_libre(x_k + 55, y_k + paso_k * 3 + 130, 38, "α-KG Deshidrogenasa", entra="+ CoA + NAD⁺", sale="+ NADH + CO₂", es_ganancia=True, id_rx="rx_akgdh", text_dx=-16, text_anchor="end"))
+    partes.append(etiqueta_regulacion("akgdh", x_k - 120, y_k + paso_k * 3 + 140, dx=0, dy=0, anchor="end"))
 
     # Succinil-CoA
     partes.append(nodo_libre(x_k + 10, y_k + paso_k * 4, "Succinil-CoA", "4C", SUCCINIL_COA, "m_succoa", text_right=True, dx=140))
@@ -908,6 +1173,7 @@ def construir_mapa_organico():
     w_cte_marco = 1190
     h_cte_marco = 820
 
+    partes.append(badge_via(7, x_ancla_cresta - 95, y_ancla_cresta - 5))
     partes.append(f"""
     <!-- ================================================================= -->
     <!-- CADENA TRANSPORTADORA DE ELECTRONES Y ATP SINTASA (DISEÑO REAL)    -->
@@ -997,16 +1263,19 @@ def construir_mapa_organico():
     y_lipo = 1000
     paso_l = 175
     partes.append(f'<g id="ruta_lipogenesis">')
+    partes.append(badge_via(10, x_lipo - 30, y_lipo - paso_l*2 - 20))
 
-    partes.append(nodo_libre(x_lipo, y_lipo - paso_l*2, "Citrato (Citosólico)", "6C", CITRATO, "m_citrato_cito", text_right=True, dx=175))
+    partes.append(nodo_libre(x_lipo, y_lipo - paso_l*2, "Citrato (Citosólico)", "6C", CITRATO, "m_citrato_cito", text_right=True, dx=200))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l*2 + 75, 48, "ATP Citrato Liasa", entra="+ ATP + CoA", sale="+ OAA", id_rx="rx_acly"))
+    partes.append(etiqueta_regulacion("acly", x_lipo + 210, y_lipo - paso_l*2 + 85, dx=0, dy=0))
     
     partes.append(nodo_libre(x_lipo, y_lipo - paso_l, "Acetil-CoA (Citosólico)", "2C", ACETIL_COA, "m_acetil_coa_cito", text_pos="top", dy=-18))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l + 75, 48, "ACC (Acetil-CoA Carboxilasa)", entra="+ ATP + CO2", sale="+ ADP", id_rx="rx_acc"))
+    partes.append(etiqueta_regulacion("acc", x_lipo + 260, y_lipo - paso_l + 85, dx=0, dy=0))
     
     partes.append(f'''
     <!-- Lanzadera de Citrato: Translocación desde matriz a citosol vía transportador CIC en MMI (X=1915), evitando MPC -->
-    <path d="M 1250 2380 C 1500 2380, 1750 2260, 1945 2140 C 2080 1980, 2500 1300, {x_lipo - 30} 690" fill="none" stroke="#0ea5e9" stroke-width="2.6" stroke-dasharray="10 5" marker-end="url(#arrowBlue)"/>
+    <path d="M 1250 2380 C 1500 2480, 1850 2320, 1945 2140 C 2080 1920, 2750 1200, {x_lipo - 30} 690" fill="none" stroke="#0ea5e9" stroke-width="2.6" stroke-dasharray="10 5" marker-end="url(#arrowBlue)"/>
     <g id="transportador_cic" data-arrastrable="1" transform="translate(1915, 2115)">
       <rect x="0" y="0" width="60" height="28" rx="7" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
       <text x="30" y="18" fill="#ffffff" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CIC</text>
@@ -1016,17 +1285,18 @@ def construir_mapa_organico():
 
     partes.append(nodo_libre(x_lipo, y_lipo, "Malonil-CoA", "3C", MALONIL_COA, "m_malonil", text_right=True, dx=180))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo + 75, 48, "FAS (Condensación)", entra="+ Acetil-CoA", sale="+ CO2", id_rx="rx_fas1"))
+    partes.append(etiqueta_regulacion("fas", x_lipo + 220, y_lipo + 85, dx=0, dy=0))
     
-    partes.append(nodo_libre(x_lipo, y_lipo + paso_l, "Acetoacetil-ACP", "4C", ACETOACETIL_ACP, "m_acetoac_acp", text_right=True))
+    partes.append(nodo_libre(x_lipo, y_lipo + paso_l, "Acetoacetil-ACP", "4C", ACETOACETIL_ACP, "m_acetoac_acp", text_right=True, dx=190))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo + paso_l + 75, 48, "FAS (Reducción 1)", entra="+ NADPH", sale="+ NADP+", id_rx="rx_fas2"))
     
-    partes.append(nodo_libre(x_lipo, y_lipo + paso_l*2, "D-β-Hidroxiacil-ACP", "4C", D_BETA_HIDROXIACIL_ACP, "m_hidroxi_acp", text_right=True))
+    partes.append(nodo_libre(x_lipo, y_lipo + paso_l*2, "D-β-Hidroxiacil-ACP", "4C", D_BETA_HIDROXIACIL_ACP, "m_hidroxi_acp", text_right=True, dx=190))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo + paso_l*2 + 75, 48, "FAS (Deshidratación)", entra="", sale="+ H2O", id_rx="rx_fas3"))
     
-    partes.append(nodo_libre(x_lipo, y_lipo + paso_l*3, "Butiril-ACP", "4C", BUTIRIL_ACP, "m_butiril_acp", text_right=True))
+    partes.append(nodo_libre(x_lipo, y_lipo + paso_l*3, "Butiril-ACP", "4C", BUTIRIL_ACP, "m_butiril_acp", text_right=True, dx=190))
     partes.append(reaccion_libre(x_lipo + 60, y_lipo + paso_l*3 + 75, 48, "FAS (x7 Ciclos)", entra="+ NADPH", sale="+ NADP+", id_rx="rx_fas4"))
     
-    partes.append(nodo_libre(x_lipo, y_lipo + paso_l*4, "Palmitato", "16C", PALMITATO_LIBRE, "m_palmitato_libre", text_right=True))
+    partes.append(nodo_libre(x_lipo, y_lipo + paso_l*4, "Palmitato", "16C", PALMITATO_LIBRE, "m_palmitato_libre", text_right=True, dx=255))
     partes.append(f'</g>')
 
     # =========================================================================
@@ -1037,6 +1307,18 @@ def construir_mapa_organico():
     y_col = 920
     paso_col = 165
     partes.append(f'<g id="ruta_colesterol">')
+    partes.append(badge_via(12, x_col - 40, y_col - 260))
+
+    # Inserción de Acetoacetil-CoA y HMG-CoA citosólicos + HMG-CoA Reductasa
+    y_acetoac_col = y_col - 240
+    y_hmg_col = y_col - 120
+    partes.append(nodo_libre(x_col, y_acetoac_col, "Acetoacetil-CoA (Citosol)", "4C", ACETOACETIL_COA_COLEST, "m_acetoac_col", text_pos="top", dy=-18))
+    partes.append(reaccion_libre(x_col + 60, y_acetoac_col + 65, 40, "HMG-CoA Sintasa (Citosólica)", entra="+ Acetil-CoA", id_rx="rx_hmgs_cito"))
+
+    partes.append(nodo_libre(x_col, y_hmg_col, "HMG-CoA (Citosol)", "6C", HMG_COA_CITOSOL, "m_hmg_col", text_pos="top", dy=-18))
+    partes.append(reaccion_libre(x_col + 60, y_hmg_col + 65, 45, "HMG-CoA Reductasa (HMGCR)", entra="- 2 NADPH", sale="+ CoA", id_rx="rx_hmgcr"))
+    partes.append(etiqueta_regulacion("hmgcr", x_col + 250, y_hmg_col + 70, dx=0, dy=0))
+
     
     # Conexión desde Acetil-CoA citosólico hacia la vía del colesterol
     partes.append(f'''
@@ -1081,12 +1363,13 @@ def construir_mapa_organico():
     y_box = y_mito + 100
     paso_b = 160
     partes.append(f'<g id="ruta_beta_ox">')
+    partes.append(badge_via(9, x_box - 20, y_box - 1220))
     
 
     # Sangre -> Citosol -> Mitocondria
     # Palmitato en sangre (unido a Albúmina dentro del torrente vascular superior)
     x_palm_sangre = 510
-    partes.append(nodo_libre(x_palm_sangre, 24, "Palmitato (Sanguíneo / Albúmina)", "16C", PALMITATO_LIBRE, "m_palmitato_sangre", text_right=True, dx=140))
+    partes.append(nodo_libre(x_palm_sangre, 24, "Palmitato (Sanguíneo / Albúmina)", "16C", PALMITATO_LIBRE, "m_palmitato_sangre", text_right=True, dx=265))
     
     # Cruce de la membrana plasmática hacia citosol por transportador CD36 / FAT
     partes.append(f'''
@@ -1099,12 +1382,13 @@ def construir_mapa_organico():
     ''')
     
     # 1. Palmitato Citosólico
-    partes.append(nodo_libre(x_box, y_box - 1200, "Palmitato (Citosólico)", "16C", PALMITATO_LIBRE, "m_palmitato_cito", text_right=True, dx=235))
+    partes.append(nodo_libre(x_box, y_box - 1200, "Palmitato (Citosólico)", "16C", PALMITATO_LIBRE, "m_palmitato_cito", text_right=True, dx=265))
     partes.append(reaccion_libre(x_box + 60, y_box - 1200 + 80, 50, "Acil-CoA Sintetasa (ACS)", entra="+ ATP + CoA", sale="+ AMP + PPi", id_rx="rx_acs"))
     
     # 2. Palmitoil-CoA Citosólico (Nombre encima de la estructura)
     partes.append(nodo_libre(x_box, y_box - 800, "Palmitoil-CoA (Citosólico)", "16C", PALMITOIL_COA, "m_palmitoil_cito", text_pos="top", dx=110, dy=-22))
     partes.append(reaccion_libre(x_box + 60, y_box - 800 + 80, 50, "CPT-1 (Lanzadera de Carnitina)", entra="+ Carnitina", sale="- CoA", id_rx="rx_cpt1"))
+    partes.append(etiqueta_regulacion("cpt1", x_box + 260, y_box - 800 + 90, dx=0, dy=0))
     
     # 3. Palmitoil-Carnitina (Espacio Citosol / EIM exterior)
     partes.append(nodo_libre(x_box, y_box - 280, "Palmitoil-Carnitina", "16C", PALMITOIL_CARNITINA, "m_palm_carnitina", text_right=True, dx=145))
@@ -1127,12 +1411,12 @@ def construir_mapa_organico():
 
     # 4. Palmitoil-CoA en la matriz mitocondrial
     y_m_palm = 2390
-    partes.append(nodo_libre(x_box, y_m_palm, "Palmitoil-CoA (Matriz)", "16C", PALMITOIL_COA, "m_palmitoil", text_right=True, dx=235))
+    partes.append(nodo_libre(x_box, y_m_palm, "Palmitoil-CoA (Matriz)", "16C", PALMITOIL_COA, "m_palmitoil", text_right=True, dx=265))
     partes.append(reaccion_libre(x_box + 60, y_m_palm + 70, 42, "Acil-CoA DH", entra="+ FAD", sale="+ FADH2", es_ganancia=True, id_rx="rx_box1"))
     
     # 5. trans-Δ²-Enoil-CoA (Paso añadido)
     y_m_enoil = y_m_palm + 140
-    partes.append(nodo_libre(x_box, y_m_enoil, "trans-Δ²-Enoil-CoA", "16C", TRANS_DELTA2_ENOIL_COA, "m_trans_enoil", text_right=True, dx=225))
+    partes.append(nodo_libre(x_box, y_m_enoil, "trans-Δ²-Enoil-CoA", "16C", TRANS_DELTA2_ENOIL_COA, "m_trans_enoil", text_right=True, dx=265))
     partes.append(reaccion_libre(x_box + 60, y_m_enoil + 70, 42, "Enoil-CoA Hidratasa", entra="+ H₂O", id_rx="rx_box1b"))
 
     # 6. L-β-Hidroxiacil-CoA
@@ -1142,7 +1426,7 @@ def construir_mapa_organico():
     
     # 7. β-Cetoacil-CoA
     y_m_ceto = y_m_hidro + 140
-    partes.append(nodo_libre(x_box, y_m_ceto, "β-Cetoacil-CoA", "16C", BETA_CETOACIL_COA, "m_cetoacil_coa", text_right=True, dx=210))
+    partes.append(nodo_libre(x_box, y_m_ceto, "β-Cetoacil-CoA", "16C", BETA_CETOACIL_COA, "m_cetoacil_coa", text_right=True, dx=265))
     partes.append(reaccion_libre(x_box + 60, y_m_ceto + 70, 42, "Tiolasa", entra="+ CoA", id_rx="rx_box3"))
     
     # 8. Clivaje tiolítico: Acetil-CoA y Miristoil-CoA
@@ -1163,11 +1447,13 @@ def construir_mapa_organico():
     y_ceto = y_mito + 700
     paso_c = 140
     partes.append(f'<g id="ruta_ceto">')
+    partes.append(badge_via(11, x_ceto - 40, y_ceto - 20))
     
     partes.append(nodo_libre(x_ceto, y_ceto, "Acetoacetil-CoA", "4C", ACETOACETIL_COA, "m_acetoac_coa", text_right=True, dx=160))
     partes.append(reaccion_libre(x_ceto + 60, y_ceto + 70, 40, "HMG-CoA Sintasa", entra="+ Acetil-CoA", id_rx="rx_ceto1"))
+    partes.append(etiqueta_regulacion("hmgcs2", x_ceto + 200, y_ceto + 80, dx=0, dy=0))
     
-    partes.append(nodo_libre(x_ceto, y_ceto + paso_c, "HMG-CoA", "6C", HMG_COA, "m_hmg_coa", text_right=True, dx=160))
+    partes.append(nodo_libre(x_ceto, y_ceto + paso_c, "HMG-CoA", "6C", HMG_COA, "m_hmg_coa", text_right=True, dx=200))
     partes.append(reaccion_libre(x_ceto + 60, y_ceto + paso_c + 70, 40, "HMG-CoA Liasa", sale="+ Acetil-CoA", id_rx="rx_ceto2"))
     
     partes.append(nodo_libre(x_ceto, y_ceto + paso_c*2, "Acetoacetato", "4C", ACETOACETATO, "m_acetoacetato", text_right=True, dx=160))
@@ -1190,6 +1476,7 @@ def construir_mapa_organico():
     x_aa = 2140
     y_aa = 380
     partes.append(f'<g id="ruta_transaminacion_desaminacion">')
+    partes.append(badge_via(13, x_aa - 190, 170))
 
     # Rótulo de la vía en el citosol (elevado a Y=170 para no interferir con G6PDH en Y=335)
     partes.append(f'''
@@ -1235,7 +1522,7 @@ def construir_mapa_organico():
 
     # Conexión directa hacia la Glucólisis (desciende por canal citosólico despejado en X=2135)
     partes.append(f'''
-    <text x="{x_aa}" y="{y_aa + 305}" fill="#c2410c" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Pool de Piruvato (➔ MPC) ↓</text>
+    <text x="{x_aa + 30}" y="{y_aa + 305}" fill="#c2410c" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Pool de Piruvato (➔ MPC) ↓</text>
     <path d="M {x_aa} {y_aa + 320} C 2135 {y_aa + 345}, 2135 800, 2135 1550 C 2135 1630, 2060 1675, 1880 1675" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
     ''')
 
@@ -1343,7 +1630,7 @@ def construir_mapa_organico():
     # =========================================================================
     x_u_l = 4100  # Carril Izquierdo (Carbamoil-P, CPS-1, Aspartato, Fumarato, Biciclo)
     x_u_c = 4420  # Carril Central (Flujo principal: Citrulina, Arg-Succ, Arginina, Urea)
-    x_u_r = 4700  # Carril Derecho (Lanzadera de Ornitina, ORNT1)
+    x_u_r = 4640  # Carril Derecho (Lanzadera de Ornitina, ORNT1)
 
     partes.append(f'''
     <!-- ================================================================= -->
@@ -1351,6 +1638,7 @@ def construir_mapa_organico():
     <!-- ================================================================= -->
     <g id="ruta_ciclo_urea">
       <!-- Rótulo de la Ruta flotando libremente en citosol superior (despejado a la izquierda de la excreción) -->
+      {badge_via(14, 4040, 230)}
       <g id="rotulo_ciclo_urea" data-arrastrable="1" transform="translate(4210, 235)">
         <text x="0" y="0" fill="#0f766e" font-size="24" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="3">CICLO DE LA UREA</text>
         <text x="0" y="24" fill="#64748b" font-size="12" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Desintoxicación Hepática de Amonio • Biciclo de Krebs • Excreción Renal</text>
@@ -1483,7 +1771,7 @@ def construir_mapa_organico():
         x_u_c - 40, 1960,
         "L-Citrulina (Citosol)", "6C",
         UREA_CITRULINA, "m_u_citrulina_cito",
-        text_right=True, dx=140,
+        text_right=True, dx=160,
         detalle="Recibida por SLC25A13 para condensación"
     ))
 
@@ -1553,10 +1841,10 @@ def construir_mapa_organico():
 
     # 8. Fumarato libre resultante (carril izquierdo, X=4080, Y=1340)
     partes.append(nodo_libre(
-        x_u_l - 20, 1340,
+        x_u_l - 60, 1340,
         "Fumarato", "4C",
         UREA_FUMARATO, "m_u_fumarato",
-        text_right=False, dx=-15,
+        text_right=False, dx=-20,
         detalle="Subproducto de escisión trans"
     ))
 
@@ -1610,7 +1898,7 @@ def construir_mapa_organico():
         x_u_r - 20, 960,
         "L-Ornitina (Citosol)", "5C",
         UREA_ORNITINA, "m_u_ornitina_cito",
-        text_right=True, dx=115,
+        text_right=False, dx=-20,
         detalle="Regenerada tras hidrólisis"
     ))
 
@@ -1655,7 +1943,8 @@ def construir_mapa_organico():
     partes.append(f'</g>')
 
     # 14. BLOQUE INSTITUCIONAL Y AUTORÍA DE CÓDIGO ABIERTO
-    partes.append(generar_bloque_autoria(3820, 3540))
+    partes.append(generar_bloque_leyenda(100, 4230))
+    partes.append(generar_bloque_autoria(3800, 4230))
 
     # Defs y Marcadores
     defs_svg = f"""
