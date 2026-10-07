@@ -314,98 +314,128 @@ def generar_svg():
     """)
 
     # =========================================================================
-    # 3. INTERRUPTOR BIOLÓGICO DE REGULACIÓN DE E1 (SÚPER VISUAL Y CLARO)
+    # 3. CIRCUITO DINÁMICO DE REGULACIÓN: VÍAS COVALENTES Y ALOSTÉRICAS DIRECTAS
     # =========================================================================
-    x_reg = 860
-    y_reg = 360
+    # Sin cajas artificiales: se representa como una vía bioquímica real con ciclo PDK/PDP,
+    # ramas de señalización hormonal/energética y retroinhibición por producto.
+    x_reg = 820
+    y_reg = 320
 
     partes.append(f"""
-    <!-- INTERRUPTOR DE REGULACIÓN DE E1 -->
+    <!-- CIRCUITO DE REGULACIÓN COVALENTE Y ALOSTÉRICA (E1) -->
     <g transform="translate({x_reg}, {y_reg})">
-      <!-- Conector desde la reacción E1 -->
-      <path d="M -430 45 C -280 45, -120 45, -10 45" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
+      <!-- Rama conectora desde la enzima E1 -->
+      <path d="M -390 100 C -220 100, -80 100, 0 100" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
 
-      <!-- Título biológico claro -->
-      <text x="0" y="-10" fill="#0f172a" font-size="16" font-weight="900">INTERRUPTOR BIOLÓGICO DE E1 (PDK vs PDP)</text>
-      <text x="0" y="10" fill="#64748b" font-size="11.5">Control por fosforilación en el residuo Serina de la subunidad E1α:</text>
+      <!-- Título de la vía de regulación -->
+      <text x="0" y="20" fill="#0f172a" font-size="16" font-weight="900" letter-spacing="0.5">VÍA DE REGULACIÓN COVALENTE Y ALOSTÉRICA (E1)</text>
+      <text x="0" y="38" fill="#64748b" font-size="11.5">Ciclo recíproco de fosforilación / desfosforilación en Ser-264 de E1α</text>
 
-      <!-- Panel Verde: CUÁNDO ESTÁ ACTIVA (ENCENDIDA) -->
-      <g transform="translate(0, 30)">
-        <rect x="0" y="0" width="220" height="150" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-        <circle cx="28" cy="28" r="14" fill="#16a34a"/>
-        <text x="28" y="34" fill="#ffffff" font-size="16" font-weight="900" text-anchor="middle">✓</text>
-        <text x="50" y="32" fill="#15803d" font-size="14" font-weight="900">PDH ENCENDIDA</text>
-        <text x="14" y="56" fill="#166534" font-size="11" font-weight="800">Desfosforilada (Ser-OH activo)</text>
-
-        <text x="14" y="80" fill="#0f172a" font-size="11" font-weight="800">¿Cuándo se activa?</text>
-        <text x="14" y="98" fill="#166534" font-size="10.5">• Ca²⁺ (ejercicio y contracción)</text>
-        <text x="14" y="114" fill="#166534" font-size="10.5">• Insulina (estado postprandial)</text>
-        <text x="14" y="130" fill="#166534" font-size="10.5">• Piruvato, ADP, NAD⁺ altos</text>
+      <!-- Nodo E1 ACTIVA (Desfosforilada) -->
+      <g transform="translate(40, 100)">
+        <ellipse cx="65" cy="0" rx="70" ry="24" fill="#dcfce7" stroke="#16a34a" stroke-width="2.4"/>
+        <text x="65" y="-3" fill="#15803d" font-size="13" font-weight="900" text-anchor="middle">E1 ACTIVA</text>
+        <text x="65" y="12" fill="#166534" font-size="9.5" font-weight="700" text-anchor="middle">Ser-OH (Desfosforilada)</text>
       </g>
 
-      <!-- Flechas del interruptor entre verde y rojo -->
-      <path d="M 230 65 L 310 65" fill="none" stroke="#dc2626" stroke-width="2.4" marker-end="url(#arrowRed)"/>
-      <text x="270" y="56" fill="#dc2626" font-size="11" font-weight="900" text-anchor="middle">PDK (+ATP)</text>
+      <!-- Vía Inactivadora Superior: PIRUVATO DESHIDROGENASA QUINASA (PDK) -->
+      <path d="M 180 88 C 240 40, 340 40, 400 88" fill="none" stroke="#dc2626" stroke-width="2.6" marker-end="url(#arrowRed)"/>
+      <g transform="translate(290, 36)">
+        <text x="0" y="0" fill="#dc2626" font-size="13" font-weight="900" text-anchor="middle">PDK (Quinasa)</text>
+        <text x="0" y="14" fill="#991b1b" font-size="9.5" font-family="'JetBrains Mono', monospace" font-weight="700" text-anchor="middle">+ ATP ➔ ADP</text>
+      </g>
 
-      <path d="M 310 115 L 230 115" fill="none" stroke="#16a34a" stroke-width="2.4" marker-end="url(#arrowGreen)"/>
-      <text x="270" y="135" fill="#16a34a" font-size="11" font-weight="900" text-anchor="middle">PDP (+H₂O)</text>
+      <!-- Nodo E1 INACTIVA (Fosforilada) -->
+      <g transform="translate(420, 100)">
+        <ellipse cx="75" cy="0" rx="75" ry="24" fill="#fee2e2" stroke="#dc2626" stroke-width="2.4"/>
+        <text x="75" y="-3" fill="#991b1b" font-size="13" font-weight="900" text-anchor="middle">E1 INACTIVA</text>
+        <text x="75" y="12" fill="#7f1d1d" font-size="9.5" font-weight="700" text-anchor="middle">Ⓟ Ser-O-P (Fosforilada)</text>
+      </g>
 
-      <!-- Panel Rojo: CUÁNDO SE APAGA (INACTIVA) -->
-      <g transform="translate(320, 30)">
-        <rect x="0" y="0" width="220" height="150" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
-        <circle cx="28" cy="28" r="14" fill="#dc2626"/>
-        <text x="28" y="34" fill="#ffffff" font-size="16" font-weight="900" text-anchor="middle">✕</text>
-        <text x="50" y="32" fill="#991b1b" font-size="14" font-weight="900">PDH APAGADA</text>
-        <text x="14" y="56" fill="#991b1b" font-size="11" font-weight="800">Ⓟ Fosforilada (Ser-O-P inactivo)</text>
+      <!-- Vía Activadora Inferior: PIRUVATO DESHIDROGENASA FOSFATASA (PDP) -->
+      <path d="M 400 112 C 340 160, 240 160, 180 112" fill="none" stroke="#16a34a" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
+      <g transform="translate(290, 175)">
+        <text x="0" y="0" fill="#16a34a" font-size="13" font-weight="900" text-anchor="middle">PDP (Fosfatasa)</text>
+        <text x="0" y="14" fill="#15803d" font-size="9.5" font-family="'JetBrains Mono', monospace" font-weight="700" text-anchor="middle">+ H₂O ➔ Pi</text>
+      </g>
 
-        <text x="14" y="80" fill="#0f172a" font-size="11" font-weight="800">¿Cuándo se apaga?</text>
-        <text x="14" y="98" fill="#b91c1c" font-size="10.5">• Acetil-CoA alto (exceso)</text>
-        <text x="14" y="114" fill="#b91c1c" font-size="10.5">• NADH y ATP elevados</text>
-        <text x="14" y="130" fill="#7f1d1d" font-size="10">• Desvía piruvato a Gluconeogénesis</text>
+      <!-- SEÑALIZACIÓN ENTRADA A PDK (Estimulan la quinasa ➔ apagan E1) -->
+      <path d="M 290 -30 L 290 18" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <g transform="translate(290, -42)">
+        <text x="0" y="0" fill="#dc2626" font-size="11" font-weight="900" text-anchor="middle">⊕ Estimulan a PDK (Apagan la vía):</text>
+        <text x="0" y="14" fill="#7f1d1d" font-size="10" font-weight="800" text-anchor="middle">NADH, Acetil-CoA, ATP [Alta carga energética celular]</text>
+      </g>
+
+      <!-- SEÑALIZACIÓN ENTRADA A PDP (Estimulan la fosfatasa ➔ encienden E1) -->
+      <path d="M 290 240 L 290 196" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+      <g transform="translate(290, 256)">
+        <text x="0" y="0" fill="#16a34a" font-size="11" font-weight="900" text-anchor="middle">⊕ Estimulan a PDP (Encienden la vía):</text>
+        <text x="0" y="14" fill="#14532d" font-size="10" font-weight="800" text-anchor="middle">Ca²⁺ (trabajo muscular) • Mg²⁺ • Insulina (estado postprandial)</text>
+      </g>
+
+      <!-- FLECHA DE BLOQUEO DE PDK POR SUSTRATOS (Frena a PDK ➔ mantiene activa E1) -->
+      <path d="M 120 40 C 160 5, 230 15, 260 26" fill="none" stroke="#15803d" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#inhibitionT)"/>
+      <g transform="translate(140, 2)">
+        <text x="0" y="0" fill="#15803d" font-size="10.5" font-weight="800">⊣ Inhiben PDK:</text>
+        <text x="0" y="13" fill="#334155" font-size="9.5" font-weight="700">Piruvato, ADP, NAD⁺</text>
+      </g>
+
+      <!-- CONTROL ALOSTÉRICO DIRECTO SOBRE E2 Y E3 (RETROINHIBICIÓN) -->
+      <g transform="translate(0, 310)">
+        <line x1="0" y1="0" x2="650" y2="0" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="0" y="24" fill="#0f172a" font-size="14" font-weight="900">VÍAS DE RETROINHIBICIÓN ALOSTÉRICA DIRECTA POR PRODUCTO</text>
+
+        <!-- Rama a E2 -->
+        <g transform="translate(0, 50)">
+          <path d="M 10 10 L 80 10" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
+          <text x="90" y="14" fill="#dc2626" font-size="12" font-weight="900">⊣ E2 (Transacetilasa):</text>
+          <text x="250" y="14" fill="#334155" font-size="11">Inhibida alostéricamente por su producto <tspan font-weight="800" fill="#b91c1c">Acetil-CoA</tspan> (competitivo con CoA-SH).</text>
+        </g>
+
+        <!-- Rama a E3 -->
+        <g transform="translate(0, 80)">
+          <path d="M 10 10 L 80 10" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
+          <text x="90" y="14" fill="#dc2626" font-size="12" font-weight="900">⊣ E3 (Dihidrolipoil DH):</text>
+          <text x="250" y="14" fill="#334155" font-size="11">Inhibida alostéricamente por <tspan font-weight="800" fill="#b91c1c">NADH</tspan> (cociente NADH/NAD⁺ elevado frena la reoxidación).</text>
+        </g>
       </g>
     </g>
     """)
 
     # =========================================================================
-    # 4. PATOLOGÍAS SITUADAS DIRECTAMENTE AL LADO DE SU ENZIMA DIANA
+    # 4. PATOLOGÍAS Y FARMACOLOGÍA CONECTADAS DIRECTAMENTE A SU DIANA
     # =========================================================================
-    # Diana 1: Subunidad E1 (TPP) -> Situada exactamente en y=225 a la derecha de E1
+    # Diana 1: Subunidad E1 (TPP) -> Señala limpiamente a E1 sin cajas pesadas
     partes.append(f"""
     <!-- DIANA PATOLÓGICA 1: E1 / TPP -->
-    <g transform="translate(860, 225)">
-      <rect x="0" y="0" width="550" height="70" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="1.8"/>
-      <circle cx="24" cy="24" r="12" fill="#be123c"/>
-      <text x="24" y="29" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">!</text>
-      
-      <text x="44" y="22" fill="#9f1239" font-size="12.5" font-weight="900">DIANA E1: DÉFICIT DE TIAMINA (B₁) Y ACIDOSA LÁCTICA</text>
-      <text x="44" y="40" fill="#334155" font-size="11">
-        • <tspan font-weight="700">Falta de B₁:</tspan> agota el TPP en E1 ➔ <tspan font-weight="700">Beriberi</tspan> y <tspan font-weight="700">Wernicke-Korsakoff</tspan>.
-      </text>
-      <text x="44" y="56" fill="#be123c" font-size="10.5" font-weight="700">
-        • Mutación en E1α: El Piruvato no entra a la mitocondria y la LDH lo reduce a Lactato en exceso.
-      </text>
-
-      <path d="M 0 35 L -140 130" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#inhibitionT)"/>
+    <g transform="translate(860, 240)">
+      <path d="M -10 10 L -140 120" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
+      <g transform="translate(10, 0)">
+        <text x="0" y="0" fill="#be123c" font-size="13" font-weight="900">DIANA E1: DÉFICIT DE TIAMINA (B₁) Y ACIDOSA LÁCTICA</text>
+        <text x="0" y="16" fill="#334155" font-size="11">
+          • <tspan font-weight="700">Carencia de B₁:</tspan> Desprovista de TPP, E1 queda inactiva ➔ <tspan font-weight="700">Beriberi</tspan> y enf. de <tspan font-weight="700">Wernicke-Korsakoff</tspan>.
+        </text>
+        <text x="0" y="32" fill="#be123c" font-size="10.5" font-weight="700">
+          • Mecanismo de Acidosis Láctica: El piruvato acumulado se desvía a Lactato por la LDH citosólica.
+        </text>
+      </g>
     </g>
     """)
 
-    # Diana 2: Subunidad E2 (Lipoamida) -> Situada exactamente en y=625 a la derecha de E2
+    # Diana 2: Subunidad E2 (Lipoamida) -> Señala al brazo ditiol
     partes.append(f"""
     <!-- DIANA PATOLÓGICA 2: E2 / LIPOAMIDA -->
-    <g transform="translate(860, 625)">
-      <rect x="0" y="0" width="550" height="70" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="1.8"/>
-      <circle cx="24" cy="24" r="12" fill="#be123c"/>
-      <text x="24" y="29" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">!</text>
-
-      <text x="44" y="22" fill="#9f1239" font-size="12.5" font-weight="900">DIANA E2: INTOXICACIÓN POR ARSENITO (AsO₂⁻)</text>
-      <text x="44" y="40" fill="#334155" font-size="11">
-        • El arsenito ataca los dos grupos -SH de la dihidrolipoamida formando un quelato cíclico irreversible.
-      </text>
-      <text x="44" y="56" fill="#15803d" font-size="10.5" font-weight="700">
-        • Antídoto: Quelantes ditiólicos como BAL (Dimercaprol) que regeneran el brazo móvil de E2.
-      </text>
-
-      <path d="M 0 35 L -140 20" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#inhibitionT)"/>
+    <g transform="translate(860, 780)">
+      <path d="M -10 10 L -140 -120" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#inhibitionT)"/>
+      <g transform="translate(10, 0)">
+        <text x="0" y="0" fill="#be123c" font-size="13" font-weight="900">DIANA E2: INTOXICACIÓN POR ARSENITO (AsO₂⁻)</text>
+        <text x="0" y="16" fill="#334155" font-size="11">
+          • El arsenito ataca los dos grupos -SH de la dihidrolipoamida formando un quelato cíclico irreversible.
+        </text>
+        <text x="0" y="32" fill="#15803d" font-size="10.5" font-weight="700">
+          • Reversión terapéutica: Agentes ditiólicos quelantes como BAL (Dimercaprol).
+        </text>
+      </g>
     </g>
     """)
 
