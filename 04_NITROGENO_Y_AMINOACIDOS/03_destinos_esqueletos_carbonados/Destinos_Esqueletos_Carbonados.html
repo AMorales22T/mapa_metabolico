@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinos de los Esqueletos Carbonados de Aminoácidos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #0f172a;
+      padding: 30px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lienzo-svg {
+      width: 1920px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+    svg { display: block; width: 100%; height: auto; }
+    svg text { stroke: none; }
+  </style>
+</head>
+<body>
+  <div class="lienzo-svg">
+    <svg width="1920" height="2240" viewBox="0 0 1920 2240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        
+    <!-- Gradiente de Fondo Citosol Acuoso -->
+    <linearGradient id="gradCitosolAA" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+      <stop offset="40%" stop-color="#f0fdf4" stop-opacity="0.85" />
+      <stop offset="85%" stop-color="#f8fafc" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Gradiente de la Matriz Mitocondrial (Ámbar cálido editorial) -->
+    <linearGradient id="gradMatrizAA" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" stop-opacity="0.95" />
+      <stop offset="40%" stop-color="#fef3c7" stop-opacity="0.9" />
+      <stop offset="80%" stop-color="#fef9c3" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#fffbeb" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Gradiente de la Doble Membrana Mitocondrial -->
+    <linearGradient id="gradMembranaMito" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#fed7aa" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Marcadores de Flechas Editoriales -->
+    <marker id="arrowFlowAA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#0284c7" />
+    </marker>
+    <marker id="arrowGreenAA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#16a34a" />
+    </marker>
+    <marker id="arrowAmberAA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#d97706" />
+    </marker>
+    <marker id="arrowRubyAA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#e11d48" />
+    </marker>
+    <marker id="arrowPurpleAA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#9333ea" />
+    </marker>
+    <marker id="arrowKrebsAA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#7c3aed" />
+    </marker>
+    <marker id="arrowSlateAA" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#64748b" />
+    </marker>
+
+      </defs>
+
+    <!-- 1. FONDO CITOSÓLICO ACUOSO -->
+    <rect x="0" y="0" width="1920" height="560" fill="url(#gradCitosolAA)" />
+
+    <!-- Filamentos sutiles en citosol (despejados) -->
+    <g opacity="0.12" stroke="#94a3b8" fill="none">
+      <path d="M 30 110 Q 450 80 950 120 T 1870 100" stroke-width="1.8" stroke-dasharray="10 8" />
+    </g>
+
+    <!-- Rótulo Citosol (Esquina superior derecha despejada) -->
+    <g opacity="0.8" transform="translate(1620, 45)">
+      <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#0284c7" letter-spacing="1">CITOSOL CELULAR</text>
+      <text x="0" y="16" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#64748b">Fase citoplasmática y transaminaciones</text>
+    </g>
+
+    <!-- 2. MEMBRANA MITOCONDRIAL ONDULADA -->
+    <g class="membrana-mitocondrial">
+      <!-- Espacio Intermembrana ondulado -->
+      <path d="M 0 560 
+               Q 450 545 950 565 
+               T 1550 552 
+               T 1920 560 
+               L 1920 594 
+               Q 1550 586 950 599 
+               T 450 579 
+               T 0 594 Z" 
+            fill="url(#gradMembranaMito)" opacity="0.65" />
+
+      <!-- MME: Membrana Externa -->
+      <path d="M 0 560 
+               Q 450 545 950 565 
+               T 1550 552 
+               T 1920 560" 
+            stroke="#ea580c" stroke-width="2.5" fill="none" opacity="0.85" />
+
+      <!-- MMI: Membrana Interna -->
+      <path d="M 0 594 
+               Q 450 579 950 599 
+               T 1550 586 
+               T 1920 594" 
+            stroke="#c2410c" stroke-width="2.5" fill="none" opacity="0.95" />
+
+      <!-- Transportador MPC en X=210 -->
+      <g transform="translate(190, 564)">
+        <ellipse cx="20" cy="13" rx="22" ry="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2" />
+        <text x="20" y="17" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#9a3412" text-anchor="middle">MPC</text>
+      </g>
+
+      <!-- Transportador AGC1 / GC1 en X=1720 -->
+      <g transform="translate(1700, 564)">
+        <ellipse cx="26" cy="13" rx="24" ry="14" fill="#ede9fe" stroke="#7c3aed" stroke-width="2" />
+        <text x="26" y="17" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#5b21b6" text-anchor="middle">AGC1</text>
+      </g>
+
+      <!-- Rótulo Membrana Mitocondrial en X=440 (zona central libre) -->
+      <text x="440" y="582" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#9a3412" letter-spacing="1">DOBLE MEMBRANA MITOCONDRIAL (MME / MMI)</text>
+    </g>
+
+    <!-- 3. MATRIZ MITOCONDRIAL -->
+    <rect x="0" y="594" width="1920" height="1646" fill="url(#gradMatrizAA)" />
+
+    <!-- Rótulo Matriz Mitocondrial en zona central libre (X=440, Y=625) -->
+    <g opacity="0.8" transform="translate(440, 625)">
+      <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#b45309" letter-spacing="1">MATRIZ MITOCONDRIAL</text>
+      <text x="0" y="16" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#78350f">Ciclo de Krebs, Complejo BCKDH y Vía Propionato</text>
+    </g>
+    
+    <g transform="translate(60, 48)">
+      <text x="0" y="0" fill="#0f172a" font-size="25" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="-0.5">DESTINOS DE LOS ESQUELETOS CARBONADOS DE AMINOÁCIDOS</text>
+      <text x="0" y="22" fill="#64748b" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Convergencia anaplerótica y oxidativa de los 20 aminoácidos estándar en 7 puntos de entrada metabólicos</text>
+    </g>
+    
+    <!-- AA: L-Alanina -->
+    <g transform="translate(60, 140)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Alanina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[3C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Transaminación directa (ALT)</text>
+    </g>
+    
+    <!-- AA: L-Serina -->
+    <g transform="translate(60, 190)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Serina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[3C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Deshidratación a Piruvato</text>
+    </g>
+    
+    <!-- AA: Glicina -->
+    <g transform="translate(60, 240)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Glicina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[2C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Conversión a Serina (SHMT)</text>
+    </g>
+    
+    <!-- AA: L-Cisteína -->
+    <g transform="translate(230, 140)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Cisteína</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[3C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Desulfuración a Piruvato</text>
+    </g>
+    
+    <!-- AA: L-Treonina -->
+    <g transform="translate(230, 190)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#9333ea" />
+      <text x="0" y="0" fill="#581c87" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Treonina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Escisión aldólica a Glicina</text>
+    </g>
+    
+    <!-- AA: L-Triptófano -->
+    <g transform="translate(230, 240)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#9333ea" />
+      <text x="0" y="0" fill="#581c87" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Triptófano</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[11C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Vía quinurenina libera Ala</text>
+    </g>
+    
+    <!-- Enzima: ALT (Alanina Aminotransferasa) -->
+    <g transform="translate(60, 310)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">ALT (Alanina Aminotransferasa)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 2.6.1.2</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">Transaminación citosólica</text>
+    </g>
+    
+    <!-- Badge: ⚡ PLP (Vitamina B6) -->
+    <g transform="translate(60, 345)">
+      <rect x="0" y="0" width="149.2" height="22" rx="11" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.2" opacity="0.95"/>
+      <text x="74.6" y="15" fill="#312e81" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚡ PLP (Vitamina B6)</text>
+    </g>
+    
+    <!-- Enzima: SDH (Serina Deshidratasa) -->
+    <g transform="translate(60, 385)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">SDH (Serina Deshidratasa)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 4.2.1.22</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">- NH₄⁺ hacia piruvato</text>
+    </g>
+    
+    <g id="flechas_piruvato">
+      <path d="M 330 280 L 330 520 Q 330 545 225 545" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreenAA)"/>
+    </g>
+    
+    <path d="M 210 585 L 210 650" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowAmberAA)"/>
+    
+    <!-- Hub: PIRUVATO -->
+    <g transform="translate(175, 700)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#b45309" font-size="15" font-weight="900" font-family="'Inter', sans-serif">PIRUVATO</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[3C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Entrada a Acetil-CoA o Carboxilación a OAA</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-piruvato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: Carboxilato Superior -->
+  <text x="35" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="35" y1="22" x2="35" y2="38" />
+
+  <!-- C2: Carbonilo (C=O) -->
+  <text x="35" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="43" y1="46" x2="60" y2="46" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="43" y1="52" x2="60" y2="52" stroke="#dc2626" stroke-width="2.2" />
+  <text x="68" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="start">O</text>
+
+  <!-- C3: Metilo inferior -->
+  <line x1="35" y1="57" x2="35" y2="72" />
+  <text x="35" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 250 740 L 430 740" fill="none" stroke="#d97706" stroke-width="2.4" marker-end="url(#arrowAmberAA)"/>
+    <text x="340" y="730" fill="#9a3412" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Complejo PDH (E1-E2-E3)</text>
+    
+    <path d="M 210 790 L 210 900" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreenAA)"/>
+    <text x="225" y="850" fill="#047857" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">Piruvato Carboxilasa (⚡ Biotina / ATP)</text>
+    
+    <!-- Hub: OXALACETATO -->
+    <g transform="translate(175, 960)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#5b21b6" font-size="15" font-weight="900" font-family="'Inter', sans-serif">OXALACETATO</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Reinicio del Ciclo de Krebs / Gluconeogénesis</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-oxalacetato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: Carboxilato Superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="38" />
+
+  <!-- C2: Carbonilo (C=O) -->
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="48" y1="46" x2="65" y2="46" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="48" y1="52" x2="65" y2="52" stroke="#dc2626" stroke-width="2.2" />
+  <text x="73" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="start">O</text>
+
+  <!-- C3: Metileno (-CH2-) -->
+  <line x1="40" y1="57" x2="40" y2="72" />
+  <text x="40" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C4: Carboxilato Inferior -->
+  <line x1="40" y1="91" x2="40" y2="105" />
+  <text x="40" y="119" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+      </g>
+    </g>
+    
+    <!-- AA: L-Asparagina -->
+    <g transform="translate(60, 1100)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Asparagina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Asparaginasa ➔ Aspartato</text>
+    </g>
+    
+    <!-- AA: L-Aspartato -->
+    <g transform="translate(60, 1160)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Aspartato</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Transaminación directa (AST)</text>
+    </g>
+    
+    <!-- Enzima: AST (Aspartato Aminotransferasa) -->
+    <g transform="translate(60, 1220)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">AST (Aspartato Aminotransferasa)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 2.6.1.1</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⚡ PLP (B6)</text>
+    </g>
+    
+    <path d="M 235 1140 L 235 1060" fill="none" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arrowGreenAA)"/>
+    
+    <!-- Hub: L-Aspartato -->
+    <g transform="translate(60, 1330)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#047857" font-size="15" font-weight="900" font-family="'Inter', sans-serif">L-Aspartato</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Donador de nitrógeno en ciclo de la urea</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-aspartato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <text x="35" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="35" y1="22" x2="35" y2="36" />
+  <text x="35" y="48" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="45" y1="45" x2="59" y2="45" stroke="#2563eb" stroke-width="2" />
+  <text x="74" y="49" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+  <line x1="35" y1="53" x2="35" y2="67" />
+  <text x="35" y="79" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="35" y1="84" x2="35" y2="98" />
+  <text x="35" y="110" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+      </g>
+    </g>
+    
+    <!-- AA: L-Leucina -->
+    <g transform="translate(470, 140)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#dc2626" />
+      <text x="0" y="0" fill="#881337" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Leucina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[6C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Cetogénico puro (Acetoacetato + Acetil-CoA)</text>
+    </g>
+    
+    <!-- AA: L-Lisina -->
+    <g transform="translate(720, 140)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#dc2626" />
+      <text x="0" y="0" fill="#881337" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Lisina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[6C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Cetogénico puro (Vía sacaropina)</text>
+    </g>
+    
+    <!-- Hub: L-Fenilalanina -->
+    <g transform="translate(470, 240)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#7e22ce" font-size="15" font-weight="900" font-family="'Inter', sans-serif">L-Fenilalanina</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[9C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Aminoácido esencial aromático</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-fenilalanina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: COO- -->
+  <text x="45" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="45" y1="22" x2="45" y2="38" />
+
+  <!-- C2: CH con NH3+ -->
+  <text x="45" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="56" y1="46" x2="72" y2="46" stroke="#2563eb" stroke-width="2" />
+  <text x="88" y="50" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- C3: CH2 -->
+  <line x1="45" y1="55" x2="45" y2="70" />
+  <text x="45" y="84" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Anillo aromático fenilo (Hexágono nítido sin rectángulos) -->
+  <line x1="45" y1="89" x2="45" y2="102" />
+  <polygon points="45,102 62,112 62,132 45,142 28,132 28,112" stroke="#0f172a" stroke-width="2" fill="none" />
+  <circle cx="45" cy="122" r="10" stroke="#0f172a" stroke-width="1.6" stroke-dasharray="4 3" fill="none" />
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 560 320 L 710 320" fill="none" stroke="#9333ea" stroke-width="2.5" marker-end="url(#arrowPurpleAA)"/>
+    
+    <!-- Enzima: Fenilalanina hidroxilasa (PAH) -->
+    <g transform="translate(580, 265)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Fenilalanina hidroxilasa (PAH)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 1.14.16.1</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⚡ Tetrahidrobiopterina (BH₄)</text>
+    </g>
+    
+    <!-- Badge: ⚠ PKU: Fenilcetonuria (Déficit PAH o BH₄) -->
+    <g transform="translate(570, 340)">
+      <rect x="0" y="0" width="298.8" height="22" rx="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="0.95"/>
+      <text x="149.4" y="15" fill="#991b1b" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚠ PKU: Fenilcetonuria (Déficit PAH o BH₄)</text>
+    </g>
+    
+    <!-- Hub: L-Tirosina -->
+    <g transform="translate(730, 240)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#7e22ce" font-size="15" font-weight="900" font-family="'Inter', sans-serif">L-Tirosina</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[9C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Precursor de catecolaminas y melanina</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-tirosina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: COO- -->
+  <text x="45" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="45" y1="22" x2="45" y2="38" />
+
+  <!-- C2: CH con NH3+ -->
+  <text x="45" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="56" y1="46" x2="72" y2="46" stroke="#2563eb" stroke-width="2" />
+  <text x="88" y="50" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- C3: CH2 -->
+  <line x1="45" y1="55" x2="45" y2="70" />
+  <text x="45" y="84" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- Anillo fenólico con -OH -->
+  <line x1="45" y1="89" x2="45" y2="102" />
+  <polygon points="45,102 62,112 62,132 45,142 28,132 28,112" stroke="#0f172a" stroke-width="2" fill="none" />
+  <circle cx="45" cy="122" r="10" stroke="#0f172a" stroke-width="1.6" stroke-dasharray="4 3" fill="none" />
+  
+  <!-- Enlace C4-OH -->
+  <line x1="45" y1="142" x2="45" y2="155" stroke="#dc2626" stroke-width="2.2" />
+  <text x="45" y="169" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">OH</text>
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 775 425 L 775 460" fill="none" stroke="#9333ea" stroke-width="2.2" marker-end="url(#arrowPurpleAA)"/>
+    
+    <!-- Enzima: Homogentisato 1,2-dioxigenasa (HGD) -->
+    <g transform="translate(800, 420)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Homogentisato 1,2-dioxigenasa (HGD)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 1.13.11.5</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">Apertura de anillo</text>
+    </g>
+    
+    <!-- Badge: ⚠ Alcaptonuria (Ocronosis y orina oscura) -->
+    <g transform="translate(800, 455)">
+      <rect x="0" y="0" width="298.8" height="22" rx="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="0.95"/>
+      <text x="149.4" y="15" fill="#991b1b" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚠ Alcaptonuria (Ocronosis y orina oscura)</text>
+    </g>
+    
+    <path d="M 775 500 L 775 540" fill="none" stroke="#9333ea" stroke-width="2.4" marker-end="url(#arrowPurpleAA)"/>
+    
+    <!-- Enzima: Fumarilacetoacetasa (FAH) -->
+    <g transform="translate(815, 645)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Fumarilacetoacetasa (FAH)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 3.7.1.2</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">Escisión hidrolítica terminal</text>
+    </g>
+    
+    <!-- Badge: ⚠ Tirosinemia I (FAH) -->
+    <g transform="translate(815, 675)">
+      <rect x="0" y="0" width="162.79999999999998" height="22" rx="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="0.95"/>
+      <text x="81.39999999999999" y="15" fill="#991b1b" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚠ Tirosinemia I (FAH)</text>
+    </g>
+    
+    <!-- Hub: ACETIL-CoA -->
+    <g transform="translate(460, 700)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#854d0e" font-size="15" font-weight="900" font-family="'Inter', sans-serif">ACETIL-CoA</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[2C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Combustible de condensación con OAA</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetil-coa" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C2: Metilo izquierdo -->
+  <text x="18" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">H₃C</text>
+  <line x1="34" y1="34" x2="48" y2="34" />
+
+  <!-- C1: Carbonilo (C=O) -->
+  <text x="56" y="38" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="53" y1="26" x2="53" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="59" y1="26" x2="59" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <text x="56" y="8" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- Enlace tioéster (~S) -->
+  <path d="M 64 34 Q 72 31 76 34" stroke="#d97706" stroke-width="2.2" />
+  <text x="86" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">S</text>
+  <line x1="94" y1="34" x2="108" y2="34" stroke="#d97706" stroke-width="2" />
+  <text x="124" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#475569" stroke="none" text-anchor="middle">CoA</text>
+</g>
+
+      </g>
+    </g>
+    
+    <!-- Hub: ACETOACETIL-CoA -->
+    <g transform="translate(460, 940)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#9f1239" font-size="15" font-weight="900" font-family="'Inter', sans-serif">ACETOACETIL-CoA</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Cuerpo cetónico activado</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-acetoacetil-coa" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C4: Metilo izquierdo -->
+  <text x="18" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">H₃C</text>
+  <line x1="33" y1="34" x2="45" y2="34" />
+
+  <!-- C3: Carbonilo β (C=O) -->
+  <text x="53" y="38" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="50" y1="26" x2="50" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="56" y1="26" x2="56" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <text x="53" y="8" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C2: Metileno alfa (-CH2-) -->
+  <line x1="61" y1="34" x2="74" y2="34" />
+  <text x="88" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="102" y1="34" x2="114" y2="34" />
+
+  <!-- C1: Carbonilo tioéster -->
+  <text x="122" y="38" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="119" y1="26" x2="119" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="125" y1="26" x2="125" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <text x="122" y="8" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- ~S-CoA -->
+  <path d="M 130 34 Q 138 31 142 34" stroke="#d97706" stroke-width="2.2" />
+  <text x="152" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">S</text>
+  <line x1="160" y1="34" x2="172" y2="34" stroke="#d97706" stroke-width="2" />
+  <text x="188" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#475569" stroke="none" text-anchor="middle">CoA</text>
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 490 770 L 490 840" fill="none" stroke="#e11d48" stroke-width="2.4" marker-end="url(#arrowRubyAA)"/>
+    <text x="515" y="805" fill="#be123c" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">Tiolasa (2 Acetil-CoA ⇌ AcAc-CoA)</text>
+    
+    <!-- Hub: FUMARATO -->
+    <g transform="translate(720, 1120)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#5b21b6" font-size="15" font-weight="900" font-family="'Inter', sans-serif">FUMARATO</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[4C (Trans)]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Punto de convergencia de Phe, Tyr y Ciclo de la Urea</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-fumarato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Carboxilato 1 (Izquierda superior) -->
+  <text x="18" y="20" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">⁻OOC</text>
+  <line x1="38" y1="20" x2="52" y2="34" />
+
+  <!-- C2: CH (trans) -->
+  <text x="60" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+
+  <!-- Doble enlace trans -->
+  <line x1="72" y1="36" x2="90" y2="36" stroke="#0f172a" stroke-width="2.4" />
+  <line x1="72" y1="42" x2="90" y2="42" stroke="#0f172a" stroke-width="2.4" />
+
+  <!-- C3: HC -->
+  <text x="102" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">HC</text>
+  <line x1="112" y1="38" x2="126" y2="52" />
+
+  <!-- Carboxilato 2 (Derecha inferior) -->
+  <text x="144" y="58" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+      </g>
+    </g>
+    
+    <!-- Hacia Fumarato -->
+    <path d="M 775 670 L 775 1060" fill="none" stroke="#9333ea" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowPurpleAA)"/>
+    <text x="785" y="860" fill="#7e22ce" font-size="9.5" font-weight="700" font-family="'Inter', sans-serif">Fumarato libre ➔</text>
+    <!-- Hacia Acetoacetato -->
+    <path d="M 760 670 Q 710 880 670 930" fill="none" stroke="#9333ea" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowPurpleAA)"/>
+    
+    <!-- AA: L-Metionina -->
+    <g transform="translate(1040, 140)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Metionina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[5C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Donador metilo universal (SAM)</text>
+    </g>
+    
+    <!-- AA: L-Treonina -->
+    <g transform="translate(1040, 195)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#9333ea" />
+      <text x="0" y="0" fill="#581c87" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Treonina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Vía α-cetobutirato a Propionato</text>
+    </g>
+    
+    <!-- Hub: L-Homocisteína -->
+    <g transform="translate(1040, 270)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#b45309" font-size="15" font-weight="900" font-family="'Inter', sans-serif">L-Homocisteína</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Cruce de transulfuración vs. remetilación</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-homocisteina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <text x="35" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="35" y1="22" x2="35" y2="36" />
+  <text x="35" y="48" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="45" y1="45" x2="59" y2="45" stroke="#2563eb" stroke-width="2" />
+  <text x="74" y="49" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+  <line x1="35" y1="53" x2="35" y2="67" />
+  <text x="35" y="79" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="35" y1="84" x2="35" y2="98" />
+  <text x="35" y="110" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="35" y1="115" x2="35" y2="128" stroke="#d97706" stroke-width="2.2" />
+  <text x="35" y="141" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">SH</text>
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 1075 410 L 1095 410" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreenAA)"/>
+    
+    <!-- Enzima: Cistationina β-sintasa (CBS) -->
+    <g transform="translate(1135, 390)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Cistationina β-sintasa (CBS)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 4.2.1.22</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⚡ PLP (Vitamina B6)</text>
+    </g>
+    
+    <!-- Badge: ⚠ Homocistinuria (CBS / B6) -->
+    <g transform="translate(1135, 425)">
+      <rect x="0" y="0" width="203.6" height="22" rx="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="0.95"/>
+      <text x="101.8" y="15" fill="#991b1b" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚠ Homocistinuria (CBS / B6)</text>
+    </g>
+    
+    <!-- AA: L-Valina -->
+    <g transform="translate(1320, 140)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Valina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[5C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">BCAA ramificado glucogénico</text>
+    </g>
+    
+    <!-- AA: L-Isoleucina -->
+    <g transform="translate(1320, 195)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#9333ea" />
+      <text x="0" y="0" fill="#581c87" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Isoleucina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[6C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">BCAA ramificado glucogénico/cetogénico</text>
+    </g>
+    
+    <path d="M 1360 230 L 1360 600" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#arrowGreenAA)"/>
+    
+    <!-- Enzima: Complejo BCKDH (α-Cetoácido DH ramificada) -->
+    <g transform="translate(1300, 625)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Complejo BCKDH (α-Cetoácido DH ramificada)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 1.2.4.4</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">⚡ TPP, Lipoato, CoA, FAD, NAD⁺</text>
+    </g>
+    
+    <!-- Badge: ⚠ MSUD: Jarabe de Arce (Bloqueo BCAA) -->
+    <g transform="translate(1300, 665)">
+      <rect x="0" y="0" width="271.6" height="22" rx="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="0.95"/>
+      <text x="135.8" y="15" fill="#991b1b" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚠ MSUD: Jarabe de Arce (Bloqueo BCAA)</text>
+    </g>
+    
+    <!-- Hub: PROPIONIL-CoA -->
+    <g transform="translate(1040, 680)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#c2410c" font-size="15" font-weight="900" font-family="'Inter', sans-serif">PROPIONIL-CoA</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[3C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Metabolito común de Met, Thr, Val, Ile y ac. grasos impares</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-propionil-coa" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <text x="18" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">H₃C</text>
+  <line x1="33" y1="34" x2="46" y2="34" />
+  <text x="59" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="72" y1="34" x2="85" y2="34" />
+  <text x="93" y="38" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="90" y1="26" x2="90" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="96" y1="26" x2="96" y2="12" stroke="#dc2626" stroke-width="2.2" />
+  <text x="93" y="8" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <path d="M 101 34 Q 109 31 113 34" stroke="#d97706" stroke-width="2.2" />
+  <text x="123" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">S</text>
+  <line x1="131" y1="34" x2="143" y2="34" stroke="#d97706" stroke-width="2" />
+  <text x="159" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#475569" stroke="none" text-anchor="middle">CoA</text>
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 1075 460 L 1075 625" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreenAA)"/>
+    <path d="M 1300 680 Q 1230 710 1180 710" fill="none" stroke="#059669" stroke-width="2.4" marker-end="url(#arrowGreenAA)"/>
+    
+    <path d="M 1110 750 L 1110 830" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmberAA)"/>
+    
+    <!-- Enzima: Propionil-CoA Carboxilasa (PCC) -->
+    <g transform="translate(1160, 760)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Propionil-CoA Carboxilasa (PCC)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 6.4.1.3</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">ATP + HCO₃⁻ ➔ Metilmalonil-CoA</text>
+    </g>
+    
+    <!-- Badge: ⚡ Biotina (Vitamina B7) -->
+    <g transform="translate(1160, 795)">
+      <rect x="0" y="0" width="176.4" height="22" rx="11" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.2" opacity="0.95"/>
+      <text x="88.2" y="15" fill="#312e81" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚡ Biotina (Vitamina B7)</text>
+    </g>
+    
+    <!-- Enzima: Metilmalonil-CoA Mutasa (MCM) -->
+    <g transform="translate(1160, 860)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Metilmalonil-CoA Mutasa (MCM)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 5.4.99.2</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">Isomerización intramolecular</text>
+    </g>
+    
+    <!-- Badge: ⚠ Acidemia Metilmalónica (Déficit MCM o Vit B12) -->
+    <g transform="translate(1160, 895)">
+      <rect x="0" y="0" width="346.4" height="22" rx="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="0.95"/>
+      <text x="173.2" y="15" fill="#991b1b" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">⚠ Acidemia Metilmalónica (Déficit MCM o Vit B12)</text>
+    </g>
+    
+    <!-- Hub: SUCCINIL-CoA -->
+    <g transform="translate(1040, 1040)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#5b21b6" font-size="15" font-weight="900" font-family="'Inter', sans-serif">SUCCINIL-CoA</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[4C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Intermediario anaplerótico clave del Ciclo de Krebs</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-succinil-coa" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C4: Carboxilato Superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="38" />
+
+  <!-- C3: CH2 -->
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="40" y1="57" x2="40" y2="72" />
+
+  <!-- C2: CH2 -->
+  <text x="40" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="40" y1="91" x2="40" y2="105" />
+
+  <!-- C1: Carbonilo tioéster -->
+  <text x="40" y="119" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="48" y1="113" x2="65" y2="113" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="48" y1="119" x2="65" y2="119" stroke="#dc2626" stroke-width="2.2" />
+  <text x="73" y="119" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="start">O</text>
+
+  <!-- Enlace ~S-CoA abajo -->
+  <line x1="40" y1="124" x2="40" y2="136" />
+  <text x="40" y="150" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">S-CoA</text>
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 1110 920 L 1110 980" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowKrebsAA)"/>
+    
+    <!-- AA: L-Glutamina -->
+    <g transform="translate(1500, 140)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Glutamina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[5C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Glutaminasa (GLS) ➔ Glu + NH₄⁺</text>
+    </g>
+    
+    <!-- AA: L-Prolina -->
+    <g transform="translate(1500, 190)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Prolina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[5C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Prolina oxidasa ➔ semialdehído</text>
+    </g>
+    
+    <!-- AA: L-Arginina -->
+    <g transform="translate(1500, 240)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Arginina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[6C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Ciclo Urea ➔ Ornitina ➔ Glutamato</text>
+    </g>
+    
+    <!-- AA: L-Histidina -->
+    <g transform="translate(1500, 290)">
+      <circle cx="-10" cy="-4" r="4.5" fill="#16a34a" />
+      <text x="0" y="0" fill="#14532d" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">L-Histidina</text>
+      <text x="0" y="15" fill="#ea580c" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace">[6C]</text>
+      <text x="0" y="27" fill="#64748b" font-size="9" font-weight="600" font-family="'Inter', sans-serif">Histidasa ➔ FIGLU ➔ Glutamato</text>
+    </g>
+    
+    <!-- Hub: L-Glutamato -->
+    <g transform="translate(1720, 240)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#059669" font-size="15" font-weight="900" font-family="'Inter', sans-serif">L-Glutamato</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[5C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Concentrador universal de nitrógeno</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-glutamato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <text x="35" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="35" y1="22" x2="35" y2="36" />
+  <text x="35" y="48" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="45" y1="45" x2="59" y2="45" stroke="#2563eb" stroke-width="2" />
+  <text x="74" y="49" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+  <line x1="35" y1="53" x2="35" y2="67" />
+  <text x="35" y="79" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="35" y1="84" x2="35" y2="98" />
+  <text x="35" y="110" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="35" y1="115" x2="35" y2="128" />
+  <text x="35" y="141" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+      </g>
+    </g>
+    
+    <path d="M 1640 215 L 1700 240" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreenAA)"/>
+    
+    <path d="M 1750 400 L 1750 670" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#arrowGreenAA)"/>
+    
+    <!-- Enzima: GDH (Glutamato DH) -->
+    <g transform="translate(1765, 630)">
+      <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">GDH (Glutamato DH)</text>
+      <text x="0" y="13" fill="#64748b" font-size="8.5" font-weight="700" font-family="'JetBrains Mono', monospace">EC 1.4.1.2</text>
+      <text x="0" y="25" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">NAD(P)⁺ + H₂O ➔ NADH + NH₄⁺</text>
+    </g>
+    
+    <!-- Hub: α-CETOGLUTARATO -->
+    <g transform="translate(1720, 730)">
+      <g transform="translate(0, -35)">
+        <text x="0" y="0" fill="#5b21b6" font-size="15" font-weight="900" font-family="'Inter', sans-serif">α-CETOGLUTARATO</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace">[5C]</text>
+        <text x="0" y="30" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Cetoácido del Ciclo de Krebs</text>
+      </g>
+      <g transform="translate(0, 0)">
+        
+<g class="mol-alfacetoglutarato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: Carboxilato Superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="38" />
+
+  <!-- C2: Carbonilo (C=O) -->
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="48" y1="46" x2="65" y2="46" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="48" y1="52" x2="65" y2="52" stroke="#dc2626" stroke-width="2.2" />
+  <text x="73" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="start">O</text>
+
+  <!-- C3: CH2 -->
+  <line x1="40" y1="57" x2="40" y2="72" />
+  <text x="40" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C4: CH2 -->
+  <line x1="40" y1="91" x2="40" y2="105" />
+  <text x="40" y="119" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+
+  <!-- C5: Carboxilato Inferior -->
+  <line x1="40" y1="124" x2="40" y2="138" />
+  <text x="40" y="152" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+      </g>
+    </g>
+    
+    <!-- Conectores inter-Krebs tenues (Guía anaplerótica orbital) -->
+    <g opacity="0.38" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="6 5" fill="none">
+      <!-- Oxalacetato -> a-KG vía Citrato / Isocitrato -->
+      <path d="M 230 980 C 320 860 620 780 950 780 T 1700 780" />
+      <!-- a-KG -> Succinil-CoA vía a-KGDH -->
+      <path d="M 1740 900 C 1700 1020 1400 1060 1160 1060" />
+      <!-- Succinil-CoA -> Fumarato vía Succinato DH -->
+      <path d="M 1040 1080 C 960 1120 880 1140 820 1140" />
+      <!-- Fumarato -> Oxalacetato vía Malato DH -->
+      <path d="M 720 1140 C 550 1140 350 1100 240 1040" />
+    </g>
+    <text x="560" y="860" fill="#7c3aed" font-size="11" font-weight="800" font-family="'Inter', sans-serif" opacity="0.8" text-anchor="middle">↻ ANAPLEROSIS DEL CICLO DE KREBS</text>
+    
+    <g transform="translate(60, 1540)">
+      <text x="0" y="0" fill="#0f172a" font-size="13.5" font-weight="900" font-family="'Inter', sans-serif">CLASIFICACIÓN METABÓLICA DE LOS 20 AMINOÁCIDOS:</text>
+      
+      <circle cx="10" cy="24" r="5" fill="#16a34a"/>
+      <text x="25" y="28" fill="#14532d" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Glucogénicos puros (14 AA):</text>
+      <text x="205" y="28" fill="#475569" font-size="11" font-weight="600" font-family="'Inter', sans-serif">Ala, Arg, Asn, Asp, Cys, Glu, Gln, Gly, His, Met, Pro, Ser, Val, Thr (vía propionato)</text>
+
+      <circle cx="10" cy="48" r="5" fill="#dc2626"/>
+      <text x="25" y="52" fill="#881337" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Cetogénicos estrictos (2 AA):</text>
+      <text x="225" y="52" fill="#475569" font-size="11" font-weight="600" font-family="'Inter', sans-serif">Leucina y Lisina (rinden exclusivamente Acetil-CoA / Acetoacetil-CoA)</text>
+
+      <circle cx="10" cy="72" r="5" fill="#9333ea"/>
+      <text x="25" y="76" fill="#581c87" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Mixtos (Glucogénicos y Cetogénicos - 5 AA):</text>
+      <text x="325" y="76" fill="#475569" font-size="11" font-weight="600" font-family="'Inter', sans-serif">Isoleucina, Fenilalanina, Triptófano, Tirosina, Treonina</text>
+
+      <text x="0" y="110" fill="#64748b" font-size="10.5" font-weight="600" font-family="'Inter', sans-serif">
+        Anotaciones diagnósticas: ⚠=Errores congénitos del metabolismo en la enzima causal  |  ⚡=Cofactores vitamínicos obligados (PLP, BH₄, B₁₂, Biotina, TPP)
+      </text>
+    </g>
+    
+    </svg>
+  </div>
+</body>
+</html>

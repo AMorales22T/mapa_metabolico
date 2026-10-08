@@ -38,6 +38,7 @@ VIAS = [
     {"n": 10, "nombre": "Lipogénesis (síntesis de ácidos grasos)", "lugar": "Citosol",              "resumen": "Acetil-CoA → Malonil-CoA → Palmitato (FAS)"},
     {"n": 11, "nombre": "Cetogénesis",                             "lugar": "Matriz · hepática",    "resumen": "Acetil-CoA → Acetoacetato / β-Hidroxibutirato"},
     {"n": 12, "nombre": "Síntesis de colesterol",                  "lugar": "Citosol + RE",         "resumen": "Acetil-CoA → HMG-CoA → Mevalonato → Colesterol"},
+    {"n": "12B", "nombre": "Destinos esqueletos carbonados AA",    "lugar": "Citosol + Matriz",     "resumen": "Convergencia de los 20 AA en Krebs, Piruvato y Cuerpos Cetónicos"},
     {"n": 13, "nombre": "Transaminación y desaminación oxidativa", "lugar": "Citosol + Matriz",     "resumen": "Recogida del grupo amino en Glutamato → NH₄⁺"},
     {"n": 14, "nombre": "Ciclo de la urea",                        "lugar": "Matriz + citosol · hepático", "resumen": "NH₄⁺ + HCO₃⁻ + Aspartato → Urea"},
 ]
