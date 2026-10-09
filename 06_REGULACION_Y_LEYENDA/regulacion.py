@@ -27,7 +27,7 @@ Campos de cada enzima:
 # ---------------------------------------------------------------------------
 VIAS = [
     {"n": 1,  "nombre": "Glucólisis",                              "lugar": "Citosol",              "resumen": "Glucosa → 2 Piruvato (+2 ATP, +2 NADH)"},
-    {"n": 2,  "nombre": "Gluconeogénesis",                         "lugar": "Matriz + citosol + RE", "resumen": "Piruvato → Glucosa (4 enzimas de bypass) · hepática"},
+    {"n": 2,  "nombre": "Gluconeogénesis",                         "lugar": "Matriz + citosol + RE", "resumen": "Piruvato → Glucosa (4 enzimas específicas) · hepática"},
     {"n": 3,  "nombre": "Glucogenogénesis y glucogenólisis",       "lugar": "Citosol",              "resumen": "Síntesis y degradación del glucógeno"},
     {"n": 4,  "nombre": "Vía de las pentosas fosfato",             "lugar": "Citosol",              "resumen": "G6P → NADPH + Ribosa-5-P (fase oxidativa y no oxidativa)"},
     {"n": 5,  "nombre": "Complejo piruvato deshidrogenasa (PDH)",  "lugar": "Matriz",               "resumen": "Piruvato → Acetil-CoA + CO₂ + NADH"},
@@ -47,9 +47,9 @@ VIAS = [
 # CLAVE DE SÍMBOLOS (leyenda)
 # ---------------------------------------------------------------------------
 SIMBOLOS = [
-    ("⊕", "Activador alostérico (efector positivo)"),
-    ("⊖", "Inhibidor alostérico (efector negativo / retroinhibición)"),
-    ("P", "Modificación covalente por fosforilación (se indica la forma activa)"),
+    ("(+)", "Activador alostérico (efector positivo)"),
+    ("(-)", "Inhibidor alostérico (efector negativo / retroinhibición)"),
+    ("(P)", "Modificación covalente por fosforilación (forma activa)"),
     ("⇄", "Reacción reversible (doble flecha)"),
     ("→", "Reacción irreversible (flecha simple, punto de control)"),
     ("- - →", "Conexión entre vías / transporte entre compartimentos"),

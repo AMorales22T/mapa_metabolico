@@ -27,7 +27,11 @@ GRUPOS_EXCLUIDOS = {
     "mitocondria_biologica", "eritrocitos_torrente",
 }
 # Dentro de estos grupos sólo se comprueba su propio contorno, no su interior
-GRUPOS_INSERTO = {"lupa_cadena_respiratoria"}
+GRUPOS_INSERTO = {
+    "lupa_cadena_respiratoria",
+    "lupa_piruvato_deshidrogenasa",
+    "lupa_lanzadera_malato_aspartato",
+}
 
 ANCHO_CHAR = {"mono": 0.62, "sans": 0.60}
 
