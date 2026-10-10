@@ -95,6 +95,24 @@
 |---|---|---|---|---|---|
 | **Carbamoil fosfato sintetasa I (CPS-I)** | 6.3.4.16 | N-Acetilglutamato (obligado) | — | — | La NAG sintasa se activa por arginina; dieta rica en proteínas y glucagón inducen las enzimas del ciclo |
 
+## 15. Biosíntesis de nucleótidos (purinas y pirimidinas)
+
+| Enzima | EC | ⊕ Activadores | ⊖ Inhibidores | P Modificación covalente | Control hormonal / génico |
+|---|---|---|---|---|---|
+| **PRPP Sintetasa** | 2.7.6.1 | Pi | AMP, GMP, IMP | — | — |
+| **Glutamina-PRPP amidotransferasa** | 2.4.2.14 | PRPP | IMP, AMP, GMP | — | — |
+| **Carbamoil fosfato sintetasa II (CPS-II)** | 6.3.5.5 | PRPP, ATP | UTP | — | — |
+| **Aspartato transcarbamoilasa (ATCasa)** | 2.1.3.2 | ATP | CTP | — | — |
+| **Ribonucleótido reductasa (RNR)** | 1.17.4.1 | ATP | dATP, Hidroxiurea (fármaco) | — | — |
+| **Timidilato sintasa** | 2.1.1.45 | — | 5-Fluorouracilo (FdUMP, suicida) | — | — |
+
+## 16. Catabolismo de nucleótidos y ácido úrico
+
+| Enzima | EC | ⊕ Activadores | ⊖ Inhibidores | P Modificación covalente | Control hormonal / génico |
+|---|---|---|---|---|---|
+| **Adenosina desaminasa (ADA)** | 3.5.4.4 | — | — | — | — |
+| **Xantina oxidasa (XOD)** | 1.17.3.2 | — | Alopurinol (suicida), Febuxostat | — | — |
+
 ## Ideas clave de integración
 
 - **Insulina** (estado alimentado): desfosforila (PP1/PP2A) → activa glucógeno sintasa, PFK-2, piruvato quinasa, PDH, ACC y HMG-CoA reductasa.

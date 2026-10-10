@@ -1,0 +1,2174 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "text",
+      "id": "title_main",
+      "x": 60,
+      "y": 40,
+      "width": 950,
+      "height": 38,
+      "text": "ARQUITECTURA METABÓLICA: SÍNTESIS DE NUCLEÓTIDOS (PURINAS Y PIRIMIDINAS)",
+      "originalText": "ARQUITECTURA METABÓLICA: SÍNTESIS DE NUCLEÓTIDOS (PURINAS Y PIRIMIDINAS)",
+      "fontSize": 26,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#1e40af",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "subtitle_main",
+      "x": 60,
+      "y": 82,
+      "width": 1050,
+      "height": 24,
+      "text": "Rutas De Novo (PRPP, IMP, UMP), Vías de Salvamento (HGPRT/APRT) y Regulación Alostérica Cruzada",
+      "originalText": "Rutas De Novo (PRPP, IMP, UMP), Vías de Salvamento (HGPRT/APRT) y Regulación Alostérica Cruzada",
+      "fontSize": 15,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#64748b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "sec_precursor",
+      "x": 60,
+      "y": 130,
+      "width": 420,
+      "height": 340,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fff7ed",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "lbl_sec_precursor",
+      "x": 80,
+      "y": 145,
+      "width": 260,
+      "height": 20,
+      "text": "ACTIVACIÓN DE LA RIBOSA (PRPP)",
+      "originalText": "ACTIVACIÓN DE LA RIBOSA (PRPP)",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "sec_purinas",
+      "x": 510,
+      "y": 130,
+      "width": 640,
+      "height": 720,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "#eff6ff",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "lbl_sec_purinas",
+      "x": 530,
+      "y": 145,
+      "width": 340,
+      "height": 20,
+      "text": "SÍNTESIS DE PURINAS: IMP ➔ AMP / GMP",
+      "originalText": "SÍNTESIS DE PURINAS: IMP ➔ AMP / GMP",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#1e40af",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "sec_pirimidinas",
+      "x": 1180,
+      "y": 130,
+      "width": 620,
+      "height": 720,
+      "strokeColor": "#7c3aed",
+      "backgroundColor": "#faf5ff",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "lbl_sec_pirimidinas",
+      "x": 1200,
+      "y": 145,
+      "width": 360,
+      "height": 20,
+      "text": "SÍNTESIS DE PIRIMIDINAS: UMP ➔ CTP / dTMP",
+      "originalText": "SÍNTESIS DE PIRIMIDINAS: UMP ➔ CTP / dTMP",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#6d28d9",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "node_7ddc9283",
+      "x": 150,
+      "y": 190,
+      "width": 190,
+      "height": 65,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fed7aa",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_3502b9e5",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_3502b9e5",
+      "x": 160,
+      "y": 210.5,
+      "width": 170,
+      "height": 24,
+      "text": "Ribosa-5-Fosfato\n(Vía Pentosas Fosfato)",
+      "originalText": "Ribosa-5-Fosfato\n(Vía Pentosas Fosfato)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#431407",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_7ddc9283"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_709ce88a",
+      "x": 150,
+      "y": 290,
+      "width": 190,
+      "height": 60,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_915f527e",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_915f527e",
+      "x": 160,
+      "y": 308.0,
+      "width": 170,
+      "height": 24,
+      "text": "PRPP Sintetasa\n(ATP ➔ AMP)",
+      "originalText": "PRPP Sintetasa\n(ATP ➔ AMP)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_709ce88a"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_e05e29c7",
+      "x": 150,
+      "y": 390,
+      "width": 190,
+      "height": 60,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fed7aa",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_c4b30802",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_c4b30802",
+      "x": 160,
+      "y": 408.0,
+      "width": 170,
+      "height": 24,
+      "text": "PRPP\n(5-Fosforribosil-1-PP)",
+      "originalText": "PRPP\n(5-Fosforribosil-1-PP)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#431407",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_e05e29c7"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_5716522e",
+      "x": 540,
+      "y": 200,
+      "width": 190,
+      "height": 65,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_acaf6ac7",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_acaf6ac7",
+      "x": 550,
+      "y": 220.5,
+      "width": 170,
+      "height": 24,
+      "text": "PRPP Amidotransferasa\n(+ Gln ➔ Glu + PPi)",
+      "originalText": "PRPP Amidotransferasa\n(+ Gln ➔ Glu + PPi)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_5716522e"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_afb0c629",
+      "x": 540,
+      "y": 310,
+      "width": 190,
+      "height": 65,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "#93c5fd",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_f284e7b0",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_f284e7b0",
+      "x": 550,
+      "y": 330.5,
+      "width": 170,
+      "height": 24,
+      "text": "Inosina Monofosfato (IMP)\n(Punto de Bifurcación Purínica)",
+      "originalText": "Inosina Monofosfato (IMP)\n(Punto de Bifurcación Purínica)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_afb0c629"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_767d3220",
+      "x": 540,
+      "y": 420,
+      "width": 190,
+      "height": 65,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_3f1ed08d",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_3f1ed08d",
+      "x": 550,
+      "y": 440.5,
+      "width": 170,
+      "height": 24,
+      "text": "Adenilosuccinato Sintetasa\n(+ Aspartato + GTP)",
+      "originalText": "Adenilosuccinato Sintetasa\n(+ Aspartato + GTP)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_767d3220"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_b51ee19c",
+      "x": 540,
+      "y": 520,
+      "width": 190,
+      "height": 60,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_75c3796d",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_75c3796d",
+      "x": 550,
+      "y": 538.0,
+      "width": 170,
+      "height": 24,
+      "text": "Adenilosuccinato Liasa\n(Libera Fumarato)",
+      "originalText": "Adenilosuccinato Liasa\n(Libera Fumarato)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_b51ee19c"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_1c4691a7",
+      "x": 540,
+      "y": 620,
+      "width": 190,
+      "height": 60,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_c2427451",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_c2427451",
+      "x": 550,
+      "y": 638.0,
+      "width": 170,
+      "height": 24,
+      "text": "AMP (Adenosina-5'-P)\n➔ ATP (ARN / Energía)",
+      "originalText": "AMP (Adenosina-5'-P)\n➔ ATP (ARN / Energía)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_1c4691a7"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_bb4fb4ac",
+      "x": 860,
+      "y": 420,
+      "width": 190,
+      "height": 65,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_574c7cd7",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_574c7cd7",
+      "x": 870,
+      "y": 440.5,
+      "width": 170,
+      "height": 24,
+      "text": "IMP Deshidrogenasa\n(+ NAD⁺ + H2O ➔ NADH)",
+      "originalText": "IMP Deshidrogenasa\n(+ NAD⁺ + H2O ➔ NADH)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_bb4fb4ac"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_fb256286",
+      "x": 860,
+      "y": 520,
+      "width": 190,
+      "height": 60,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_1d36b3e2",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_1d36b3e2",
+      "x": 870,
+      "y": 538.0,
+      "width": 170,
+      "height": 24,
+      "text": "GMP Sintetasa\n(+ Gln + ATP)",
+      "originalText": "GMP Sintetasa\n(+ Gln + ATP)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_fb256286"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_3dc6947e",
+      "x": 860,
+      "y": 620,
+      "width": 190,
+      "height": 60,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_dab9545e",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_dab9545e",
+      "x": 870,
+      "y": 638.0,
+      "width": 170,
+      "height": 24,
+      "text": "GMP (Guanosina-5'-P)\n➔ GTP (ARN / Señalización)",
+      "originalText": "GMP (Guanosina-5'-P)\n➔ GTP (ARN / Señalización)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_3dc6947e"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_40f27c12",
+      "x": 700,
+      "y": 740,
+      "width": 340,
+      "height": 80,
+      "strokeColor": "#4338ca",
+      "backgroundColor": "#e0e7ff",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_2143e568",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_2143e568",
+      "x": 710,
+      "y": 768.0,
+      "width": 320,
+      "height": 24,
+      "text": "SALVAMENTO DE PURINAS\n• HGPRT: Hipoxantina/Guanina ➔ IMP/GMP\n• APRT: Adenina ➔ AMP",
+      "originalText": "SALVAMENTO DE PURINAS\n• HGPRT: Hipoxantina/Guanina ➔ IMP/GMP\n• APRT: Adenina ➔ AMP",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#312e81",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_40f27c12"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_8f4b8361",
+      "x": 1220,
+      "y": 200,
+      "width": 240,
+      "height": 65,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_5fde8d66",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_5fde8d66",
+      "x": 1230,
+      "y": 220.5,
+      "width": 220,
+      "height": 24,
+      "text": "Carbamoil-P Sintetasa II (CPS-II)\n(2 ATP + Gln + HCO3⁻ citosólico)",
+      "originalText": "Carbamoil-P Sintetasa II (CPS-II)\n(2 ATP + Gln + HCO3⁻ citosólico)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_8f4b8361"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_36414bb5",
+      "x": 1220,
+      "y": 300,
+      "width": 240,
+      "height": 65,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fed7aa",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_99c917e7",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_99c917e7",
+      "x": 1230,
+      "y": 320.5,
+      "width": 220,
+      "height": 24,
+      "text": "DHODH (Dihidroorotato DH)\n(Anclada a MMI · Acoplada a CoQ)",
+      "originalText": "DHODH (Dihidroorotato DH)\n(Anclada a MMI · Acoplada a CoQ)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#7c2d12",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_36414bb5"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_e4248cf0",
+      "x": 1220,
+      "y": 400,
+      "width": 240,
+      "height": 65,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "#93c5fd",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_85e31be6",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_85e31be6",
+      "x": 1230,
+      "y": 420.5,
+      "width": 220,
+      "height": 24,
+      "text": "Orotato + PRPP ➔ UMP\n(UMP Sintasa: OPRT + ODC)",
+      "originalText": "Orotato + PRPP ➔ UMP\n(UMP Sintasa: OPRT + ODC)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_e4248cf0"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_9c7ac06e",
+      "x": 1220,
+      "y": 500,
+      "width": 240,
+      "height": 60,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_2c40be35",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_2c40be35",
+      "x": 1230,
+      "y": 518.0,
+      "width": 220,
+      "height": 24,
+      "text": "UMP (Uridina Monofosfato)\n(Precursor común pirimidínico)",
+      "originalText": "UMP (Uridina Monofosfato)\n(Precursor común pirimidínico)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_9c7ac06e"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_d10cfdc5",
+      "x": 1220,
+      "y": 600,
+      "width": 240,
+      "height": 60,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_dd255fe9",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_dd255fe9",
+      "x": 1230,
+      "y": 618.0,
+      "width": 220,
+      "height": 24,
+      "text": "CTP Sintetasa\n(UTP + Gln + ATP ➔ CTP)",
+      "originalText": "CTP Sintetasa\n(UTP + Gln + ATP ➔ CTP)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_d10cfdc5"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_b04c0bbc",
+      "x": 1520,
+      "y": 500,
+      "width": 240,
+      "height": 65,
+      "strokeColor": "#dc2626",
+      "backgroundColor": "#fee2e2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_62766afd",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_62766afd",
+      "x": 1530,
+      "y": 520.5,
+      "width": 220,
+      "height": 24,
+      "text": "Timidilato Sintasa (TS)\n(dUMP + Metileno-THF ➔ dTMP)",
+      "originalText": "Timidilato Sintasa (TS)\n(dUMP + Metileno-THF ➔ dTMP)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#991b1b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_b04c0bbc"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_9ff83b71",
+      "x": 1520,
+      "y": 400,
+      "width": 240,
+      "height": 65,
+      "strokeColor": "#dc2626",
+      "backgroundColor": "#fee2e2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_0ab51af8",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_0ab51af8",
+      "x": 1530,
+      "y": 420.5,
+      "width": 220,
+      "height": 24,
+      "text": "Ribonucleótido Reductasa (RNR)\n(NDP ➔ dNDP · Diana Hidroxiurea)",
+      "originalText": "Ribonucleótido Reductasa (RNR)\n(NDP ➔ dNDP · Diana Hidroxiurea)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#991b1b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_9ff83b71"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_cacede1f",
+      "x": 1520,
+      "y": 600,
+      "width": 240,
+      "height": 60,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_dc7d6e4b",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_dc7d6e4b",
+      "x": 1530,
+      "y": 618.0,
+      "width": 220,
+      "height": 24,
+      "text": "dTMP (Timina activa)\n➔ Replicación del ADN",
+      "originalText": "dTMP (Timina activa)\n➔ Replicación del ADN",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_cacede1f"
+    },
+    {
+      "type": "arrow",
+      "id": "arr_7aa72dc2",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_7ddc9283",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_709ce88a",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_cb1cce99",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_709ce88a",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_e05e29c7",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_ad615d79",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_e05e29c7",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_5716522e",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_36e9e78d",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_5716522e",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_afb0c629",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_5d1be708",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_afb0c629",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_767d3220",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_94e69f55",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_767d3220",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_b51ee19c",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_ba5e131a",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_b51ee19c",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_1c4691a7",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_abfe1b33",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_afb0c629",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_bb4fb4ac",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_332de9a6",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_bb4fb4ac",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_fb256286",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_233d8c41",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_fb256286",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_3dc6947e",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_fa309b7a",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#4338ca",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_40f27c12",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_1c4691a7",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_4de7fc8f",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#4338ca",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_40f27c12",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_3dc6947e",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_dca1379a",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#6d28d9",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_8f4b8361",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_36414bb5",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_8989b0f2",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#6d28d9",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_36414bb5",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_e4248cf0",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_09fb364e",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_e05e29c7",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_e4248cf0",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_b6a50302",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_e4248cf0",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_9c7ac06e",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_114c7073",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#6d28d9",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_9c7ac06e",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_d10cfdc5",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_796e40b0",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#dc2626",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_9c7ac06e",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_9ff83b71",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_29e5882b",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#dc2626",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_9ff83b71",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_b04c0bbc",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_7115648f",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_b04c0bbc",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_cacede1f",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  },
+  "files": {}
+}

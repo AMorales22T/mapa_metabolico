@@ -1,0 +1,986 @@
+<svg width="1450" height="2250" viewBox="0 0 1450 2250" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowFlowPurine" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#7c3aed" />
+        </marker>
+        <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
+        </marker>
+        <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+        </marker>
+        <marker id="arrowGreen" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#059669" />
+        </marker>
+        <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#2563eb" />
+        </marker>
+        
+    <!-- Gradiente citosólico con sutil tinte lavanda característico de nucleótidos -->
+    <linearGradient id="gradCitosolNuc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+      <stop offset="15%" stop-color="#faf5ff" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#fdf4ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#f8fafc" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Gradiente de inserción mitocondrial para DHODH (en membrana interna) -->
+    <radialGradient id="gradMitoLateral" cx="100%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.95" />
+      <stop offset="70%" stop-color="#fffbeb" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#f8fafc" stop-opacity="0" />
+    </radialGradient>
+
+      </defs>
+      
+    <!-- Fondo acuoso del citosol -->
+    <rect x="0" y="0" width="1450" height="2250" fill="url(#gradCitosolNuc)" />
+
+    <!-- Filamentos sutiles de citoesqueleto citoplasmático -->
+    <g opacity="0.25" stroke="#a855f7" stroke-width="1.2" fill="none">
+      <path d="M 50,150 Q 250,120 480,240 T 950,220" />
+      <path d="M 80,680 Q 320,620 620,740 T 1100,700" />
+      <path d="M 40,1250 Q 280,1320 580,1210 T 1050,1350" />
+      <path d="M 90,1820 Q 350,1750 680,1890 T 1080,1820" />
+    </g>
+
+    <!-- Micro-vesículas y ribosomas libres en citoplasma -->
+    <g opacity="0.3" fill="#c084fc">
+      <circle cx="90" cy="320" r="3" />
+      <circle cx="105" cy="335" r="2" />
+      <circle cx="1080" cy="450" r="3.5" />
+      <circle cx="1060" cy="470" r="2.2" />
+      <circle cx="70" cy="1120" r="2.8" />
+      <circle cx="1040" cy="1550" r="3.2" />
+    </g>
+
+    <!-- Inserción biológica mitocondrial en el flanco derecho (para DHODH en pirimidinas) -->
+    <g transform="translate(1130, 750)">
+      <!-- Sombra matricial suave -->
+      <path d="M 0,0 Q 120,-60 220,-40 L 320,-40 L 320,380 L 180,380 Q 80,360 0,300 Z" fill="url(#gradMitoLateral)" />
+      <!-- Membrana Mitocondrial Externa (MME) -->
+      <path d="M 60,-20 Q 140,-50 320,-30" fill="none" stroke="#b45309" stroke-width="2.5" opacity="0.6"/>
+      <!-- Espacio Intermembrana (EIM) -->
+      <path d="M 90,15 Q 160,-15 320,5" fill="none" stroke="#d97706" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.5"/>
+      <!-- Membrana Mitocondrial Interna (MMI con crestas) -->
+      <path d="M 120,50 Q 180,20 220,70 Q 260,120 320,40" fill="none" stroke="#92400e" stroke-width="3" opacity="0.75"/>
+      <text x="210" y="25" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#92400e" opacity="0.6">MMI (DHODH)</text>
+    </g>
+    
+
+    <g transform="translate(60, 45)">
+      <circle cx="20" cy="20" r="18" fill="#7c3aed" />
+      <text x="20" y="26" font-family="'Inter', sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">15</text>
+      
+      <text x="50" y="17" font-family="'Inter', sans-serif" font-size="20" font-weight="900" fill="#0f172a">BIOSÍNTESIS DE NUCLEÓTIDOS: PURINAS Y PIRIMIDINAS</text>
+      <text x="50" y="34" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#7c3aed">Rutas de novo convergentes sobre PRPP y vías de salvamento celular</text>
+    </g>
+    
+
+    <!-- Metabolito: D-Ribosa-5-Fosfato -->
+    <g transform="translate(600, 85)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-ribosa-5p" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Anillo furanosa de 5 lados -->
+  <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.4"/>
+
+  <!-- Oxígeno superior del anillo -->
+  <circle cx="35" cy="18" r="7" fill="#ffffff" stroke="none"/>
+  <text x="35" y="23" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C1 (derecha): OH anomérico -->
+  <line x1="68" y1="38" x2="84" y2="38" stroke="#0f172a" stroke-width="2"/>
+  <text x="88" y="42" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">OH</text>
+
+  <!-- C5 (izquierda): Grupo Fosfato -->
+  <line x1="2" y1="38" x2="-12" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-20" cy="8" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-20" y="12" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+
+  <!-- C2 y C3: -OH abajo -->
+  <line x1="52" y1="68" x2="52" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="92" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
+  <line x1="18" y1="68" x2="18" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="92" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
+</g>
+
+      </g>
+      <g transform="translate(120, 40)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">D-Ribosa-5-Fosfato</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[5C] · Precursor de Pentosas</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Procede de la Vía de las Pentosas P</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: PRPP Sintetasa -->
+    <g transform="translate(650, 195)">
+      
+    <line x1="0" y1="0" x2="0" y2="45" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- 1 ATP</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ 1 AMP (libera PPi)</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">PRPP Sintetasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 2.7.6.1 (Mg²⁺)</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊕ Pi | ⊖ Purinas (AMP, GMP, IMP)</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Regulación alostérica estricta</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: 5-Fosforribosil-1-Pirofosfato (PRPP) -->
+    <g transform="translate(540, 265)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-prpp" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Anillo furanosa central -->
+  <polygon points="35,22 68,42 52,72 18,72 2,42" fill="#ffffff" stroke="#0f172a" stroke-width="2.4"/>
+
+  <!-- Oxígeno del anillo -->
+  <circle cx="35" cy="22" r="7" fill="#ffffff" stroke="none"/>
+  <text x="35" y="27" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- C5 (izquierda): Fosfato monocatenario 5-P -->
+  <line x1="2" y1="42" x2="-12" y2="24" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-20" cy="12" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-20" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+
+  <!-- C1 (derecha): Grupo Pirofosfato (PPi en alfa) activador -->
+  <line x1="68" y1="42" x2="84" y2="42" stroke="#ea580c" stroke-width="2.2"/>
+  <!-- Pirofosfato cápsula doble -->
+  <rect x="85" y="28" width="56" height="28" rx="14" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="113" y="46" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#b91c1c" stroke="none" text-anchor="middle">Ⓟ~Ⓟ</text>
+  <text x="113" y="22" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#dc2626" stroke="none" text-anchor="middle">1-Pirofosfato</text>
+
+  <!-- C2 y C3: -OH abajo -->
+  <line x1="52" y1="72" x2="52" y2="84" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="96" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
+  <line x1="18" y1="72" x2="18" y2="84" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="96" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
+</g>
+
+      </g>
+      <g transform="translate(180, 45)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">5-Fosforribosil-1-Pirofosfato (PRPP)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[5C] · Ribosa activada con pirofosfato</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Sustrato dador común para purinas y pirimidinas</text>
+      </g>
+    </g>
+    
+
+    <!-- Conectores de bifurcación desde PRPP -->
+    <path d="M 540 375 Q 380 405 280 440" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowFlowPurine)"/>
+    <text x="360" y="365" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#7c3aed">Entrada a Purinas de novo</text>
+
+    <path d="M 850 375 Q 980 405 1040 440" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-dasharray="4 3" marker-end="url(#arrowFlowPurine)"/>
+    <text x="920" y="365" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#7c3aed">Aporte a UMP Sintasa</text>
+    
+
+    <!-- Título de sección: Purinas -->
+    <g transform="translate(80, 435)">
+      <text x="0" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#6d28d9" letter-spacing="1">SÍNTESIS DE NOVO DE PURINAS</text>
+      <line x1="0" y1="26" x2="380" y2="26" stroke="#7c3aed" stroke-width="2"/>
+    </g>
+    
+
+    <!-- Reacción: Glutamina-PRPP Amidotransferasa -->
+    <g transform="translate(280, 475)">
+      
+    <line x1="0" y1="0" x2="0" y2="50" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- L-Glutamina</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ L-Glutamato + PPi</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Glutamina-PRPP Amidotransferasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 2.4.2.14</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊕ PRPP | ⊖ IMP, AMP, GMP</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Paso comprometido limitante de purinas</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(200, 555)">
+      <circle cx="70" cy="15" r="6" fill="#7c3aed"/>
+      <text x="85" y="19" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#0f172a">5-Fosforribosilamina (PRA)</text>
+      <text x="85" y="33" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#7c3aed">[5C] · Primer intermediario comprometido</text>
+    </g>
+    
+
+    <!-- Esquema didáctico de aportes atómicos al anillo -->
+    <g transform="translate(150, 605)">
+      
+<g class="esquema-origen-purina" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Fondo y borde editorial suave -->
+  <rect x="0" y="0" width="220" height="135" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="110" y="16" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#334155" stroke="none" text-anchor="middle">ORIGEN DE LOS ÁTOMOS (PURINA)</text>
+
+  <!-- Anillo bicíclico esquemático centrado -->
+  <!-- Pirimidina izquierda (6C/N): N1, C2, N3, C4, C5, C6 -->
+  <!-- Imidazol derecho (5C/N): C4, C5, N7, C8, N9 -->
+  <g transform="translate(42, 28)">
+    <!-- Hexágono pirimidínico -->
+    <polygon points="35,16 60,30 60,60 35,74 10,60 10,30" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+    <!-- Pentágono imidazol fusionado en (60,30)-(60,60) -->
+    <polygon points="60,30 84,22 98,45 84,68 60,60" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+
+    <!-- Átomos clave con colores de sus donadores -->
+    <!-- N1: Aspartato (Verde esmeralda) -->
+    <circle cx="10" cy="30" r="7" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <text x="10" y="34" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#059669" stroke="none" text-anchor="middle">N1</text>
+
+    <!-- C2: N10-formil-THF (Morado) -->
+    <circle cx="10" cy="60" r="7" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="10" y="64" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#7c3aed" stroke="none" text-anchor="middle">C2</text>
+
+    <!-- N3: Glutamina (Azul cobalto) -->
+    <circle cx="35" cy="74" r="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="35" y="78" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">N3</text>
+
+    <!-- C4, C5, N7: Glicina (Ámbar) -->
+    <circle cx="60" cy="60" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="60" y="64" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">C4</text>
+    <circle cx="60" cy="30" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="60" y="34" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">C5</text>
+    <circle cx="84" cy="22" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="84" y="26" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">N7</text>
+
+    <!-- C6: CO2 respiratorio (Rojo carmesí) -->
+    <circle cx="35" cy="16" r="7" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="35" y="20" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">C6</text>
+
+    <!-- C8: N10-formil-THF (Morado) -->
+    <circle cx="98" cy="45" r="7" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="98" y="49" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#7c3aed" stroke="none" text-anchor="middle">C8</text>
+
+    <!-- N9: Glutamina (Azul cobalto) -->
+    <circle cx="84" cy="68" r="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="84" y="72" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">N9</text>
+  </g>
+
+  <!-- Leyenda de donadores inferior -->
+  <g transform="translate(10, 114)" font-family="'Inter', sans-serif" font-size="8" font-weight="800">
+    <circle cx="4" cy="4" r="3" fill="#d97706"/>
+    <text x="10" y="7" fill="#475569" stroke="none">Gly (C4,C5,N7)</text>
+    <circle cx="75" cy="4" r="3" fill="#2563eb"/>
+    <text x="81" y="7" fill="#475569" stroke="none">Gln (N3,N9)</text>
+    <circle cx="137" cy="4" r="3" fill="#059669"/>
+    <text x="143" y="7" fill="#475569" stroke="none">Asp (N1)</text>
+    <circle cx="185" cy="4" r="3" fill="#7c3aed"/>
+    <text x="191" y="7" fill="#475569" stroke="none">THF</text>
+  </g>
+</g>
+
+    </g>
+    <!-- Flecha de ensamblaje multienzimático de 9 pasos -->
+    <g transform="translate(280, 750)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+      <text x="14" y="16" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a">9 Pasos sucesivos de ensamblaje</text>
+      <text x="14" y="28" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="600" fill="#64748b">GAR ➔ FGAR ➔ FGAM ➔ AIR ➔ CAIR ➔ SAICAR ➔ AICAR ➔ FAICAR</text>
+      <text x="14" y="38" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#dc2626">Gasto neto: 4 ATP adicionales</text>
+    </g>
+    
+
+    <!-- Metabolito: Inosina Monofosfato (IMP) -->
+    <g transform="translate(170, 810)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-imp" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ribosa-5-P (parte inferior) -->
+  <polygon points="35,62 65,78 52,104 18,104 5,78" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="35" cy="62" r="6" fill="#ffffff" stroke="none"/>
+  <text x="35" y="66" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- 5-Fosfato -->
+  <line x1="5" y1="78" x2="-8" y2="64" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-16" cy="54" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+  <!-- OH en C2/C3 -->
+  <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+
+  <!-- Enlace beta N-glucosídico C1' -> N9 -->
+  <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
+
+  <!-- Base Nitrogenada: Hipoxantina (Arriba) -->
+  <!-- Imidazol: N9 en (65,48), C8 en (80,36), N7 en (72,16), C5 en (50,16), C4 en (48,38) -->
+  <polygon points="48,38 50,16 72,16 82,32 65,48" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="65" y="52" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">N</text>
+  <text x="74" y="19" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">N</text>
+
+  <!-- Pirimidina fusionada a la izquierda de (48,38)-(50,16): C6 en (32,4), N1 en (14,14), C2 en (14,34), N3 en (30,44) -->
+  <polygon points="50,16 32,4 14,14 14,34 30,44 48,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C6=O (Carbonilo en C6) -->
+  <line x1="32" y1="4" x2="32" y2="-10" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="32" y="-13" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <text x="14" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+</g>
+
+      </g>
+      <g transform="translate(140, 55)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Inosina Monofosfato (IMP)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[10C] · Nucleótido purínico maestro</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Punto de bifurcación hacia AMP y GMP</text>
+      </g>
+    </g>
+    
+
+    <!-- Conectores de bifurcación desde IMP -->
+    <path d="M 210 940 Q 180 970 170 1000" fill="none" stroke="#7c3aed" stroke-width="2.2" marker-end="url(#arrowFlowPurine)"/>
+    <text x="120" y="960" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#7c3aed">Rama AMP</text>
+
+    <path d="M 330 940 Q 420 970 480 1000" fill="none" stroke="#7c3aed" stroke-width="2.2" marker-end="url(#arrowFlowPurine)"/>
+    <text x="410" y="960" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#7c3aed">Rama GMP</text>
+    
+
+    <!-- Reacción: Adenilsuccinato Sintetasa -->
+    <g transform="translate(170, 1010)">
+      
+    <line x1="0" y1="0" x2="0" y2="48" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- GTP + Asp</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ GDP + Pi</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Adenilsuccinato Sintetasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 6.3.4.4</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊖ Inhibida por AMP</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Usa energía cruzada de GTP</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: Adenilsuccinato Liasa -->
+    <g transform="translate(170, 1080)">
+      
+    <line x1="0" y1="0" x2="0" y2="45" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ Fumarato</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Adenilsuccinato Liasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 4.3.2.2</text>
+        
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Libera intermediario a Krebs</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: AMP (Adenilato) -->
+    <g transform="translate(90, 1145)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-amp" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ribosa-5-P -->
+  <polygon points="35,62 65,78 52,104 18,104 5,78" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="35" cy="62" r="6" fill="#ffffff" stroke="none"/>
+  <text x="35" y="66" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="5" y1="78" x2="-8" y2="64" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-16" cy="54" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+  <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+
+  <!-- Enlace beta C1' -> N9 -->
+  <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
+
+  <!-- Base Nitrogenada: Adenina -->
+  <polygon points="48,38 50,16 72,16 82,32 65,48" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <polygon points="50,16 32,4 14,14 14,34 30,44 48,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- Grupo amino en C6: -NH2 -->
+  <line x1="32" y1="4" x2="32" y2="-10" stroke="#2563eb" stroke-width="2"/>
+  <text x="32" y="-13" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH₂</text>
+  <text x="14" y="27" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">N</text>
+</g>
+
+      </g>
+      <g transform="translate(115, 50)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">AMP (Adenilato)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[10C] · Adenosina monofosfato</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Fosforilación a ADP y ATP</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: IMP Deshidrogenasa -->
+    <g transform="translate(480, 1010)">
+      
+    <line x1="0" y1="0" x2="0" y2="48" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- NAD⁺ + H₂O</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ NADH + H⁺</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">IMP Deshidrogenasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 1.1.1.205</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊖ Inhibida por GMP</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Diana de Micofenolato mofetilo</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: GMP Sintetasa -->
+    <g transform="translate(480, 1080)">
+      
+    <line x1="0" y1="0" x2="0" y2="45" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- ATP + Gln</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ AMP + PPi + Glu</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">GMP Sintetasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 6.3.5.2</text>
+        
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Usa energía cruzada de ATP</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: GMP (Guanilato) -->
+    <g transform="translate(420, 1145)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-gmp" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ribosa-5-P -->
+  <polygon points="35,62 65,78 52,104 18,104 5,78" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="35" cy="62" r="6" fill="#ffffff" stroke="none"/>
+  <text x="35" y="66" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="5" y1="78" x2="-8" y2="64" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-16" cy="54" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+  <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+
+  <!-- Enlace beta C1' -> N9 -->
+  <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
+
+  <!-- Base Nitrogenada: Guanina (C6=O, C2-NH2) -->
+  <polygon points="48,38 50,16 72,16 82,32 65,48" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <polygon points="50,16 32,4 14,14 14,34 30,44 48,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C6=O -->
+  <line x1="32" y1="4" x2="32" y2="-10" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="32" y="-13" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C2-NH2 -->
+  <line x1="14" y1="34" x2="-2" y2="40" stroke="#2563eb" stroke-width="2"/>
+  <text x="-6" y="44" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
+  <text x="14" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+</g>
+
+      </g>
+      <g transform="translate(115, 50)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">GMP (Guanilato)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[10C] · Guanosina monofosfato</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Fosforilación a GDP y GTP</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(80, 1315)">
+      <text x="0" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#9d174d" letter-spacing="1">VÍAS DE SALVAMENTO / RECICLAJE (PURINAS)</text>
+      <line x1="0" y1="26" x2="420" y2="26" stroke="#db2777" stroke-width="2"/>
+      <text x="0" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#475569">Reactivación directa de bases nitrogenadas consumiendo PRPP:</text>
+    </g>
+
+    <!-- Reacción de Salvamento APRT -->
+    <g transform="translate(90, 1380)">
+      <line x1="0" y1="12" x2="50" y2="12" stroke="#db2777" stroke-width="2.2" marker-end="url(#arrowFlowPurine)"/>
+      <text x="60" y="12" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a">Adenina + PRPP ➔ AMP + PPi</text>
+      <text x="60" y="28" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#7c3aed">APRT (Adenina fosforribosiltransferasa · EC 2.4.2.7)</text>
+      <text x="60" y="42" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">Déficit: Litiasis renal de 2,8-dihidroxiadenina</text>
+    </g>
+
+    <!-- Reacción de Salvamento HGPRT -->
+    <g transform="translate(90, 1450)">
+      <line x1="0" y1="12" x2="50" y2="12" stroke="#db2777" stroke-width="2.2" marker-end="url(#arrowFlowPurine)"/>
+      <text x="60" y="10" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a">Hipoxantina + PRPP ➔ IMP + PPi</text>
+      <text x="60" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a">Guanina + PRPP ➔ GMP + PPi</text>
+      <text x="60" y="44" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#7c3aed">HGPRT (Hipoxantina-guanina fosforribosiltransferasa · EC 2.4.2.8)</text>
+      <text x="60" y="58" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" fill="#dc2626">Déficit congénito: Síndrome de Lesch-Nyhan (hiperuricemia y automutilación)</text>
+    </g>
+    
+
+    <!-- Título de sección: Pirimidinas -->
+    <g transform="translate(740, 435)">
+      <text x="0" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#6d28d9" letter-spacing="1">SÍNTESIS DE NOVO DE PIRIMIDINAS</text>
+      <line x1="0" y1="26" x2="420" y2="26" stroke="#7c3aed" stroke-width="2"/>
+    </g>
+    
+
+    <!-- Reacción: Carbamoil Fosfato Sintetasa II (CPS-II) -->
+    <g transform="translate(980, 475)">
+      
+    <line x1="0" y1="0" x2="0" y2="50" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- 2 ATP + Gln + HCO₃⁻</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ 2 ADP + Pi + Glu</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Carbamoil Fosfato Sintetasa II (CPS-II)</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 6.3.5.5 (Citosólica)</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊕ PRPP, ATP | ⊖ UTP</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Punto de control primario de pirimidinas</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: Carbamoil Fosfato -->
+    <g transform="translate(890, 545)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-carbamoil-p" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Grupo amino H2N- -->
+  <text x="12" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
+  <line x1="16" y1="28" x2="38" y2="28" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- Carbono C=O -->
+  <circle cx="44" cy="28" r="2.5" fill="#0f172a" stroke="none"/>
+  <line x1="44" y1="22" x2="44" y2="6" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="44" y="2" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- Enlace éster fosfato -O-Ⓟ -->
+  <line x1="48" y1="28" x2="68" y2="28" stroke="#ea580c" stroke-width="2.2"/>
+  <circle cx="84" cy="28" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="84" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+</g>
+
+      </g>
+      <g transform="translate(120, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Carbamoil Fosfato</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[1C] · Dador de N3 y C2</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Producido en citosol (CPS-II)</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: Aspartato Transcarbamoilasa (ATCasa) -->
+    <g transform="translate(980, 625)">
+      
+    <line x1="0" y1="0" x2="0" y2="45" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- L-Aspartato</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ Pi</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Aspartato Transcarbamoilasa (ATCasa)</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 2.1.3.2</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊕ ATP | ⊖ CTP</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Condensa con Aspartato a N-carbamoilaspartato</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: Dihidroorotasa -->
+    <g transform="translate(980, 695)">
+      
+    <line x1="0" y1="0" x2="0" y2="45" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">- H₂O</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Dihidroorotasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 3.5.2.3</text>
+        
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Cierre catalítico del anillo a Dihidroorotato</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: Dihidroorotato Deshidrogenasa (DHODH) -->
+    <g transform="translate(980, 765)">
+      
+    <line x1="0" y1="0" x2="0" y2="45" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- CoQ (Ubiquinona)</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ CoQH₂</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Dihidroorotato Deshidrogenasa (DHODH)</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 1.3.5.2 (Membrana Interna MMI)</text>
+        
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Diana de Leflunomida / Teriflunomida</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(870, 835)">
+      
+<g class="esquema-origen-pirimidina" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Fondo y borde editorial suave -->
+  <rect x="0" y="0" width="220" height="135" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="110" y="16" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#334155" stroke="none" text-anchor="middle">ORIGEN DE LOS ÁTOMOS (PIRIMIDINA)</text>
+
+  <!-- Anillo simple de pirimidina (6 miembros) -->
+  <g transform="translate(68, 28)">
+    <polygon points="40,16 68,32 68,64 40,80 12,64 12,32" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+
+    <!-- N1: Aspartato (Verde esmeralda) -->
+    <circle cx="12" cy="32" r="7.5" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <text x="12" y="36" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#059669" stroke="none" text-anchor="middle">N1</text>
+
+    <!-- C2: Carbamoil-P (Naranja) -->
+    <circle cx="12" cy="64" r="7.5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="12" y="68" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">C2</text>
+
+    <!-- N3: Carbamoil-P (Naranja) -->
+    <circle cx="40" cy="80" r="7.5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="40" y="84" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">N3</text>
+
+    <!-- C4, C5, C6: Aspartato (Verde esmeralda) -->
+    <circle cx="68" cy="64" r="7.5" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <text x="68" y="68" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#059669" stroke="none" text-anchor="middle">C4</text>
+    <circle cx="68" cy="32" r="7.5" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <text x="68" y="36" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#059669" stroke="none" text-anchor="middle">C5</text>
+    <circle cx="40" cy="16" r="7.5" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <text x="40" y="20" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#059669" stroke="none" text-anchor="middle">C6</text>
+  </g>
+
+  <!-- Leyenda de donadores inferior -->
+  <g transform="translate(20, 114)" font-family="'Inter', sans-serif" font-size="8" font-weight="800">
+    <circle cx="4" cy="4" r="3" fill="#ea580c"/>
+    <text x="12" y="7" fill="#475569" stroke="none">Carbamoil-P (C2, N3)</text>
+    <circle cx="108" cy="4" r="3" fill="#059669"/>
+    <text x="116" y="7" fill="#475569" stroke="none">L-Aspartato (N1, C4, C5, C6)</text>
+  </g>
+</g>
+
+    </g>
+    
+
+    <!-- Metabolito: Ácido Orótico (Orotato) -->
+    <g transform="translate(880, 990)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-orotato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Anillo de pirimidina-diona de 6 lados -->
+  <polygon points="36,16 64,30 64,58 36,72 10,58 10,30" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2=O -->
+  <line x1="10" y1="58" x2="-4" y2="66" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="-8" y="72" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
+
+  <!-- N1-H y N3-H -->
+  <text x="10" y="34" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+  <text x="36" y="75" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">HN</text>
+
+  <!-- C4=O -->
+  <line x1="64" y1="58" x2="78" y2="66" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="84" y="72" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">O</text>
+
+  <!-- C6: Carboxilato -COO- característico de Orotato -->
+  <line x1="36" y1="16" x2="36" y2="0" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="36" y="-5" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+
+      </g>
+      <g transform="translate(120, 35)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Ácido Orótico (Orotato)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[5C] · Base pirimidínica oxidada</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Sustrato receptor del PRPP</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: UMP Sintasa (OPRT + OMPDC) -->
+    <g transform="translate(980, 1075)">
+      
+    <line x1="0" y1="0" x2="0" y2="52" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- PRPP</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ PPi + CO₂</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">UMP Sintasa (OPRT + OMPDC)</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 2.4.2.10 / EC 4.1.1.23</text>
+        
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Déficit: Aciduria Orótica Hereditaria</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: Uridina Monofosfato (UMP) -->
+    <g transform="translate(880, 1150)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-ump" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ribosa-5-P -->
+  <polygon points="35,58 65,74 52,100 18,100 5,74" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="35" cy="58" r="6" fill="#ffffff" stroke="none"/>
+  <text x="35" y="62" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="5" y1="74" x2="-8" y2="60" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-16" cy="50" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="54" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+  <line x1="52" y1="100" x2="52" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <line x1="18" y1="100" x2="18" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+
+  <!-- Enlace beta N-glucosídico C1' -> N1 -->
+  <line x1="65" y1="74" x2="65" y2="44" stroke="#2563eb" stroke-width="2.2"/>
+
+  <!-- Base Nitrogenada: Uracilo (C2=O, C4=O) -->
+  <polygon points="65,44 45,34 45,10 65,0 85,10 85,34" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C2=O -->
+  <line x1="45" y1="34" x2="32" y2="40" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="28" y="45" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
+  <!-- C4=O -->
+  <line x1="85" y1="10" x2="98" y2="4" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="103" y="8" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">O</text>
+  <!-- N3-H -->
+  <text x="65" y="3" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+</g>
+
+      </g>
+      <g transform="translate(125, 50)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Uridina Monofosfato (UMP)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[9C] · Nucleótido pirimidínico raíz</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Precursor de ribonucleótidos U/C y dTMP</text>
+      </g>
+    </g>
+    
+
+    <!-- Fosforilaciones de UMP a UTP -->
+    <g transform="translate(980, 1285)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+      <text x="14" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a">Nucleósido Quinasas (UMP ➔ UDP ➔ UTP)</text>
+      <text x="14" y="30" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">EC 2.7.4.4 / EC 2.7.4.6 · Gasto de 2 ATP</text>
+    </g>
+    
+
+    <!-- Reacción: CTP Sintetasa -->
+    <g transform="translate(980, 1345)">
+      
+    <line x1="0" y1="0" x2="0" y2="48" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- ATP + Glutamina</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ ADP + Pi + Glu</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">CTP Sintetasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 6.3.4.2</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊕ GTP | ⊖ CTP</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Aminación dependiente de Glutamina</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: Citidina Trifosfato (CTP) -->
+    <g transform="translate(870, 1415)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-ctp" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ribosa central -->
+  <polygon points="40,58 70,74 57,100 23,100 10,74" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="40" cy="58" r="6" fill="#ffffff" stroke="none"/>
+  <text x="40" y="62" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+
+  <!-- Cadena Trifosfato en C5': Ⓟ~Ⓟ~Ⓟ -->
+  <line x1="10" y1="74" x2="-8" y2="60" stroke="#ea580c" stroke-width="2"/>
+  <rect x="-70" y="46" width="60" height="26" rx="13" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="-40" y="63" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#b91c1c" stroke="none" text-anchor="middle">Ⓟ~Ⓟ~Ⓟ</text>
+
+  <!-- Enlace C1' -> N1 -->
+  <line x1="70" y1="74" x2="70" y2="44" stroke="#2563eb" stroke-width="2.2"/>
+
+  <!-- Base Nitrogenada: Citosina (C2=O, C4-NH2) -->
+  <polygon points="70,44 50,34 50,10 70,0 90,10 90,34" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C2=O -->
+  <line x1="50" y1="34" x2="38" y2="40" stroke="#dc2626" stroke-width="2"/>
+  <text x="34" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
+  <!-- C4-NH2 -->
+  <line x1="90" y1="10" x2="104" y2="4" stroke="#2563eb" stroke-width="2"/>
+  <text x="108" y="8" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none">NH₂</text>
+</g>
+
+      </g>
+      <g transform="translate(140, 40)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Citidina Trifosfato (CTP)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[9C] · Precursor de ARN y Lípidos</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Sustrato para síntesis de fosfolípidos</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(740, 1530)">
+      <text x="0" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#6d28d9" letter-spacing="1">SÍNTESIS DE DESOXIRRIBONUCLEÓTIDOS Y TIMIDILATO (dTMP)</text>
+      <line x1="0" y1="26" x2="480" y2="26" stroke="#7c3aed" stroke-width="2"/>
+    </g>
+    
+
+    <!-- Reacción: Ribonucleótido Reductasa (RNR) -->
+    <g transform="translate(980, 1570)">
+      
+    <line x1="0" y1="0" x2="0" y2="48" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- Tiorredoxina reducida</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ Tiorredoxina oxidada</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Ribonucleótido Reductasa (RNR)</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 1.17.4.1 (Reduce UDP ➔ dUDP)</text>
+        <text x="0" y="24" fill="#dc2626" font-size="9" font-weight="800">⊕ ATP | ⊖ dATP (Sitio global)</text>
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Diana quimioterápica: Hidroxiurea</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(980, 1640)">
+      <line x1="0" y1="0" x2="0" y2="35" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+      <text x="14" y="14" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a">dUTPasa / Desaminasa (dUDP ➔ dUTP ➔ dUMP)</text>
+      <text x="14" y="27" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b">EC 3.6.1.23 · Evita la incorporación letal de uracilo al ADN</text>
+    </g>
+    
+
+    <!-- Reacción: Timidilato Sintasa -->
+    <g transform="translate(980, 1695)">
+      
+    <line x1="0" y1="0" x2="0" y2="52" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- N⁵,N¹⁰-Metileno-THF</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ 7,8-Dihidrofolato</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Timidilato Sintasa</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 2.1.1.45 (Metila dUMP ➔ dTMP)</text>
+        
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Inhibidor suicida: 5-Fluorouracilo (5-FU)</text>
+      </g>
+    </g>
+    
+
+    <!-- Metabolito: Desoxitimidina Monofosfato (dTMP) -->
+    <g transform="translate(870, 1775)">
+      <g transform="translate(0, 0)">
+        
+<g class="mol-dtmp" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 2'-Desoxirribosa-5-P (sin OH en C2') -->
+  <polygon points="35,58 65,74 52,100 18,100 5,74" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="35" cy="58" r="6" fill="#ffffff" stroke="none"/>
+  <text x="35" y="62" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="5" y1="74" x2="-8" y2="60" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-16" cy="50" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="54" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+  <!-- Solo OH en C3' (C2' desoxi = sólo H) -->
+  <line x1="18" y1="100" x2="18" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="120" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">3'-OH</text>
+  <text x="52" y="112" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">2'-H</text>
+
+  <!-- Enlace beta N-glucosídico C1' -> N1 -->
+  <line x1="65" y1="74" x2="65" y2="44" stroke="#2563eb" stroke-width="2.2"/>
+
+  <!-- Base Nitrogenada: Timina (C2=O, C4=O, C5-CH3) -->
+  <polygon points="65,44 45,34 45,10 65,0 85,10 85,34" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C2=O -->
+  <line x1="45" y1="34" x2="32" y2="40" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="28" y="45" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
+  <!-- C4=O -->
+  <line x1="85" y1="10" x2="98" y2="4" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="103" y="8" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">O</text>
+  <!-- C5-CH3 (Metilo distintivo transferido por Timidilato Sintasa) -->
+  <line x1="85" y1="34" x2="102" y2="38" stroke="#7c3aed" stroke-width="2.4"/>
+  <rect x="104" y="28" width="36" height="20" rx="5" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="122" y="42" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#7c3aed" stroke="none" text-anchor="middle">CH₃</text>
+</g>
+
+      </g>
+      <g transform="translate(140, 55)">
+        <text x="0" y="0" fill="#0f172a" font-size="15" font-weight="900">Desoxitimidina Monofosfato (dTMP)</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11.5" font-weight="800">[10C] · Monómero exclusivo del ADN</text>
+        <text x="0" y="30" fill="#64748b" font-size="10" font-weight="600">Posee el grupo 5-metilo distintivo</text>
+      </g>
+    </g>
+    
+
+    <!-- Reacción: Dihidrofolato Reductasa (DHFR) -->
+    <g transform="translate(980, 1925)">
+      
+    <line x1="0" y1="0" x2="0" y2="48" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlowPurine)"/>
+    
+      
+        <path d="M -35 8 Q -15 8 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-40" y="11" fill="#dc2626" font-size="9.5" font-weight="800" text-anchor="end">- NADPH + H⁺</text>
+        
+        <path d="M -4 24 Q -15 32 -35 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-40" y="35" fill="#475569" font-size="9.5" font-weight="800" text-anchor="end">+ NADP⁺</text>
+        
+      <g transform="translate(14, 11)">
+        <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900">Dihidrofolato Reductasa (DHFR)</text>
+        <text x="0" y="12" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 1.5.1.3 (DHF ➔ THF)</text>
+        
+        <text x="0" y="36" fill="#be185d" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700">Dianas farmacológicas: Metotrexato, Trimetoprima</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(80, 2080)">
+      <line x1="0" y1="0" x2="1280" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+      
+      <!-- Columna 1 -->
+      <g transform="translate(0, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#7c3aed">BALANCE BIOENERGÉTICO</text>
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0f172a">• Síntesis de Novo: Alto coste energético (gasto de 5 a 6 ATP equivalentes por nucleótido purínico).</text>
+        <text x="0" y="38" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0f172a">• Vía de Salvamento: Ahorro masivo de ATP (1 PRPP por base reciclada), esencial en encéfalo y eritrocitos.</text>
+        <text x="0" y="56" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0f172a">• Asimetría de síntesis: Purinas ensamblan el anillo sobre PRPP; Pirimidinas forman el anillo libre primero.</text>
+      </g>
+
+      <!-- Columna 2 -->
+      <g transform="translate(680, 25)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#7c3aed">REGULACIÓN CRUZADA PURINA / PIRIMIDINA</text>
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0f172a">• GTP estimula la síntesis de AMP; ATP estimula la de GMP y la activación de CPS-II y ATCasa.</text>
+        <text x="0" y="38" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0f172a">• El balance recíproco asegura proporciones equimolares de purinas y pirimidinas.</text>
+        <text x="0" y="56" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0f172a">• RNR controla la reserva de los 4 desoxirribonucleótidos (retroinhibida por dATP).</text>
+      </g>
+    </g>
+    
+    </svg>

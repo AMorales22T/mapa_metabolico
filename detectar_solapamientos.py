@@ -31,6 +31,7 @@ GRUPOS_INSERTO = {
     "lupa_cadena_respiratoria",
     "lupa_piruvato_deshidrogenasa",
     "lupa_lanzadera_malato_aspartato",
+    "lupa_lanzadera_glicerol_p",
 }
 
 ANCHO_CHAR = {"mono": 0.62, "sans": 0.60}

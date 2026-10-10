@@ -143,3 +143,52 @@ ALFA_CETOGLUTARATO = """
   <text x="40" y="136" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
 </g>
 """
+
+# =============================================================================
+# ESTRUCTURAS PARA LANZADERA DE GLICEROL-3-FOSFATO
+# =============================================================================
+
+DIHIDROXIACETONA_FOSFATO = """
+<g class="mol-dhap" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: CH2OH superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO-CH₂</text>
+  <line x1="40" y1="20" x2="40" y2="38" />
+
+  <!-- C2: C=O (Grupo carbonilo cetona) -->
+  <circle cx="40" cy="45" r="2.5" fill="#0f172a" stroke="none"/>
+  <line x1="47" y1="42" x2="66" y2="42" stroke="#dc2626" stroke-width="2"/>
+  <line x1="47" y1="46" x2="66" y2="46" stroke="#dc2626" stroke-width="2"/>
+  <text x="73" y="48" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
+
+  <!-- C3: CH2-O-P inferior -->
+  <line x1="40" y1="52" x2="40" y2="68" />
+  <text x="40" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">H₂C-O</text>
+  <line x1="40" y1="82" x2="40" y2="92" stroke="#ea580c" stroke-width="2"/>
+  <circle cx="40" cy="105" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="109" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+</g>
+"""
+
+GLICEROL_3_FOSFATO = """
+<g class="mol-glicerol-3p" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: CH2OH superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO-CH₂</text>
+  <line x1="40" y1="20" x2="40" y2="38" />
+
+  <!-- C2: CH(OH) (Carbono quiral reducido con hidroxilo) -->
+  <circle cx="40" cy="46" r="2.5" fill="#0f172a" stroke="none"/>
+  <line x1="33" y1="46" x2="22" y2="46" />
+  <text x="14" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
+  
+  <line x1="47" y1="46" x2="63" y2="46" stroke="#0284c7" stroke-width="2"/>
+  <text x="70" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0284c7" stroke="none">OH</text>
+
+  <!-- C3: CH2-O-P inferior -->
+  <line x1="40" y1="53" x2="40" y2="68" />
+  <text x="40" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">H₂C-O</text>
+  <line x1="40" y1="82" x2="40" y2="92" stroke="#ea580c" stroke-width="2"/>
+  <circle cx="40" cy="105" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="109" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+</g>
+"""
+

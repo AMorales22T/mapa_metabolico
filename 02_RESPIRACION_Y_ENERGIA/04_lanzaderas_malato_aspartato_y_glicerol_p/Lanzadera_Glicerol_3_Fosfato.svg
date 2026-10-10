@@ -1,0 +1,198 @@
+<svg width="1380" height="680" viewBox="0 0 1380 680" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ea580c" />
+        </marker>
+        <marker id="arrowRed" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#dc2626" />
+        </marker>
+        <marker id="arrowSlate" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#475569" />
+        </marker>
+        <marker id="arrowGreen" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#059669" />
+        </marker>
+        <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+          <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
+        </marker>
+        <linearGradient id="gradCitosol" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#f8fafc" />
+          <stop offset="100%" stop-color="#f1f5f9" />
+        </linearGradient>
+        <linearGradient id="gradEIM" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#fff7ed" />
+          <stop offset="100%" stop-color="#ffedd5" />
+        </linearGradient>
+        <linearGradient id="gradMatriz" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#fef3c7" />
+          <stop offset="100%" stop-color="#fffbeb" />
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="580" height="680" fill="url(#gradCitosol)" />
+<rect x="580" y="0" width="60" height="680" fill="#e2e8f0" opacity="0.8"/>
+<line x1="580" y1="0" x2="580" y2="680" stroke="#94a3b8" stroke-width="2"/>
+<line x1="640" y1="0" x2="640" y2="680" stroke="#94a3b8" stroke-width="2"/>
+<rect x="640" y="0" width="260" height="680" fill="url(#gradEIM)" opacity="0.6"/>
+<rect x="900" y="0" width="70" height="680" fill="#fed7aa" opacity="0.9"/>
+<line x1="900" y1="0" x2="900" y2="680" stroke="#ea580c" stroke-width="2.5"/>
+<line x1="970" y1="0" x2="970" y2="680" stroke="#ea580c" stroke-width="2.5"/>
+<rect x="970" y="0" width="410" height="680" fill="url(#gradMatriz)" />
+
+    <!-- Rótulos de compartimentos -->
+    <text x="300" y="112" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#64748b" text-anchor="middle" letter-spacing="2">CITOSOL CELULAR</text>
+    <text x="610" y="112" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#475569" text-anchor="middle" letter-spacing="1">MME</text>
+    <text x="770" y="112" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#c2410c" text-anchor="middle" letter-spacing="1.5">ESPACIO INTERMEMBRANA</text>
+    <text x="935" y="112" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#9a3412" text-anchor="middle" letter-spacing="1">MMI</text>
+    <text x="1170" y="112" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#b45309" text-anchor="middle" letter-spacing="2">MATRIZ MITOCONDRIAL</text>
+
+    <!-- Porina VDAC en MME -->
+    <g transform="translate(590, 400)">
+      <rect x="0" y="0" width="40" height="70" rx="8" fill="#cbd5e1" stroke="#475569" stroke-width="1.8"/>
+      <text x="20" y="32" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#1e293b" text-anchor="middle">VDAC</text>
+      <text x="20" y="46" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#475569" text-anchor="middle">Porina</text>
+    </g>
+    
+
+    <g transform="translate(60, 36)">
+      <circle cx="18" cy="18" r="16" fill="#ea580c"/>
+      <text x="18" y="24" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#ffffff" text-anchor="middle">8B</text>
+      <text x="45" y="15" font-family="'Inter', sans-serif" font-size="19" font-weight="900" fill="#0f172a">LANZADERA DE GLICEROL-3-FOSFATO</text>
+      <text x="45" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#ea580c">Transferencia de equivalentes de reducción a la Cadena Respiratoria (FAD ➔ CoQ)</text>
+    </g>
+    
+
+    <g transform="translate(170, 165)">
+      
+<g class="mol-dhap" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: CH2OH superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO-CH₂</text>
+  <line x1="40" y1="20" x2="40" y2="38" />
+
+  <!-- C2: C=O (Grupo carbonilo cetona) -->
+  <circle cx="40" cy="45" r="2.5" fill="#0f172a" stroke="none"/>
+  <line x1="47" y1="42" x2="66" y2="42" stroke="#dc2626" stroke-width="2"/>
+  <line x1="47" y1="46" x2="66" y2="46" stroke="#dc2626" stroke-width="2"/>
+  <text x="73" y="48" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
+
+  <!-- C3: CH2-O-P inferior -->
+  <line x1="40" y1="52" x2="40" y2="68" />
+  <text x="40" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">H₂C-O</text>
+  <line x1="40" y1="82" x2="40" y2="92" stroke="#ea580c" stroke-width="2"/>
+  <circle cx="40" cy="105" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="109" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+</g>
+
+      <g transform="translate(120, 35)">
+        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900">Dihidroxiacetona Fosfato (DHAP)</text>
+        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="800">[3C] · Triosa Cetosa libre</text>
+        <text x="0" y="33" fill="#64748b" font-size="10.5" font-weight="600">Intermediario común de la Glucólisis</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(250, 315)">
+      <!-- Flecha principal vertical descendente -->
+      <line x1="0" y1="0" x2="0" y2="90" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      
+      <!-- Entrada de NADH citosólico (curva Bézier roja entrando desde la izquierda) -->
+      <path d="M -80 20 Q -30 20 -4 35" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+      <text x="-85" y="24" fill="#dc2626" font-size="11" font-weight="900" text-anchor="end">- NADH + H⁺</text>
+      <text x="-85" y="38" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="end">(GAPDH / Glucólisis)</text>
+
+      <!-- Salida de NAD+ regenerado (curva Bézier verde saliendo hacia la izquierda) -->
+      <path d="M -4 55 Q -30 70 -80 70" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+      <text x="-85" y="74" fill="#059669" font-size="11" font-weight="900" text-anchor="end">+ NAD⁺</text>
+      <text x="-85" y="88" fill="#059669" font-size="9.5" font-weight="700" text-anchor="end">(Regenerado)</text>
+
+      <!-- Nombre de la enzima y detalles a la derecha -->
+      <g transform="translate(18, 25)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="900">Glicerol-3-Fosfato Deshidrogenasa Citosólica (cGPDH / GPD1)</text>
+        <text x="0" y="16" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace">EC 1.1.1.8 · Reducción dependiente de NADH</text>
+        <text x="0" y="32" fill="#16a34a" font-size="10" font-weight="800">Regenera NAD⁺ citosólico para sostener la glucólisis activa</text>
+      </g>
+    </g>
+    
+
+    <g transform="translate(170, 455)">
+      
+<g class="mol-glicerol-3p" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: CH2OH superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO-CH₂</text>
+  <line x1="40" y1="20" x2="40" y2="38" />
+
+  <!-- C2: CH(OH) (Carbono quiral reducido con hidroxilo) -->
+  <circle cx="40" cy="46" r="2.5" fill="#0f172a" stroke="none"/>
+  <line x1="33" y1="46" x2="22" y2="46" />
+  <text x="14" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
+  
+  <line x1="47" y1="46" x2="63" y2="46" stroke="#0284c7" stroke-width="2"/>
+  <text x="70" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0284c7" stroke="none">OH</text>
+
+  <!-- C3: CH2-O-P inferior -->
+  <line x1="40" y1="53" x2="40" y2="68" />
+  <text x="40" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">H₂C-O</text>
+  <line x1="40" y1="82" x2="40" y2="92" stroke="#ea580c" stroke-width="2"/>
+  <circle cx="40" cy="105" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="109" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+</g>
+
+      <g transform="translate(120, 35)">
+        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900">L-Glicerol-3-Fosfato</text>
+        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="800">[3C] · Portador de electrones</text>
+        <text x="0" y="33" fill="#64748b" font-size="10.5" font-weight="600">Transporta poder reductor hacia la mitocondria</text>
+      </g>
+    </g>
+    
+
+    <!-- Ruta de ida de Glicerol-3-P: Citosol ➔ EIM ➔ Cara externa MMI -->
+    <path d="M 480 540 Q 610 540 760 510" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <text x="610" y="565" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#c2410c" text-anchor="middle">Difusión por VDAC</text>
+
+    <!-- Ruta de retorno de DHAP: EIM ➔ Citosol -->
+    <path d="M 760 250 Q 610 220 480 220" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="5 3" marker-end="url(#arrowFlow)"/>
+    <text x="610" y="210" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#64748b" text-anchor="middle">Retorno al Citosol</text>
+    
+
+    <g transform="translate(860, 300)">
+      <!-- Cuerpo globular de la proteína integral mGPDH insertada en la MMI -->
+      <path d="M 40,0 Q 120,-30 140,80 Q 150,180 40,160 Q 0,110 0,60 Z" fill="#fed7aa" stroke="#c2410c" stroke-width="2.5"/>
+      
+      <!-- Sitio catalítico en la cara externa (hacia el EIM) -->
+      <circle cx="45" cy="80" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+      <text x="45" y="84" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#9a3412" text-anchor="middle">FAD</text>
+
+      <!-- Rótulo de la enzima en MMI -->
+      <g transform="translate(155, 35)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="900">mGPDH (GPD2)</text>
+        <text x="0" y="15" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 1.1.5.3</text>
+        <text x="0" y="30" fill="#9a3412" font-size="10" font-weight="800">Flavoproteína en cara externa MMI</text>
+      </g>
+
+      <!-- Reoxidación de Glicerol-3-P a DHAP en mGPDH -->
+      <path d="M -80 180 Q -10 130 30 85" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+      <path d="M 30 75 Q -10 30 -80 -20" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+
+      <!-- Ciclo interno FAD ➔ FADH2 -->
+      <path d="M 35 60 Q 55 45 65 75 Q 75 105 45 98" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowFlow)"/>
+      <text x="80" y="90" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#b45309">FADH₂</text>
+
+      <!-- Transferencia de electrones a la Coenzima Q en la membrana lipídica -->
+      <path d="M 65 75 Q 110 75 160 110" fill="none" stroke="#0284c7" stroke-width="2.6" marker-end="url(#arrowBlue)"/>
+      
+      <!-- Coenzima Q en la membrana (diseño estilizado) -->
+      <g transform="translate(170, 95)">
+        <rect x="0" y="0" width="115" height="42" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+        <text x="57" y="18" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0369a1" text-anchor="middle">CoQ ➔ CoQH₂</text>
+        <text x="57" y="32" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#0284c7" text-anchor="middle">Ubiquinona lipídica</text>
+      </g>
+
+      <!-- Flecha hacia Complejo III en la Cadena Respiratoria -->
+      <path d="M 290 116 L 360 116" fill="none" stroke="#0284c7" stroke-width="2.6" marker-end="url(#arrowBlue)"/>
+      <g transform="translate(370, 95)">
+        <rect x="0" y="0" width="130" height="42" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8"/>
+        <text x="65" y="18" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#15803d" text-anchor="middle">COMPLEJO III</text>
+        <text x="65" y="32" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#16a34a" text-anchor="middle">Citocromo bc₁</text>
+      </g>
+    </g>
+    
+    </svg>

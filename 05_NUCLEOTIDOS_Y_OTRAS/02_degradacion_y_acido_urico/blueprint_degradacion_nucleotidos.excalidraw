@@ -1,0 +1,2096 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "text",
+      "id": "title_main",
+      "x": 60,
+      "y": 40,
+      "width": 1050,
+      "height": 38,
+      "text": "ARQUITECTURA METABÓLICA: CATABOLISMO DE NUCLEÓTIDOS Y ÁCIDO ÚRICO",
+      "originalText": "ARQUITECTURA METABÓLICA: CATABOLISMO DE NUCLEÓTIDOS Y ÁCIDO ÚRICO",
+      "fontSize": 26,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#1e40af",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "subtitle_main",
+      "x": 60,
+      "y": 82,
+      "width": 1100,
+      "height": 24,
+      "text": "Convergencia de Purinas a Ácido Úrico (XOD / Gota) y Degradación Soluble de Pirimidinas (DPD / β-Alanina)",
+      "originalText": "Convergencia de Purinas a Ácido Úrico (XOD / Gota) y Degradación Soluble de Pirimidinas (DPD / β-Alanina)",
+      "fontSize": 15,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#64748b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "sec_purinas_cat",
+      "x": 60,
+      "y": 130,
+      "width": 840,
+      "height": 720,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fff7ed",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "lbl_sec_purinas_cat",
+      "x": 80,
+      "y": 145,
+      "width": 460,
+      "height": 20,
+      "text": "RAMA DE PURINAS: CONVERGENCIA EN ÁCIDO ÚRICO (XOD)",
+      "originalText": "RAMA DE PURINAS: CONVERGENCIA EN ÁCIDO ÚRICO (XOD)",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "sec_pirimidinas_cat",
+      "x": 930,
+      "y": 130,
+      "width": 840,
+      "height": 720,
+      "strokeColor": "#047857",
+      "backgroundColor": "#f0fdf4",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "lbl_sec_pirimidinas_cat",
+      "x": 950,
+      "y": 145,
+      "width": 480,
+      "height": 20,
+      "text": "RAMA DE PIRIMIDINAS: APERTURA EN CADENA Y EXCRECIÓN SOLUBLE",
+      "originalText": "RAMA DE PIRIMIDINAS: APERTURA EN CADENA Y EXCRECIÓN SOLUBLE",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "rectangle",
+      "id": "node_56df7e74",
+      "x": 100,
+      "y": 200,
+      "width": 200,
+      "height": 55,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fed7aa",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_dbc0e59f",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_dbc0e59f",
+      "x": 110,
+      "y": 215.5,
+      "width": 180,
+      "height": 24,
+      "text": "AMP (Adenosina Monofosfato)",
+      "originalText": "AMP (Adenosina Monofosfato)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#7c2d12",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_56df7e74"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_9f25e189",
+      "x": 100,
+      "y": 300,
+      "width": 200,
+      "height": 65,
+      "strokeColor": "#dc2626",
+      "backgroundColor": "#fee2e2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_837a8065",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_837a8065",
+      "x": 110,
+      "y": 320.5,
+      "width": 180,
+      "height": 24,
+      "text": "ADA (Adenosina Desaminasa)\n(Déficit: Inmunodeficiencia SCID)",
+      "originalText": "ADA (Adenosina Desaminasa)\n(Déficit: Inmunodeficiencia SCID)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#991b1b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_9f25e189"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_2a38e7e3",
+      "x": 100,
+      "y": 410,
+      "width": 200,
+      "height": 60,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "#93c5fd",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_ffb143f1",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_ffb143f1",
+      "x": 110,
+      "y": 428.0,
+      "width": 180,
+      "height": 24,
+      "text": "Inosina\n(Hipoxantina-Ribosa)",
+      "originalText": "Inosina\n(Hipoxantina-Ribosa)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_2a38e7e3"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_9d70b52c",
+      "x": 100,
+      "y": 510,
+      "width": 200,
+      "height": 60,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fed7aa",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_0c20aea3",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_0c20aea3",
+      "x": 110,
+      "y": 528.0,
+      "width": 180,
+      "height": 24,
+      "text": "Hipoxantina\n(Base purínica libre)",
+      "originalText": "Hipoxantina\n(Base purínica libre)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#7c2d12",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_9d70b52c"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_5a11e10b",
+      "x": 380,
+      "y": 200,
+      "width": 200,
+      "height": 55,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fed7aa",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_652fa1f3",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_652fa1f3",
+      "x": 390,
+      "y": 215.5,
+      "width": 180,
+      "height": 24,
+      "text": "GMP (Guanosina Monofosfato)",
+      "originalText": "GMP (Guanosina Monofosfato)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#7c2d12",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_5a11e10b"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_1dd021b6",
+      "x": 380,
+      "y": 350,
+      "width": 200,
+      "height": 60,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "#93c5fd",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_c0f61b30",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_c0f61b30",
+      "x": 390,
+      "y": 368.0,
+      "width": 180,
+      "height": 24,
+      "text": "Guanina\n(Vía PNP desfosforilante)",
+      "originalText": "Guanina\n(Vía PNP desfosforilante)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_1dd021b6"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_c8b0bc53",
+      "x": 380,
+      "y": 450,
+      "width": 200,
+      "height": 55,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_1fbb7fc2",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_1fbb7fc2",
+      "x": 390,
+      "y": 465.5,
+      "width": 180,
+      "height": 24,
+      "text": "Guanasa\n(+ H2O ➔ NH3)",
+      "originalText": "Guanasa\n(+ H2O ➔ NH3)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_c8b0bc53"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_6c8e2d33",
+      "x": 240,
+      "y": 590,
+      "width": 220,
+      "height": 65,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_5b95f96c",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_5b95f96c",
+      "x": 250,
+      "y": 610.5,
+      "width": 200,
+      "height": 24,
+      "text": "Xantina Oxidasa (XOD - Paso 1)\n(Hipoxantina ➔ Xantina)",
+      "originalText": "Xantina Oxidasa (XOD - Paso 1)\n(Hipoxantina ➔ Xantina)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_6c8e2d33"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_87b3b967",
+      "x": 240,
+      "y": 680,
+      "width": 220,
+      "height": 55,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "#fed7aa",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_820534f6",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_820534f6",
+      "x": 250,
+      "y": 695.5,
+      "width": 200,
+      "height": 24,
+      "text": "Xantina\n(2,6-Dioxipurina)",
+      "originalText": "Xantina\n(2,6-Dioxipurina)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#7c2d12",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_87b3b967"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_e0f6e5cc",
+      "x": 540,
+      "y": 680,
+      "width": 240,
+      "height": 65,
+      "strokeColor": "#dc2626",
+      "backgroundColor": "#fee2e2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_94011a96",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_94011a96",
+      "x": 550,
+      "y": 700.5,
+      "width": 220,
+      "height": 24,
+      "text": "Xantina Oxidasa (XOD - Paso 2)\n(Diana: Alopurinol / Febuxostat)",
+      "originalText": "Xantina Oxidasa (XOD - Paso 2)\n(Diana: Alopurinol / Febuxostat)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#991b1b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_e0f6e5cc"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_e578b39d",
+      "x": 540,
+      "y": 770,
+      "width": 240,
+      "height": 65,
+      "strokeColor": "#b91c1c",
+      "backgroundColor": "#fecaca",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_01dade56",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_01dade56",
+      "x": 550,
+      "y": 790.5,
+      "width": 220,
+      "height": 24,
+      "text": "ÁCIDO ÚRICO (URATO)\n➔ Excreción renal (URAT1) / Gota",
+      "originalText": "ÁCIDO ÚRICO (URATO)\n➔ Excreción renal (URAT1) / Gota",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#7f1d1d",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_e578b39d"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_cd7958c9",
+      "x": 980,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_15e364ec",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_15e364ec",
+      "x": 990,
+      "y": 218.0,
+      "width": 180,
+      "height": 24,
+      "text": "Uracilo / Citosina\n(Bases pirimidínicas)",
+      "originalText": "Uracilo / Citosina\n(Bases pirimidínicas)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_cd7958c9"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_5fd290f3",
+      "x": 980,
+      "y": 310,
+      "width": 230,
+      "height": 65,
+      "strokeColor": "#dc2626",
+      "backgroundColor": "#fee2e2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_b976c17d",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_b976c17d",
+      "x": 990,
+      "y": 330.5,
+      "width": 210,
+      "height": 24,
+      "text": "DPD (Dihidropirimidina DH)\n(+ NADPH · Diana toxicidad 5-FU)",
+      "originalText": "DPD (Dihidropirimidina DH)\n(+ NADPH · Diana toxicidad 5-FU)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#991b1b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_5fd290f3"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_126673f3",
+      "x": 980,
+      "y": 420,
+      "width": 230,
+      "height": 60,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_c57463fc",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_c57463fc",
+      "x": 990,
+      "y": 438.0,
+      "width": 210,
+      "height": 24,
+      "text": "Dihidrouracilo\n(Anillo saturado sin C=C)",
+      "originalText": "Dihidrouracilo\n(Anillo saturado sin C=C)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_126673f3"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_89d22788",
+      "x": 980,
+      "y": 530,
+      "width": 230,
+      "height": 65,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_243060c4",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_243060c4",
+      "x": 990,
+      "y": 550.5,
+      "width": 210,
+      "height": 24,
+      "text": "β-Ureidopropionato\n(Cadena abierta acíclica por DHPasa)",
+      "originalText": "β-Ureidopropionato\n(Cadena abierta acíclica por DHPasa)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_89d22788"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_e4728336",
+      "x": 980,
+      "y": 650,
+      "width": 230,
+      "height": 65,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_fda008c7",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_fda008c7",
+      "x": 990,
+      "y": 670.5,
+      "width": 210,
+      "height": 24,
+      "text": "β-ALANINA SOLUBLE\n(+ NH4⁺ + CO2 ➔ Excreción inocua)",
+      "originalText": "β-ALANINA SOLUBLE\n(+ NH4⁺ + CO2 ➔ Excreción inocua)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_e4728336"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_83b750cd",
+      "x": 1360,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_421468d2",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_421468d2",
+      "x": 1370,
+      "y": 218.0,
+      "width": 180,
+      "height": 24,
+      "text": "Timina (5-Metiluracilo)\n(Del ADN catabolizado)",
+      "originalText": "Timina (5-Metiluracilo)\n(Del ADN catabolizado)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_83b750cd"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_58308769",
+      "x": 1360,
+      "y": 310,
+      "width": 230,
+      "height": 65,
+      "strokeColor": "#b45309",
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_6a1b311a",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_6a1b311a",
+      "x": 1370,
+      "y": 330.5,
+      "width": 210,
+      "height": 24,
+      "text": "DPD (Paso reductor con NADPH)\n(Saturación del C5-C6)",
+      "originalText": "DPD (Paso reductor con NADPH)\n(Saturación del C5-C6)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#78350f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_58308769"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_b755cc76",
+      "x": 1360,
+      "y": 420,
+      "width": 230,
+      "height": 60,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_67ebf653",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_67ebf653",
+      "x": 1370,
+      "y": 438.0,
+      "width": 210,
+      "height": 24,
+      "text": "Dihidrotimina\n(Anillo saturado metilado)",
+      "originalText": "Dihidrotimina\n(Anillo saturado metilado)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_b755cc76"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_cce51cd5",
+      "x": 1360,
+      "y": 530,
+      "width": 230,
+      "height": 65,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_2622f1c4",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_2622f1c4",
+      "x": 1370,
+      "y": 550.5,
+      "width": 210,
+      "height": 24,
+      "text": "β-Ureidoisobutirato\n(Cadena abierta metilada por DHPasa)",
+      "originalText": "β-Ureidoisobutirato\n(Cadena abierta metilada por DHPasa)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_cce51cd5"
+    },
+    {
+      "type": "rectangle",
+      "id": "node_28735d4e",
+      "x": 1360,
+      "y": 650,
+      "width": 230,
+      "height": 65,
+      "strokeColor": "#047857",
+      "backgroundColor": "#a7f3d0",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "roundness": {
+        "type": 3,
+        "value": 8
+      },
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "txt_e7269425",
+          "type": "text"
+        }
+      ],
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "id": "txt_e7269425",
+      "x": 1370,
+      "y": 670.5,
+      "width": 210,
+      "height": 24,
+      "text": "β-AMINOISOBUTIRATO\n➔ Metabolismo soluble en orina",
+      "originalText": "β-AMINOISOBUTIRATO\n➔ Metabolismo soluble en orina",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#064e3b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false,
+      "containerId": "node_28735d4e"
+    },
+    {
+      "type": "arrow",
+      "id": "arr_534fec21",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_56df7e74",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_9f25e189",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_a83b6afa",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_9f25e189",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_2a38e7e3",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_bb5edd52",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_2a38e7e3",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_9d70b52c",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_ce85e477",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#c2410c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_9d70b52c",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_6c8e2d33",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_6f11c9ea",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#b45309",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_6c8e2d33",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_87b3b967",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_ec7f8c96",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_5a11e10b",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_1dd021b6",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_42cf4299",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e3a5f",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_1dd021b6",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_c8b0bc53",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_4865f34b",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#b45309",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_c8b0bc53",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_87b3b967",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_459dc589",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#b45309",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_87b3b967",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_e0f6e5cc",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_fedec8bc",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#b91c1c",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_e0f6e5cc",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_e578b39d",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_287431fa",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_cd7958c9",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_5fd290f3",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_18111a30",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_5fd290f3",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_126673f3",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_9449e39c",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_126673f3",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_89d22788",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_ec6e1c6a",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_89d22788",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_e4728336",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_c4d47cea",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_83b750cd",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_58308769",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_7e454072",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_58308769",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_b755cc76",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_5e34ec50",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_b755cc76",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_cce51cd5",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "arrow",
+      "id": "arr_33862802",
+      "x": 0,
+      "y": 0,
+      "width": 10,
+      "height": 10,
+      "strokeColor": "#047857",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "startBinding": {
+        "elementId": "node_cce51cd5",
+        "focus": 0,
+        "gap": 6
+      },
+      "endBinding": {
+        "elementId": "node_28735d4e",
+        "focus": 0,
+        "gap": 6
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "groupIds": [],
+      "isDeleted": false,
+      "boundElements": null,
+      "link": null,
+      "locked": false
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  },
+  "files": {}
+}

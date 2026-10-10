@@ -33,7 +33,7 @@ VIAS = [
     {"n": 5,  "nombre": "Complejo piruvato deshidrogenasa (PDH)",  "lugar": "Matriz",               "resumen": "Piruvato → Acetil-CoA + CO₂ + NADH"},
     {"n": 6,  "nombre": "Ciclo de Krebs",                          "lugar": "Matriz",               "resumen": "Acetil-CoA → 2 CO₂ + 3 NADH + FADH₂ + GTP"},
     {"n": 7,  "nombre": "Cadena de transporte de electrones y ATP sintasa", "lugar": "Membrana mitocondrial interna", "resumen": "Fosforilación oxidativa (acoplamiento quimiosmótico)"},
-    {"n": 8,  "nombre": "Lanzaderas (malato-aspartato, citrato)",  "lugar": "Membrana mitocondrial interna", "resumen": "Transporte de equivalentes de reducción y de Acetil-CoA"},
+    {"n": 8,  "nombre": "Lanzaderas (malato-aspartato, glicerol-P)", "lugar": "MME / EIM / MMI",     "resumen": "Transporte de equivalentes redox (NADH citosólico) y Acetil-CoA"},
     {"n": 9,  "nombre": "β-oxidación (y lanzadera de carnitina)",  "lugar": "Citosol → Matriz",     "resumen": "Palmitoil-CoA → 8 Acetil-CoA + FADH₂ + NADH"},
     {"n": 10, "nombre": "Lipogénesis (síntesis de ácidos grasos)", "lugar": "Citosol",              "resumen": "Acetil-CoA → Malonil-CoA → Palmitato (FAS)"},
     {"n": 11, "nombre": "Cetogénesis",                             "lugar": "Matriz · hepática",    "resumen": "Acetil-CoA → Acetoacetato / β-Hidroxibutirato"},
@@ -41,6 +41,8 @@ VIAS = [
     {"n": "12B", "nombre": "Destinos esqueletos carbonados AA",    "lugar": "Citosol + Matriz",     "resumen": "Convergencia de los 20 AA en Krebs, Piruvato y Cuerpos Cetónicos"},
     {"n": 13, "nombre": "Transaminación y desaminación oxidativa", "lugar": "Citosol + Matriz",     "resumen": "Recogida del grupo amino en Glutamato → NH₄⁺"},
     {"n": 14, "nombre": "Ciclo de la urea",                        "lugar": "Matriz + citosol · hepático", "resumen": "NH₄⁺ + HCO₃⁻ + Aspartato → Urea"},
+    {"n": 15, "nombre": "Biosíntesis de nucleótidos (purinas y pirimidinas)", "lugar": "Citosol + MMI", "resumen": "Rutas de novo convergentes sobre PRPP y vías de salvamento (HGPRT/APRT)"},
+    {"n": 16, "nombre": "Catabolismo de nucleótidos y ácido úrico", "lugar": "Citosol + túbulo renal", "resumen": "Degradación de purinas a Ácido Úrico (XOD/Alopurinol) y pirimidinas a β-Alanina"},
 ]
 
 # ---------------------------------------------------------------------------
@@ -202,6 +204,42 @@ ENZIMAS = [
      "covalente": "",
      "hormonal": "La NAG sintasa se activa por arginina; dieta rica en proteínas y glucagón inducen las enzimas del ciclo",
      "mapa_cov": "", "mapa_hor": "Paso limitante del ciclo"},
+
+    # ---------------- 15. NUCLEÓTIDOS (SÍNTESIS) ----------------
+    {"id": "prpp_s", "via": 15, "enzima": "PRPP Sintetasa", "ec": "2.7.6.1",
+     "activadores": ["Pi"], "inhibidores": ["AMP", "GMP", "IMP"],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Inhibición por producto purínico"},
+    {"id": "prpp_at", "via": 15, "enzima": "Glutamina-PRPP amidotransferasa", "ec": "2.4.2.14",
+     "activadores": ["PRPP"], "inhibidores": ["IMP", "AMP", "GMP"],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Paso comprometido purinas de novo"},
+    {"id": "cps2", "via": 15, "enzima": "Carbamoil fosfato sintetasa II (CPS-II)", "ec": "6.3.5.5",
+     "activadores": ["PRPP", "ATP"], "inhibidores": ["UTP"],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Paso limitante pirimidinas citosólica"},
+    {"id": "atcasa", "via": 15, "enzima": "Aspartato transcarbamoilasa (ATCasa)", "ec": "2.1.3.2",
+     "activadores": ["ATP"], "inhibidores": ["CTP"],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Regulación por retroinhibición de CTP"},
+    {"id": "rnr", "via": 15, "enzima": "Ribonucleótido reductasa (RNR)", "ec": "1.17.4.1",
+     "activadores": ["ATP"], "inhibidores": ["dATP", "Hidroxiurea (fármaco)"],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Control alostérico global de dNTPs"},
+    {"id": "ts", "via": 15, "enzima": "Timidilato sintasa", "ec": "2.1.1.45",
+     "activadores": [], "inhibidores": ["5-Fluorouracilo (FdUMP, suicida)"],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Diana antitumoral de 5-FU"},
+
+    # ---------------- 16. NUCLEÓTIDOS (CATABOLISMO) ----------------
+    {"id": "ada", "via": 16, "enzima": "Adenosina desaminasa (ADA)", "ec": "3.5.4.4",
+     "activadores": [], "inhibidores": [],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Déficit: Inmunodeficiencia severa (SCID)"},
+    {"id": "xod", "via": 16, "enzima": "Xantina oxidasa (XOD)", "ec": "1.17.3.2",
+     "activadores": [], "inhibidores": ["Alopurinol (suicida)", "Febuxostat"],
+     "covalente": "", "hormonal": "",
+     "mapa_cov": "", "mapa_hor": "Diana farmacológica de la gota"},
 ]
 
 ENZIMAS_POR_ID = {e["id"]: e for e in ENZIMAS}
