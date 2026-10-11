@@ -1,0 +1,53 @@
+name: Desplegar Mapa Metabólico en GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permisos requeridos para desplegar en GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite un despliegue concurrente a la vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar archivos del sitio web
+        run: |
+          mkdir -p _site
+          # 1. Copiar todos los entregables HTML y SVG
+          cp -r 02_versiones_html/* _site/
+          # 2. La versión interactiva es la portada principal (index.html)
+          cp 02_versiones_html/prueba_visual_interactiva.html _site/index.html
+          # 3. Copiar PDFs para descarga directa
+          cp -r 03_impresion/* _site/
+          # 4. Copiar capturas y pruebas
+          mkdir -p _site/04_capturas_y_pruebas
+          cp -r 04_capturas_y_pruebas/* _site/04_capturas_y_pruebas/
+
+      - name: Subir artefacto de GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

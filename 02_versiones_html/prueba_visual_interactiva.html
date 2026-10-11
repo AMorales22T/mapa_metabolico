@@ -620,6 +620,20 @@
       <button id="btnCopiarSvg" style="background: #7c3aed;" onclick="copiarSvgModificado()">💾 Copiar SVG</button>
       <button id="btnCopiarJson" style="background: #0284c7;" onclick="copiarAjustesJson()">📋 Copiar Ajustes JSON</button>
       <button style="background: #dc2626;" onclick="resetearPosiciones()">↺ Resetear Ajustes</button>
+      <div style="width: 1px; height: 20px; background: #475569; margin: 0 4px;"></div>
+      <!-- Selector de Vistas / Descargas -->
+      <div class="ui_dropdown_wrapper" style="position: relative; display: inline-block;">
+        <button id="ui_btn_menu_views" onclick="toggleMenuViews(event)" title="Cambiar de vista o descargar PDFs" style="background: #1e293b; border: 1px solid #475569; color: #f8fafc; font-weight: 700; border-radius: 6px; padding: 5px 11px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem;">
+          <span>🌐 Vistas / PDF</span> <span style="font-size: 8px;">▼</span>
+        </button>
+        <div id="ui_menu_views" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 6px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-width: 220px; z-index: 1000; padding: 6px 0; text-align: left;">
+          <a href="prueba_visual_interactiva.html" style="display: block; padding: 8px 14px; color: #38bdf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">🎓 Herramienta de Estudio</a>
+          <a href="prueba_visual_integrada_conectada.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">🗺️ Mapa Completo Conectado</a>
+          <a href="prueba_visual_imprimible_v2.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">🖨️ Póster Imprimible (120×90 cm)</a>
+          <div style="height: 1px; background: #334155; margin: 4px 0;"></div>
+          <a href="prueba_visual_imprimible_v2.pdf" download style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem; font-weight: 700;">📥 Descargar PDF Póster (3.0 MB)</a>
+        </div>
+      </div>
       <span id="statusStorage" style="font-size: 0.75rem; color: #a7f3d0; margin-left: 6px;"></span>
     </div>
   </div>
@@ -8137,7 +8151,7 @@
       requestAnimationFrame(step);
     }
 
-    function zoomToElement(el, paddingFactor = 1.45) {
+    function zoomToElement(el, paddingFactor = 1.18) {
       if (!el) return;
       const b = getElementSvgBounds(el);
       if (!b || b.width <= 0 || b.height <= 0) return;
@@ -8149,7 +8163,7 @@
       const hPadded = Math.max(b.height * paddingFactor, 400);
 
       let targetScale = Math.min(vw / wPadded, vh / hPadded);
-      targetScale = Math.max(0.25, Math.min(targetScale, 2.2));
+      targetScale = Math.max(0.28, Math.min(targetScale, 2.2));
 
       const cx = b.x + b.width / 2;
       const cy = b.y + b.height / 2;
@@ -8159,6 +8173,18 @@
 
       animateViewTo(targetScale, targetX, targetY);
     }
+
+    function toggleMenuViews(e) {
+      if (e) e.stopPropagation();
+      const menu = document.getElementById('ui_menu_views');
+      if (menu) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+    }
+    document.addEventListener('click', () => {
+      const menu = document.getElementById('ui_menu_views');
+      if (menu) menu.style.display = 'none';
+    });
 
     // =========================================================================
     // 3. ÍNDICE LATERAL PLEGABLE

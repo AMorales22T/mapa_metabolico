@@ -9,7 +9,7 @@ Mapa metabólico celular hepático integral y continuo en formato vectorial SVG 
 ```text
 ├── 01_fuente_python/             # Scripts generadores en Python 3
 │   ├── generar_prueba_visual_integrada.py  # Generador principal del mapa base
-│   ├── conectar_rutas.py                   # Trazador algorítmico A* de las 46 conexiones
+│   ├── conectar_rutas.py                   # Trazador algorítmico A* de las 47 conexiones
 │   ├── detectar_solapamientos.py           # Geometría SVG y detección de colisiones
 │   ├── crear_version_interactiva.py        # Compilador de la app interactiva de estudio
 │   ├── generar_imprimible.py               # Generador del póster imprimible V1
@@ -19,7 +19,7 @@ Mapa metabólico celular hepático integral y continuo en formato vectorial SVG 
 │   └── verificar_y_capturar.py             # Suite de verificación headless y capturas
 │
 ├── 02_versiones_html/            # Entregables finales (abrir en navegador)
-│   ├── prueba_visual_integrada_conectada.html  # Mapa principal con las 46 rutas conectadas
+│   ├── prueba_visual_integrada_conectada.html  # Mapa principal con las 47 rutas conectadas
 │   ├── prueba_visual_integrada_conectada.svg   # SVG vectorial puro canónico
 │   ├── prueba_visual_interactiva.html          # Herramienta interactiva de estudio (resaltado, buscador, modos)
 │   ├── prueba_visual_imprimible_v2.html        # Versión póster 1200×900 mm (V2 definitiva sin franjas)
@@ -38,14 +38,7 @@ Mapa metabólico celular hepático integral y continuo en formato vectorial SVG 
 │   ├── prueba_visual_imprimible_v2_seam_*.png  # Comprobación de uniones X=0 y X=5800
 │   └── captura_*.png                           # Capturas automáticas de los modos interactivos
 │
-├── _para_borrar/                 # Archivos obsoletos o temporales (pendientes de confirmación)
-│   ├── .aider.chat.history.md
-│   ├── .aider.input.history
-│   ├── .directory
-│   ├── blueprint_cartulina_visual.html
-│   ├── blueprint_cartulina_metabolica.excalidraw
-│   ├── editor_arrastrable.html
-│   └── ejemplo_estilo_visual.html
+├── .github/workflows/deploy.yml  # Automatización de despliegue en GitHub Pages
 │
 ├── 00_GUIA_DISENO_Y_LEYENDA/     # Guías de diseño, convenciones y paleta
 ├── 01_CARBOHIDRATOS/             # Módulos: Glucólisis, Gluconeogénesis, Glucógeno, Pentosas
@@ -104,3 +97,13 @@ python3 01_fuente_python/generar_imprimible_v2.py
 16. **Ciclo de la Urea**
 17. **Biosíntesis de Nucleótidos** (Purinas y Pirimidinas)
 18. **Catabolismo de Nucleótidos y Ácido Úrico**
+
+---
+
+## 🌐 Despliegue Web Automático (GitHub Pages)
+
+El proyecto incluye un flujo de trabajo de **GitHub Actions** en `.github/workflows/deploy.yml` que publica automáticamente la web del mapa metabólico en GitHub Pages con cada `git push` a `main`:
+
+* **Portada (`index.html`)**: Herramienta interactiva de estudio (con buscador, fichas técnicas, zoom animado y modos metabólicos).
+* **Vistas alternativas**: Enlaces directos al mapa completo conectado, versión póster imprimible y descarga directa del PDF de imprenta (120 × 90 cm).
+* **Activación en GitHub**: Ir a **Settings** ➔ **Pages** ➔ **Build and deployment** ➔ Seleccionar `GitHub Actions` como *Source*.
