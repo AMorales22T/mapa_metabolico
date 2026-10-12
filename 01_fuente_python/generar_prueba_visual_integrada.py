@@ -29,7 +29,8 @@ sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "02_gluconeogenesis")
 from estructuras_gluconeogenesis import (
     OXALACETATO as GLUCONEO_OXALACETATO,
     MALATO as GLUCONEO_MALATO,
-    RE_GLUCOSA_6_FOSFATASA
+    RE_GLUCOSA_6_FOSFATASA,
+    LACTATO as GLUCONEO_LACTATO
 )
 
 sys.path.append(os.path.join(DIR_BASE, "01_CARBOHIDRATOS", "01_glucolisis"))
@@ -137,6 +138,18 @@ ANCHO_CANVAS = 5800
 ALTO_CANVAS = 4750
 MOSTRAR_CONEXIONES_INTER_RUTA = False
 
+GLICEROL_MOL = """
+<g class="molecula-glicerol" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <text x="35" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+  <line x1="35" y1="22" x2="35" y2="38" />
+  <circle cx="35" cy="44" r="2.5" fill="#0f172a"/>
+  <line x1="38" y1="44" x2="52" y2="44" stroke="#0284c7" stroke-width="1.8"/>
+  <text x="64" y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">OH</text>
+  <line x1="35" y1="48" x2="35" y2="64" />
+  <text x="35" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+</g>
+"""
+
 def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=135, dy=24, text_pos="side", detalle=""):
     """Metabolito 100% libre sin tarjetas ni globos."""
     if text_pos == "top":
@@ -150,6 +163,20 @@ def nodo_libre(x, y, nombre, carbonos, svg_mol, id_nodo="", text_right=True, dx=
           <g>{svg_mol}</g>
           <text x="{tx}" y="{ty}" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" {align}>{nombre}</text>
           <text x="{tx}" y="{ty + 16}" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" {align}>[{carbonos}]</text>
+          {txt_det}
+        </g>
+        """
+    elif text_pos == "bottom":
+        align = 'text-anchor="middle"'
+        tx = dx if dx != 135 else 50
+        ty = dy if dy != 24 else 135
+        txt_det = f'<text x="{tx}" y="{ty + 28}" fill="#64748b" font-size="9.5" font-weight="600" font-family="\'Inter\', sans-serif" {align}>{detalle}</text>' if detalle else ""
+        return f"""
+        <!-- Metabolito Libre: {nombre} -->
+        <g id="{id_nodo}" data-arrastrable="1" transform="translate({x}, {y})">
+          <g>{svg_mol}</g>
+          <text x="{tx}" y="{ty}" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" {align}>{nombre}</text>
+          <text x="{tx}" y="{ty + 15}" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" {align}>[{carbonos}]</text>
           {txt_det}
         </g>
         """
@@ -220,6 +247,16 @@ def badge_via(n, x, y, id_badge=None):
     <g id="{bid}" data-arrastrable="1" class="badge-via" transform="translate({x}, {y})" style="cursor: grab;">
       <circle cx="0" cy="0" r="13" fill="#0284c7" stroke="#ffffff" stroke-width="2.2" />
       <text x="0" y="4.5" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">{n}</text>
+    </g>
+    """
+
+def badge_rodeo_gng(num_rodeo, x, y, id_badge=None):
+    """Badge distintivo para los 3 rodeos (bypasses) de la gluconeogénesis."""
+    bid = id_badge or f"badge_rodeo_gng_{num_rodeo}"
+    return f"""
+    <g id="{bid}" data-arrastrable="1" class="badge-rodeo-gng" transform="translate({x}, {y})">
+      <rect x="-38" y="-12" width="76" height="24" rx="6" fill="#7c3aed" stroke="#ffffff" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">RODEO {num_rodeo}</text>
     </g>
     """
 
@@ -961,55 +998,207 @@ def construir_mapa_organico():
 
 
     # =========================================================================
-    # 3B. VÍA DE LA GLUCONEOGÉNESIS (REACCIONES ESPECÍFICAS HEPÁTICAS) - VÍA 2
+    # 3B. VÍA DE LA GLUCONEOGÉNESIS (VÍA ANABÓLICA HEPÁTICA) - VÍA 2
     # =========================================================================
-    partes.append(f"""
-    <!-- RUTA 2: GLUCONEOGÉNESIS (REACCIONES ESPECÍFICAS HEPÁTICAS) -->
-    <g id="ruta_gluconeogenesis">
-      {badge_via(2, 1110, 240)}
-      <!-- Título de la vía -->
-      <text x="1145" y="245" fill="#7c3aed" font-size="14" font-weight="900" font-family="'Inter', sans-serif">GLUCONEOGÉNESIS (REACCIONES ESPECÍFICAS)</text>
-
-      <!-- 1. Piruvato Carboxilasa (PC) -->
-      """ + (f"""<path d="M 1660 2180 C 1520 2200, 1380 2210, 1260 2220" fill="none" stroke="#7c3aed" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>""" if MOSTRAR_CONEXIONES_INTER_RUTA else "") + f"""
-      <g transform="translate(1360, 2135)">
-        <text x="0" y="0" fill="#6d28d9" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Piruvato Carboxilasa (PC)</text>
-        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 6.4.1.1 (- 1 ATP, Biotina)</text>
-        <text x="0" y="25" fill="#16a34a" font-size="9" font-weight="800" font-family="'Inter', sans-serif">(+) Acetil-CoA (activador obligado)</text>
-      </g>"""
-    )
-
-    if MOSTRAR_CONEXIONES_INTER_RUTA:
-        partes.append(f"""
-      <!-- 2. PEPCK (OAA ➔ PEP) -->
-      <path d="M 1620 1820 Q 1580 1620 1740 1560" fill="none" stroke="#7c3aed" stroke-width="2.6" stroke-dasharray="8 4" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(1420, 1680)">
-        <text x="0" y="0" fill="#6d28d9" font-size="12" font-weight="900" font-family="'Inter', sans-serif">PEPCK (Citosólica)</text>
-        <text x="0" y="14" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 4.1.1.32 (- 1 GTP ➔ + CO₂)</text>
-        <text x="0" y="26" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif">[Hormonal] Glucagón/Cortisol ↑ (gen)</text>
+    partes.append(f'''
+    <!-- RUTA 2: GLUCONEOGÉNESIS (VÍA ANABÓLICA HEPÁTICA DE NOVO) -->
+    <g id="ruta_gluconeogenesis" data-arrastrable="1">
+      {badge_via(2, 940, 110)}
+      <!-- Título y balance global de la vía -->
+      <g id="titulo_gluconeogenesis" transform="translate(980, 105)">
+        <text x="0" y="5" fill="#7c3aed" font-size="14" font-weight="900" font-family="'Inter', sans-serif">GLUCONEOGÉNESIS (VÍA ANABÓLICA HEPÁTICA)</text>
+        <text x="0" y="18" fill="#64748b" font-size="9" font-weight="700" font-family="'Inter', sans-serif">Síntesis de novo • 3 Rodeos (Bypasses) + 7 Pasos Reversibles</text>
+        <text x="0" y="29" fill="#0284c7" font-size="8" font-weight="700" font-family="'Inter', sans-serif">Gasto neto: 4 ATP + 2 GTP + 2 NADH por Glucosa formada</text>
       </g>
-        """)
+    ''')
 
-    partes.append(f"""
-      <!-- 3. Fructosa-1,6-bisfosfatasa-1 (FBPasa-1) -->
-      <path d="M 1545 680 L 1545 520" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(1360, 600)">
-        <text x="0" y="0" fill="#6d28d9" font-size="12" font-weight="900" font-family="'Inter', sans-serif">FBPasa-1</text>
-        <text x="0" y="13" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 3.1.3.11 (+ H₂O ➔ + Pi)</text>
-        <text x="0" y="25" fill="#16a34a" font-size="9" font-weight="800" font-family="'Inter', sans-serif">(+) Citrato</text>
-        <text x="0" y="37" fill="#dc2626" font-size="9" font-weight="800" font-family="'Inter', sans-serif">(-) AMP, F-2,6-BP</text>
+    # RODEO 3: Retículo Endoplásmico y Glucosa-6-Fosfatasa (G6Pasa) ➔ Sortea Hexocinasa
+    partes.append(f'''
+    <g id="rodeo3_g6pasa" data-arrastrable="1">
+      {badge_rodeo_gng(3, 1030, 220)}
+
+      <!-- Ficha descriptiva de la G6Pasa -->
+      <g transform="translate(990, 245)">
+        <text x="0" y="0" fill="#6d28d9" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Glucosa-6-Fosfatasa (RE)</text>
+        <text x="0" y="13" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace">EC 3.1.3.9 (+ H₂O ➔ + Pi)</text>
+        <text x="0" y="25" fill="#b45309" font-size="8" font-weight="800" font-family="'Inter', sans-serif">Sortea Hexocinasa • Lumen del RE</text>
+        <text x="0" y="37" fill="#0284c7" font-size="8" font-weight="700" font-family="'Inter', sans-serif">Hepatocito y Corteza Renal</text>
       </g>
 
-      <!-- 4. Glucosa-6-Fosfatasa en el Retículo Endoplásmico -->
-      <path d="M 1545 330 L 1545 180" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(1290, 275)">
-        <rect x="-8" y="-12" width="230" height="48" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.2"/>
-        <text x="0" y="2" fill="#5b21b6" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">Glucosa-6-Fosfatasa (RE)</text>
-        <text x="0" y="15" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 3.1.3.9 (+ H₂O ➔ + Pi)</text>
-        <text x="0" y="28" fill="#b45309" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">Hepatocito/Riñón • Lumen del RE</text>
+      <!-- Complejo del Retículo Endoplásmico con translocadores T1 y T2/T3 -->
+      <g id="organelo_re_g6pasa" transform="translate(1220, 200)">
+        {RE_GLUCOSA_6_FOSFATASA}
+      </g>
+
+      <!-- Flujo 1: G-6-P citosólica entra por T1 al Lumen del RE (comienza fuera de m_g6p) -->
+      <path d="M 1560 345 C 1460 345, 1360 280, 1260 250" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <text x="1420" y="295" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G6P ➔ RE (T1)</text>
+
+      <!-- Flujo 2 y 3: Salida de Glucosa libre desde T2/T3 hacia transportador GLUT-2 en membrana -->
+      <g id="carrier_glut2_gng">
+        <!-- Cápsula transportadora de GLUT-2 en la membrana plasmática (despejado en X=1480, Y=68) -->
+        <rect x="1455" y="53" width="50" height="30" rx="6" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.8"/>
+        <text x="1480" y="72" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">GLUT-2</text>
+        <!-- Flecha desde RE T2/T3 hacia GLUT-2 -->
+        <path d="M 1375 220 Q 1425 140, 1475 88" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+        <text x="1380" y="150" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Glucosa libre ➔ Citosol</text>
+        <!-- Flecha hacia la sangre -->
+        <line x1="1480" y1="53" x2="1480" y2="20" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+        <text x="1495" y="38" fill="#7c3aed" font-size="9" font-weight="800" font-family="'Inter', sans-serif">Glucosa ➔ Sangre (Glucemia)</text>
       </g>
     </g>
-    """)
+    ''')
+
+    # RODEO 2: Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1) ➔ Sortea PFK-1
+    partes.append(f'''
+    <g id="rodeo2_fbpasa1" data-arrastrable="1">
+      <!-- Flecha ascendente morada paralela a PFK-1 (desplazada a X=1550 para no tocar +1 ADP) -->
+      <path d="M 1550 660 C 1515 635, 1515 555, 1550 530" fill="none" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+      
+      {badge_rodeo_gng(2, 1240, 605)}
+      <!-- Ficha de enzima y regulación (despejada a X=1200) -->
+      <g transform="translate(1200, 630)">
+        <text x="0" y="0" fill="#6d28d9" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1)</text>
+        <text x="0" y="13" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace">EC 3.1.3.11 (+ H₂O ➔ + Pi) • Sortea PFK-1</text>
+        <text x="0" y="25" fill="#16a34a" font-size="8" font-weight="800" font-family="'Inter', sans-serif">⊕ Citrato (señal de carga energética)</text>
+        <text x="0" y="37" fill="#dc2626" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">⊖ AMP, F-2,6-BP (inhibición recíproca)</text>
+        <text x="0" y="49" fill="#0284c7" font-size="8" font-weight="700" font-family="'Inter', sans-serif">F6P ➔ PGI ⇄ ➔ G6P (Isomerización)</text>
+      </g>
+    </g>
+    ''')
+
+    # PRECURSOR 1: Glicerol desde lipólisis ➔ DHAP
+    partes.append(nodo_libre(980, 860, "Glicerol", "3C", GLICEROL_MOL, "m_glicerol", text_pos="top", dx=35, dy=-40, detalle="Lipólisis (Tejido adiposo)"))
+    partes.append(f'''
+    <g id="rx_gng_glicerol" data-arrastrable="1" transform="translate(1050, 885)">
+      <line x1="0" y1="20" x2="140" y2="20" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(70, -2)">
+        <text x="0" y="-12" fill="#7c3aed" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">[Precursor]</text>
+        <text x="0" y="0" fill="#6d28d9" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glicerol Cinasa (-1 ATP) ➔ G-3-P</text>
+        <text x="0" y="12" fill="#059669" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G3PDH (+ NAD⁺ ➔ + NADH) ➔ DHAP</text>
+      </g>
+    </g>
+    <!-- Confluencia de DHAP hacia Aldolasa -->
+    <g id="rx_gng_dhap_confluencia" data-arrastrable="1">
+      <path d="M 1520 860 L 1630 860" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-dasharray="6 3" marker-end="url(#arrowFlow)"/>
+      <text x="1525" y="852" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">↳ + 1 DHAP (Glicerol)</text>
+    </g>
+    ''')
+
+    # EJE REVERSIBLE: Indicador visual segmentado para no cruzar TPI ni Aldolasa
+    partes.append(f'''
+    <g id="gng_eje_reversible" data-arrastrable="1">
+      <!-- Segmento 1: desde PEP (1520) hasta antes de TPI (915) -->
+      <path d="M 1740 1520 L 1740 915" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-dasharray="8 5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1728, 1420)">
+        <text x="0" y="0" fill="#6d28d9" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">⇡ Enolasa (+ H₂O)</text>
+      </g>
+      <g transform="translate(1728, 1260)">
+        <text x="0" y="0" fill="#6d28d9" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">⇡ PGM (2-PG ➔ 3-PG)</text>
+      </g>
+      <g transform="translate(1728, 1100)">
+        <text x="0" y="0" fill="#dc2626" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">⇡ PGK (- 1 ATP)</text>
+      </g>
+      <g transform="translate(1728, 940)">
+        <text x="0" y="0" fill="#dc2626" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">⇡ GAPDH (- 1 NADH)</text>
+      </g>
+
+      <!-- Segmento 2: por encima de TPI (865) hasta antes de Aldolasa (835) -->
+      <path d="M 1740 865 L 1740 835" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
+
+      <!-- Segmento 3: por encima de Aldolasa (785) hasta F-1,6-BP (725) -->
+      <path d="M 1740 780 L 1740 725" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1728, 795)">
+        <text x="0" y="0" fill="#6d28d9" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">⇡ Aldolasa (Condensación)</text>
+      </g>
+    </g>
+    ''')
+
+    # PRECURSOR 2: L-Lactato desde Ciclo de Cori ➔ Piruvato (con estructura química completa)
+    partes.append(nodo_libre(1550, 1830, "L-Lactato", "3C", GLUCONEO_LACTATO, "m_lactato", text_pos="top", dx=45, dy=-42, detalle="[Precursor] Ciclo de Cori"))
+    partes.append(f'''
+    <g id="rx_gng_ldh" data-arrastrable="1">
+      <!-- Flecha limpia hacia Piruvato citosólico en (1860, 1735) -->
+      <path d="M 1635 1860 Q 1720 1810, 1815 1745" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1660, 1900)">
+        <text x="0" y="0" fill="#6d28d9" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif">LDH: Lactato ➔ Piruvato</text>
+        <text x="0" y="11" fill="#059669" font-size="8" font-weight="800" font-family="'Inter', sans-serif">+ NAD⁺ ➔ + NADH + H⁺</text>
+      </g>
+    </g>
+    ''')
+
+    # RODEO 1: Piruvato Carboxilasa (PC) y PEPCK con Lanzadera de Malato ➔ Sortea Piruvato Cinasa
+    # A. En la Matriz Mitocondrial (Anaplerosis y Cataplerosis con el Ciclo de Krebs):
+    partes.append(f'''
+    <g id="rodeo1_matriz_pc" data-arrastrable="1">
+      <!-- Desvío de Piruvato que entra por MPC hacia PC en la matriz superior -->
+      <path d="M 1640 2145 L 1555 2145" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      
+      {badge_rodeo_gng(1, 1480, 2105)}
+      <!-- Ficha de la Piruvato Carboxilasa -->
+      <g transform="translate(1480, 2145)">
+        <rect x="-68" y="-13" width="136" height="26" rx="6" fill="#fdf4ff" stroke="#d946ef" stroke-width="1.2"/>
+        <text x="0" y="2" fill="#86198f" font-size="9" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">PC (Piruvato Carboxilasa)</text>
+        <text x="0" y="13" fill="#64748b" font-size="7.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">- 1 ATP, Biotina • ⊕ Acetil-CoA</text>
+      </g>
+
+      <!-- Conversión a Malato y salida por OGC (mMDH / Enzima Málica) -->
+      <path d="M 1405 2145 L 1305 2145" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1355, 2163)">
+        <text x="0" y="0" fill="#6d28d9" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">mMDH (OAA ➔ Malato)</text>
+        <text x="0" y="10" fill="#0284c7" font-size="7.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">- 1 NADH matricial</text>
+      </g>
+
+      <!-- Retorno cataplerótico desde Krebs hacia OGC -->
+      <path d="M 1160 2145 L 1245 2145" fill="none" stroke="#b45309" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#arrowFlow)"/>
+      <text x="1240" y="2138" fill="#b45309" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Cataplerosis Krebs (Malato / AA) ➔ OGC</text>
+    </g>
+    ''')
+
+    # B. Transportador OGC en la Membrana Mitocondrial Interna:
+    partes.append(f'''
+    <g id="carrier_ogc_gng" data-arrastrable="1">
+      <g transform="translate(1250, {y_mito - 55})">
+        <rect x="0" y="0" width="50" height="30" rx="6" fill="#047857" stroke="#064e3b" stroke-width="1.8"/>
+        <text x="25" y="19" fill="#ffffff" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">OGC</text>
+      </g>
+      <text x="1308" y="{y_mito - 36}" fill="#047857" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="start">Carrier Malato/α-KG</text>
+
+      <!-- Flecha de salida de Malato cruzando la MMI hacia el citosol -->
+      <path d="M 1275 {y_mito - 55} L 1275 1950 Q 1275 1860 1340 1800 L 1375 1785" fill="none" stroke="#047857" stroke-width="2.5" stroke-dasharray="6 3" marker-end="url(#arrowGreen)"/>
+      <text x="1265" y="2000" fill="#047857" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Malato²⁻ sale al citosol ↑</text>
+    </g>
+    ''')
+
+    # C. En el Citosol (cMDH y PEPCK-C con estructuras químicas completas):
+    # 1. Nodo L-Malato Citosólico (con estructura completa)
+    partes.append(nodo_libre(1380, 1715, "L-Malato (Citosol)", "4C", GLUCONEO_MALATO, "m_malato_gng_cito", text_right=True, dx=115, dy=22, detalle="Lanzadera Malato (OGC ↑)"))
+
+    partes.append(f'''
+    <g id="rodeo1_citosol_pepck" data-arrastrable="1">
+      <!-- Reacción cMDH: L-Malato ➔ OAA citosólico -->
+      <line x1="1430" y1="1710" x2="1430" y2="1655" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1445, 1680)">
+        <text x="0" y="0" fill="#6d28d9" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif">cMDH (+ NAD⁺ ➔ + NADH + H⁺)</text>
+        <text x="0" y="11" fill="#0284c7" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Regenera NADH citosólico</text>
+      </g>
+    ''')
+
+    # 2. Nodo Oxalacetato Citosólico (con estructura completa)
+    partes.append(nodo_libre(1380, 1530, "Oxalacetato (Citosol)", "4C", GLUCONEO_OXALACETATO, "m_oaa_gng_cito", text_pos="top", dx=45, dy=-25, detalle="Sustrato de PEPCK"))
+
+    partes.append(f'''
+      <!-- Reacción PEPCK: OAA ➔ PEP en (1860, 1560) -->
+      <line x1="1470" y1="1560" x2="1815" y2="1560" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1520, 1515)">
+        <text x="0" y="0" fill="#6d28d9" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif">RODEO 1: PEPCK Citosólica (PCK1)</text>
+        <text x="0" y="12" fill="#64748b" font-size="8" font-family="'JetBrains Mono', monospace">EC 4.1.1.32 (- 1 GTP ➔ + GDP + CO₂) • Sortea PK</text>
+        <text x="0" y="23" fill="#0284c7" font-size="8" font-weight="800" font-family="'Inter', sans-serif">[Hormonal] Glucagón / Cortisol ↑ (inducción génica)</text>
+      </g>
+    </g>
+    ''')
+
+    partes.append('</g>')
 
     # =========================================================================
     # 4. IZQUIERDA: METABOLISMO DEL GLUCÓGENO (LIBRE EN CITOSOL)
@@ -1078,7 +1267,7 @@ def construir_mapa_organico():
     partes.append(f"""
     <g id="rx_g6pdh" data-arrastrable="1">
       <path d="M {x_g + 265} {y_g + paso_y + 35} Q 2180 235 {x_p - 40} {y_p + 35}" fill="none" stroke="#059669" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
-      <text x="{(x_g + 265 + x_p - 40)//2}" y="218" fill="#059669" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G6PDH (+ NADP⁺ ➔ + NADPH + H⁺)</text>
+      <text x="{(x_g + 265 + x_p - 40)//2}" y="218" fill="#059669" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G6PDH (+ NADP⁺ ➔ + NADPH + H⁺) • [Precursor Reductor: Lipogénesis / GSH]</text>
     </g>
     """)
 
@@ -1092,11 +1281,11 @@ def construir_mapa_organico():
     partes.append(reaccion_libre(x_p + 50, y_p + 315, 36, "6-Fosfogluconato DH (+ NADP⁺ ➔ + NADPH + CO₂)", es_ganancia=True, id_rx="rx_6pgdh"))
 
     # 3. Ribulosa-5-P
-    partes.append(nodo_libre(x_p, y_p + 370, "Ribulosa-5-Fosfato", "5C", RIBULOSA_5_FOSFATO, "m_ru5p", text_right=True, dx=145))
+    partes.append(nodo_libre(x_p, y_p + 370, "Ribulosa-5-Fosfato", "5C", RIBULOSA_5_FOSFATO, "m_ru5p", text_right=True, dx=145, detalle="[Precursor] Ribosa-5-P"))
 
-    # Ramas: Xilulosa-5P y Ribosa-5P (texto de Xilulosa superior para despejar el canal citosólico)
-    partes.append(nodo_libre(x_p - 110, y_p + 500, "Xilulosa-5-P", "5C", XILULOSA_5_FOSFATO, "m_xu5p", text_right=True, dx=115, dy=22))
-    partes.append(nodo_libre(x_p + 280, y_p + 500, "Ribosa-5-P", "5C", RIBOSA_5_FOSFATO, "m_r5p"))
+    # Ramas: Xilulosa-5P y Ribosa-5P (texto despejado de flechas y columnas adyacentes)
+    partes.append(nodo_libre(x_p - 110, y_p + 500, "Xilulosa-5-P", "5C", XILULOSA_5_FOSFATO, "m_xu5p", text_right=False, dx=15, dy=20, detalle="[Regulador] ChREBP"))
+    partes.append(nodo_libre(x_p + 280, y_p + 500, "Ribosa-5-P", "5C", RIBOSA_5_FOSFATO, "m_r5p", text_pos="bottom", dx=40, dy=105, detalle="[Precursor] PRPP"))
     partes.append(f"""
     <path d="M {x_p + 20} {y_p + 430} L {x_p - 50} {y_p + 495}" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
     <text x="{x_p - 50}" y="{y_p + 460}" fill="#047857" font-size="10.5" font-family="'Inter', sans-serif" text-anchor="end">Fosfopentosa Epimerasa</text>
@@ -1105,9 +1294,9 @@ def construir_mapa_organico():
     <text x="{x_p + 200}" y="{y_p + 460}" fill="#047857" font-size="10.5" font-family="'Inter', sans-serif">Fosfopentosa Isomerasa</text>
     """)
 
-    # Sedoheptulosa-7P y Eritrosa-4P (texto de Sedoheptulosa superior para despejar el canal citosólico)
+    # Sedoheptulosa-7P y Eritrosa-4P (texto centrado arriba / izquierda para no tocar columnas adyacentes)
     partes.append(nodo_libre(x_p - 110, y_p + 660, "Sedoheptulosa-7-P", "7C", SEDOHEPTULOSA_7_FOSFATO, "m_s7p", text_pos="top", dy=-20))
-    partes.append(nodo_libre(x_p + 280, y_p + 660, "Eritrosa-4-P", "4C", ERITROSA_4_FOSFATO, "m_e4p"))
+    partes.append(nodo_libre(x_p + 280, y_p + 660, "Eritrosa-4-P", "4C", ERITROSA_4_FOSFATO, "m_e4p", text_right=False, dx=15, dy=20, detalle="[Precursor] AA Aromáticos (Phe, Tyr, Trp)"))
     partes.append(f"""
     <text x="{x_p + 90}" y="{y_p + 600}" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transcetolasa 1 (TK1) ⇄</text>
     <text x="{x_p + 90}" y="{y_p + 760}" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transaldolasa ⇄ Retorno a F6P y GAP</text>
@@ -1311,7 +1500,7 @@ def construir_mapa_organico():
     """)
 
     # Acetil-CoA
-    partes.append(nodo_libre(x_k + 240, y_k + 15, "Acetil-CoA", "2C", ACETIL_COA, "m_accoa", text_right=True, dx=200))
+    partes.append(nodo_libre(x_k + 240, y_k + 15, "Acetil-CoA", "2C", ACETIL_COA, "m_accoa", text_right=False, dx=-15, dy=40))
 
     # Oxalacetato (inicio del ciclo de Krebs)
     partes.append(nodo_libre(x_k - 240, y_k + 15, "Oxalacetato", "4C", KREBS_OXALACETATO, "m_oaa", text_right=False))

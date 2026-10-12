@@ -24,7 +24,7 @@ PIRUVATO = """
   <line x1="40" y1="22" x2="40" y2="40" />
 
   <!-- C2: C=O (Grupo carbonilo α) -->
-  <circle cx="40" cy="48" r="3" fill="#0f172a"/>
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <line x1="47" y1="44" x2="66" y2="44" stroke="#dc2626" stroke-width="2"/>
   <line x1="47" y1="48" x2="66" y2="48" stroke="#dc2626" stroke-width="2"/>
   <text x="74" y="50" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
@@ -43,17 +43,17 @@ ACETIL_COA = """
 <g class="mol-acetil-coa" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- CH3 Metilo izquierdo -->
   <text x="20" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle" stroke="none">H₃C</text>
-  <line x1="34" y1="40" x2="52" y2="40" />
+  <line x1="34" y1="40" x2="48" y2="40" />
 
   <!-- Carbono carbonílico C=O -->
-  <circle cx="56" cy="40" r="3" fill="#0f172a"/>
+  <text x="56" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <!-- Doble enlace =O arriba -->
-  <line x1="53" y1="36" x2="53" y2="18" stroke="#dc2626" stroke-width="2"/>
-  <line x1="58" y1="36" x2="58" y2="18" stroke="#dc2626" stroke-width="2"/>
+  <line x1="53" y1="34" x2="53" y2="18" stroke="#dc2626" stroke-width="2"/>
+  <line x1="58" y1="34" x2="58" y2="18" stroke="#dc2626" stroke-width="2"/>
   <text x="56" y="12" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle" stroke="none">O</text>
 
   <!-- Enlace tioéster hacia azufre S -->
-  <line x1="60" y1="40" x2="78" y2="40" stroke="#d97706" stroke-width="2.4"/>
+  <line x1="64" y1="40" x2="78" y2="40" stroke="#d97706" stroke-width="2.4"/>
   <text x="86" y="44" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#d97706" text-anchor="middle" stroke="none">S</text>
 
   <!-- Enlace hacia Coenzima A -->
@@ -77,21 +77,20 @@ OXALACETATO = """
   <line x1="45" y1="22" x2="45" y2="38" />
 
   <!-- C2 Carbonilo (α-Ceto) -->
-  <circle cx="45" cy="44" r="3" fill="#0f172a"/>
+  <text x="45" y="48" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <!-- Doble enlace =O a la derecha -->
-  <line x1="48" y1="42" x2="68" y2="42" stroke="#dc2626" stroke-width="2"/>
-  <line x1="48" y1="46" x2="68" y2="46" stroke="#dc2626" stroke-width="2"/>
+  <line x1="53" y1="42" x2="68" y2="42" stroke="#dc2626" stroke-width="2"/>
+  <line x1="53" y1="46" x2="68" y2="46" stroke="#dc2626" stroke-width="2"/>
   <text x="77" y="48" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
 
   <!-- Enlace C2 - C3 -->
-  <line x1="45" y1="50" x2="45" y2="68" />
+  <line x1="45" y1="52" x2="45" y2="66" />
 
   <!-- C3 Metileno (-CH2-) -->
-  <circle cx="45" cy="74" r="3" fill="#0f172a"/>
-  <text x="22" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">H₂C</text>
+  <text x="45" y="78" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle" stroke="none">CH₂</text>
 
   <!-- Enlace C3 - C4 -->
-  <line x1="45" y1="80" x2="45" y2="96" />
+  <line x1="45" y1="84" x2="45" y2="98" />
 
   <!-- C4 Carboxilato Inferior -->
   <text x="45" y="112" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
@@ -323,18 +322,20 @@ MALATO = """
   <line x1="45" y1="20" x2="45" y2="34" />
 
   <!-- C2 Carbono quiral con alcohol secundario (-CH-OH-) -->
-  <circle cx="45" cy="40" r="3" fill="#0f172a"/>
+  <text x="45" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <!-- Grupo -OH a la derecha en azul -->
-  <line x1="49" y1="40" x2="68" y2="40" stroke="#0284c7" stroke-width="2.2"/>
+  <line x1="53" y1="40" x2="68" y2="40" stroke="#0284c7" stroke-width="2.2"/>
   <text x="78" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" stroke="none">OH</text>
-  <text x="25" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">H</text>
+  <!-- H a la izquierda -->
+  <line x1="37" y1="40" x2="27" y2="40" stroke="#0f172a" stroke-width="2"/>
+  <text x="21" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="end" stroke="none">H</text>
 
   <!-- Enlace C2 - C3 -->
-  <line x1="45" y1="46" x2="45" y2="64" />
+  <line x1="45" y1="48" x2="45" y2="64" />
 
   <!-- C3 Metileno (-CH2-) -->
-  <text x="45" y="74" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">H₂C</text>
-  <line x1="45" y1="78" x2="45" y2="94" />
+  <text x="45" y="76" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle" stroke="none">CH₂</text>
+  <line x1="45" y1="82" x2="45" y2="96" />
 
   <!-- C4 Carboxilato Inferior -->
   <text x="45" y="110" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>

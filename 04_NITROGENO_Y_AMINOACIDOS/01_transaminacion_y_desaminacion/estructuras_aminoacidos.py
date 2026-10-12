@@ -23,7 +23,7 @@ AMINOACIDO_GENERICO = """
   <line x1="40" y1="22" x2="40" y2="40" />
 
   <!-- C2: C-alfa quiral -->
-  <circle cx="40" cy="48" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <!-- H a la izquierda -->
   <line x1="33" y1="48" x2="22" y2="48" />
   <text x="14" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
@@ -48,7 +48,7 @@ ALFACETOACIDO_GENERICO = """
   <line x1="40" y1="22" x2="40" y2="40" />
 
   <!-- C2: C=O (Grupo ceto / carbonilo en alfa) -->
-  <circle cx="40" cy="48" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="47" y1="45" x2="66" y2="45" stroke="#dc2626" stroke-width="2"/>
   <line x1="47" y1="49" x2="66" y2="49" stroke="#dc2626" stroke-width="2"/>
   <text x="73" y="51" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
@@ -68,7 +68,7 @@ ALANINA = """
   <line x1="40" y1="22" x2="40" y2="40" />
 
   <!-- C2: C-alfa con grupo amino -->
-  <circle cx="40" cy="48" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="33" y1="48" x2="22" y2="48" />
   <text x="14" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
@@ -90,7 +90,7 @@ PIRUVATO_AMINO = """
   <line x1="40" y1="22" x2="40" y2="40" />
 
   <!-- C2: C=O Grupo Carbonilo -->
-  <circle cx="40" cy="48" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="47" y1="45" x2="66" y2="45" stroke="#dc2626" stroke-width="2"/>
   <line x1="47" y1="49" x2="66" y2="49" stroke="#dc2626" stroke-width="2"/>
   <text x="73" y="51" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
@@ -112,7 +112,7 @@ ALFA_CETOGLUTARATO = """
   <line x1="40" y1="20" x2="40" y2="36" />
 
   <!-- C2: Carbonilo C=O -->
-  <circle cx="40" cy="43" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="47" y1="40" x2="66" y2="40" stroke="#dc2626" stroke-width="2"/>
   <line x1="47" y1="44" x2="66" y2="44" stroke="#dc2626" stroke-width="2"/>
   <text x="73" y="46" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
@@ -140,7 +140,7 @@ GLUTAMATO = """
   <line x1="40" y1="20" x2="40" y2="36" />
 
   <!-- C2: CH(NH3+) -->
-  <circle cx="40" cy="43" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="33" y1="43" x2="22" y2="43" />
   <text x="14" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
@@ -175,7 +175,7 @@ OXALACETATO_AMINO = """
   <line x1="40" y1="22" x2="40" y2="40" />
 
   <!-- C2: C=O (Grupo ceto) -->
-  <circle cx="40" cy="48" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="47" y1="45" x2="66" y2="45" stroke="#dc2626" stroke-width="2"/>
   <line x1="47" y1="49" x2="66" y2="49" stroke="#dc2626" stroke-width="2"/>
   <text x="73" y="51" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
@@ -199,7 +199,7 @@ ASPARTATO_AMINO = """
   <line x1="40" y1="22" x2="40" y2="40" />
 
   <!-- C2: CH(NH3+) -->
-  <circle cx="40" cy="48" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="33" y1="48" x2="22" y2="48" />
   <text x="14" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   
@@ -238,7 +238,7 @@ GLUTAMINA = """
   <line x1="40" y1="20" x2="40" y2="36" />
 
   <!-- C2: CH(NH3+) -->
-  <circle cx="40" cy="43" r="2.5" fill="#0f172a" stroke="none"/>
+  <text x="40" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <line x1="33" y1="43" x2="22" y2="43" />
   <text x="14" y="47" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
   

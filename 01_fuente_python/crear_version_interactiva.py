@@ -945,10 +945,21 @@ def construir_interactiva():
 
       const mitoBio = document.getElementById('mitocondria_biologica');
       if (mitoBio) {{
-        if (["5", "6", "7", "8", "8B", "9", "11", "13", "14"].includes(viaId)) {{
+        if (["2", "5", "6", "7", "8", "8B", "9", "11", "13", "14"].includes(viaId)) {{
           mitoBio.classList.remove('ui_dimmed');
         }} else {{
           mitoBio.classList.add('ui_dimmed');
+        }}
+      }}
+
+      // Para Vía 2 (Gluconeogénesis), mantener el eje troncal glucolítico visible a nivel intermedio (pasos reversibles compartidos)
+      const glucoTroncal = document.getElementById('ruta_glucolisis');
+      if (glucoTroncal) {{
+        if (viaId === "2") {{
+          glucoTroncal.classList.remove('ui_dimmed');
+          glucoTroncal.style.opacity = '0.55';
+        }} else {{
+          glucoTroncal.style.opacity = '';
         }}
       }}
 
@@ -978,6 +989,9 @@ def construir_interactiva():
 
     function clearPathwayHighlight() {{
       viaResaltadaActual = null;
+
+      const glucoTroncal = document.getElementById('ruta_glucolisis');
+      if (glucoTroncal) glucoTroncal.style.opacity = '';
 
       // Si hay un estado metabólico activo, restaurarlo en vez de dejar todo normal
       if (estadoMetabolicoActual !== 'normal') {{

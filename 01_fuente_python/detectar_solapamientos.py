@@ -16,6 +16,7 @@ Uso:
     python3 detectar_solapamientos.py [archivo.svg] [--debug] [--max N]
 """
 import math
+import os
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -523,6 +524,7 @@ if __name__ == "__main__":
         cand = os.path.join(os.path.dirname(dir_s), "02_versiones_html", "prueba_visual_integrada.svg")
         if os.path.exists(cand):
             default_svg = cand
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
     ruta = args[0] if args else default_svg
     problemas, _ = analizar(ruta)
     resumen = {}
