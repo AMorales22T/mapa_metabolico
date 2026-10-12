@@ -1,9 +1,9 @@
-<svg width="1680" height="3400" viewBox="0 0 1680 3400" xmlns="http://www.w3.org/2000/svg">
+<svg width="1750" height="3500" viewBox="0 0 1750 3500" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <style>
           text { stroke: none !important; }
         </style>
-        <!-- Marcadores estándar -->
+        <!-- Marcadores estándar de flecha -->
         <marker id="arrowFlow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
           <path d="M 0 0 L 7 3.5 L 0 7 Z" fill="#ea580c" />
         </marker>
@@ -48,28 +48,28 @@
       </defs>
 
     <!-- Fondo Citoplasmático Celular -->
-    <rect x="0" y="0" width="1680" height="3400" fill="url(#gradCitosol)" />
+    <rect x="0" y="0" width="1750" height="3500" fill="url(#gradCitosol)" />
 
     <!-- Filamentos citoesqueléticos tenues -->
-    <g opacity="0.25" stroke="#94a3b8" fill="none">
-      <path d="M 50 240 Q 350 180 700 260 T 1630 230" stroke-width="1.4" stroke-dasharray="8 6" />
-      <path d="M 60 560 Q 400 620 780 570 T 1620 600" stroke-width="1.2" stroke-dasharray="6 6" />
-      <path d="M 40 1020 Q 420 960 820 1030 T 1640 990" stroke-width="1.4" stroke-dasharray="8 5" />
-      <path d="M 50 1480 Q 380 1540 740 1490 T 1630 1520" stroke-width="1.4" stroke-dasharray="7 7" />
-      <path d="M 40 1950 Q 450 1900 880 1960 T 1640 1920" stroke-width="1.4" stroke-dasharray="8 6" />
+    <g opacity="0.2" stroke="#94a3b8" fill="none">
+      <path d="M 50 240 Q 350 180 700 260 T 1700 230" stroke-width="1.4" stroke-dasharray="8 6" />
+      <path d="M 60 560 Q 400 620 780 570 T 1690 600" stroke-width="1.2" stroke-dasharray="6 6" />
+      <path d="M 40 1020 Q 420 960 820 1030 T 1710 990" stroke-width="1.4" stroke-dasharray="8 5" />
+      <path d="M 50 1480 Q 380 1540 740 1490 T 1700 1520" stroke-width="1.4" stroke-dasharray="7 7" />
+      <path d="M 40 1950 Q 450 1900 880 1960 T 1710 1920" stroke-width="1.4" stroke-dasharray="8 6" />
     </g>
 
     <!-- Membrana plasmática superior (Sangre / Espacio Extracelular) -->
-    <path d="M 0 0 L 1680 0 L 1680 65 Q 840.0 90 0 65 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="45" y="26" fill="#64748b" font-size="11" font-weight="800" letter-spacing="1">ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)</text>
-    <text x="45" y="44" fill="#0284c7" font-size="10" font-weight="700">[Glucemia en Ayuno Fisiológico] ≈ 70-100 mg/dL (Mantenida por Hígado y Riñón)</text>
+    <path d="M 0 0 L 1750 0 L 1750 65 Q 875.0 88 0 65 Z" fill="url(#gradExtracelular)" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="50" y="26" fill="#475569" font-size="12" font-weight="900" letter-spacing="1">ESPACIO EXTRACELULAR / TORRENTE SANGUÍNEO</text>
+    <text x="50" y="44" fill="#0284c7" font-size="10.5" font-weight="700">[Glucemia Fisiológica en Ayuno: 70-100 mg/dL (Mantenida por Hígado y Riñón)]</text>
 
     <!-- Bicapa Fosfolipídica Ondulada Celular -->
-    <path d="M 0 65 Q 840.0 90 1680 65" fill="none" stroke="#0284c7" stroke-width="7" stroke-linecap="round"/>
-    <path d="M 0 72 Q 840.0 97 1680 72" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 0 65 Q 875.0 88 1750 65" fill="none" stroke="#0284c7" stroke-width="7" stroke-linecap="round"/>
+    <path d="M 0 72 Q 875.0 95 1750 72" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
 
-    <!-- Transportador GLUT-2 en la membrana (Exporta Glucosa libre) -->
-    <g transform="translate(650, 48)">
+    <!-- Transportador GLUT-2 en la membrana plasmática (Exporta Glucosa libre) -->
+    <g transform="translate(680, 48)">
       <path d="M 0 5 C 10 -12, 28 -12, 34 5 C 38 18, 34 36, 25 42 C 12 45, 2 35, 0 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
       <path d="M 80 5 C 70 -12, 52 -12, 46 5 C 42 18, 46 36, 55 42 C 68 45, 78 35, 80 22 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
       <ellipse cx="40" cy="20" rx="10" ry="18" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
@@ -78,208 +78,69 @@
       <polygon points="40,14 45,17 45,23 40,26 35,23 35,17" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
       <circle cx="35" cy="17" r="2" fill="#dc2626"/>
 
-      <text x="40" y="49" fill="#0369a1" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">GLUT-2</text>
+      <text x="40" y="49" fill="#0369a1" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">GLUT-2</text>
     </g>
-
-    <text x="750" y="55" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c">
-      Exportación Sanguínea (Km ≈ 15-20 mM)
-    </text>
 
     <!-- Flecha de salida hacia el torrente sanguíneo (PASO 14) -->
-    <line x1="690" y1="128" x2="690" y2="88" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+    <line x1="720" y1="120" x2="720" y2="82" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
     
-    <g class="badge-paso" transform="translate(690, 108)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">14</text>
-      <text x="22" y="4" fill="#ea580c" font-size="11" font-weight="900" font-family="'Inter', sans-serif">PASO 14: Liberación a Sangre</text>
+    <g class="badge-paso" transform="translate(750, 102)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">14</text>
+      <text x="18" y="4" fill="#059669" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif">PASO 14: Liberación a Sangre (Km ≈ 15-20 mM)</text>
     </g>
     
 
+    <!-- Rótulo de Compartimento: CITOSOL -->
+    <g transform="translate(50, 110)">
+      <text x="0" y="0" fill="#1e293b" font-size="22" font-weight="900" letter-spacing="2">CITOSOL</text>
+      <text x="0" y="18" fill="#64748b" font-size="11" font-weight="700">Fase citoplasmática: tramos reversibles y bypasses hidrolíticos/descarboxilantes</text>
+    </g>
+
     <!-- Mitocondria Biológica (Compartimento Matriz) -->
-    <g id="mitocondria-biologica-gng" transform="translate(0, 2380)">
+    <g id="mitocondria-biologica-gng" transform="translate(0, 2550)">
       <!-- Membrana Mitocondrial Externa Lisa -->
-      <path d="M 0 50 Q 400 15 800 35 T 1680 25 L 1680 1020 L 0 1020 Z" 
+      <path d="M 0 50 Q 400 15 800 35 T 1750 25 L 1750 950 L 0 950 Z" 
             fill="url(#gradMitocondria)" stroke="#b45309" stroke-width="3"/>
       
       <!-- Espacio Intermembrana -->
-      <path d="M 0 65 Q 400 30 800 50 T 1680 40" 
+      <path d="M 0 65 Q 400 30 800 50 T 1750 40" 
             fill="none" stroke="#78350f" stroke-width="1.8" stroke-dasharray="6 3"/>
 
       <!-- Crestas Mitocondriales de la MMI -->
-      <path d="M 80 160 C 150 90, 190 190, 290 130 C 350 190, 300 240, 160 220 Z" 
+      <path d="M 60 160 C 130 90, 170 190, 270 130 C 330 190, 280 240, 140 220 Z" 
             fill="#fef3c7" stroke="#b45309" stroke-width="2" opacity="0.8"/>
 
-      <!-- Transportador MPC (Complejo Carrier de Piruvato) -->
-      <g transform="translate(660, 22)">
-        <rect x="0" y="0" width="60" height="26" rx="6" fill="#b45309" stroke="#78350f" stroke-width="1.8"/>
-        <text x="30" y="18" fill="#ffffff" font-size="11" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle">MPC</text>
+      <!-- Transportador MPC (Carrier Mitocondrial de Piruvato) alineado en X=1250 -->
+      <g transform="translate(1215, 22)">
+        <rect x="0" y="0" width="70" height="26" rx="6" fill="#b45309" stroke="#78350f" stroke-width="1.8"/>
+        <text x="35" y="18" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MPC</text>
       </g>
-      <!-- Flecha del Piruvato cruzando el MPC hacia la Matriz Mitocondrial -->
-      <line x1="690" y1="-10" x2="690" y2="55" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+      <text x="1250" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#78350f" text-anchor="middle">
+        Carrier MPC (SLC54A1)
+      </text>
 
       <!-- Rótulo de la Matriz Mitocondrial -->
-      <g transform="translate(50, 75)">
-        <text x="0" y="0" fill="#78350f" font-size="16" font-weight="900" letter-spacing="1">MATRIZ MITOCONDRIAL</text>
-        <text x="0" y="16" fill="#92400e" font-size="11" font-weight="700">Fase inicial de la Gluconeogénesis y centro de Cataplerosis</text>
+      <g transform="translate(50, 95)">
+        <text x="0" y="0" fill="#78350f" font-size="22" font-weight="900" letter-spacing="2">MATRIZ MITOCONDRIAL</text>
+        <text x="0" y="18" fill="#92400e" font-size="11.5" font-weight="700">Fase inicial de la Gluconeogénesis: fijación de CO₂ y centro de Cataplerosis</text>
       </g>
 
-      <!-- Transportador OGC (Lanzadera Malato / α-KG) en la membrana interna -->
-      <g transform="translate(410, 22)">
+      <!-- Transportador OGC (Lanzadera Malato / α-KG) alineado en X=220 -->
+      <g transform="translate(185, 22)">
         <rect x="0" y="0" width="70" height="26" rx="6" fill="#047857" stroke="#064e3b" stroke-width="1.8"/>
         <text x="35" y="17" fill="#ffffff" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">OGC</text>
       </g>
-      <text x="445" y="12" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#047857" text-anchor="middle">
+      <text x="220" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#047857" text-anchor="middle">
         Carrier Malato / α-KG (SLC25A11)
       </text>
     </g>
     
 
-    <!-- LUPA DE LA LANZADERA DE MALATO (OGC) -->
-    <g stroke="#047857" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6">
-      <line x1="410" y1="2402" x2="215" y2="2935" />
-      <line x1="410" y1="2415" x2="190" y2="3040" />
-    </g>
-
-    <g transform="translate(150, 2980)">
-      <circle cx="0" cy="0" r="72" fill="#ffffff" stroke="#047857" stroke-width="3" />
-      <circle cx="0" cy="0" r="68" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1" />
-
-      <!-- Bicapa lipídica de la MMI -->
-      <g opacity="0.85">
-        <g fill="#047857">
-          <circle cx="-52" cy="-9" r="4.5"/><circle cx="-38" cy="-9" r="4.5"/><circle cx="-24" cy="-9" r="4.5"/>
-          <circle cx="24" cy="-9" r="4.5"/><circle cx="38" cy="-9" r="4.5"/><circle cx="52" cy="-9" r="4.5"/>
-        </g>
-        <g stroke="#94a3b8" stroke-width="1.4" fill="none">
-          <path d="M -52 -4 Q -54 2 -50 8"/><path d="M -38 -4 Q -40 2 -36 8"/><path d="M -24 -4 Q -26 2 -22 8"/>
-          <path d="M 24 -4 Q 22 2 26 8"/><path d="M 38 -4 Q 36 2 40 8"/><path d="M 52 -4 Q 50 2 54 8"/>
-        </g>
-        <g fill="#047857">
-          <circle cx="-52" cy="24" r="4.5"/><circle cx="-38" cy="24" r="4.5"/><circle cx="-24" cy="24" r="4.5"/>
-          <circle cx="24" cy="24" r="4.5"/><circle cx="38" cy="24" r="4.5"/><circle cx="52" cy="24" r="4.5"/>
-        </g>
-      </g>
-
-      <!-- Proteína OGC -->
-      <path d="M -18 -24 C -9 -28, -5 -16, -5 0 C -5 16, -9 28, -18 24 C -26 20, -24 -20, -18 -24 Z" fill="#047857" stroke="#064e3b" stroke-width="1.8"/>
-      <path d="M 18 -24 C 9 -28, 5 -16, 5 0 C 5 16, 9 28, 18 24 C 26 20, 24 -20, 18 -24 Z" fill="#047857" stroke="#064e3b" stroke-width="1.8"/>
-      <ellipse cx="0" cy="0" rx="7" ry="20" fill="#a7f3d0" opacity="0.6"/>
-
-      <!-- Flechas de antiporte -->
-      <path d="M -7 20 L -7 -20" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
-      <text x="-12" y="2" fill="#059669" font-size="8" font-weight="900" text-anchor="end">Malato²⁻ ↑</text>
-
-      <path d="M 7 -20 L 7 20" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
-      <text x="12" y="2" fill="#475569" font-size="8" font-weight="900">↓ α-KG²⁻</text>
-
-      <rect x="-62" y="48" width="124" height="16" rx="4" fill="#0f172a" opacity="0.9"/>
-      <text x="0" y="59" fill="#ffffff" font-size="7.5" font-weight="800" text-anchor="middle" letter-spacing="0.5">
-        ANTIPORTE OGC (SLC25A11)
-      </text>
-    </g>
-
-    <g transform="translate(235, 2935)">
-      <text x="0" y="0" fill="#047857" font-size="11" font-weight="900">MECANISMO DE SALIDA DE MALATO</text>
-      <text x="0" y="16" fill="#0f172a" font-size="9.5" font-weight="700">1. La MMI carece de carrier para Oxalacetato (OAA).</text>
-      <text x="0" y="30" fill="#475569" font-size="9.5">2. mMDH reduce OAA a L-Malato (gasta 1 NADH matricial).</text>
-      <text x="0" y="44" fill="#047857" font-size="9.5" font-weight="800">3. OGC exporta Malato al citosol en antiporte con α-KG.</text>
-      <text x="0" y="58" fill="#047857" font-size="9.5" font-weight="800">4. cMDH reoxida Malato a OAA y regenera NADH para GAPDH.</text>
-    </g>
-    
-
-    <g transform="translate(80, 720)">
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
-      <text x="12" y="-3" fill="#6d28d9" font-size="12" font-weight="900" font-family="'Inter', sans-serif">
-        BYPASS 2: Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1)
-      </text>
-      <text x="12" y="13" fill="#b91c1c" font-size="10.5" font-weight="700" font-family="'Inter', sans-serif">
-        Sortea: Paso 3 (Fosfofructocinasa-1 / PFK-1) de Glucólisis (Irreversible)
-      </text>
-    </g>
-    
-
-    <g transform="translate(80, 1480)">
-      <line x1="0" y1="-28" x2="0" y2="28" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
-      <text x="12" y="-12" fill="#15803d" font-size="12" font-weight="900" font-family="'Inter', sans-serif">
-        FASE REVERSIBLE DE GLUCOLISIS
-      </text>
-      <text x="12" y="3" fill="#047857" font-size="10.5" font-weight="700" font-family="'Inter', sans-serif">
-        Mismas enzimas que en Glucólisis (Pasos 9 a 4 en reversa)
-      </text>
-      <text x="12" y="18" fill="#64748b" font-size="9.5" font-family="'Inter', sans-serif">
-        Impulsada por ley de acción de masas, 2 ATP y 2 NADH
-      </text>
-    </g>
-    
-
-    <g transform="translate(80, 2020)">
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
-      <text x="12" y="-3" fill="#6d28d9" font-size="12" font-weight="900" font-family="'Inter', sans-serif">
-        BYPASS 1B: PEPCK Citosólica (PCK1)
-      </text>
-      <text x="12" y="13" fill="#b91c1c" font-size="10.5" font-weight="700" font-family="'Inter', sans-serif">
-        Sortea: Paso 10 (Piruvato Cinasa / PK) de Glucólisis (Irreversible)
-      </text>
-    </g>
-    
-
-    <g transform="translate(80, 2600)">
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
-      <text x="12" y="-3" fill="#6d28d9" font-size="12" font-weight="900" font-family="'Inter', sans-serif">
-        BYPASS 1A: Piruvato Carboxilasa (PC)
-      </text>
-      <text x="12" y="13" fill="#b91c1c" font-size="10.5" font-weight="700" font-family="'Inter', sans-serif">
-        Sortea: Paso 10 (Piruvato Cinasa / PK) de Glucólisis (Irreversible)
-      </text>
-    </g>
-    
-
-    <!-- PRECURSOR 3: GLICEROL -->
-    <g transform="translate(100, 1000)">
-      <text x="0" y="0" fill="#0284c7" font-size="12" font-weight="900">PRECURSOR 3: GLICEROL [3C]</text>
-      <text x="0" y="14" fill="#64748b" font-size="9.5">Origen: Lipólisis de Triglicéridos (Adipocitos)</text>
-
-      <g transform="translate(0, 24)">
-        
-<g class="molecula-glicerol">
-  <!-- C1: Hidroximetilo Superior -->
-  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
-  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C2: Carbono quiral H-C-OH -->
-  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
-  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
-  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
-  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
-  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
-
-  <!-- Enlace C2 - C3 -->
-  <line x1="50" y1="55" x2="50" y2="72" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C3: Hidroximetilo Inferior -->
-  <text x="50" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
-</g>
-
-      </g>
-
-      <g transform="translate(110, 36)">
-        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Glicerol</text>
-        <text x="0" y="16" fill="#dc2626" font-size="10" font-weight="700">1. Glicerol Cinasa (- 1 ATP)</text>
-        <text x="0" y="28" fill="#64748b" font-size="9.5">-> Glicerol-3-P</text>
-        <text x="0" y="44" fill="#059669" font-size="10" font-weight="700">2. G3PDH (+ NAD⁺ -> + NADH)</text>
-        <text x="0" y="58" fill="#047857" font-size="10.5" font-weight="800">-> DHAP (Entrada directa)</text>
-      </g>
-
-      <!-- Flecha directa hacia DHAP -->
-      <path d="M 280 85 Q 360 85 415 65" fill="none" stroke="#0284c7" stroke-width="2.4" marker-end="url(#arrowBlue)"/>
-      <text x="360" y="60" fill="#0284c7" font-size="10" font-weight="800">-> DHAP</text>
-    </g>
-    
-
-    <!-- Metabolito: D-Glucosa Libre -->
-    <g transform="translate(640, 160)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: D-Glucosa Libre -->
+        <g transform="translate(680, 150)">
+          <g transform="translate(0, 0)">
+            
   <!-- Anillo de 6 lados -->
   <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
 
@@ -308,17 +169,23 @@
   <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
   <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >D-Glucosa Libre</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Hexosa Neutra)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₆H₁₂O₆ (Exportable vía GLUT-2)</text>
-      </g>
-    </g>
-    
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">D-Glucosa Libre</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₆H₁₂O₆ (Hexosa neutra, exportable por GLUT-2)</text>
+          </g>
+        </g>
+        
 
     <!-- PASO 13: GLUCOSA-6-FOSFATASA EN EL RE (BYPASS 3) -->
-    <g transform="translate(130, 270)">
+    <g transform="translate(70, 200)">
       
 <g class="organelo-re-g6pase">
   <!-- Membrana del Retículo Endoplásmico Liso (Bicapa Luminal) -->
@@ -344,36 +211,41 @@
 
       
     <g class="badge-paso" transform="translate(85, -14)">
-      <circle cx="0" cy="0" r="13" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">13</text>
-      <text x="22" y="4" fill="#7c3aed" font-size="11" font-weight="900" font-family="'Inter', sans-serif">PASO 13</text>
+      <circle cx="0" cy="0" r="12" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">13</text>
+      <text x="18" y="4" fill="#7c3aed" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif">PASO 13: BYPASS 3</text>
     </g>
     
-      <g transform="translate(0, 95)">
-        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#6d28d9">
+      
+      <!-- Bloque textual explicativo posicionado de forma holgada sin colisión con las flechas -->
+      <g transform="translate(0, 150)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#6d28d9">
           BYPASS 3: Glucosa-6-Fosfatasa (EC 3.1.3.9)
         </text>
         <text x="0" y="15" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#b91c1c">
-          Sortea: Paso 1 (Hexocinasa / HK) de Glucólisis
+          Sustituye a: Hexoquinasa / Glucoquinasa (HK / GK) de la glucólisis
         </text>
         <text x="0" y="29" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#b45309">
-          Exclusiva de Hígado y Corteza Renal (El Músculo carece de ella)
+          Exclusiva de Hígado y Corteza Renal (El músculo carece de ella)
         </text>
         <text x="0" y="42" font-family="'Inter', sans-serif" font-size="9" fill="#475569">
-          T1 importa G-6-P; G6Pase hidroliza Pi; T2/T3 devuelven D-Glucosa al citosol.
+          T1 importa G-6-P; G6Pase hidroliza Pi (+ H₂O -> + Pi); T2/T3 devuelven D-Glucosa libre al citosol.
         </text>
       </g>
     </g>
 
-    <!-- Flechas hacia el complejo del RE y retorno de glucosa -->
-    <path d="M 640 400 Q 380 400 320 325" fill="none" stroke="#0284c7" stroke-width="2.4" marker-end="url(#arrowBlue)"/>
-    <path d="M 320 275 Q 480 220 650 185" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <!-- Flechas hacia el complejo del RE y retorno de glucosa con trayectorias altas y despejadas -->
+    <path d="M 670 410 Q 430 350 250 260" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)"/>
+    <text x="440" y="360" fill="#6d28d9" font-size="10" font-weight="800">G-6-P [6 C] entra al RE vía T1</text>
+    
+    <path d="M 250 220 Q 450 170 670 160" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <text x="440" y="180" fill="#ea580c" font-size="10" font-weight="800">D-Glucosa [6 C] sale al citosol vía T3</text>
     
 
-    <!-- Metabolito: Glucosa-6-Fosfato (G-6-P) -->
-    <g transform="translate(640, 380)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: Glucosa-6-Fosfato (G-6-P) -->
+        <g transform="translate(680, 385)">
+          <g transform="translate(0, 0)">
+            
   <!-- Anillo de 6 lados -->
   <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
 
@@ -400,41 +272,50 @@
   <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
   <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >Glucosa-6-Fosfato (G-6-P)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Hexosa Fosforilada)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₆H₁₁O₉P²⁻</text>
-      </g>
-    </g>
-    
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">Glucosa-6-Fosfato (G-6-P)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₆H₁₁O₉P²⁻ (Hexosa fosforilada)</text>
+          </g>
+        </g>
+        
 
     <!-- Reacción Ascendente: Fosfoglucosa Isomerasa (PGI) -->
-    <g transform="translate(690, 490)">
+    <g transform="translate(720, 500)">
       
-        <line x1="-3.5" y1="52" x2="-3.5" y2="0" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        <line x1="3.5" y1="0" x2="3.5" y2="52" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+        <line x1="-3.5" y1="45" x2="-3.5" y2="0" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        <line x1="3.5" y1="0" x2="3.5" y2="45" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
         
       
       
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">12</text>
+    <g class="badge-paso" transform="translate(-26, 22)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">12</text>
       
     </g>
     
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">Fosfoglucosa Isomerasa (PGI)</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 5.3.1.9 (Paso 2 Glucólisis en reversa)</text>
+      <g transform="translate(32, 10)">
+        
+        <text x="0" y="-2" fill="#059669" font-size="9" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">[REVERSIBLE: MISMA ENZIMA QUE EN GLUCÓLISIS]</text>
+        
+        <text x="0" y="13" fill="#0f172a" font-size="14" font-weight="900">Fosfoglucosa Isomerasa (PGI)</text>
+        <text x="0" y="26" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 5.3.1.9</text>
         
       </g>
     </g>
     
 
-    <!-- Metabolito: Fructosa-6-Fosfato (F-6-P) -->
-    <g transform="translate(640, 590)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: Fructosa-6-Fosfato (F-6-P) -->
+        <g transform="translate(680, 600)">
+          <g transform="translate(0, 0)">
+            
   <!-- Anillo de furanosa (pentágono) -->
   <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
 
@@ -461,46 +342,56 @@
   <line x1="18" y1="68" x2="18" y2="82" stroke="#0f172a" stroke-width="2"/>
   <text x="18" y="92" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >Fructosa-6-Fosfato (F-6-P)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Cetosa Fosforilada)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₆H₁₁O₉P²⁻</text>
-      </g>
-    </g>
-    
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">Fructosa-6-Fosfato (F-6-P)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₆H₁₁O₉P²⁻ (Cetosa fosforilada)</text>
+          </g>
+        </g>
+        
 
     <!-- Reacción Ascendente: Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1) -->
-    <g transform="translate(690, 700)">
+    <g transform="translate(720, 715)">
       
-        <line x1="0" y1="52" x2="0" y2="0" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowPurple)"/>
+        <line x1="0" y1="55" x2="0" y2="0" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrowPurple)"/>
         
       
-        <path d="M -85 38 Q -30 38 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-92" y="42" fill="#dc2626" font-size="11.5" font-weight="800" text-anchor="end">+ H₂O</text>
+        <path d="M -85 36 Q -30 36 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-92" y="40" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">+ H₂O</text>
         
-        <path d="M -4 20 Q -30 9 -85 9" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
-        <text x="-92" y="13" fill="#475569" font-size="11.5" font-weight="800" text-anchor="end">+ Pi</text>
+        <path d="M -4 20 Q -30 16 -85 16" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-92" y="20" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ Pi</text>
         
       
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">11</text>
+    <g class="badge-paso" transform="translate(-26, 27)">
+      <circle cx="0" cy="0" r="12" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">11</text>
       
     </g>
     
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1)</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 3.1.3.11 (Hidrólisis simple con H₂O; NO rinde ATP)</text>
-        <text x="0" y="28" fill="#16a34a" font-size="10.5" font-weight="800">(+) Citrato</text><text x="0" y="42" fill="#dc2626" font-size="10.5" font-weight="800">(-) AMP, Fructosa-2,6-bisfosfato (F-2,6-BP)</text>
+      <g transform="translate(32, 10)">
+        
+        <text x="0" y="-12" fill="#6d28d9" font-size="11" font-weight="900" font-family="'Inter', sans-serif">BYPASS 2</text>
+        <text x="0" y="0" fill="#b91c1c" font-size="10" font-weight="800" font-family="'Inter', sans-serif">Sustituye a: Fosfofructocinasa-1 (PFK-1) de la glucólisis</text>
+        
+        <text x="0" y="15" fill="#0f172a" font-size="14" font-weight="900">Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1)</text>
+        <text x="0" y="28" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 3.1.3.11 (Hidrólisis simple de fosfato: NO genera ATP)</text>
+        <text x="0" y="41" fill="#16a34a" font-size="10.5" font-weight="800">(+) Citrato (Señal de abundancia energética)</text><text x="0" y="55" fill="#dc2626" font-size="10.5" font-weight="800">(-) AMP (Baja energía), Fructosa-2,6-bisfosfato (F-2,6-BP)</text><text x="0" y="69" fill="#475569" font-size="9.5" font-weight="700">[Control Tándem: Glucagón -> PKA activa FBPasa-2 -> cae F-2,6-BP -> DESINHIBE FBPasa-1 | Insulina -> activa PFK-1]</text>
       </g>
     </g>
     
 
-    <!-- Metabolito: Fructosa-1,6-Bisfosfato -->
-    <g transform="translate(640, 830)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: Fructosa-1,6-Bisfosfato (F-1,6-BP) -->
+        <g transform="translate(680, 850)">
+          <g transform="translate(0, 0)">
+            
   <!-- Anillo de furanosa (pentágono) -->
   <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
 
@@ -525,39 +416,95 @@
   <line x1="18" y1="68" x2="18" y2="82" stroke="#0f172a" stroke-width="2"/>
   <text x="18" y="92" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >Fructosa-1,6-Bisfosfato</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >6 Carbonos (Hexosa Bisfosforilada)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₆H₁₀O₁₂P₂⁴⁻</text>
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">Fructosa-1,6-Bisfosfato (F-1,6-BP)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₆H₁₀O₁₂P₂⁴⁻ (Hexosa bisfosforilada)</text>
+          </g>
+        </g>
+        
+
+    <!-- Reacción Ascendente: Aldolasa A / B (Condensación Aldólica) -->
+    <g transform="translate(720, 970)">
+      
+        <line x1="-3.5" y1="45" x2="-3.5" y2="0" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        <line x1="3.5" y1="0" x2="3.5" y2="45" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        
+      
+      
+    <g class="badge-paso" transform="translate(-26, 22)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">10</text>
+      
+    </g>
+    
+      <g transform="translate(32, 10)">
+        
+        <text x="0" y="-2" fill="#059669" font-size="9" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">[REVERSIBLE: MISMA ENZIMA QUE EN GLUCÓLISIS]</text>
+        
+        <text x="0" y="13" fill="#0f172a" font-size="14" font-weight="900">Aldolasa A / B (Condensación Aldólica)</text>
+        <text x="0" y="26" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 4.1.2.13 (Condensación reversible: 3 C + 3 C -> 6 C)</text>
+        
       </g>
     </g>
     
 
-    <!-- Reacción Ascendente: Aldolasa A / B (Condensación Aldólica) -->
-    <g transform="translate(690, 940)">
-      
-        <line x1="-3.5" y1="52" x2="-3.5" y2="0" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        <line x1="3.5" y1="0" x2="3.5" y2="52" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        
-      
-      
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">10</text>
-      
-    </g>
-    
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">Aldolasa A / B (Condensación Aldólica)</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 4.1.2.13 (3C + 3C -> 6C)</text>
-        
+    <!-- PRECURSOR 3: GLICEROL -->
+    <g transform="translate(60, 1050)">
+      <g transform="translate(0, -18)">
+        <rect x="0" y="0" width="42" height="18" rx="4" fill="#0284c7" opacity="0.14"/>
+        <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#0284c7" stroke-width="1.4"/>
+        <text x="21" y="13" fill="#0284c7" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
       </g>
+      <text x="48" y="-4" fill="#0284c7" font-size="12" font-weight="900">PRECURSOR 3: GLICEROL</text>
+      <text x="0" y="14" fill="#64748b" font-size="9.5">Origen: Lipólisis de Triglicéridos (Tejido Adiposo)</text>
+
+      <g transform="translate(0, 24)">
+        
+<g class="molecula-glicerol">
+  <!-- C1: Hidroximetilo Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbono quiral H-C-OH -->
+  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
+  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
+  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="72" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: Hidroximetilo Inferior -->
+  <text x="50" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+</g>
+
+      </g>
+
+      <g transform="translate(105, 36)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Glicerol [3 C]</text>
+        <text x="0" y="15" fill="#dc2626" font-size="10" font-weight="700">1. Glicerol Cinasa (- 1 ATP)</text>
+        <text x="0" y="27" fill="#64748b" font-size="9.5">-> Glicerol-3-Fosfato [3 C]</text>
+        <text x="0" y="42" fill="#059669" font-size="10" font-weight="700">2. G3PDH (+ NAD⁺ -> + NADH + H⁺)</text>
+        <text x="0" y="55" fill="#047857" font-size="10" font-weight="800">-> DHAP [3 C] (Entrada directa)</text>
+      </g>
+
+      <!-- Flecha directa hacia DHAP -->
+      <path d="M 330 80 Q 380 80 410 70" fill="none" stroke="#0284c7" stroke-width="2.4" marker-end="url(#arrowBlue)"/>
+      <text x="365" y="60" fill="#0284c7" font-size="10" font-weight="800">-> DHAP</text>
     </g>
     
 
     <!-- TRIOSAS FOSFATO: DHAP Y GAP -->
-    <g transform="translate(430, 1060)">
+    <g transform="translate(450, 1070)">
       
   <!-- C1: CH2OH arriba -->
   <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HO-CH₂</text>
@@ -576,11 +523,16 @@
   <circle cx="40" cy="104" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="108" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 
-      <text x="40" y="132" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">DHAP</text>
-      <text x="40" y="146" fill="#ea580c" font-size="9.5" font-weight="700" text-anchor="middle">3C (Cetotriosa)</text>
+      <g transform="translate(20, 120)">
+        <rect x="0" y="-12" width="40" height="17" rx="4" fill="#ea580c" opacity="0.14"/>
+        <rect x="0" y="-12" width="40" height="17" rx="4" fill="none" stroke="#ea580c" stroke-width="1.3"/>
+        <text x="20" y="1" fill="#ea580c" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+      </g>
+      <text x="40" y="140" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">DHAP</text>
+      <text x="40" y="153" fill="#64748b" font-size="9" text-anchor="middle">Cetotriosa Fosfato</text>
     </g>
 
-    <g transform="translate(710, 1060)">
+    <g transform="translate(750, 1070)">
       
   <!-- C1: Choque aldehído H-C=O -->
   <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
@@ -597,55 +549,63 @@
   <circle cx="40" cy="106" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="110" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 
-      <text x="40" y="146" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">Gliceraldehído-3-P</text>
-      <text x="40" y="160" fill="#ea580c" font-size="9.5" font-weight="700" text-anchor="middle">3C (Aldotriosa)</text>
+      <g transform="translate(20, 120)">
+        <rect x="0" y="-12" width="40" height="17" rx="4" fill="#ea580c" opacity="0.14"/>
+        <rect x="0" y="-12" width="40" height="17" rx="4" fill="none" stroke="#ea580c" stroke-width="1.3"/>
+        <text x="20" y="1" fill="#ea580c" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+      </g>
+      <text x="40" y="140" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">Gliceraldehído-3-P</text>
+      <text x="40" y="153" fill="#64748b" font-size="9" text-anchor="middle">Aldotriosa Fosfato</text>
     </g>
 
     <!-- Conexión y equilibrio TPI entre triosas -->
-    <g transform="translate(555, 1100)">
-      <line x1="0" y1="-3" x2="80" y2="-3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
-      <line x1="80" y1="3" x2="0" y2="3" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
-      <text x="40" y="-8" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">TPI (Isomerasa)</text>
-      <text x="40" y="18" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 5.3.1.1</text>
+    <g transform="translate(575, 1105)">
+      <line x1="0" y1="-3" x2="80" y2="-3" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+      <line x1="80" y1="3" x2="0" y2="3" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+      <text x="40" y="-8" fill="#059669" font-size="10" font-weight="900" text-anchor="middle">TPI (Isomerasa)</text>
+      <text x="40" y="18" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 5.3.1.1 (Reversible)</text>
     </g>
 
     <!-- Flechas ascendentes convergiendo a Aldolasa -->
-    <path d="M 480 1050 Q 560 990 670 995" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
-    <path d="M 740 1050 Q 710 990 690 995" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+    <path d="M 500 1060 Q 590 1010 700 1025" fill="none" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+    <path d="M 780 1060 Q 750 1010 720 1025" fill="none" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
     
 
     <!-- Reacción Ascendente: GAPDH (Reducción Reversa) -->
-    <g transform="translate(740, 1210)">
+    <g transform="translate(780, 1260)">
       
-        <line x1="-3.5" y1="52" x2="-3.5" y2="0" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        <line x1="3.5" y1="0" x2="3.5" y2="52" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+        <line x1="-3.5" y1="55" x2="-3.5" y2="0" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        <line x1="3.5" y1="0" x2="3.5" y2="55" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
         
       
-        <path d="M -85 38 Q -30 38 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-92" y="42" fill="#dc2626" font-size="11.5" font-weight="800" text-anchor="end">+ 2 NADH + 2 H⁺</text>
+        <path d="M -85 36 Q -30 36 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-92" y="40" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">+ 2 NADH + 2 H⁺</text>
         
-        <path d="M -4 20 Q -30 9 -85 9" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
-        <text x="-92" y="13" fill="#475569" font-size="11.5" font-weight="800" text-anchor="end">+ 2 NAD⁺ + 2 Pi</text>
+        <path d="M -4 20 Q -30 16 -85 16" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-92" y="20" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ 2 NAD⁺ + 2 Pi</text>
         
       
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">9</text>
+    <g class="badge-paso" transform="translate(-26, 27)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">9</text>
       
     </g>
     
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">GAPDH (Reducción Reversa)</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 1.2.1.12 (Consume NADH citosólico de la lanzadera)</text>
+      <g transform="translate(32, 10)">
         
+        <text x="0" y="-2" fill="#059669" font-size="9" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">[REVERSIBLE: MISMA ENZIMA QUE EN GLUCÓLISIS]</text>
+        
+        <text x="0" y="13" fill="#0f172a" font-size="14" font-weight="900">GAPDH (Reducción Reversa)</text>
+        <text x="0" y="26" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 1.2.1.12</text>
+        <text x="0" y="39" fill="#475569" font-size="9.5" font-weight="700">[Consume el NADH citosólico generado por la lanzadera de Malato (cMDH) / LDH]</text>
       </g>
     </g>
     
 
-    <!-- Metabolito: 1,3-Bisfosfoglicerato (1,3-BPG) -->
-    <g transform="translate(690, 1280)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: 1,3-Bisfosfoglicerato (1,3-BPG) -->
+        <g transform="translate(740, 1345)">
+          <g transform="translate(0, 0)">
+            
   <!-- C1: Acil-fosfato P-O-C=O -->
   <circle cx="15" cy="14" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="15" y="18" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
@@ -664,47 +624,56 @@
   <circle cx="52" cy="100" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="52" y="104" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >1,3-Bisfosfoglicerato (1,3-BPG)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Acil-fosfato de alta energía)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₃H₄O₁₀P₂⁴⁻</text>
-      </g>
-    </g>
-    
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">1,3-Bisfosfoglicerato (1,3-BPG)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₃H₄O₁₀P₂⁴⁻ (Acil-fosfato de alta energía)</text>
+          </g>
+        </g>
+        
 
     <!-- Reacción Ascendente: Fosfoglicerato Cinasa (PGK) -->
-    <g transform="translate(740, 1390)">
+    <g transform="translate(780, 1460)">
       
-        <line x1="-3.5" y1="52" x2="-3.5" y2="0" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        <line x1="3.5" y1="0" x2="3.5" y2="52" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+        <line x1="-3.5" y1="50" x2="-3.5" y2="0" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        <line x1="3.5" y1="0" x2="3.5" y2="50" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
         
       
-        <path d="M -85 38 Q -30 38 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-92" y="42" fill="#dc2626" font-size="11.5" font-weight="800" text-anchor="end">- 2 ATP</text>
+        <path d="M -85 36 Q -30 36 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-92" y="40" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">- 2 ATP</text>
         
-        <path d="M -4 20 Q -30 9 -85 9" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
-        <text x="-92" y="13" fill="#475569" font-size="11.5" font-weight="800" text-anchor="end">+ 2 ADP</text>
+        <path d="M -4 20 Q -30 16 -85 16" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-92" y="20" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ 2 ADP</text>
         
       
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">8</text>
+    <g class="badge-paso" transform="translate(-26, 25)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">8</text>
       
     </g>
     
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">Fosfoglicerato Cinasa (PGK)</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.7.2.3 (Invierte 2 ATP por glucosa)</text>
+      <g transform="translate(32, 10)">
         
+        <text x="0" y="-2" fill="#059669" font-size="9" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">[REVERSIBLE: MISMA ENZIMA QUE EN GLUCÓLISIS]</text>
+        
+        <text x="0" y="13" fill="#0f172a" font-size="14" font-weight="900">Fosfoglicerato Cinasa (PGK)</text>
+        <text x="0" y="26" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 2.7.2.3</text>
+        <text x="0" y="39" fill="#475569" font-size="9.5" font-weight="700">[Invierte 2 ATP por cada molécula de glucosa generada]</text>
       </g>
     </g>
     
 
-    <!-- Metabolito: 3-Fosfoglicerato (3-PG) -->
-    <g transform="translate(690, 1490)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: 3-Fosfoglicerato (3-PG) -->
+        <g transform="translate(740, 1545)">
+          <g transform="translate(0, 0)">
+            
   <!-- C1: Carboxilato COO- -->
   <text x="40" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
   <line x1="40" y1="22" x2="40" y2="38" stroke="#0f172a" stroke-width="2.2"/>
@@ -718,41 +687,50 @@
   <circle cx="40" cy="100" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="104" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >3-Fosfoglicerato (3-PG)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₃H₄O₇P³⁻</text>
-      </g>
-    </g>
-    
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">3-Fosfoglicerato (3-PG)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₃H₄O₇P³⁻</text>
+          </g>
+        </g>
+        
 
     <!-- Reacción Ascendente: Fosfoglicerato Mutasa (PGM) -->
-    <g transform="translate(740, 1600)">
+    <g transform="translate(780, 1660)">
       
-        <line x1="-3.5" y1="52" x2="-3.5" y2="0" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        <line x1="3.5" y1="0" x2="3.5" y2="52" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+        <line x1="-3.5" y1="50" x2="-3.5" y2="0" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        <line x1="3.5" y1="0" x2="3.5" y2="50" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
         
       
       
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">7</text>
+    <g class="badge-paso" transform="translate(-26, 25)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">7</text>
       
     </g>
     
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">Fosfoglicerato Mutasa (PGM)</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 5.4.2.1 (Paso 8 Glucólisis en reversa)</text>
+      <g transform="translate(32, 10)">
+        
+        <text x="0" y="-2" fill="#059669" font-size="9" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">[REVERSIBLE: MISMA ENZIMA QUE EN GLUCÓLISIS]</text>
+        
+        <text x="0" y="13" fill="#0f172a" font-size="14" font-weight="900">Fosfoglicerato Mutasa (PGM)</text>
+        <text x="0" y="26" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 5.4.2.1</text>
         
       </g>
     </g>
     
 
-    <!-- Metabolito: 2-Fosfoglicerato (2-PG) -->
-    <g transform="translate(690, 1700)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: 2-Fosfoglicerato (2-PG) -->
+        <g transform="translate(740, 1745)">
+          <g transform="translate(0, 0)">
+            
   <!-- C1: Carboxilato COO- -->
   <text x="35" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
   <line x1="35" y1="22" x2="35" y2="40" stroke="#0f172a" stroke-width="2.2"/>
@@ -767,44 +745,53 @@
   <line x1="35" y1="55" x2="35" y2="72" stroke="#0f172a" stroke-width="2.2"/>
   <text x="35" y="84" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂OH</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >2-Fosfoglicerato (2-PG)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₃H₄O₇P³⁻</text>
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">2-Fosfoglicerato (2-PG)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₃H₄O₇P³⁻</text>
+          </g>
+        </g>
+        
+
+    <!-- Reacción Ascendente: Enolasa (Hidratación Reversa) -->
+    <g transform="translate(780, 1860)">
+      
+        <line x1="-3.5" y1="50" x2="-3.5" y2="0" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        <line x1="3.5" y1="0" x2="3.5" y2="50" stroke="#059669" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+        
+      
+        <path d="M -85 36 Q -30 36 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-92" y="40" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">+ H₂O</text>
+        
+      
+    <g class="badge-paso" transform="translate(-26, 25)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6</text>
+      
+    </g>
+    
+      <g transform="translate(32, 10)">
+        
+        <text x="0" y="-2" fill="#059669" font-size="9" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">[REVERSIBLE: MISMA ENZIMA QUE EN GLUCÓLISIS]</text>
+        
+        <text x="0" y="13" fill="#0f172a" font-size="14" font-weight="900">Enolasa (Hidratación Reversa)</text>
+        <text x="0" y="26" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 4.2.1.11</text>
+        
       </g>
     </g>
     
 
-    <!-- Reacción Ascendente: Enolasa -->
-    <g transform="translate(740, 1810)">
-      
-        <line x1="-3.5" y1="52" x2="-3.5" y2="0" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        <line x1="3.5" y1="0" x2="3.5" y2="52" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-        
-      
-        <path d="M -85 38 Q -30 38 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-92" y="42" fill="#dc2626" font-size="11.5" font-weight="800" text-anchor="end">+ H₂O</text>
-        
-      
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6</text>
-      
-    </g>
-    
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">Enolasa</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 4.2.1.11 (Hidratación reversible de PEP)</text>
-        
-      </g>
-    </g>
-    
-
-    <!-- Metabolito: Fosfoenolpiruvato (PEP) -->
-    <g transform="translate(690, 1910)">
-      <g transform="translate(0, 0)">
-        
+        <!-- Metabolito: Fosfoenolpiruvato (PEP) -->
+        <g transform="translate(740, 1945)">
+          <g transform="translate(0, 0)">
+            
   <!-- C1: Carboxilato COO- -->
   <text x="35" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
   <line x1="35" y1="22" x2="35" y2="40" stroke="#0f172a" stroke-width="2.2"/>
@@ -821,46 +808,72 @@
   <line x1="39" y1="56" x2="39" y2="74" stroke="#0f172a" stroke-width="2.2"/>
   <text x="35" y="88" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂</text>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >Fosfoenolpiruvato (PEP)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (Enol-fosfato de alta energía)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₃H₂O₆P³⁻</text>
-      </g>
-    </g>
-    
+          </g>
+          <g transform="translate(135, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#7c3aed" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#7c3aed" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">Fosfoenolpiruvato (PEP)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₃H₂O₆P³⁻ (Enol-fosfato de altísima energía)</text>
+          </g>
+        </g>
+        
 
     <!-- Reacción Ascendente: PEPCK Citosólica (PCK1) -->
-    <g transform="translate(740, 2020)">
+    <g transform="translate(780, 2070)">
       
-        <line x1="0" y1="52" x2="0" y2="0" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowPurple)"/>
+        <line x1="0" y1="60" x2="0" y2="0" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrowPurple)"/>
         
       
-        <path d="M -85 38 Q -30 38 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-92" y="42" fill="#dc2626" font-size="11.5" font-weight="800" text-anchor="end">- 1 GTP</text>
+        <path d="M -85 36 Q -30 36 -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-92" y="40" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">- 1 GTP</text>
         
-        <path d="M -4 20 Q -30 9 -85 9" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
-        <text x="-92" y="13" fill="#475569" font-size="11.5" font-weight="800" text-anchor="end">+ GDP + CO₂</text>
+        <path d="M -4 20 Q -30 16 -85 16" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <text x="-92" y="20" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ GDP</text>
         
+            <path d="M -4 30 Q -30 14 -85 14" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+            <text x="-92" y="18" fill="#ea580c" font-size="11" font-weight="900" text-anchor="end">- CO₂ (Descarboxilación: 4 C - 1 C -> 3 C)</text>
+            
       
-    <g class="badge-paso" transform="translate(-25, 26)">
-      <circle cx="0" cy="0" r="13" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">5</text>
+    <g class="badge-paso" transform="translate(-26, 30)">
+      <circle cx="0" cy="0" r="12" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">5</text>
       
     </g>
     
-      <g transform="translate(30, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">PEPCK Citosólica (PCK1)</text>
-        <text x="0" y="14" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 4.1.1.32 (Descarboxilación y fosforilación con GTP)</text>
-        <text x="0" y="28" fill="#dc2626" font-size="10.5" font-weight="800">(-) ADP (Baja carga energética desvía OAA a Krebs)</text>
+      <g transform="translate(32, 10)">
+        
+        <text x="0" y="-12" fill="#6d28d9" font-size="11" font-weight="900" font-family="'Inter', sans-serif">BYPASS 1B</text>
+        <text x="0" y="0" fill="#b91c1c" font-size="10" font-weight="800" font-family="'Inter', sans-serif">Sustituye a: Piruvato Quinasa (PK) de la glucólisis</text>
+        
+        <text x="0" y="15" fill="#0f172a" font-size="14" font-weight="900">PEPCK Citosólica (PCK1)</text>
+        <text x="0" y="28" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 4.1.1.32 (Fosforilación y descarboxilación concertada)</text>
+        <text x="0" y="41" fill="#dc2626" font-size="10.5" font-weight="800">(-) ADP (Baja carga energética desvía OAA a Krebs)</text><text x="0" y="55" fill="#475569" font-size="9.5" font-weight="700">[Inducción génica: Glucagón y Cortisol (CREB/FOXO1) inducen síntesis de PEPCK]</text>
       </g>
     </g>
     
 
-    <!-- Metabolito: Oxalacetato (OAA Citosólico) -->
-    <g transform="translate(640, 2130)">
-      <g transform="translate(0, 0)">
-        
+    <g transform="translate(340, 2030)">
+      <text x="0" y="0" fill="#047857" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace">
+        BALANCE DE CARBONOS BYPASS 1:
+      </text>
+      <text x="0" y="15" fill="#047857" font-size="10" font-family="'JetBrains Mono', monospace">
+        3 C (Piruvato) + CO₂ (PC) -> 4 C (OAA) - CO₂ (PEPCK) -> 3 C (PEP)
+      </text>
+      <text x="0" y="28" fill="#15803d" font-size="9.5" font-weight="700">
+        El esqueleto de 3 carbonos del precursor se conserva intacto en el balance neto
+      </text>
+    </g>
+    
+
+        <!-- Metabolito: Oxalacetato (OAA Citosólico) -->
+        <g transform="translate(740, 2175)">
+          <g transform="translate(0, 0)">
+            
 <g class="molecula-oxalacetato">
   <!-- C1: Carboxilato Superior -->
   <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
@@ -885,378 +898,108 @@
   <text x="50" y="116" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
 </g>
 
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >Oxalacetato (OAA Citosólico)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >4 Carbonos (Dicarboxilato)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₄H₂O₅²⁻</text>
-      </g>
-    </g>
-    
+          </g>
+          <g transform="translate(105, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#7c3aed" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#7c3aed" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">Oxalacetato (OAA Citosólico)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₄H₂O₅²⁻ (Dicarboxilato de 4 C)</text>
+          </g>
+        </g>
+        
+
+        <!-- Metabolito: L-Malato (Citosólico) -->
+        <g transform="translate(220, 2175)">
+          <g transform="translate(0, 0)">
+            
+<g class="molecula-malato">
+  <!-- C1: Carboxilato Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbono quiral H-C-OH -->
+  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
+  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
+  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: Metileno (-CH2-) -->
+  <text x="50" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3 - C4 -->
+  <line x1="50" y1="87" x2="50" y2="102" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C4: Carboxilato Inferior -->
+  <text x="50" y="116" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+</g>
+
+          </g>
+          <g transform="translate(-20, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="-42" y="0" width="42" height="18" rx="4" fill="#047857" opacity="0.14"/>
+          <rect x="-42" y="0" width="42" height="18" rx="4" fill="none" stroke="#047857" stroke-width="1.4"/>
+          <text x="-21" y="13" fill="#047857" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">L-Malato (Citosólico)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₄H₄O₅²⁻</text>
+          </g>
+        </g>
+        
 
     <!-- PASO 4: MDH CITOSÓLICA (cMDH) -->
-    <g transform="translate(420, 2180)">
-      <line x1="0" y1="0" x2="160" y2="0" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowPurple)"/>
+    <g transform="translate(340, 2235)">
+      <line x1="0" y1="0" x2="370" y2="0" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
       
-    <g class="badge-paso" transform="translate(-20, 0)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4</text>
-      
-    </g>
-    
-
-      <g transform="translate(80, 0)">
-        <text x="0" y="-18" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#6d28d9" text-anchor="middle">cMDH (MDH Citosólica)</text>
-        <text x="0" y="-6" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#0284c7" text-anchor="middle">Regenera NADH para GAPDH</text>
-        <text x="0" y="16" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle">+ NAD⁺ -> + NADH + H⁺</text>
-      </g>
-    </g>
-    
-
-    <!-- Metabolito: L-Malato (Citosólico) -->
-    <g transform="translate(300, 2130)">
-      <g transform="translate(0, 0)">
-        
-<g class="molecula-malato">
-  <!-- C1: Carboxilato Superior -->
-  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
-  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C2: Carbono quiral H-C-OH -->
-  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
-  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
-  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
-  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
-  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
-
-  <!-- Enlace C2 - C3 -->
-  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C3: Metileno (-CH2-) -->
-  <text x="50" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂</text>
-
-  <!-- Enlace C3 - C4 -->
-  <line x1="50" y1="87" x2="50" y2="102" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C4: Carboxilato Inferior -->
-  <text x="50" y="116" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
-</g>
-
-      </g>
-      <g transform="translate(-20, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">L-Malato (Citosólico)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">4 Carbonos</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="end">C₄H₄O₅²⁻</text>
-      </g>
-    </g>
-    
-
-    <!-- PASO 3: SALIDA POR CARRIER OGC -->
-    <path d="M 365 2720 L 365 2400 Q 365 2375 435 2375 L 435 2235 Q 435 2200 385 2200" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowGreen)"/>
-    
-    <g class="badge-paso" transform="translate(445, 2350)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3</text>
-      
-    </g>
-    
-    <g transform="translate(470, 2345)">
-      <text x="0" y="0" fill="#047857" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif">Lanzadera Malato (OGC ↑)</text>
-      <text x="0" y="14" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">Exporta 4C y equivalente reductor (NADH) al citosol</text>
-    </g>
-    
-
-    <!-- Metabolito: Piruvato (Mitocondrial) -->
-    <g transform="translate(640, 2480)">
-      <g transform="translate(0, 0)">
-        
-  <!-- C1: Carboxilato COO- -->
-  <text x="40" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
-  <line x1="40" y1="22" x2="40" y2="40" stroke="#0f172a" stroke-width="2.2"/>
-
-  <!-- C2: C=O (Grupo carbonilo) -->
-  <text x="40" y="50" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
-  <line x1="47" y1="44" x2="66" y2="44" stroke="#0f172a" stroke-width="2"/>
-  <line x1="47" y1="48" x2="66" y2="48" stroke="#0f172a" stroke-width="2"/>
-  <text x="74" y="50" fill="#dc2626" font-size="13" font-weight="800">O</text>
-
-  <!-- C3: Grupo metilo CH3 -->
-  <line x1="40" y1="55" x2="40" y2="74" stroke="#0f172a" stroke-width="2.2"/>
-  <text x="40" y="86" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">CH₃</text>
-
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >Piruvato (Mitocondrial)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >3 Carbonos (α-Cetoácido)</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₃H₃O₃⁻</text>
-      </g>
-    </g>
-    
-
-    <!-- PASO 1: PIRUVATO CARBOXILASA (PC) -->
-    <g transform="translate(690, 2595)">
-      <line x1="0" y1="0" x2="0" y2="55" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrowPurple)"/>
-      <path d="M -85 10 Q -30 10 -4 22" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-      <text x="-92" y="14" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">- 1 ATP + HCO₃⁻</text>
-      <path d="M -4 30 Q -30 42 -85 42" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
-      <text x="-92" y="46" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ ADP + Pi</text>
-      
-      
-    <g class="badge-paso" transform="translate(-25, 27)">
-      <circle cx="0" cy="0" r="13" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">1</text>
-      <text x="22" y="4" fill="#7c3aed" font-size="11" font-weight="900" font-family="'Inter', sans-serif">PASO 1</text>
-    </g>
-    
-      
-      <g transform="translate(25, 12)">
-        <text x="0" y="0" fill="#0f172a" font-size="14" font-weight="900">Piruvato Carboxilasa (PC)</text>
-        <text x="0" y="15" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 6.4.1.1 (Biotina - Vit. B₇)</text>
-        <text x="0" y="28" fill="#16a34a" font-size="10.5" font-weight="800">(+) Acetil-CoA (Activador obligatorio)</text>
-        <text x="0" y="41" fill="#dc2626" font-size="10.5" font-weight="800">(-) ADP (Baja carga energética frena PC)</text>
-      </g>
-    </g>
-    
-
-    <!-- Metabolito: Oxalacetato (OAA Mitocondrial) -->
-    <g transform="translate(640, 2720)">
-      <g transform="translate(0, 0)">
-        
-<g class="molecula-oxalacetato">
-  <!-- C1: Carboxilato Superior -->
-  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
-  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C2: Carbonilo (C=O) -->
-  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
-  <line x1="58" y1="45" x2="74" y2="45" stroke="#dc2626" stroke-width="2.2" />
-  <line x1="58" y1="49" x2="74" y2="49" stroke="#dc2626" stroke-width="2.2" />
-  <text x="82" y="51" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626">O</text>
-
-  <!-- Enlace C2 - C3 -->
-  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C3: Metileno (-CH2-) -->
-  <text x="50" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂</text>
-
-  <!-- Enlace C3 - C4 -->
-  <line x1="50" y1="87" x2="50" y2="102" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C4: Carboxilato Inferior -->
-  <text x="50" y="116" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
-</g>
-
-      </g>
-      <g transform="translate(135, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" >Oxalacetato (OAA Mitocondrial)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" >4 Carbonos</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" >C₄H₂O₅²⁻ (MMI carece de carrier directo)</text>
-      </g>
-    </g>
-    
-
-    <!-- PASO 2: mMDH -->
-    <g transform="translate(420, 2770)">
-      <line x1="160" y1="0" x2="0" y2="0" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowPurple)"/>
-      
-    <g class="badge-paso" transform="translate(180, 0)">
-      <circle cx="0" cy="0" r="13" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
-      <text x="0" y="4" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2</text>
+    <g class="badge-paso" transform="translate(25, 0)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4</text>
       
     </g>
     
 
-      <g transform="translate(80, 0)">
-        <text x="0" y="-18" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#6d28d9" text-anchor="middle">mMDH (MDH Mitocondrial)</text>
-        <text x="0" y="-6" font-family="'JetBrains Mono', monospace" font-size="9" fill="#64748b" text-anchor="middle">Reduce OAA para salir por OGC</text>
-        <text x="0" y="16" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#059669" text-anchor="middle">+ NADH + H⁺ -> + NAD⁺</text>
+      <g transform="translate(185, -12)">
+        <text x="0" y="-12" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#6d28d9" text-anchor="middle">cMDH (MDH Citosólica)</text>
+        <text x="0" y="2" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0284c7" text-anchor="middle">Exportación de equivalentes reductores: regenera NADH para GAPDH</text>
+        <text x="0" y="22" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#059669" text-anchor="middle">+ NAD⁺ -> + NADH + H⁺</text>
       </g>
     </g>
     
 
-    <!-- Metabolito: L-Malato (Mitocondrial) -->
-    <g transform="translate(300, 2720)">
-      <g transform="translate(0, 0)">
-        
-<g class="molecula-malato">
-  <!-- C1: Carboxilato Superior -->
-  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
-  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C2: Carbono quiral H-C-OH -->
-  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
-  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
-  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
-  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
-  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
-
-  <!-- Enlace C2 - C3 -->
-  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C3: Metileno (-CH2-) -->
-  <text x="50" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂</text>
-
-  <!-- Enlace C3 - C4 -->
-  <line x1="50" y1="87" x2="50" y2="102" stroke="#0f172a" stroke-width="2.2" />
-
-  <!-- C4: Carboxilato Inferior -->
-  <text x="50" y="116" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
-</g>
-
-      </g>
-      <g transform="translate(-20, 26)">
-        <text x="0" y="0" fill="#0f172a" font-size="16" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">L-Malato (Mitocondrial)</text>
-        <text x="0" y="18" fill="#ea580c" font-size="12" font-weight="700" text-anchor="end">4 Carbonos</text>
-        <text x="0" y="34" fill="#64748b" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="end">C₄H₄O₅²⁻ (Sustrato de salida OGC)</text>
-      </g>
+    <!-- PASO 3: SALIDA POR CARRIER OGC (TRANSPORTE FÍSICO) -->
+    <path d="M 220 3060 L 220 2580 Q 220 2560 220 2480 L 220 2270" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowGreen)"/>
+    
+    <g class="badge-paso" transform="translate(220, 2520)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3</text>
+      
     </g>
     
-
-    <!-- PUNTO 3 DE REGULACIÓN: ENZIMA BIFUNCIONAL Y F-2,6-BP -->
-    <g transform="translate(1040, 480)">
-      <text x="0" y="0" fill="#6d28d9" font-size="13" font-weight="900">
-        PUNTO 3: EL CONMUTADOR RECÍPROCO MAESTRO (F-6-P / F-1,6-BP)
-      </text>
-      <text x="0" y="16" fill="#475569" font-size="10">
-        Mismos moduladores alostéricos para ambas vías, pero en sentido opuesto:
-      </text>
-
-      <!-- Comparativa alostérica directa -->
-      <g transform="translate(0, 32)">
-        <line x1="0" y1="0" x2="560" y2="0" stroke="#e2e8f0" stroke-width="1.2"/>
-        
-        <!-- FBPasa-1 -->
-        <g transform="translate(0, 16)">
-          <text x="0" y="0" fill="#7c3aed" font-size="12" font-weight="900">FBPasa-1 (Gluconeogénesis):</text>
-          <text x="0" y="16" fill="#16a34a" font-size="11" font-weight="800">(+) Citrato (Abundancia energética)</text>
-          <text x="0" y="30" fill="#dc2626" font-size="11" font-weight="800">(-) AMP (Baja carga energética)</text>
-          <text x="0" y="44" fill="#dc2626" font-size="11" font-weight="800">(-) Fructosa-2,6-bisfosfato (Inhibidor más potente)</text>
-        </g>
-
-        <!-- PFK-1 -->
-        <g transform="translate(290, 16)">
-          <text x="0" y="0" fill="#ea580c" font-size="12" font-weight="900">PFK-1 (Glucólisis):</text>
-          <text x="0" y="16" fill="#16a34a" font-size="11" font-weight="800">(+) AMP, (+) Fructosa-2,6-bisfosfato</text>
-          <text x="0" y="30" fill="#dc2626" font-size="11" font-weight="800">(-) ATP (Carga energética alta)</text>
-          <text x="0" y="44" fill="#dc2626" font-size="11" font-weight="800">(-) Citrato, (-) H⁺ (Acidosis)</text>
-        </g>
-      </g>
-
-      <!-- Esquema molecular de la Enzima Bifuncional PFK-2 / FBPasa-2 -->
-      <g transform="translate(0, 125)">
-        <text x="0" y="0" fill="#0f172a" font-size="12" font-weight="900">
-          La Enzima Bifuncional Tándem (Control Hormonal Hepático):
-        </text>
-        
-        <!-- Cápsula de la proteína tándem con sus dos dominios -->
-        <g transform="translate(0, 14)">
-          <rect x="0" y="0" width="130" height="28" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4"/>
-          <text x="65" y="18" fill="#0369a1" font-size="10" font-weight="800" text-anchor="middle">Dominio PFK-2</text>
-          
-          <rect x="135" y="0" width="145" height="28" rx="5" fill="#fdf4ff" stroke="#7c3aed" stroke-width="1.4"/>
-          <text x="207" y="18" fill="#6d28d9" font-size="10" font-weight="800" text-anchor="middle">Dominio FBPasa-2</text>
-          
-          <text x="300" y="18" fill="#475569" font-size="10.5">Cadena polipeptídica única</text>
-        </g>
-
-        <!-- Reacción que cataliza F-6-P <-> F-2,6-BP -->
-        <g transform="translate(0, 60)">
-          <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800">Fructosa-6-P</text>
-          <path d="M 90 -4 L 210 -4" stroke="#0284c7" stroke-width="1.6" marker-end="url(#arrowBlue)"/>
-          <text x="150" y="-8" fill="#0284c7" font-size="8.5" text-anchor="middle">PFK-2 (-1 ATP)</text>
-          <path d="M 210 6 L 90 6" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#arrowPurple)"/>
-          <text x="150" y="16" fill="#7c3aed" font-size="8.5" text-anchor="middle">FBPasa-2 (+ H₂O)</text>
-          <text x="220" y="0" fill="#6d28d9" font-size="11" font-weight="900">Fructosa-2,6-bisfosfato (F-2,6-BP)</text>
-        </g>
-
-        <!-- Estado de Ayuno vs Saciedad -->
-        <g transform="translate(0, 105)">
-          <text x="0" y="0" fill="#b91c1c" font-size="11" font-weight="900">
-            [A] En Ayuno (Glucagón ↑ -> cAMP -> PKA):
-          </text>
-          <text x="16" y="15" fill="#475569" font-size="10">
-            • PKA FOSFORILA la enzima -> Inactiva PFK-2 y ACTIVA FBPasa-2.
-          </text>
-          <text x="16" y="29" fill="#047857" font-size="10" font-weight="800">
-            • Cae [F-2,6-BP] -> Se DESINHIBE FBPasa-1: GLUCONEOGÉNESIS ACTIVADA.
-          </text>
-
-          <text x="0" y="52" fill="#0369a1" font-size="11" font-weight="900">
-            [B] En Saciedad / Postprandial (Insulina ↑ -> PP1):
-          </text>
-          <text x="16" y="67" fill="#475569" font-size="10">
-            • PP1 DESFOSFORILA la enzima -> ACTIVA PFK-2 e Inactiva FBPasa-2.
-          </text>
-          <text x="16" y="81" fill="#ea580c" font-size="10" font-weight="800">
-            • Sube [F-2,6-BP] -> Activa fuertemente PFK-1: GLUCÓLISIS ENCENDIDA.
-          </text>
-        </g>
-      </g>
-    </g>
-    
-
-    <!-- PUNTO 2 DE REGULACIÓN: DESTINO DEL OXALACETATO Y PEPCK -->
-    <g transform="translate(1040, 1450)">
-      <text x="0" y="0" fill="#047857" font-size="13" font-weight="900">
-        PUNTO 2: UTILIZACIÓN DEL OXALACETATO Y CONTROL POR ENERGÍA
-      </text>
-      <text x="0" y="16" fill="#475569" font-size="10">
-        El Oxalacetato celular sigue 2 destinos excluyentes según la carga energética:
-      </text>
-
-      <g transform="translate(0, 32)">
-        <line x1="0" y1="0" x2="560" y2="0" stroke="#e2e8f0" stroke-width="1.2"/>
-        
-        <g transform="translate(0, 16)">
-          <text x="0" y="0" fill="#b45309" font-size="11.5" font-weight="800">
-            1. Ciclo de Krebs (Generación de ATP):
-          </text>
-          <text x="16" y="14" fill="#475569" font-size="10">
-            Si la carga energética es baja (alto ADP / bajo ATP), OAA se condensa con Acetil-CoA
-          </text>
-          <text x="16" y="27" fill="#475569" font-size="10">
-            hacia Citrato para quemarse en Krebs y reponer ATP.
-          </text>
-        </g>
-
-        <g transform="translate(0, 68)">
-          <text x="0" y="0" fill="#7c3aed" font-size="11.5" font-weight="800">
-            2. Vía Gluconeogénica (PEPCK):
-          </text>
-          <text x="16" y="14" fill="#475569" font-size="10">
-            Si la carga energética es suficiente, OAA se descarboxila a PEP para sintetizar glucosa.
-          </text>
-          <text x="16" y="28" fill="#dc2626" font-size="10.5" font-weight="800">
-            • (-) ADP inhibe fuertemente a PEPCK: No se gasta GTP en biosíntesis si falta energía.
-          </text>
-          <text x="16" y="42" fill="#16a34a" font-size="10.5" font-weight="800">
-            • (+) Inducción génica: Glucagón y Cortisol (CREB / FOXO1) inducen síntesis de PEPCK.
-          </text>
-        </g>
-      </g>
-
-      <!-- Balance Estequiométrico Esencial -->
-      <g transform="translate(0, 165)">
-        <line x1="0" y1="0" x2="560" y2="0" stroke="#e2e8f0" stroke-width="1.2"/>
-        <text x="0" y="18" fill="#0f172a" font-size="12" font-weight="900">
-          Balance Bioenergético Global: Gasto de 6 Enlaces ~P
-        </text>
-        <text x="0" y="34" fill="#dc2626" font-size="10.5" font-weight="700">
-          • 2 Piruvato Carboxilasa (Paso 1) -> 2 ATP  |  • 2 PEPCK (Paso 5) -> 2 GTP
-        </text>
-        <text x="0" y="48" fill="#dc2626" font-size="10.5" font-weight="700">
-          • 2 PGK (Paso 8) -> 2 ATP  |  • 2 GAPDH (Paso 9) -> 2 NADH
-        </text>
-        <text x="0" y="64" fill="#047857" font-size="10" font-family="'JetBrains Mono', monospace">
-          2 Piruvato + 4 ATP + 2 GTP + 2 NADH + 6 H₂O -> Glucosa + 4 ADP + 2 GDP + 6 Pi + 2 NAD⁺
-        </text>
-      </g>
+    <g transform="translate(245, 2485)">
+      <text x="0" y="0" fill="#047857" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Transporte Físico OGC (Antiporte Malato²⁻ / α-KG²⁻)</text>
+      <text x="0" y="13" fill="#15803d" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">SLC25A11: exporta esqueleto de 4C y equivalente reductor (NADH) al citosol</text>
+      <text x="0" y="26" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">La MMI es completamente impermeable al Oxaloacetato</text>
     </g>
     
 
     <!-- PRECURSOR 1: L-LACTATO -->
-    <g transform="translate(980, 2180)">
-      <text x="0" y="0" fill="#7c3aed" font-size="12" font-weight="900">PRECURSOR 1: L-LACTATO [3C]</text>
+    <g transform="translate(1060, 2150)">
+      <g transform="translate(0, -18)">
+        <rect x="0" y="0" width="42" height="18" rx="4" fill="#7c3aed" opacity="0.14"/>
+        <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+        <text x="21" y="13" fill="#7c3aed" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+      </g>
+      <text x="48" y="-4" fill="#7c3aed" font-size="12" font-weight="900">PRECURSOR 1: L-LACTATO</text>
       <text x="0" y="14" fill="#64748b" font-size="9.5">Ciclo de Cori (Eritrocitos y Músculo Anaeróbico)</text>
 
       <g transform="translate(0, 24)">
@@ -1282,22 +1025,28 @@
 
       </g>
 
-      <g transform="translate(100, 48)">
-        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">L-Lactato</text>
-        <text x="0" y="16" fill="#7c3aed" font-size="10.5" font-weight="700">LDH (Lactato DH)</text>
-        <text x="0" y="29" fill="#059669" font-size="10" font-weight="800">+ NAD⁺ -> + NADH + H⁺</text>
+      <g transform="translate(90, 44)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">L-Lactato [3 C]</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11" font-weight="800">LDH (Lactato Deshidrogenasa)</text>
+        <text x="0" y="29" fill="#059669" font-size="10.5" font-weight="800">+ NAD⁺ -> + NADH + H⁺</text>
+        <text x="0" y="42" fill="#64748b" font-size="9">Genera NADH citosólico in situ</text>
       </g>
 
-      <!-- Flecha hacia Piruvato citosólico / MPC -->
-      <path d="M 0 65 Q -150 110 -265 170" fill="none" stroke="#7c3aed" stroke-width="2.2" marker-end="url(#arrowPurple)"/>
-      <text x="-130" y="105" fill="#7c3aed" font-size="9.5" font-weight="800" text-anchor="middle">-> Piruvato (MPC)</text>
+      <!-- Flecha diagonal hacia Piruvato citosólico (sin cruces) -->
+      <path d="M 60 135 Q 120 180 160 215" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)"/>
+      <text x="120" y="170" fill="#7c3aed" font-size="10" font-weight="800">LDH -> Piruvato</text>
     </g>
     
 
     <!-- PRECURSOR 2: L-ALANINA -->
-    <g transform="translate(1310, 2180)">
-      <text x="0" y="0" fill="#ea580c" font-size="12" font-weight="900">PRECURSOR 2: L-ALANINA [3C]</text>
-      <text x="0" y="14" fill="#64748b" font-size="9.5">Ciclo de Cahill (Proteólisis muscular en ayuno)</text>
+    <g transform="translate(1460, 2150)">
+      <g transform="translate(0, -18)">
+        <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+        <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+        <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+      </g>
+      <text x="48" y="-4" fill="#ea580c" font-size="12" font-weight="900">PRECURSOR 2: L-ALANINA</text>
+      <text x="0" y="14" fill="#64748b" font-size="9.5">Ciclo Glucosa-Alanina / Cahill (Proteólisis muscular)</text>
 
       <g transform="translate(0, 24)">
         
@@ -1322,94 +1071,264 @@
 
       </g>
 
-      <g transform="translate(100, 48)">
-        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">L-Alanina</text>
-        <text x="0" y="16" fill="#ea580c" font-size="10.5" font-weight="700">ALT (Alanina Aminotransferasa)</text>
-        <text x="0" y="29" fill="#64748b" font-size="10">+ α-KG -> + Glutamato</text>
+      <g transform="translate(90, 44)">
+        <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">L-Alanina [3 C]</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800">ALT (Alanina Aminotransferasa)</text>
+        <text x="0" y="29" fill="#0284c7" font-size="10.5" font-weight="800">+ α-KG -> + L-Glutamato</text>
+        <text x="0" y="42" fill="#64748b" font-size="9">Transferencia del grupo amino (⁺NH₃)</text>
       </g>
 
-      <!-- Flecha hacia Piruvato citosólico / MPC -->
-      <path d="M 0 65 Q -300 130 -595 170" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
-      <text x="-280" y="135" fill="#ea580c" font-size="9.5" font-weight="800" text-anchor="middle">-> Piruvato (MPC)</text>
+      <!-- Flecha diagonal hacia Piruvato citosólico (sin cruces) -->
+      <path d="M 20 135 Q -70 180 -140 215" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+      <text x="-75" y="170" fill="#ea580c" font-size="10" font-weight="800">ALT -> Piruvato</text>
     </g>
     
 
-    <!-- PUNTO 1 DE REGULACIÓN: ACETIL-CoA COMO CONMUTADOR MAESTRO -->
-    <g transform="translate(1040, 2600)">
-      <text x="0" y="0" fill="#b91c1c" font-size="13" font-weight="900">
-        PUNTO 1: UTILIZACIÓN DEL PIRUVATO Y EL CONMUTADOR DE ACETIL-CoA
-      </text>
-      <text x="0" y="16" fill="#475569" font-size="10">
-        En ayuno, la β-oxidación de ácidos grasos satura la matriz de Acetil-CoA:
-      </text>
+    <!-- METABOLITO: PIRUVATO CITOSÓLICO [3 C] -->
+    <g transform="translate(1225, 2365)">
+      
+  <!-- C1: Carboxilato COO- -->
+  <text x="40" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="40" stroke="#0f172a" stroke-width="2.2"/>
 
-      <g transform="translate(0, 32)">
-        <line x1="0" y1="0" x2="560" y2="0" stroke="#e2e8f0" stroke-width="1.2"/>
-        
-        <g transform="translate(0, 16)">
-          <text x="0" y="0" fill="#16a34a" font-size="11.5" font-weight="900">
-            (+) Activa obligatoriamente a Piruvato Carboxilasa (PC):
-          </text>
-          <text x="16" y="14" fill="#475569" font-size="10">
-            Fuerza la carboxilación de Piruvato a Oxalacetato para la biosíntesis.
-          </text>
-        </g>
+  <!-- C2: C=O (Grupo carbonilo) -->
+  <text x="40" y="50" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
+  <line x1="47" y1="44" x2="66" y2="44" stroke="#0f172a" stroke-width="2"/>
+  <line x1="47" y1="48" x2="66" y2="48" stroke="#0f172a" stroke-width="2"/>
+  <text x="74" y="50" fill="#dc2626" font-size="13" font-weight="800">O</text>
 
-        <g transform="translate(0, 48)">
-          <text x="0" y="0" fill="#dc2626" font-size="11.5" font-weight="900">
-            (-) Inhibe alostéricamente a Piruvato Deshidrogenasa (PDH):
-          </text>
-          <text x="16" y="14" fill="#475569" font-size="10">
-            Bloquea la combustión oxidativa del piruvato. Se conserva el 100% para generar glucosa.
-          </text>
-        </g>
+  <!-- C3: Grupo metilo CH3 -->
+  <line x1="40" y1="55" x2="40" y2="74" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="86" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">CH₃</text>
 
-        <g transform="translate(0, 80)">
-          <text x="0" y="0" fill="#dc2626" font-size="11.5" font-weight="900">
-            (-) ADP frena a la Piruvato Carboxilasa:
-          </text>
-          <text x="16" y="14" fill="#475569" font-size="10">
-            Si hay baja carga energética en la célula, se frenan las reacciones de biosíntesis.
-          </text>
+      <g transform="translate(100, 24)">
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
         </g>
+        <text x="0" y="14" fill="#0f172a" font-size="14" font-weight="900">Piruvato (Citosólico) [3 C]</text>
+        <text x="0" y="28" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₃H₃O₃⁻ (Convergencia Lactato / Alanina)</text>
       </g>
     </g>
 
-    <!-- PRECURSOR 4: CICLO DE KREBS Y CATAPLEROSIS -->
-    <g transform="translate(1040, 2780)">
-      <text x="0" y="0" fill="#b45309" font-size="13" font-weight="900">
-        PRECURSOR 4: CATAPLEROSIS DEL CICLO DE KREBS (AMINOÁCIDOS)
+    <!-- Flecha descendente directa que cruza el transportador MPC en X=1250 -->
+    <line x1="1250" y1="2455" x2="1250" y2="2635" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+    
+
+        <!-- Metabolito: Piruvato (Mitocondrial) -->
+        <g transform="translate(1225, 2660)">
+          <g transform="translate(0, 0)">
+            
+  <!-- C1: Carboxilato COO- -->
+  <text x="40" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="40" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: C=O (Grupo carbonilo) -->
+  <text x="40" y="50" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
+  <line x1="47" y1="44" x2="66" y2="44" stroke="#0f172a" stroke-width="2"/>
+  <line x1="47" y1="48" x2="66" y2="48" stroke="#0f172a" stroke-width="2"/>
+  <text x="74" y="50" fill="#dc2626" font-size="13" font-weight="800">O</text>
+
+  <!-- C3: Grupo metilo CH3 -->
+  <line x1="40" y1="55" x2="40" y2="74" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="86" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">CH₃</text>
+
+          </g>
+          <g transform="translate(100, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">Piruvato (Mitocondrial)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₃H₃O₃⁻ (Sustrato de Carboxilación)</text>
+          </g>
+        </g>
+        
+
+    <!-- PASO 1: PIRUVATO CARBOXILASA (PC) -->
+    <g transform="translate(1250, 2770)">
+      <line x1="0" y1="0" x2="0" y2="130" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrowPurple)"/>
+      <path d="M -85 25 Q -30 25 -4 38" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="-92" y="29" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">- 1 ATP</text>
+      
+      <path d="M -4 54 Q -30 68 -85 68" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-92" y="72" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ ADP + Pi</text>
+
+      <path d="M -85 105 Q -30 105 -4 85" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <text x="-92" y="109" fill="#0284c7" font-size="11" font-weight="900" text-anchor="end">+ HCO₃⁻ (Fijación de CO₂: 3 C + 1 C -> 4 C)</text>
+      
+      
+    <g class="badge-paso" transform="translate(-25, 65)">
+      <circle cx="0" cy="0" r="12" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">1</text>
+      <text x="18" y="4" fill="#7c3aed" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif">PASO 1</text>
+    </g>
+    
+      
+      <g transform="translate(25, 18)">
+        <text x="0" y="-8" fill="#6d28d9" font-size="12" font-weight="900">BYPASS 1A: Piruvato Carboxilasa (PC)</text>
+        <text x="0" y="8" fill="#b91c1c" font-size="10" font-weight="800">Sustituye a: Piruvato Quinasa (PK) de la glucólisis</text>
+        <text x="0" y="24" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">EC 6.4.1.1 (Requiere Biotina / Vitamina B₇)</text>
+        <text x="0" y="40" fill="#16a34a" font-size="10.5" font-weight="800">(+) Acetil-CoA (Activador alostérico obligatorio)</text>
+        <text x="0" y="55" fill="#dc2626" font-size="10.5" font-weight="800">(-) ADP (Baja carga energética frena PC)</text>
+        <text x="0" y="70" fill="#78350f" font-size="9.5" font-weight="700">Conmutador: Acetil-CoA inhibe PDH y activa PC -> desvía piruvato a glucosa</text>
+      </g>
+    </g>
+    
+
+        <!-- Metabolito: Oxalacetato (OAA Mitocondrial) -->
+        <g transform="translate(1225, 2970)">
+          <g transform="translate(0, 0)">
+            
+<g class="molecula-oxalacetato">
+  <!-- C1: Carboxilato Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbonilo (C=O) -->
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="45" x2="74" y2="45" stroke="#dc2626" stroke-width="2.2" />
+  <line x1="58" y1="49" x2="74" y2="49" stroke="#dc2626" stroke-width="2.2" />
+  <text x="82" y="51" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626">O</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: Metileno (-CH2-) -->
+  <text x="50" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3 - C4 -->
+  <line x1="50" y1="87" x2="50" y2="102" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C4: Carboxilato Inferior -->
+  <text x="50" y="116" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+</g>
+
+          </g>
+          <g transform="translate(100, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="#7c3aed" opacity="0.14"/>
+          <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+          <text x="21" y="13" fill="#7c3aed" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">Oxalacetato (OAA Mitocondrial)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₄H₂O₅²⁻ (MMI carece de carrier directo para OAA)</text>
+          </g>
+        </g>
+        
+
+    <!-- CATAPLEROSIS DEL CICLO DE KREBS -->
+    <g transform="translate(1380, 3075)">
+      <text x="0" y="0" fill="#b45309" font-size="12" font-weight="900">
+        CATAPLEROSIS DEL CICLO DE KREBS (AMINOÁCIDOS GLUCOGÉNICOS)
       </text>
-      <text x="0" y="16" fill="#92400e" font-size="10" font-weight="700">
-        Los intermediarios del ciclo abandonan la matriz para alimentar la Gluconeogénesis:
+      <text x="0" y="15" fill="#92400e" font-size="10" font-weight="700">
+        Precursores que alimentan el pool de Oxaloacetato matricial [4 C]:
       </text>
 
       <g transform="translate(0, 28)">
-        <text x="0" y="0" fill="#0f172a" font-size="10.5" font-weight="800">• α-Cetoglutarato [5C]:</text>
-        <text x="140" y="0" fill="#047857" font-size="10">Glutamato, Glutamina, Prolina, Histidina, Arginina</text>
+        <text x="0" y="0" fill="#0f172a" font-size="10" font-weight="800">• α-Cetoglutarato [5 C]:</text>
+        <text x="135" y="0" fill="#047857" font-size="9.5">Glutamato, Glutamina, Prolina, Histidina, Arginina</text>
 
-        <text x="0" y="16" fill="#0f172a" font-size="10.5" font-weight="800">• Succinil-CoA [4C]:</text>
-        <text x="140" y="16" fill="#047857" font-size="10">Metionina, Valina, Isoleucina, Treonina, Propionil-CoA</text>
+        <text x="0" y="16" fill="#0f172a" font-size="10" font-weight="800">• Succinil-CoA [4 C]:</text>
+        <text x="135" y="16" fill="#047857" font-size="9.5">Metionina, Valina, Isoleucina, Treonina, Propionil-CoA</text>
 
-        <text x="0" y="32" fill="#0f172a" font-size="10.5" font-weight="800">• Fumarato [4C]:</text>
-        <text x="140" y="32" fill="#047857" font-size="10">Fenilalanina, Tirosina, Aspartato</text>
+        <text x="0" y="32" fill="#0f172a" font-size="10" font-weight="800">• Fumarato [4 C]:</text>
+        <text x="135" y="32" fill="#047857" font-size="9.5">Fenilalanina, Tirosina, Aspartato</text>
 
-        <text x="0" y="48" fill="#0f172a" font-size="10.5" font-weight="800">• Oxalacetato [4C]:</text>
-        <text x="140" y="48" fill="#047857" font-size="10">Aspartato, Asparagina (Transaminación directa)</text>
+        <text x="0" y="48" fill="#0f172a" font-size="10" font-weight="800">• Oxalacetato [4 C]:</text>
+        <text x="135" y="48" fill="#047857" font-size="9.5">Aspartato, Asparagina (Transaminación directa)</text>
 
-        <text x="0" y="70" fill="#b91c1c" font-size="9.5" font-weight="800">
-          Nota de Examen: Acetil-CoA (ácidos grasos pares) NO aporta carbonos netos a la glucosa
+        <text x="0" y="66" fill="#b91c1c" font-size="9.5" font-weight="800">
+          Nota: Acetil-CoA (ácidos grasos pares) NO aporta carbonos netos
         </text>
-        <text x="0" y="82" fill="#64748b" font-size="9">
-          (Entran 2C como Acetil-CoA y salen 2C como CO₂ en Krebs; no hay ganancia neta).
+        <text x="0" y="78" fill="#64748b" font-size="8.5">
+          (Entran 2 C como Acetil-CoA y se liberan 2 C como CO₂ en Krebs; balance neto = 0).
         </text>
       </g>
-    </g>
 
-    <!-- Flecha de Cataplerosis conectando Krebs directamente a L-Malato Mitocondrial -->
-    <path d="M 1040 2920 L 400 2920 Q 360 2920 360 2800" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="8 4" marker-end="url(#arrowAmber)"/>
-    <text x="680" y="2912" fill="#78350f" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">
-      Cataplerosis Krebs -> Pool de L-Malato Mitocondrial ↑
-    </text>
+      <!-- Flecha ascendente suave hacia Oxalacetato mitocondrial -->
+      <path d="M 0 10 Q -40 -30 -80 -60" fill="none" stroke="#b45309" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#arrowAmber)"/>
+      <text x="-55" y="-30" fill="#b45309" font-size="9.5" font-weight="800" text-anchor="middle">-> Pool OAA [4 C]</text>
+    </g>
+    
+
+    <!-- PASO 2: mMDH -->
+    <g transform="translate(340, 3160)">
+      <line x1="840" y1="0" x2="0" y2="0" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
+      
+    <g class="badge-paso" transform="translate(810, 0)">
+      <circle cx="0" cy="0" r="12" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2</text>
+      
+    </g>
+    
+
+      <g transform="translate(420, -12)">
+        <text x="0" y="-12" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#6d28d9" text-anchor="middle">mMDH (MDH Mitocondrial)</text>
+        <text x="0" y="2" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">Reduce OAA a Malato: única vía para exportar el esqueleto de 4C</text>
+        <text x="0" y="22" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#dc2626" text-anchor="middle">+ NADH + H⁺ -> + NAD⁺ (Gasta 1 NADH matricial)</text>
+      </g>
+    </g>
+    
+
+        <!-- Metabolito: L-Malato (Mitocondrial) -->
+        <g transform="translate(220, 3100)">
+          <g transform="translate(0, 0)">
+            
+<g class="molecula-malato">
+  <!-- C1: Carboxilato Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbono quiral H-C-OH -->
+  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
+  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
+  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: Metileno (-CH2-) -->
+  <text x="50" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂</text>
+
+  <!-- Enlace C3 - C4 -->
+  <line x1="50" y1="87" x2="50" y2="102" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C4: Carboxilato Inferior -->
+  <text x="50" y="116" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+</g>
+
+          </g>
+          <g transform="translate(-20, 24)">
+            
+        <g transform="translate(0, -18)">
+          <rect x="-42" y="0" width="42" height="18" rx="4" fill="#047857" opacity="0.14"/>
+          <rect x="-42" y="0" width="42" height="18" rx="4" fill="none" stroke="#047857" stroke-width="1.4"/>
+          <text x="-21" y="13" fill="#047857" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4 C</text>
+        </g>
+        
+            <text x="0" y="14" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">L-Malato (Mitocondrial)</text>
+            <text x="0" y="32" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₄H₄O₅²⁻ (Exportable por OGC)</text>
+          </g>
+        </g>
+        
+
+    <g transform="translate(1700, 30)">
+      <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="end">
+        BALANCE GLOBAL: 2 Piruvato (3 C) + 4 ATP + 2 GTP + 2 NADH + 6 H₂O -> D-Glucosa (6 C) + 4 ADP + 2 GDP + 6 Pi + 2 NAD⁺
+      </text>
+      <text x="0" y="16" fill="#dc2626" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">
+        Inversión total de 6 enlaces de alta energía (~P) por cada molécula de glucosa sintetizada
+      </text>
+    </g>
     
     </svg>
