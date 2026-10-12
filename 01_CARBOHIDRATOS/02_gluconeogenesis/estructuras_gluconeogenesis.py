@@ -2,13 +2,14 @@
 """
 ESTRUCTURAS MOLECULARES ESPECÍFICAS DE LA GLUCONEOGÉNESIS
 =========================================================
-Fórmulas químicas vectoriales nítidas (Fischer / Kekulé) para los intermediarios
-y precursores gluconeogénicos.
+Fórmulas químicas vectoriales nítidas (Fischer / Haworth / Kekulé) para los intermediarios,
+precursores gluconeogénicos y reguladores alostéricos.
 Diseñadas bajo el estándar de Biología Estructural:
 - Enlaces químicos negros nítidos (#0f172a)
 - Oxígenos y carboxilatos en rojo (#dc2626)
 - Hidroxilos en azul (#0284c7)
 - Nitrógenos/aminas en azul violeta (#4338ca)
+- Grupos fosfato en naranja/ámbar (#ea580c)
 - Textos limpios sin stroke heredado
 """
 
@@ -137,5 +138,64 @@ GLICEROL = """
 
   <!-- C3: Hidroximetilo Inferior -->
   <text x="50" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+</g>
+"""
+
+# 6. Glicerol-3-Fosfato (G-3-P) - Intermediario fosforilado del glicerol
+# CH2OH - CH(OH) - CH2-O-PO3(2-)
+GLICEROL_3_FOSFATO = """
+<g class="molecula-glicerol-3-fosfato">
+  <!-- C1: Hidroximetilo Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbono quiral H-C-OH -->
+  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
+  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
+  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: CH2-O-P fosforilado -->
+  <text x="50" y="80" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂-O</text>
+  <line x1="50" y1="84" x2="50" y2="94" stroke="#0f172a" stroke-width="2" />
+  <circle cx="50" cy="106" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2" />
+  <text x="50" y="110" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+</g>
+"""
+
+# 7. Fructosa-2,6-Bisfosfato (F-2,6-BP) - Regulador alostérico clave
+# Anillo furanósido con fosfatos en C2 y C6
+FRUCTOSA_2_6_BISFOSFATO = """
+<g class="molecula-fructosa-2-6-bisfosfato">
+  <!-- Anillo de furanosa (pentágono) -->
+  <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno en el vértice superior del pentágono -->
+  <circle cx="35" cy="18" r="7" fill="#ffffff"/>
+  <text x="35" y="22" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- C2 (a la derecha): C1 (-CH2OH) y Fosfato en C2 (2-P) -->
+  <line x1="68" y1="38" x2="88" y2="24" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="94" y="22" fill="#0f172a" font-size="9.5" font-weight="800">CH₂OH</text>
+  
+  <line x1="68" y1="38" x2="88" y2="52" stroke="#ea580c" stroke-width="2.2"/>
+  <circle cx="100" cy="58" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="100" y="62" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ₂</text>
+
+  <!-- C6 (a la izquierda): Fosfato en C6 (6-P) -->
+  <line x1="2" y1="38" x2="-10" y2="18" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="-16" cy="6" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="10" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ₆</text>
+
+  <!-- C3 y C4 con -OH abajo -->
+  <line x1="52" y1="68" x2="52" y2="82" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="92" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="18" y1="68" x2="18" y2="82" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="92" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
 </g>
 """

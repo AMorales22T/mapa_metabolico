@@ -8,13 +8,19 @@ Diseñado bajo el estándar de un mapa metabólico de bioquímica real:
 - Los 3 Bypasses de la glucólisis claramente destacados con enzimas sustituidas:
     * Bypass 1: Piruvato -> Oxaloacetato -> PEP (PC, PEPCK; sustituye a Piruvato Quinasa / PK).
     * Bypass 2: F-1,6-BP -> F-6-P (FBPasa-1, hidrólisis de fosfato; sustituye a PFK-1).
-    * Bypass 3: G-6-P -> Glucosa (G6Pasa en el RE; sustituye a Hexoquinasa/Glucoquinasa / HK/GK).
-- Reacciones compartidas y reversibles distinguidas con dobles flechas reversibles verdes.
-- Transporte mitocondrial del oxaloacetato (Lanzadera de Malato OGC y redox NADH/NAD+).
+    * Bypass 3: G-6-P -> Glucosa (G6Pase en el RE; sustituye a Hexoquinasa/Glucoquinasa / HK/GK).
+- Regulación tándem explícita PFK-2 / FBPasa-2 con estructura de F-2,6-BP, enzima bifuncional,
+  cascada hormonal hepática (Glucagón/PKA vs Insulina/PP1) y conexiones alostéricas diana directas.
+- Reorganización total de precursores con estructuras completas y puntos de entrada exactos:
+    * Glicerol -> Glicerol-3-P -> DHAP (entra a triosas fosfato sin pasar por piruvato).
+    * L-Lactato -> Piruvato (Ciclo de Cori funcional músculo-hígado, LDH, NAD+/NADH).
+    * L-Alanina -> Piruvato (Ciclo de Cahill glucosa-alanina, ALT, transaminación a glutamato/urea).
+    * Cataplerosis del Ciclo de Krebs (distinguida de piruvato: alimenta el pool de Oxaloacetato).
+- Reacciones compartidas y reversibles distinguidas con dobles flechas continuas verdes.
+- Transporte mitocondrial del oxaloacetato (Lanzadera de Malato OGC y balance redox NADH/NAD+).
 - Destino y rastreo del número de carbonos (6C, 4C, 3C), fijación (+CO2) y liberación (-CO2).
-- Entrada de precursores con estructuras completas: L-Lactato (LDH, Cori) y L-Alanina (ALT, Cahill).
 - Cero cajas de texto, tarjetas ni paneles explicativos: información sobre estructuras y flechas.
-- Sin colisiones ni solapamientos con distribución espacial de 3 columnas despejadas.
+- Cero solapamientos ni cruces confusos.
 """
 
 import os
@@ -34,15 +40,16 @@ from estructuras_glucosa import (
 )
 
 from estructuras_gluconeogenesis import (
-    OXALACETATO, MALATO, LACTATO, RE_GLUCOSA_6_FOSFATASA, GLICEROL
+    OXALACETATO, MALATO, LACTATO, RE_GLUCOSA_6_FOSFATASA, GLICEROL,
+    GLICEROL_3_FOSFATO, FRUCTOSA_2_6_BISFOSFATO
 )
 
 from estructuras_aminoacidos import (
     ALANINA as AMINO_ALANINA
 )
 
-ANCHO_CANVAS = 1750
-ALTO_CANVAS = 3500
+ANCHO_CANVAS = 1900
+ALTO_CANVAS = 3700
 
 # Ejes de alineación principales
 X_EJE = 680        # Eje central de estructuras de hexosas y triosas
@@ -111,6 +118,14 @@ CABECERA_HTML = f"""<!DOCTYPE html>
           <path d="M 0 0 L 6 3 L 0 6 Z" fill="#475569" />
         </marker>
 
+        <!-- Marcadores para Regulación Alostérica: Activación (+) e Inhibición (-) -->
+        <marker id="markerActivaVerde" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+          <path d="M 0 0 L 8 4 L 0 8 Z" fill="#16a34a" />
+        </marker>
+        <marker id="markerInhibeRojo" markerWidth="8" markerHeight="10" refX="3" refY="5" orient="auto">
+          <line x1="2" y1="0" x2="2" y2="10" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+        </marker>
+
         <!-- Gradientes celulares abiertos -->
         <linearGradient id="gradCitosol" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#f8fafc" stop-opacity="1" />
@@ -152,7 +167,7 @@ def badge_paso(num, x, y, es_bypass=False, etiqueta=""):
     </g>
     """
 
-def generar_entorno_gluconeogenesis(ancho, alto, y_mito=2550):
+def generar_entorno_gluconeogenesis(ancho, alto, y_mito=2650):
     """Entorno biológico abierto sin cajas pesadas con rótulos de compartimento explícitos."""
     return f"""
     <!-- Fondo Citoplasmático Celular -->
@@ -213,12 +228,12 @@ def generar_entorno_gluconeogenesis(ancho, alto, y_mito=2550):
       <path d="M 60 160 C 130 90, 170 190, 270 130 C 330 190, 280 240, 140 220 Z" 
             fill="#fef3c7" stroke="#b45309" stroke-width="2" opacity="0.8"/>
 
-      <!-- Transportador MPC (Carrier Mitocondrial de Piruvato) alineado en X=1250 -->
-      <g transform="translate(1215, 22)">
+      <!-- Transportador MPC (Carrier Mitocondrial de Piruvato) alineado en X=1280 -->
+      <g transform="translate(1245, 22)">
         <rect x="0" y="0" width="70" height="26" rx="6" fill="#b45309" stroke="#78350f" stroke-width="1.8"/>
         <text x="35" y="18" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MPC</text>
       </g>
-      <text x="1250" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#78350f" text-anchor="middle">
+      <text x="1280" y="12" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#78350f" text-anchor="middle">
         Carrier MPC (SLC54A1)
       </text>
 
@@ -245,7 +260,7 @@ def crear_metabolito(x, y, nombre, carbonos, formula="", svg_estructura="", text
 
     if texto_izquierda:
         pos_estructura = "translate(0, 0)"
-        pos_texto = "translate(-20, 24)"
+        pos_texto = "translate(-30, 24)"
         badge_svg = f"""
         <g transform="translate(0, -18)">
           <rect x="-42" y="0" width="42" height="18" rx="4" fill="{badge_color}" opacity="0.14"/>
@@ -254,6 +269,7 @@ def crear_metabolito(x, y, nombre, carbonos, formula="", svg_estructura="", text
         </g>
         """
         alineacion = 'text-anchor="end"'
+        rotulo_formula = f'<text x="0" y="32" fill="#64748b" font-size="10" font-family="\'JetBrains Mono\', monospace" {alineacion}>{formula}</text>' if formula else ""
         return f"""
         <!-- Metabolito: {nombre} -->
         <g transform="translate({x}, {y})">
@@ -277,6 +293,7 @@ def crear_metabolito(x, y, nombre, carbonos, formula="", svg_estructura="", text
           <text x="21" y="13" fill="{badge_color}" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">{carbonos}</text>
         </g>
         """
+        rotulo_formula = f'<text x="0" y="32" fill="#64748b" font-size="10" font-family="\'JetBrains Mono\', monospace">{formula}</text>' if formula else ""
         return f"""
         <!-- Metabolito: {nombre} -->
         <g transform="translate({x}, {y})">
@@ -297,17 +314,18 @@ def crear_reaccion_ascendente(x, y, enzima, ec="", entra_energia="", sale_energi
                               es_bypass=False, titulo_bypass="", sustituye_glucolisis="", nota_adicional="", etiqueta_paso=""):
     """Flecha ascendente con moduladores alostéricos, energía, CO2 y distinción de bypass vs reversible."""
     curvas_energia = ""
-    y_arco_in = 36
-    y_arco_out = 16
+    y_arco_in = 52
+    y_arco_out = 32
+    y_arco_co2 = 12
 
     if entra_energia:
         curvas_energia += f"""
-        <path d="M -85 {y_arco_in} Q -30 {y_arco_in} -4 26" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <path d="M -85 {y_arco_in} Q -30 {y_arco_in} -4 38" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
         <text x="-92" y="{y_arco_in + 4}" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">{entra_energia}</text>
         """
     if sale_energia:
         curvas_energia += f"""
-        <path d="M -4 20 Q -30 {y_arco_out} -85 {y_arco_out}" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+        <path d="M -4 28 Q -30 {y_arco_out} -85 {y_arco_out}" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
         <text x="-92" y="{y_arco_out + 4}" fill="#475569" font-size="11" font-weight="800" text-anchor="end">{sale_energia}</text>
         """
     if delta_co2:
@@ -318,8 +336,8 @@ def crear_reaccion_ascendente(x, y, enzima, ec="", entra_energia="", sale_energi
             """
         else:
             curvas_energia += f"""
-            <path d="M -4 30 Q -30 14 -85 14" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
-            <text x="-92" y="18" fill="#ea580c" font-size="11" font-weight="900" text-anchor="end">{delta_co2}</text>
+            <path d="M -4 20 Q -30 {y_arco_co2} -85 {y_arco_co2}" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowFlow)"/>
+            <text x="-92" y="{y_arco_co2 + 4}" fill="#ea580c" font-size="11" font-weight="900" text-anchor="end">{delta_co2}</text>
             """
 
     if entrada_agua:
@@ -395,11 +413,11 @@ def crear_reaccion_ascendente(x, y, enzima, ec="", entra_energia="", sale_energi
     """
 
 def generar_mapa_gluconeogenesis():
-    """Generador principal enfocado en biología estructural, 3 bypasses y destino de carbonos."""
+    """Generador principal con precursores integrados y regulación explícita PFK-2/FBPasa-2/F-2,6-BP."""
     svg_parts = []
 
-    # 1. Capa de entorno celular biológico (ancho=1750, alto=3500, y_mito=2550)
-    svg_parts.append(generar_entorno_gluconeogenesis(ANCHO_CANVAS, ALTO_CANVAS, y_mito=2550))
+    # 1. Capa de entorno celular biológico (ancho=1900, alto=3700, y_mito=2650)
+    svg_parts.append(generar_entorno_gluconeogenesis(ANCHO_CANVAS, ALTO_CANVAS, y_mito=2650))
 
     # =========================================================================
     # EJE CENTRAL: RUTA DE ESTRUCTURAS QUÍMICAS (PASOS 1 AL 14)
@@ -445,7 +463,7 @@ def generar_mapa_gluconeogenesis():
       </g>
     </g>
 
-    <!-- Flechas hacia el complejo del RE y retorno de glucosa con trayectorias altas y despejadas -->
+    <!-- Flechas hacia el complejo del RE y retorno de glucosa -->
     <path d="M 670 410 Q 430 350 250 260" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)"/>
     <text x="440" y="360" fill="#6d28d9" font-size="10" font-weight="800">G-6-P [6 C] entra al RE vía T1</text>
     
@@ -496,29 +514,162 @@ def generar_mapa_gluconeogenesis():
     # -------------------------------------------------------------------------
     # PASO 11: BYPASS 2 - Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1)
     # Sustituye a la Fosfofructocinasa-1 (PFK-1) de la Glucólisis
+    # Muestra también la flecha glucolítica opuesta de PFK-1 para visibilizar el ciclo de sustrato
     # -------------------------------------------------------------------------
-    svg_parts.append(crear_reaccion_ascendente(
-        x=X_FLECHA, y=715,
-        enzima="Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1)",
-        ec="EC 3.1.3.11 (Hidrólisis simple de fosfato: NO genera ATP)",
-        altura=55,
-        entra_energia="+ H₂O",
-        sale_energia="+ Pi",
-        activadores=["Citrato (Señal de abundancia energética)"],
-        inhibidores=["AMP (Baja energía)", "Fructosa-2,6-bisfosfato (F-2,6-BP)"],
-        nota_adicional="[Control Tándem: Glucagón -> PKA activa FBPasa-2 -> cae F-2,6-BP -> DESINHIBE FBPasa-1 | Insulina -> activa PFK-1]",
-        reversible=False,
-        num_paso=11,
-        es_bypass=True,
-        titulo_bypass="BYPASS 2",
-        sustituye_glucolisis="Fosfofructocinasa-1 (PFK-1) de la glucólisis"
-    ))
+    svg_parts.append(f"""
+    <!-- REACCIÓN ASCENDENTE: FBPasa-1 (GLUCONEOGÉNESIS) Y REACCIÓN DESCENDENTE OPUESTA PFK-1 (GLUCÓLISIS) -->
+    <g transform="translate({X_FLECHA}, 715)">
+      <!-- Flecha ascendente morada de FBPasa-1 (Gluconeogénesis) -->
+      <line x1="-8" y1="55" x2="-8" y2="0" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrowPurple)"/>
+      {badge_paso(11, -34, 27, es_bypass=True, etiqueta="")}
+
+      <!-- Curvas de energía de FBPasa-1: hidrólisis simple (+H2O -> +Pi) -->
+      <path d="M -90 48 Q -40 48 -12 34" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+      <text x="-96" y="52" fill="#0284c7" font-size="11" font-weight="800" text-anchor="end">+ H₂O</text>
+
+      <path d="M -12 20 Q -40 16 -90 16" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+      <text x="-96" y="20" fill="#475569" font-size="11" font-weight="800" text-anchor="end">+ Pi</text>
+
+      <!-- Flecha descendente complementaria de PFK-1 (Glucólisis) -->
+      <line x1="8" y1="0" x2="8" y2="55" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="5 3" marker-end="url(#arrowFlow)"/>
+
+      <!-- Textos de FBPasa-1 y mención de PFK-1 en columna central (X = 744 a 980) -->
+      <g transform="translate(24, 8)">
+        <text x="0" y="-10" fill="#6d28d9" font-size="11" font-weight="900" font-family="'Inter', sans-serif">BYPASS 2</text>
+        <text x="0" y="2" fill="#b91c1c" font-size="10" font-weight="800" font-family="'Inter', sans-serif">Sustituye a: Fosfofructocinasa-1 (PFK-1)</text>
+        
+        <text x="0" y="16" fill="#0f172a" font-size="13" font-weight="900">Fructosa-1,6-Bisfosfatasa-1 (FBPasa-1)</text>
+        <text x="0" y="29" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">EC 3.1.3.11 (Hidrólisis simple de fosfato)</text>
+        
+        <text x="0" y="43" fill="#16a34a" font-size="10" font-weight="800">(+) Citrato (Abundancia energética)</text>
+        <text x="0" y="56" fill="#dc2626" font-size="10" font-weight="800">(-) AMP, Fructosa-2,6-bisfosfato (F-2,6-BP)</text>
+
+        <!-- Rótulo directo de la flecha glucolítica PFK-1 -->
+        <text x="0" y="70" fill="#ea580c" font-size="10" font-weight="800">
+          [Glucólisis: PFK-1 (EC 2.7.1.11) invierte 1 ATP]
+        </text>
+      </g>
+    </g>
+    """)
+
+    # -------------------------------------------------------------------------
+    # MÓDULO EXPLÍCITO: ENZIMA BIFUNCIONAL PFK-2 / FBPasa-2, FRUCTOSA-2,6-BISFOSFATO (F-2,6-BP)
+    # Y CASCADA HORMONAL HEPÁTICA (GLUCAGÓN / PKA vs INSULINA / PP1)
+    # Ubicado en X = 1360 a 1880 con total holgura espacial
+    # -------------------------------------------------------------------------
+    svg_parts.append(f"""
+    <!-- MÓDULO REGULATORIO PFK-2 / FBPasa-2 Y F-2,6-BP -->
+    <g transform="translate(1360, 560)">
+      <!-- Rótulo del Sistema -->
+      <text x="0" y="0" fill="#6d28d9" font-size="12.5" font-weight="900" letter-spacing="0.5">
+        ENZIMA BIFUNCIONAL HEPÁTICA: PFK-2 / FBPasa-2
+      </text>
+      <text x="0" y="14" fill="#475569" font-size="9.5" font-weight="700">
+        Control maestro del conmutador alostérico Glucólisis ⇄ Gluconeogénesis
+      </text>
+
+      <!-- 1. Enzima Bifuncional Hepática PFK-2/FBPasa-2 (Diagrama de Dominios) -->
+      <g transform="translate(0, 26)">
+        <rect x="0" y="0" width="160" height="26" rx="5" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+        <text x="80" y="17" fill="#b91c1c" font-size="10" font-weight="900" text-anchor="middle">Dominio PFK-2 (Quinasa)</text>
+
+        <!-- Enlace peptídico central con residuo regulatorio Ser-32 -->
+        <line x1="160" y1="13" x2="200" y2="13" stroke="#0f172a" stroke-width="2"/>
+        <circle cx="180" cy="13" r="9" fill="#fef9c3" stroke="#b45309" stroke-width="1.6"/>
+        <text x="180" y="16" fill="#78350f" font-size="8" font-weight="900" text-anchor="middle">Ser-32</text>
+
+        <rect x="200" y="0" width="170" height="26" rx="5" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+        <text x="285" y="17" fill="#6d28d9" font-size="10" font-weight="900" text-anchor="middle">Dominio FBPasa-2 (Fosfatasa)</text>
+
+        <text x="380" y="17" fill="#64748b" font-size="9" font-weight="700">(Misma proteína dímera)</text>
+      </g>
+
+      <!-- 2. Cascada Hormonal Hepática: Glucagón vs Insulina -->
+      <g transform="translate(0, 68)">
+        <!-- Vía Glucagón (Ayuno) -->
+        <g transform="translate(0, 0)">
+          <path d="M 0 8 L 30 8" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+          <text x="36" y="11" fill="#ea580c" font-size="10" font-weight="900">Glucagón (Ayuno)</text>
+          <text x="135" y="11" fill="#b45309" font-size="9.5" font-weight="800">➔ cAMP ↑ ➔ PKA ➔ Fosforila Ser-32 ➔</text>
+          <text x="330" y="11" fill="#7c3aed" font-size="10" font-weight="900">ACTIVA FBPasa-2</text>
+        </g>
+
+        <!-- Vía Insulina (Posprandial) -->
+        <g transform="translate(0, 20)">
+          <path d="M 0 8 L 30 8" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+          <text x="36" y="11" fill="#0284c7" font-size="10" font-weight="900">Insulina (Saciedad)</text>
+          <text x="135" y="11" fill="#0369a1" font-size="9.5" font-weight="800">➔ PP1 (Fosfatasa) ➔ Desfosforila Ser-32 ➔</text>
+          <text x="330" y="11" fill="#b91c1c" font-size="10" font-weight="900">ACTIVA PFK-2</text>
+        </g>
+      </g>
+
+      <!-- 3. Ciclo Local de Interconversión F-6-P ⇄ F-2,6-BP con Estructura Molecular -->
+      <g transform="translate(30, 115)">
+        <!-- Conector superior desde el pool de F-6-P -->
+        <text x="150" y="0" fill="#0f172a" font-size="11" font-weight="900" text-anchor="middle">
+          Fructosa-6-Fosfato (F-6-P) [Pool Citosólico]
+        </text>
+
+        <!-- Flecha hacia abajo: Actividad PFK-2 (Insulina) -->
+        <line x1="70" y1="12" x2="70" y2="52" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arrowRed)"/>
+        <g transform="translate(62, 34)">
+          <text x="-10" y="-3" fill="#dc2626" font-size="9.5" font-weight="900" text-anchor="end">PFK-2 (- 1 ATP)</text>
+          <text x="-10" y="9" fill="#991b1b" font-size="8.5" font-weight="700" text-anchor="end">[Insulina activa]</text>
+        </g>
+
+        <!-- Flecha hacia arriba: Actividad FBPasa-2 (Glucagón) -->
+        <line x1="230" y1="52" x2="230" y2="12" stroke="#7c3aed" stroke-width="2.2" marker-end="url(#arrowPurple)"/>
+        <g transform="translate(238, 34)">
+          <text x="10" y="-3" fill="#7c3aed" font-size="9.5" font-weight="900">FBPasa-2 (+ H₂O ➔ + Pi)</text>
+          <text x="10" y="9" fill="#5b21b6" font-size="8.5" font-weight="700">[Glucagón/PKA activa]</text>
+        </g>
+
+        <!-- Estructura molecular de F-2,6-BP centrada -->
+        <g transform="translate(100, 60)">
+          {FRUCTOSA_2_6_BISFOSFATO}
+          
+          <g transform="translate(125, 24)">
+            <g transform="translate(0, -18)">
+              <rect x="0" y="0" width="42" height="18" rx="4" fill="#7c3aed" opacity="0.14"/>
+              <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="21" y="13" fill="#7c3aed" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6 C</text>
+            </g>
+            <text x="0" y="14" fill="#0f172a" font-size="13" font-weight="900">Fructosa-2,6-Bisfosfato (F-2,6-BP)</text>
+            <text x="0" y="27" fill="#64748b" font-size="9.5" font-family="'JetBrains Mono', monospace">Señal alostérica potente</text>
+          </g>
+        </g>
+
+        <!-- Consecuencia fisiológica explicada directamente -->
+        <g transform="translate(0, 185)">
+          <text x="0" y="0" fill="#047857" font-size="10.5" font-weight="900">
+            EFECTO DEL AYUNO (GLUCAGÓN / ADRENALINA):
+          </text>
+          <text x="0" y="14" fill="#15803d" font-size="9.5" font-weight="700">
+            FBPasa-2 degrada F-2,6-BP ➔ Caída de F-2,6-BP ➔ DESINHIBICIÓN DE FBPasa-1 ➔ VÍA GLUCONEOGÉNICA ACTIVA
+          </text>
+        </g>
+      </g>
+    </g>
+
+    <!-- 4. LÍNEAS DE REGULACIÓN ALOSTÉRICA DIRECTAS: Conectan desde F-2,6-BP al borde derecho de FBPasa-1 y PFK-1 (terminando en X=1000 sin cruzar textos) -->
+    <!-- Conexión 1: F-2,6-BP INHIBE ALOSTÉRICAMENTE FBPasa-1 -->
+    <path d="M 1450 780 Q 1200 730 1005 730" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-dasharray="6 4" marker-end="url(#markerInhibeRojo)"/>
+    <text x="1220" y="722" fill="#dc2626" font-size="10" font-weight="900" text-anchor="middle">
+      (-) Inhibe alostéricamente FBPasa-1 (Gluconeogénesis ↓)
+    </text>
+
+    <!-- Conexión 2: F-2,6-BP ACTIVA ALOSTÉRICAMENTE PFK-1 -->
+    <path d="M 1450 795 Q 1200 785 1005 785" fill="none" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="6 4" marker-end="url(#markerActivaVerde)"/>
+    <text x="1220" y="780" fill="#16a34a" font-size="10" font-weight="900" text-anchor="middle">
+      (+) Activa alostéricamente PFK-1 (Glucólisis ↑)
+    </text>
+    """)
 
     # -------------------------------------------------------------------------
     # 4. Fructosa-1,6-Bisfosfato (F-1,6-BP)
     # -------------------------------------------------------------------------
     svg_parts.append(crear_metabolito(
-        x=X_EJE, y=850,
+        x=X_EJE, y=860,
         nombre="Fructosa-1,6-Bisfosfato (F-1,6-BP)",
         carbonos="6 C",
         formula="C₆H₁₀O₁₂P₂⁴⁻ (Hexosa bisfosforilada)",
@@ -531,7 +682,7 @@ def generar_mapa_gluconeogenesis():
     # PASO 10: Aldolasa - Condensación Aldólica Reversible (3C + 3C -> 6C)
     # -------------------------------------------------------------------------
     svg_parts.append(crear_reaccion_ascendente(
-        x=X_FLECHA, y=970,
+        x=X_FLECHA, y=980,
         enzima="Aldolasa A / B (Condensación Aldólica)",
         ec="EC 4.1.2.13 (Condensación reversible: 3 C + 3 C -> 6 C)",
         altura=45,
@@ -542,34 +693,69 @@ def generar_mapa_gluconeogenesis():
     ))
 
     # -------------------------------------------------------------------------
-    # PRECURSOR 3: GLICEROL [3 C] - Origen: Lipólisis de Triglicéridos
+    # PRECURSOR 3: GLICEROL [3 C] - REORGANIZACIÓN COMPLETA
+    # Incorporación directa a nivel de Triosas Fosfato (DHAP) con Glicerol-3-P
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
-    <!-- PRECURSOR 3: GLICEROL -->
+    <!-- PRECURSOR 3: GLICEROL Y SU INCORPORACIÓN DIRECTA A DHAP VIA GLICEROL-3-FOSFATO -->
     <g transform="translate(60, 1050)">
+      <!-- Encabezado del Precursor -->
       <g transform="translate(0, -18)">
         <rect x="0" y="0" width="42" height="18" rx="4" fill="#0284c7" opacity="0.14"/>
         <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#0284c7" stroke-width="1.4"/>
         <text x="21" y="13" fill="#0284c7" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
       </g>
-      <text x="48" y="-4" fill="#0284c7" font-size="12" font-weight="900">PRECURSOR 3: GLICEROL</text>
-      <text x="0" y="14" fill="#64748b" font-size="9.5">Origen: Lipólisis de Triglicéridos (Tejido Adiposo)</text>
+      <text x="48" y="-4" fill="#0284c7" font-size="12" font-weight="900">PRECURSOR: GLICEROL</text>
+      <text x="0" y="14" fill="#64748b" font-size="9.5">Origen: Lipólisis de Triglicéridos en Tejido Adiposo</text>
 
+      <!-- 1. Molécula: Glicerol [3 C] -->
       <g transform="translate(0, 24)">
         {GLICEROL}
       </g>
-
-      <g transform="translate(105, 36)">
+      <g transform="translate(100, 48)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">Glicerol [3 C]</text>
-        <text x="0" y="15" fill="#dc2626" font-size="10" font-weight="700">1. Glicerol Cinasa (- 1 ATP)</text>
-        <text x="0" y="27" fill="#64748b" font-size="9.5">-> Glicerol-3-Fosfato [3 C]</text>
-        <text x="0" y="42" fill="#059669" font-size="10" font-weight="700">2. G3PDH (+ NAD⁺ -> + NADH + H⁺)</text>
-        <text x="0" y="55" fill="#047857" font-size="10" font-weight="800">-> DHAP [3 C] (Entrada directa)</text>
+        <text x="0" y="14" fill="#64748b" font-size="9.5">Lipólisis adiposa libera glicerol a sangre</text>
       </g>
 
-      <!-- Flecha directa hacia DHAP -->
-      <path d="M 330 80 Q 380 80 410 70" fill="none" stroke="#0284c7" stroke-width="2.4" marker-end="url(#arrowBlue)"/>
-      <text x="365" y="60" fill="#0284c7" font-size="10" font-weight="800">-> DHAP</text>
+      <!-- 2. Reacción: Glicerol Cinasa (GK) con gasto de 1 ATP -->
+      <g transform="translate(50, 140)">
+        <line x1="0" y1="0" x2="0" y2="40" stroke="#dc2626" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+        
+        <!-- Curvas de ATP -> ADP -->
+        <path d="M -60 10 Q -25 10 -4 18" fill="none" stroke="#dc2626" stroke-width="1.6" marker-end="url(#arrowRed)"/>
+        <text x="-65" y="14" fill="#dc2626" font-size="10" font-weight="800" text-anchor="end">- 1 ATP</text>
+        
+        <path d="M -4 24 Q -25 32 -60 32" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrowSlate)"/>
+        <text x="-65" y="36" fill="#475569" font-size="10" font-weight="800" text-anchor="end">+ ADP</text>
+
+        <g transform="translate(15, 16)">
+          <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="800">Glicerol Cinasa (GK)</text>
+          <text x="0" y="12" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 2.7.1.30 (Hepática)</text>
+        </g>
+      </g>
+
+      <!-- 3. Molécula: Glicerol-3-Fosfato [3 C] -->
+      <g transform="translate(0, 200)">
+        {GLICEROL_3_FOSFATO}
+        <g transform="translate(100, 50)">
+          <g transform="translate(0, -18)">
+            <rect x="0" y="0" width="42" height="18" rx="4" fill="#0284c7" opacity="0.14"/>
+            <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#0284c7" stroke-width="1.4"/>
+            <text x="21" y="13" fill="#0284c7" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
+          </g>
+          <text x="0" y="14" fill="#0f172a" font-size="13" font-weight="800">Glicerol-3-Fosfato (G-3-P)</text>
+          <text x="0" y="28" fill="#64748b" font-size="9.5">Intermediario fosforilado</text>
+        </g>
+      </g>
+
+      <!-- 4. Reacción Redox: G3PDH (+ NAD+ -> + NADH + H+) y Conexión DIRECTA a DHAP -->
+      <path d="M 60 330 Q 180 340 320 230 Q 360 190 390 120" fill="none" stroke="#059669" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
+      <g transform="translate(150, 310)">
+        <text x="0" y="0" fill="#059669" font-size="11" font-weight="900">G3PDH Citosólica (EC 1.1.1.8)</text>
+        <text x="0" y="14" fill="#047857" font-size="10.5" font-weight="800">+ NAD⁺ ➔ + NADH + H⁺</text>
+        <text x="0" y="28" fill="#0284c7" font-size="9.5" font-weight="800">➔ ENTRADA DIRECTA A NIVEL DE TRIOSAS (DHAP)</text>
+        <text x="0" y="40" fill="#64748b" font-size="9">Se incorpora a la ruta SIN pasar por Piruvato ni Mitocondria</text>
+      </g>
     </g>
     """)
 
@@ -623,7 +809,7 @@ def generar_mapa_gluconeogenesis():
         altura=55,
         entra_energia="+ 2 NADH + 2 H⁺",
         sale_energia="+ 2 NAD⁺ + 2 Pi",
-        nota_adicional="[Consume el NADH citosólico generado por la lanzadera de Malato (cMDH) / LDH]",
+        nota_adicional="[Consume el NADH citosólico generado por la lanzadera de Malato (cMDH) / LDH / G3PDH]",
         reversible=True,
         num_paso=9,
         es_bypass=False,
@@ -769,7 +955,6 @@ def generar_mapa_gluconeogenesis():
 
     # -------------------------------------------------------------------------
     # 10. Oxalacetato Citosólico (OAA Citosólico) [4 C]
-    # dx_texto=105 para dar amplio margen libre respecto a L-Lactato
     # -------------------------------------------------------------------------
     svg_parts.append(crear_metabolito(
         x=X_EJE + 60, y=2175,
@@ -797,7 +982,6 @@ def generar_mapa_gluconeogenesis():
     # -------------------------------------------------------------------------
     # PASO 4: cMDH (Malato Deshidrogenasa Citosólica)
     # Regenera NADH citosólico imprescindible para GAPDH
-    # Conecta L-Malato (estructura en X=220-310) con OAA (empieza en X=740)
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
     <!-- PASO 4: MDH CITOSÓLICA (cMDH) -->
@@ -815,13 +999,12 @@ def generar_mapa_gluconeogenesis():
 
     # -------------------------------------------------------------------------
     # PASO 3: Transporte Transmembrana de Malato vía Carrier OGC (SLC25A11)
-    # Conecta Malato Mitocondrial (X=220, Y=3100) con Malato Citosólico (X=220, Y=2175)
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
     <!-- PASO 3: SALIDA POR CARRIER OGC (TRANSPORTE FÍSICO) -->
-    <path d="M 220 3060 L 220 2580 Q 220 2560 220 2480 L 220 2270" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowGreen)"/>
-    {badge_paso(3, 220, 2520, es_bypass=False, etiqueta="")}
-    <g transform="translate(245, 2485)">
+    <path d="M 220 3180 L 220 2680 Q 220 2660 220 2480 L 220 2270" fill="none" stroke="#047857" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowGreen)"/>
+    {badge_paso(3, 220, 2620, es_bypass=False, etiqueta="")}
+    <g transform="translate(245, 2585)">
       <text x="0" y="0" fill="#047857" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Transporte Físico OGC (Antiporte Malato²⁻ / α-KG²⁻)</text>
       <text x="0" y="13" fill="#15803d" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif">SLC25A11: exporta esqueleto de 4C y equivalente reductor (NADH) al citosol</text>
       <text x="0" y="26" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">La MMI es completamente impermeable al Oxaloacetato</text>
@@ -829,74 +1012,82 @@ def generar_mapa_gluconeogenesis():
     """)
 
     # -------------------------------------------------------------------------
-    # PRECURSORES CITOSÓLICOS: L-LACTATO Y L-ALANINA
-    # Distribución simétrica y despejada convergiendo en Piruvato Citosólico (X=1250)
+    # PRECURSORES CITOSÓLICOS: L-LACTATO (CICLO DE CORI) Y L-ALANINA (CICLO DE CAHILL)
+    # Reorganizados con conexión funcional a músculo e hígado, convergencia en Piruvato
     # -------------------------------------------------------------------------
 
-    # PRECURSOR 1: L-Lactato [3 C] (Ciclo de Cori) - Entrada en X=1060
+    # PRECURSOR 1: L-Lactato [3 C] (Ciclo de Cori Músculo-Hígado)
     svg_parts.append(f"""
-    <!-- PRECURSOR 1: L-LACTATO -->
+    <!-- PRECURSOR 1: L-LACTATO Y CICLO DE CORI -->
     <g transform="translate(1060, 2150)">
+      <!-- Encabezado con Carbonos -->
       <g transform="translate(0, -18)">
         <rect x="0" y="0" width="42" height="18" rx="4" fill="#7c3aed" opacity="0.14"/>
         <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
         <text x="21" y="13" fill="#7c3aed" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
       </g>
-      <text x="48" y="-4" fill="#7c3aed" font-size="12" font-weight="900">PRECURSOR 1: L-LACTATO</text>
-      <text x="0" y="14" fill="#64748b" font-size="9.5">Ciclo de Cori (Eritrocitos y Músculo Anaeróbico)</text>
+      <text x="48" y="-4" fill="#7c3aed" font-size="12" font-weight="900">PRECURSOR: L-LACTATO</text>
+      <text x="0" y="14" fill="#0284c7" font-size="10" font-weight="800">Ciclo de Cori (Intercambio Funcional Músculo ⇄ Hígado)</text>
+      <text x="0" y="26" fill="#64748b" font-size="9">Glucólisis anaerobia en eritrocito/músculo genera lactato ➔ sangre ➔ hígado</text>
 
-      <g transform="translate(0, 24)">
+      <!-- Molécula de Lactato con estructura completa -->
+      <g transform="translate(0, 36)">
         {LACTATO}
       </g>
 
-      <g transform="translate(90, 44)">
+      <!-- Reacción de la Lactato Deshidrogenasa (LDH) -->
+      <g transform="translate(115, 56)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">L-Lactato [3 C]</text>
-        <text x="0" y="16" fill="#7c3aed" font-size="11" font-weight="800">LDH (Lactato Deshidrogenasa)</text>
-        <text x="0" y="29" fill="#059669" font-size="10.5" font-weight="800">+ NAD⁺ -> + NADH + H⁺</text>
-        <text x="0" y="42" fill="#64748b" font-size="9">Genera NADH citosólico in situ</text>
+        <text x="0" y="16" fill="#7c3aed" font-size="11" font-weight="800">LDH (Lactato Deshidrogenasa / EC 1.1.1.27)</text>
+        <text x="0" y="30" fill="#059669" font-size="11" font-weight="900">+ NAD⁺ ➔ + NADH + H⁺</text>
+        <text x="0" y="44" fill="#047857" font-size="9.5" font-weight="700">Genera NADH citosólico imprescindible para GAPDH</text>
       </g>
 
-      <!-- Flecha diagonal hacia Piruvato citosólico (sin cruces) -->
-      <path d="M 60 135 Q 120 180 160 215" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)"/>
-      <text x="120" y="170" fill="#7c3aed" font-size="10" font-weight="800">LDH -> Piruvato</text>
+      <!-- Flecha diagonal convergente hacia Piruvato citosólico -->
+      <path d="M 60 145 Q 120 190 160 225" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)"/>
+      <text x="120" y="180" fill="#7c3aed" font-size="10" font-weight="800">LDH ➔ Piruvato</text>
     </g>
     """)
 
-    # PRECURSOR 2: L-Alanina [3 C] (Ciclo de Cahill) - Entrada en X=1460
+    # PRECURSOR 2: L-Alanina [3 C] (Ciclo Glucosa-Alanina / Cahill)
     svg_parts.append(f"""
-    <!-- PRECURSOR 2: L-ALANINA -->
-    <g transform="translate(1460, 2150)">
+    <!-- PRECURSOR 2: L-ALANINA Y CICLO DE CAHILL -->
+    <g transform="translate(1500, 2150)">
+      <!-- Encabezado con Carbonos -->
       <g transform="translate(0, -18)">
         <rect x="0" y="0" width="42" height="18" rx="4" fill="#ea580c" opacity="0.14"/>
         <rect x="0" y="0" width="42" height="18" rx="4" fill="none" stroke="#ea580c" stroke-width="1.4"/>
         <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
       </g>
-      <text x="48" y="-4" fill="#ea580c" font-size="12" font-weight="900">PRECURSOR 2: L-ALANINA</text>
-      <text x="0" y="14" fill="#64748b" font-size="9.5">Ciclo Glucosa-Alanina / Cahill (Proteólisis muscular)</text>
+      <text x="48" y="-4" fill="#ea580c" font-size="12" font-weight="900">PRECURSOR: L-ALANINA</text>
+      <text x="0" y="14" fill="#b45309" font-size="10" font-weight="800">Ciclo Glucosa-Alanina / Cahill (Proteólisis Muscular)</text>
+      <text x="0" y="26" fill="#64748b" font-size="9">Exporta nitrógeno al Ciclo de la Urea y esqueleto carbonado a Glucosa</text>
 
-      <g transform="translate(0, 24)">
+      <!-- Molécula de Alanina con estructura completa -->
+      <g transform="translate(0, 36)">
         {AMINO_ALANINA}
       </g>
 
-      <g transform="translate(90, 44)">
+      <!-- Reacción de la Alanina Aminotransferasa (ALT) -->
+      <g transform="translate(115, 56)">
         <text x="0" y="0" fill="#0f172a" font-size="13" font-weight="800">L-Alanina [3 C]</text>
-        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800">ALT (Alanina Aminotransferasa)</text>
-        <text x="0" y="29" fill="#0284c7" font-size="10.5" font-weight="800">+ α-KG -> + L-Glutamato</text>
-        <text x="0" y="42" fill="#64748b" font-size="9">Transferencia del grupo amino (⁺NH₃)</text>
+        <text x="0" y="16" fill="#ea580c" font-size="11" font-weight="800">ALT (Alanina Aminotransferasa / EC 2.6.1.2)</text>
+        <text x="0" y="30" fill="#0284c7" font-size="10.5" font-weight="900">+ α-Cetoglutarato ➔ + L-Glutamato</text>
+        <text x="0" y="44" fill="#4338ca" font-size="9.5" font-weight="700">Transferencia del grupo amino (⁺NH₃) hacia la Urea</text>
       </g>
 
-      <!-- Flecha diagonal hacia Piruvato citosólico (sin cruces) -->
-      <path d="M 20 135 Q -70 180 -140 215" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
-      <text x="-75" y="170" fill="#ea580c" font-size="10" font-weight="800">ALT -> Piruvato</text>
+      <!-- Flecha diagonal convergente hacia Piruvato citosólico -->
+      <path d="M 20 145 Q -70 190 -170 225" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+      <text x="-95" y="180" fill="#ea580c" font-size="10" font-weight="800">ALT ➔ Piruvato</text>
     </g>
     """)
 
     # -------------------------------------------------------------------------
-    # CONVERGENCIA EN CITOSOL: Piruvato Citosólico [3 C] alineado en X=1250
+    # CONVERGENCIA EN CITOSOL: Piruvato Citosólico [3 C] alineado en X=1280
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
-    <!-- METABOLITO: PIRUVATO CITOSÓLICO [3 C] -->
-    <g transform="translate(1225, 2365)">
+    <!-- METABOLITO: PIRUVATO CITOSÓLICO [3 C] (PUNTO DE CONVERGENCIA) -->
+    <g transform="translate(1255, 2380)">
       {PIRUVATO}
       <g transform="translate(100, 24)">
         <g transform="translate(0, -18)">
@@ -905,39 +1096,39 @@ def generar_mapa_gluconeogenesis():
           <text x="21" y="13" fill="#ea580c" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 C</text>
         </g>
         <text x="0" y="14" fill="#0f172a" font-size="14" font-weight="900">Piruvato (Citosólico) [3 C]</text>
-        <text x="0" y="28" fill="#64748b" font-size="10" font-family="'JetBrains Mono', monospace">C₃H₃O₃⁻ (Convergencia Lactato / Alanina)</text>
+        <text x="0" y="28" fill="#0369a1" font-size="10" font-weight="800">Convergencia de Precursores (Lactato y Alanina)</text>
       </g>
     </g>
 
-    <!-- Flecha descendente directa que cruza el transportador MPC en X=1250 -->
-    <line x1="1250" y1="2455" x2="1250" y2="2635" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+    <!-- Flecha descendente directa que cruza el transportador MPC en X=1280 -->
+    <line x1="1280" y1="2470" x2="1280" y2="2735" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
     """)
 
     # =========================================================================
-    # MATRIZ MITOCONDRIAL: PIRUVATO, PC, OAA, mMDH Y MALATO
+    # MATRIZ MITOCONDRIAL: PIRUVATO, PC, OAA, mMDH, MALATO Y CATAPLEROSIS DE KREBS
     # =========================================================================
 
     # -------------------------------------------------------------------------
-    # 12. Piruvato Mitocondrial [3 C] alineado en X=1225
+    # 12. Piruvato Mitocondrial [3 C] alineado en X=1255
     # -------------------------------------------------------------------------
     svg_parts.append(crear_metabolito(
-        x=1225, y=2660,
+        x=1255, y=2760,
         nombre="Piruvato (Mitocondrial)",
         carbonos="3 C",
-        formula="C₃H₃O₃⁻ (Sustrato de Carboxilación)",
+        formula="C₃H₃O₃⁻ (Sustrato de Carboxilación en Matriz)",
         svg_estructura=PIRUVATO,
         dx_texto=100,
         badge_color="#ea580c"
     ))
 
     # -------------------------------------------------------------------------
-    # PASO 1: BYPASS 1A - Piruvato Carboxilasa (PC) en X=1250
+    # PASO 1: BYPASS 1A - Piruvato Carboxilasa (PC) en X=1280
     # Sustituye a la Piruvato Quinasa (PK) de la Glucólisis
     # Fijación de Carbono: + CO2 (3C + 1C -> 4C)
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
     <!-- PASO 1: PIRUVATO CARBOXILASA (PC) -->
-    <g transform="translate(1250, 2770)">
+    <g transform="translate(1280, 2870)">
       <line x1="0" y1="0" x2="0" y2="130" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrowPurple)"/>
       <path d="M -85 25 Q -30 25 -4 38" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
       <text x="-92" y="29" fill="#dc2626" font-size="11" font-weight="800" text-anchor="end">- 1 ATP</text>
@@ -963,10 +1154,10 @@ def generar_mapa_gluconeogenesis():
 
     # -------------------------------------------------------------------------
     # 13. Oxalacetato Mitocondrial (OAA Mitocondrial) [4 C]
-    # Posicionado limpiamente en X=1225, Y=2970 con dx_texto=100
+    # Posicionado en X=1255, Y=3070 con dx_texto=100
     # -------------------------------------------------------------------------
     svg_parts.append(crear_metabolito(
-        x=1225, y=2970,
+        x=1255, y=3070,
         nombre="Oxalacetato (OAA Mitocondrial)",
         carbonos="4 C",
         formula="C₄H₂O₅²⁻ (MMI carece de carrier directo para OAA)",
@@ -976,59 +1167,59 @@ def generar_mapa_gluconeogenesis():
     ))
 
     # -------------------------------------------------------------------------
-    # CATAPLEROSIS DEL CICLO DE KREBS HACIA OAA MITOCONDRIAL
-    # Ubicada en X=1380, Y=3080 debajo del texto de OAA, con flecha ascendente limpia
+    # OTROS PRECURSORES: CATAPLEROSIS DEL CICLO DE KREBS (AMINOÁCIDOS GLUCOGÉNICOS)
+    # Distinguidos claramente de los que entran como Piruvato: alimentan intermediarios de Krebs
     # -------------------------------------------------------------------------
     svg_parts.append("""
-    <!-- CATAPLEROSIS DEL CICLO DE KREBS -->
-    <g transform="translate(1380, 3075)">
-      <text x="0" y="0" fill="#b45309" font-size="12" font-weight="900">
-        CATAPLEROSIS DEL CICLO DE KREBS (AMINOÁCIDOS GLUCOGÉNICOS)
+    <!-- CATAPLEROSIS DEL CICLO DE KREBS: PRECURSORES QUE ALIMENTAN OAA MATRICIAL -->
+    <g transform="translate(1420, 3180)">
+      <text x="0" y="0" fill="#b45309" font-size="12.5" font-weight="900">
+        PRECURSORES CATAPLERÓTICOS: CICLO DE KREBS (AMINOÁCIDOS)
       </text>
-      <text x="0" y="15" fill="#92400e" font-size="10" font-weight="700">
-        Precursores que alimentan el pool de Oxaloacetato matricial [4 C]:
+      <text x="0" y="16" fill="#92400e" font-size="10" font-weight="700">
+        Precursores que NO pasan por Piruvato: entran como intermediarios de Krebs y forman Oxaloacetato [4 C]:
       </text>
 
-      <g transform="translate(0, 28)">
+      <g transform="translate(0, 30)">
         <text x="0" y="0" fill="#0f172a" font-size="10" font-weight="800">• α-Cetoglutarato [5 C]:</text>
-        <text x="135" y="0" fill="#047857" font-size="9.5">Glutamato, Glutamina, Prolina, Histidina, Arginina</text>
+        <text x="140" y="0" fill="#047857" font-size="9.5">Glutamato, Glutamina, Prolina, Histidina, Arginina</text>
 
         <text x="0" y="16" fill="#0f172a" font-size="10" font-weight="800">• Succinil-CoA [4 C]:</text>
-        <text x="135" y="16" fill="#047857" font-size="9.5">Metionina, Valina, Isoleucina, Treonina, Propionil-CoA</text>
+        <text x="140" y="16" fill="#047857" font-size="9.5">Metionina, Valina, Isoleucina, Treonina, Propionil-CoA (grasas impares)</text>
 
         <text x="0" y="32" fill="#0f172a" font-size="10" font-weight="800">• Fumarato [4 C]:</text>
-        <text x="135" y="32" fill="#047857" font-size="9.5">Fenilalanina, Tirosina, Aspartato</text>
+        <text x="140" y="32" fill="#047857" font-size="9.5">Fenilalanina, Tirosina, Aspartato</text>
 
-        <text x="0" y="48" fill="#0f172a" font-size="10" font-weight="800">• Oxalacetato [4 C]:</text>
-        <text x="135" y="48" fill="#047857" font-size="9.5">Aspartato, Asparagina (Transaminación directa)</text>
+        <text x="0" y="48" fill="#0f172a" font-size="10" font-weight="800">• Oxalacetato directo [4 C]:</text>
+        <text x="140" y="48" fill="#047857" font-size="9.5">Aspartato, Asparagina (Transaminación directa por AST)</text>
 
-        <text x="0" y="66" fill="#b91c1c" font-size="9.5" font-weight="800">
-          Nota: Acetil-CoA (ácidos grasos pares) NO aporta carbonos netos
+        <text x="0" y="68" fill="#b91c1c" font-size="9.5" font-weight="800">
+          Nota Bioquímica: Acetil-CoA (ácidos grasos pares) NO aporta carbonos netos
         </text>
-        <text x="0" y="78" fill="#64748b" font-size="8.5">
+        <text x="0" y="80" fill="#64748b" font-size="8.5">
           (Entran 2 C como Acetil-CoA y se liberan 2 C como CO₂ en Krebs; balance neto = 0).
         </text>
       </g>
 
-      <!-- Flecha ascendente suave hacia Oxalacetato mitocondrial -->
-      <path d="M 0 10 Q -40 -30 -80 -60" fill="none" stroke="#b45309" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#arrowAmber)"/>
-      <text x="-55" y="-30" fill="#b45309" font-size="9.5" font-weight="800" text-anchor="middle">-> Pool OAA [4 C]</text>
+      <!-- Flecha ascendente suave conectando al pool de Oxalacetato matricial -->
+      <path d="M 0 10 Q -50 -30 -90 -60" fill="none" stroke="#b45309" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#arrowAmber)"/>
+      <text x="-65" y="-30" fill="#b45309" font-size="9.5" font-weight="800" text-anchor="middle">➔ Pool OAA [4 C]</text>
     </g>
     """)
 
     # -------------------------------------------------------------------------
     # PASO 2: mMDH (Malato Deshidrogenasa Mitocondrial)
     # Reduce OAA a Malato gastando 1 NADH matricial
-    # Conecta Oxalacetato Mitocondrial (X=1225) con L-Malato Mitocondrial (X=220)
-    # Flecha en Y=3160, textos en Y=3130 (arriba de la flecha)
+    # Conecta Oxalacetato Mitocondrial (X=1255) con L-Malato Mitocondrial (X=220)
+    # Flecha en Y=3270, termina en X=360 (despejada de Malato que está en X=220-310)
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
     <!-- PASO 2: mMDH -->
-    <g transform="translate(340, 3160)">
-      <line x1="840" y1="0" x2="0" y2="0" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
-      {badge_paso(2, 810, 0, es_bypass=False, etiqueta="")}
+    <g transform="translate(360, 3270)">
+      <line x1="850" y1="0" x2="0" y2="0" stroke="#7c3aed" stroke-width="2.8" marker-end="url(#arrowPurple)"/>
+      {badge_paso(2, 820, 0, es_bypass=False, etiqueta="")}
 
-      <g transform="translate(420, -12)">
+      <g transform="translate(425, -12)">
         <text x="0" y="-12" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#6d28d9" text-anchor="middle">mMDH (MDH Mitocondrial)</text>
         <text x="0" y="2" font-family="'Inter', sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">Reduce OAA a Malato: única vía para exportar el esqueleto de 4C</text>
         <text x="0" y="22" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#dc2626" text-anchor="middle">+ NADH + H⁺ -> + NAD⁺ (Gasta 1 NADH matricial)</text>
@@ -1038,10 +1229,10 @@ def generar_mapa_gluconeogenesis():
 
     # -------------------------------------------------------------------------
     # 14. L-Malato Mitocondrial [4 C]
-    # Posicionado en X=220, Y=3100
+    # Posicionado en X=220, Y=3200 con fórmula en texto_izquierda
     # -------------------------------------------------------------------------
     svg_parts.append(crear_metabolito(
-        x=220, y=3100,
+        x=220, y=3200,
         nombre="L-Malato (Mitocondrial)",
         carbonos="4 C",
         formula="C₄H₄O₅²⁻ (Exportable por OGC)",
@@ -1054,7 +1245,7 @@ def generar_mapa_gluconeogenesis():
     # ESTEQUIOMETRÍA Y BALANCE GLOBAL EN EL ENCABEZADO SUPERIOR DERECHO
     # -------------------------------------------------------------------------
     svg_parts.append("""
-    <g transform="translate(1700, 30)">
+    <g transform="translate(1850, 30)">
       <text x="0" y="0" fill="#0f172a" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="end">
         BALANCE GLOBAL: 2 Piruvato (3 C) + 4 ATP + 2 GTP + 2 NADH + 6 H₂O -> D-Glucosa (6 C) + 4 ADP + 2 GDP + 6 Pi + 2 NAD⁺
       </text>
