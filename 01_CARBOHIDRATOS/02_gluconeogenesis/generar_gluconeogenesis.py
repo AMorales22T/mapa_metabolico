@@ -441,34 +441,18 @@ def generar_mapa_gluconeogenesis():
     # Sustituye a la Hexoquinasa / Glucoquinasa de la Glucólisis
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
-    <!-- PASO 13: GLUCOSA-6-FOSFATASA EN EL RE (BYPASS 3) -->
-    <g transform="translate(70, 200)">
+    <!-- PASO 13: BYPASS 3 - G6Pasa en el RE (cisterna + bicapa + T1/T2/T3) -->
+    <g transform="translate(40, 195)">
       {RE_GLUCOSA_6_FOSFATASA}
-      {badge_paso(13, 85, -14, es_bypass=True, etiqueta="PASO 13: BYPASS 3")}
-      
-      <!-- Bloque textual explicativo posicionado de forma holgada sin colisión con las flechas -->
-      <g transform="translate(0, 150)">
-        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#6d28d9">
-          BYPASS 3: Glucosa-6-Fosfatasa (EC 3.1.3.9)
-        </text>
-        <text x="0" y="15" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#b91c1c">
-          Sustituye a: Hexoquinasa / Glucoquinasa (HK / GK) de la glucólisis
-        </text>
-        <text x="0" y="29" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#b45309">
-          Exclusiva de Hígado y Corteza Renal (El músculo carece de ella)
-        </text>
-        <text x="0" y="42" font-family="'Inter', sans-serif" font-size="9" fill="#475569">
-          T1 importa G-6-P; G6Pase hidroliza Pi (+ H₂O -> + Pi); T2/T3 devuelven D-Glucosa libre al citosol.
-        </text>
-      </g>
+      {badge_paso(13, 12, -48, es_bypass=True, etiqueta="PASO 13: BYPASS 3")}
     </g>
 
-    <!-- Flechas hacia el complejo del RE y retorno de glucosa -->
-    <path d="M 670 410 Q 430 350 250 260" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)"/>
-    <text x="440" y="360" fill="#6d28d9" font-size="10" font-weight="800">G-6-P [6 C] entra al RE vía T1</text>
-    
-    <path d="M 250 220 Q 450 170 670 160" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-    <text x="440" y="180" fill="#ea580c" font-size="10" font-weight="800">D-Glucosa [6 C] sale al citosol vía T3</text>
+    <!-- Flechas citosol <-> RE (coordenadas absolutas) -->
+    <path d="M 645 428 Q 530 452 424 462" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowPurple)"/>
+    <path d="M 424 273 Q 545 262 642 198" fill="none" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+    <path d="M 424 220 L 478 220" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
+    <rect x="482" y="211" width="38" height="18" rx="9" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+    <text x="501" y="224.5" font-size="10.5" font-weight="900" fill="#b45309" text-anchor="middle" font-family="'Inter', sans-serif">Pi</text>
     """)
 
     # -------------------------------------------------------------------------

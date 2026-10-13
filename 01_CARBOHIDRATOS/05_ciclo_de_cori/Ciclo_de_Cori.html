@@ -1,0 +1,56 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ciclo de Cori</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet"><style>body{margin:0;padding:20px;background:#0b0f19}main{max-width:1600px;margin:auto;background:#fff;box-shadow:0 24px 60px #0008}svg{display:block;width:100%;height:auto}</style></head><body><main><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1450" viewBox="0 0 1600 1450">
+<defs>
+  <linearGradient id="m" x2="0" y2="1"><stop stop-color="#fff7f8"/><stop offset="1" stop-color="#fff1f2"/></linearGradient>
+  <linearGradient id="h" x2="0" y2="1"><stop stop-color="#fffcf0"/><stop offset="1" stop-color="#fff7d6"/></linearGradient>
+  <linearGradient id="b" x2="0" y2="1"><stop stop-color="#e0f2fe"/><stop offset="1" stop-color="#f0f9ff"/></linearGradient>
+  <marker id="o" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#ea580c"/></marker>
+  <marker id="t" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#0f9f91"/></marker>
+  <marker id="u" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#0284c7"/></marker>
+  <style>
+    .title{font:900 30px Inter,Arial,sans-serif;fill:#172033;letter-spacing:1.5px}.region{font:900 19px Inter,Arial,sans-serif;letter-spacing:2px}.name{font:900 21px Inter,Arial,sans-serif;fill:#172033}.carbon{font:900 14px Inter,Arial,sans-serif;fill:#f97316}.detail{font:700 12px Inter,Arial,sans-serif;fill:#64748b}.enzyme{font:900 14px Inter,Arial,sans-serif;fill:#334155}.cofactor{font:800 12px Inter,Arial,sans-serif;fill:#0f9f91}.atom{font:800 17px Inter,Arial,sans-serif;fill:#172033}.oxy{font:900 17px Inter,Arial,sans-serif;fill:#dc2626}.oh{font:800 14px Inter,Arial,sans-serif;fill:#0284c7}.bond{stroke:#172033;stroke-width:2.5}.dbond{stroke:#dc2626;stroke-width:2.5}
+  </style>
+</defs>
+<rect width="1600" height="1450" fill="#f8fafc"/>
+<text x="70" y="55" class="title">CICLO DE CORI</text><text x="70" y="79" class="detail">RECICLAJE DE LACTATO ENTRE MÚSCULO E HÍGADO</text>
+
+<!-- Sangre superior y membrana plasmática -->
+<path d="M0 105H1600V0H0Z" fill="url(#b)"/><text x="800" y="40" text-anchor="middle" class="region" fill="#0369a1">TORRENTE SANGUÍNEO</text><text x="800" y="64" text-anchor="middle" class="detail">intercambio de glucosa</text>
+<path d="M0 105Q400 132 800 105T1600 105" fill="none" stroke="#0284c7" stroke-width="7"/><path d="M0 114Q400 141 800 114T1600 114" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+
+<!-- Citosoles abiertos -->
+<path d="M35 140Q220 112 430 140T775 130V1270Q580 1295 390 1268T35 1280Z" fill="url(#m)" stroke="#fda4af" stroke-width="2"/>
+<path d="M825 130Q1030 105 1220 140T1565 135V1280Q1370 1305 1170 1270T825 1275Z" fill="url(#h)" stroke="#fbbf24" stroke-width="2"/>
+<g fill="none" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="8 7" opacity=".35"><path d="M70 300Q350 250 720 300"/><path d="M70 720Q350 760 720 700"/><path d="M70 1100Q350 1050 720 1100"/><path d="M880 300Q1160 250 1530 300"/><path d="M880 720Q1160 760 1530 700"/><path d="M880 1100Q1160 1050 1530 1100"/></g>
+<text x="80" y="175" class="region" fill="#be123c">MÚSCULO ESQUELÉTICO</text><text x="80" y="199" class="detail">citosol · ejercicio intenso / anaerobiosis</text><text x="870" y="175" class="region" fill="#a16207">HEPATOCITO</text><text x="870" y="199" class="detail">citosol · recuperación de glucosa</text>
+
+<!-- GLUT y entrada/salida de glucosa -->
+<g transform="translate(340 103)"><rect x="-18" y="-18" width="36" height="38" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="2"/><text x="0" y="6" text-anchor="middle" fill="white" font-size="10" font-weight="900">GLUT4</text></g><g transform="translate(1260 103)"><rect x="-18" y="-18" width="36" height="38" rx="10" fill="#059669" stroke="#047857" stroke-width="2"/><text x="0" y="6" text-anchor="middle" fill="white" font-size="10" font-weight="900">GLUT2</text></g><path d="M340 84V230" stroke="#0284c7" stroke-width="3.5" marker-end="url(#u)"/><path d="M1260 230V84" stroke="#0f9f91" stroke-width="3.5" marker-end="url(#t)"/>
+
+<!-- Músculo: glucosa → piruvato → lactato -->
+<g transform="translate(250 285)">
+      <polygon points="0,-38 38,-16 38,26 0,47 -38,26 -38,-16" fill="#fff" stroke="#172033" stroke-width="2.8"/>
+      <text x="-38" y="-12" class="oxy" text-anchor="middle">O</text><text x="-63" y="-21" class="oh">HO</text><text x="45" y="-20" class="oh">CH₂OH</text><text x="44" y="31" class="oh">OH</text><text x="-18" y="66" class="oh">OH</text>
+      <text x="92" y="-5" class="name">D-Glucosa</text><text x="92" y="19" class="carbon">6 Carbonos · Hexosa</text><text x="92" y="40" class="detail">entra desde sangre</text></g><path d="M250 370V485" stroke="#ea580c" stroke-width="4" marker-end="url(#o)"/><text x="275" y="425" class="enzyme">Glucólisis</text><text x="275" y="445" class="cofactor">+2 ATP · +2 NADH</text>
+<g transform="translate(250 545)">
+      <text x="-28" y="0" class="oxy">COO⁻</text><line x1="0" y1="7" x2="0" y2="28" class="bond"/><text x="-8" y="49" class="atom">C</text><line x1="5" y1="39" x2="30" y2="39" class="dbond"/><line x1="5" y1="45" x2="30" y2="45" class="dbond"/><text x="37" y="49" class="oxy">O</text><line x1="0" y1="57" x2="0" y2="78" class="bond"/><text x="-19" y="99" class="atom">CH₃</text>
+      <text x="92" y="30" class="name">Piruvato</text><text x="92" y="54" class="carbon">3 Carbonos</text><text x="92" y="75" class="detail">aceptor de electrones</text></g><path d="M250 675V785" stroke="#ea580c" stroke-width="4" marker-end="url(#o)"/><text x="275" y="728" class="enzyme">Lactato deshidrogenasa</text><text x="275" y="748" class="cofactor">NADH → NAD⁺</text>
+<g transform="translate(250 845)">
+      <text x="-30" y="0" class="oxy">COO⁻</text><line x1="0" y1="7" x2="0" y2="31" class="bond"/><text x="-8" y="52" class="atom">CH</text><line x1="14" y1="45" x2="43" y2="45" stroke="#0284c7" stroke-width="2.5"/><text x="50" y="51" class="oh">OH</text><line x1="0" y1="60" x2="0" y2="82" class="bond"/><text x="-19" y="103" class="atom">CH₃</text>
+      <text x="92" y="36" class="name">L-Lactato</text><text x="92" y="60" class="carbon">3 Carbonos</text><text x="92" y="81" class="detail">sale a sangre</text></g>
+
+<!-- Hígado: lactato → piruvato → glucosa -->
+<g transform="translate(1050 845)">
+      <text x="-30" y="0" class="oxy">COO⁻</text><line x1="0" y1="7" x2="0" y2="31" class="bond"/><text x="-8" y="52" class="atom">CH</text><line x1="14" y1="45" x2="43" y2="45" stroke="#0284c7" stroke-width="2.5"/><text x="50" y="51" class="oh">OH</text><line x1="0" y1="60" x2="0" y2="82" class="bond"/><text x="-19" y="103" class="atom">CH₃</text>
+      <text x="92" y="36" class="name">L-Lactato</text><text x="92" y="60" class="carbon">3 Carbonos</text><text x="92" y="81" class="detail">entra desde sangre</text></g><path d="M1050 785V675" stroke="#0f9f91" stroke-width="4" marker-end="url(#t)"/><text x="1075" y="728" class="enzyme">Lactato deshidrogenasa</text><text x="1075" y="748" class="cofactor">NAD⁺ → NADH</text>
+<g transform="translate(1050 545)">
+      <text x="-28" y="0" class="oxy">COO⁻</text><line x1="0" y1="7" x2="0" y2="28" class="bond"/><text x="-8" y="49" class="atom">C</text><line x1="5" y1="39" x2="30" y2="39" class="dbond"/><line x1="5" y1="45" x2="30" y2="45" class="dbond"/><text x="37" y="49" class="oxy">O</text><line x1="0" y1="57" x2="0" y2="78" class="bond"/><text x="-19" y="99" class="atom">CH₃</text>
+      <text x="92" y="30" class="name">Piruvato</text><text x="92" y="54" class="carbon">3 Carbonos</text><text x="92" y="75" class="detail">sustrato gluconeogénico</text></g><path d="M1050 485V370" stroke="#0f9f91" stroke-width="4" marker-end="url(#t)"/><text x="1075" y="425" class="enzyme">Gluconeogénesis</text><text x="1075" y="445" class="cofactor">−4 ATP · −2 GTP</text>
+<g transform="translate(1050 285)">
+      <polygon points="0,-38 38,-16 38,26 0,47 -38,26 -38,-16" fill="#fff" stroke="#172033" stroke-width="2.8"/>
+      <text x="-38" y="-12" class="oxy" text-anchor="middle">O</text><text x="-63" y="-21" class="oh">HO</text><text x="45" y="-20" class="oh">CH₂OH</text><text x="44" y="31" class="oh">OH</text><text x="-18" y="66" class="oh">OH</text>
+      <text x="92" y="-5" class="name">D-Glucosa</text><text x="92" y="19" class="carbon">6 Carbonos · Hexosa</text><text x="92" y="40" class="detail">liberada a sangre</text></g>
+
+<!-- Sangre inferior: tránsito de lactato aislado de las rutas -->
+<path d="M0 1300H1600V1450H0Z" fill="url(#b)"/><path d="M0 1300Q400 1275 800 1300T1600 1300" fill="none" stroke="#0284c7" stroke-width="7"/><text x="800" y="1360" text-anchor="middle" class="region" fill="#0369a1">SANGRE · RETORNO DE LACTATO</text><path d="M365 910C580 1200 940 1200 1015 910" fill="none" stroke="#ea580c" stroke-width="5" marker-end="url(#o)"/><text x="800" y="1215" text-anchor="middle" class="enzyme">2 Lactato → hígado</text><path d="M250 965V1270" stroke="#ea580c" stroke-width="3.5" marker-end="url(#o)"/><path d="M1050 1270V965" stroke="#ea580c" stroke-width="3.5" marker-end="url(#o)"/>
+<text x="800" y="1415" text-anchor="middle" class="detail">CICLO DE CORI: músculo +2 ATP · hígado −6 ATP equivalentes para regenerar glucosa.</text>
+</svg></main></body></html>
