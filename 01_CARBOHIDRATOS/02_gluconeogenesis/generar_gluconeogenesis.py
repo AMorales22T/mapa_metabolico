@@ -441,18 +441,18 @@ def generar_mapa_gluconeogenesis():
     # Sustituye a la Hexoquinasa / Glucoquinasa de la Glucólisis
     # -------------------------------------------------------------------------
     svg_parts.append(f"""
-    <!-- PASO 13: BYPASS 3 - G6Pasa en el RE (cisterna + bicapa + T1/T2/T3) -->
+    <!-- PASO 13: BYPASS 3 - G6Pasa en el RE (cisterna + bicapa + T1/T2/T3 + estructuras en el lumen) -->
     <g transform="translate(40, 195)">
       {RE_GLUCOSA_6_FOSFATASA}
       {badge_paso(13, 12, -48, es_bypass=True, etiqueta="PASO 13: BYPASS 3")}
     </g>
 
     <!-- Flechas citosol <-> RE (coordenadas absolutas) -->
-    <path d="M 645 428 Q 530 452 424 462" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowPurple)"/>
-    <path d="M 424 273 Q 545 262 642 198" fill="none" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
-    <path d="M 424 220 L 478 220" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
-    <rect x="482" y="211" width="38" height="18" rx="9" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
-    <text x="501" y="224.5" font-size="10.5" font-weight="900" fill="#b45309" text-anchor="middle" font-family="'Inter', sans-serif">Pi</text>
+    <path d="M 645 428 Q 590 505 502 521" fill="none" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowPurple)"/>
+    <path d="M 502 281 Q 590 272 642 198" fill="none" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+    <path d="M 502 220 L 548 220" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)"/>
+    <circle cx="566" cy="220" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+    <text x="566" y="224" font-size="11" font-weight="900" fill="#c2410c" text-anchor="middle" font-family="'Inter', sans-serif">Pᵢ</text>
     """)
 
     # -------------------------------------------------------------------------

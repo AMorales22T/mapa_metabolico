@@ -93,7 +93,7 @@ LACTATO = """
 </g>
 """
 
-# 4. Cisterna del RE con bicapa, T1/T2/T3 y G6Pasa (cabeza catalítica en el lumen)
+# 4. Cisterna del RE con bicapa, T1/T2/T3 y G6Pasa; en el lumen se dibujan las estructuras reales (G-6-P y glucosa)
 def _chip(cx, cy, w, txt, color, fondo):
     return (f'<rect x="{cx-w/2}" y="{cy-9}" width="{w}" height="18" rx="9" fill="{fondo}" stroke="{color}" stroke-width="1.6"/>'
             f'<text x="{cx}" y="{cy+3.8}" font-size="10.5" font-weight="900" fill="{color}" text-anchor="middle">{txt}</text>')
@@ -102,8 +102,7 @@ def _flecha(d, color, marker, ancho=2.2, extra=""):
     return f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{ancho}" marker-end="url(#{marker})" {extra}/>'
 
 def _bicapa(x0, x1, y0, y1):
-    p = []
-    p.append(f'<rect x="{x0}" y="{y0}" width="{x1-x0}" height="{y1-y0}" fill="#f1f5f9"/>')
+    p = [f'<rect x="{x0}" y="{y0}" width="{x1-x0}" height="{y1-y0}" fill="#f1f5f9"/>']
     y = y0 + 6
     while y < y1:
         for xh, xt in ((x0 + 1.5, x0 + 13), (x1 - 1.5, x1 - 13)):
@@ -112,51 +111,61 @@ def _bicapa(x0, x1, y0, y1):
         y += 11
     return "\n".join(p)
 
-def construir_re_g6pase():
-    xm0, xm1 = 340, 374      # banda de la bicapa
-    xc = (xm0 + xm1) / 2     # eje de proteínas (357)
-    s = []
-    s.append('<g class="organelo-re-g6pase" font-family="\'Inter\', sans-serif">')
-    # --- Cisterna (lumen) ---
-    s.append('<path d="M 340 6 C 160 -12 20 22 12 96 C 4 170 -2 236 46 274 C 110 312 240 306 340 296 Z" '
+def _fosfato(cx, cy, r=12):
+    """Pi con el mismo estilo que los fosfatos de las estructuras (círculo naranja)."""
+    return (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>'
+            f'<text x="{cx}" y="{cy+4}" font-size="11" font-weight="900" fill="#c2410c" text-anchor="middle">Pᵢ</text>')
+
+def construir_re_g6pase(glucosa_svg=None, g6p_svg=None):
+    xm0, xm1 = 420, 454
+    xc = (xm0 + xm1) / 2     # 437
+    s = ['<g class="organelo-re-g6pase" font-family="\'Inter\', sans-serif">']
+    # Cisterna (lumen)
+    s.append('<path d="M 420 6 C 230 -14 24 24 14 110 C 4 200 0 290 52 340 C 130 392 300 384 420 376 Z" '
              'fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2.2"/>')
-    s.append('<text x="100" y="138" font-size="16" font-weight="900" fill="#7c3aed" opacity="0.55" text-anchor="middle" letter-spacing="2">LUMEN</text>')
-    s.append('<text x="100" y="158" font-size="16" font-weight="900" fill="#7c3aed" opacity="0.55" text-anchor="middle" letter-spacing="2">DEL RE</text>')
-    s.append('<text x="418" y="150" font-size="10" font-weight="900" fill="#94a3b8" letter-spacing="2">CITOSOL</text>')
-    # --- Bicapa ---
-    s.append(_bicapa(xm0, xm1, 4, 298))
-    # --- Proteínas ---
-    # T2 (Pi) y T3 (glucosa): exportan
+    s.append('<text x="110" y="196" font-size="16" font-weight="900" fill="#7c3aed" opacity="0.55" text-anchor="middle" letter-spacing="2">LUMEN</text>')
+    s.append('<text x="110" y="216" font-size="16" font-weight="900" fill="#7c3aed" opacity="0.55" text-anchor="middle" letter-spacing="2">DEL RE</text>')
+    s.append(f'<text x="{xm1+44}" y="196" font-size="10" font-weight="900" fill="#94a3b8" letter-spacing="2">CITOSOL</text>')
+    s.append(_bicapa(xm0, xm1, 4, 378))
+    # Proteínas de membrana
     s.append(f'<rect x="{xc-24}" y="6" width="48" height="38" rx="9" fill="#0d9488" stroke="#0f766e" stroke-width="1.8"/>'
              f'<text x="{xc}" y="30" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T2</text>')
-    s.append(f'<rect x="{xc-24}" y="56" width="48" height="44" rx="9" fill="#059669" stroke="#047857" stroke-width="1.8"/>'
-             f'<text x="{xc}" y="83" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T3</text>')
-    # G6Pasa: hélices transmembrana + cabeza catalítica en el lumen
-    s.append(f'<rect x="{xm0-2}" y="128" width="{xm1-xm0+4}" height="56" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>')
-    s.append('<rect x="318" y="146" width="24" height="20" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>')
-    s.append('<circle cx="290" cy="156" r="34" fill="#fef3c7" stroke="#b45309" stroke-width="2.4"/>')
-    s.append('<path d="M 268 132 A 12 12 0 0 1 292 128" fill="none" stroke="#b45309" stroke-width="1.6" stroke-dasharray="3 2"/>')
-    s.append('<text x="290" y="161" font-size="11.5" font-weight="900" fill="#92400e" text-anchor="middle">G6Pasa</text>')
-    # T1: importa G6P
-    s.append(f'<rect x="{xc-24}" y="242" width="48" height="50" rx="9" fill="#0284c7" stroke="#0369a1" stroke-width="1.8"/>'
-             f'<text x="{xc}" y="272" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T1</text>')
-    # --- Flujo dentro del lumen ---
-    s.append(_chip(275, 267, 50, "G6P", "#7c3aed", "#ede9fe"))
-    s.append(_flecha("M 331 267 L 302 267", "#7c3aed", "arrowPurple", 2.4))
-    s.append(_flecha("M 278 257 L 286 194", "#7c3aed", "arrowPurple", 2.4))
-    s.append(_chip(206, 202, 42, "H₂O", "#0284c7", "#e0f2fe"))
-    s.append(_flecha("M 228 197 L 262 180", "#0284c7", "arrowBlue", 2))
-    # productos
-    s.append(_flecha("M 290 121 L 290 90", "#ea580c", "arrowFlow", 2.4))
-    s.append(_chip(290, 78, 40, "Glc", "#ea580c", "#ffedd5"))
-    s.append(_flecha("M 311 78 L 331 78", "#ea580c", "arrowFlow", 2.4))
-    s.append(_flecha("M 262 134 C 210 112 214 38 268 26", "#475569", "arrowSlate", 2))
-    s.append(_chip(290, 25, 40, "Pi", "#b45309", "#fef3c7"))
-    s.append(_flecha("M 311 25 L 331 25", "#475569", "arrowSlate", 2))
-    # --- Cabecera ---
+    s.append(f'<rect x="{xc-24}" y="64" width="48" height="44" rx="9" fill="#059669" stroke="#047857" stroke-width="1.8"/>'
+             f'<text x="{xc}" y="91" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T3</text>')
+    s.append(f'<rect x="{xm0-2}" y="170" width="{xm1-xm0+4}" height="58" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>')
+    s.append('<rect x="394" y="190" width="28" height="20" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>')
+    s.append('<circle cx="360" cy="200" r="36" fill="#fef3c7" stroke="#b45309" stroke-width="2.4"/>')
+    s.append('<path d="M 336 174 A 13 13 0 0 1 362 168" fill="none" stroke="#b45309" stroke-width="1.6" stroke-dasharray="3 2"/>')
+    s.append('<text x="360" y="205" font-size="12" font-weight="900" fill="#92400e" text-anchor="middle">G6Pasa</text>')
+    s.append(f'<rect x="{xc-24}" y="302" width="48" height="50" rx="9" fill="#0284c7" stroke="#0369a1" stroke-width="1.8"/>'
+             f'<text x="{xc}" y="332" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T1</text>')
+
+    # Sustrato: G-6-P (estructura)
+    if g6p_svg:
+        s.append(f'<g transform="translate(292, 300) scale(0.75)">{g6p_svg}</g>')
+    else:
+        s.append(_chip(340, 327, 50, "G6P", "#7c3aed", "#ede9fe"))
+    s.append(_flecha("M 414 327 L 382 327", "#7c3aed", "arrowPurple", 2.4))
+    s.append(_flecha("M 352 304 L 362 240", "#7c3aed", "arrowPurple", 2.4))
+    # H2O
+    s.append(_chip(262, 246, 44, "H₂O", "#0284c7", "#e0f2fe"))
+    s.append(_flecha("M 285 243 L 327 222", "#0284c7", "arrowBlue", 2))
+    # Producto: glucosa (estructura) -> T3
+    if glucosa_svg:
+        s.append(f'<g transform="translate(292, 60) scale(0.75)">{glucosa_svg}</g>')
+    else:
+        s.append(_chip(340, 86, 40, "Glc", "#ea580c", "#ffedd5"))
+    s.append(_flecha("M 380 86 L 413 86", "#ea580c", "arrowFlow", 2.6))
+    s.append(_flecha("M 352 163 L 340 134", "#ea580c", "arrowFlow", 2.6))
+    # Producto: Pi -> T2
+    s.append(_flecha("M 328 188 C 236 170 236 40 360 27", "#475569", "arrowSlate", 2))
+    s.append(_fosfato(374, 25))
+    s.append(_flecha("M 388 25 L 413 25", "#475569", "arrowSlate", 2))
+
+    # Cabecera
     s.append('<text x="0" y="-26" font-size="11" font-weight="900" fill="#6d28d9">Glucosa-6-fosfatasa · EC 3.1.3.9</text>')
-    # --- Inset: qué se salta ---
-    ty = 336
+    # Inset: qué se salta
+    ty = 416
     s.append(f'<rect x="0" y="{ty}" width="150" height="20" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6"/>'
              f'<text x="75" y="{ty+14}" font-size="10.5" font-weight="900" fill="#b91c1c" text-anchor="middle">SE SALTA HK / GK</text>')
     ya = ty + 40
@@ -174,14 +183,17 @@ def construir_re_g6pase():
     s.append(f'<text x="83" y="{yb+21}" font-size="9.5" font-weight="800" fill="#0284c7" text-anchor="middle">+ H₂O → Pi</text>')
     s.append(_chip(138, yb, 40, "Glc", "#ea580c", "#ffedd5"))
     s.append(f'<text x="170" y="{yb+4}" font-size="9.5" font-weight="900" fill="#7c3aed">gluconeogénesis</text>')
-    # tejido
     yt = yb + 40
     s.append(f'<rect x="0" y="{yt}" width="188" height="20" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>'
              f'<text x="94" y="{yt+14}" font-size="10" font-weight="900" fill="#92400e" text-anchor="middle">Solo hígado + riñón (no músculo)</text>')
     s.append('</g>')
     return "\n".join(s)
 
-RE_GLUCOSA_6_FOSFATASA = construir_re_g6pase()
+try:
+    from estructuras_glucosa import GLUCOSA, GLUCOSA_6_FOSFATO
+    RE_GLUCOSA_6_FOSFATASA = construir_re_g6pase(GLUCOSA, GLUCOSA_6_FOSFATO)
+except ImportError:  # ejecución aislada: usa fichas de texto
+    RE_GLUCOSA_6_FOSFATASA = construir_re_g6pase()
 
 # 5. Glicerol - Precursor gluconeogénico de lipólisis
 # CH2OH - CH(OH) - CH2OH
