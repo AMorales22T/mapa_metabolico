@@ -833,6 +833,14 @@ def construir_interactiva():
         subtitulo: "Degradación de purinas a Ácido Úrico y pirimidinas a β-Alanina",
         grupos: ["ruta_degradacion_nucleotidos", "badge_via_16"],
         color: "#475569"
+      }},
+      "17": {{
+        numero: "17",
+        id: "17",
+        nombre: "Ciclo de Cori",
+        subtitulo: "Lactato muscular anaeróbico → Sangre → Glucosa hepática (GNG) → Músculo (-4 ATP neto)",
+        grupos: ["ruta_ciclo_cori", "badge_via_17"],
+        color: "#be123c"
       }}
     }};
 
@@ -861,8 +869,8 @@ def construir_interactiva():
         id: "ayuno",
         nombre: "Estado de Ayuno",
         hormonas: "Glucagón alto ↑ • Insulina baja ↓",
-        descripcion: "Favorece gluconeogénesis hepática, degradación de glucógeno, β-oxidación, cetogénesis y ciclo de la urea.",
-        activas: ["2", "3", "9", "11", "14"],
+        descripcion: "Favorece gluconeogénesis hepática, degradación de glucógeno, β-oxidación, cetogénesis, ciclo de la urea y ciclo de Cori.",
+        activas: ["2", "3", "9", "11", "14", "17"],
         atenuadas: ["1", "10", "12"]
       }}
     }};

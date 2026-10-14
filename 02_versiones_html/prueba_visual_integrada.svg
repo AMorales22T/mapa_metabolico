@@ -1,4 +1,4 @@
-<svg width="5800" height="4750" viewBox="0 0 5800 4750" xmlns="http://www.w3.org/2000/svg">
+<svg width="5800" height="5120" viewBox="0 0 5800 5120" xmlns="http://www.w3.org/2000/svg">
       
     <defs>
       <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -25,6 +25,43 @@
       <marker id="arrowBlue" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
         <path d="M 0 0 L 5 2.5 L 0 5 Z" fill="#0284c7" />
       </marker>
+      <marker id="arrowPurple" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M 0 0 L 6 3 L 0 6 Z" fill="#7c3aed" />
+      </marker>
+      <marker id="arrowAmber" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M 0 0 L 6 3 L 0 6 Z" fill="#b45309" />
+      </marker>
+
+      <linearGradient id="gradMiocitoCori" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff1f2" stop-opacity="0.95" />
+        <stop offset="100%" stop-color="#ffe4e6" stop-opacity="0.9" />
+      </linearGradient>
+
+      <!-- Gradientes histológicos anatómicos del músculo esquelético -->
+      <linearGradient id="gradVientreMuscular" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff1f2" stop-opacity="0.96" />
+        <stop offset="30%" stop-color="#ffe4e6" stop-opacity="0.92" />
+        <stop offset="70%" stop-color="#fecdd3" stop-opacity="0.88" />
+        <stop offset="100%" stop-color="#fda4af" stop-opacity="0.82" />
+      </linearGradient>
+
+      <linearGradient id="gradFasciaTendinosa" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#f1f5f9" stop-opacity="0.95"/>
+        <stop offset="45%" stop-color="#e2e8f0" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#fff1f2" stop-opacity="0.1"/>
+      </linearGradient>
+
+      <linearGradient id="gradSarcoplasma" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#fff5f5" stop-opacity="0.95" />
+        <stop offset="50%" stop-color="#ffe4e6" stop-opacity="0.75" />
+        <stop offset="100%" stop-color="#fff1f2" stop-opacity="0.95" />
+      </linearGradient>
+
+      <linearGradient id="gradCapilarMuscular" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#7f1d1d" stop-opacity="0.9" />
+        <stop offset="50%" stop-color="#991b1b" stop-opacity="0.8" />
+        <stop offset="100%" stop-color="#b91c1c" stop-opacity="0.85" />
+      </linearGradient>
 
       <linearGradient id="gradHeaderAutoria" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stop-color="#0284c7" />
@@ -148,11 +185,11 @@
     <!-- ================================================================= -->
     <!-- CAPA FONDO CITOPLASMÁTICO ACUOSO                                  -->
     <!-- ================================================================= -->
-    <rect width="5800" height="4750" fill="url(#gradCitosolUnificado)"/>
+    <rect width="5800" height="5120" fill="url(#gradCitosolUnificado)"/>
     <ellipse cx="2900.0" cy="1200" rx="2784.0" ry="1050" fill="url(#haloCitosolUnificado)"/>
 
     <!-- Etiqueta de orientación sutil -->
-    <g transform="translate(140, 180)" opacity="0.8">
+    <g transform="translate(140, 480)" opacity="0.8">
       <text x="0" y="0" fill="#334155" font-size="20" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="3">CITOSOL</text>
       <path d="M 0 10 Q 100 20 200 10" fill="none" stroke="#94a3b8" stroke-width="2"/>
     </g>
@@ -182,10 +219,563 @@
       <circle cx="2300" cy="800" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2"/>
       <circle cx="3480" cy="980" r="28" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2"/>
     </g>
+    
+    <!-- ================================================================= -->
+    <!-- RUTA 17: CICLO DE CORI (ACOPLAMIENTO MÚSCULO ESQUELÉTICO ⇄ HÍGADO) -->
+    <!-- ================================================================= -->
+    <g id="ruta_ciclo_cori" data-arrastrable="1">
+      <!-- 1. COMPARTIMENTO ANATÓMICO EXTENDIDO DEL MÚSCULO ESQUELÉTICO (FRANJA COMPLETA 0 A 5800 PX) -->
+      <g id="miocito_cori">
+        <!-- Fondo y entorno biológico de la fibra muscular estriada -->
+        <g id="musculo_esqueletico_biologico">
+          <!-- Vientre Anatómico del Fascículo Muscular (Epimisio / Perimisio) -->
+          <rect x="0" y="12" width="5800" height="328" fill="url(#gradVientreMuscular)" stroke="#9f1239" stroke-width="3"/>
+          <rect x="0" y="16" width="5800" height="320" fill="url(#gradSarcoplasma)" opacity="0.92"/>
 
-    <!-- ================================================================= -->
-    <!-- CAPA SANGUÍNEA: TORRENTE VASCULAR / LUMEN CAPILAR REAL             -->
-    <!-- ================================================================= -->
+          <!-- Inserción Tendinosa / Aponeurosis Fascial Izquierda (X=0 a 55) -->
+          <path d="M 0 12 L 55 12 L 55 340 L 0 340 Z" fill="url(#gradFasciaTendinosa)" stroke="#94a3b8" stroke-width="2"/>
+          <g fill="none" stroke="#cbd5e1" stroke-width="1.3" stroke-linecap="round" opacity="0.75">
+            <path d="M 5 60 Q 25 55 55 58"/>
+            <path d="M 5 110 Q 28 105 55 108"/>
+            <path d="M 5 160 Q 30 160 55 160"/>
+            <path d="M 5 210 Q 28 215 55 212"/>
+            <path d="M 5 260 Q 25 265 55 262"/>
+            <path d="M 5 300 Q 25 305 55 302"/>
+          </g>
+          <text x="28" y="176" fill="#64748b" font-size="8" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle" transform="rotate(-90 28 176)" letter-spacing="1.5">INSERCIÓN TENDINOSA (FASCIA)</text>
+
+          <!-- Inserción Tendinosa / Aponeurosis Fascial Derecha (X=5745 a 5800) -->
+          <path d="M 5745 12 L 5800 12 L 5800 340 L 5745 340 Z" fill="url(#gradFasciaTendinosa)" stroke="#94a3b8" stroke-width="2"/>
+          <g fill="none" stroke="#cbd5e1" stroke-width="1.3" stroke-linecap="round" opacity="0.75">
+            <path d="M 5745 58 Q 5775 55 5795 60"/>
+            <path d="M 5745 108 Q 5772 105 5795 110"/>
+            <path d="M 5745 160 Q 5770 160 5795 160"/>
+            <path d="M 5745 212 Q 5772 215 5795 210"/>
+            <path d="M 5745 262 Q 5775 265 5795 260"/>
+            <path d="M 5745 302 Q 5775 305 5795 300"/>
+          </g>
+          <text x="5772" y="176" fill="#64748b" font-size="8" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle" transform="rotate(-90 5772 176)" letter-spacing="1.5">INSERCIÓN TENDINOSA (FASCIA)</text>
+
+          <!-- Sarcolema continuo inferior (Membrana plasmática excitable limitante en Y=340) -->
+          <line x1="0" y1="340" x2="5800" y2="340" stroke="#9f1239" stroke-width="5" stroke-linecap="square"/>
+          <line x1="0" y1="337" x2="5800" y2="337" stroke="#e11d48" stroke-width="2" stroke-dasharray="14 4"/>
+
+          <!-- Túbulos T (Invaginaciones sarcolémicas transversales periódicas hacia el sarcoplasma) -->
+          <line x1="180" y1="340" x2="180" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="180" cy="315" r="2.2" fill="#fda4af"/><line x1="340" y1="340" x2="340" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="340" cy="315" r="2.2" fill="#fda4af"/><line x1="500" y1="340" x2="500" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="500" cy="315" r="2.2" fill="#fda4af"/><line x1="660" y1="340" x2="660" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="660" cy="315" r="2.2" fill="#fda4af"/><line x1="820" y1="340" x2="820" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="820" cy="315" r="2.2" fill="#fda4af"/><line x1="980" y1="340" x2="980" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="980" cy="315" r="2.2" fill="#fda4af"/><line x1="1140" y1="340" x2="1140" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="1140" cy="315" r="2.2" fill="#fda4af"/><line x1="1300" y1="340" x2="1300" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="1300" cy="315" r="2.2" fill="#fda4af"/><line x1="1460" y1="340" x2="1460" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="1460" cy="315" r="2.2" fill="#fda4af"/><line x1="1620" y1="340" x2="1620" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="1620" cy="315" r="2.2" fill="#fda4af"/><line x1="1780" y1="340" x2="1780" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="1780" cy="315" r="2.2" fill="#fda4af"/><line x1="1940" y1="340" x2="1940" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="1940" cy="315" r="2.2" fill="#fda4af"/><line x1="2100" y1="340" x2="2100" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="2100" cy="315" r="2.2" fill="#fda4af"/><line x1="2260" y1="340" x2="2260" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="2260" cy="315" r="2.2" fill="#fda4af"/><line x1="2420" y1="340" x2="2420" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="2420" cy="315" r="2.2" fill="#fda4af"/><line x1="2580" y1="340" x2="2580" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="2580" cy="315" r="2.2" fill="#fda4af"/><line x1="2740" y1="340" x2="2740" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="2740" cy="315" r="2.2" fill="#fda4af"/><line x1="2900" y1="340" x2="2900" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="2900" cy="315" r="2.2" fill="#fda4af"/><line x1="3060" y1="340" x2="3060" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="3060" cy="315" r="2.2" fill="#fda4af"/><line x1="3220" y1="340" x2="3220" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="3220" cy="315" r="2.2" fill="#fda4af"/><line x1="3380" y1="340" x2="3380" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="3380" cy="315" r="2.2" fill="#fda4af"/><line x1="3540" y1="340" x2="3540" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="3540" cy="315" r="2.2" fill="#fda4af"/><line x1="3700" y1="340" x2="3700" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="3700" cy="315" r="2.2" fill="#fda4af"/><line x1="3860" y1="340" x2="3860" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="3860" cy="315" r="2.2" fill="#fda4af"/><line x1="4020" y1="340" x2="4020" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="4020" cy="315" r="2.2" fill="#fda4af"/><line x1="4180" y1="340" x2="4180" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="4180" cy="315" r="2.2" fill="#fda4af"/><line x1="4340" y1="340" x2="4340" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="4340" cy="315" r="2.2" fill="#fda4af"/><line x1="4500" y1="340" x2="4500" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="4500" cy="315" r="2.2" fill="#fda4af"/><line x1="4660" y1="340" x2="4660" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="4660" cy="315" r="2.2" fill="#fda4af"/><line x1="4820" y1="340" x2="4820" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="4820" cy="315" r="2.2" fill="#fda4af"/><line x1="4980" y1="340" x2="4980" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="4980" cy="315" r="2.2" fill="#fda4af"/><line x1="5140" y1="340" x2="5140" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="5140" cy="315" r="2.2" fill="#fda4af"/><line x1="5300" y1="340" x2="5300" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="5300" cy="315" r="2.2" fill="#fda4af"/><line x1="5460" y1="340" x2="5460" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="5460" cy="315" r="2.2" fill="#fda4af"/><line x1="5620" y1="340" x2="5620" y2="315" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/><circle cx="5620" cy="315" r="2.2" fill="#fda4af"/>
+
+          <!-- Estriaciones Histológicas Periódicas (Bandas A - Miosina Anisótropa) -->
+          <g>
+            <rect x="75" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="125" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="175" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="225" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="275" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="325" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="375" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="425" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="475" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="525" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="575" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="625" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="675" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="725" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="775" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="825" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="875" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="925" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="975" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1025" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1075" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1125" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1175" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1225" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1275" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1325" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1375" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1425" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1475" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1525" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1575" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1625" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1675" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1725" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1775" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1825" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1875" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1925" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="1975" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2025" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2075" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2125" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2175" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2225" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2275" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2325" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2375" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2425" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2475" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2525" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2575" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2625" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2675" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2725" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2775" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2825" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2875" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2925" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="2975" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3025" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3075" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3125" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3175" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3225" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3275" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3325" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3375" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3425" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3475" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3525" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3575" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3625" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3675" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3725" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3775" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3825" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3875" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3925" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="3975" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4025" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4075" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4125" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4175" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4225" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4275" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4325" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4375" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4425" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4475" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4525" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4575" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4625" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4675" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4725" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4775" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4825" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4875" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4925" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="4975" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5025" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5075" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5125" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5175" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5225" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5275" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5325" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5375" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5425" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5475" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5525" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5575" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5625" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5675" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/><rect x="5725" y="30" width="25" height="274" rx="3" fill="#be123c" opacity="0.055"/>
+          </g>
+
+          <!-- Discos Z (Líneas Z transversales que delimitan cada sarcómero periódico) -->
+          <g>
+            <line x1="100" y1="28" x2="100" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="150" y1="28" x2="150" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="200" y1="28" x2="200" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="250" y1="28" x2="250" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="300" y1="28" x2="300" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="350" y1="28" x2="350" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="400" y1="28" x2="400" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="450" y1="28" x2="450" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="500" y1="28" x2="500" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="550" y1="28" x2="550" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="600" y1="28" x2="600" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="650" y1="28" x2="650" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="700" y1="28" x2="700" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="750" y1="28" x2="750" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="800" y1="28" x2="800" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="850" y1="28" x2="850" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="900" y1="28" x2="900" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="950" y1="28" x2="950" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1000" y1="28" x2="1000" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1050" y1="28" x2="1050" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1100" y1="28" x2="1100" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1150" y1="28" x2="1150" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1200" y1="28" x2="1200" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1250" y1="28" x2="1250" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1300" y1="28" x2="1300" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1350" y1="28" x2="1350" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1400" y1="28" x2="1400" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1450" y1="28" x2="1450" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1500" y1="28" x2="1500" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1550" y1="28" x2="1550" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1600" y1="28" x2="1600" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1650" y1="28" x2="1650" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1700" y1="28" x2="1700" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1750" y1="28" x2="1750" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1800" y1="28" x2="1800" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1850" y1="28" x2="1850" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1900" y1="28" x2="1900" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="1950" y1="28" x2="1950" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2000" y1="28" x2="2000" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2050" y1="28" x2="2050" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2100" y1="28" x2="2100" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2150" y1="28" x2="2150" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2200" y1="28" x2="2200" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2250" y1="28" x2="2250" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2300" y1="28" x2="2300" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2350" y1="28" x2="2350" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2400" y1="28" x2="2400" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2450" y1="28" x2="2450" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2500" y1="28" x2="2500" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2550" y1="28" x2="2550" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2600" y1="28" x2="2600" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2650" y1="28" x2="2650" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2700" y1="28" x2="2700" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2750" y1="28" x2="2750" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2800" y1="28" x2="2800" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2850" y1="28" x2="2850" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2900" y1="28" x2="2900" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="2950" y1="28" x2="2950" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3000" y1="28" x2="3000" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3050" y1="28" x2="3050" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3100" y1="28" x2="3100" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3150" y1="28" x2="3150" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3200" y1="28" x2="3200" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3250" y1="28" x2="3250" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3300" y1="28" x2="3300" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3350" y1="28" x2="3350" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3400" y1="28" x2="3400" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3450" y1="28" x2="3450" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3500" y1="28" x2="3500" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3550" y1="28" x2="3550" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3600" y1="28" x2="3600" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3650" y1="28" x2="3650" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3700" y1="28" x2="3700" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3750" y1="28" x2="3750" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3800" y1="28" x2="3800" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3850" y1="28" x2="3850" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3900" y1="28" x2="3900" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="3950" y1="28" x2="3950" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4000" y1="28" x2="4000" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4050" y1="28" x2="4050" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4100" y1="28" x2="4100" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4150" y1="28" x2="4150" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4200" y1="28" x2="4200" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4250" y1="28" x2="4250" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4300" y1="28" x2="4300" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4350" y1="28" x2="4350" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4400" y1="28" x2="4400" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4450" y1="28" x2="4450" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4500" y1="28" x2="4500" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4550" y1="28" x2="4550" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4600" y1="28" x2="4600" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4650" y1="28" x2="4650" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4700" y1="28" x2="4700" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4750" y1="28" x2="4750" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4800" y1="28" x2="4800" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4850" y1="28" x2="4850" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4900" y1="28" x2="4900" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="4950" y1="28" x2="4950" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5000" y1="28" x2="5000" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5050" y1="28" x2="5050" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5100" y1="28" x2="5100" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5150" y1="28" x2="5150" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5200" y1="28" x2="5200" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5250" y1="28" x2="5250" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5300" y1="28" x2="5300" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5350" y1="28" x2="5350" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5400" y1="28" x2="5400" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5450" y1="28" x2="5450" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5500" y1="28" x2="5500" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5550" y1="28" x2="5550" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5600" y1="28" x2="5600" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5650" y1="28" x2="5650" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/><line x1="5700" y1="28" x2="5700" y2="310" stroke="#9f1239" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.3"/>
+          </g>
+
+          <!-- Miofibrillas longitudinales continuas (Haces paralelos de F-Actina y Miosina II) -->
+          <g>
+            <line x1="55" y1="55" x2="5745" y2="55" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="28 14" opacity="0.22"/><line x1="55" y1="100" x2="5745" y2="100" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="28 14" opacity="0.22"/><line x1="55" y1="145" x2="5745" y2="145" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="28 14" opacity="0.22"/><line x1="55" y1="190" x2="5745" y2="190" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="28 14" opacity="0.22"/><line x1="55" y1="235" x2="5745" y2="235" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="28 14" opacity="0.22"/><line x1="55" y1="280" x2="5745" y2="280" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="28 14" opacity="0.22"/>
+          </g>
+
+          <!-- Núcleos Periféricos Subsarcolémicos (Sincitio multinucleado típico del miocito esquelético) -->
+          
+        <g transform="translate(350, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S1</text>
+        </g>
+        <g transform="translate(850, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S2</text>
+        </g>
+        <g transform="translate(1450, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S3</text>
+        </g>
+        <g transform="translate(2050, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S4</text>
+        </g>
+        <g transform="translate(2650, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S5</text>
+        </g>
+        <g transform="translate(3250, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S6</text>
+        </g>
+        <g transform="translate(3850, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S7</text>
+        </g>
+        <g transform="translate(4450, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S8</text>
+        </g>
+        <g transform="translate(5050, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S9</text>
+        </g>
+        <g transform="translate(5500, 24)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif">Núcleo subsarcolémico S10</text>
+        </g>
+        <g transform="translate(600, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I1</text>
+        </g>
+        <g transform="translate(1150, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I2</text>
+        </g>
+        <g transform="translate(1750, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I3</text>
+        </g>
+        <g transform="translate(2350, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I4</text>
+        </g>
+        <g transform="translate(2950, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I5</text>
+        </g>
+        <g transform="translate(3550, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I6</text>
+        </g>
+        <g transform="translate(4150, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I7</text>
+        </g>
+        <g transform="translate(4750, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I8</text>
+        </g>
+        <g transform="translate(5300, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I9</text>
+        </g>
+        <g transform="translate(5650, 325)">
+          <ellipse cx="0" cy="0" rx="30" ry="7.5" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+          <ellipse cx="-2" cy="0" rx="15" ry="3.5" fill="#6366f1" opacity="0.8"/>
+          <circle cx="6" cy="-1" r="1.8" fill="#e0e7ff"/>
+          <text x="-38" y="3" fill="#4338ca" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Núcleo subsarcolémico I10</text>
+        </g>
+
+          <!-- Gránulos de Glucógeno Muscular Sarcoplásmico -->
+          
+        <g transform="translate(280, 285)" opacity="0.85">
+          <circle cx="0" cy="0" r="3.5" fill="#f59e0b" stroke="#d97706" stroke-width="0.8"/>
+          <circle cx="7" cy="-3" r="2.8" fill="#fbbf24"/>
+          <circle cx="12" cy="2" r="3" fill="#f59e0b"/>
+          <circle cx="5" cy="5" r="2.5" fill="#fbbf24"/>
+          <text x="20" y="3" fill="#b45309" font-size="7" font-weight="800" font-family="'Inter', sans-serif">Glucógeno muscular (reserva contráctil)</text>
+        </g>
+        <g transform="translate(1620, 285)" opacity="0.85">
+          <circle cx="0" cy="0" r="3.5" fill="#f59e0b" stroke="#d97706" stroke-width="0.8"/>
+          <circle cx="7" cy="-3" r="2.8" fill="#fbbf24"/>
+          <circle cx="12" cy="2" r="3" fill="#f59e0b"/>
+          <circle cx="5" cy="5" r="2.5" fill="#fbbf24"/>
+          <text x="20" y="3" fill="#b45309" font-size="7" font-weight="800" font-family="'Inter', sans-serif">Glucógeno muscular (reserva contráctil)</text>
+        </g>
+        <g transform="translate(2520, 285)" opacity="0.85">
+          <circle cx="0" cy="0" r="3.5" fill="#f59e0b" stroke="#d97706" stroke-width="0.8"/>
+          <circle cx="7" cy="-3" r="2.8" fill="#fbbf24"/>
+          <circle cx="12" cy="2" r="3" fill="#f59e0b"/>
+          <circle cx="5" cy="5" r="2.5" fill="#fbbf24"/>
+          <text x="20" y="3" fill="#b45309" font-size="7" font-weight="800" font-family="'Inter', sans-serif">Glucógeno muscular (reserva contráctil)</text>
+        </g>
+        <g transform="translate(3420, 285)" opacity="0.85">
+          <circle cx="0" cy="0" r="3.5" fill="#f59e0b" stroke="#d97706" stroke-width="0.8"/>
+          <circle cx="7" cy="-3" r="2.8" fill="#fbbf24"/>
+          <circle cx="12" cy="2" r="3" fill="#f59e0b"/>
+          <circle cx="5" cy="5" r="2.5" fill="#fbbf24"/>
+          <text x="20" y="3" fill="#b45309" font-size="7" font-weight="800" font-family="'Inter', sans-serif">Glucógeno muscular (reserva contráctil)</text>
+        </g>
+        <g transform="translate(4320, 285)" opacity="0.85">
+          <circle cx="0" cy="0" r="3.5" fill="#f59e0b" stroke="#d97706" stroke-width="0.8"/>
+          <circle cx="7" cy="-3" r="2.8" fill="#fbbf24"/>
+          <circle cx="12" cy="2" r="3" fill="#f59e0b"/>
+          <circle cx="5" cy="5" r="2.5" fill="#fbbf24"/>
+          <text x="20" y="3" fill="#b45309" font-size="7" font-weight="800" font-family="'Inter', sans-serif">Glucógeno muscular (reserva contráctil)</text>
+        </g>
+        <g transform="translate(5220, 285)" opacity="0.85">
+          <circle cx="0" cy="0" r="3.5" fill="#f59e0b" stroke="#d97706" stroke-width="0.8"/>
+          <circle cx="7" cy="-3" r="2.8" fill="#fbbf24"/>
+          <circle cx="12" cy="2" r="3" fill="#f59e0b"/>
+          <circle cx="5" cy="5" r="2.5" fill="#fbbf24"/>
+          <text x="20" y="3" fill="#b45309" font-size="7" font-weight="800" font-family="'Inter', sans-serif">Glucógeno muscular (reserva contráctil)</text>
+        </g>
+
+          <!-- Sarcosomas (Mitocondrias interfibrilares del miocito) -->
+          
+        <g transform="translate(1920, 210)" opacity="0.85">
+          <ellipse cx="0" cy="0" rx="22" ry="12" fill="url(#gradMitocondria)" stroke="#92400e" stroke-width="1.6"/>
+          <path d="M -12 0 C -6 -6, 0 6, 8 0" stroke="#b45309" stroke-width="1.8" fill="none" opacity="0.75"/>
+          <text x="0" y="22" fill="#92400e" font-size="7" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Sarcosoma (ATP oxidativo)</text>
+        </g>
+        <g transform="translate(2820, 210)" opacity="0.85">
+          <ellipse cx="0" cy="0" rx="22" ry="12" fill="url(#gradMitocondria)" stroke="#92400e" stroke-width="1.6"/>
+          <path d="M -12 0 C -6 -6, 0 6, 8 0" stroke="#b45309" stroke-width="1.8" fill="none" opacity="0.75"/>
+          <text x="0" y="22" fill="#92400e" font-size="7" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Sarcosoma (ATP oxidativo)</text>
+        </g>
+        <g transform="translate(3720, 210)" opacity="0.85">
+          <ellipse cx="0" cy="0" rx="22" ry="12" fill="url(#gradMitocondria)" stroke="#92400e" stroke-width="1.6"/>
+          <path d="M -12 0 C -6 -6, 0 6, 8 0" stroke="#b45309" stroke-width="1.8" fill="none" opacity="0.75"/>
+          <text x="0" y="22" fill="#92400e" font-size="7" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Sarcosoma (ATP oxidativo)</text>
+        </g>
+        <g transform="translate(4620, 210)" opacity="0.85">
+          <ellipse cx="0" cy="0" rx="22" ry="12" fill="url(#gradMitocondria)" stroke="#92400e" stroke-width="1.6"/>
+          <path d="M -12 0 C -6 -6, 0 6, 8 0" stroke="#b45309" stroke-width="1.8" fill="none" opacity="0.75"/>
+          <text x="0" y="22" fill="#92400e" font-size="7" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Sarcosoma (ATP oxidativo)</text>
+        </g>
+        <g transform="translate(5450, 210)" opacity="0.85">
+          <ellipse cx="0" cy="0" rx="22" ry="12" fill="url(#gradMitocondria)" stroke="#92400e" stroke-width="1.6"/>
+          <path d="M -12 0 C -6 -6, 0 6, 8 0" stroke="#b45309" stroke-width="1.8" fill="none" opacity="0.75"/>
+          <text x="0" y="22" fill="#92400e" font-size="7" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Sarcosoma (ATP oxidativo)</text>
+        </g>
+
+          <!-- Infografías ultraestructurales educativas integradas a lo largo de la fibra -->
+          <!-- 1. Módulo Arquitectura del Sarcómero (X=2050) -->
+          <g transform="translate(2050, 95)" opacity="0.9">
+            <rect x="-200" y="-18" width="400" height="42" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.2"/>
+            <text x="0" y="-4" fill="#9f1239" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">|◀───────────── SARCÓMERO (~2.5 µm) ─────────────▶|</text>
+            <text x="0" y="10" fill="#be123c" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Línea Z (α-Actinina) • Banda I (Actina F) • Banda A (Miosina II) • Zona H • Línea M</text>
+            <text x="0" y="19" fill="#881337" font-size="6.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Unidad morfofuncional contráctil delimitada entre dos discos Z consecutivos</text>
+          </g>
+
+          <!-- 2. Módulo Tríada Sarcoplásmica (X=2950) -->
+          <g transform="translate(2950, 95)" opacity="0.9">
+            <rect x="-210" y="-18" width="420" height="42" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.2"/>
+            <text x="0" y="-4" fill="#9f1239" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">TRÍADA SARCOPLÁSMICA &amp; ACOPLAMIENTO EXCITACIÓN-CONTRACCIÓN</text>
+            <text x="0" y="10" fill="#be123c" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Invaginación de Túbulo T flanqueada por 2 Cisternas terminales del Retículo Sarcoplásmico</text>
+            <text x="0" y="19" fill="#881337" font-size="6.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Potencial de acción ➔ Sensor DHPR (Cav1.1) ➔ Canal Ryanodina (RyR1) ➔ Salida masiva de Ca²⁺</text>
+          </g>
+
+          <!-- 3. Módulo Puentes Cruzados (X=3890) -->
+          <g transform="translate(3890, 95)" opacity="0.9">
+            <rect x="-210" y="-18" width="420" height="42" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.2"/>
+            <text x="0" y="-4" fill="#9f1239" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">CICLO DE PUENTES CRUZADOS &amp; DESLIZAMIENTO DE FILAMENTOS</text>
+            <text x="0" y="10" fill="#be123c" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Ca²⁺ se une a Troponina C ➔ Tropomiosina expone sitios activos de F-Actina</text>
+            <text x="0" y="19" fill="#881337" font-size="6.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Cabezas de Miosina hidrolizan ATP (Miosina ATPasa) ➔ Golpe de fuerza contráctil (Power Stroke)</text>
+          </g>
+
+          <!-- 4. Módulo Bioenergética y Fosfágenos (X=4810) -->
+          <g transform="translate(4810, 95)" opacity="0.9">
+            <rect x="-210" y="-18" width="420" height="42" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.2"/>
+            <text x="0" y="-4" fill="#9f1239" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">SISTEMA DE FOSFÁGENOS &amp; BIOENERGÉTICA CONTRÁCTIL INMEDIATA</text>
+            <text x="0" y="10" fill="#be123c" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Fosfocreatina (PCr) + ADP ⇄ Creatina + ATP (Creatina Cinasa CK-MM / Amortiguador primario)</text>
+            <text x="0" y="19" fill="#881337" font-size="6.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Activación alostérica de Glucógeno Fosforilasa b por 5'-AMP muscular ➔ G1P ➔ Glucólisis rápida</text>
+          </g>
+
+          <!-- 5. Módulo Diferenciación de Fibras (X=5530) -->
+          <g transform="translate(5530, 95)" opacity="0.9">
+            <rect x="-170" y="-18" width="340" height="42" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.2"/>
+            <text x="0" y="-4" fill="#9f1239" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">TIPOS DE FIBRAS MUSCULARES</text>
+            <text x="0" y="10" fill="#be123c" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Tipo I (Rojas, lentas, ricas en mioglobina y sarcosomas / Oxidativas)</text>
+            <text x="0" y="19" fill="#881337" font-size="6.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Tipo IIb (Blancas, rápidas, anaerobias / Glucolíticas de alto poder)</text>
+          </g>
+        </g>
+
+        <!-- Header y Título Editorial del Miocito Esquelético con Badge Vía 17 -->
+        
+    <g id="badge_via_17" data-arrastrable="1" class="badge-via" transform="translate(85, 38)" style="cursor: grab;">
+      <circle cx="0" cy="0" r="13" fill="#0284c7" stroke="#ffffff" stroke-width="2.2" />
+      <text x="0" y="4.5" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">17</text>
+    </g>
+    
+        <g transform="translate(120, 38)">
+          <text x="0" y="0" fill="#881337" font-size="13.5" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.5">MÚSCULO ESQUELÉTICO (FIBRA SARCOLÉMICA ESTRIADA · CICLO DE CORI)</text>
+          <text x="0" y="14" fill="#be123c" font-size="8.5" font-weight="700" font-family="'Inter', sans-serif">Contracción anaerobia vigorosa • Glucólisis anaerobia rápida (+2 ATP netos) • Regeneración de NAD⁺ (LDH-M) • Exportación de Lactato</text>
+        </g>
+
+        <!-- Transportador muscular GLUT-4 en el sarcolema inferior (X=140, Y=340) -->
+        <g id="carrier_glut4_musculo" transform="translate(107, 327)">
+          <rect x="0" y="0" width="66" height="30" rx="6" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+          <text x="33" y="14" fill="#ffffff" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">GLUT-4</text>
+          <text x="33" y="24" fill="#e0f2fe" font-size="7" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">SLC2A4</text>
+        </g>
+        <!-- Flecha de captación: Glucosa entra desde el sarcolema inferior hacia el sarcoplasma -->
+        <line x1="140" y1="327" x2="140" y2="238" stroke="#0284c7" stroke-width="2.4" marker-end="url(#arrowBlue)"/>
+        <text x="150" y="285" fill="#0369a1" font-size="8" font-weight="800" font-family="'Inter', sans-serif">Captación ➔</text>
+
+        <!-- Molécula 1: D-Glucosa Muscular (Estructura química completa) -->
+        <g id="m_cori_glc_musc" data-arrastrable="1" transform="translate(95, 85)">
+          <g>
+  <!-- Anillo de 6 lados -->
+  <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno del anillo -->
+  <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+  <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- Carbono 6: -CH2OH arriba -->
+  <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="0" y="7" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂OH</text>
+
+  <!-- Grupos hidroxilo (-OH) -->
+  <!-- C1 (derecha) -->
+  <line x1="72" y1="36" x2="88" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="98" y="40" fill="#0f172a" font-size="11" font-weight="700">OH</text>
+
+  <!-- C2 (abajo derecha) -->
+  <line x1="50" y1="58" x2="50" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="50" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">OH</text>
+
+  <!-- C3 (abajo izquierda) -->
+  <line x1="16" y1="58" x2="16" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="16" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">HO</text>
+
+  <!-- C4 (izquierda) -->
+  <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
+</g>
+          <text x="45" y="102" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">D-Glucosa</text>
+          <text x="45" y="117" fill="#ea580c" font-size="10.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[6C] Muscular</text>
+        </g>
+
+        <!-- Reacción 1: Hexoquinasa muscular (HK-II) -->
+        <g transform="translate(210, 130)">
+          <line x1="0" y1="0" x2="150" y2="0" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+          <text x="75" y="-12" fill="#c2410c" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Hexoquinasa (HK-II)</text>
+          <text x="75" y="-23" fill="#64748b" font-size="7.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 2.7.1.1</text>
+          <rect x="43" y="8" width="64" height="18" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+          <text x="75" y="21" fill="#b91c1c" font-size="9" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">− 1 ATP</text>
+        </g>
+
+        <!-- Molécula 2: Glucosa-6-Fosfato (Atrapada en el miocito por ausencia de G6Pasa) -->
+        <g id="m_cori_g6p_musc" data-arrastrable="1" transform="translate(385, 85)">
+          <g>
+  <!-- Anillo de 6 lados -->
+  <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno del anillo -->
+  <circle cx="16" cy="22" r="7" fill="#ffffff"/>
+  <text x="16" y="26" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- Carbono 6 con Grupo Fosfato nítido y despejado -->
+  <line x1="0" y1="36" x2="0" y2="12" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="0" cy="-2" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="0" y="3" fill="#c2410c" font-size="12" font-weight="900" text-anchor="middle">Ⓟ</text>
+  <text x="-20" y="2" fill="#ea580c" font-size="9" font-weight="700" text-anchor="end">O-PO₃²⁻</text>
+
+  <!-- Grupos hidroxilo (-OH) -->
+  <line x1="72" y1="36" x2="88" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="98" y="40" fill="#0f172a" font-size="11" font-weight="700">OH</text>
+
+  <line x1="50" y1="58" x2="50" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="50" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="16" y1="58" x2="16" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="16" y="83" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">HO</text>
+
+  <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
+  <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
+</g>
+          <text x="45" y="102" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glucosa-6-P</text>
+          <text x="45" y="117" fill="#ea580c" font-size="10.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[6C] Atrapada</text>
+          <rect x="-20" y="125" width="130" height="17" rx="8.5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.1"/>
+          <text x="45" y="137" fill="#b91c1c" font-size="7.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">✕ Sin G6Pasa en músculo</text>
+        </g>
+
+        <!-- Reacción 2: Glucólisis anaerobia (PFK-1 ➔ Aldolasa ➔ GAPDH ➔ Piruvato Quinasa) -->
+        <g transform="translate(520, 130)">
+          <line x1="0" y1="0" x2="150" y2="0" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+          <text x="75" y="-12" fill="#c2410c" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">PFK-1 ➔ Piruvato Quinasa</text>
+          <text x="75" y="-23" fill="#64748b" font-size="7.5" font-family="'Inter', sans-serif" text-anchor="middle">Glucólisis anaerobia</text>
+          <rect x="37" y="8" width="76" height="18" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+          <text x="75" y="21" fill="#15803d" font-size="9" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">+ 2 ATP (neto)</text>
+        </g>
+
+        <!-- Molécula 3: Piruvato Muscular (Estructura química completa) -->
+        <g id="m_cori_pyr_musc" data-arrastrable="1" transform="translate(695, 85)">
+          <g>
+  <!-- C1: Carboxilato COO- -->
+  <text x="40" y="16" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="40" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: C=O (Grupo carbonilo) -->
+  <text x="40" y="50" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">C</text>
+  <line x1="47" y1="44" x2="66" y2="44" stroke="#0f172a" stroke-width="2"/>
+  <line x1="47" y1="48" x2="66" y2="48" stroke="#0f172a" stroke-width="2"/>
+  <text x="74" y="50" fill="#dc2626" font-size="13" font-weight="800">O</text>
+
+  <!-- C3: Grupo metilo CH3 -->
+  <line x1="40" y1="55" x2="40" y2="74" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="40" y="86" fill="#0f172a" font-size="12" font-weight="800" text-anchor="middle">CH₃</text>
+</g>
+          <text x="45" y="102" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Piruvato (x2)</text>
+          <text x="45" y="117" fill="#ea580c" font-size="10.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[3C]</text>
+        </g>
+
+        <!-- Reacción 3: Lactato Deshidrogenasa muscular (LDH-M / LDHA) -->
+        <g transform="translate(805, 130)">
+          <line x1="0" y1="0" x2="160" y2="0" stroke="#e11d48" stroke-width="2.6" marker-end="url(#arrowRed)"/>
+          <text x="80" y="-17" fill="#be123c" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">LDH-M (LDHA)</text>
+          <text x="80" y="-6" fill="#64748b" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 1.1.1.27</text>
+          <rect x="18" y="8" width="124" height="18" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+          <text x="80" y="21" fill="#b91c1c" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">+ 2 NADH ➔ + 2 NAD⁺</text>
+        </g>
+
+        <!-- Molécula 4: L-Lactato Muscular (Estructura química completa) -->
+        <g id="m_cori_lac_musc" data-arrastrable="1" transform="translate(990, 85)">
+          <g>
+<g class="molecula-lactato">
+  <!-- C1: Carboxilato Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbono quiral H-C-OH -->
+  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
+  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
+  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="72" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: Grupo Metilo -->
+  <text x="50" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">CH₃</text>
+</g>
+</g>
+          <text x="45" y="102" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">L-Lactato (x2)</text>
+          <text x="45" y="117" fill="#e11d48" font-size="10.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[3C]</text>
+        </g>
+
+        <!-- Exportación de Lactato hacia MCT4 en el sarcolema inferior -->
+        <path d="M 1085 130 C 1170 130, 1220 200, 1245 320" fill="none" stroke="#e11d48" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+        <text x="1135" y="112" fill="#be123c" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">Exporta ➔</text>
+
+        <!-- Transportador sarcolémico MCT4 (SLC16A3) en el sarcolema inferior (X=1248, Y=340) -->
+        <g id="carrier_mct4_musculo" transform="translate(1215, 327)">
+          <rect x="0" y="0" width="66" height="30" rx="6" fill="#be123c" stroke="#881337" stroke-width="2"/>
+          <text x="33" y="14" fill="#ffffff" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MCT4</text>
+          <text x="33" y="24" fill="#fecdd3" font-size="7" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">SLC16A3</text>
+        </g>
+      </g>
+
+      <!-- 2. FLUJOS SANGUÍNEOS CONECTORES Y BIOMOLÉCULAS EN EL TORRENTE VASCULAR -->
+      <!-- Biomolécula real de L-Lactato flotando en el torrente sanguíneo (Cori ➔ Hígado) -->
+      <g id="m_cori_lac_sangre" data-arrastrable="1" transform="translate(1533, 382)">
+        <!-- Cápsula vascular flotante con sombra plasmática -->
+        <rect x="-34" y="-28" width="68" height="58" rx="8" fill="#fff1f2" stroke="#e11d48" stroke-width="1.6" filter="drop-shadow(0 2px 5px rgba(190,18,60,0.2))"/>
+        
+        <!-- Estructura molecular de L-Lactato en sangre -->
+        <g transform="translate(-30, -26) scale(0.64)">
+          <!-- C1: Carboxilato Superior -->
+          <text x="47" y="15" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#dc2626" text-anchor="middle">COO⁻</text>
+          <line x1="47" y1="20" x2="47" y2="30" stroke="#0f172a" stroke-width="1.8" />
+
+          <!-- C2: Carbono quiral H-C-OH -->
+          <line x1="40" y1="37" x2="31" y2="37" stroke="#0f172a" stroke-width="1.6" />
+          <text x="25" y="41" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+          <text x="47" y="41" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+          <line x1="54" y1="37" x2="63" y2="37" stroke="#0284c7" stroke-width="1.6" />
+          <text x="70" y="41" font-family="'Inter', sans-serif" font-size="11.5" font-weight="800" fill="#0284c7">OH</text>
+
+          <!-- Enlace C2 - C3 -->
+          <line x1="47" y1="45" x2="47" y2="55" stroke="#0f172a" stroke-width="1.8" />
+
+          <!-- C3: Grupo Metilo -->
+          <text x="47" y="67" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" text-anchor="middle">CH₃</text>
+        </g>
+        <!-- Rótulo contenido dentro de la cápsula -->
+        <text x="0" y="24" font-family="'Inter', sans-serif" font-size="7" font-weight="900" fill="#9f1239" text-anchor="middle">L-Lactato [3C]</text>
+      </g>
+
+      <!-- Flujo 1: Lactato muscular sale de MCT4 y viaja a la molécula de L-Lactato en sangre -->
+      <path d="M 1248 358 L 1248 398 L 1495 398 L 1499 382" fill="none" stroke="#fb7185" stroke-width="3" stroke-dasharray="6 3" marker-end="url(#arrowRed)"/>
+
+      <!-- Flujo 2: L-Lactato sanguíneo continúa hacia MCT1 hepático -->
+      <path d="M 1567 382 L 1587 382 L 1587 403" fill="none" stroke="#fb7185" stroke-width="3" stroke-dasharray="6 3" marker-end="url(#arrowRed)"/>
+
+      <!-- Flujo 3: Glucosa neoglucogénica sale de GLUT-2 hepático y viaja hacia GLUT-4 muscular -->
+      <path d="M 1480 415 L 1480 368 L 140 368 L 140 358" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#arrowBlue)"/>
+      <g transform="translate(750, 352)">
+        <rect x="-110" y="-9" width="220" height="18" rx="5" fill="#082f49" stroke="#0284c7" stroke-width="1" opacity="0.95"/>
+        <text x="0" y="3.5" fill="#e0f2fe" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">Glucosa neoglucogénica ➔ Músculo (GLUT-4)</text>
+      </g>
+
+      <!-- 3. BALANCE BIOEDITORIAL DEL CICLO EN PILLS COMPACTAS (EN EL LUMEN VASCULAR) -->
+      <g id="balance_pills_cori">
+        <!-- Pill Músculo -->
+        <g transform="translate(1840, 385)">
+          <rect x="-135" y="-10" width="270" height="20" rx="10" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
+          <text x="0" y="4" fill="#be123c" font-size="9" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">MÚSCULO · Glucólisis anaerobia · +2 ATP netos</text>
+        </g>
+
+        <!-- Pill Hígado -->
+        <g transform="translate(2200, 385)">
+          <rect x="-165" y="-10" width="330" height="20" rx="10" fill="#fef3c7" stroke="#a16207" stroke-width="1.5"/>
+          <text x="0" y="4" fill="#a16207" font-size="9" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">HÍGADO · Gluconeogénesis · −6 ~P (−4 ATP, −2 GTP)</text>
+        </g>
+
+        <!-- Pill Balance Neto -->
+        <g transform="translate(2580, 385)">
+          <rect x="-165" y="-10" width="330" height="20" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+          <text x="0" y="4" fill="#b91c1c" font-size="9" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">BALANCE NETO · −4 ATP (Deuda de O₂ saldada)</text>
+        </g>
+      </g>
+
+      <!-- 4. CONTINUIDAD DE LA CIRCULACIÓN SISTÉMICA & ÓRGANOS EXTRAHEPÁTICOS -->
+      <g id="sistema_vascular_extrahepatico">
+        <g transform="translate(3400, 385)">
+          <rect x="-180" y="-11" width="360" height="22" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" opacity="0.9"/>
+          <text x="0" y="4" fill="#fecdd3" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="0.5">CIRCULACIÓN SISTÉMICA VASCULAR · HOMEOSTASIS DEL ORGANISMO</text>
+        </g>
+
+        <g transform="translate(4250, 385)">
+          <rect x="-190" y="-11" width="380" height="22" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" opacity="0.9"/>
+          <text x="0" y="4" fill="#fecdd3" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="0.5">TRANSPORTE DE LÍPIDOS &amp; CUERPOS CETÓNICOS (ALBÚMINA / LIPOPROTEÍNAS)</text>
+        </g>
+
+        <g transform="translate(5150, 385)">
+          <rect x="-170" y="-11" width="340" height="22" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" opacity="0.9"/>
+          <text x="0" y="4" fill="#fecdd3" font-size="8.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="0.5">DEPURACIÓN RENAL · EXCRECIÓN DE UREA Y ÁCIDO ÚRICO</text>
+        </g>
+      </g>
+    </g>
+    <g id="entorno_hepatocito" transform="translate(0, 350)">
     <!-- Fondo del Plasma Sanguíneo con Gradiente Vascular Profundo -->
     <path d="M 0 0 L 5800 0 L 5800 68 Q 2900.0 95 0 68 Z" fill="url(#gradPlasmaSanguineo)"/>
     
@@ -610,9 +1200,9 @@
       <text x="14" y="30" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >Aldolasa</text>
     </g>
     
-    <!-- Metabolito Libre: Dihidroxiacetona-P -->
-    <g id="m_dhap" data-arrastrable="1" transform="translate(1430, 860)">
-      <g>
+        <!-- Metabolito Libre: Dihidroxiacetona-P -->
+        <g id="m_dhap" data-arrastrable="1" transform="translate(1430, 860)">
+          <g>
   <!-- C1: CH2OH arriba -->
   <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HO-CH₂</text>
   <line x1="40" y1="18" x2="40" y2="35" stroke="#0f172a" stroke-width="2.2"/>
@@ -630,11 +1220,11 @@
   <circle cx="40" cy="104" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="108" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 </g>
-      <text x="-20" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Dihidroxiacetona-P</text>
-      <text x="-20" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="end">[3C]</text>
-      
-    </g>
-    
+          <text x="70" y="-32" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Dihidroxiacetona-P</text>
+          <text x="70" y="-16" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[3C]</text>
+          
+        </g>
+        
         <!-- Metabolito Libre: Gliceraldehído-3-P -->
         <g id="m_gap" data-arrastrable="1" transform="translate(1860, 860)">
           <g>
@@ -851,13 +1441,13 @@
     <!-- RUTA 2: GLUCONEOGÉNESIS (VÍA ANABÓLICA HEPÁTICA DE NOVO) -->
     <g id="ruta_gluconeogenesis" data-arrastrable="1">
       
-    <g id="badge_via_2" data-arrastrable="1" class="badge-via" transform="translate(940, 110)" style="cursor: grab;">
+    <g id="badge_via_2" data-arrastrable="1" class="badge-via" transform="translate(785, 110)" style="cursor: grab;">
       <circle cx="0" cy="0" r="13" fill="#0284c7" stroke="#ffffff" stroke-width="2.2" />
       <text x="0" y="4.5" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2</text>
     </g>
     
       <!-- Título y balance global de la vía -->
-      <g id="titulo_gluconeogenesis" transform="translate(980, 105)">
+      <g id="titulo_gluconeogenesis" transform="translate(820, 105)">
         <text x="0" y="5" fill="#7c3aed" font-size="14" font-weight="900" font-family="'Inter', sans-serif">GLUCONEOGÉNESIS (VÍA ANABÓLICA HEPÁTICA)</text>
         <text x="0" y="18" fill="#64748b" font-size="9" font-weight="700" font-family="'Inter', sans-serif">Síntesis de novo • 3 Rodeos (Bypasses) + 7 Pasos Reversibles</text>
         <text x="0" y="29" fill="#0284c7" font-size="8" font-weight="700" font-family="'Inter', sans-serif">Gasto neto: 4 ATP + 2 GTP + 2 NADH por Glucosa formada</text>
@@ -865,14 +1455,14 @@
     
     <g id="rodeo3_g6pasa" data-arrastrable="1">
       
-    <g id="badge_rodeo_gng_3" data-arrastrable="1" class="badge-rodeo-gng" transform="translate(1030, 220)">
+    <g id="badge_rodeo_gng_3" data-arrastrable="1" class="badge-rodeo-gng" transform="translate(830, 155)">
       <rect x="-38" y="-12" width="76" height="24" rx="6" fill="#7c3aed" stroke="#ffffff" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
       <text x="0" y="4" fill="#ffffff" font-size="10" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">RODEO 3</text>
     </g>
     
 
       <!-- Ficha descriptiva de la G6Pasa -->
-      <g transform="translate(990, 245)">
+      <g transform="translate(880, 145)">
         <text x="0" y="0" fill="#6d28d9" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Glucosa-6-Fosfatasa (RE)</text>
         <text x="0" y="13" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace">EC 3.1.3.9 (+ H₂O ➔ + Pi)</text>
         <text x="0" y="25" fill="#b45309" font-size="8" font-weight="800" font-family="'Inter', sans-serif">Sortea Hexocinasa • Lumen del RE</text>
@@ -880,35 +1470,174 @@
       </g>
 
       <!-- Complejo del Retículo Endoplásmico con translocadores T1 y T2/T3 -->
-      <g id="organelo_re_g6pasa" transform="translate(1220, 200)">
-        
-<g class="organelo-re-g6pase">
-  <!-- Membrana del Retículo Endoplásmico Liso (Bicapa Luminal) -->
-  <rect x="0" y="10" width="170" height="70" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.8"/>
-  <line x1="0" y1="32" x2="170" y2="32" stroke="#94a3b8" stroke-dasharray="4 2"/>
-  <line x1="0" y1="58" x2="170" y2="58" stroke="#94a3b8" stroke-dasharray="4 2"/>
-
-  <!-- Transportador T1 (Importa G-6-P) -->
-  <rect x="15" y="24" width="28" height="38" rx="5" fill="#0284c7" stroke="#0369a1" stroke-width="1.8"/>
-  <text x="29" y="48" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">T1</text>
-
-  <!-- Subunidad Catalítica (Cara Luminal del RE) -->
-  <circle cx="85" cy="43" r="18" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-  <text x="85" y="47" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="900" fill="#92400e" text-anchor="middle">G6Pase</text>
-
-  <!-- Transportadores T2 (Exporta Pi) y T3 (Exporta Glucosa) -->
-  <rect x="125" y="24" width="28" height="38" rx="5" fill="#059669" stroke="#047857" stroke-width="1.8"/>
-  <text x="139" y="48" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" fill="#ffffff" text-anchor="middle">T2/T3</text>
-
-  <!-- Rótulo de compartimento -->
-  <text x="85" y="5" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#64748b" text-anchor="middle">LUMEN DEL RE</text>
+      <g id="organelo_re_g6pasa" transform="translate(1120, 80) scale(0.65)">
+        <g class="organelo-re-g6pase" font-family="'Inter', sans-serif">
+<path d="M 420 6 C 230 -14 24 24 14 110 C 4 200 0 290 52 340 C 130 392 300 384 420 376 Z" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2.2"/>
+<text x="110" y="196" font-size="16" font-weight="900" fill="#7c3aed" opacity="0.55" text-anchor="middle" letter-spacing="2">LUMEN</text>
+<text x="110" y="216" font-size="16" font-weight="900" fill="#7c3aed" opacity="0.55" text-anchor="middle" letter-spacing="2">DEL RE</text>
+<text x="498" y="196" font-size="10" font-weight="900" fill="#94a3b8" letter-spacing="2">CITOSOL</text>
+<rect x="420" y="4" width="34" height="374" fill="#f1f5f9"/>
+<line x1="421.5" y1="10" x2="433" y2="10" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="10" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="10" x2="441" y2="10" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="10" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="21" x2="433" y2="21" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="21" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="21" x2="441" y2="21" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="21" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="32" x2="433" y2="32" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="32" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="32" x2="441" y2="32" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="32" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="43" x2="433" y2="43" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="43" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="43" x2="441" y2="43" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="43" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="54" x2="433" y2="54" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="54" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="54" x2="441" y2="54" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="54" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="65" x2="433" y2="65" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="65" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="65" x2="441" y2="65" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="65" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="76" x2="433" y2="76" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="76" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="76" x2="441" y2="76" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="76" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="87" x2="433" y2="87" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="87" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="87" x2="441" y2="87" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="87" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="98" x2="433" y2="98" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="98" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="98" x2="441" y2="98" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="98" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="109" x2="433" y2="109" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="109" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="109" x2="441" y2="109" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="109" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="120" x2="433" y2="120" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="120" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="120" x2="441" y2="120" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="120" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="131" x2="433" y2="131" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="131" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="131" x2="441" y2="131" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="131" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="142" x2="433" y2="142" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="142" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="142" x2="441" y2="142" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="142" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="153" x2="433" y2="153" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="153" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="153" x2="441" y2="153" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="153" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="164" x2="433" y2="164" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="164" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="164" x2="441" y2="164" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="164" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="175" x2="433" y2="175" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="175" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="175" x2="441" y2="175" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="175" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="186" x2="433" y2="186" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="186" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="186" x2="441" y2="186" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="186" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="197" x2="433" y2="197" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="197" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="197" x2="441" y2="197" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="197" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="208" x2="433" y2="208" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="208" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="208" x2="441" y2="208" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="208" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="219" x2="433" y2="219" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="219" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="219" x2="441" y2="219" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="219" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="230" x2="433" y2="230" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="230" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="230" x2="441" y2="230" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="230" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="241" x2="433" y2="241" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="241" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="241" x2="441" y2="241" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="241" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="252" x2="433" y2="252" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="252" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="252" x2="441" y2="252" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="252" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="263" x2="433" y2="263" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="263" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="263" x2="441" y2="263" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="263" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="274" x2="433" y2="274" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="274" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="274" x2="441" y2="274" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="274" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="285" x2="433" y2="285" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="285" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="285" x2="441" y2="285" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="285" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="296" x2="433" y2="296" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="296" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="296" x2="441" y2="296" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="296" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="307" x2="433" y2="307" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="307" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="307" x2="441" y2="307" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="307" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="318" x2="433" y2="318" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="318" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="318" x2="441" y2="318" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="318" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="329" x2="433" y2="329" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="329" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="329" x2="441" y2="329" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="329" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="340" x2="433" y2="340" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="340" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="340" x2="441" y2="340" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="340" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="351" x2="433" y2="351" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="351" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="351" x2="441" y2="351" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="351" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="362" x2="433" y2="362" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="362" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="362" x2="441" y2="362" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="362" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="421.5" y1="373" x2="433" y2="373" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="421.5" cy="373" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<line x1="452.5" y1="373" x2="441" y2="373" stroke="#94a3b8" stroke-width="1"/>
+<circle cx="452.5" cy="373" r="3.6" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+<rect x="413.0" y="6" width="48" height="38" rx="9" fill="#0d9488" stroke="#0f766e" stroke-width="1.8"/><text x="437.0" y="30" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T2</text>
+<rect x="413.0" y="64" width="48" height="44" rx="9" fill="#059669" stroke="#047857" stroke-width="1.8"/><text x="437.0" y="91" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T3</text>
+<rect x="418" y="170" width="38" height="58" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>
+<rect x="394" y="190" width="28" height="20" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>
+<circle cx="360" cy="200" r="36" fill="#fef3c7" stroke="#b45309" stroke-width="2.4"/>
+<path d="M 336 174 A 13 13 0 0 1 362 168" fill="none" stroke="#b45309" stroke-width="1.6" stroke-dasharray="3 2"/>
+<text x="360" y="205" font-size="12" font-weight="900" fill="#92400e" text-anchor="middle">G6Pasa</text>
+<rect x="413.0" y="302" width="48" height="50" rx="9" fill="#0284c7" stroke="#0369a1" stroke-width="1.8"/><text x="437.0" y="332" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">T1</text>
+<rect x="315.0" y="318" width="50" height="18" rx="9" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.6"/><text x="340" y="330.8" font-size="10.5" font-weight="900" fill="#7c3aed" text-anchor="middle">G6P</text>
+<path d="M 414 327 L 382 327" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)" />
+<path d="M 352 304 L 362 240" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)" />
+<rect x="240.0" y="237" width="44" height="18" rx="9" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.6"/><text x="262" y="249.8" font-size="10.5" font-weight="900" fill="#0284c7" text-anchor="middle">H₂O</text>
+<path d="M 285 243 L 327 222" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowBlue)" />
+<rect x="320.0" y="77" width="40" height="18" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/><text x="340" y="89.8" font-size="10.5" font-weight="900" fill="#ea580c" text-anchor="middle">Glc</text>
+<path d="M 380 86 L 413 86" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)" />
+<path d="M 352 163 L 340 134" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)" />
+<path d="M 328 188 C 236 170 236 40 360 27" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)" />
+<circle cx="374" cy="25" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/><text x="374" y="29" font-size="11" font-weight="900" fill="#c2410c" text-anchor="middle">Pᵢ</text>
+<path d="M 388 25 L 413 25" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowSlate)" />
 </g>
-
       </g>
 
       <!-- Flujo 1: G-6-P citosólica entra por T1 al Lumen del RE (comienza fuera de m_g6p) -->
-      <path d="M 1560 345 C 1460 345, 1360 280, 1260 250" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
-      <text x="1420" y="295" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G6P ➔ RE (T1)</text>
+      <path d="M 1580 335 C 1520 335, 1460 305, 1406 292" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <text x="1490" y="300" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G6P ➔ RE (T1)</text>
 
       <!-- Flujo 2 y 3: Salida de Glucosa libre desde T2/T3 hacia transportador GLUT-2 en membrana -->
       <g id="carrier_glut2_gng">
@@ -916,11 +1645,18 @@
         <rect x="1455" y="53" width="50" height="30" rx="6" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.8"/>
         <text x="1480" y="72" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">GLUT-2</text>
         <!-- Flecha desde RE T2/T3 hacia GLUT-2 -->
-        <path d="M 1375 220 Q 1425 140, 1475 88" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
-        <text x="1380" y="150" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Glucosa libre ➔ Citosol</text>
+        <path d="M 1404 100 Q 1440 85, 1475 75" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+        <text x="1435" y="115" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glucosa libre</text>
         <!-- Flecha hacia la sangre -->
         <line x1="1480" y1="53" x2="1480" y2="20" stroke="#7c3aed" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-        <text x="1495" y="38" fill="#7c3aed" font-size="9" font-weight="800" font-family="'Inter', sans-serif">Glucosa ➔ Sangre (Glucemia)</text>
+        <text x="1465" y="38" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Glucosa ➔ Sangre (Glucemia)</text>
+      </g>
+
+      <!-- Transportador MCT1 en la membrana plasmática del hepatocito (captación de lactato) -->
+      <g id="carrier_mct1_gng">
+        <rect x="1560" y="53" width="54" height="30" rx="6" fill="#be123c" stroke="#881337" stroke-width="1.8"/>
+        <text x="1587" y="72" fill="#ffffff" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MCT1</text>
+        <text x="1587" y="96" fill="#be123c" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">SLC16A1 (Lactato)</text>
       </g>
     </g>
     
@@ -945,35 +1681,78 @@
     </g>
     
         <!-- Metabolito Libre: Glicerol -->
-        <g id="m_glicerol" data-arrastrable="1" transform="translate(980, 860)">
+        <g id="m_glicerol" data-arrastrable="1" transform="translate(760, 860)">
           <g>
-<g class="molecula-glicerol" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <text x="35" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
-  <line x1="35" y1="22" x2="35" y2="38" />
-  <circle cx="35" cy="44" r="2.5" fill="#0f172a"/>
-  <line x1="38" y1="44" x2="52" y2="44" stroke="#0284c7" stroke-width="1.8"/>
-  <text x="64" y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">OH</text>
-  <line x1="35" y1="48" x2="35" y2="64" />
-  <text x="35" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+<g class="molecula-glicerol">
+  <!-- C1: Hidroximetilo Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbono quiral H-C-OH -->
+  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
+  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
+  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="72" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: Hidroximetilo Inferior -->
+  <text x="50" y="86" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
 </g>
 </g>
-          <text x="35" y="-40" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glicerol</text>
-          <text x="35" y="-24" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[3C]</text>
-          <text x="35" y="-10" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Lipólisis (Tejido adiposo)</text>
+          <text x="40" y="-40" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glicerol</text>
+          <text x="40" y="-24" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[3C]</text>
+          <text x="40" y="-10" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Lipólisis (Adipocitos)</text>
         </g>
         
-    <g id="rx_gng_glicerol" data-arrastrable="1" transform="translate(1050, 885)">
-      <line x1="0" y1="20" x2="140" y2="20" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(70, -2)">
-        <text x="0" y="-12" fill="#7c3aed" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">[Precursor]</text>
-        <text x="0" y="0" fill="#6d28d9" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glicerol Cinasa (-1 ATP) ➔ G-3-P</text>
-        <text x="0" y="12" fill="#059669" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G3PDH (+ NAD⁺ ➔ + NADH) ➔ DHAP</text>
+    <g id="rx_gng_glicerol_cinasa" data-arrastrable="1" transform="translate(860, 885)">
+      <line x1="0" y1="20" x2="100" y2="20" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(50, -4)">
+        <text x="0" y="-10" fill="#7c3aed" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">[Fosforilación]</text>
+        <text x="0" y="2" fill="#6d28d9" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glicerol Cinasa (GK)</text>
+        <text x="0" y="14" fill="#dc2626" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">- 1 ATP (Mg²⁺)</text>
       </g>
     </g>
-    <!-- Confluencia de DHAP hacia Aldolasa -->
-    <g id="rx_gng_dhap_confluencia" data-arrastrable="1">
-      <path d="M 1520 860 L 1630 860" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-dasharray="6 3" marker-end="url(#arrowFlow)"/>
-      <text x="1525" y="852" fill="#7c3aed" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">↳ + 1 DHAP (Glicerol)</text>
+    
+        <!-- Metabolito Libre: Glicerol-3-P -->
+        <g id="m_g3p" data-arrastrable="1" transform="translate(1020, 860)">
+          <g>
+<g class="molecula-glicerol-3-fosfato">
+  <!-- C1: Hidroximetilo Superior -->
+  <text x="50" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
+  <line x1="50" y1="24" x2="50" y2="38" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C2: Carbono quiral H-C-OH -->
+  <line x1="42" y1="46" x2="31" y2="46" stroke="#0f172a" stroke-width="2" />
+  <text x="24" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">H</text>
+  <text x="50" y="50" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">C</text>
+  <line x1="58" y1="46" x2="69" y2="46" stroke="#0284c7" stroke-width="2" />
+  <text x="75" y="50" font-family="'Inter', sans-serif" font-size="12.5" font-weight="800" fill="#0284c7">OH</text>
+
+  <!-- Enlace C2 - C3 -->
+  <line x1="50" y1="55" x2="50" y2="70" stroke="#0f172a" stroke-width="2.2" />
+
+  <!-- C3: CH2-O-P fosforilado -->
+  <text x="50" y="80" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="middle">CH₂-O</text>
+  <line x1="50" y1="84" x2="50" y2="94" stroke="#0f172a" stroke-width="2" />
+  <circle cx="50" cy="106" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2" />
+  <text x="50" y="110" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+</g>
+</g>
+          <text x="40" y="-40" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glicerol-3-P</text>
+          <text x="40" y="-24" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[3C]</text>
+          <text x="40" y="-10" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Triosa fosfato precursora</text>
+        </g>
+        
+    <g id="rx_gng_g3pdh" data-arrastrable="1" transform="translate(1150, 885)">
+      <line x1="0" y1="20" x2="180" y2="20" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(90, -4)">
+        <text x="0" y="-10" fill="#7c3aed" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">[Deshidrogenación]</text>
+        <text x="0" y="2" fill="#6d28d9" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G3PDH Citosólica (➔ DHAP)</text>
+        <text x="0" y="14" fill="#059669" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">+ NAD⁺ ➔ + NADH + H⁺</text>
+      </g>
     </g>
     
     <g id="gng_eje_reversible" data-arrastrable="1">
@@ -1032,9 +1811,45 @@
     <g id="rx_gng_ldh" data-arrastrable="1">
       <!-- Flecha limpia hacia Piruvato citosólico en (1860, 1735) -->
       <path d="M 1635 1860 Q 1720 1810, 1815 1745" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
-      <g transform="translate(1660, 1900)">
+      <g transform="translate(1645, 1720)">
         <text x="0" y="0" fill="#6d28d9" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif">LDH: Lactato ➔ Piruvato</text>
         <text x="0" y="11" fill="#059669" font-size="8" font-weight="800" font-family="'Inter', sans-serif">+ NAD⁺ ➔ + NADH + H⁺</text>
+      </g>
+    </g>
+    
+        <!-- Metabolito Libre: L-Alanina -->
+        <g id="m_alanina_cahill" data-arrastrable="1" transform="translate(1380, 1940)">
+          <g>
+<g class="mol-alanina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- C1: Carboxilato Superior -->
+  <text x="40" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <line x1="40" y1="22" x2="40" y2="40" />
+
+  <!-- C2: C-alfa con grupo amino -->
+  <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="33" y1="48" x2="22" y2="48" />
+  <text x="14" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="end">H</text>
+  
+  <line x1="47" y1="48" x2="60" y2="48" stroke="#2563eb" stroke-width="2"/>
+  <rect x="62" y="36" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="81" y="52" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">⁺NH₃</text>
+
+  <!-- C3: Grupo metilo -CH3 -->
+  <line x1="40" y1="55" x2="40" y2="72" />
+  <text x="40" y="85" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
+</g>
+</g>
+          <text x="45" y="-40" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">L-Alanina</text>
+          <text x="45" y="-24" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[3C]</text>
+          <text x="45" y="-10" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">[Precursor] Ciclo de Cahill</text>
+        </g>
+        
+    <g id="rx_cahill_alt" data-arrastrable="1">
+      <path d="M 1485 1960 C 1620 1980, 1750 1980, 1830 1765" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(1480, 1990)">
+        <text x="0" y="0" fill="#6d28d9" font-size="9.5" font-weight="900" font-family="'Inter', sans-serif">ALT (Alanina Aminotransferasa)</text>
+        <text x="0" y="12" fill="#475569" font-size="8" font-family="'JetBrains Mono', monospace">EC 2.6.1.2 (PLP) • Alanina + α-KG ⇄ Piruvato + Glutamato</text>
+        <text x="0" y="24" fill="#0284c7" font-size="8" font-weight="800">Ciclo Glucosa-Alanina (Músculo ➔ Hígado)</text>
       </g>
     </g>
     
@@ -1251,7 +2066,7 @@
         </g>
         
     <g id="rx_udpg" data-arrastrable="1">
-      <path d="M 970 360 C 900 360, 840 305, 885 305" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+      <path d="M 970 360 C 940 360, 915 305, 900 305" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
       <text x="885" y="215" fill="#d97706" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">UDP-Glucosa Pirofosforilasa (+UTP)</text>
     </g>
     
@@ -1318,16 +2133,16 @@
     <line x1="-20" y1="20" x2="4" y2="20" stroke="#ca8a04" stroke-width="2.2" stroke-dasharray="3 2"/>
   </g>
 </g>
-          <text x="45" y="-48" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glucógeno (n+1)</text>
-          <text x="45" y="-32" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[Polímero]</text>
+          <text x="30" y="-60" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Glucógeno (n+1)</text>
+          <text x="30" y="-44" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[Polímero]</text>
           
         </g>
         
     <g id="rx_sintesis_degradacion_glucogeno" data-arrastrable="1">
       <!-- Síntesis -->
-      <path d="M 670 335 Q 590 490 530 555" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
-      <text x="640" y="485" fill="#b45309" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Glucógeno Sintasa</text>
-      <g transform="translate(640, 500)">
+      <path d="M 640 335 Q 560 510 560 605" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+      <text x="660" y="485" fill="#b45309" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Glucógeno Sintasa</text>
+      <g transform="translate(660, 500)">
         <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800">(+) G6P</text>
         <text x="0" y="12" fill="#ca8a04" font-size="9" font-weight="800">(P) Inactiva (GSK-3/PKA)</text>
         <text x="0" y="24" fill="#0284c7" font-size="9" font-weight="800">[Hormonal] Insulina ↑ · Glucagón ↓</text>
@@ -1344,22 +2159,27 @@
       </g>
     </g>
     </g><g id="ruta_pentosas">
-    <g id="badge_via_4" data-arrastrable="1" class="badge-via" transform="translate(2520, 260)" style="cursor: grab;">
+    <g id="badge_via_4" data-arrastrable="1" class="badge-via" transform="translate(2520, 144)" style="cursor: grab;">
       <circle cx="0" cy="0" r="13" fill="#0284c7" stroke="#ffffff" stroke-width="2.2" />
       <text x="0" y="4.5" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4</text>
     </g>
     
-    <g id="rx_g6pdh" data-arrastrable="1">
-      <path d="M 1945 370 Q 2180 235 2540 335" fill="none" stroke="#059669" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
-      <text x="2242" y="218" fill="#059669" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G6PDH (+ NADP⁺ ➔ + NADPH + H⁺) • [Precursor Reductor: Lipogénesis / GSH]</text>
+    <g transform="translate(2570, 144)">
+      <rect x="0" y="0" width="220" height="20" rx="10" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+      <text x="110" y="14" fill="#047857" font-size="9" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">FASE OXIDATIVA (IRREVERSIBLE)</text>
     </g>
     
-    <g class="etiqueta-regulacion" transform="translate(2470, 315)">
+    <g id="rx_g6pdh" data-arrastrable="1">
+      <path d="M 1945 370 Q 2200 170 2645 200" fill="none" stroke="#059669" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
+      <text x="2220" y="165" fill="#059669" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">G6PDH (+ NADP⁺ ➔ + NADPH + H⁺) • [Poder Reductor: Lipogénesis / GSH]</text>
+    </g>
+    
+    <g class="etiqueta-regulacion" transform="translate(2570, 240)">
       <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">(+) NADP⁺</text><text x="0" y="12" fill="#dc2626" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">(-) NADPH</text><text x="0" y="24" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">[Hormonal] Insulina ↑ (gen)</text>
     </g>
     
     <!-- Metabolito Libre: 6-P-Gluconolactona -->
-    <g id="m_lactona" data-arrastrable="1" transform="translate(2580, 300)">
+    <g id="m_lactona" data-arrastrable="1" transform="translate(2680, 195)">
       <g>
   <!-- Anillo de lactona de 6 vértices -->
   <polygon points="50,22 72,36 50,58 16,58 0,36 16,22" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
@@ -1389,20 +2209,20 @@
   <line x1="0" y1="36" x2="-14" y2="36" stroke="#0f172a" stroke-width="2"/>
   <text x="-24" y="40" fill="#0f172a" font-size="11" font-weight="700">HO</text>
 </g>
-      <text x="145" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >6-P-Gluconolactona</text>
-      <text x="145" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[6C]</text>
+      <text x="115" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >6-P-Gluconolactona</text>
+      <text x="115" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[6C]</text>
       
     </g>
     
     <!-- Reacción: Lactonasa (+ H₂O) -->
-    <g id="rx_lactonasa" data-arrastrable="1" transform="translate(2630, 405)">
-      <line x1="0" y1="0" x2="0" y2="36" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <g id="rx_lactonasa" data-arrastrable="1" transform="translate(2725, 290)">
+      <line x1="0" y1="0" x2="0" y2="30" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
-      <text x="14" y="22" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >Lactonasa (+ H₂O)</text>
+      <text x="14" y="19" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >Lactonasa (+ H₂O)</text>
     </g>
     
     <!-- Metabolito Libre: 6-Fosfogluconato -->
-    <g id="m_6pg" data-arrastrable="1" transform="translate(2580, 460)">
+    <g id="m_6pg" data-arrastrable="1" transform="translate(2680, 330)">
       <g>
   <!-- C1: Grupo Carboxilato COO- arriba -->
   <text x="40" y="14" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">COO⁻</text>
@@ -1425,20 +2245,20 @@
   <circle cx="40" cy="126" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="130" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 </g>
-      <text x="145" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >6-Fosfogluconato</text>
-      <text x="145" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[6C]</text>
+      <text x="115" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >6-Fosfogluconato</text>
+      <text x="115" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[6C]</text>
       
     </g>
     
     <!-- Reacción: 6-Fosfogluconato DH (+ NADP⁺ ➔ + NADPH + CO₂) -->
-    <g id="rx_6pgdh" data-arrastrable="1" transform="translate(2630, 615)">
-      <line x1="0" y1="0" x2="0" y2="36" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <g id="rx_6pgdh" data-arrastrable="1" transform="translate(2725, 470)">
+      <line x1="0" y1="0" x2="0" y2="30" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
-      <text x="14" y="22" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >6-Fosfogluconato DH (+ NADP⁺ ➔ + NADPH + CO₂)</text>
+      <text x="14" y="19" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >6-Fosfogluconato DH (+ NADP⁺ ➔ + NADPH + CO₂)</text>
     </g>
     
-    <!-- Metabolito Libre: Ribulosa-5-Fosfato -->
-    <g id="m_ru5p" data-arrastrable="1" transform="translate(2580, 670)">
+    <!-- Metabolito Libre: Ribulosa-5-P -->
+    <g id="m_ru5p" data-arrastrable="1" transform="translate(2680, 510)">
       <g>
   <!-- C1: CH2OH arriba -->
   <text x="40" y="14" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂OH</text>
@@ -1461,13 +2281,24 @@
   <circle cx="40" cy="116" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="120" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 </g>
-      <text x="145" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Ribulosa-5-Fosfato</text>
-      <text x="145" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[5C]</text>
-      <text x="145" y="56" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" >[Precursor] Ribosa-5-P</text>
+      <text x="115" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Ribulosa-5-P</text>
+      <text x="115" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[5C]</text>
+      
     </g>
     
+    <g transform="translate(2800, 625)">
+      <rect x="0" y="0" width="190" height="18" rx="9" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+      <text x="95" y="13" fill="#6d28d9" font-size="8" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">PRECURSOR DE NUCLEÓTIDOS (PRPP)</text>
+    </g>
+    
+    <path d="M 2660 635 L 2565 670" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+    <text x="2535" y="650" fill="#047857" font-size="9" font-family="'Inter', sans-serif" text-anchor="middle">Epimerasa</text>
+
+    <path d="M 2700 635 L 2885 670" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arrowPurple)"/>
+    <text x="2925" y="650" fill="#6d28d9" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Isomerasa</text>
+    
     <!-- Metabolito Libre: Xilulosa-5-P -->
-    <g id="m_xu5p" data-arrastrable="1" transform="translate(2470, 800)">
+    <g id="m_xu5p" data-arrastrable="1" transform="translate(2520, 675)">
       <g>
   <!-- C1: CH2OH arriba -->
   <text x="40" y="14" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HO-CH₂</text>
@@ -1489,14 +2320,14 @@
   <circle cx="40" cy="116" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="120" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 </g>
-      <text x="15" y="20" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Xilulosa-5-P</text>
-      <text x="15" y="37" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="end">[5C]</text>
-      <text x="15" y="52" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">[Regulador] ChREBP</text>
+      <text x="-15" y="25" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Xilulosa-5-P</text>
+      <text x="-15" y="42" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="end">[5C]</text>
+      <text x="-15" y="57" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">[Regulador] ChREBP</text>
     </g>
     
-        <!-- Metabolito Libre: Ribosa-5-P -->
-        <g id="m_r5p" data-arrastrable="1" transform="translate(2860, 800)">
-          <g>
+    <!-- Metabolito Libre: Ribosa-5-P -->
+    <g id="m_r5p" data-arrastrable="1" transform="translate(2840, 675)">
+      <g>
   <!-- Anillo furanosa de 5 lados (Pentosa aldosa cíclica) -->
   <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
 
@@ -1520,20 +2351,24 @@
   <line x1="18" y1="68" x2="18" y2="80" stroke="#0f172a" stroke-width="2"/>
   <text x="18" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
 </g>
-          <text x="40" y="105" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Ribosa-5-P</text>
-          <text x="40" y="120" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[5C]</text>
-          <text x="40" y="133" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">[Precursor] PRPP</text>
-        </g>
-        
-    <path d="M 2600 730 L 2530 795" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
-    <text x="2530" y="760" fill="#047857" font-size="10.5" font-family="'Inter', sans-serif" text-anchor="end">Fosfopentosa Epimerasa</text>
-
-    <path d="M 2660 730 L 2850 795" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
-    <text x="2780" y="760" fill="#047857" font-size="10.5" font-family="'Inter', sans-serif">Fosfopentosa Isomerasa</text>
+      <text x="115" y="25" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Ribosa-5-P</text>
+      <text x="115" y="42" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[5C]</text>
+      <text x="115" y="57" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" >Precursora PRPP / ADN</text>
+    </g>
     
-        <!-- Metabolito Libre: Sedoheptulosa-7-P -->
-        <g id="m_s7p" data-arrastrable="1" transform="translate(2470, 960)">
-          <g>
+    <g id="rx_tk1_pnt" data-arrastrable="1" transform="translate(2620, 740)">
+      <line x1="-3" y1="0" x2="-3" y2="40" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <line x1="3" y1="40" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(18, 10)">
+        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Transcetolasa 1 (TK1)</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 2.2.1.1 (TPP)</text>
+        <text x="0" y="25" fill="#c2410c" font-size="8.5" font-weight="700">X5P + R5P ⇄ S7P + GAP</text>
+      </g>
+    </g>
+    
+    <!-- Metabolito Libre: Sedoheptulosa-7-P -->
+    <g id="m_s7p" data-arrastrable="1" transform="translate(2520, 835)">
+      <g>
   <text x="40" y="14" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HO-CH₂</text>
   <line x1="40" y1="18" x2="40" y2="30" stroke="#0f172a" stroke-width="2.2"/>
   <!-- C2: C=O -->
@@ -1547,13 +2382,13 @@
   <circle cx="40" cy="112" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="116" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 </g>
-          <text x="70" y="-20" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Sedoheptulosa-7-P</text>
-          <text x="70" y="-4" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[7C]</text>
-          
-        </g>
-        
+      <text x="-15" y="25" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Sedoheptulosa-7-P</text>
+      <text x="-15" y="42" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="end">[7C]</text>
+      <text x="-15" y="57" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">Intermediario 7C</text>
+    </g>
+    
     <!-- Metabolito Libre: Eritrosa-4-P -->
-    <g id="m_e4p" data-arrastrable="1" transform="translate(2860, 960)">
+    <g id="m_e4p" data-arrastrable="1" transform="translate(2840, 835)">
       <g>
   <!-- C1: Aldehído HC=O -->
   <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
@@ -1570,16 +2405,80 @@
   <circle cx="40" cy="120" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="40" y="124" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
 </g>
-      <text x="15" y="20" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Eritrosa-4-P</text>
-      <text x="15" y="37" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="end">[4C]</text>
-      <text x="15" y="52" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">[Precursor] AA Aromáticos (Phe, Tyr, Trp)</text>
+      <text x="115" y="25" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Eritrosa-4-P</text>
+      <text x="115" y="42" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[4C]</text>
+      <text x="115" y="57" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" >[Precursor] AA Aromáticos</text>
     </g>
     
-    <text x="2670" y="900" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transcetolasa 1 (TK1) ⇄</text>
-    <text x="2670" y="1060" fill="#047857" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Transaldolasa ⇄ Retorno a F6P y GAP</text>
-
-    <!-- Retornos de Transaldolasa y Transcetolasa hacia Glucólisis -->
+    <g id="rx_ta_pnt" data-arrastrable="1" transform="translate(2620, 900)">
+      <line x1="-3" y1="0" x2="-3" y2="40" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <line x1="3" y1="40" x2="3" y2="0" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrowFlow)"/>
+      <g transform="translate(18, 10)">
+        <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Transaldolasa (TA) + TK2</text>
+        <text x="0" y="13" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace">EC 2.2.1.2 / EC 2.2.1.1 (TPP)</text>
+        <text x="0" y="25" fill="#c2410c" font-size="8.5" font-weight="700">S7P + GAP + 2ª X5P ⇄ 2 F6P + GAP</text>
+      </g>
+    </g>
     
+    <!-- Metabolito Libre: Fructosa-6-P (x2) -->
+    <g id="m_f6p_pnt" data-arrastrable="1" transform="translate(2520, 995)">
+      <g>
+  <!-- Anillo furanosa de 5 lados -->
+  <polygon points="35,18 68,38 52,68 18,68 2,38" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+
+  <!-- Oxígeno superior -->
+  <circle cx="35" cy="18" r="7" fill="#ffffff"/>
+  <text x="35" y="22" fill="#dc2626" font-size="14" font-weight="800" text-anchor="middle">O</text>
+
+  <!-- C1 (derecha): CH2OH libre -->
+  <line x1="68" y1="38" x2="88" y2="24" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="94" y="22" fill="#0f172a" font-size="10" font-weight="800">CH₂OH</text>
+
+  <!-- C6 (izquierda): Fosfato -->
+  <line x1="2" y1="38" x2="-10" y2="18" stroke="#0f172a" stroke-width="2.2"/>
+  <circle cx="-16" cy="6" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-16" y="10" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+
+  <!-- C3 y C4 con -OH abajo -->
+  <line x1="52" y1="68" x2="52" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="52" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">OH</text>
+
+  <line x1="18" y1="68" x2="18" y2="80" stroke="#0f172a" stroke-width="2"/>
+  <text x="18" y="90" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">HO</text>
+</g>
+      <text x="-36" y="25" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Fructosa-6-P (x2)</text>
+      <text x="-36" y="42" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="end">[6C]</text>
+      <text x="-36" y="57" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">➔ Glucólisis</text>
+    </g>
+    
+    <!-- Metabolito Libre: Gliceraldehído-3-P -->
+    <g id="m_gap_pnt" data-arrastrable="1" transform="translate(2840, 995)">
+      <g>
+  <!-- C1: HC=O -->
+  <text x="40" y="15" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">HC=O</text>
+  <line x1="40" y1="20" x2="40" y2="38" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C2: H-C-OH -->
+  <text x="40" y="48" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">H-C-OH</text>
+  <line x1="40" y1="53" x2="40" y2="70" stroke="#0f172a" stroke-width="2.2"/>
+
+  <!-- C3: CH2-O-P -->
+  <text x="40" y="80" fill="#0f172a" font-size="11" font-weight="800" text-anchor="middle">CH₂-O</text>
+  <line x1="40" y1="84" x2="40" y2="94" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="40" cy="106" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="40" y="110" fill="#c2410c" font-size="11" font-weight="900" text-anchor="middle">Ⓟ</text>
+</g>
+      <text x="-15" y="25" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Gliceraldehído-3-P</text>
+      <text x="-15" y="42" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="end">[3C]</text>
+      <text x="-15" y="57" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif" text-anchor="end">➔ Reingreso a Glucólisis</text>
+    </g>
+    
+    <!-- BANNER DE BALANCE ESTEQUIOMÉTRICO FINAL DE LA FASE NO OXIDATIVA -->
+    <g id="banner_balance_pentosas_nox" data-arrastrable="1" transform="translate(2680, 1120)">
+      <rect x="-240" y="-12" width="480" height="42" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.8" filter="drop-shadow(0 3px 6px rgba(0,0,0,0.06))"/>
+      <text x="0" y="4" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">BALANCE FASE NO OXIDATIVA: RECICLAJE COMPLETO A GLUCÓLISIS</text>
+      <text x="0" y="19" fill="#ea580c" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3 Pentosas (5C) ⇄ 2 Fructosa-6-P (6C) + 1 Gliceraldehído-3-P (3C)</text>
+    </g>
     </g>
     <g id="badge_via_8" data-arrastrable="1" class="badge-via" transform="translate(956, 2119)" style="cursor: grab;">
       <circle cx="0" cy="0" r="13" fill="#0284c7" stroke="#ffffff" stroke-width="2.2" />
@@ -2242,8 +3141,8 @@
     </g>
     
     <g id="rx_mdh_retorno" data-arrastrable="1">
-      <path d="M 1140 3525 C 870 3525, 870 2330, 905 2260" fill="none" stroke="#b45309" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
-      <text x="895" y="3455" fill="#78350f" font-size="12" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(-90 895 3400)">
+      <path d="M 1140 3525 C 945 3525, 945 3300, 945 2750 L 945 2380" fill="none" stroke="#b45309" stroke-width="2.8" marker-end="url(#arrowFlow)"/>
+      <text x="968" y="2550" fill="#78350f" font-size="11" font-weight="900" font-family="'Inter', sans-serif" transform="rotate(-90 968 2550)" text-anchor="middle">
         Malato DH (+ NAD⁺ ➔ + NADH + H⁺)
       </text>
     </g>
@@ -3329,7 +4228,7 @@
     </g>
     
     <!-- Reacción: ATP Citrato Liasa -->
-    <g id="rx_acly" data-arrastrable="1" transform="translate(3170, 715)">
+    <g id="rx_acly" data-arrastrable="1" transform="translate(3140, 715)">
       <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
@@ -3341,7 +4240,7 @@
       <text x="14" y="30" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >ATP Citrato Liasa</text>
     </g>
     
-    <g class="etiqueta-regulacion" transform="translate(3340, 725)">
+    <g class="etiqueta-regulacion" transform="translate(3310, 725)">
       <text x="0" y="0" fill="#ca8a04" font-size="9" font-weight="800" font-family="'Inter', sans-serif" >(P) P (Akt) = activa</text><text x="0" y="12" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif" >[Hormonal] Insulina ↑</text>
     </g>
     
@@ -3617,8 +4516,8 @@
       <text x="0" y="4.5" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">12</text>
     </g>
     
-    <path d="M 3220 810 C 3500 810, 3500 520, 3540 520" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-    <text x="3340" y="830" fill="#9a3412" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">➔ Vía del Mevalonato (2 Acetil-CoA)</text>
+    <path d="M 3245 855 L 3290 855 Q 3300 855 3300 845 L 3300 470 Q 3300 460 3310 460 L 3495 460 Q 3505 460 3505 470 L 3505 525 Q 3505 535 3515 535 L 3550 535" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+    <text x="3400" y="450" fill="#9a3412" font-size="11.5" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle">➔ Vía del Mevalonato (2 Acetil-CoA)</text>
     
         <!-- Metabolito Libre: Acetoacetil-CoA (Citosol) -->
         <g id="m_acetoac_col" data-arrastrable="1" transform="translate(3560, 520)">
@@ -4484,7 +5383,7 @@
       <text x="14" y="24" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Sintasa</text>
     </g>
     
-    <g class="etiqueta-regulacion" transform="translate(770, 2940)">
+    <g class="etiqueta-regulacion" transform="translate(644, 2968)">
       <text x="0" y="0" fill="#dc2626" font-size="9" font-weight="800" font-family="'Inter', sans-serif" >(-) Succinil-CoA</text><text x="0" y="12" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif" >[Hormonal] Glucagón/ayuno ↑ · Insulina ↓</text>
     </g>
     
@@ -5008,11 +5907,11 @@
     <!-- Conectores continuos de convergencia de esqueletos carbonados -->
     <g id="conectores_catabolismo_phe_tyr">
       <!-- Rama Glucogénica: Fumarato hacia Ciclo de Krebs (m_fumarato) -->
-      <path d="M 2520 1765 Q 2480 1775 2480 1810 L 2480 1995 Q 2480 2010 2465 2010 L 1575 2010 Q 1560 2010 1560 2025 L 1560 3265 Q 1560 3280 1545 3280 L 1260 3280" fill="none" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
+      <path d="M 2520 1765 Q 2480 1775 2480 1810 L 2480 2025 Q 2480 2040 2465 2040 L 1575 2040 Q 1560 2040 1560 2055 L 1560 3265 Q 1560 3280 1545 3280 L 1260 3280" fill="none" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
       <text x="2470" y="1805" fill="#15803d" font-size="9.5" font-weight="800" text-anchor="end">Fumarato</text>
 
       <!-- Rama Cetogénica: Acetoacetato hacia Cetogénesis (m_acetoacetato) -->
-      <path d="M 2520 1765 Q 2560 1775 2560 1810 L 2560 2015 Q 2560 2030 2545 2030 L 1015 2030 Q 1000 2030 1000 2045 L 1000 3055 Q 1000 3070 985 3070 L 765 3070 Q 750 3070 750 3085 L 750 3135" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowRed)"/>
+      <path d="M 2520 1765 Q 2560 1775 2560 1810 L 2560 2040 Q 2560 2055 2545 2055 L 1015 2055 Q 1000 2055 1000 2070 L 1000 3055 Q 1000 3070 985 3070 L 765 3070 Q 750 3070 750 3085 L 750 3135" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowRed)"/>
       <text x="2570" y="1805" fill="#b91c1c" font-size="9.5" font-weight="800" text-anchor="start">Acetoacetato</text>
     </g>
     
@@ -5092,12 +5991,7 @@
       <!-- Rótulos de salida de bifurcación -->
       <text x="2770" y="1735" fill="#15803d" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Propionil-CoA</text>
       <text x="2825" y="1735" fill="#0f766e" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="start">L-Cisteína</text>
-
-      <!-- Rama hacia Propionil-CoA (m_prop_aa_matriz en Matriz) -->
-      <path id="conn_transsulf_prop" d="M 2810 1715 L 2800 1715 Q 2780 1715 2780 1730 L 2780 2035 Q 2780 2050 2765 2050 L 1035 2050 Q 1020 2050 1020 2065 L 1020 2585 Q 1020 2600 1005 2600 L 795 2600" fill="none" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowGreen)"/>
-
-      <!-- Rama hacia L-Cisteína (nodo citosólico en afluentes a Piruvato) -->
-      <path id="conn_transsulf_cys" d="M 2810 1715 L 2810 1745 Q 2810 1760 2825 1760 L 2970 1760 Q 2985 1760 2985 1745 L 2985 625 Q 2985 610 2970 610 L 2385 610 Q 2370 610 2370 595 L 2370 575 Q 2370 565 2362 565" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowTeal)"/>
+    
     </g>
     
     <!-- AA: L-Valina -->
@@ -5178,7 +6072,7 @@
     </g>
     
     <path d="M 640 2800 L 640 2830 L 780 2830" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
-    <text x="790" y="2834" fill="#c2410c" font-size="9.5" font-weight="800">➔ Succinil-CoA [4C] (Krebs)</text>
+    <text x="650" y="2824" fill="#c2410c" font-size="9.5" font-weight="800">➔ Succinil-CoA [4C] (Krebs)</text>
     
     <!-- AA: L-Leucina -->
     <g  data-arrastrable="1" transform="translate(470, 2870)">
@@ -6737,7 +7631,7 @@
         
       </g>
       <g transform="translate(940, 100)">
-        <text x="0" y="-12" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">VÍAS METABÓLICAS (10–17):</text>
+        <text x="0" y="-12" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">VÍAS METABÓLICAS (10–18):</text>
         
         <g transform="translate(0, 0)">
           <circle cx="12" cy="0" r="10" fill="#0284c7" />
@@ -6793,6 +7687,13 @@
           <text x="12" y="3.5" fill="#ffffff" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">16</text>
           <text x="30" y="3" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Catabolismo de nucleótidos y ácido úrico</text>
           <text x="30" y="16" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">Degradación de purinas a Ácido Úrico (XOD/Alopurinol) y</text>
+        </g>
+        
+        <g transform="translate(0, 352)">
+          <circle cx="12" cy="0" r="10" fill="#0284c7" />
+          <text x="12" y="3.5" fill="#ffffff" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">17</text>
+          <text x="30" y="3" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Ciclo de Cori (acoplamiento músculo-hígado)</text>
+          <text x="30" y="16" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">Lactato muscular anaeróbico → Sangre → Glucosa hepática</text>
         </g>
         
       </g>
@@ -7049,5 +7950,5 @@
         </g>
       </g>
     </g>
-    
+    </g> <!-- Fin entorno_hepatocito -->
     </svg>

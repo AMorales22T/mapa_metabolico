@@ -43,6 +43,7 @@ VIAS = [
     {"n": 14, "nombre": "Ciclo de la urea",                        "lugar": "Matriz + citosol · hepático", "resumen": "NH₄⁺ + HCO₃⁻ + Aspartato → Urea"},
     {"n": 15, "nombre": "Biosíntesis de nucleótidos (purinas y pirimidinas)", "lugar": "Citosol + MMI", "resumen": "Rutas de novo convergentes sobre PRPP y vías de salvamento (HGPRT/APRT)"},
     {"n": 16, "nombre": "Catabolismo de nucleótidos y ácido úrico", "lugar": "Citosol + túbulo renal", "resumen": "Degradación de purinas a Ácido Úrico (XOD/Alopurinol) y pirimidinas a β-Alanina"},
+    {"n": 17, "nombre": "Ciclo de Cori (acoplamiento músculo-hígado)", "lugar": "Músculo ⇄ Sangre ⇄ Hígado", "resumen": "Lactato muscular anaeróbico → Sangre → Glucosa hepática (GNG) → Músculo (-4 ATP neto)"},
 ]
 
 # ---------------------------------------------------------------------------

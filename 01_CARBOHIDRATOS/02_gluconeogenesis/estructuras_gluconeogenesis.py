@@ -116,7 +116,7 @@ def _fosfato(cx, cy, r=12):
     return (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>'
             f'<text x="{cx}" y="{cy+4}" font-size="11" font-weight="900" fill="#c2410c" text-anchor="middle">Pᵢ</text>')
 
-def construir_re_g6pase(glucosa_svg=None, g6p_svg=None):
+def construir_re_g6pase(glucosa_svg=None, g6p_svg=None, con_inset=False):
     xm0, xm1 = 420, 454
     xc = (xm0 + xm1) / 2     # 437
     s = ['<g class="organelo-re-g6pase" font-family="\'Inter\', sans-serif">']
@@ -162,38 +162,41 @@ def construir_re_g6pase(glucosa_svg=None, g6p_svg=None):
     s.append(_fosfato(374, 25))
     s.append(_flecha("M 388 25 L 413 25", "#475569", "arrowSlate", 2))
 
-    # Cabecera
-    s.append('<text x="0" y="-26" font-size="11" font-weight="900" fill="#6d28d9">Glucosa-6-fosfatasa · EC 3.1.3.9</text>')
-    # Inset: qué se salta
-    ty = 416
-    s.append(f'<rect x="0" y="{ty}" width="150" height="20" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6"/>'
-             f'<text x="75" y="{ty+14}" font-size="10.5" font-weight="900" fill="#b91c1c" text-anchor="middle">SE SALTA HK / GK</text>')
-    ya = ty + 40
-    s.append(_chip(20, ya, 40, "Glc", "#64748b", "#f1f5f9"))
-    s.append(_flecha(f"M 42 {ya} L 112 {ya}", "#94a3b8", "arrowSlate", 2, 'stroke-dasharray="5 3"'))
-    s.append(f'<text x="80" y="{ya-13}" font-size="9.5" font-weight="800" fill="#64748b" text-anchor="middle">HK/GK</text>')
-    s.append(f'<text x="80" y="{ya+21}" font-size="9.5" font-weight="800" fill="#64748b" text-anchor="middle">+ ATP</text>')
-    s.append(f'<path d="M 75 {ya-6} L 85 {ya+6} M 85 {ya-6} L 75 {ya+6}" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>')
-    s.append(_chip(142, ya, 50, "G6P", "#64748b", "#f1f5f9"))
-    s.append(f'<text x="176" y="{ya+4}" font-size="9.5" font-weight="800" fill="#94a3b8">glucólisis</text>')
-    yb = ya + 50
-    s.append(_chip(24, yb, 50, "G6P", "#7c3aed", "#ede9fe"))
-    s.append(_flecha(f"M 52 {yb} L 110 {yb}", "#7c3aed", "arrowPurple", 2.6))
-    s.append(f'<text x="83" y="{yb-12}" font-size="9.5" font-weight="900" fill="#7c3aed" text-anchor="middle">G6Pasa</text>')
-    s.append(f'<text x="83" y="{yb+21}" font-size="9.5" font-weight="800" fill="#0284c7" text-anchor="middle">+ H₂O → Pi</text>')
-    s.append(_chip(138, yb, 40, "Glc", "#ea580c", "#ffedd5"))
-    s.append(f'<text x="170" y="{yb+4}" font-size="9.5" font-weight="900" fill="#7c3aed">gluconeogénesis</text>')
-    yt = yb + 40
-    s.append(f'<rect x="0" y="{yt}" width="188" height="20" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>'
-             f'<text x="94" y="{yt+14}" font-size="10" font-weight="900" fill="#92400e" text-anchor="middle">Solo hígado + riñón (no músculo)</text>')
+    if con_inset:
+        # Cabecera
+        s.append('<text x="0" y="-26" font-size="11" font-weight="900" fill="#6d28d9">Glucosa-6-fosfatasa · EC 3.1.3.9</text>')
+        # Inset: qué se salta (solo para vista individual)
+        ty = 416
+        s.append(f'<rect x="0" y="{ty}" width="150" height="20" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6"/>'
+                 f'<text x="75" y="{ty+14}" font-size="10.5" font-weight="900" fill="#b91c1c" text-anchor="middle">SE SALTA HK / GK</text>')
+        ya = ty + 40
+        s.append(_chip(20, ya, 40, "Glc", "#64748b", "#f1f5f9"))
+        s.append(_flecha(f"M 42 {ya} L 112 {ya}", "#94a3b8", "arrowSlate", 2, 'stroke-dasharray="5 3"'))
+        s.append(f'<text x="80" y="{ya-13}" font-size="9.5" font-weight="800" fill="#64748b" text-anchor="middle">HK/GK</text>')
+        s.append(f'<text x="80" y="{ya+21}" font-size="9.5" font-weight="800" fill="#64748b" text-anchor="middle">+ ATP</text>')
+        s.append(f'<path d="M 75 {ya-6} L 85 {ya+6} M 85 {ya-6} L 75 {ya+6}" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>')
+        s.append(_chip(142, ya, 50, "G6P", "#64748b", "#f1f5f9"))
+        s.append(f'<text x="176" y="{ya+4}" font-size="9.5" font-weight="800" fill="#94a3b8">glucólisis</text>')
+        yb = ya + 50
+        s.append(_chip(24, yb, 50, "G6P", "#7c3aed", "#ede9fe"))
+        s.append(_flecha(f"M 52 {yb} L 110 {yb}", "#7c3aed", "arrowPurple", 2.6))
+        s.append(f'<text x="83" y="{yb-12}" font-size="9.5" font-weight="900" fill="#7c3aed" text-anchor="middle">G6Pasa</text>')
+        s.append(f'<text x="83" y="{yb+21}" font-size="9.5" font-weight="800" fill="#0284c7" text-anchor="middle">+ H₂O → Pi</text>')
+        s.append(_chip(138, yb, 40, "Glc", "#ea580c", "#ffedd5"))
+        s.append(f'<text x="170" y="{yb+4}" font-size="9.5" font-weight="900" fill="#7c3aed">gluconeogénesis</text>')
+        yt = yb + 40
+        s.append(f'<rect x="0" y="{yt}" width="188" height="20" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>'
+                 f'<text x="94" y="{yt+14}" font-size="10" font-weight="900" fill="#92400e" text-anchor="middle">Solo hígado + riñón (no músculo)</text>')
     s.append('</g>')
     return "\n".join(s)
 
 try:
     from estructuras_glucosa import GLUCOSA, GLUCOSA_6_FOSFATO
-    RE_GLUCOSA_6_FOSFATASA = construir_re_g6pase(GLUCOSA, GLUCOSA_6_FOSFATO)
+    RE_GLUCOSA_6_FOSFATASA = construir_re_g6pase(GLUCOSA, GLUCOSA_6_FOSFATO, con_inset=False)
+    RE_GLUCOSA_6_FOSFATASA_INSET = construir_re_g6pase(GLUCOSA, GLUCOSA_6_FOSFATO, con_inset=True)
 except ImportError:  # ejecución aislada: usa fichas de texto
-    RE_GLUCOSA_6_FOSFATASA = construir_re_g6pase()
+    RE_GLUCOSA_6_FOSFATASA = construir_re_g6pase(con_inset=False)
+    RE_GLUCOSA_6_FOSFATASA_INSET = construir_re_g6pase(con_inset=True)
 
 # 5. Glicerol - Precursor gluconeogénico de lipólisis
 # CH2OH - CH(OH) - CH2OH

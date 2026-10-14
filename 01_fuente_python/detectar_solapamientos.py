@@ -25,7 +25,7 @@ NS = "{http://www.w3.org/2000/svg}"
 
 # Grupos que no se analizan (decorado de fondo o insertos con diseño propio cerrado)
 GRUPOS_EXCLUIDOS = {
-    "mitocondria_biologica", "eritrocitos_torrente",
+    "mitocondria_biologica", "eritrocitos_torrente", "musculo_esqueletico_biologico", "sistema_vascular_extrahepatico",
 }
 # Dentro de estos grupos sólo se comprueba su propio contorno, no su interior
 GRUPOS_INSERTO = {

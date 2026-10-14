@@ -54,17 +54,18 @@ NS = "{http://www.w3.org/2000/svg}"
 # ---------------------------------------------------------------------------
 # Transportadores / anclas sin id propio en el SVG (coordenadas absolutas)
 # ---------------------------------------------------------------------------
-MPC = (1645, 2105, 1715, 2147)          # Carrier de Piruvato (MPC1/2)
-CIC = (1915, 2115, 1975, 2143)          # Carrier de Citrato
-AGC = (2015, 2110, 2105, 2165)          # Carrier de Glutamato (AGC / GC1) con rótulo inferior
-CITRINA = (4330, 2135, 4510, 2205)      # Carrier SLC25A13 (Citrina) en MMI con rótulo
-ORNT1 = (4570, 2135, 4710, 2205)        # Carrier SLC25A15 (ORNT1) en MMI con rótulo
-TXT_SUCCINIL = (788, 2822, 962, 2840)   # rótulo "➔ Succinil-CoA [4C] (Krebs)" (vía Propionil-CoA)
+Y_OFFSET = 350
+MPC = (1645, 2105 + Y_OFFSET, 1715, 2147 + Y_OFFSET)          # Carrier de Piruvato (MPC1/2)
+CIC = (1915, 2115 + Y_OFFSET, 1975, 2143 + Y_OFFSET)          # Carrier de Citrato
+AGC = (2015, 2110 + Y_OFFSET, 2105, 2165 + Y_OFFSET)          # Carrier de Glutamato (AGC / GC1) con rótulo inferior
+CITRINA = (4330, 2135 + Y_OFFSET, 4510, 2205 + Y_OFFSET)      # Carrier SLC25A13 (Citrina) en MMI con rótulo
+ORNT1 = (4570, 2135 + Y_OFFSET, 4710, 2205 + Y_OFFSET)        # Carrier SLC25A15 (ORNT1) en MMI con rótulo
+TXT_SUCCINIL = (650, 2814 + Y_OFFSET, 785, 2836 + Y_OFFSET)   # rótulo "➔ Succinil-CoA [4C] (Krebs)" (vía Propionil-CoA)
 
 
 def sangre(x):
     """Punto de llegada al torrente sanguíneo (cara interna de la membrana plasmática)."""
-    return {"rect": (x - 25, 84, x + 25, 92), "lado": "bottom"}
+    return {"rect": (x - 25, 84 + Y_OFFSET, x + 25, 92 + Y_OFFSET), "lado": "bottom"}
 
 
 # ---------------------------------------------------------------------------
@@ -86,7 +87,7 @@ CONEXIONES = [
          color=NARANJA, rotulo="PDH: Piruvato ➔ Acetil-CoA"),
     dict(id="sangre_lactato", src=sangre(1620), dst={"id": "m_lactato", "lado": "top"},
          color=MORADO, rotulo="Lactato (Ciclo de Cori) ➔"),
-    dict(id="sangre_glicerol", src=sangre(980), dst={"id": "m_glicerol", "lado": "top"},
+    dict(id="sangre_glicerol", src=sangre(760), dst={"id": "m_glicerol", "lado": "top"},
          color=MORADO, rotulo="Glicerol (Lipólisis TAG) ➔"),
     dict(id="g6p_g1p", src={"id": "m_g6p"}, dst={"id": "m_g1p"},
          color=MARRON, rotulo="PGM: G6P ⇄ G1P (Glucógeno)"),

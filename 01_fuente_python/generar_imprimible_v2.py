@@ -98,15 +98,15 @@ def construir_imprimible_v2():
     print("   ✓ Fuentes Inter y JetBrains Mono convertidas a base64 @font-face")
 
     # Geometría exacta del póster 1200 × 900 mm (proporción 4:3 = 6800 × 5100 px)
-    # Mapa original: X in [0, 5800], Y in [0, 4750] (intacto en sus coordenadas)
-    # Extensión izquierda: X in [-500, 20]
-    # Extensión derecha: X in [5780, 6300]
-    # Cabecera: Y in [-250, 0] (250 px = 4.90% del alto <= 6%)
-    # Pie: Y in [4750, 4850] (100 px = 1.96% del alto <= 2%)
-    # viewBox="-500 -250 6800 5100"
-    W_CANVAS = 6800
-    H_CANVAS = 5100
-    VB_X = -500
+    # Mapa original: X in [0, 5800], Y in [0, 5120] (intacto en sus coordenadas)
+    # Extensión izquierda: X in [-760, 0]
+    # Extensión derecha: X in [5800, 6560]
+    # Cabecera: Y in [-250, 0] (250 px = 4.55% del alto <= 6%)
+    # Pie: Y in [5120, 5240] (120 px = 2.18% del alto)
+    # viewBox="-760 -250 7320 5490" (proporción 4:3 exacta = 1200 × 900 mm)
+    W_CANVAS = 7320
+    H_CANVAS = 5490
+    VB_X = -760
     VB_Y = -250
 
     # Capas periféricas con prefijo 'print_'
@@ -122,7 +122,7 @@ def construir_imprimible_v2():
         <stop offset="100%" stop-color="#991b1b" stop-opacity="0.85"/>
       </linearGradient>
       <!-- Gradiente de citosol con userSpaceOnUse para uniones matemáticamente continuas -->
-      <linearGradient id="print_gradCitosolUser" x1="0" y1="0" x2="0" y2="4750" gradientUnits="userSpaceOnUse">
+      <linearGradient id="print_gradCitosolUser" x1="0" y1="0" x2="0" y2="5120" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stop-color="#f8fafc" />
         <stop offset="100%" stop-color="#f1f5f9" />
       </linearGradient>
@@ -134,174 +134,174 @@ def construir_imprimible_v2():
     </g>
 
     <!-- 2. Extensión lateral IZQUIERDA del entorno biológico (detrás del mapa) -->
-    <!-- Rango: X in [-500, 0] conectando de forma continua en X=0 con el mapa original -->
+    <!-- Rango: X in [-760, 0] conectando de forma continua en X=0 con el mapa original -->
     <g id="print_fondo_izq">
       <!-- Citosol izquierdo con el mismo gradiente vertical (se alinea a la perfección) -->
-      <rect x="-500" y="0" width="500.5" height="4750" fill="url(#gradCitosolUnificado)" />
+      <rect x="-760" y="0" width="760.5" height="5120" fill="url(#gradCitosolUnificado)" />
 
       <!-- Microfilamentos del citoesqueleto que continúan suavemente hacia la izquierda -->
       <g fill="none" stroke="#cbd5e1" opacity="0.3">
-        <path d="M -500 480 Q -240 450 60 480" stroke-width="2.5" stroke-dasharray="16 12" />
-        <path d="M -500 920 Q -240 960 60 920" stroke-width="2" stroke-dasharray="12 14" />
-        <path d="M -500 1480 Q -240 1440 60 1480" stroke-width="2.2" stroke-dasharray="14 10" />
-        <path d="M -500 1980 Q -240 2020 60 1980" stroke-width="2" stroke-dasharray="12 12" />
+        <path d="M -760 480 Q -380 450 60 480" stroke-width="2.5" stroke-dasharray="16 12" />
+        <path d="M -760 920 Q -380 960 60 920" stroke-width="2" stroke-dasharray="12 14" />
+        <path d="M -760 1480 Q -380 1440 60 1480" stroke-width="2.2" stroke-dasharray="14 10" />
+        <path d="M -760 1980 Q -380 2020 60 1980" stroke-width="2" stroke-dasharray="12 12" />
       </g>
 
       <!-- Polirribosomas tenues en el citosol izquierdo -->
       <g fill="#64748b" opacity="0.22">
-        <g transform="translate(-320, 380)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/><circle cx="-2" cy="11" r="3.2"/></g>
-        <g transform="translate(-180, 1150)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/></g>
-        <g transform="translate(-350, 1850)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/></g>
+        <g transform="translate(-480, 380)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/><circle cx="-2" cy="11" r="3.2"/></g>
+        <g transform="translate(-280, 1150)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/></g>
+        <g transform="translate(-520, 1850)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/></g>
       </g>
 
       <!-- Vesículas citosólicas translúcidas izquierdas -->
       <g opacity="0.32">
-        <circle cx="-280" cy="620" r="24" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
-        <circle cx="-160" cy="1420" r="22" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2" />
-        <circle cx="-340" cy="2200" r="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
+        <circle cx="-420" cy="620" r="24" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
+        <circle cx="-260" cy="1420" r="22" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2" />
+        <circle cx="-540" cy="2200" r="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
       </g>
 
       <!-- Plasma sanguíneo superior izquierdo (conecta sin costura ni cambio de tono en X=0) -->
-      <path d="M -500 0 L 0.5 0 L 0.5 68 C -150 64.7, -300 68, -500 68 Z" fill="url(#print_gradPlasma)" />
+      <path d="M -760 0 L 0.5 0 L 0.5 68 C -250 64.7, -500 68, -760 68 Z" fill="url(#print_gradPlasma)" />
       
       <!-- Corriente laminar en el plasma izquierdo -->
       <g fill="none" stroke="#ef4444" opacity="0.3" stroke-linecap="round">
-        <path d="M -500 18 Q -240 24 0 18" stroke-width="2.5" stroke-dasharray="25 15" />
-        <path d="M -500 36 Q -240 42 0 36" stroke-width="3" stroke-dasharray="35 20" />
-        <path d="M -500 54 Q -240 60 0 54" stroke-width="2" stroke-dasharray="20 18" />
+        <path d="M -760 18 Q -380 24 0 18" stroke-width="2.5" stroke-dasharray="25 15" />
+        <path d="M -760 36 Q -380 42 0 36" stroke-width="3" stroke-dasharray="35 20" />
+        <path d="M -760 54 Q -380 60 0 54" stroke-width="2" stroke-dasharray="20 18" />
       </g>
 
       <!-- Eritrocitos bicóncavos en la extensión izquierda del torrente -->
       <g opacity="0.88">
-        <g transform="translate(-340, 34) rotate(-14)">
+        <g transform="translate(-540, 34) rotate(-14)">
           <ellipse cx="0" cy="0" rx="26" ry="17" fill="url(#gradEritrocito)" stroke="#7f1d1d" stroke-width="1.8" />
           <ellipse cx="0" cy="0" rx="14" ry="8" fill="url(#gradEritrocitoCentro)" opacity="0.75" />
         </g>
-        <g transform="translate(-160, 44) rotate(16)">
+        <g transform="translate(-260, 44) rotate(16)">
           <ellipse cx="0" cy="0" rx="23" ry="15" fill="url(#gradEritrocito)" stroke="#7f1d1d" stroke-width="1.6" />
           <ellipse cx="0" cy="0" rx="12" ry="7" fill="url(#gradEritrocitoCentro)" opacity="0.7" />
         </g>
       </g>
 
       <!-- Membrana plasmática continua izquierda (tangente C1 exacta con el mapa original en X=0) -->
-      <path d="M -500 68 C -300 68, -150 64.7, 0 68 L 15 68.33" fill="none" stroke="#0284c7" stroke-width="10" stroke-linecap="round" />
-      <path d="M -500 78 C -300 78, -150 74.7, 0 78 L 15 78.33" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+      <path d="M -760 68 C -500 68, -250 64.7, 0 68 L 15 68.33" fill="none" stroke="#0284c7" stroke-width="10" stroke-linecap="round" />
+      <path d="M -760 78 C -500 78, -250 74.7, 0 78 L 15 78.33" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
 
       <!-- Cabezas polares fosfolipídicas -->
       <g fill="#0284c7" opacity="0.75">
-        <circle cx="-380" cy="67" r="3.4"/><circle cx="-362" cy="67" r="3.4"/><circle cx="-344" cy="67" r="3.4"/>
-        <circle cx="-200" cy="66" r="3.4"/><circle cx="-182" cy="66" r="3.4"/><circle cx="-164" cy="66" r="3.4"/>
+        <circle cx="-580" cy="67" r="3.4"/><circle cx="-562" cy="67" r="3.4"/><circle cx="-544" cy="67" r="3.4"/>
+        <circle cx="-300" cy="66" r="3.4"/><circle cx="-282" cy="66" r="3.4"/><circle cx="-264" cy="66" r="3.4"/>
       </g>
     </g>
 
     <!-- 3. Extensión lateral DERECHA del entorno biológico (detrás del mapa) -->
-    <!-- Rango: X in [5800, 6300] conectando de forma continua en X=5800 con el mapa original -->
+    <!-- Rango: X in [5800, 6560] conectando de forma continua en X=5800 con el mapa original -->
     <g id="print_fondo_der">
       <!-- Citosol derecho con el mismo gradiente vertical -->
-      <rect x="5800" y="0" width="500" height="4750" fill="url(#gradCitosolUnificado)" />
+      <rect x="5800" y="0" width="760" height="5120" fill="url(#gradCitosolUnificado)" />
 
       <!-- Microfilamentos del citoesqueleto hacia la derecha -->
       <g fill="none" stroke="#cbd5e1" opacity="0.3">
-        <path d="M 5800 480 Q 6040 510 6300 480" stroke-width="2.5" stroke-dasharray="16 12" />
-        <path d="M 5800 920 Q 6040 880 6300 920" stroke-width="2" stroke-dasharray="12 14" />
-        <path d="M 5800 1480 Q 6040 1510 6300 1480" stroke-width="2.2" stroke-dasharray="14 10" />
-        <path d="M 5800 1980 Q 6040 1950 6300 1980" stroke-width="2" stroke-dasharray="12 12" />
+        <path d="M 5800 480 Q 6180 510 6560 480" stroke-width="2.5" stroke-dasharray="16 12" />
+        <path d="M 5800 920 Q 6180 880 6560 920" stroke-width="2" stroke-dasharray="12 14" />
+        <path d="M 5800 1480 Q 6180 1510 6560 1480" stroke-width="2.2" stroke-dasharray="14 10" />
+        <path d="M 5800 1980 Q 6180 1950 6560 1980" stroke-width="2" stroke-dasharray="12 12" />
       </g>
 
       <!-- Polirribosomas en el citosol derecho -->
       <g fill="#64748b" opacity="0.22">
-        <g transform="translate(5940, 420)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/><circle cx="-2" cy="11" r="3.2"/></g>
-        <g transform="translate(6120, 1280)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/></g>
-        <g transform="translate(5980, 2040)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/></g>
+        <g transform="translate(6140, 420)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/><circle cx="-2" cy="11" r="3.2"/></g>
+        <g transform="translate(6320, 1280)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/></g>
+        <g transform="translate(6180, 2040)"><circle cx="0" cy="0" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="16" cy="10" r="3.2"/><circle cx="7" cy="15" r="2.8"/></g>
       </g>
 
       <!-- Vesículas citosólicas translúcidas derechas -->
       <g opacity="0.32">
-        <circle cx="5980" cy="740" r="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2" />
-        <circle cx="6160" cy="1560" r="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
-        <circle cx="5940" cy="2350" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
+        <circle cx="6180" cy="740" r="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2" />
+        <circle cx="6360" cy="1560" r="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
+        <circle cx="6140" cy="2350" r="22" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2" />
       </g>
 
       <!-- Plasma sanguíneo superior derecho (conecta sin costura en X=5800, Y=68) -->
-      <path d="M 5800 0 L 6300 0 L 6300 68 C 6150 68, 5950 68, 5800 68 Z" fill="url(#print_gradPlasma)" />
+      <path d="M 5800 0 L 6560 0 L 6560 68 C 6350 68, 6050 68, 5800 68 Z" fill="url(#print_gradPlasma)" />
 
       <!-- Corriente laminar en el plasma derecho -->
       <g fill="none" stroke="#ef4444" opacity="0.3" stroke-linecap="round">
-        <path d="M 5800 18 Q 6040 25 6300 18" stroke-width="2.5" stroke-dasharray="25 15" />
-        <path d="M 5800 36 Q 6040 43 6300 36" stroke-width="3" stroke-dasharray="35 20" />
-        <path d="M 5800 54 Q 6040 60 6300 54" stroke-width="2" stroke-dasharray="20 18" />
+        <path d="M 5800 18 Q 6180 25 6560 18" stroke-width="2.5" stroke-dasharray="25 15" />
+        <path d="M 5800 36 Q 6180 43 6560 36" stroke-width="3" stroke-dasharray="35 20" />
+        <path d="M 5800 54 Q 6180 60 6560 54" stroke-width="2" stroke-dasharray="20 18" />
       </g>
 
       <!-- Eritrocitos bicóncavos en la extensión derecha -->
       <g opacity="0.88">
-        <g transform="translate(5960, 36) rotate(14)">
+        <g transform="translate(6160, 36) rotate(14)">
           <ellipse cx="0" cy="0" rx="25" ry="16" fill="url(#gradEritrocito)" stroke="#7f1d1d" stroke-width="1.8" />
           <ellipse cx="0" cy="0" rx="13" ry="8" fill="url(#gradEritrocitoCentro)" opacity="0.75" />
         </g>
-        <g transform="translate(6150, 42) rotate(-12)">
+        <g transform="translate(6380, 42) rotate(-12)">
           <ellipse cx="0" cy="0" rx="24" ry="15" fill="url(#gradEritrocito)" stroke="#7f1d1d" stroke-width="1.6" />
           <ellipse cx="0" cy="0" rx="12" ry="7" fill="url(#gradEritrocitoCentro)" opacity="0.7" />
         </g>
       </g>
 
       <!-- Membrana plasmática continua derecha (conecta sin costura desde la llegada del mapa original en X=5800) -->
-      <path d="M 5770 81.4 C 5860 81.4, 5980 74, 6300 68" fill="none" stroke="#0284c7" stroke-width="10" stroke-linecap="round" />
-      <path d="M 5770 91.4 C 5860 91.4, 5980 84, 6300 78" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+      <path d="M 5770 81.4 C 5960 81.4, 6250 74, 6560 68" fill="none" stroke="#0284c7" stroke-width="10" stroke-linecap="round" />
+      <path d="M 5770 91.4 C 5960 91.4, 6250 84, 6560 78" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
 
       <!-- Cabezas polares fosfolipídicas -->
       <g fill="#0284c7" opacity="0.75">
-        <circle cx="5980" cy="79" r="3.4"/><circle cx="5998" cy="80" r="3.4"/><circle cx="6016" cy="81" r="3.4"/>
-        <circle cx="6180" cy="75" r="3.4"/><circle cx="6198" cy="74" r="3.4"/><circle cx="6216" cy="73" r="3.4"/>
+        <circle cx="6180" cy="79" r="3.4"/><circle cx="6198" cy="80" r="3.4"/><circle cx="6216" cy="81" r="3.4"/>
+        <circle cx="6380" cy="75" r="3.4"/><circle cx="6398" cy="74" r="3.4"/><circle cx="6416" cy="73" r="3.4"/>
       </g>
     </g>
 
     <!-- 4. Extensión inferior del citosol hacia el pie de página -->
     <g id="print_fondo_inf">
-      <rect x="-500" y="4740" width="6800" height="110" fill="#f1f5f9" />
+      <rect x="-760" y="5110" width="7320" height="135" fill="#f1f5f9" />
     </g>
 
     <!-- 5. Marco perimetral fino a 8.8 mm del borde exterior (sin franjas blancas) -->
     <g id="print_marco">
       <!-- Borde exterior triple elegante (#0284c7, #0d9488, #10b981) -->
-      <rect x="-450" y="-200" width="6700" height="5000" rx="14" fill="none" stroke="#0284c7" stroke-width="4.2" />
-      <rect x="-443" y="-193" width="6686" height="4986" rx="10" fill="none" stroke="#0d9488" stroke-width="2.4" />
-      <rect x="-437" y="-187" width="6674" height="4974" rx="7" fill="none" stroke="#10b981" stroke-width="1.4" />
+      <rect x="-710" y="-200" width="7220" height="5390" rx="14" fill="none" stroke="#0284c7" stroke-width="4.2" />
+      <rect x="-703" y="-193" width="7206" height="5376" rx="10" fill="none" stroke="#0d9488" stroke-width="2.4" />
+      <rect x="-697" y="-187" width="7194" height="5364" rx="7" fill="none" stroke="#10b981" stroke-width="1.4" />
 
       <!-- Marcas de registro y corte a 15 mm en las 4 esquinas exteriores -->
       <g stroke="#94a3b8" stroke-width="1.2">
         <!-- Esquina Superior Izquierda -->
-        <line x1="-480" y1="-200" x2="-420" y2="-200" />
-        <line x1="-450" y1="-230" x2="-450" y2="-170" />
+        <line x1="-740" y1="-200" x2="-680" y2="-200" />
+        <line x1="-710" y1="-230" x2="-710" y2="-170" />
         <!-- Esquina Superior Derecha -->
-        <line x1="6220" y1="-200" x2="6280" y2="-200" />
-        <line x1="6250" y1="-230" x2="6250" y2="-170" />
+        <line x1="6480" y1="-200" x2="6540" y2="-200" />
+        <line x1="6510" y1="-230" x2="6510" y2="-170" />
         <!-- Esquina Inferior Izquierda -->
-        <line x1="-480" y1="4800" x2="-420" y2="4800" />
-        <line x1="-450" y1="4770" x2="-450" y2="4830" />
+        <line x1="-740" y1="5190" x2="-680" y2="5190" />
+        <line x1="-710" y1="5160" x2="-710" y2="5220" />
         <!-- Esquina Inferior Derecha -->
-        <line x1="6220" y1="4800" x2="6280" y2="4800" />
-        <line x1="6250" y1="4770" x2="6250" y2="4830" />
+        <line x1="6480" y1="5190" x2="6540" y2="5190" />
+        <line x1="6510" y1="5160" x2="6510" y2="5220" />
       </g>
     </g>
 
     <!-- 6. Banda superior de cabecera compacta (solo título limpio) -->
     <g id="print_cabecera">
       <!-- Fondo sutil de cabecera -->
-      <rect x="-450" y="-200" width="6700" height="198" fill="#f8fafc" opacity="0.98" />
+      <rect x="-710" y="-200" width="7220" height="198" fill="#f8fafc" opacity="0.98" />
 
       <!-- Título de póster grande, limpio y legible (centrado en X=2900) -->
       <text x="2900" y="-105" fill="#0f172a" font-size="72" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="4" text-anchor="middle">MAPA METABÓLICO INTEGRADO</text>
       
       <!-- Subtítulo de vías metabólicas -->
-      <text x="2900" y="-45" fill="#475569" font-size="18" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Glucólisis • Gluconeogénesis • Glucógeno • Pentosas • Lanzaderas • Krebs • Cadena Respiratoria • β-Oxidación • Cetogénesis • Lipogénesis • Ciclo de la Urea • Nucleótidos</text>
+      <text x="2900" y="-45" fill="#475569" font-size="18" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Glucólisis • Gluconeogénesis • Glucógeno • Pentosas • Ciclo de Cori • Lanzaderas • Krebs • Cadena Respiratoria • β-Oxidación • Cetogénesis • Lipogénesis • Ciclo de la Urea • Nucleótidos</text>
     </g>
 
     <!-- 7. Pie de página institucional inferior mínimo (1.96% del alto, 100 px) -->
     <g id="print_pie_poster">
-      <line x1="-430" y1="4780" x2="6230" y2="4780" stroke="#cbd5e1" stroke-width="1.4" />
-      <text x="-400" y="4815" fill="#64748b" font-size="12.5" font-weight="800" font-family="'JetBrains Mono', monospace">MAPA METABÓLICO INTEGRADO • UNIVERSIDAD / CÓDIGO ABIERTO (MIT)</text>
-      <text x="2900" y="4815" fill="#94a3b8" font-size="12.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Renderizado Vectorial Ultra HD 1:1 • Formato Póster 1200 × 900 mm</text>
-      <text x="6200" y="4815" fill="#0284c7" font-size="12.5" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="end">github.com/dolfius127/mapa_metabolico</text>
+      <line x1="-690" y1="5140" x2="6490" y2="5140" stroke="#cbd5e1" stroke-width="1.4" />
+      <text x="-660" y="5175" fill="#64748b" font-size="12.5" font-weight="800" font-family="'JetBrains Mono', monospace">MAPA METABÓLICO INTEGRADO • UNIVERSIDAD / CÓDIGO ABIERTO (MIT)</text>
+      <text x="2900" y="5175" fill="#94a3b8" font-size="12.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Renderizado Vectorial Ultra HD 1:1 • Formato Póster 1200 × 900 mm</text>
+      <text x="6460" y="5175" fill="#0284c7" font-size="12.5" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="end">github.com/AMorales22T/mapa_metabolico-</text>
     </g>
 """
 
