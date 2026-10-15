@@ -35,15 +35,17 @@ jobs:
       - name: Preparar archivos del sitio web
         run: |
           mkdir -p _site
-          # 1. Copiar todos los entregables HTML y SVG
-          cp -r 02_versiones_html/* _site/
-          # 2. La versión interactiva es la portada principal (index.html)
-          cp 02_versiones_html/prueba_visual_interactiva.html _site/index.html
-          # 3. Copiar PDFs para descarga directa
-          cp -r 03_impresion/* _site/
-          # 4. Copiar capturas y pruebas
-          mkdir -p _site/04_capturas_y_pruebas
-          cp -r 04_capturas_y_pruebas/* _site/04_capturas_y_pruebas/
+          # 1. Copiar todos los entregables HTML y SVG (incluyendo index.html de centro de visores)
+          cp -r versiones_html/* _site/
+          # 2. Copiar PDFs tanto en _site/versiones_impresion/ como en la raíz para compatibilidad absoluta
+          mkdir -p _site/versiones_impresion
+          cp -r versiones_impresion/* _site/versiones_impresion/
+          cp -r versiones_impresion/* _site/
+          # 3. Copiar capturas y vistas previas
+          mkdir -p _site/capturas_y_pruebas
+          cp -r capturas_y_pruebas/* _site/capturas_y_pruebas/
+          # 4. Asegurar vista previa ampliada disponible
+          cp 07_AMPLIACION_TEMARIO/mapa_cartulina_ampliado_preview.png _site/ || true
 
       - name: Subir artefacto de GitHub Pages
         uses: actions/upload-pages-artifact@v3

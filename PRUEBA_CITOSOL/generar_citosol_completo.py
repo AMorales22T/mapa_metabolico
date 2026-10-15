@@ -36,8 +36,8 @@ import sys
 
 # Rutas a los módulos existentes
 DIR_RAIZ = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(os.path.join(DIR_RAIZ, "01_CARBOHIDRATOS", "01_glucolisis"))
-sys.path.append(os.path.join(DIR_RAIZ, "01_CARBOHIDRATOS", "04_via_pentosas_fosfato"))
+sys.path.append(os.path.join(DIR_RAIZ, "01_CARBOHIDRATOS", "via_01_glucolisis"))
+sys.path.append(os.path.join(DIR_RAIZ, "01_CARBOHIDRATOS", "via_04_pentosas_fosfato"))
 
 from estructuras_glucosa import (
     GLUCOSA, GLUCOSA_6_FOSFATO, FRUCTOSA_6_FOSFATO, FRUCTOSA_1_6_BISFOSFATO,

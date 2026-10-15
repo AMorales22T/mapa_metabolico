@@ -20,9 +20,9 @@ import os
 import sys
 
 DIR_BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(os.path.join(DIR_BASE, "01_glucolisis"))
-sys.path.append(os.path.join(DIR_BASE, "04_via_pentosas_fosfato"))
-sys.path.append(os.path.join(DIR_BASE, "03_glucogenogenesis_y_glucogenolisis"))
+sys.path.append(os.path.join(DIR_BASE, "via_01_glucolisis"))
+sys.path.append(os.path.join(DIR_BASE, "via_04_pentosas_fosfato"))
+sys.path.append(os.path.join(DIR_BASE, "via_03_glucogenogenesis_y_glucogenolisis"))
 
 from estructuras_glucosa import (
     GLUCOSA, GLUCOSA_6_FOSFATO, FRUCTOSA_6_FOSFATO, FRUCTOSA_1_6_BISFOSFATO,
@@ -245,7 +245,7 @@ def generar_entorno_celular_continuo(ancho, alto):
       ESPACIO EXTRACELULAR (SANGRE / LÍQUIDO INTERSTICIAL)
     </text>
 
-    <!-- Bicapa fosfolipídica ondulada, como en 01_glucolisis -->
+    <!-- Bicapa fosfolipídica ondulada, como en via_01_glucolisis -->
     <path d="M 0 60 Q {ancho*0.25} 88 {ancho*0.5} 60 T {ancho} 60" fill="none" stroke="#0284c7" stroke-width="9" stroke-linecap="round"/>
     <path d="M 0 69 Q {ancho*0.25} 97 {ancho*0.5} 69 T {ancho} 69" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
 

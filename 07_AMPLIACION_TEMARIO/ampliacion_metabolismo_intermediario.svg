@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="3000" viewBox="0 0 3600 3000" role="img" aria-labelledby="titulo descripcion">
+<title id="titulo">Ampliación del metabolismo intermediario</title>
+<desc id="descripcion">Digestión y transporte de lípidos, metabolismo de triacilgliceroles y fosfolípidos, biosíntesis de aminoácidos e integración entre tejidos y estados metabólicos.</desc>
+<defs>
+<marker id="flecha-ea580c" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#ea580c"/></marker>
+<marker id="flecha-059669" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#059669"/></marker>
+<marker id="flecha-0d9488" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#0d9488"/></marker>
+<marker id="flecha-2563eb" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#2563eb"/></marker>
+<marker id="flecha-7c3aed" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#7c3aed"/></marker>
+<marker id="flecha-dc2626" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#dc2626"/></marker>
+<marker id="flecha-64748b" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#64748b"/></marker>
+</defs>
+<rect width="3600" height="3000" fill="#f8fafc"/>
+<text x="72" y="60" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" fill="#0f172a" text-anchor="start" >METABOLISMO INTERMEDIARIO · AMPLIACIÓN DEL TEMARIO</text>
+<text x="72" y="96" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="600" fill="#64748b" text-anchor="start" >Rutas complementarias conectadas con el mapa integrado · metabolitos, estructuras y destinos</text>
+<path d="M 50 130 H 3550 M 1200 150 V 1515 M 2400 150 V 1515 M 50 1540 H 3550 M 1520 1570 V 2950" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+<circle cx="85" cy="183" r="16" fill="#0d9488"/><text x="85" y="189" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" >A</text><text x="115" y="190" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#0d9488" text-anchor="start" >Digestión, transporte y movilización</text>
+<text x="95" y="248" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.5">INTESTINO</text>
+<g><text x="220" y="318" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0f172a" text-anchor="middle" >Triacilglicerol dietario</text><text x="220" y="344" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >CH₂–O–CO–R  /  CH–O–CO–R</text></g>
+<text x="220" y="362" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#ea580c" text-anchor="middle" >CH₂–O–CO–R</text>
+<path d="M 375 320 L 500 320" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-ea580c)"/>
+<text x="437" y="299" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#64748b" text-anchor="middle" >Lipasa pancreática</text>
+<g><text x="620" y="314" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >2-MAG + ácidos grasos</text><text x="620" y="340" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >productos de la digestión</text></g>
+<path d="M 740 320 L 845 320" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-0d9488)"/>
+<g><text x="990" y="314" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Enterocito</text><text x="990" y="340" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >reesterificación → TAG</text></g>
+<path d="M 990 350 C 990 390 890 408 820 430" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-0d9488)"/>
+<text x="615" y="438" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0f172a" text-anchor="middle" >Quilomicrón → linfa → sangre</text>
+<path d="M 230 485 L 505 485" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-2563eb)"/>
+<g><text x="155" y="500" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Quilomicrón</text><text x="155" y="526" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#2563eb" text-anchor="middle" >TAG + colesterol</text></g>
+<g><text x="595" y="500" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Capilar</text><text x="595" y="526" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#2563eb" text-anchor="middle" >LPL libera ácidos grasos</text></g>
+<path d="M 690 485 L 930 485" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-2563eb)"/>
+<g><text x="1040" y="500" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Remanente</text><text x="1040" y="526" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >captación hepática</text></g>
+<path d="M 1040 530 C 1040 570 915 585 830 600" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-0d9488)"/>
+<g><text x="645" y="625" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0f172a" text-anchor="middle" >Hígado</text><text x="645" y="651" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >colesterol y TAG</text></g>
+<text x="100" y="706" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.5">TEJIDO ADIPOSO</text>
+<g><text x="250" y="782" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#0f172a" text-anchor="middle" >TAG almacenado</text><text x="250" y="808" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="middle" >gota lipídica</text></g>
+<path d="M 355 805 L 520 805" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-dc2626)"/>
+<text x="438" y="783" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#dc2626" text-anchor="middle" >ATGL · HSL · MGL</text>
+<g><text x="640" y="782" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0f172a" text-anchor="middle" >Ácidos grasos</text><text x="640" y="808" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >a tejidos → β-oxidación</text></g>
+<path d="M 520 805 C 470 845 365 870 295 890" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-2563eb)"/>
+<g><text x="220" y="914" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Glicerol</text><text x="220" y="940" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#2563eb" text-anchor="middle" >a hígado → gluconeogénesis</text></g>
+<path d="M 690 835 L 880 835" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-ea580c)"/>
+<g><text x="1015" y="850" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Albúmina</text><text x="1015" y="876" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#64748b" text-anchor="middle" >transporta ácidos grasos</text></g>
+<text x="100" y="1000" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.5">SEÑAL HORMONAL</text>
+<text x="105" y="1045" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#059669" text-anchor="start" >Insulina: favorece almacenamiento e inhibe lipólisis</text>
+<text x="105" y="1080" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" >Catecolaminas: activan lipólisis en tejido adiposo</text>
+<path d="M 90 1120 H 1135" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="105" y="1175" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.2">ENLACES CON EL MAPA PRINCIPAL</text>
+<path d="M 140 1235 L 370 1235" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-ea580c)"/>
+<text x="255" y="1221" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle" >Ácidos grasos</text>
+<g><text x="515" y="1243" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >β-oxidación</text><text x="515" y="1269" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >acetil-CoA → Krebs / cetogénesis</text></g>
+<path d="M 140 1330 L 370 1330" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-2563eb)"/>
+<text x="255" y="1316" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle" >Glicerol</text>
+<g><text x="515" y="1338" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Glicerol-3-P</text><text x="515" y="1364" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#2563eb" text-anchor="middle" >glucólisis / gluconeogénesis</text></g>
+<text x="104" y="1444" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="start" >LPL: lipoproteína lipasa · MAG: monoacilglicerol · TAG: triacilglicerol</text>
+<circle cx="1275" cy="183" r="16" fill="#7c3aed"/><text x="1275" y="189" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" >B</text><text x="1305" y="190" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#7c3aed" text-anchor="start" >Triacilgliceroles y fosfolípidos</text>
+<text x="1285" y="248" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.2">CITOSOL · SÍNTESIS Y RAMIFICACIÓN</text>
+<g><text x="1450" y="330" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0f172a" text-anchor="middle" >Glicerol-3-fosfato</text><text x="1450" y="356" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#2563eb" text-anchor="middle" >desde DHAP o glicerol</text></g>
+<g><text x="2110" y="330" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0f172a" text-anchor="middle" >Acil-CoA</text><text x="2110" y="356" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >R–CO–SCoA</text></g>
+<path d="M 1500 370 C 1500 420 1580 435 1625 455" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-2563eb)"/>
+<path d="M 2070 370 C 2070 420 1965 435 1930 455" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-ea580c)"/>
+<text x="1815" y="445" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Lisofosfatidato (LPA)</text>
+<text x="1815" y="466" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#64748b" text-anchor="middle" >GPAT</text>
+<path d="M 1815 475 L 1815 510" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-7c3aed)"/>
+<text x="1880" y="495" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#64748b" text-anchor="start" >AGPAT + Acil-CoA</text>
+<g transform="translate(1660,525)" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"><path d="M 54 15 L 54 95 M 54 20 L 82 20 M 54 55 L 82 55 M 54 90 L 82 90"/><path d="M 82 20 L 108 20 M 82 55 L 108 55" stroke="#ea580c"/><path d="M 82 90 L 108 90"/></g><text x="1702" y="550" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH₂</text><text x="1702" y="585" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH</text><text x="1702" y="625" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH₂</text><text x="1775" y="550" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ea580c" text-anchor="start" >O–CO–R₁</text><text x="1775" y="585" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ea580c" text-anchor="start" >O–CO–R₂</text><text x="1775" y="625" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#7c3aed" text-anchor="start" >O–PO₃²⁻</text>
+<text x="1815" y="660" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900" fill="#0f172a" text-anchor="middle" >Ácido fosfatídico (PA)</text>
+<text x="1815" y="686" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle" >intermediario común</text>
+<path d="M 1960 695 C 1940 735 1845 740 1815 755" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-7c3aed)"/>
+<text x="1990" y="722" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" text-anchor="start" >PAP</text>
+<g><text x="1815" y="800" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#0f172a" text-anchor="middle" >Diacilglicerol (DAG)</text></g>
+<path d="M 1760 830 C 1650 855 1570 890 1510 915" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-7c3aed)"/>
+<path d="M 1870 830 C 1985 855 2070 890 2115 915" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-0d9488)"/>
+<text x="1565" y="810" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#64748b" text-anchor="middle" >DGAT + Acil-CoA</text>
+<text x="2050" y="810" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" text-anchor="middle" >CDP-colina / CDP-etanolamina</text>
+<g transform="translate(1425,955)" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"><path d="M 54 15 L 54 95 M 54 20 L 82 20 M 54 55 L 82 55 M 54 90 L 82 90"/><path d="M 82 20 L 108 20 M 82 55 L 108 55" stroke="#ea580c"/><path d="M 82 90 L 108 90"/></g><text x="1467" y="980" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH₂</text><text x="1467" y="1015" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH</text><text x="1467" y="1055" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH₂</text><text x="1540" y="980" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ea580c" text-anchor="start" >O–CO–R₁</text><text x="1540" y="1015" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ea580c" text-anchor="start" >O–CO–R₂</text><text x="1540" y="1055" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ea580c" text-anchor="start" >O–CO–R₃</text>
+<text x="1600" y="1080" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="900" fill="#7c3aed" text-anchor="middle" >Triacilglicerol</text>
+<text x="1600" y="1105" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle" >almacenamiento energético</text>
+<g transform="translate(1925,955)" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"><path d="M 54 15 L 54 95 M 54 20 L 82 20 M 54 55 L 82 55 M 54 90 L 82 90"/><path d="M 82 20 L 108 20 M 82 55 L 108 55" stroke="#ea580c"/><path d="M 82 90 L 108 90"/></g><text x="1967" y="980" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH₂</text><text x="1967" y="1015" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH</text><text x="1967" y="1055" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="end" >CH₂</text><text x="2040" y="980" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ea580c" text-anchor="start" >O–CO–R₁</text><text x="2040" y="1015" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ea580c" text-anchor="start" >O–CO–R₂</text><text x="2040" y="1055" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#7c3aed" text-anchor="start" >O–PO₃²⁻–X</text>
+<text x="2160" y="1080" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900" fill="#0d9488" text-anchor="middle" >Fosfatidilcolina / fosfatidiletanolamina</text>
+<text x="2160" y="1105" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle" >bicapas de membrana</text>
+<text x="1290" y="1190" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start" >La composición de acilos y la cabeza polar determinan las propiedades de la membrana.</text>
+<path d="M 1285 1230 H 2315" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1290" y="1320" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="start" >Glicerol-3-P + acil-CoA → LPA; + acil-CoA → PA → DAG</text>
+<text x="1290" y="1375" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start" >DAG → TAG (DGAT)  |  fosfolípidos (vía CDP-colina / CDP-etanolamina)</text>
+<text x="1290" y="1444" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="start" >R₁ y R₂ representan cadenas de ácidos grasos; X es la cabeza polar.</text>
+<circle cx="2465" cy="183" r="16" fill="#ea580c"/><text x="2465" y="189" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" >C</text><text x="2495" y="190" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#ea580c" text-anchor="start" >Colesterol, esteroides e isoprenoides</text>
+<text x="2475" y="248" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.1">VÍA DEL MEVALONATO · RETÍCULO ENDOPLASMÁTICO</text>
+<g><text x="2555" y="350" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Acetil-CoA</text><text x="2555" y="376" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >3 unidades → HMG-CoA</text></g>
+<path d="M 2630 330 L 2710 330" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-ea580c)"/>
+<g><text x="2790" y="350" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >HMG-CoA</text><text x="2790" y="376" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >HMG-CoA sintasa</text></g>
+<path d="M 2860 330 L 2930 330" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-7c3aed)"/>
+<g><text x="3010" y="350" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Mevalonato</text><text x="3010" y="376" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="middle" >HMG-CoA reductasa</text></g>
+<path d="M 3095 330 L 3220 330" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-7c3aed)"/>
+<g><text x="3340" y="350" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >IPP / DMAPP</text><text x="3340" y="376" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="middle" >unidades isoprénicas</text></g>
+<path d="M 3235 385 C 3235 430 3070 440 3010 485" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-7c3aed)"/>
+<g><text x="2920" y="520" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0f172a" text-anchor="middle" >Farnesil-PP (FPP)</text><text x="2920" y="546" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="middle" >punto de ramificación</text></g>
+<path d="M 2960 550 C 2960 610 2800 625 2750 670" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-ea580c)"/>
+<path d="M 2990 550 C 2990 610 3160 625 3200 670" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-0d9488)"/>
+<polygon points="0,26 22,10 44,26 44,54 22,70 0,54" transform="translate(2670,720)" fill="none" stroke="#334155" stroke-width="3" stroke-linejoin="round"/><polygon points="44,26 66,10 88,26 88,54 66,70 44,54" transform="translate(2670,720)" fill="none" stroke="#334155" stroke-width="3" stroke-linejoin="round"/><polygon points="88,26 110,10 132,26 132,54 110,70 88,54" transform="translate(2670,720)" fill="none" stroke="#334155" stroke-width="3" stroke-linejoin="round"/><polygon points="132,26 153,14 172,30 168,56 145,67 132,54" transform="translate(2670,720)" fill="none" stroke="#334155" stroke-width="3" stroke-linejoin="round"/>
+<g><text x="2770" y="835" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#0f172a" text-anchor="middle" >Colesterol</text><text x="2770" y="861" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#ea580c" text-anchor="middle" >27 carbonos</text></g>
+<g><text x="3240" y="735" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Otros isoprenoides</text><text x="3240" y="761" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >ubiquinona · dolicol</text></g>
+<path d="M 2780 910 C 2820 925 2920 935 3000 950" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-ea580c)"/>
+<g><text x="3000" y="1000" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Pregnenolona</text><text x="3000" y="1026" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="middle" >CYP11A1 · mitocondria</text></g>
+<path d="M 3120 1020 L 3240 1020" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-7c3aed)"/>
+<g><text x="3370" y="1060" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Hormonas esteroideas</text><text x="3370" y="1086" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="middle" >corteza suprarrenal · gónadas</text></g>
+<path d="M 2780 910 C 2660 950 2610 1025 2580 1090" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-0d9488)"/>
+<g><text x="2570" y="1120" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Ácidos biliares</text><text x="2570" y="1146" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >hígado → sales biliares</text></g>
+<text x="2485" y="1200" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#0d9488" text-anchor="start" >Sales biliares → emulsificación intestinal</text>
+<path d="M 2480 1230 H 3515" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="2485" y="1285" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.2">TRANSPORTE ENTRE ÓRGANOS</text>
+<g><text x="2690" y="1355" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#0f172a" text-anchor="middle" >VLDL → IDL → LDL</text><text x="2690" y="1381" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#2563eb" text-anchor="middle" >entrega TAG y colesterol</text></g>
+<path d="M 2820 1340 L 3130 1340" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-2563eb)"/>
+<text x="3290" y="1355" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#2563eb" text-anchor="middle" >TEJIDOS</text>
+<g><text x="3290" y="1420" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#0f172a" text-anchor="middle" >HDL</text><text x="3290" y="1446" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >retorno de colesterol</text></g>
+<path d="M 3160 1400 L 2860 1400" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-0d9488)"/>
+<text x="2690" y="1420" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#0d9488" text-anchor="middle" >HÍGADO</text>
+<text x="3290" y="1475" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle" >LDL: receptor celular · HDL: transporte reverso</text>
+<circle cx="85" cy="1618" r="16" fill="#059669"/><text x="85" y="1624" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" >D</text><text x="115" y="1625" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#059669" text-anchor="start" >Biosíntesis de aminoácidos</text>
+<text x="95" y="1680" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.1">ESQUELETOS CENTRALES + INCORPORACIÓN DE NITRÓGENO</text>
+<text x="250" y="1780" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#ea580c" text-anchor="middle" >Piruvato</text>
+<text x="250" y="1807" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle" >CH₃–CO–COO⁻</text>
+<path d="M 330 1790 L 510 1790" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-059669)"/>
+<text x="420" y="1768" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#64748b" text-anchor="middle" >ALT · PLP</text>
+<text x="600" y="1780" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#059669" text-anchor="middle" >L-Alanina</text>
+<text x="600" y="1807" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle" >CH₃–CH(NH₃⁺)–COO⁻</text>
+<text x="250" y="1900" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#ea580c" text-anchor="middle" >3-Fosfoglicerato</text>
+<text x="250" y="1927" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle" >glucólisis</text>
+<path d="M 350 1910 L 510 1910" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-059669)"/>
+<text x="425" y="1887" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" text-anchor="middle" >vía de serina</text>
+<text x="600" y="1900" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#059669" text-anchor="middle" >L-Serina</text>
+<text x="600" y="1927" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle" >HO–CH₂–CH(NH₃⁺)–COO⁻</text>
+<path d="M 680 1950 C 680 1995 590 2015 535 2035" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-059669)"/>
+<path d="M 700 1950 C 760 1995 815 2015 860 2035" fill="none" stroke="#0d9488" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#flecha-0d9488)"/>
+<text x="505" y="2070" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#059669" text-anchor="middle" >Glicina</text>
+<text x="505" y="2095" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >SHMT · folato</text>
+<text x="900" y="2070" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#0d9488" text-anchor="middle" >Cisteína</text>
+<text x="900" y="2095" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >azufre desde metionina</text>
+<text x="1080" y="1780" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#ea580c" text-anchor="middle" >Oxalacetato</text>
+<text x="1080" y="1807" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle" >ciclo cítrico</text>
+<path d="M 1155 1790 L 1280 1790" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-059669)"/>
+<text x="1220" y="1768" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" text-anchor="middle" >AST · PLP</text>
+<text x="1370" y="1780" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#059669" text-anchor="middle" >L-Aspartato</text>
+<path d="M 1370 1820 L 1370 1870" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-0d9488)"/>
+<text x="1370" y="1900" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0d9488" text-anchor="middle" >L-Asparagina</text>
+<text x="1370" y="1925" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle" >asparagina sintetasa</text>
+<text x="1080" y="2020" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#ea580c" text-anchor="middle" >α-Cetoglutarato</text>
+<text x="1080" y="2047" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle" >ciclo cítrico</text>
+<path d="M 1175 2030 L 1280 2030" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-059669)"/>
+<text x="1230" y="2008" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#64748b" text-anchor="middle" >GDH / transaminasas</text>
+<text x="1370" y="2020" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#059669" text-anchor="middle" >L-Glutamato</text>
+<path d="M 1370 2060 L 1370 2100" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-0d9488)"/>
+<text x="1370" y="2130" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0d9488" text-anchor="middle" >Glutamina</text>
+<text x="1370" y="2155" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle" >glutamina sintetasa</text>
+<path d="M 1330 2035 C 1280 2075 1190 2140 1215 2175" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#flecha-0d9488)"/>
+<text x="1215" y="2240" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0d9488" text-anchor="middle" >Prolina</text>
+<text x="250" y="2220" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#2563eb" text-anchor="middle" >Fenilalanina (dieta)</text>
+<path d="M 365 2200 L 500 2200" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-2563eb)"/>
+<text x="435" y="2178" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" text-anchor="middle" >PAH · BH₄</text>
+<text x="600" y="2220" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#059669" text-anchor="middle" >Tirosina</text>
+<text x="600" y="2247" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >síntesis dependiente de Phe</text>
+<path d="M 95 2300 H 1475" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="100" y="2350" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.2">NITRÓGENO</text>
+<g><text x="285" y="2420" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Glutamato + NH₄⁺</text><text x="285" y="2446" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >ATP</text></g>
+<path d="M 410 2400 L 575 2400" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-0d9488)"/>
+<text x="490" y="2380" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#64748b" text-anchor="middle" >glutamina sintetasa</text>
+<g><text x="700" y="2420" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#0f172a" text-anchor="middle" >Glutamina</text><text x="700" y="2446" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#0d9488" text-anchor="middle" >transporte de nitrógeno</text></g>
+<text x="995" y="2410" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a" text-anchor="start" >La mayoría de las transaminaciones requieren PLP.</text>
+<text x="100" y="2510" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.2">DESTINOS CONECTADOS</text>
+<text x="100" y="2560" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start" >Intermediarios centrales → aminoácidos no esenciales → síntesis y recambio proteico.</text>
+<text x="100" y="2615" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#2563eb" text-anchor="start" >Esenciales (dieta): histidina · isoleucina · leucina · lisina · metionina</text>
+<text x="100" y="2650" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#2563eb" text-anchor="start" >fenilalanina · treonina · triptófano · valina</text>
+<text x="100" y="2710" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#64748b" text-anchor="start" >Arginina: síntesis limitada; puede ser condicionalmente esencial.</text>
+<text x="100" y="2830" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#0d9488" text-anchor="start" >Catabolismo y ciclo de la urea: ver rutas de nitrógeno del mapa principal.</text>
+<circle cx="1590" cy="1618" r="16" fill="#2563eb"/><text x="1590" y="1624" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" >E</text><text x="1620" y="1625" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#2563eb" text-anchor="start" >Integración por órgano y estado</text>
+<text x="1600" y="1680" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.1">PERFILES METABÓLICOS</text>
+<path d="M 1610 1740 C 1630 1708 2010 1708 2040 1740 L 2040 2075 C 2010 2105 1630 2105 1610 2075 Z" fill="#2563eb" fill-opacity="0.055" stroke="#2563eb" stroke-opacity="0.38" stroke-width="2"/>
+<text x="1825" y="1780" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" fill="#2563eb" text-anchor="middle" >CEREBRO</text>
+<text x="1825" y="1850" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Glucosa → oxidación</text>
+<text x="1825" y="1908" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Ayuno prolongado: cetonas</text>
+<text x="1825" y="1966" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Ácidos grasos: uso limitado</text>
+<text x="1825" y="2045" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle" >Barrera hematoencefálica</text>
+<path d="M 2090 1740 C 2110 1708 2490 1708 2520 1740 L 2520 2075 C 2490 2105 2110 2105 2090 2075 Z" fill="#7c3aed" fill-opacity="0.055" stroke="#7c3aed" stroke-opacity="0.38" stroke-width="2"/>
+<text x="2305" y="1780" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" fill="#7c3aed" text-anchor="middle" >MÚSCULO</text>
+<text x="2305" y="1850" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Reposo: ácidos grasos</text>
+<text x="2305" y="1908" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Ejercicio: glucógeno → ATP</text>
+<text x="2305" y="1966" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Lactato / alanina → sangre</text>
+<text x="2305" y="2045" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle" >No exporta glucosa libre</text>
+<path d="M 2570 1740 C 2590 1708 2970 1708 3000 1740 L 3000 2075 C 2970 2105 2590 2105 2570 2075 Z" fill="#0d9488" fill-opacity="0.055" stroke="#0d9488" stroke-opacity="0.38" stroke-width="2"/>
+<text x="2785" y="1780" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" fill="#0d9488" text-anchor="middle" >HÍGADO</text>
+<text x="2785" y="1850" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Mantiene glucemia</text>
+<text x="2785" y="1908" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Ayuno: gluconeogénesis</text>
+<text x="2785" y="1966" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Acetil-CoA → cuerpos cetónicos</text>
+<text x="2785" y="2045" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle" >Urea + VLDL</text>
+<path d="M 3050 1740 C 3070 1708 3450 1708 3480 1740 L 3480 2075 C 3450 2105 3070 2105 3050 2075 Z" fill="#ea580c" fill-opacity="0.055" stroke="#ea580c" stroke-opacity="0.38" stroke-width="2"/>
+<text x="3265" y="1780" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" fill="#ea580c" text-anchor="middle" >TEJIDO ADIPOSO</text>
+<text x="3265" y="1850" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Posprandial: almacena TAG</text>
+<text x="3265" y="1908" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Ayuno: libera ácidos grasos</text>
+<text x="3265" y="1966" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="650" fill="#0f172a" text-anchor="middle" >Glicerol → hígado</text>
+<text x="3265" y="2045" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#64748b" text-anchor="middle" >Insulina ↑ captación de glucosa</text>
+<path d="M 1585 2140 H 3545" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1600" y="2190" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.1">CAMBIOS METABÓLICOS</text>
+<text x="1770" y="2285" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#059669" text-anchor="middle" >POSPRANDIAL</text>
+<text x="1770" y="2350" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle" >Insulina ↑</text>
+<text x="1770" y="2390" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >glucógeno + TAG ↑</text>
+<path d="M 1970 2230 V 2870" stroke="#dbe3ec" stroke-width="1.5"/>
+<text x="2160" y="2285" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#ea580c" text-anchor="middle" >AYUNO</text>
+<text x="2160" y="2350" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle" >Glucagón ↑</text>
+<text x="2160" y="2390" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >gluconeogénesis + cetonas</text>
+<path d="M 2360 2230 V 2870" stroke="#dbe3ec" stroke-width="1.5"/>
+<text x="2550" y="2285" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#7c3aed" text-anchor="middle" >EJERCICIO</text>
+<text x="2550" y="2350" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle" >demanda de ATP ↑</text>
+<text x="2550" y="2390" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >glucógeno + lactato</text>
+<path d="M 2750 2230 V 2870" stroke="#dbe3ec" stroke-width="1.5"/>
+<text x="2940" y="2285" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#dc2626" text-anchor="middle" >DIABETES</text>
+<text x="2940" y="2350" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle" >insulina eficaz ↓</text>
+<text x="2940" y="2390" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >glucemia + lipólisis ↑</text>
+<path d="M 3140 2230 V 2870" stroke="#dbe3ec" stroke-width="1.5"/>
+<text x="3330" y="2285" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#2563eb" text-anchor="middle" >CÁNCER</text>
+<text x="3330" y="2350" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle" >glucólisis aeróbica</text>
+<text x="3330" y="2390" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" >lactato + ribosa-5-P ↑</text>
+<text x="1600" y="2500" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="900" fill="#64748b" text-anchor="start" letter-spacing="1.1">LECTURA DE LAS FLECHAS</text>
+<path d="M 1640 2550 L 1740 2550" fill="none" stroke="#ea580c" stroke-width="3" stroke-linecap="round" marker-end="url(#flecha-ea580c)"/>
+<text x="1790" y="2557" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" >flujo de carbono</text>
+<path d="M 2020 2550 L 2120 2550" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 6" marker-end="url(#flecha-2563eb)"/>
+<text x="2170" y="2557" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" >transporte / intercambio</text>
+<text x="1600" y="2660" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a" text-anchor="start" >Cáncer: el efecto Warburg describe producción elevada de lactato aun con oxígeno disponible.</text>
+<text x="1600" y="2700" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#0f172a" text-anchor="start" >En diabetes, la magnitud de la cetogénesis depende del déficit de insulina y del contexto clínico.</text>
+<text x="1600" y="2830" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="start" >Integración esquemática para estudio; las proporciones cambian según tejido, dieta y demanda.</text>
+</svg>
