@@ -27,8 +27,8 @@ Para evitar confusiones con versiones y archivos preliminares, todos los entrega
 | **`01_mapa_ampliado_completo_25_vias.html`** | **Póster Completo Integrado:** Hepatocito central (17 vías) + 8 vías de integración periférica en lienzo continuo de 1200 × 900 mm. Resaltado por clic, buscador y zoom CTM. | **1 a 25** |
 | **`02_ampliacion_rutas_18_25.html`** | **Ampliación Especializada Standalone:** Visor enfocado exclusivamente en las vías 18 a 25 (sin el mapa central integrado), ideal para estudiar digestión, lipólisis adiposa, sarcómero, cerebro y lipoproteínas. | **18 a 25** |
 | **`03_mapa_central_interactivo_17_vias.html`** | **Mapa Central Hepatocitario Original:** La herramienta interactiva de referencia del hepatocito troncal (Glucólisis, Gluconeogénesis, Glucógeno, Krebs, Cadena Respiratoria, Urea, etc.). | **1 a 17** |
-| **`04_cuadro_temario_bloques_A_E.html`** | **Cuadro Temático de Metabolismo Intermediario:** Clasificación por bloques temáticos complementarios (A a E) con tablas de cofactores, balances de ATP y regulación. | **Bloques A–E** |
-| **`index.html`** | **Centro de Visores / Hub Principal:** Portal de bienvenida que enlaza a las cuatro modalidades interactivas y descargas directas en PDF. | **Portal** |
+| **`index.html`** | **Portada Principal / Acceso Directo:** El mapa metabólico interactivo ampliado completo (25 vías) cargado inmediatamente al acceder a la web. | **1 a 25** |
+| **`centro_visores.html`** | **Centro de Visores / Hub:** Portal alternativo que enlaza a las cuatro modalidades interactivas y descargas directas en PDF. | **Portal** |
 
 *(Nota: Los archivos con nomenclatura previa como `prueba_visual_interactiva.html`, `mapa_cartulina_ampliado.html` o `ampliacion_rutas_18_25_interactiva.html` se mantienen como enlaces directos para preservar la compatibilidad con scripts existentes).*
 
@@ -54,7 +54,8 @@ Para evitar confusiones con versiones y archivos preliminares, todos los entrega
 │   └── verificar_y_capturar.py             # Suite de verificación headless y comprobación de fuentes
 │
 ├── versiones_html/                # Entregables interactivos (abrir en cualquier navegador moderno)
-│   ├── index.html                          # Centro de visores interactivos (portal principal)
+│   ├── index.html                          # Portada principal directa: Mapa interactivo ampliado (25 vías)
+│   ├── centro_visores.html                 # Centro de visores interactivos (portal / hub opcional)
 │   ├── 01_mapa_ampliado_completo_25_vias.html # Mapa ampliado interactivo completo (25 vías)
 │   ├── 02_ampliacion_rutas_18_25.html         # Ampliación interactiva standalone (vías 18 a 25)
 │   ├── 03_mapa_central_interactivo_17_vias.html # Mapa central interactivo (17 vías troncales)

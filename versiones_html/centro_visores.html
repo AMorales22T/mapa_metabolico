@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa Metabólico Integrado — Índice de Visores y Pósters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      padding: 32px 16px;
+    }
+    main {
+      width: min(960px, 100%);
+      padding: 36px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+    header {
+      margin-bottom: 28px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 20px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #38bdf8;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #94a3b8;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+    
+    .grid-ediciones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .card-edicion {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .card-edicion:hover {
+      transform: translateY(-3px);
+      border-color: #38bdf8;
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2);
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+    .card-edicion h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #f8fafc;
+    }
+    .card-edicion p {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.16s ease;
+      cursor: pointer;
+    }
+    .btn-primary { background: #0284c7; color: #ffffff; }
+    .btn-primary:hover { background: #0369a1; }
+    .btn-green { background: #16a34a; color: #ffffff; }
+    .btn-green:hover { background: #15803d; }
+    .btn-outline { background: transparent; color: #cbd5e1; border: 1px solid #475569; }
+    .btn-outline:hover { background: #334155; color: #ffffff; border-color: #64748b; }
+
+    footer {
+      border-top: 1px solid #334155;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Mapa Metabólico Integrado — Centro de Visores</h1>
+      <p>Selecciona la modalidad de estudio interactiva según tu objetivo pedagógico: el mapa ampliado completo de 25 vías, la versión de ampliación especializada sin el mapa central, el cuadro de temario complementario o el hepatocito troncal.</p>
+    </header>
+
+    <div class="grid-ediciones">
+      <!-- Opción 1: Mapa Cartulina Ampliado Completo -->
+      <div class="card-edicion" style="border-top: 4px solid #0284c7;">
+        <div>
+          <span class="card-badge" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">FORMATO COMPLETO (25 VÍAS)</span>
+          <h3>Mapa Ampliado (1200 × 900 mm)</h3>
+          <p>La cartulina completa con las 17 vías troncales del hepatocito central integradas fluidamente con las 8 vías de órganos periféricos: torrente vascular continuo (Y=350), digestión, adipocito, sarcómero, cerebro, lipoproteínas, Kennedy y aminoácidos.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="01_mapa_ampliado_completo_25_vias.html">🌟 Abrir Visor Interactivo (25 Vías)</a>
+          <a class="btn btn-green" href="../versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf" target="_blank">📥 Descargar PDF (1200 × 900 mm)</a>
+          <a class="btn btn-outline" href="mapa_cartulina_ampliado_preview.png" target="_blank">🖼️ Vista Previa PNG HD</a>
+        </div>
+      </div>
+
+      <!-- Opción 2: Standalone Vías 18 a 25 -->
+      <div class="card-edicion" style="border-top: 4px solid #f59e0b;">
+        <div>
+          <span class="card-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">AMPLIACIÓN SIN MAPA CENTRAL</span>
+          <h3>Ampliación de Vías 18 a 25</h3>
+          <p>Visor enfocado exclusivamente en las rutas ampliadas: enterocito y linfa, cascada lipolítica ATGL/HSL/MGL con estructuras químicas, sarcómero estriado, BHE y neurona, lipoproteínas, vía de Kennedy, biosíntesis de 10 aminoácidos, farmacología y balance en ATP.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="02_ampliacion_rutas_18_25.html" style="background: #d97706;">🔬 Abrir Ampliación (Vías 18–25)</a>
+          <a class="btn btn-green" href="../versiones_impresion/02_ampliacion_rutas_18_25.pdf" target="_blank">📥 Descargar PDF Standalone</a>
+        </div>
+      </div>
+
+      <!-- Opción 3: Temario A a E -->
+      <div class="card-edicion" style="border-top: 4px solid #10b981;">
+        <div>
+          <span class="card-badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">CUADRO DE ESTUDIO (BLOQUES A–E)</span>
+          <h3>Metabolismo Intermediario A–E</h3>
+          <p>Los 5 bloques temáticos complementarios: A (Digestión y movilización), B (Triacilgliceroles y fosfolípidos), C (Colesterol e isoprenoides), D (Biosíntesis de aminoácidos) y E (Integración tisular). Resaltado por bloque temático y búsqueda global.</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="04_cuadro_temario_bloques_A_E.html" style="background: #059669;">📋 Abrir Cuadro Temario (A–E)</a>
+        </div>
+      </div>
+
+      <!-- Opción 4: Mapa Troncal Original -->
+      <div class="card-edicion" style="border-top: 4px solid #8b5cf6;">
+        <div>
+          <span class="card-badge" style="background: rgba(139, 92, 246, 0.2); color: #a78bfa;">MAPA CENTRAL ORIGINAL</span>
+          <h3>Hepatocito Troncal (17 Vías)</h3>
+          <p>El mapa interactivo de referencia con el hepatocito central, mitocondria compartimentada y las 17 vías troncales (Glucólisis, Krebs, β-Oxidación, Cadena Respiratoria, Urea, Lanzaderas redox y Ciclo de Cori).</p>
+        </div>
+        <div class="card-actions">
+          <a class="btn btn-outline" href="03_mapa_central_interactivo_17_vias.html">🗺️ Abrir Mapa Central (17 Vías)</a>
+          <a class="btn btn-green" href="../versiones_impresion/03_mapa_central_original_120x90cm.pdf" target="_blank" style="background: #475569;">📥 Descargar PDF Póster Central</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>Bioquímica Humana • Medicina y Ciencias Biomédicas</span>
+      <span>Todos los archivos disponibles también en <code>versiones_html/</code> y <code>versiones_impresion/</code></span>
+    </footer>
+  </main>
+</body>
+</html>

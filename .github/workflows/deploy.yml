@@ -35,9 +35,11 @@ jobs:
       - name: Preparar archivos del sitio web
         run: |
           mkdir -p _site
-          # 1. Copiar todos los entregables HTML y SVG (incluyendo index.html de centro de visores)
+          # 1. Copiar todos los entregables HTML y SVG
           cp -r versiones_html/* _site/
-          # 2. Copiar PDFs tanto en _site/versiones_impresion/ como en la raíz para compatibilidad absoluta
+          # 2. Portada directa: El mapa metabólico interactivo completo de 25 vías
+          cp versiones_html/01_mapa_ampliado_completo_25_vias.html _site/index.html
+          # 3. Copiar PDFs tanto en _site/versiones_impresion/ como en la raíz para compatibilidad absoluta
           mkdir -p _site/versiones_impresion
           cp -r versiones_impresion/* _site/versiones_impresion/
           cp -r versiones_impresion/* _site/
