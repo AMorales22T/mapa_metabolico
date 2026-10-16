@@ -793,9 +793,9 @@ def ensamblar_mapa_ampliado():
     css_fonts = cargar_fuentes_base64()
 
     W_CANVAS = 7320
-    H_CANVAS = 5490
+    H_CANVAS = 5120
     VB_X = -760
-    VB_Y = -250
+    VB_Y = 0
 
     fondo_izq = construir_fondo_izquierdo()
     fondo_der = construir_fondo_derecho()
@@ -837,28 +837,6 @@ def ensamblar_mapa_ampliado():
     <!-- 4. Contenidos de ampliación temática en las bandas laterales -->
     {banda_izq}
     {banda_der}
-
-    <!-- 5. Marco perimetral institucional -->
-    <g id="print_marco">
-      <rect x="-710" y="-200" width="7220" height="5390" rx="14" fill="none" stroke="#0284c7" stroke-width="4.2" />
-      <rect x="-703" y="-193" width="7206" height="5376" rx="10" fill="none" stroke="#0d9488" stroke-width="2.4" />
-      <rect x="-697" y="-187" width="7194" height="5364" rx="7" fill="none" stroke="#10b981" stroke-width="1.4" />
-    </g>
-
-    <!-- 6. Banda superior de cabecera institucional -->
-    <g id="print_cabecera">
-      <rect x="-710" y="-200" width="7220" height="198" fill="#f8fafc" opacity="0.98" />
-      <text x="2900" y="-105" fill="#0f172a" font-size="68" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="4" text-anchor="middle">MAPA METABÓLICO INTEGRADO · VERSIÓN AMPLIADA</text>
-      <text x="2900" y="-45" fill="#475569" font-size="17" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Metabolismo Central • Digestión y Transporte Lipídico • Tejido Adiposo • Acoplamiento Muscular • Lipoproteínas • Biosíntesis de Fosfolípidos y Aminoácidos</text>
-    </g>
-
-    <!-- 7. Pie de página del póster (1200 x 900 mm) -->
-    <g id="print_pie_poster">
-      <rect x="-710" y="5130" width="7220" height="95" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8" />
-      <text x="-670" y="5185" fill="#0f172a" font-size="15" font-weight="900" font-family="'Inter', sans-serif">MAPA METABÓLICO INTEGRADO UNIVERSITARIO</text>
-      <text x="-670" y="5208" fill="#64748b" font-size="12" font-weight="700" font-family="'Inter', sans-serif">Formato Póster Científico Imprimible: 1200 × 900 mm (Proporción 4:3) • Resolución Ultra-HD Vectorial</text>
-      <text x="6450" y="5195" fill="#64748b" font-size="12" font-weight="700" font-family="'Inter', sans-serif" text-anchor="end">Bioquímica Humana • Medicina y Ciencias Biomédicas</text>
-    </g>
 </svg>"""
 
     print(f"2. Escribiendo SVG ampliado en: {RUTA_OUT_SVG}")
@@ -876,25 +854,31 @@ def ensamblar_mapa_ampliado():
     ruta_copia_html1 = os.path.join(DIR_HTML, "mapa_cartulina_ampliado.html")
     ruta_copia_html2 = os.path.join(DIR_HTML, "mapa_ampliado_interactivo.html")
     ruta_copia_html_num = os.path.join(DIR_HTML, "01_mapa_ampliado_completo_25_vias.html")
+    ruta_copia_index = os.path.join(DIR_HTML, "index.html")
     with open(ruta_copia_html1, "w", encoding="utf-8") as f:
         f.write(html_final)
     with open(ruta_copia_html2, "w", encoding="utf-8") as f:
         f.write(html_final)
     with open(ruta_copia_html_num, "w", encoding="utf-8") as f:
         f.write(html_final)
+    with open(ruta_copia_index, "w", encoding="utf-8") as f:
+        f.write(html_final)
     print(f"   ✓ Copias interactivas guardadas en:")
     print(f"     - {ruta_copia_html_num} (Entregable principal numerado)")
     print(f"     - {ruta_copia_html1}")
     print(f"     - {ruta_copia_html2}")
+    print(f"     - {ruta_copia_index}")
 
     # Exportación con rsvg-convert a PDF y PNG
     rsvg = shutil.which("rsvg-convert")
     if rsvg:
-        print("4. Generando PDF imprimible vectorial 1200 × 900 mm con rsvg-convert...")
+        print("4. Generando PDF imprimible vectorial a tamaño completo (1200 × 840 mm) con rsvg-convert...")
         cmd_pdf = [
             rsvg, "-f", "pdf",
+            "-w", "1200mm",
+            "-h", "840mm",
             "--page-width", "1200mm",
-            "--page-height", "900mm",
+            "--page-height", "840mm",
             "-o", RUTA_OUT_PDF,
             RUTA_OUT_SVG
         ]
@@ -905,15 +889,21 @@ def ensamblar_mapa_ampliado():
         shutil.copy2(RUTA_OUT_PDF, RUTA_COPIA_PDF)
         ruta_copia_pdf_num = os.path.join(DIR_IMPRESION, "01_mapa_ampliado_completo_120x90cm.pdf")
         shutil.copy2(RUTA_OUT_PDF, ruta_copia_pdf_num)
+        ruta_copia_pdf_full = os.path.join(DIR_IMPRESION, "01_mapa_ampliado_completo_tamano_completo.pdf")
+        shutil.copy2(RUTA_OUT_PDF, ruta_copia_pdf_full)
+        ruta_copia_pdf_84 = os.path.join(DIR_IMPRESION, "01_mapa_ampliado_completo_120x84cm.pdf")
+        shutil.copy2(RUTA_OUT_PDF, ruta_copia_pdf_84)
         print(f"   ✓ Copias guardadas en:")
         print(f"     - {ruta_copia_pdf_num} (Entregable principal PDF)")
+        print(f"     - {ruta_copia_pdf_full}")
+        print(f"     - {ruta_copia_pdf_84}")
         print(f"     - {RUTA_COPIA_PDF}")
 
-        print("5. Generando vista previa PNG en alta resolución (2400 × 1800 px)...")
+        print("5. Generando vista previa PNG en alta resolución (2400 × 1678 px)...")
         cmd_png = [
             rsvg,
             "-w", "2400",
-            "-h", "1800",
+            "-h", "1678",
             "-o", RUTA_OUT_PNG,
             RUTA_OUT_SVG
         ]

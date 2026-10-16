@@ -260,6 +260,27 @@ PROPIONIL_COA = """
 </g>
 """
 
+# D/L-METILMALONIL-CoA [4C] (Intermediario carboxilado entre PCC y MCM)
+METILMALONIL_COA = """
+<g class="mol-metilmalonil-coa" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <text x="18" y="36" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">⁻OOC</text>
+  <line x1="38" y1="32" x2="50" y2="32" />
+  <text x="60" y="36" font-family="'Inter', sans-serif" font-size="11.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="60" y1="22" x2="60" y2="12" />
+  <text x="60" y="8" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0284c7" stroke="none" text-anchor="middle">CH₃</text>
+  <line x1="70" y1="32" x2="82" y2="32" />
+  <text x="90" y="36" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="87" y1="24" x2="87" y2="12" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="93" y1="24" x2="93" y2="12" stroke="#dc2626" stroke-width="2.1" />
+  <text x="90" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <path d="M 98 32 Q 105 29 109 32" stroke="#d97706" stroke-width="2.2" />
+  <text x="118" y="36" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#d97706" stroke="none" text-anchor="middle">S</text>
+  <line x1="125" y1="32" x2="136" y2="32" stroke="#d97706" stroke-width="2" />
+  <text x="150" y="36" font-family="'Inter', sans-serif" font-size="11.5" font-weight="800" fill="#475569" stroke="none" text-anchor="middle">CoA</text>
+</g>
+"""
+
+
 # L-HOMOCISTEÍNA [4C] (Intermediario tiol clave en metionina)
 HOMOCISTEINA = """
 <g class="mol-homocisteina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">

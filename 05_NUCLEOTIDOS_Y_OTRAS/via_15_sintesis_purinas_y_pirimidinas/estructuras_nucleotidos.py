@@ -71,6 +71,45 @@ PRPP = """
 </g>
 """
 
+FOSFORRIBOSILAMINA_5 = """
+<g class="mol-5-pra" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Anillo furanosa central -->
+  <polygon points="35,16 68,36 52,66 18,66 2,36" fill="#ffffff" stroke="#0f172a" stroke-width="2.4"/>
+  <circle cx="35" cy="16" r="7" fill="#ffffff" stroke="none"/>
+  <text x="35" y="21" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C5: Fosfato 5-P -->
+  <line x1="2" y1="36" x2="-12" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="-20" cy="10" r="12" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="-20" y="14" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
+  <!-- C1: Grupo β-Amino (-NH2, N9 del futuro anillo de purina) -->
+  <line x1="68" y1="36" x2="84" y2="26" stroke="#2563eb" stroke-width="2.2"/>
+  <rect x="84" y="13" width="38" height="22" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="103" y="28" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#1d4ed8" stroke="none" text-anchor="middle">β-NH₂</text>
+  <!-- C2 y C3: -OH abajo -->
+  <line x1="52" y1="66" x2="52" y2="76" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="87" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
+  <line x1="18" y1="66" x2="18" y2="76" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="87" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
+</g>
+"""
+
+DIHIDROOROTATO = """
+<g class="mol-dihidroorotato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Anillo pirimidina saturado C5-C6 (sin doble enlace) -->
+  <polygon points="36,16 64,30 64,58 36,72 10,58 10,30" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+  <line x1="10" y1="58" x2="-4" y2="66" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="-8" y="72" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
+  <text x="10" y="34" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
+  <text x="36" y="75" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">HN</text>
+  <line x1="64" y1="58" x2="78" y2="66" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="84" y="72" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#dc2626" stroke="none">O</text>
+  <text x="68" y="34" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" fill="#64748b" stroke="none">CH₂</text>
+  <line x1="36" y1="16" x2="36" y2="2" stroke="#0f172a" stroke-width="2.2"/>
+  <text x="36" y="-3" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+</g>
+"""
+
+
 # =============================================================================
 # 2. ESQUEMAS DEL ORIGEN DE LOS ÁTOMOS DEL ANILLO (CLAVE DIDÁCTICA EDITORIAL)
 # =============================================================================

@@ -34,10 +34,10 @@
 
 Un atlas visual y didáctico de bioquímica celular que integra **25 vías metabólicas** en un único lienzo continuo: hepatocito central, músculo esquelético, tejido adiposo, barrera hematoencefálica y torrente vascular.
 
-* 🗺️ **25 Vías Integradas:** Glucólisis, Gluconeogénesis, Glucógeno, Pentosas Fosfato, PDH, Ciclo de Krebs, Cadena Respiratoria, Lanzaderas Redox, $\beta$-Oxidación, Lipogénesis, Cetogénesis, Colesterol, Transaminación, Ciclo de la Urea, Nucleótidos, Ciclo de Cori, Digestión lipídica, Cascada ATGL/HSL/MGL, Sarcómero, Neurona/BHE, Lipoproteínas y Vía de Kennedy.
-* 🤖 **Algoritmo de Pathfinding A\*:** Las 45 conexiones inter-ruta fueron calculadas algorítmicamente sobre una cuadrícula ortogonal de **$484 \times 427$ celdas**, evitando más de 3.900 obstáculos biológicos (membranas, enzimas y metabolitos) sin cruces destructivos.
-* 🖥️ **Visor Web 100% Nativo:** Navegación afín suave (CTM pan/zoom), buscador diacrítico instantáneo, fichas flotantes de enzimas y modulador de estados nutricionales (**Normal**, **Posprandial**, **Ayuno**). Cero frameworks pesados.
-* 🖨️ **Formato Cartulina / Póster (1200 × 900 mm):** Archivos PDF y SVG compilados a escala física con tipografías vectoriales incrustadas en base64 y código QR integrado.
+* 🗺️ **25 Vías Integradas:** Glucólisis, Gluconeogénesis, Glucógeno, Pentosas Fosfato, PDH multienzimático, Ciclo de Krebs, Cadena Respiratoria, Lanzaderas Redox (Malato-Aspartato y Glicerol-3P), $\beta$-Oxidación, Lipogénesis, Cetogénesis, Colesterol, Transaminación, Ciclo de la Urea y Biciclo de Krebs-Henseleit, Destinos de Esqueletos Carbonados (con D/L-Metilmalonil-CoA y convergencias), Síntesis y Degradación de Nucleótidos (PRPP, 5-PRA, DHODH conectado a CTE, DHU), Ciclo de Cori, Digestión lipídica, Cascada ATGL/HSL/MGL, Sarcómero, Neurona/BHE, Lipoproteínas y Vía de Kennedy.
+* 🤖 **Algoritmo de Pathfinding A\* y 0 Solapamientos:** Las 45 conexiones inter-ruta fueron calculadas algorítmicamente sobre una cuadrícula ortogonal de **$484 \times 427$ celdas**, evitando más de 3.900 obstáculos biológicos (membranas, enzimas y metabolitos) sin colisiones ni cruces destructivos verificados.
+* 🖥️ **Visor Web 100% Nativo:** Navegación afín suave (CTM pan/zoom), buscador diacrítico instantáneo, fichas flotantes de enzimas y modulador de estados nutricionales (**Normal**, **Posprandial**, **Ayuno**). Cero dependencias ni frameworks pesados.
+* 🖨️ **Formato Cartulina / Póster (1200 × 840 mm y 1200 × 900 mm):** Archivos PDF y SVG vectoriales Ultra-HD compilados a escala física 1:1 sin recorte de bordes, con tipografías vectoriales incrustadas en base64 y código QR integrado.
 
 ---
 
@@ -49,7 +49,8 @@ Un atlas visual y didáctico de bioquímica celular que integra **25 vías metab
 | 🌐 **Web** | [Ampliación Vías 18 a 25](versiones_html/02_ampliacion_rutas_18_25.html) | Visor enfocado exclusivamente en vías periféricas |
 | 🌐 **Web** | [Cuadro Temario (Bloques A–E)](versiones_html/04_cuadro_temario_bloques_A_E.html) | Cuadro de estudio con tablas de cofactores y regulación |
 | 🌐 **Web** | [Centro de Visores / Hub](versiones_html/centro_visores.html) | Portal con tarjetas de selección y descargas |
-| 🖨️ **PDF** | [Póster Completo 120×90 cm](versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf) | PDF vectorial Ultra-HD de 25 vías para imprenta |
+| 🖨️ **PDF** | [Póster Completo 120×84 cm (Sin recortes)](versiones_impresion/01_mapa_ampliado_completo_120x84cm.pdf) | PDF vectorial Ultra-HD de 25 vías ajustado al aspect ratio exacto |
+| 🖨️ **PDF** | [Póster Completo 120×90 cm](versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf) | PDF vectorial Ultra-HD de 25 vías en formato póster estándar |
 | 🖨️ **PDF** | [Póster Central 120×90 cm](versiones_impresion/03_mapa_central_original_120x90cm.pdf) | PDF del hepatocito central (17 vías troncales) |
 
 ---

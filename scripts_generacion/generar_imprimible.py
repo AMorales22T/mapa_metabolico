@@ -158,7 +158,7 @@ def construir_imprimible():
       <!-- Autoría institucional superior derecha (exacta a bloque_autoria) -->
       <g transform="translate(6420, -320)">
         <text x="0" y="22" fill="#0f172a" font-size="19" font-weight="900" font-family="'Inter', sans-serif" text-anchor="end">Adolfo Morales Tena</text>
-        <text x="0" y="47" fill="#64748b" font-size="14.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="end">Estudiante / Investigador • Licencia MIT (Open Source)</text>
+        <text x="0" y="47" fill="#64748b" font-size="14.5" font-weight="700" font-family="'Inter', sans-serif" text-anchor="end">Estudiante • Licencia MIT (Open Source)</text>
         <text x="0" y="71" fill="#0284c7" font-size="14" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="end">github.com/AMorales22T/mapa_metabolico</text>
       </g>
 
