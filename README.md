@@ -53,6 +53,7 @@ Un atlas visual y didáctico de bioquímica celular que integra **25 vías metab
 | 🖨️ **PDF** | [Póster Completo 120×84 cm (Sin recortes)](versiones_impresion/01_mapa_ampliado_completo_120x84cm.pdf) | PDF vectorial Ultra-HD oficial de 25 vías ajustado al aspect ratio |
 | 🖨️ **PDF** | [Póster Completo 120×90 cm](versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf) | PDF vectorial Ultra-HD oficial en formato póster estándar |
 | 🖨️ **PDF** | [Póster Central 120×90 cm](versiones_impresion/03_mapa_central_original_120x90cm.pdf) | PDF del hepatocito central (17 vías troncales) |
+| 🧩 **Código** | **[Guía de Revisión Modular (`revision_metabolismo/`)](revision_metabolismo/README.md)** | Todo el código desglosado en 128 archivos pequeños y numerados |
 
 ---
 
@@ -60,6 +61,7 @@ Un atlas visual y didáctico de bioquímica celular que integra **25 vías metab
 
 ```text
 ├── versiones/             # Repositorio organizado de versiones (version_1, version_2, version_final)
+├── revision_metabolismo/  # Código fuente desglosado en 7 módulos y 128 archivos cortos para lectura fácil
 ├── scripts_generacion/    # Generadores Python 3 (motor SVG, A* pathfinding, detector de solapamientos)
 ├── versiones_html/        # Entregables interactivos HTML5/SVG (desplegados en GitHub Pages)
 ├── versiones_impresion/   # PDFs vectoriales Ultra-HD (1200 × 900 mm) listos para imprenta

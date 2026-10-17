@@ -1,0 +1,109 @@
+<!-- ==========================================================================
+     MÓDULO DE REVISIÓN: Estructura DOM HTML de Controles y Paneles
+     Archivo original : 07_AMPLIACION_TEMARIO/interactividad_html.py (líneas 616 a 718 de 1638)
+     Descripción      : Barra de herramientas, selector de estados nutricionales, buscador, sidebar de 25 vías y tarjeta tooltip.
+     ========================================================================== -->
+
+      }
+      .ui_dimmed { opacity: 1 !important; filter: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER BAR -->
+  <div class="header-bar">
+    <div class="header-title-box">
+      <h2>Mapa Metabólico Integrado — Versión Ampliada (1200 × 900 mm)</h2>
+      <p>25 Vías Integradas • Digestión • Adipocito • Sarcómero • Cerebro • Lipoproteínas • Membrana • Aminoácidos • Hepatocito Central</p>
+    </div>
+
+    <div class="controls">
+      <!-- Botón de Índice -->
+      <button id="ui_btn_toggle_sidebar" onclick="toggleSidebar()" title="Índice de Vías (25)">📑 Vías (25)</button>
+      
+      <!-- Modos de Estado Metabólico -->
+      <div class="ui_state_group">
+        <button class="ui_state_btn ui_active" id="ui_btn_state_normal" onclick="setMetabolicState('normal')" title="Mapa completo sin atenuación">Normal</button>
+        <button class="ui_state_btn" id="ui_btn_state_fed" onclick="setMetabolicState('posprandial')" title="Insulina alta ↑ • Glucagón bajo ↓">🍽️ Posprandial</button>
+        <button class="ui_state_btn" id="ui_btn_state_fasting" onclick="setMetabolicState('ayuno')" title="Glucagón alto ↑ • Insulina baja ↓">⚡ Ayuno</button>
+      </div>
+
+      <!-- Buscador Global -->
+      <div id="ui_search_container">
+        <span class="ui_search_icon">🔍</span>
+        <input type="text" id="ui_search_input" placeholder="Buscar metabolito / enzima... [/]" autocomplete="off" spellcheck="false">
+        <span id="ui_search_counter"></span>
+        <button class="ui_search_btn" id="ui_search_prev" onclick="searchPrev()" title="Anterior (Shift+Enter)">▲</button>
+        <button class="ui_search_btn" id="ui_search_next" onclick="searchNext()" title="Siguiente (Enter)">▼</button>
+        <button class="ui_search_btn" id="ui_search_clear" onclick="clearSearch()" title="Limpiar (Esc)">✕</button>
+      </div>
+
+      <div style="width: 1px; height: 20px; background: #475569; margin: 0 4px;"></div>
+      <button onclick="zoomOut()">−</button>
+      <span id="zoomLevel">100%</span>
+      <button onclick="zoomIn()">+</button>
+      <button onclick="resetView()">Reset</button>
+      <button style="background: #16a34a;" onclick="fitView()" title="Ajustar vista (F)">Ajustar</button>
+
+      <!-- Selector de Vistas / Descargas -->
+      <div class="ui_dropdown_wrapper" style="position: relative; display: inline-block;">
+        <button id="ui_btn_menu_views" onclick="toggleMenuViews(event)" title="Cambiar de vista o descargar" style="background: #1e293b; border: 1px solid #475569; color: #f8fafc; font-weight: 700; border-radius: 6px; padding: 6px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem;">
+          <span>🌐 Vistas / PDF</span> <span style="font-size: 9px;">▼</span>
+        </button>
+        <div id="ui_menu_views" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 6px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-width: 260px; z-index: 1000; padding: 6px 0; text-align: left;">
+          <a href="01_mapa_ampliado_completo_25_vias.html" style="display: block; padding: 8px 14px; color: #38bdf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">🌟 01. Mapa Ampliado (25 Vías)</a>
+          <a href="02_ampliacion_rutas_18_25.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">🧩 02. Ampliación Vías 18–25 (Standalone)</a>
+          <a href="03_mapa_central_interactivo_17_vias.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">🗺️ 03. Mapa Central (17 Vías)</a>
+          <a href="04_cuadro_temario_bloques_A_E.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">📋 04. Temario A–E (Metabolismo Intermediario)</a>
+          <div style="height: 1px; background: #334155; margin: 4px 0;"></div>
+          <a href="../versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem; font-weight: 700;">📥 Descargar PDF 25 Vías (120×90 cm)</a>
+          <a href="../versiones_impresion/02_ampliacion_rutas_18_25.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem;">📥 Descargar PDF Standalone Vías 18–25</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL LATERAL PLEGABLE: ÍNDICE DE VÍAS (25) -->
+  <div id="ui_sidebar_panel">
+    <div class="ui_sidebar_header">
+      <div>
+        <h3>Índice de Vías Metabólicas</h3>
+        <p>25 rutas integradas • Clic para centrar y resaltar</p>
+      </div>
+      <button class="ui_sidebar_close" onclick="toggleSidebar()" title="Cerrar índice (Esc)">✕</button>
+    </div>
+    <div class="ui_sidebar_filter">
+      <input type="text" id="ui_sidebar_search" placeholder="Filtrar vías (ej. Krebs, Lipólisis, Kennedy)..." oninput="filtrarSidebarVias()">
+    </div>
+    <div class="ui_sidebar_list" id="ui_sidebar_list">
+      <!-- Se puebla dinámicamente con JavaScript desde TABLA_VIAS -->
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE PARA ÍNDICE (CUANDO ESTÁ REPLEGADO) -->
+  <button id="ui_btn_sidebar_floating" onclick="toggleSidebar()">
+    <span>📑</span>
+    <span>Índice de Vías</span>
+  </button>
+
+  <!-- BANNER FLOTANTE DE VÍA RESALTADA -->
+  <div id="ui_highlight_banner">
+    <span id="ui_highlight_title">Vía resaltada</span>
+    <button onclick="clearPathwayHighlight()" title="Quitar resaltado (Esc)">✕ Quitar</button>
+  </div>
+
+  <!-- RÓTULO FLOTANTE DE ESTADO METABÓLICO -->
+  <div id="ui_state_banner">
+    <span id="ui_state_banner_text">Estado activo</span>
+    <button onclick="setMetabolicState('normal')">✕ Normal</button>
+  </div>
+
+  <!-- FICHA FLOTANTE / TOOLTIP -->
+  <div id="ui_tooltip_card"></div>
+
+  <!-- VIEWPORT & LIENZO VECTORIAL -->
+  <div class="viewport" id="viewport">
+    <div id="panLayer">
+      __SVG_FINAL__
+    </div>
+  </div>
