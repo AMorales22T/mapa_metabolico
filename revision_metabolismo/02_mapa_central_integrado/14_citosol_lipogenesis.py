@@ -16,7 +16,7 @@
     partes.append(badge_via(10, x_lipo - 30, y_lipo - paso_l*2 - 20))
 
     partes.append(nodo_libre(x_lipo, y_lipo - paso_l*2 - 60, "Citrato (Citosólico)", "6C", CITRATO, "m_citrato_cito", text_right=True, dx=220))
-    partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l*2 + 65, 52, "ATP Citrato Liasa", entra="+ ATP + CoA", sale="+ OAA", id_rx="rx_acly"))
+    partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l*2 + 65, 52, "ATP Citrato Liasa", entra="+ ATP + CoA-SH", sale="+ OAA", id_rx="rx_acly"))
     partes.append(f'''
     <g id="retorno_malico_lanzadera_citrato" transform="translate({x_lipo + 74}, {y_lipo - paso_l*2 + 104})">
       <text x="0" y="0" fill="#047857" font-size="8" font-weight="800" font-family="'Inter', sans-serif">↳ OAA ➔ Malato (MDH1)</text>

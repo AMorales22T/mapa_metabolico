@@ -1,10 +1,3 @@
-# =============================================================================
-# MÓDULO DE REVISIÓN: Estructuras Químicas del Ciclo de la Urea
-# =============================================================================
-# Archivo original : 04_NITROGENO_Y_AMINOACIDOS/via_14_ciclo_de_la_urea/estructuras_urea.py (líneas 1 a 360 de 360)
-# Descripción      : Carbamoil-P, citrulina, argininosuccinato, arginina, ornitina, urea y NAG.
-# =============================================================================
-
 #!/usr/bin/env python3
 """
 ESTRUCTURAS QUÍMICAS VECTORIALES SVG - CICLO DE LA UREA
@@ -259,23 +252,30 @@ ARGININOSUCCINATO = """
 # =============================================================================
 FUMARATO = """
 <g class="mol-fumarato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- C1: COO- superior izquierdo -->
-  <text x="24" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
-  <line x1="32" y1="22" x2="48" y2="38" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C1 Carboxilato Superior -->
+  <text x="45" y="14" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
+  <line x1="45" y1="20" x2="45" y2="33" stroke="#0f172a" stroke-width="2.2"/>
 
-  <!-- C2: Carbono alqueno (CH) -->
-  <text x="56" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- C2 Carbono alqueno superior (H — C) -->
+  <text x="45" y="44" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="37" y1="40" x2="25" y2="40" stroke="#0f172a" stroke-width="2"/>
+  <text x="19" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="end" stroke="none">H</text>
 
-  <!-- Doble enlace trans C2 = C3 -->
-  <line x1="66" y1="45" x2="88" y2="63" stroke="#0f172a" stroke-width="2.6"/>
-  <line x1="70" y1="39" x2="92" y2="57" stroke="#0f172a" stroke-width="1.8"/>
+  <!-- Doble enlace trans central C2 = C3 -->
+  <line x1="42" y1="48" x2="42" y2="64" stroke="#0f172a" stroke-width="2.3"/>
+  <line x1="48" y1="48" x2="48" y2="64" stroke="#0f172a" stroke-width="2.3"/>
+  <text x="72" y="59" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">(trans)</text>
 
-  <!-- C3: Carbono alqueno (CH) -->
-  <text x="98" y="73" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- C3 Carbono alqueno inferior (C — H en posición trans) -->
+  <text x="45" y="76" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="53" y1="72" x2="65" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="71" y="76" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="start" stroke="none">H</text>
 
-  <!-- C4: COO- inferior derecho -->
-  <line x1="106" y1="78" x2="122" y2="94" stroke="#dc2626" stroke-width="2.2"/>
-  <text x="130" y="106" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <!-- Enlace C3 - C4 -->
+  <line x1="45" y1="81" x2="45" y2="96" stroke="#dc2626" stroke-width="2.2"/>
+
+  <!-- C4 Carboxilato Inferior -->
+  <text x="45" y="110" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
 </g>
 """
 

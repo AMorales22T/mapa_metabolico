@@ -18,7 +18,7 @@
     ''')
     
     partes.append(nodo_libre(x_ceto, y_ceto, "Acetoacetil-CoA", "4C", ACETOACETIL_COA, "m_acetoac_coa", text_right=True, dx=200))
-    partes.append(reaccion_libre(x_ceto + 60, y_ceto + 70, 40, "HMG-CoA Sintasa 2 (HMGCS2)", entra="+ Acetil-CoA", id_rx="rx_ceto1"))
+    partes.append(reaccion_libre(x_ceto + 60, y_ceto + 70, 40, "HMG-CoA Sintasa 2 (HMGCS2)", entra="+ Acetil-CoA", sale="- CoA-SH", id_rx="rx_ceto1"))
     partes.append(etiqueta_regulacion("hmgcs2", x_ceto + 74, y_ceto + 108, dx=0, dy=0))
     
     partes.append(nodo_libre(x_ceto, y_ceto + paso_c, "HMG-CoA", "6C", HMG_COA, "m_hmg_coa", text_right=True, dx=200))

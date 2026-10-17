@@ -3149,19 +3149,19 @@
 
   <!-- C2 Metileno (-CH2-) -->
   <text x="50" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">CH₂</text>
-  <line x1="50" y1="48" x2="50" y2="62" />
+  <line x1="50" y1="48" x2="50" y2="59" />
 
-  <!-- C3 Carbono Central Cuaternario -->
-  <circle cx="50" cy="67" r="3.2" fill="#0f172a"/>
+  <!-- C3 Carbono Central Cuaternario explícito -->
+  <text x="50" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <!-- Grupo -OH a la izquierda -->
-  <line x1="46" y1="67" x2="28" y2="67" stroke="#0284c7" stroke-width="2.2"/>
-  <text x="18" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle" stroke="none">HO</text>
+  <line x1="42" y1="67" x2="28" y2="67" stroke="#0284c7" stroke-width="2.2"/>
+  <text x="16" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle" stroke="none">HO</text>
   <!-- Grupo -COO- central a la derecha -->
-  <line x1="54" y1="67" x2="74" y2="67" stroke="#dc2626" stroke-width="2"/>
+  <line x1="58" y1="67" x2="74" y2="67" stroke="#dc2626" stroke-width="2"/>
   <text x="94" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
 
   <!-- Enlace C3 - C4 -->
-  <line x1="50" y1="72" x2="50" y2="86" />
+  <line x1="50" y1="75" x2="50" y2="86" />
 
   <!-- C4 Metileno (-CH2-) -->
   <text x="50" y="96" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">CH₂</text>
@@ -3196,26 +3196,28 @@
 
   <!-- C2 Metileno (-CH2-) -->
   <text x="50" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">CH₂</text>
-  <line x1="50" y1="48" x2="50" y2="62" />
+  <line x1="50" y1="48" x2="50" y2="59" />
 
-  <!-- C3 Carbono quiral con carboxilato (-CH-COO-) -->
-  <circle cx="50" cy="67" r="3" fill="#0f172a"/>
-  <line x1="54" y1="67" x2="74" y2="67" stroke="#dc2626" stroke-width="2"/>
+  <!-- C3 Carbono quiral con carboxilato (H-C-COO-) -->
+  <text x="50" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="58" y1="67" x2="74" y2="67" stroke="#dc2626" stroke-width="2"/>
   <text x="94" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
-  <text x="25" y="71" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">H</text>
+  <line x1="42" y1="67" x2="32" y2="67" stroke="#0f172a" stroke-width="2"/>
+  <text x="24" y="71" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">H</text>
 
   <!-- Enlace C3 - C4 -->
-  <line x1="50" y1="72" x2="50" y2="86" />
+  <line x1="50" y1="75" x2="50" y2="85" />
 
-  <!-- C4 Carbono quiral con alcohol secundario (-CH-OH-) -->
-  <circle cx="50" cy="91" r="3" fill="#0f172a"/>
+  <!-- C4 Carbono quiral con alcohol secundario (HO-C-H) -->
+  <text x="50" y="96" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <!-- Grupo -OH a la izquierda resaltado en azul -->
-  <line x1="46" y1="91" x2="28" y2="91" stroke="#0284c7" stroke-width="2.2"/>
-  <text x="18" y="95" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle" stroke="none">HO</text>
-  <text x="68" y="95" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">H</text>
+  <line x1="42" y1="92" x2="28" y2="92" stroke="#0284c7" stroke-width="2.2"/>
+  <text x="16" y="96" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle" stroke="none">HO</text>
+  <line x1="58" y1="92" x2="68" y2="92" stroke="#0f172a" stroke-width="2"/>
+  <text x="75" y="96" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">H</text>
 
   <!-- Enlace C4 - C5 -->
-  <line x1="50" y1="96" x2="50" y2="112" />
+  <line x1="50" y1="100" x2="50" y2="114" />
 
   <!-- C5 Carboxilato Inferior -->
   <text x="50" y="128" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
@@ -3249,16 +3251,16 @@
 <g class="mol-alfa-cetoglutarato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- C1 Carboxilato Superior -->
   <text x="45" y="14" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
-  <line x1="45" y1="20" x2="45" y2="34" />
+  <line x1="45" y1="20" x2="45" y2="33" />
 
-  <!-- C2 Carbonilo (α-Ceto) -->
-  <circle cx="45" cy="40" r="3" fill="#0f172a"/>
-  <line x1="48" y1="38" x2="68" y2="38" stroke="#dc2626" stroke-width="2"/>
-  <line x1="48" y1="42" x2="68" y2="42" stroke="#dc2626" stroke-width="2"/>
+  <!-- C2 Carbonilo (α-Ceto) explícito -->
+  <text x="45" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="53" y1="38" x2="68" y2="38" stroke="#dc2626" stroke-width="2"/>
+  <line x1="53" y1="42" x2="68" y2="42" stroke="#dc2626" stroke-width="2"/>
   <text x="77" y="44" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" stroke="none">O</text>
 
   <!-- Enlace C2 - C3 -->
-  <line x1="45" y1="46" x2="45" y2="60" />
+  <line x1="45" y1="48" x2="45" y2="60" />
 
   <!-- C3 Metileno (-CH2-) -->
   <text x="45" y="70" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">CH₂</text>
@@ -3282,7 +3284,7 @@
       <line x1="0" y1="0" x2="0" y2="38" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-70" y="9" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA + NAD⁺</text>
+        <text x="-70" y="9" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH + NAD⁺</text>
         
         <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
         <text x="-70" y="36" fill="#059669" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ NADH + CO₂</text>
@@ -3308,17 +3310,17 @@
 
   <!-- C3 Metileno (-CH2-) -->
   <text x="45" y="72" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">CH₂</text>
-  <line x1="45" y1="76" x2="45" y2="90" />
+  <line x1="45" y1="76" x2="45" y2="88" />
 
-  <!-- C4 Carbonilo acoplado a tioéster -->
-  <circle cx="45" cy="96" r="3" fill="#0f172a"/>
+  <!-- C4 Carbonilo acoplado a tioéster explícito -->
+  <text x="45" y="100" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <!-- Doble enlace =O a la izquierda -->
-  <line x1="42" y1="94" x2="22" y2="94" stroke="#dc2626" stroke-width="2"/>
-  <line x1="42" y1="98" x2="22" y2="98" stroke="#dc2626" stroke-width="2"/>
+  <line x1="37" y1="94" x2="22" y2="94" stroke="#dc2626" stroke-width="2"/>
+  <line x1="37" y1="98" x2="22" y2="98" stroke="#dc2626" stroke-width="2"/>
   <text x="14" y="100" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#dc2626" text-anchor="end" stroke="none">O</text>
 
   <!-- Enlace tioéster hacia azufre S a la derecha -->
-  <line x1="49" y1="96" x2="68" y2="96" stroke="#d97706" stroke-width="2.4"/>
+  <line x1="53" y1="96" x2="68" y2="96" stroke="#d97706" stroke-width="2.4"/>
   <text x="76" y="100" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#d97706" text-anchor="middle" stroke="none">S</text>
 
   <!-- Enlace hacia Coenzima A -->
@@ -3340,7 +3342,7 @@
         <text x="-70" y="9" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ GDP + Pi</text>
         
         <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-        <text x="-70" y="36" fill="#059669" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ GTP (+CoA)</text>
+        <text x="-70" y="36" fill="#059669" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ GTP (+CoA-SH)</text>
         
       <text x="-16" y="23" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" text-anchor="end">Succinil-CoA Sintetasa</text>
     </g>
@@ -3387,31 +3389,30 @@
     <g id="m_fumarato" data-arrastrable="1" transform="translate(1150, 3290)">
       <g>
 <g class="mol-fumarato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- C1 Carboxilato Superior Izquierdo -->
-  <text x="18" y="16" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
-  <!-- Enlace diagonal C1 a C2 -->
-  <line x1="26" y1="22" x2="42" y2="38" />
+  <!-- C1 Carboxilato Superior -->
+  <text x="45" y="14" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
+  <line x1="45" y1="20" x2="45" y2="33" />
 
-  <!-- C2 Carbono alqueno (H-C) -->
-  <circle cx="45" cy="42" r="3" fill="#0f172a"/>
-  <text x="26" y="46" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">H</text>
+  <!-- C2 Carbono alqueno superior (H — C) -->
+  <text x="45" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="37" y1="40" x2="25" y2="40" stroke="#0f172a" stroke-width="2"/>
+  <text x="19" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="end" stroke="none">H</text>
 
   <!-- Doble enlace trans central C2 = C3 -->
-  <line x1="45" y1="42" x2="65" y2="64" stroke="#0f172a" stroke-width="2.6"/>
-  <line x1="51" y1="38" x2="71" y2="60" stroke="#0f172a" stroke-width="1.8"/>
+  <line x1="42" y1="48" x2="42" y2="64" stroke="#0f172a" stroke-width="2.3"/>
+  <line x1="48" y1="48" x2="48" y2="64" stroke="#0f172a" stroke-width="2.3"/>
+  <text x="72" y="59" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">(trans)</text>
 
-  <!-- C3 Carbono alqueno (C-H) -->
-  <circle cx="68" cy="67" r="3" fill="#0f172a"/>
-  <text x="86" y="70" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">H</text>
+  <!-- C3 Carbono alqueno inferior (C — H en posición trans) -->
+  <text x="45" y="76" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="53" y1="72" x2="65" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="71" y="76" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="start" stroke="none">H</text>
 
-  <!-- Enlace diagonal C3 a C4 -->
-  <line x1="71" y1="71" x2="86" y2="86" />
+  <!-- Enlace C3 - C4 -->
+  <line x1="45" y1="81" x2="45" y2="96" />
 
-  <!-- C4 Carboxilato Inferior Derecho (Isomería TRANS) -->
-  <text x="96" y="98" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
-
-  <!-- Etiqueta sutil de conformación geométrica -->
-  <text x="36" y="76" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">(trans)</text>
+  <!-- C4 Carboxilato Inferior -->
+  <text x="45" y="110" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
 </g>
 </g>
       <text x="140" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Fumarato</text>
@@ -4623,19 +4624,19 @@
 
   <!-- C2 Metileno (-CH2-) -->
   <text x="50" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">CH₂</text>
-  <line x1="50" y1="48" x2="50" y2="62" />
+  <line x1="50" y1="48" x2="50" y2="59" />
 
-  <!-- C3 Carbono Central Cuaternario -->
-  <circle cx="50" cy="67" r="3.2" fill="#0f172a"/>
+  <!-- C3 Carbono Central Cuaternario explícito -->
+  <text x="50" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
   <!-- Grupo -OH a la izquierda -->
-  <line x1="46" y1="67" x2="28" y2="67" stroke="#0284c7" stroke-width="2.2"/>
-  <text x="18" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle" stroke="none">HO</text>
+  <line x1="42" y1="67" x2="28" y2="67" stroke="#0284c7" stroke-width="2.2"/>
+  <text x="16" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle" stroke="none">HO</text>
   <!-- Grupo -COO- central a la derecha -->
-  <line x1="54" y1="67" x2="74" y2="67" stroke="#dc2626" stroke-width="2"/>
+  <line x1="58" y1="67" x2="74" y2="67" stroke="#dc2626" stroke-width="2"/>
   <text x="94" y="71" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
 
   <!-- Enlace C3 - C4 -->
-  <line x1="50" y1="72" x2="50" y2="86" />
+  <line x1="50" y1="75" x2="50" y2="86" />
 
   <!-- C4 Metileno (-CH2-) -->
   <text x="50" y="96" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">CH₂</text>
@@ -4655,7 +4656,7 @@
       <line x1="0" y1="0" x2="0" y2="52" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ ATP + CoA</text>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ ATP + CoA-SH</text>
         
         <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
         <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ OAA</text>
@@ -4732,20 +4733,20 @@
 <g class="mol-malonil-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo Carboxilato terminal libre (COO⁻) que proveerá el CO2 -->
   <text x="18" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
-  <line x1="56" y1="20" x2="80" y2="34" />
+  <line x1="56" y1="20" x2="70" y2="30" />
   
-  <!-- Carbono C2 metileno central -->
-  <circle cx="80" cy="34" r="3" fill="#ea580c" stroke="none"/>
-  <text x="80" y="49" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+  <!-- Carbono C2 metileno central explícito -->
+  <text x="80" y="38" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C1 Carbonilo tioéster -->
-  <line x1="80" y1="34" x2="108" y2="20" />
-  <line x1="105" y1="20" x2="105" y2="6" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="111" y1="20" x2="111" y2="6" stroke="#dc2626" stroke-width="2.1"/>
+  <!-- C1 Carbonilo tioéster explícito -->
+  <line x1="90" y1="30" x2="101" y2="22" />
+  <text x="108" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="105" y1="13" x2="105" y2="5" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="111" y1="13" x2="111" y2="5" stroke="#dc2626" stroke-width="2.1"/>
   <text x="108" y="2" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- Tioéster S-CoA -->
-  <line x1="108" y1="20" x2="132" y2="20" stroke="#7c3aed" stroke-width="2.3"/>
+  <line x1="115" y1="20" x2="132" y2="20" stroke="#7c3aed" stroke-width="2.3"/>
   <rect x="132" y="9" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="155" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">S-CoA</text>
 </g>
@@ -4779,29 +4780,30 @@
   <!-- Cápsula ACP a la izquierda -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f766e" stroke="none" text-anchor="middle">ACP-S</text>
-  <line x1="48" y1="28" x2="68" y2="28" stroke="#0d9488" stroke-width="2.3"/>
+  <line x1="48" y1="28" x2="61" y2="28" stroke="#0d9488" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo -->
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo explícito -->
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C2 (alfa) metileno -->
-  <line x1="68" y1="28" x2="88" y2="44" />
-  <circle cx="88" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="88" y="58" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
+  <!-- C2 (alfa) metileno explícito -->
+  <line x1="74" y1="32" x2="82" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="90" y="59" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <!-- C3 (beta) Carbonilo ceto (proveniente de la condensación) -->
-  <line x1="88" y1="44" x2="108" y2="28" />
-  <circle cx="108" cy="28" r="3" fill="#0284c7" stroke="none"/>
-  <line x1="105" y1="28" x2="105" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="111" y1="28" x2="111" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="108" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
-  <text x="108" y="44" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <!-- C3 (beta) Carbonilo ceto explícito -->
+  <line x1="99" y1="40" x2="106" y2="32" />
+  <text x="112" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="109" y1="20" x2="109" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="115" y1="20" x2="115" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="112" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <text x="112" y="44" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
 
   <!-- C4 Metilo terminal -->
-  <line x1="108" y1="28" x2="128" y2="40" />
-  <text x="132" y="44" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+  <line x1="118" y1="32" x2="130" y2="40" />
+  <text x="134" y="44" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
       <text x="190" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Acetoacetil-ACP</text>
@@ -4829,28 +4831,29 @@
   <!-- ACP-S -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f766e" stroke="none" text-anchor="middle">ACP-S</text>
-  <line x1="48" y1="28" x2="68" y2="28" stroke="#0d9488" stroke-width="2.3"/>
+  <line x1="48" y1="28" x2="61" y2="28" stroke="#0d9488" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo -->
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo explícito -->
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C2 (alfa) -->
-  <line x1="68" y1="28" x2="88" y2="44" />
-  <circle cx="88" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="88" y="58" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
+  <!-- C2 (alfa CH2) -->
+  <line x1="74" y1="32" x2="82" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="90" y="59" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <!-- C3 (beta con grupo -OH isómero D) -->
-  <line x1="88" y1="44" x2="108" y2="28" />
-  <circle cx="108" cy="28" r="3" fill="#0284c7" stroke="none"/>
-  <line x1="108" y1="28" x2="108" y2="44" stroke="#0284c7" stroke-width="2.4"/>
-  <text x="108" y="58" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
-  <text x="108" y="19" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">D-β</text>
+  <!-- C3 (beta CH con grupo -OH isómero D) -->
+  <line x1="99" y1="40" x2="106" y2="32" />
+  <text x="114" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="114" y1="35" x2="114" y2="46" stroke="#0284c7" stroke-width="2.4"/>
+  <text x="114" y="59" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
+  <text x="114" y="19" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">D-β</text>
 
   <!-- C4 Metilo terminal -->
-  <line x1="108" y1="28" x2="128" y2="20" />
-  <text x="132" y="24" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+  <line x1="123" y1="28" x2="132" y2="22" />
+  <text x="136" y="24" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
       <text x="190" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >D-β-Hidroxiacil-ACP</text>
@@ -4875,28 +4878,29 @@
   <!-- ACP-S -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f766e" stroke="none" text-anchor="middle">ACP-S</text>
-  <line x1="48" y1="28" x2="68" y2="28" stroke="#0d9488" stroke-width="2.3"/>
+  <line x1="48" y1="28" x2="61" y2="28" stroke="#0d9488" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo -->
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo explícito -->
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C2 (alfa) a C3 (beta): DOBLE ENLACE TRANS (C=C) -->
-  <line x1="68" y1="28" x2="90" y2="44" />
-  <circle cx="90" cy="44" r="3" fill="#ea580c" stroke="none"/>
+  <!-- C2 (alfa CH) a C3 (beta CH): DOBLE ENLACE TRANS (CH=CH) -->
+  <line x1="74" y1="32" x2="83" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
   
-  <line x1="90" y1="42" x2="114" y2="26" stroke="#ea580c" stroke-width="2.4"/>
-  <line x1="93" y1="46" x2="117" y2="30" stroke="#ea580c" stroke-width="2.4"/>
-  <circle cx="114" cy="26" r="3" fill="#0284c7" stroke="none"/>
+  <line x1="99" y1="40" x2="110" y2="30" stroke="#ea580c" stroke-width="2.2"/>
+  <line x1="102" y1="44" x2="113" y2="34" stroke="#ea580c" stroke-width="2.2"/>
+  <text x="120" y="30" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
 
-  <text x="86" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#ea580c" stroke="none">α</text>
-  <text x="114" y="17" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
-  <text x="103" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">trans-Δ²</text>
+  <text x="90" y="59" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
+  <text x="120" y="17" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <text x="108" y="54" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">trans-Δ²</text>
 
   <!-- C4 Metilo terminal -->
-  <line x1="114" y1="26" x2="136" y2="40" />
-  <text x="140" y="44" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+  <line x1="129" y1="30" x2="140" y2="40" />
+  <text x="144" y="44" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
       <text x="190" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >trans-Δ²-Enoil-ACP</text>
@@ -4924,20 +4928,23 @@
   <!-- ACP-S -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f766e" stroke="none" text-anchor="middle">ACP-S</text>
-  <line x1="48" y1="28" x2="68" y2="28" stroke="#0d9488" stroke-width="2.3"/>
+  <line x1="48" y1="28" x2="61" y2="28" stroke="#0d9488" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo -->
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo explícito -->
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- Cadena saturada reducida (C2 a C4) -->
-  <line x1="68" y1="28" x2="88" y2="44" />
-  <line x1="88" y1="44" x2="108" y2="28" />
-  <line x1="108" y1="28" x2="128" y2="44" />
+  <!-- Cadena saturada reducida (C2 a C4) con CH2 explícitos -->
+  <line x1="74" y1="32" x2="82" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="99" y1="40" x2="106" y2="32" />
+  <text x="114" y="32" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="123" y1="32" x2="132" y2="42" />
   
-  <text x="132" y="48" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
-  <text x="98" y="58" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#0d9488" stroke="none" text-anchor="middle">Acilo saturado (+2C)</text>
+  <text x="136" y="48" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
+  <text x="102" y="60" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#0d9488" stroke="none" text-anchor="middle">Acilo saturado (+2C)</text>
 </g>
 </g>
       <text x="190" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Butiril-ACP</text>
@@ -4966,21 +4973,21 @@
   <text x="18" y="24" font-family="'Inter', sans-serif" font-size="13.5" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
   <line x1="60" y1="19" x2="80" y2="19" />
   
-  <!-- Carbono alfa y beta -->
-  <line x1="80" y1="19" x2="98" y2="34" />
-  <circle cx="98" cy="34" r="3" fill="#ea580c" stroke="none"/>
+  <!-- Carbono alfa y beta explícitos -->
+  <line x1="80" y1="19" x2="91" y2="29" />
+  <text x="98" y="38" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <text x="98" y="49" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <line x1="98" y1="34" x2="116" y2="19" />
-  <circle cx="116" cy="19" r="3" fill="#0284c7" stroke="none"/>
-  <text x="116" y="11" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <line x1="106" y1="29" x2="112" y2="23" />
+  <text x="120" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="120" y="11" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
 
   <!-- Cadena en zigzag (C4 a C15) -->
-  <polyline points="116,19 134,34 152,19 170,34 188,19 206,34" />
+  <polyline points="129,23 140,34 156,19 172,34 188,19 206,34" />
   <line x1="206" y1="34" x2="224" y2="19" />
   
   <text x="228" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">CH₃</text>
-  <text x="152" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
+  <text x="160" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
 </g>
 </g>
       <text x="255" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Palmitato</text>
@@ -5003,26 +5010,27 @@
   <!-- Cápsula CoA-S a la izquierda -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
-  <line x1="48" y1="28" x2="70" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+  <line x1="48" y1="28" x2="63" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo tioéster -->
-  <line x1="67" y1="28" x2="67" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="73" y1="28" x2="73" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="70" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo tioéster explícito -->
+  <text x="70" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="67" y1="20" x2="67" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="73" y1="20" x2="73" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="70" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C2 metileno (alfa) -->
-  <line x1="70" y1="28" x2="94" y2="44" />
-  <circle cx="94" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="94" y="58" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+  <!-- C2 metileno (alfa CH2) -->
+  <line x1="76" y1="32" x2="86" y2="40" />
+  <text x="94" y="48" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C3 Carbonilo beta (cetona) -->
-  <line x1="94" y1="44" x2="118" y2="28" />
-  <line x1="115" y1="28" x2="115" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="121" y1="28" x2="121" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="118" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C3 Carbonilo beta (cetona explícita) -->
+  <line x1="103" y1="40" x2="112" y2="32" />
+  <text x="118" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="115" y1="20" x2="115" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="121" y1="20" x2="121" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="118" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- C4 metilo terminal -->
-  <line x1="118" y1="28" x2="140" y2="42" />
+  <line x1="124" y1="32" x2="140" y2="42" />
   <text x="144" y="46" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
@@ -5038,6 +5046,9 @@
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
         <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acetil-CoA</text>
         
+        <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- CoA-SH</text>
+        
       <text x="14" y="26" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Sintasa (Citosólica)</text>
     </g>
     
@@ -5048,31 +5059,34 @@
   <!-- Cápsula CoA-S a la izquierda -->
   <rect x="2" y="27" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="42" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
-  <line x1="48" y1="38" x2="70" y2="38" stroke="#7c3aed" stroke-width="2.3"/>
+  <line x1="48" y1="38" x2="63" y2="38" stroke="#7c3aed" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo tioéster -->
-  <line x1="67" y1="38" x2="67" y2="22" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="73" y1="38" x2="73" y2="22" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="70" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo tioéster explícito -->
+  <text x="70" y="42" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="67" y1="30" x2="67" y2="20" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="73" y1="30" x2="73" y2="20" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="70" y="17" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C2 metileno -->
-  <line x1="70" y1="38" x2="95" y2="38" />
+  <!-- C2 metileno explícito -->
+  <line x1="77" y1="38" x2="85" y2="38" />
+  <text x="95" y="42" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C3 central ramificado con OH y CH3 -->
-  <line x1="95" y1="38" x2="120" y2="38" />
-  <circle cx="120" cy="38" r="3.2" fill="#0f172a" stroke="none"/>
+  <!-- C3 central ramificado con OH y CH3 explícito -->
+  <line x1="105" y1="38" x2="113" y2="38" />
+  <text x="120" y="42" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <!-- C3 OH arriba -->
-  <line x1="120" y1="38" x2="120" y2="18" stroke="#0284c7" stroke-width="2.2"/>
+  <line x1="120" y1="30" x2="120" y2="18" stroke="#0284c7" stroke-width="2.2"/>
   <text x="120" y="13" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
   <!-- C3 CH3 ramificación abajo -->
-  <line x1="120" y1="38" x2="120" y2="56" />
+  <line x1="120" y1="45" x2="120" y2="56" />
   <text x="120" y="69" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
 
-  <!-- C4 metileno -->
-  <line x1="120" y1="38" x2="145" y2="38" />
+  <!-- C4 metileno explícito -->
+  <line x1="127" y1="38" x2="135" y2="38" />
+  <text x="145" y="42" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
 
   <!-- C5 carboxilato terminal (COO⁻) -->
-  <line x1="145" y1="38" x2="168" y2="24" />
+  <line x1="155" y1="34" x2="168" y2="24" />
   <text x="172" y="27" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 </g>
@@ -5089,7 +5103,7 @@
         <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- 2 NADPH</text>
         
         <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA</text>
+        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH</text>
         
       <text x="14" y="28" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Reductasa (HMGCR)</text>
     </g>
@@ -5104,25 +5118,27 @@
 <g class="mol-mevalonato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- C1 Carboxilato terminal -->
   <text x="8" y="22" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
-  <line x1="46" y1="18" x2="72" y2="34" />
+  <line x1="46" y1="18" x2="62" y2="30" />
 
-  <!-- C2 metileno -->
-  <line x1="72" y1="34" x2="98" y2="34" />
+  <!-- C2 metileno explícito -->
+  <text x="72" y="38" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="82" y1="34" x2="91" y2="34" />
 
-  <!-- C3 central ramificado con OH y CH3 -->
-  <circle cx="98" cy="34" r="3.2" fill="#0f172a" stroke="none"/>
+  <!-- C3 central ramificado con OH y CH3 explícito -->
+  <text x="98" y="38" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <!-- C3 OH arriba -->
-  <line x1="98" y1="34" x2="98" y2="14" stroke="#0284c7" stroke-width="2.2"/>
+  <line x1="98" y1="26" x2="98" y2="14" stroke="#0284c7" stroke-width="2.2"/>
   <text x="98" y="9" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
   <!-- C3 CH3 abajo -->
-  <line x1="98" y1="34" x2="98" y2="52" />
+  <line x1="98" y1="41" x2="98" y2="52" />
   <text x="98" y="65" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
 
-  <!-- C4 metileno -->
-  <line x1="98" y1="34" x2="124" y2="34" />
+  <!-- C4 metileno explícito -->
+  <line x1="105" y1="34" x2="114" y2="34" />
+  <text x="124" y="38" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
 
   <!-- C5 alcohol primario terminal (CH2-CH2-OH reducido de tioéster) -->
-  <line x1="124" y1="34" x2="148" y2="20" />
+  <line x1="134" y1="30" x2="148" y2="20" />
   <text x="152" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0284c7" stroke="none">CH₂OH</text>
 </g>
 </g>
@@ -5150,18 +5166,19 @@
 <g class="mol-ipp" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Doble enlace terminal CH2=C -->
   <text x="6" y="24" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">H₂C</text>
-  <line x1="32" y1="18" x2="52" y2="28" stroke-width="2.1"/>
-  <line x1="34" y1="24" x2="54" y2="34" stroke-width="2.1"/>
+  <line x1="32" y1="18" x2="46" y2="26" stroke-width="2.1"/>
+  <line x1="34" y1="24" x2="48" y2="32" stroke-width="2.1"/>
 
-  <!-- Carbono C3 con metilo ramificado hacia abajo -->
-  <circle cx="53" cy="31" r="3" fill="#ea580c" stroke="none"/>
-  <line x1="53" y1="31" x2="53" y2="50" />
+  <!-- Carbono C3 explícito con metilo ramificado hacia abajo -->
+  <text x="53" y="35" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">C</text>
+  <line x1="53" y1="38" x2="53" y2="50" />
   <text x="53" y="63" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
 
-  <!-- Enlace hacia C2 metileno -->
-  <line x1="53" y1="31" x2="80" y2="31" />
+  <!-- Enlace hacia C2 metileno explícito -->
+  <line x1="60" y1="31" x2="69" y2="31" />
+  <text x="79" y="35" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <!-- Enlace hacia C1 con fosfatos -->
-  <line x1="80" y1="31" x2="104" y2="18" />
+  <line x1="89" y1="27" x2="104" y2="18" />
   <text x="106" y="19" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" stroke="none">CH₂</text>
 
   <!-- Pirofosfato (O-PP) -->
@@ -5336,16 +5353,16 @@
   <polygon points="72,42 84,22 106,22 118,42 106,62 72,62" />
   <!-- Doble enlace Δ5-6 -->
   <line x1="75" y1="58" x2="103" y2="58" stroke-width="2.1"/>
-  <!-- Metilo angular C19 en C10 -->
-  <line x1="72" y1="42" x2="72" y2="26" />
-  <circle cx="72" cy="26" r="2.5" fill="#0f172a" stroke="none"/>
+  <!-- Metilo angular C19 en C10 explícito -->
+  <line x1="72" y1="42" x2="72" y2="28" />
+  <text x="72" y="24" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
   <text x="88" y="44" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#64748b" stroke="none">B</text>
 
   <!-- ANILLO C -->
   <polygon points="118,42 130,22 152,22 164,42 152,62 118,62" />
-  <!-- Metilo angular C18 en C13 -->
-  <line x1="152" y1="22" x2="152" y2="8" />
-  <circle cx="152" cy="8" r="2.5" fill="#0f172a" stroke="none"/>
+  <!-- Metilo angular C18 en C13 explícito -->
+  <line x1="152" y1="22" x2="152" y2="10" />
+  <text x="152" y="7" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
   <text x="134" y="44" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#64748b" stroke="none">C</text>
 
   <!-- ANILLO D (Pentágono) -->
@@ -5377,21 +5394,21 @@
   <text x="18" y="24" font-family="'Inter', sans-serif" font-size="13.5" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
   <line x1="60" y1="19" x2="80" y2="19" />
   
-  <!-- Carbono alfa y beta -->
-  <line x1="80" y1="19" x2="98" y2="34" />
-  <circle cx="98" cy="34" r="3" fill="#ea580c" stroke="none"/>
+  <!-- Carbono alfa y beta explícitos -->
+  <line x1="80" y1="19" x2="91" y2="29" />
+  <text x="98" y="38" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <text x="98" y="49" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <line x1="98" y1="34" x2="116" y2="19" />
-  <circle cx="116" cy="19" r="3" fill="#0284c7" stroke="none"/>
-  <text x="116" y="11" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <line x1="106" y1="29" x2="112" y2="23" />
+  <text x="120" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="120" y="11" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
 
   <!-- Cadena en zigzag (C4 a C15) -->
-  <polyline points="116,19 134,34 152,19 170,34 188,19 206,34" />
+  <polyline points="129,23 140,34 156,19 172,34 188,19 206,34" />
   <line x1="206" y1="34" x2="224" y2="19" />
   
   <text x="228" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">CH₃</text>
-  <text x="152" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
+  <text x="160" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
 </g>
 </g>
       <text x="265" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Palmitato (Sanguíneo / Albúmina)</text>
@@ -5414,21 +5431,21 @@
   <text x="18" y="24" font-family="'Inter', sans-serif" font-size="13.5" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
   <line x1="60" y1="19" x2="80" y2="19" />
   
-  <!-- Carbono alfa y beta -->
-  <line x1="80" y1="19" x2="98" y2="34" />
-  <circle cx="98" cy="34" r="3" fill="#ea580c" stroke="none"/>
+  <!-- Carbono alfa y beta explícitos -->
+  <line x1="80" y1="19" x2="91" y2="29" />
+  <text x="98" y="38" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <text x="98" y="49" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <line x1="98" y1="34" x2="116" y2="19" />
-  <circle cx="116" cy="19" r="3" fill="#0284c7" stroke="none"/>
-  <text x="116" y="11" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <line x1="106" y1="29" x2="112" y2="23" />
+  <text x="120" y="22" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="120" y="11" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
 
   <!-- Cadena en zigzag (C4 a C15) -->
-  <polyline points="116,19 134,34 152,19 170,34 188,19 206,34" />
+  <polyline points="129,23 140,34 156,19 172,34 188,19 206,34" />
   <line x1="206" y1="34" x2="224" y2="19" />
   
   <text x="228" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">CH₃</text>
-  <text x="152" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
+  <text x="160" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
 </g>
 </g>
       <text x="265" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Palmitato (Citosólico)</text>
@@ -5441,7 +5458,7 @@
       <line x1="0" y1="0" x2="0" y2="50" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ ATP + CoA</text>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ ATP + CoA-SH</text>
         
         <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
         <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ AMP + PPi</text>
@@ -5454,30 +5471,30 @@
           <g>
 <g class="mol-palmitoil-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Carbonilo C1 (C=O) acoplado a tioéster -->
-  <line x1="48" y1="28" x2="68" y2="28" />
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="48" y1="28" x2="62" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
   
   <!-- Tioéster S-CoA a la izquierda -->
-  <line x1="68" y1="28" x2="48" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
 
-  <!-- Carbono alfa (C2) y beta (C3) -->
-  <line x1="68" y1="28" x2="88" y2="44" />
-  <circle cx="88" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="88" y="59" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
+  <!-- Carbono alfa (C2) y beta (C3) explícitos -->
+  <line x1="74" y1="32" x2="83" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="90" y="60" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <line x1="88" y1="44" x2="108" y2="28" />
-  <circle cx="108" cy="28" r="3" fill="#0284c7" stroke="none"/>
-  <text x="108" y="19" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <line x1="98" y1="40" x2="105" y2="33" />
+  <text x="114" y="32" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="114" y="19" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
 
   <!-- Cadena hidrocarbonada en zigzag -->
-  <polyline points="108,28 128,44 148,28 168,44 188,28 208,44" />
+  <polyline points="124,33 136,44 152,28 170,44 188,28 208,44" />
   <line x1="208" y1="44" x2="226" y2="28" />
   <text x="230" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">CH₃</text>
-  <text x="148" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
+  <text x="155" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
 </g>
 </g>
           <text x="110" y="-22" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Palmitoil-CoA (Citosólico)</text>
@@ -5493,7 +5510,7 @@
         <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Carnitina</text>
         
         <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- CoA</text>
+        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- CoA-SH</text>
         
       <text x="14" y="29" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >CPT-1 (Lanzadera de Carnitina)</text>
     </g>
@@ -5508,25 +5525,29 @@
 <g class="mol-palmitoil-carnitina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Amonio cuaternario -->
   <text x="32" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="end">(CH₃)₃N⁺</text>
-  <line x1="36" y1="20" x2="56" y2="20" />
+  <line x1="36" y1="20" x2="46" y2="20" />
+  <text x="55" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C3 con enlace éster a palmitato -->
-  <line x1="56" y1="20" x2="74" y2="34" />
-  <circle cx="74" cy="34" r="2.5" fill="#0f172a" stroke="none"/>
-  <line x1="74" y1="34" x2="74" y2="48" stroke="#dc2626" stroke-width="2"/>
-  <text x="74" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C3 con enlace éster a palmitato explícito -->
+  <line x1="64" y1="24" x2="70" y2="30" />
+  <text x="76" y="38" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="76" y1="41" x2="76" y2="49" stroke="#dc2626" stroke-width="2"/>
+  <text x="76" y="59" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
   
   <!-- Enlace éster hacia acilo -->
-  <line x1="74" y1="61" x2="74" y2="72" />
-  <line x1="74" y1="72" x2="62" y2="72" stroke="#dc2626" stroke-width="2"/>
-  <text x="56" y="75" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O=C</text>
-  <line x1="74" y1="72" x2="88" y2="82" />
-  <text x="92" y="86" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#64748b" stroke="none">—(CH₂)₁₄CH₃</text>
+  <line x1="76" y1="62" x2="76" y2="70" />
+  <text x="76" y="80" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="69" y1="74" x2="58" y2="74" stroke="#dc2626" stroke-width="1.8"/>
+  <line x1="69" y1="78" x2="58" y2="78" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="54" y="80" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
+  <line x1="83" y1="78" x2="92" y2="83" />
+  <text x="95" y="87" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#64748b" stroke="none">(CH₂)₁₄CH₃</text>
 
   <!-- C2 metileno y C1 carboxilato -->
-  <line x1="74" y1="34" x2="94" y2="20" />
-  <line x1="94" y1="20" x2="114" y2="20" />
-  <text x="118" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+  <line x1="84" y1="30" x2="90" y2="24" />
+  <text x="100" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="110" y1="20" x2="118" y2="20" />
+  <text x="122" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 </g>
       <text x="145" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Palmitoil-Carnitina</text>
@@ -5546,7 +5567,7 @@
       <line x1="0" y1="0" x2="0" y2="40" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA</text>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH</text>
         
         <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
         <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- Carnitina</text>
@@ -5559,30 +5580,30 @@
           <g>
 <g class="mol-palmitoil-coa" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Carbonilo C1 (C=O) acoplado a tioéster -->
-  <line x1="48" y1="28" x2="68" y2="28" />
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="48" y1="28" x2="62" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
   
   <!-- Tioéster S-CoA a la izquierda -->
-  <line x1="68" y1="28" x2="48" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
 
-  <!-- Carbono alfa (C2) y beta (C3) -->
-  <line x1="68" y1="28" x2="88" y2="44" />
-  <circle cx="88" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="88" y="59" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
+  <!-- Carbono alfa (C2) y beta (C3) explícitos -->
+  <line x1="74" y1="32" x2="83" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="90" y="60" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <line x1="88" y1="44" x2="108" y2="28" />
-  <circle cx="108" cy="28" r="3" fill="#0284c7" stroke="none"/>
-  <text x="108" y="19" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <line x1="98" y1="40" x2="105" y2="33" />
+  <text x="114" y="32" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="114" y="19" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
 
   <!-- Cadena hidrocarbonada en zigzag -->
-  <polyline points="108,28 128,44 148,28 168,44 188,28 208,44" />
+  <polyline points="124,33 136,44 152,28 170,44 188,28 208,44" />
   <line x1="208" y1="44" x2="226" y2="28" />
   <text x="230" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">CH₃</text>
-  <text x="148" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
+  <text x="155" y="58" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#64748b" stroke="none" text-anchor="middle">(CH₂)₁₂</text>
 </g>
 </g>
           <text x="110" y="-20" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Palmitoil-CoA (Matriz)</text>
@@ -5610,29 +5631,30 @@
   <!-- Tioéster S-CoA -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
-  <line x1="48" y1="28" x2="68" y2="28" />
+  <line x1="48" y1="28" x2="62" y2="28" />
 
-  <!-- C1 Carbonilo -->
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo explícito -->
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C1 a C2 (alfa) -->
-  <line x1="68" y1="28" x2="90" y2="44" />
-  <circle cx="90" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="86" y="59" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none">α</text>
+  <!-- C1 a C2 (alfa CH) -->
+  <line x1="74" y1="32" x2="83" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <text x="90" y="60" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <!-- DOBLE ENLACE TRANS (C2 = C3) con geometría trans claramente visible -->
-  <line x1="90" y1="42" x2="114" y2="26" stroke="#ea580c" stroke-width="2.4" />
-  <line x1="93" y1="46" x2="117" y2="30" stroke="#ea580c" stroke-width="2.4" />
-  <circle cx="114" cy="26" r="3" fill="#0284c7" stroke="none"/>
-  <text x="114" y="17" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <!-- DOBLE ENLACE TRANS (C2 = C3) con carbonos CH explícitos -->
+  <line x1="99" y1="40" x2="110" y2="30" stroke="#ea580c" stroke-width="2.2" />
+  <line x1="102" y1="44" x2="113" y2="34" stroke="#ea580c" stroke-width="2.2" />
+  <text x="120" y="30" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <text x="120" y="17" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
   
-  <text x="103" y="52" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">trans-Δ²</text>
+  <text x="108" y="54" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">trans-Δ²</text>
 
   <!-- Cadena hidrocarbonada restante (R) -->
-  <line x1="114" y1="26" x2="136" y2="42" />
-  <polyline points="136,42 156,26 176,42 196,26" />
+  <line x1="129" y1="30" x2="140" y2="42" />
+  <polyline points="140,42 158,26 176,42 196,26" />
   <text x="200" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">R (C₁₆)</text>
 </g>
 </g>
@@ -5658,30 +5680,31 @@
   <!-- Tioéster S-CoA -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
-  <line x1="48" y1="28" x2="68" y2="28" />
+  <line x1="48" y1="28" x2="62" y2="28" />
 
-  <!-- C1 Carbonilo -->
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo explícito -->
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C1 a C2 (alfa) -->
-  <line x1="68" y1="28" x2="88" y2="44" />
-  <circle cx="88" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="88" y="59" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
+  <!-- C1 a C2 (alfa CH2) -->
+  <line x1="74" y1="32" x2="83" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="90" y="60" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <!-- C2 a C3 (beta con OH) -->
-  <line x1="88" y1="44" x2="108" y2="28" />
-  <circle cx="108" cy="28" r="3" fill="#0284c7" stroke="none"/>
-  <text x="108" y="18" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <!-- C2 a C3 (beta CH con OH) -->
+  <line x1="99" y1="40" x2="106" y2="32" />
+  <text x="114" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <text x="114" y="18" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
   
   <!-- Hidroxilo beta (-OH) resaltado en azul -->
-  <line x1="108" y1="28" x2="108" y2="44" stroke="#0284c7" stroke-width="2.4"/>
-  <text x="108" y="58" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
+  <line x1="114" y1="35" x2="114" y2="46" stroke="#0284c7" stroke-width="2.4"/>
+  <text x="114" y="59" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
 
   <!-- Cadena hidrocarbonada restante (R) -->
-  <line x1="108" y1="28" x2="128" y2="20" />
-  <polyline points="128,20 148,36 168,20 188,36" />
+  <line x1="123" y1="28" x2="134" y2="20" />
+  <polyline points="134,20 152,36 170,20 188,36" />
   <text x="192" y="40" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">R</text>
 </g>
 </g>
@@ -5710,35 +5733,36 @@
   <!-- Tioéster S-CoA -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
-  <line x1="48" y1="28" x2="68" y2="28" />
+  <line x1="48" y1="28" x2="62" y2="28" />
 
-  <!-- C1 Carbonilo -->
-  <line x1="65" y1="28" x2="65" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <line x1="71" y1="28" x2="71" y2="12" stroke="#dc2626" stroke-width="2.1" />
-  <text x="68" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo explícito -->
+  <text x="68" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="20" x2="65" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <line x1="71" y1="20" x2="71" y2="10" stroke="#dc2626" stroke-width="2.1" />
+  <text x="68" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C1 a C2 (alfa) -->
-  <line x1="68" y1="28" x2="88" y2="44" />
-  <circle cx="88" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="88" y="59" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
+  <!-- C1 a C2 (alfa CH2) -->
+  <line x1="74" y1="32" x2="83" y2="40" />
+  <text x="90" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <text x="90" y="60" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">α</text>
 
-  <!-- C2 a C3 (beta carbonilo C=O) -->
-  <line x1="88" y1="44" x2="108" y2="28" />
-  <circle cx="108" cy="28" r="3" fill="#0284c7" stroke="none"/>
-  <text x="108" y="18" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
+  <!-- C2 a C3 (beta carbonilo C=O explícito) -->
+  <line x1="99" y1="40" x2="108" y2="32" />
+  <text x="114" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <text x="114" y="18" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">β</text>
   
   <!-- Carbonilo beta (C=O) resaltado en rojo -->
-  <line x1="105" y1="28" x2="105" y2="44" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="111" y1="28" x2="111" y2="44" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="108" y="58" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="111" y1="35" x2="111" y2="46" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="117" y1="35" x2="117" y2="46" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="114" y="59" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- Sitio de corte tiolítico entre alfa y beta -->
-  <line x1="98" y1="20" x2="98" y2="52" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="3 3"/>
-  <text x="98" y="12" font-family="'Inter', sans-serif" font-size="8" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">✂ TIÓLISIS</text>
+  <line x1="102" y1="20" x2="102" y2="52" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <text x="102" y="12" font-family="'Inter', sans-serif" font-size="8" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">✂ TIÓLISIS</text>
 
   <!-- Cadena hidrocarbonada restante (R) -->
-  <line x1="108" y1="28" x2="128" y2="20" />
-  <polyline points="128,20 148,36 168,20" />
+  <line x1="120" y1="28" x2="132" y2="20" />
+  <polyline points="132,20 150,36 168,20" />
   <text x="172" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none">R (C₁₄)</text>
 </g>
 </g>
@@ -5752,7 +5776,7 @@
       <line x1="0" y1="0" x2="0" y2="42" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA</text>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH</text>
         
       <text x="14" y="25" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >Tiolasa</text>
     </g>
@@ -5824,26 +5848,27 @@
   <!-- Cápsula CoA-S a la izquierda -->
   <rect x="2" y="17" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="32" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
-  <line x1="48" y1="28" x2="70" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
+  <line x1="48" y1="28" x2="63" y2="28" stroke="#7c3aed" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo tioéster -->
-  <line x1="67" y1="28" x2="67" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="73" y1="28" x2="73" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="70" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo tioéster explícito -->
+  <text x="70" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="67" y1="20" x2="67" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="73" y1="20" x2="73" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="70" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C2 metileno (alfa) -->
-  <line x1="70" y1="28" x2="94" y2="44" />
-  <circle cx="94" cy="44" r="3" fill="#ea580c" stroke="none"/>
-  <text x="94" y="58" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+  <!-- C2 metileno (alfa CH2) -->
+  <line x1="76" y1="32" x2="86" y2="40" />
+  <text x="94" y="48" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C3 Carbonilo beta (cetona) -->
-  <line x1="94" y1="44" x2="118" y2="28" />
-  <line x1="115" y1="28" x2="115" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="121" y1="28" x2="121" y2="12" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="118" y="8" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C3 Carbonilo beta (cetona explícita) -->
+  <line x1="103" y1="40" x2="112" y2="32" />
+  <text x="118" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="115" y1="20" x2="115" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="121" y1="20" x2="121" y2="10" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="118" y="7" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- C4 metilo terminal -->
-  <line x1="118" y1="28" x2="140" y2="42" />
+  <line x1="124" y1="32" x2="140" y2="42" />
   <text x="144" y="46" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
@@ -5859,6 +5884,9 @@
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
         <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acetil-CoA</text>
         
+        <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- CoA-SH</text>
+        
       <text x="14" y="24" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Sintasa 2 (HMGCS2)</text>
     </g>
     
@@ -5873,31 +5901,34 @@
   <!-- Cápsula CoA-S a la izquierda -->
   <rect x="2" y="27" width="46" height="22" rx="11" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
   <text x="25" y="42" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#6d28d9" stroke="none" text-anchor="middle">CoA-S</text>
-  <line x1="48" y1="38" x2="70" y2="38" stroke="#7c3aed" stroke-width="2.3"/>
+  <line x1="48" y1="38" x2="63" y2="38" stroke="#7c3aed" stroke-width="2.3"/>
 
-  <!-- C1 Carbonilo tioéster -->
-  <line x1="67" y1="38" x2="67" y2="22" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="73" y1="38" x2="73" y2="22" stroke="#dc2626" stroke-width="2.1"/>
-  <text x="70" y="18" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <!-- C1 Carbonilo tioéster explícito -->
+  <text x="70" y="42" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="67" y1="30" x2="67" y2="20" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="73" y1="30" x2="73" y2="20" stroke="#dc2626" stroke-width="2.1"/>
+  <text x="70" y="17" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
-  <!-- C2 metileno -->
-  <line x1="70" y1="38" x2="95" y2="38" />
+  <!-- C2 metileno explícito -->
+  <line x1="77" y1="38" x2="85" y2="38" />
+  <text x="95" y="42" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C3 central ramificado con OH y CH3 -->
-  <line x1="95" y1="38" x2="120" y2="38" />
-  <circle cx="120" cy="38" r="3.2" fill="#0f172a" stroke="none"/>
+  <!-- C3 central ramificado con OH y CH3 explícito -->
+  <line x1="105" y1="38" x2="113" y2="38" />
+  <text x="120" y="42" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
   <!-- C3 OH arriba -->
-  <line x1="120" y1="38" x2="120" y2="18" stroke="#0284c7" stroke-width="2.2"/>
+  <line x1="120" y1="30" x2="120" y2="18" stroke="#0284c7" stroke-width="2.2"/>
   <text x="120" y="13" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
   <!-- C3 CH3 ramificación abajo -->
-  <line x1="120" y1="38" x2="120" y2="56" />
+  <line x1="120" y1="45" x2="120" y2="56" />
   <text x="120" y="69" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH₃</text>
 
-  <!-- C4 metileno -->
-  <line x1="120" y1="38" x2="145" y2="38" />
+  <!-- C4 metileno explícito -->
+  <line x1="127" y1="38" x2="135" y2="38" />
+  <text x="145" y="42" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
 
   <!-- C5 carboxilato terminal (COO⁻) -->
-  <line x1="145" y1="38" x2="168" y2="24" />
+  <line x1="155" y1="34" x2="168" y2="24" />
   <text x="172" y="27" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 </g>
@@ -5922,20 +5953,20 @@
 <g class="mol-acetoacetato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo Carboxilato terminal C1 (COO⁻) -->
   <text x="18" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
-  <line x1="56" y1="24" x2="80" y2="38" />
+  <line x1="56" y1="24" x2="70" y2="34" />
 
-  <!-- C2 metileno central (CH2) -->
-  <circle cx="80" cy="38" r="3" fill="#ea580c" stroke="none"/>
-  <text x="80" y="52" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+  <!-- C2 metileno central (CH2 explícito) -->
+  <text x="80" y="42" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C3 Carbonilo beta (cetona) -->
-  <line x1="80" y1="38" x2="108" y2="24" />
-  <line x1="105" y1="24" x2="105" y2="8" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="111" y1="24" x2="111" y2="8" stroke="#dc2626" stroke-width="2.1"/>
+  <!-- C3 Carbonilo beta (cetona explícita) -->
+  <line x1="90" y1="34" x2="101" y2="26" />
+  <text x="108" y="28" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="105" y1="16" x2="105" y2="7" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="111" y1="16" x2="111" y2="7" stroke="#dc2626" stroke-width="2.1"/>
   <text x="108" y="4" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- C4 metilo terminal -->
-  <line x1="108" y1="24" x2="132" y2="38" />
+  <line x1="115" y1="28" x2="132" y2="38" />
   <text x="136" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
@@ -5968,16 +5999,16 @@
 <g class="mol-acetona" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- C1 Metilo izquierdo -->
   <text x="18" y="38" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">H₃C</text>
-  <line x1="42" y1="34" x2="68" y2="20" />
+  <line x1="42" y1="34" x2="61" y2="23" />
 
-  <!-- C2 Carbonilo central (C=O) -->
-  <circle cx="68" cy="20" r="3" fill="#0f172a" stroke="none"/>
-  <line x1="65" y1="20" x2="65" y2="4" stroke="#dc2626" stroke-width="2.1"/>
-  <line x1="71" y1="20" x2="71" y2="4" stroke="#dc2626" stroke-width="2.1"/>
+  <!-- C2 Carbonilo central (C=O explícito) -->
+  <text x="68" y="24" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="65" y1="13" x2="65" y2="4" stroke="#dc2626" stroke-width="2.1"/>
+  <line x1="71" y1="13" x2="71" y2="4" stroke="#dc2626" stroke-width="2.1"/>
   <text x="68" y="0" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- C3 Metilo derecho -->
-  <line x1="68" y1="20" x2="94" y2="34" />
+  <line x1="75" y1="23" x2="94" y2="34" />
   <text x="98" y="38" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
@@ -5992,20 +6023,19 @@
 <g class="mol-hidroxibutirato" stroke="#0f172a" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo Carboxilato terminal C1 (COO⁻) -->
   <text x="18" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#dc2626" stroke="none">⁻OOC</text>
-  <line x1="56" y1="24" x2="80" y2="38" />
+  <line x1="56" y1="24" x2="70" y2="34" />
 
-  <!-- C2 metileno (alfa) -->
-  <circle cx="80" cy="38" r="3" fill="#ea580c" stroke="none"/>
-  <text x="80" y="52" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
+  <!-- C2 metileno (alfa CH2 explícito) -->
+  <text x="80" y="42" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#ea580c" stroke="none" text-anchor="middle">CH₂</text>
 
-  <!-- C3 beta-alcohol (-OH) -->
-  <line x1="80" y1="38" x2="108" y2="24" />
-  <circle cx="108" cy="24" r="3" fill="#0284c7" stroke="none"/>
-  <line x1="108" y1="24" x2="108" y2="6" stroke="#0284c7" stroke-width="2.2"/>
+  <!-- C3 beta-alcohol (CH-OH explícito) -->
+  <line x1="90" y1="34" x2="99" y2="27" />
+  <text x="108" y="28" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="108" y1="16" x2="108" y2="6" stroke="#0284c7" stroke-width="2.2"/>
   <text x="108" y="2" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
 
   <!-- C4 metilo terminal -->
-  <line x1="108" y1="24" x2="132" y2="38" />
+  <line x1="117" y1="28" x2="132" y2="38" />
   <text x="136" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none">CH₃</text>
 </g>
 </g>
@@ -6524,7 +6554,7 @@
       <line x1="0" y1="0" x2="0" y2="28" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
       <g transform="translate(15, 14)">
         <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Complejo BCKDH</text>
-        <text x="0" y="12" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace">Cofactores: TPP, Lipoamida, FAD</text>
+        <text x="0" y="12" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace">Cofactores: TPP, Lipoamida, CoA-SH, FAD, NAD⁺</text>
       </g>
     </g>
     
@@ -6985,23 +7015,30 @@
     <g id="m_u_fumarato" data-arrastrable="1" transform="translate(4040, 1130)">
       <g>
 <g class="mol-fumarato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- C1: COO- superior izquierdo -->
-  <text x="24" y="16" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
-  <line x1="32" y1="22" x2="48" y2="38" stroke="#0f172a" stroke-width="2.2"/>
+  <!-- C1 Carboxilato Superior -->
+  <text x="45" y="14" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
+  <line x1="45" y1="20" x2="45" y2="33" stroke="#0f172a" stroke-width="2.2"/>
 
-  <!-- C2: Carbono alqueno (CH) -->
-  <text x="56" y="47" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- C2 Carbono alqueno superior (H — C) -->
+  <text x="45" y="44" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="37" y1="40" x2="25" y2="40" stroke="#0f172a" stroke-width="2"/>
+  <text x="19" y="44" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="end" stroke="none">H</text>
 
-  <!-- Doble enlace trans C2 = C3 -->
-  <line x1="66" y1="45" x2="88" y2="63" stroke="#0f172a" stroke-width="2.6"/>
-  <line x1="70" y1="39" x2="92" y2="57" stroke="#0f172a" stroke-width="1.8"/>
+  <!-- Doble enlace trans central C2 = C3 -->
+  <line x1="42" y1="48" x2="42" y2="64" stroke="#0f172a" stroke-width="2.3"/>
+  <line x1="48" y1="48" x2="48" y2="64" stroke="#0f172a" stroke-width="2.3"/>
+  <text x="72" y="59" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#64748b" text-anchor="middle" stroke="none">(trans)</text>
 
-  <!-- C3: Carbono alqueno (CH) -->
-  <text x="98" y="73" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <!-- C3 Carbono alqueno inferior (C — H en posición trans) -->
+  <text x="45" y="76" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#0f172a" text-anchor="middle" stroke="none">C</text>
+  <line x1="53" y1="72" x2="65" y2="72" stroke="#0f172a" stroke-width="2"/>
+  <text x="71" y="76" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" text-anchor="start" stroke="none">H</text>
 
-  <!-- C4: COO- inferior derecho -->
-  <line x1="106" y1="78" x2="122" y2="94" stroke="#dc2626" stroke-width="2.2"/>
-  <text x="130" y="106" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">COO⁻</text>
+  <!-- Enlace C3 - C4 -->
+  <line x1="45" y1="81" x2="45" y2="96" stroke="#dc2626" stroke-width="2.2"/>
+
+  <!-- C4 Carboxilato Inferior -->
+  <text x="45" y="110" font-family="'Inter', sans-serif" font-size="12.5" font-weight="900" fill="#dc2626" text-anchor="middle" stroke="none">COO⁻</text>
 </g>
 </g>
       <text x="-20" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">Fumarato</text>
@@ -7518,7 +7555,9 @@
   <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <!-- OH en C2/C3 -->
   <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta N-glucosídico C1' -> N9 -->
   <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
@@ -7557,7 +7596,9 @@
   <circle cx="-16" cy="54" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta C1' -> N9 -->
   <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
@@ -7591,7 +7632,9 @@
   <circle cx="-16" cy="54" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta C1' -> N9 -->
   <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
@@ -7641,15 +7684,16 @@
 <g class="mol-carbamoil-p" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo amino H2N- -->
   <text x="12" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
-  <line x1="16" y1="28" x2="38" y2="28" stroke="#0f172a" stroke-width="2.2"/>
+  <line x1="16" y1="28" x2="36" y2="28" stroke="#0f172a" stroke-width="2.2"/>
 
-  <!-- Carbono C=O -->
-  <circle cx="44" cy="28" r="2.5" fill="#0f172a" stroke="none"/>
-  <line x1="44" y1="22" x2="44" y2="6" stroke="#dc2626" stroke-width="2.2"/>
+  <!-- Carbono C=O explícito -->
+  <text x="44" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="42" y1="20" x2="42" y2="6" stroke="#dc2626" stroke-width="2"/>
+  <line x1="46" y1="20" x2="46" y2="6" stroke="#dc2626" stroke-width="2"/>
   <text x="44" y="2" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- Enlace éster fosfato -O-Ⓟ -->
-  <line x1="48" y1="28" x2="68" y2="28" stroke="#ea580c" stroke-width="2.2"/>
+  <line x1="52" y1="28" x2="68" y2="28" stroke="#ea580c" stroke-width="2.2"/>
   <circle cx="84" cy="28" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="84" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
 </g>
@@ -7765,7 +7809,9 @@
   <circle cx="-16" cy="50" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="-16" y="54" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <line x1="52" y1="100" x2="52" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="100" x2="18" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta N-glucosídico C1' -> N1 -->
   <line x1="65" y1="74" x2="65" y2="44" stroke="#2563eb" stroke-width="2.2"/>
@@ -7798,6 +7844,10 @@
   <polygon points="40,58 70,74 57,100 23,100 10,74" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
   <circle cx="40" cy="58" r="6" fill="#ffffff" stroke="none"/>
   <text x="40" y="62" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="57" y1="100" x2="57" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="57" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
+  <line x1="23" y1="100" x2="23" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="23" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Cadena Trifosfato en C5': Ⓟ~Ⓟ~Ⓟ -->
   <line x1="10" y1="74" x2="-8" y2="60" stroke="#ea580c" stroke-width="2"/>
@@ -8071,23 +8121,24 @@
       <g>
 <g class="mol-beta-ureidopropionato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo carbamoil/ureido: H2N-C(=O)-NH- -->
-  <text x="12" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
-  <line x1="16" y1="20" x2="34" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="10" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
+  <line x1="14" y1="20" x2="27" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- C=O -->
-  <circle cx="34" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="34" y1="16" x2="34" y2="4" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="34" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="32" y1="14" x2="32" y2="4" stroke="#dc2626" stroke-width="2"/>
+  <line x1="36" y1="14" x2="36" y2="4" stroke="#dc2626" stroke-width="2"/>
   <text x="34" y="0" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
   <!-- -NH- -->
-  <line x1="38" y1="20" x2="54" y2="20" stroke="#2563eb" stroke-width="2"/>
+  <line x1="41" y1="20" x2="53" y2="20" stroke="#2563eb" stroke-width="2"/>
   <text x="64" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
   <!-- -CH2-CH2- -->
-  <line x1="74" y1="20" x2="92" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="92" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="92" y1="20" x2="110" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="110" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
+  <line x1="75" y1="20" x2="83" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="95" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="107" y1="20" x2="115" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="127" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <!-- -COO- terminal -->
-  <line x1="110" y1="20" x2="126" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <text x="132" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+  <line x1="139" y1="20" x2="147" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="150" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 </g>
       <text x="175" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >β-Ureidopropionato</text>
@@ -8114,15 +8165,15 @@
 <g class="mol-beta-alanina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo amino beta: H3N+-CH2-CH2-COO- -->
   <text x="12" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">⁺H₃N</text>
-  <line x1="16" y1="20" x2="38" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <line x1="16" y1="20" x2="26" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- C-beta CH2 -->
-  <circle cx="38" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="38" y1="20" x2="60" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="38" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="50" y1="20" x2="58" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- C-alfa CH2 -->
-  <circle cx="60" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="60" y1="20" x2="82" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="70" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="82" y1="20" x2="90" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- Carboxilato terminal -->
-  <text x="88" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+  <text x="94" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 </g>
       <text x="120" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >β-Alanina Soluble</text>
@@ -9647,7 +9698,7 @@
             <text x="-66" y="9" fill="#dc2626" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acil-CoA</text>
             
             <path d="M -4 20 Q -20 30 -60 30" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-            <text x="-66" y="34" fill="#059669" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoASH</text>
+            <text x="-66" y="34" fill="#059669" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH</text>
             
       <text x="14" y="39" fill="#0f172a" font-size="12" font-weight="800" font-family="'Inter', sans-serif" >GPAT (Glicerol-3-P Aciltransferasa)</text>
       <text x="14" y="53" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace" >EC 2.3.1.15</text>
@@ -9694,7 +9745,7 @@
             <text x="-66" y="9" fill="#dc2626" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acil-CoA</text>
             
             <path d="M -4 20 Q -20 30 -60 30" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-            <text x="-66" y="34" fill="#059669" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoASH</text>
+            <text x="-66" y="34" fill="#059669" font-size="10" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH</text>
             
       <text x="14" y="39" fill="#0f172a" font-size="12" font-weight="800" font-family="'Inter', sans-serif" >AGPAT (Acilglicerol-P Aciltransferasa)</text>
       <text x="14" y="53" fill="#64748b" font-size="9" font-family="'JetBrains Mono', monospace" >EC 2.3.1.51</text>
@@ -9794,7 +9845,7 @@
       <path d="M -40 0 C -120 40, -140 70, -140 100" fill="none" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowOrange)"/>
       <rect x="-240" y="30" width="150" height="40" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.8"/>
       <text x="-165" y="48" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#c2410c" text-anchor="middle">DGAT + Acil-CoA</text>
-      <text x="-165" y="62" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#ea580c" text-anchor="middle">EC 2.3.1.20</text>
+      <text x="-165" y="62" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#ea580c" text-anchor="middle">EC 2.3.1.20 (- CoA-SH)</text>
 
       <path d="M 40 0 C 50 40, 60 70, 70 100" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrowBlue)"/>
       <rect x="135" y="30" width="160" height="40" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>

@@ -32,11 +32,11 @@
     
     # 1. Palmitato Citosólico
     partes.append(nodo_libre(x_box, y_box - 1200, "Palmitato (Citosólico)", "16C", PALMITATO_LIBRE, "m_palmitato_cito", text_right=True, dx=265))
-    partes.append(reaccion_libre(x_box + 60, y_box - 1200 + 80, 50, "Acil-CoA Sintetasa (ACS)", entra="+ ATP + CoA", sale="+ AMP + PPi", id_rx="rx_acs"))
+    partes.append(reaccion_libre(x_box + 60, y_box - 1200 + 80, 50, "Acil-CoA Sintetasa (ACS)", entra="+ ATP + CoA-SH", sale="+ AMP + PPi", id_rx="rx_acs"))
     
     # 2. Palmitoil-CoA Citosólico (Nombre encima de la estructura)
     partes.append(nodo_libre(x_box, y_box - 800, "Palmitoil-CoA (Citosólico)", "16C", PALMITOIL_COA, "m_palmitoil_cito", text_pos="top", dx=110, dy=-22))
-    partes.append(reaccion_libre(x_box + 60, y_box - 800 + 80, 50, "CPT-1 (Lanzadera de Carnitina)", entra="+ Carnitina", sale="- CoA", id_rx="rx_cpt1"))
+    partes.append(reaccion_libre(x_box + 60, y_box - 800 + 80, 50, "CPT-1 (Lanzadera de Carnitina)", entra="+ Carnitina", sale="- CoA-SH", id_rx="rx_cpt1"))
     partes.append(etiqueta_regulacion("cpt1", x_box + 260, y_box - 800 + 90, dx=0, dy=0))
     
     # 3. Palmitoil-Carnitina (Espacio Citosol / EIM exterior)
@@ -55,7 +55,7 @@
     ''')
     
     # CPT-2 en la cara interna de la membrana mitocondrial interna (Matriz despejada)
-    partes.append(reaccion_libre(x_cact, y_cact + 25, 40, "CPT-2 (Cara Interna MMI)", entra="+ CoA", sale="- Carnitina", id_rx="rx_cpt2"))
+    partes.append(reaccion_libre(x_cact, y_cact + 25, 40, "CPT-2 (Cara Interna MMI)", entra="+ CoA-SH", sale="- Carnitina", id_rx="rx_cpt2"))
 
     # 4. Palmitoil-CoA en la matriz mitocondrial
     y_m_palm = 2390
@@ -75,7 +75,7 @@
     # 7. β-Cetoacil-CoA
     y_m_ceto = y_m_hidro + 140
     partes.append(nodo_libre(x_box, y_m_ceto, "β-Cetoacil-CoA", "16C", BETA_CETOACIL_COA, "m_cetoacil_coa", text_right=True, dx=265))
-    partes.append(reaccion_libre(x_box + 60, y_m_ceto + 70, 42, "Tiolasa", entra="+ CoA", id_rx="rx_box3"))
+    partes.append(reaccion_libre(x_box + 60, y_m_ceto + 70, 42, "Tiolasa", entra="+ CoA-SH", id_rx="rx_box3"))
     
     # 8. Clivaje tiolítico: Acetil-CoA y Miristoil-CoA
     y_m_split = y_m_ceto + 160

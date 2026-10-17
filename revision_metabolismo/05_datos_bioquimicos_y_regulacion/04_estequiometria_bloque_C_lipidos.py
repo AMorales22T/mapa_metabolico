@@ -44,7 +44,7 @@
         "productos": ["Palmitoil-CoA", "L-Carnitina"],
         "coproductos": "L-Carnitina liberada que retorna al EIM vía translocasa CACT",
         "deltaG": "Reversible ⇄",
-        "regulacion": "Dependiente de la disponibilidad de CoA en la matriz.",
+        "regulacion": "Dependiente de la disponibilidad de CoA-SH en la matriz.",
         "relevancia": "Reconstituye el Acil-CoA en el interior de la matriz mitocondrial listo para la espiral de Lynen."
     },
     "rx_box1": {

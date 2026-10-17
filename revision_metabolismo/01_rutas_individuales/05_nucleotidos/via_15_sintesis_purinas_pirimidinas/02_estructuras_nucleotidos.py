@@ -1,10 +1,3 @@
-# =============================================================================
-# MÓDULO DE REVISIÓN: Estructuras de Purinas y Pirimidinas
-# =============================================================================
-# Archivo original : 05_NUCLEOTIDOS_Y_OTRAS/via_15_sintesis_purinas_y_pirimidinas/estructuras_nucleotidos.py (líneas 1 a 439 de 439)
-# Descripción      : PRPP, IMP, AMP, GMP, carbamoil-aspartato, orotato, UMP, UTP, CTP y dTMP.
-# =============================================================================
-
 #!/usr/bin/env python3
 """
 ESTRUCTURAS QUÍMICAS VECTORIALES SVG - SÍNTESIS DE PURINAS Y PIRIMIDINAS
@@ -241,7 +234,9 @@ IMP = """
   <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <!-- OH en C2/C3 -->
   <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta N-glucosídico C1' -> N9 -->
   <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
@@ -271,7 +266,9 @@ AMP = """
   <circle cx="-16" cy="54" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta C1' -> N9 -->
   <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
@@ -296,7 +293,9 @@ GMP = """
   <circle cx="-16" cy="54" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="-16" y="58" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <line x1="52" y1="104" x2="52" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="104" x2="18" y2="114" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="124" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta C1' -> N9 -->
   <line x1="65" y1="78" x2="65" y2="48" stroke="#2563eb" stroke-width="2.2"/>
@@ -322,15 +321,16 @@ CARBAMOIL_FOSFATO = """
 <g class="mol-carbamoil-p" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo amino H2N- -->
   <text x="12" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
-  <line x1="16" y1="28" x2="38" y2="28" stroke="#0f172a" stroke-width="2.2"/>
+  <line x1="16" y1="28" x2="36" y2="28" stroke="#0f172a" stroke-width="2.2"/>
 
-  <!-- Carbono C=O -->
-  <circle cx="44" cy="28" r="2.5" fill="#0f172a" stroke="none"/>
-  <line x1="44" y1="22" x2="44" y2="6" stroke="#dc2626" stroke-width="2.2"/>
+  <!-- Carbono C=O explícito -->
+  <text x="44" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="42" y1="20" x2="42" y2="6" stroke="#dc2626" stroke-width="2"/>
+  <line x1="46" y1="20" x2="46" y2="6" stroke="#dc2626" stroke-width="2"/>
   <text x="44" y="2" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
 
   <!-- Enlace éster fosfato -O-Ⓟ -->
-  <line x1="48" y1="28" x2="68" y2="28" stroke="#ea580c" stroke-width="2.2"/>
+  <line x1="52" y1="28" x2="68" y2="28" stroke="#ea580c" stroke-width="2.2"/>
   <circle cx="84" cy="28" r="14" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="84" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
 </g>
@@ -369,7 +369,9 @@ UMP = """
   <circle cx="-16" cy="50" r="13" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
   <text x="-16" y="54" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#c2410c" stroke="none" text-anchor="middle">Ⓟ</text>
   <line x1="52" y1="100" x2="52" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="52" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
   <line x1="18" y1="100" x2="18" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="18" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Enlace beta N-glucosídico C1' -> N1 -->
   <line x1="65" y1="74" x2="65" y2="44" stroke="#2563eb" stroke-width="2.2"/>
@@ -393,6 +395,10 @@ CTP = """
   <polygon points="40,58 70,74 57,100 23,100 10,74" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
   <circle cx="40" cy="58" r="6" fill="#ffffff" stroke="none"/>
   <text x="40" y="62" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+  <line x1="57" y1="100" x2="57" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="57" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">OH</text>
+  <line x1="23" y1="100" x2="23" y2="110" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="23" y="120" font-family="'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">HO</text>
 
   <!-- Cadena Trifosfato en C5': Ⓟ~Ⓟ~Ⓟ -->
   <line x1="10" y1="74" x2="-8" y2="60" stroke="#ea580c" stroke-width="2"/>

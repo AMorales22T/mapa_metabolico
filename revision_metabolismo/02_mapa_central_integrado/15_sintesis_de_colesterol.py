@@ -29,10 +29,10 @@
     ''')
 
     partes.append(nodo_libre(x_col, y_acetoac_col, "Acetoacetil-CoA (Citosol)", "4C", ACETOACETIL_COA_COLEST, "m_acetoac_col", text_pos="top", dx=70, dy=-22))
-    partes.append(reaccion_libre(x_col + 60, y_acetoac_col + 65, 45, "HMG-CoA Sintasa (Citosólica)", entra="+ Acetil-CoA", id_rx="rx_hmgs_cito"))
+    partes.append(reaccion_libre(x_col + 60, y_acetoac_col + 65, 45, "HMG-CoA Sintasa (Citosólica)", entra="+ Acetil-CoA", sale="- CoA-SH", id_rx="rx_hmgs_cito"))
 
     partes.append(nodo_libre(x_col, y_hmg_col, "HMG-CoA (Citosol)", "6C", HMG_COA_CITOSOL, "m_hmg_col", text_pos="top", dx=70, dy=-22))
-    partes.append(reaccion_libre(x_col + 60, y_hmg_col + 65, 48, "HMG-CoA Reductasa (HMGCR)", entra="- 2 NADPH", sale="+ CoA", id_rx="rx_hmgcr"))
+    partes.append(reaccion_libre(x_col + 60, y_hmg_col + 65, 48, "HMG-CoA Reductasa (HMGCR)", entra="- 2 NADPH", sale="+ CoA-SH", id_rx="rx_hmgcr"))
     partes.append(etiqueta_regulacion("hmgcr", x_col + 250, y_hmg_col + 70, dx=0, dy=0))
 
     # Mevalonato (producto irreversible del marcapasos HMGCR)

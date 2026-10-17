@@ -147,11 +147,11 @@ MOSTRAR_CONEXIONES_INTER_RUTA = False
 GLICEROL_MOL = """
 <g class="molecula-glicerol" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <text x="35" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
-  <line x1="35" y1="22" x2="35" y2="38" />
-  <circle cx="35" cy="44" r="2.5" fill="#0f172a"/>
-  <line x1="38" y1="44" x2="52" y2="44" stroke="#0284c7" stroke-width="1.8"/>
-  <text x="64" y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">OH</text>
-  <line x1="35" y1="48" x2="35" y2="64" />
+  <line x1="35" y1="22" x2="35" y2="35" />
+  <text x="35" y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="45" y1="44" x2="55" y2="44" stroke="#0284c7" stroke-width="1.8"/>
+  <text x="66" y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">OH</text>
+  <line x1="35" y1="52" x2="35" y2="65" />
   <text x="35" y="78" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#0284c7" text-anchor="middle">CH₂OH</text>
 </g>
 """
@@ -2100,12 +2100,12 @@ def construir_mapa_organico():
 
     # Alfa-Cetoglutarato
     partes.append(nodo_libre(x_k + 10, y_k + paso_k * 3, "α-Cetoglutarato", "5C", KREBS_ALFA_CETOGLUTARATO, "m_akg", text_right=True, dx=140))
-    partes.append(reaccion_libre(x_k + 55, y_k + paso_k * 3 + 130, 38, "α-KG Deshidrogenasa", entra="+ CoA + NAD⁺", sale="+ NADH + CO₂", es_ganancia=True, id_rx="rx_akgdh", text_dx=-16, text_anchor="end"))
+    partes.append(reaccion_libre(x_k + 55, y_k + paso_k * 3 + 130, 38, "α-KG Deshidrogenasa", entra="+ CoA-SH + NAD⁺", sale="+ NADH + CO₂", es_ganancia=True, id_rx="rx_akgdh", text_dx=-16, text_anchor="end"))
     partes.append(etiqueta_regulacion("akgdh", x_k + 69, y_k + paso_k * 3 + 138, dx=0, dy=0, anchor="start"))
 
     # Succinil-CoA
     partes.append(nodo_libre(x_k + 10, y_k + paso_k * 4, "Succinil-CoA", "4C", SUCCINIL_COA, "m_succoa", text_right=True, dx=140))
-    partes.append(reaccion_libre(x_k + 55, y_k + paso_k * 4 + 130, 38, "Succinil-CoA Sintetasa", entra="+ GDP + Pi", sale="+ GTP (+CoA)", es_ganancia=True, id_rx="rx_scas", text_dx=-16, text_anchor="end"))
+    partes.append(reaccion_libre(x_k + 55, y_k + paso_k * 4 + 130, 38, "Succinil-CoA Sintetasa", entra="+ GDP + Pi", sale="+ GTP (+CoA-SH)", es_ganancia=True, id_rx="rx_scas", text_dx=-16, text_anchor="end"))
 
     # Succinato
     partes.append(nodo_libre(x_k + 10, y_k + paso_k * 5, "Succinato", "4C", SUCCINATO, "m_succinato", text_right=True, dx=140))
@@ -2476,7 +2476,7 @@ def construir_mapa_organico():
     partes.append(badge_via(10, x_lipo - 30, y_lipo - paso_l*2 - 20))
 
     partes.append(nodo_libre(x_lipo, y_lipo - paso_l*2 - 60, "Citrato (Citosólico)", "6C", CITRATO, "m_citrato_cito", text_right=True, dx=220))
-    partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l*2 + 65, 52, "ATP Citrato Liasa", entra="+ ATP + CoA", sale="+ OAA", id_rx="rx_acly"))
+    partes.append(reaccion_libre(x_lipo + 60, y_lipo - paso_l*2 + 65, 52, "ATP Citrato Liasa", entra="+ ATP + CoA-SH", sale="+ OAA", id_rx="rx_acly"))
     partes.append(f'''
     <g id="retorno_malico_lanzadera_citrato" transform="translate({x_lipo + 74}, {y_lipo - paso_l*2 + 104})">
       <text x="0" y="0" fill="#047857" font-size="8" font-weight="800" font-family="'Inter', sans-serif">↳ OAA ➔ Malato (MDH1)</text>
@@ -2540,10 +2540,10 @@ def construir_mapa_organico():
     ''')
 
     partes.append(nodo_libre(x_col, y_acetoac_col, "Acetoacetil-CoA (Citosol)", "4C", ACETOACETIL_COA_COLEST, "m_acetoac_col", text_pos="top", dx=70, dy=-22))
-    partes.append(reaccion_libre(x_col + 60, y_acetoac_col + 65, 45, "HMG-CoA Sintasa (Citosólica)", entra="+ Acetil-CoA", id_rx="rx_hmgs_cito"))
+    partes.append(reaccion_libre(x_col + 60, y_acetoac_col + 65, 45, "HMG-CoA Sintasa (Citosólica)", entra="+ Acetil-CoA", sale="- CoA-SH", id_rx="rx_hmgs_cito"))
 
     partes.append(nodo_libre(x_col, y_hmg_col, "HMG-CoA (Citosol)", "6C", HMG_COA_CITOSOL, "m_hmg_col", text_pos="top", dx=70, dy=-22))
-    partes.append(reaccion_libre(x_col + 60, y_hmg_col + 65, 48, "HMG-CoA Reductasa (HMGCR)", entra="- 2 NADPH", sale="+ CoA", id_rx="rx_hmgcr"))
+    partes.append(reaccion_libre(x_col + 60, y_hmg_col + 65, 48, "HMG-CoA Reductasa (HMGCR)", entra="- 2 NADPH", sale="+ CoA-SH", id_rx="rx_hmgcr"))
     partes.append(etiqueta_regulacion("hmgcr", x_col + 250, y_hmg_col + 70, dx=0, dy=0))
 
     # Mevalonato (producto irreversible del marcapasos HMGCR)
@@ -2604,11 +2604,11 @@ def construir_mapa_organico():
     
     # 1. Palmitato Citosólico
     partes.append(nodo_libre(x_box, y_box - 1200, "Palmitato (Citosólico)", "16C", PALMITATO_LIBRE, "m_palmitato_cito", text_right=True, dx=265))
-    partes.append(reaccion_libre(x_box + 60, y_box - 1200 + 80, 50, "Acil-CoA Sintetasa (ACS)", entra="+ ATP + CoA", sale="+ AMP + PPi", id_rx="rx_acs"))
+    partes.append(reaccion_libre(x_box + 60, y_box - 1200 + 80, 50, "Acil-CoA Sintetasa (ACS)", entra="+ ATP + CoA-SH", sale="+ AMP + PPi", id_rx="rx_acs"))
     
     # 2. Palmitoil-CoA Citosólico (Nombre encima de la estructura)
     partes.append(nodo_libre(x_box, y_box - 800, "Palmitoil-CoA (Citosólico)", "16C", PALMITOIL_COA, "m_palmitoil_cito", text_pos="top", dx=110, dy=-22))
-    partes.append(reaccion_libre(x_box + 60, y_box - 800 + 80, 50, "CPT-1 (Lanzadera de Carnitina)", entra="+ Carnitina", sale="- CoA", id_rx="rx_cpt1"))
+    partes.append(reaccion_libre(x_box + 60, y_box - 800 + 80, 50, "CPT-1 (Lanzadera de Carnitina)", entra="+ Carnitina", sale="- CoA-SH", id_rx="rx_cpt1"))
     partes.append(etiqueta_regulacion("cpt1", x_box + 260, y_box - 800 + 90, dx=0, dy=0))
     
     # 3. Palmitoil-Carnitina (Espacio Citosol / EIM exterior)
@@ -2627,7 +2627,7 @@ def construir_mapa_organico():
     ''')
     
     # CPT-2 en la cara interna de la membrana mitocondrial interna (Matriz despejada)
-    partes.append(reaccion_libre(x_cact, y_cact + 25, 40, "CPT-2 (Cara Interna MMI)", entra="+ CoA", sale="- Carnitina", id_rx="rx_cpt2"))
+    partes.append(reaccion_libre(x_cact, y_cact + 25, 40, "CPT-2 (Cara Interna MMI)", entra="+ CoA-SH", sale="- Carnitina", id_rx="rx_cpt2"))
 
     # 4. Palmitoil-CoA en la matriz mitocondrial
     y_m_palm = 2390
@@ -2647,7 +2647,7 @@ def construir_mapa_organico():
     # 7. β-Cetoacil-CoA
     y_m_ceto = y_m_hidro + 140
     partes.append(nodo_libre(x_box, y_m_ceto, "β-Cetoacil-CoA", "16C", BETA_CETOACIL_COA, "m_cetoacil_coa", text_right=True, dx=265))
-    partes.append(reaccion_libre(x_box + 60, y_m_ceto + 70, 42, "Tiolasa", entra="+ CoA", id_rx="rx_box3"))
+    partes.append(reaccion_libre(x_box + 60, y_m_ceto + 70, 42, "Tiolasa", entra="+ CoA-SH", id_rx="rx_box3"))
     
     # 8. Clivaje tiolítico: Acetil-CoA y Miristoil-CoA
     y_m_split = y_m_ceto + 160
@@ -2673,7 +2673,7 @@ def construir_mapa_organico():
     ''')
     
     partes.append(nodo_libre(x_ceto, y_ceto, "Acetoacetil-CoA", "4C", ACETOACETIL_COA, "m_acetoac_coa", text_right=True, dx=200))
-    partes.append(reaccion_libre(x_ceto + 60, y_ceto + 70, 40, "HMG-CoA Sintasa 2 (HMGCS2)", entra="+ Acetil-CoA", id_rx="rx_ceto1"))
+    partes.append(reaccion_libre(x_ceto + 60, y_ceto + 70, 40, "HMG-CoA Sintasa 2 (HMGCS2)", entra="+ Acetil-CoA", sale="- CoA-SH", id_rx="rx_ceto1"))
     partes.append(etiqueta_regulacion("hmgcs2", x_ceto + 74, y_ceto + 108, dx=0, dy=0))
     
     partes.append(nodo_libre(x_ceto, y_ceto + paso_c, "HMG-CoA", "6C", HMG_COA, "m_hmg_coa", text_right=True, dx=200))
@@ -3009,7 +3009,7 @@ def construir_mapa_organico():
       <line x1="0" y1="0" x2="0" y2="28" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
       <g transform="translate(15, 14)">
         <text x="0" y="0" fill="#0f172a" font-size="11" font-weight="900" font-family="'Inter', sans-serif">Complejo BCKDH</text>
-        <text x="0" y="12" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace">Cofactores: TPP, Lipoamida, FAD</text>
+        <text x="0" y="12" fill="#64748b" font-size="8.5" font-family="'JetBrains Mono', monospace">Cofactores: TPP, Lipoamida, CoA-SH, FAD, NAD⁺</text>
       </g>
     </g>
     ''')

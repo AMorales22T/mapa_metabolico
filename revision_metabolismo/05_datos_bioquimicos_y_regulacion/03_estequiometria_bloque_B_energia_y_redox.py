@@ -16,9 +16,9 @@
         "ecuacion": "Piruvato + CoA-SH + NAD⁺ ➔ Acetil-CoA + NADH + H⁺ + CO₂",
         "sustratos": ["Piruvato", "Coenzima A (CoA-SH)", "NAD⁺"],
         "productos": ["Acetil-CoA", "NADH", "H⁺", "CO₂"],
-        "coproductos": "5 coenzimas: TPP (E1), Lipoamida (E2), CoA (E2), FAD (E3), NAD⁺ (E3)",
+        "coproductos": "5 coenzimas: TPP (E1), Lipoamida (E2), CoA-SH (E2), FAD (E3), NAD⁺ (E3)",
         "deltaG": "ΔG°' = -33.4 kJ/mol (Completamente irreversible en animales)",
-        "regulacion": "Alostérica: ⊖ Acetil-CoA, NADH, ATP | ⊕ ADP, Piruvato, Ca²⁺, NAD⁺, CoA. Covalente: PDK fosforila E1 = inactiva; PDP (insulina, Ca²⁺) = activa.",
+        "regulacion": "Alostérica: ⊖ Acetil-CoA, NADH, ATP | ⊕ ADP, Piruvato, Ca²⁺, NAD⁺, CoA-SH. Covalente: PDK fosforila E1 = inactiva; PDP (insulina, Ca²⁺) = activa.",
         "relevancia": "Encrucijada irreversible clave entre la glucólisis y el ciclo de Krebs / lipogénesis. Impide convertir grasas en glucosa."
     },
 

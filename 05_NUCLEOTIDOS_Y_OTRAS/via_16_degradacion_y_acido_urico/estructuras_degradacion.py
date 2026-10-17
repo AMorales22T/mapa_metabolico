@@ -226,23 +226,24 @@ DIHIDROTIMINA = """
 BETA_UREIDOPROPIONATO = """
 <g class="mol-beta-ureidopropionato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo carbamoil/ureido: H2N-C(=O)-NH- -->
-  <text x="12" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
-  <line x1="16" y1="20" x2="34" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="10" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
+  <line x1="14" y1="20" x2="27" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- C=O -->
-  <circle cx="34" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="34" y1="16" x2="34" y2="4" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="34" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="32" y1="14" x2="32" y2="4" stroke="#dc2626" stroke-width="2"/>
+  <line x1="36" y1="14" x2="36" y2="4" stroke="#dc2626" stroke-width="2"/>
   <text x="34" y="0" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
   <!-- -NH- -->
-  <line x1="38" y1="20" x2="54" y2="20" stroke="#2563eb" stroke-width="2"/>
+  <line x1="41" y1="20" x2="53" y2="20" stroke="#2563eb" stroke-width="2"/>
   <text x="64" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
   <!-- -CH2-CH2- -->
-  <line x1="74" y1="20" x2="92" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="92" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="92" y1="20" x2="110" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="110" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
+  <line x1="75" y1="20" x2="83" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="95" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="107" y1="20" x2="115" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="127" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <!-- -COO- terminal -->
-  <line x1="110" y1="20" x2="126" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <text x="132" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+  <line x1="139" y1="20" x2="147" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="150" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 """
 
@@ -250,26 +251,27 @@ BETA_UREIDOPROPIONATO = """
 BETA_UREIDOISOBUTIRATO = """
 <g class="mol-beta-ureidoisobutirato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- H2N-C(=O)-NH- -->
-  <text x="12" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
-  <line x1="16" y1="20" x2="34" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="10" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">H₂N</text>
+  <line x1="14" y1="20" x2="27" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- C=O -->
-  <circle cx="34" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="34" y1="16" x2="34" y2="4" stroke="#dc2626" stroke-width="2.2"/>
+  <text x="34" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+  <line x1="32" y1="14" x2="32" y2="4" stroke="#dc2626" stroke-width="2"/>
+  <line x1="36" y1="14" x2="36" y2="4" stroke="#dc2626" stroke-width="2"/>
   <text x="34" y="0" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
   <!-- -NH- -->
-  <line x1="38" y1="20" x2="54" y2="20" stroke="#2563eb" stroke-width="2"/>
+  <line x1="41" y1="20" x2="53" y2="20" stroke="#2563eb" stroke-width="2"/>
   <text x="64" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#2563eb" stroke="none" text-anchor="middle">NH</text>
   <!-- -CH2- -->
-  <line x1="74" y1="20" x2="92" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="92" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
+  <line x1="75" y1="20" x2="83" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="95" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <!-- -CH(CH3)- con metilo en C-alfa -->
-  <line x1="92" y1="20" x2="110" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="110" cy="20" r="2.5" fill="#0f172a" stroke="none"/>
-  <line x1="110" y1="20" x2="110" y2="6" stroke="#7c3aed" stroke-width="2"/>
-  <text x="110" y="2" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#7c3aed" stroke="none" text-anchor="middle">CH₃</text>
+  <line x1="107" y1="20" x2="115" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="125" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="125" y1="13" x2="125" y2="5" stroke="#7c3aed" stroke-width="2"/>
+  <text x="125" y="2" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#7c3aed" stroke="none" text-anchor="middle">CH₃</text>
   <!-- -COO- terminal -->
-  <line x1="110" y1="20" x2="126" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <text x="132" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+  <line x1="135" y1="20" x2="143" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="147" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 """
 
@@ -278,15 +280,15 @@ BETA_ALANINA = """
 <g class="mol-beta-alanina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- Grupo amino beta: H3N+-CH2-CH2-COO- -->
   <text x="12" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">⁺H₃N</text>
-  <line x1="16" y1="20" x2="38" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <line x1="16" y1="20" x2="26" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- C-beta CH2 -->
-  <circle cx="38" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="38" y1="20" x2="60" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="38" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="50" y1="20" x2="58" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- C-alfa CH2 -->
-  <circle cx="60" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
-  <line x1="60" y1="20" x2="82" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="70" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+  <line x1="82" y1="20" x2="90" y2="20" stroke="#0f172a" stroke-width="2"/>
   <!-- Carboxilato terminal -->
-  <text x="88" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+  <text x="94" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 """
 
@@ -295,16 +297,16 @@ BETA_AMINOISOBUTIRATO = """
 <g class="mol-beta-aminoisobutirato" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- H3N+-CH2-CH(CH3)-COO- -->
   <text x="12" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#2563eb" stroke="none" text-anchor="end">⁺H₃N</text>
-  <line x1="16" y1="20" x2="38" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="38" cy="20" r="2.2" fill="#0f172a" stroke="none"/>
+  <line x1="16" y1="20" x2="26" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="38" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
   <!-- C-alfa con grupo metilo -->
-  <line x1="38" y1="20" x2="60" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <circle cx="60" cy="20" r="2.5" fill="#0f172a" stroke="none"/>
-  <line x1="60" y1="20" x2="60" y2="6" stroke="#7c3aed" stroke-width="2"/>
-  <text x="60" y="2" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#7c3aed" stroke="none" text-anchor="middle">CH₃</text>
+  <line x1="50" y1="20" x2="58" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="68" y="24" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+  <line x1="68" y1="13" x2="68" y2="5" stroke="#7c3aed" stroke-width="2"/>
+  <text x="68" y="2" font-family="'Inter', sans-serif" font-size="9.5" font-weight="900" fill="#7c3aed" stroke="none" text-anchor="middle">CH₃</text>
   <!-- Carboxilato -->
-  <line x1="60" y1="20" x2="82" y2="20" stroke="#0f172a" stroke-width="2"/>
-  <text x="88" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+  <line x1="78" y1="20" x2="86" y2="20" stroke="#0f172a" stroke-width="2"/>
+  <text x="90" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
 </g>
 """
 

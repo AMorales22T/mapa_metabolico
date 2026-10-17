@@ -257,4 +257,68 @@ def aplicar_correcciones_mapa(svg: str) -> str:
         '<text x="14" y="24" fill="#0f172a" font-size="11.5" font-weight="800" font-family="\'Inter\', sans-serif">Citrato Sintasa</text>\n      <text x="14" y="36" fill="#64748b" font-size="8.5" font-family="\'JetBrains Mono\', monospace">EC 2.3.3.1</text>'
     )
 
+    # -------------------------------------------------------------------------
+    # 13. UNIFICACIÓN BIOQUÍMICA DE COENZIMA A LIBRE (CoA-SH) EN REACCIONES
+    # -------------------------------------------------------------------------
+    # Complejo α-Cetoglutarato Deshidrogenasa (rx_akgdh)
+    svg = svg.replace(">+ CoA + NAD⁺</text>", ">+ CoA-SH + NAD⁺</text>")
+    # Succinil-CoA Sintetasa (rx_scas)
+    svg = svg.replace(">+ GTP (+CoA)</text>", ">+ GTP (+CoA-SH)</text>")
+    # ATP Citrato Liasa (rx_acly) y Acil-CoA Sintetasa (rx_acs)
+    svg = svg.replace(">+ ATP + CoA</text>", ">+ ATP + CoA-SH</text>")
+    # HMG-CoA Reductasa (rx_hmgcr), CPT-2 (rx_cpt2) y Tiolasa β-oxidación (rx_box3)
+    svg = svg.replace(">+ CoA</text>", ">+ CoA-SH</text>")
+    # CPT-1 Lanzadera de Carnitina (rx_cpt1)
+    svg = svg.replace(">- CoA</text>", ">- CoA-SH</text>")
+    # GPAT y AGPAT en Biosíntesis de TAG (Vía 23)
+    svg = svg.replace(">+ CoASH</text>", ">+ CoA-SH</text>")
+    # Complejo BCKDH (rx_bckdh)
+    svg = svg.replace(
+        ">Cofactores: TPP, Lipoamida, FAD</text>",
+        ">Cofactores: TPP, Lipoamida, CoA-SH, FAD, NAD⁺</text>"
+    )
+    # HMG-CoA Sintasa Citosólica (rx_hmgs_cito): añadir salida de - CoA-SH
+    bloque_hmgs_cito_ant = """    <g id="rx_hmgs_cito" data-arrastrable="1" transform="translate(3620, 585)">
+      <line x1="0" y1="0" x2="0" y2="45" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      
+        <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acetil-CoA</text>
+        
+      <text x="14" y="26" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Sintasa (Citosólica)</text>
+    </g>"""
+    bloque_hmgs_cito_nvo = """    <g id="rx_hmgs_cito" data-arrastrable="1" transform="translate(3620, 585)">
+      <line x1="0" y1="0" x2="0" y2="45" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      
+        <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acetil-CoA</text>
+        
+        <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- CoA-SH</text>
+        
+      <text x="14" y="26" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Sintasa (Citosólica)</text>
+    </g>"""
+    svg = svg.replace(bloque_hmgs_cito_ant, bloque_hmgs_cito_nvo)
+
+    # HMG-CoA Sintasa 2 Mitocondrial (rx_ceto1): añadir salida de - CoA-SH
+    bloque_ceto1_ant = """    <g id="rx_ceto1" data-arrastrable="1" transform="translate(630, 2930)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      
+        <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acetil-CoA</text>
+        
+      <text x="14" y="24" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Sintasa 2 (HMGCS2)</text>
+    </g>"""
+    bloque_ceto1_nvo = """    <g id="rx_ceto1" data-arrastrable="1" transform="translate(630, 2930)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      
+        <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Acetil-CoA</text>
+        
+        <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- CoA-SH</text>
+        
+      <text x="14" y="24" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >HMG-CoA Sintasa 2 (HMGCS2)</text>
+    </g>"""
+    svg = svg.replace(bloque_ceto1_ant, bloque_ceto1_nvo)
+
     return svg

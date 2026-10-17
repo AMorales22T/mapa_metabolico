@@ -313,9 +313,9 @@ REACCIONES_ESTEQUIOMETRIA = {
         "ecuacion": "Piruvato + CoA-SH + NAD⁺ ➔ Acetil-CoA + NADH + H⁺ + CO₂",
         "sustratos": ["Piruvato", "Coenzima A (CoA-SH)", "NAD⁺"],
         "productos": ["Acetil-CoA", "NADH", "H⁺", "CO₂"],
-        "coproductos": "5 coenzimas: TPP (E1), Lipoamida (E2), CoA (E2), FAD (E3), NAD⁺ (E3)",
+        "coproductos": "5 coenzimas: TPP (E1), Lipoamida (E2), CoA-SH (E2), FAD (E3), NAD⁺ (E3)",
         "deltaG": "ΔG°' = -33.4 kJ/mol (Completamente irreversible en animales)",
-        "regulacion": "Alostérica: ⊖ Acetil-CoA, NADH, ATP | ⊕ ADP, Piruvato, Ca²⁺, NAD⁺, CoA. Covalente: PDK fosforila E1 = inactiva; PDP (insulina, Ca²⁺) = activa.",
+        "regulacion": "Alostérica: ⊖ Acetil-CoA, NADH, ATP | ⊕ ADP, Piruvato, Ca²⁺, NAD⁺, CoA-SH. Covalente: PDK fosforila E1 = inactiva; PDP (insulina, Ca²⁺) = activa.",
         "relevancia": "Encrucijada irreversible clave entre la glucólisis y el ciclo de Krebs / lipogénesis. Impide convertir grasas en glucosa."
     },
 
@@ -500,7 +500,7 @@ REACCIONES_ESTEQUIOMETRIA = {
         "productos": ["Palmitoil-CoA", "L-Carnitina"],
         "coproductos": "L-Carnitina liberada que retorna al EIM vía translocasa CACT",
         "deltaG": "Reversible ⇄",
-        "regulacion": "Dependiente de la disponibilidad de CoA en la matriz.",
+        "regulacion": "Dependiente de la disponibilidad de CoA-SH en la matriz.",
         "relevancia": "Reconstituye el Acil-CoA en el interior de la matriz mitocondrial listo para la espiral de Lynen."
     },
     "rx_box1": {
