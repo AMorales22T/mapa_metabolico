@@ -33,6 +33,7 @@ GRUPOS_INSERTO = {
     "lupa_piruvato_deshidrogenasa",
     "lupa_lanzadera_malato_aspartato",
     "lupa_lanzadera_glicerol_p",
+    "lupa_lanzadera_carnitina",
 }
 
 ANCHO_CHAR = {"mono": 0.62, "sans": 0.60}

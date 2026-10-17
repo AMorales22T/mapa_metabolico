@@ -2010,17 +2010,17 @@
     <!-- Reacción: Aldolasa con Bifurcación en Y hacia DHAP y GAP -->
     <g id="rx_aldo" data-arrastrable="1" transform="translate(1680, 790)">
       <!-- Tronco vertical desde F-1,6-BP -->
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#ea580c" stroke-width="2.4"/>
-      <!-- Rama Izquierda hacia DHAP (X=1470, Y=845) -->
-      <path d="M 0 28 Q -90 35 -170 65" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
-      <!-- Rama Derecha hacia GAP (X=1890, Y=845) -->
-      <path d="M 0 28 Q 90 35 170 65" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+      <line x1="0" y1="0" x2="0" y2="18" stroke="#ea580c" stroke-width="2.4"/>
+      <!-- Rama Izquierda hacia DHAP (termina arriba del título Dihidroxiacetona-P) -->
+      <path d="M 0 18 Q -65 20 -130 25" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+      <!-- Rama Derecha hacia GAP -->
+      <path d="M 0 18 Q 75 22 145 42" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
       <!-- Retorno gluconeogénico (condensación aldólica) -->
-      <path d="M -160 55 Q -85 28 -5 20" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="4 2" marker-end="url(#arrowFlow)"/>
-      <path d="M 160 55 Q 85 28 5 20" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="4 2" marker-end="url(#arrowFlow)"/>
-      <!-- Rótulo y EC -->
-      <text x="0" y="22" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Aldolasa</text>
-      <text x="0" y="34" fill="#64748b" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 4.1.2.13</text>
+      <path d="M -125 19 Q -60 13 -6 10" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="4 2" marker-end="url(#arrowFlow)"/>
+      <path d="M 140 34 Q 70 16 6 10" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-dasharray="4 2" marker-end="url(#arrowFlow)"/>
+      <!-- Rótulo y EC debajo de la horquilla (sin tocar las ramas) -->
+      <text x="0" y="48" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Aldolasa</text>
+      <text x="0" y="60" fill="#64748b" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC 4.1.2.13</text>
     </g>
     
         <!-- Metabolito Libre: Dihidroxiacetona-P -->
@@ -6138,7 +6138,7 @@
     
     <!-- Reacción: Acil-CoA Sintetasa (ACS) -->
     <g id="rx_acs" data-arrastrable="1" transform="translate(240, 1140)">
-      <line x1="0" y1="0" x2="0" y2="50" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+      <line x1="0" y1="0" x2="0" y2="280" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
       
         <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
         <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ ATP + CoA-SH</text>
@@ -6185,77 +6185,163 @@
           
         </g>
         
-    <!-- Reacción: CPT-1 (Lanzadera de Carnitina) -->
-    <g id="rx_cpt1" data-arrastrable="1" transform="translate(240, 1540)">
-      <line x1="0" y1="0" x2="0" y2="50" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-      
-        <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ Carnitina</text>
-        
-        <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- CoA-SH</text>
-        
-      <text x="14" y="29" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >CPT-1 (Lanzadera de Carnitina)</text>
-    </g>
-    
-    <g class="etiqueta-regulacion" transform="translate(440, 1550)">
-      <text x="0" y="0" fill="#dc2626" font-size="9" font-weight="800" font-family="'Inter', sans-serif" >(-) Malonil-CoA</text><text x="0" y="12" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif" >[Hormonal] Paso limitante · Glucagón ↑ (indirecto)</text>
-    </g>
-    
-    <!-- Metabolito Libre: Palmitoil-Carnitina -->
-    <g id="m_palm_carnitina" data-arrastrable="1" transform="translate(180, 1980)">
-      <g>
-<g class="mol-palmitoil-carnitina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Amonio cuaternario -->
-  <text x="32" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="end">(CH₃)₃N⁺</text>
-  <line x1="36" y1="20" x2="46" y2="20" />
-  <text x="55" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+    <!-- LUPA TÉCNICA: LANZADERA DE CARNITINA (CPT-1 · CACT · CPT-2) -->
+    <g id="lupa_lanzadera_carnitina" data-arrastrable="1">
+      <defs>
+        <clipPath id="clipLupaCarnitina">
+          <rect x="108" y="1556" width="364" height="784" rx="18"/>
+        </clipPath>
+      </defs>
 
-  <!-- C3 con enlace éster a palmitato explícito -->
-  <line x1="64" y1="24" x2="70" y2="30" />
-  <text x="76" y="38" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
-  <line x1="76" y1="41" x2="76" y2="49" stroke="#dc2626" stroke-width="2"/>
-  <text x="76" y="59" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
-  
-  <!-- Enlace éster hacia acilo -->
-  <line x1="76" y1="62" x2="76" y2="70" />
-  <text x="76" y="80" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
-  <line x1="69" y1="74" x2="58" y2="74" stroke="#dc2626" stroke-width="1.8"/>
-  <line x1="69" y1="78" x2="58" y2="78" stroke="#dc2626" stroke-width="1.8"/>
-  <text x="54" y="80" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
-  <line x1="83" y1="78" x2="92" y2="83" />
-  <text x="95" y="87" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#64748b" stroke="none">(CH₂)₁₄CH₃</text>
+      <!-- Cuerpo y Bisel del Panel Técnico -->
+      <rect x="108" y="1556" width="364" height="784" rx="18" fill="#ffffff" stroke="#0284c7" stroke-width="2.5"/>
 
-  <!-- C2 metileno y C1 carboxilato -->
-  <line x1="84" y1="30" x2="90" y2="24" />
-  <text x="100" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
-  <line x1="110" y1="20" x2="118" y2="20" />
-  <text x="122" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
-</g>
-</g>
-      <text x="145" y="24" fill="#0f172a" font-size="15" font-weight="800" font-family="'Inter', sans-serif" >Palmitoil-Carnitina</text>
-      <text x="145" y="41" fill="#ea580c" font-size="11.5" font-weight="700" font-family="'JetBrains Mono', monospace" >[16C]</text>
-      
-    </g>
-    
-    <!-- Lanzadera de Carnitina: Transportador CACT en la MMI -->
-    <g id="transportador_cact" data-arrastrable="1" transform="translate(192, 2285)">
-      <rect x="0" y="0" width="96" height="40" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="2.5"/>
-      <text x="48" y="18" fill="#ffffff" font-size="12.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" stroke="none">CACT</text>
-      <text x="48" y="32" fill="#e0f2fe" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle" stroke="none">Antipuerto MMI</text>
-    </g>
-    
-    <!-- Reacción: CPT-2 (Cara Interna MMI) -->
-    <g id="rx_cpt2" data-arrastrable="1" transform="translate(240, 2330)">
-      <line x1="0" y1="0" x2="0" y2="40" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
-      
-        <path d="M -65 6 Q -20 6 -4 16" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
-        <text x="-70" y="9" fill="#dc2626" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ CoA-SH</text>
-        
-        <path d="M -4 22 Q -20 32 -65 32" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
-        <text x="-70" y="36" fill="#475569" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- Carnitina</text>
-        
-      <text x="14" y="24" fill="#0f172a" font-size="12" font-weight="700" font-family="'Inter', sans-serif" >CPT-2 (Cara Interna MMI)</text>
+      <g clip-path="url(#clipLupaCarnitina)">
+        <!-- 1. Banda Superior: Citosol y Bicapa Externa (MME) -->
+        <rect x="104" y="1556" width="372" height="90" fill="#f0fdf4"/>
+        <!-- Encabezado de la Lupa -->
+        <rect x="104" y="1556" width="372" height="34" fill="#0f172a"/>
+        <text x="290" y="1577" fill="#ffffff" font-size="10" font-weight="900" font-family="'Inter', sans-serif" text-anchor="middle" letter-spacing="0.5">LANZADERA DE CARNITINA (CPT-1 · CACT · CPT-2)</text>
+        <text x="460" y="1608" fill="#15803d" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="end">CITOSOL</text>
+
+        <!-- Bicapa MME -->
+        <rect x="104" y="1646" width="372" height="40" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.2"/>
+        <text x="118" y="1670" fill="#0369a1" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="start">MME (EXTERNA)</text>
+        <g fill="#0284c7" opacity="0.55">
+          <circle cx="202" cy="1652" r="2.5"/><circle cx="214" cy="1652" r="2.5"/>
+          <circle cx="202" cy="1680" r="2.5"/><circle cx="214" cy="1680" r="2.5"/>
+          <circle cx="442" cy="1652" r="2.5"/><circle cx="454" cy="1652" r="2.5"/>
+          <circle cx="442" cy="1680" r="2.5"/><circle cx="454" cy="1680" r="2.5"/>
+        </g>
+
+        <!-- Complejo CPT-1 en la MME -->
+        <g id="rx_cpt1" transform="translate(278, 1642)">
+          <rect x="-52" y="0" width="104" height="48" rx="10" fill="#ea580c" stroke="#c2410c" stroke-width="2.2"/>
+          <text x="0" y="19" fill="#ffffff" font-size="12" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CPT-1</text>
+          <text x="0" y="34" fill="#ffedd5" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">EC 2.3.1.21 · MME</text>
+          <!-- Salida de - SH-CoA hacia el citosol -->
+          <path d="M 34 -2 Q 56 -18 86 -18" fill="none" stroke="#475569" stroke-width="1.9" marker-end="url(#arrowGreen)"/>
+          <text x="92" y="-14" fill="#475569" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="start">- SH-CoA</text>
+        </g>
+
+        <!-- Regulación Alostérica y Hormonal sobre CPT-1 -->
+        <g class="etiqueta-regulacion" transform="translate(338, 1705)">
+          <line x1="-6" y1="-22" x2="0" y2="-28" stroke="#dc2626" stroke-width="2.2"/>
+          <text x="0" y="0" fill="#dc2626" font-size="9" font-weight="900" font-family="'Inter', sans-serif">(-) Malonil-CoA</text>
+          <text x="0" y="12" fill="#0284c7" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif">[Hormonal] Paso limitante</text>
+          <text x="0" y="24" fill="#0369a1" font-size="8" font-weight="700" font-family="'Inter', sans-serif">Glucagón ↑ (↓ Malonil-CoA)</text>
+        </g>
+
+        <!-- 2. Banda Media: Espacio Intermembrana (Ciclo Antipuerto) -->
+        <rect x="104" y="1686" width="372" height="394" fill="#f8fafc" opacity="0.45"/>
+        <text x="118" y="1706" fill="#475569" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="start">ESPACIO INTERMEMBRANA</text>
+
+        <!-- Flecha de bajada CPT-1 ➔ Palmitoil-Carnitina -->
+        <line x1="278" y1="1690" x2="278" y2="1772" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+        <!-- Metabolito Intermembrana ( Vía Derecha Descendente ): Palmitoil-Carnitina [16C] -->
+        <g id="m_palm_carnitina" transform="translate(184, 1782)">
+          <g class="mol-palmitoil-carnitina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <text x="32" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="end">(CH₃)₃N⁺</text>
+            <line x1="36" y1="20" x2="46" y2="20" />
+            <text x="55" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+            <line x1="64" y1="24" x2="70" y2="30" />
+            <text x="76" y="38" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+            <line x1="76" y1="41" x2="76" y2="49" stroke="#dc2626" stroke-width="2"/>
+            <text x="76" y="59" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#dc2626" stroke="none" text-anchor="middle">O</text>
+            <line x1="76" y1="62" x2="76" y2="70" />
+            <text x="76" y="80" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">C</text>
+            <line x1="69" y1="74" x2="58" y2="74" stroke="#dc2626" stroke-width="1.8"/>
+            <line x1="69" y1="78" x2="58" y2="78" stroke="#dc2626" stroke-width="1.8"/>
+            <text x="54" y="80" font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#dc2626" stroke="none" text-anchor="end">O</text>
+            <line x1="83" y1="78" x2="92" y2="83" />
+            <text x="95" y="87" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#64748b" stroke="none">(CH₂)₁₄CH₃</text>
+            <line x1="84" y1="30" x2="90" y2="24" />
+            <text x="100" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+            <line x1="110" y1="20" x2="118" y2="20" />
+            <text x="122" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+          </g>
+          <!-- Texto desplazado a x=162 para no chocar con COO⁻ (x=122..154) -->
+          <text x="162" y="24" fill="#0f172a" font-size="12.5" font-weight="800" font-family="'Inter', sans-serif">Palmitoil-Carnitina</text>
+          <text x="162" y="40" fill="#ea580c" font-size="10.5" font-weight="700" font-family="'JetBrains Mono', monospace">[16C] Acil-carnitina</text>
+        </g>
+
+        <!-- Flecha de bajada Palmitoil-Carnitina ➔ CACT -->
+        <line x1="278" y1="1878" x2="278" y2="2070" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+        <text x="290" y="2050" fill="#c2410c" font-size="9" font-weight="800" font-family="'Inter', sans-serif">Acil-Carnitina ↓</text>
+
+        <!-- Metabolito Intermembrana ( Vía Izquierda Ascendente ): L-Carnitina libre -->
+        <g id="m_carnitina_libre" transform="translate(128, 1932) scale(0.90)">
+          <g class="mol-carnitina" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <text x="32" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#0284c7" stroke="none" text-anchor="end">(CH₃)₃N⁺</text>
+            <line x1="36" y1="20" x2="46" y2="20" />
+            <text x="55" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+            <line x1="64" y1="24" x2="70" y2="30" />
+            <text x="76" y="38" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0f172a" stroke="none" text-anchor="middle">CH</text>
+            <line x1="76" y1="41" x2="76" y2="51" stroke="#0284c7" stroke-width="2.1"/>
+            <text x="76" y="63" font-family="'Inter', sans-serif" font-size="11.5" font-weight="900" fill="#0284c7" stroke="none" text-anchor="middle">OH</text>
+            <line x1="84" y1="30" x2="90" y2="24" />
+            <text x="100" y="24" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#0f172a" stroke="none" text-anchor="middle">CH₂</text>
+            <line x1="110" y1="20" x2="118" y2="20" />
+            <text x="122" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#dc2626" stroke="none">COO⁻</text>
+          </g>
+          <text x="76" y="-8" fill="#0369a1" font-size="12" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">L-Carnitina libre</text>
+          <text x="76" y="80" fill="#0284c7" font-size="9.5" font-weight="700" font-family="'JetBrains Mono', monospace" text-anchor="middle">[Retorno a CPT-1]</text>
+        </g>
+
+        <!-- Flechas de retorno de L-Carnitina: CACT (182, 2076) ➔ L-Carnitina ➔ CPT-1 (226, 1666) -->
+        <path d="M 182 2074 L 182 2012" fill="none" stroke="#0284c7" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#arrowBlue)"/>
+        <path d="M 182 1910 L 182 1735 Q 182 1718 196 1718 L 208 1718 Q 220 1718 220 1702 L 220 1676 Q 220 1666 226 1666" fill="none" stroke="#0284c7" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#arrowBlue)"/>
+        <text x="172" y="1820" fill="#0284c7" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">+ L-Carnitina ↑</text>
+
+        <!-- 3. Banda Inferior: Bicapa Interna (MMI con CACT) y Matriz Mitocondrial (CPT-2) -->
+        <rect x="104" y="2120" width="372" height="220" fill="#fffbeb"/>
+        <rect x="104" y="2080" width="372" height="40" fill="#fed7aa" stroke="#d97706" stroke-width="2.5"/>
+        <text x="460" y="2104" fill="#92400e" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="end">MMI (INTERNA)</text>
+        <g fill="#d97706" opacity="0.6">
+          <circle cx="122" cy="2086" r="2.5"/><circle cx="134" cy="2086" r="2.5"/>
+          <circle cx="122" cy="2114" r="2.5"/><circle cx="134" cy="2114" r="2.5"/>
+          <circle cx="332" cy="2086" r="2.5"/><circle cx="344" cy="2086" r="2.5"/>
+          <circle cx="332" cy="2114" r="2.5"/><circle cx="344" cy="2114" r="2.5"/>
+        </g>
+
+        <!-- Transportador CACT en la MMI -->
+        <g id="transportador_cact" transform="translate(232, 2076)">
+          <rect x="-68" y="0" width="136" height="48" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="2.5"/>
+          <text x="0" y="19" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CACT (SLC25A20)</text>
+          <text x="0" y="34" fill="#e0f2fe" font-size="8" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Antipuerto Acil-Carn ⇄ Carn</text>
+        </g>
+
+        <text x="460" y="2142" fill="#b45309" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="end">MATRIZ MITOCONDRIAL</text>
+
+        <!-- Flecha CACT ➔ CPT-2 -->
+        <line x1="278" y1="2124" x2="278" y2="2184" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+        <!-- Complejo CPT-2 en la Cara Matricial de la MMI -->
+        <g id="rx_cpt2" transform="translate(278, 2188)">
+          <rect x="-52" y="0" width="104" height="46" rx="10" fill="#ea580c" stroke="#c2410c" stroke-width="2.2"/>
+          <text x="0" y="18" fill="#ffffff" font-size="12" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CPT-2</text>
+          <text x="0" y="33" fill="#ffedd5" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">EC 2.3.1.21 · Matriz</text>
+
+          <!-- Entrada de + SH-CoA matricial -->
+          <path d="M 88 10 Q 66 10 54 18" fill="none" stroke="#dc2626" stroke-width="1.9" marker-end="url(#arrowRed)"/>
+          <text x="94" y="14" fill="#dc2626" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="start">+ SH-CoA</text>
+
+          <!-- Liberación de - L-Carnitina hacia CACT (182, 2124) -->
+          <path d="M -52 23 L -82 23 Q -96 23 -96 9 L -96 -60" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-dasharray="5 3" marker-end="url(#arrowBlue)"/>
+          <text x="-58" y="42" fill="#0369a1" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end">- L-Carnitina</text>
+        </g>
+
+        <!-- Barra resumen inferior de la Lupa -->
+        <rect x="120" y="2302" width="340" height="24" rx="12" fill="#0f172a"/>
+        <text x="290" y="2318" fill="#f8fafc" font-size="9" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Translocación neta: Palmitoil-CoA (Citosol) ➔ Palmitoil-CoA (Matriz)</text>
+      </g>
+
+      <!-- Flecha de entrada desde Palmitoil-CoA (Citosólico) hacia CPT-1 (dibujada encima del encabezado) -->
+      <path d="M 240 1524 L 240 1538 Q 240 1548 252 1548 L 266 1548 Q 278 1548 278 1560 L 278 1638" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
+
+      <!-- Flecha de salida desde CPT-2 hacia Palmitoil-CoA (Matriz) -->
+      <path d="M 278 2234 L 278 2270 Q 278 2284 264 2284 L 254 2284 Q 240 2284 240 2298 L 240 2404" fill="none" stroke="#ea580c" stroke-width="2.6" marker-end="url(#arrowFlow)"/>
     </g>
     
         <!-- Metabolito Libre: Palmitoil-CoA (Matriz) -->
@@ -9017,384 +9103,390 @@
     </g>
     <!-- BLOQUE INSTITUCIONAL: LEYENDA GENERAL DE VÍAS METABÓLICAS Y REGULACIÓN -->
     <g id="bloque_leyenda" data-arrastrable="1" transform="translate(100, 4220)" filter="url(#shadowCard)">
-      <!-- Fondo -->
-      <rect width="3650" height="480" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8" />
+      <!-- Fondo ampliado a 505 px de alto para alinear con el bloque de autoría -->
+      <rect width="3650" height="505" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8" />
       <path d="M 0 22 Q 0 0 22 0 L 3628 0 Q 3650 0 3650 22 L 3650 10 L 0 10 Z" fill="url(#gradHeaderAutoria)" />
 
       <!-- Encabezado -->
-      <g transform="translate(35, 30)">
-        <rect x="0" y="0" width="230" height="24" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
-        <text x="115" y="16" fill="#0369a1" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="1">GUÍA Y CONVENCIONES</text>
-        <text x="250" y="18" fill="#0f172a" font-size="19" font-weight="900" font-family="'Inter', sans-serif">LEYENDA DE VÍAS METABÓLICAS &amp; CONTROL ALOSTÉRICO / COVALENTE</text>
-        <rect x="1350" y="-3" width="760" height="28" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
-        <text x="1360" y="15" fill="#92400e" font-size="11" font-weight="800" font-family="'Inter', sans-serif">[Nota] Célula didáctica/hepática: Gluconeogénesis, Cetogénesis y Ciclo de la Urea ocurren primordialmente en hepatocito</text>
+      <g transform="translate(35, 26)">
+        <rect x="0" y="0" width="250" height="30" rx="7" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4" />
+        <text x="125" y="20" fill="#0369a1" font-size="12.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="1">GUÍA Y CONVENCIONES</text>
+        <text x="270" y="22" fill="#0f172a" font-size="21" font-weight="900" font-family="'Inter', sans-serif">LEYENDA DE VÍAS METABÓLICAS &amp; CONTROL ALOSTÉRICO / COVALENTE</text>
+        <rect x="1480" y="-1" width="900" height="32" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.3"/>
+        <text x="1496" y="20" fill="#92400e" font-size="12.5" font-weight="800" font-family="'Inter', sans-serif">[Nota] Célula didáctica integrada: Gluconeogénesis, Cetogénesis y Ciclo de la Urea son primordialmente hepáticos</text>
       </g>
-      <line x1="35" y1="68" x2="3615" y2="68" stroke="#e2e8f0" stroke-width="1.5" />
+      <line x1="35" y1="72" x2="3615" y2="72" stroke="#e2e8f0" stroke-width="1.8" />
 
+      <!-- Columnas 1, 2 y 3: Las 25 Vías Metabólicas -->
       
-      <!-- 3 Columnas equilibradas de Vías (1 a 25) alineadas exactamente a Y=100 -->
-      
-        <g transform="translate(40, 100)">
-          <text x="0" y="-12" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">VÍAS METABÓLICAS (1–8):</text>
+        <g transform="translate(35, 118)">
+          <text x="0" y="-16" fill="#0284c7" font-size="14" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.8">VÍAS METABÓLICAS (1–8):</text>
           
             <g id="badge_leyenda_1" class="badge-via" data-via="1" transform="translate(0, 0)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#0284c7"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">1</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Glucólisis</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Glucosa → 2 Piruvato (+2 ATP, +2 NADH)</text>
+              <circle cx="14" cy="4" r="13.5" fill="#0284c7"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">1</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Glucólisis</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Glucosa → 2 Piruvato (+2 ATP, +2 NADH citosólico)</text>
             </g>
-            <g id="badge_leyenda_2" class="badge-via" data-via="2" transform="translate(0, 38)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#7c3aed"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Gluconeogénesis</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Piruvato → Glucosa (4 enzimas clave · hepática)</text>
+            <g id="badge_leyenda_2" class="badge-via" data-via="2" transform="translate(0, 42)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#7c3aed"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Gluconeogénesis</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Piruvato / Lactato / Ala → Glucosa (4 rodeos irreversibles)</text>
             </g>
-            <g id="badge_leyenda_3" class="badge-via" data-via="3" transform="translate(0, 76)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#b45309"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Glucógeno (Síntesis y lisis)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Glucogenogénesis &amp; Glucogenólisis citosólica</text>
+            <g id="badge_leyenda_3" class="badge-via" data-via="3" transform="translate(0, 84)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#b45309"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Glucógeno (Síntesis y lisis)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Glucogenogénesis (GS) y Glucogenólisis (GP) citosólica</text>
             </g>
-            <g id="badge_leyenda_4" class="badge-via" data-via="4" transform="translate(0, 114)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#059669"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Vía de las pentosas fosfato</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">G6P → NADPH + Ribosa-5-P (Fase ox. y no ox.)</text>
+            <g id="badge_leyenda_4" class="badge-via" data-via="4" transform="translate(0, 126)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#059669"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Vía de las pentosas fosfato</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">G6P → 2 NADPH + Ribosa-5-P (Fase oxidativa y no oxidativa)</text>
             </g>
-            <g id="badge_leyenda_5" class="badge-via" data-via="5" transform="translate(0, 152)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#ea580c"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">5</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Complejo PDH (Piruvato DH)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Piruvato → Acetil-CoA + CO₂ + NADH</text>
+            <g id="badge_leyenda_5" class="badge-via" data-via="5" transform="translate(0, 168)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#ea580c"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">5</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Complejo PDH (Piruvato DH)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Piruvato → Acetil-CoA + CO₂ + NADH (5 cofactores: TPP, Lip, CoA, FAD, NAD⁺)</text>
             </g>
-            <g id="badge_leyenda_6" class="badge-via" data-via="6" transform="translate(0, 190)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#c2410c"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Ciclo de Krebs (TCA)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Acetil-CoA → 2 CO₂ + 3 NADH + FADH₂ + GTP</text>
+            <g id="badge_leyenda_6" class="badge-via" data-via="6" transform="translate(0, 210)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#c2410c"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Ciclo de Krebs (TCA)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Acetil-CoA → 2 CO₂ + 3 NADH + FADH₂ + GTP (Matriz mitocondrial)</text>
             </g>
-            <g id="badge_leyenda_7" class="badge-via" data-via="7" transform="translate(0, 228)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#16a34a"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">7</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Cadena Respiratoria &amp; ATPsint</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Fosforilación oxidativa (gradiente de H⁺)</text>
+            <g id="badge_leyenda_7" class="badge-via" data-via="7" transform="translate(0, 252)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#16a34a"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">7</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Cadena Respiratoria &amp; ATP Sintasa</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Complejos I–IV y Fosforilación oxidativa por fuerza protón-motriz</text>
             </g>
-            <g id="badge_leyenda_8" class="badge-via" data-via="8" transform="translate(0, 266)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#0284c7"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">8</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Lanzaderas (Malato/G3P)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Reoxidación de NADH citosólico hacia la MMI</text>
+            <g id="badge_leyenda_8" class="badge-via" data-via="8" transform="translate(0, 294)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#0284c7"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">8</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Lanzaderas (Malato-Asp / G3P)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Transferencia de equivalentes reductores (NADH citosólico → MMI)</text>
             </g>
         </g>
       
-        <g transform="translate(630, 100)">
-          <text x="0" y="-12" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">VÍAS METABÓLICAS (9–16):</text>
+        <g transform="translate(600, 118)">
+          <text x="0" y="-16" fill="#0284c7" font-size="14" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.8">VÍAS METABÓLICAS (9–16):</text>
           
             <g id="badge_leyenda_9" class="badge-via" data-via="9" transform="translate(0, 0)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#b45309"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">9</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">β-oxidación (y carnitina)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Palmitoil-CoA → 8 Acetil-CoA + FADH₂ + NADH</text>
+              <circle cx="14" cy="4" r="13.5" fill="#b45309"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">9</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">β-oxidación (y lanzadera carnitina)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Palmitoil-CoA (16C) → 8 Acetil-CoA + 7 FADH₂ + 7 NADH</text>
             </g>
-            <g id="badge_leyenda_10" class="badge-via" data-via="10" transform="translate(0, 38)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#0d9488"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">10</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Lipogénesis (FAS)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Acetil-CoA → Malonil-CoA → Palmitato (FAS)</text>
+            <g id="badge_leyenda_10" class="badge-via" data-via="10" transform="translate(0, 42)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#0d9488"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">10</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Lipogénesis de novo (ACC / FAS)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Acetil-CoA → Malonil-CoA → Palmitato (consumo de 14 NADPH)</text>
             </g>
-            <g id="badge_leyenda_11" class="badge-via" data-via="11" transform="translate(0, 76)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#be123c"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">11</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Cetogénesis</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Acetil-CoA → Acetoacetato y β-Hidroxibutirato</text>
+            <g id="badge_leyenda_11" class="badge-via" data-via="11" transform="translate(0, 84)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#be123c"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">11</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Cetogénesis hepática</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Acetil-CoA → HMG-CoA → Acetoacetato, D-β-Hidroxibutirato y Acetona</text>
             </g>
-            <g id="badge_leyenda_12" class="badge-via" data-via="12" transform="translate(0, 114)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#4f46e5"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">12</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Síntesis de colesterol</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Acetil-CoA → HMG-CoA → Mevalonato → Colesterol</text>
+            <g id="badge_leyenda_12" class="badge-via" data-via="12" transform="translate(0, 126)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#4f46e5"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">12</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Síntesis de colesterol</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Acetil-CoA → HMG-CoA → Mevalonato (HMGCR) → Escualeno → Colesterol</text>
             </g>
-            <g id="badge_leyenda_12B" class="badge-via" data-via="12B" transform="translate(0, 152)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#2563eb"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">12B</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Destinos esqueletos carbonados</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Convergencia de los 20 AA en intermediarios</text>
+            <g id="badge_leyenda_12B" class="badge-via" data-via="12B" transform="translate(0, 168)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#2563eb"/>
+              <text x="14" y="8" fill="#ffffff" font-size="9.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">12B</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Destinos de esqueletos carbonados</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Convergencia de los 20 aminoácidos (glucogénicos y cetogénicos)</text>
             </g>
-            <g id="badge_leyenda_13" class="badge-via" data-via="13" transform="translate(0, 190)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#2563eb"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">13</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Transaminación y desaminación</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Recogida de amino en Glutamato → NH₄⁺</text>
+            <g id="badge_leyenda_13" class="badge-via" data-via="13" transform="translate(0, 210)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#2563eb"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">13</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Transaminación y desaminación</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Aminotransferasas (ALT/AST con PLP) y Glutamato DH → NH₄⁺</text>
             </g>
-            <g id="badge_leyenda_14" class="badge-via" data-via="14" transform="translate(0, 228)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#0891b2"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">14</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Ciclo de la urea</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">NH₄⁺ + HCO₃⁻ + Aspartato → Urea (hepático)</text>
+            <g id="badge_leyenda_14" class="badge-via" data-via="14" transform="translate(0, 252)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#0891b2"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">14</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Ciclo de la urea (Ornitina)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">NH₄⁺ + HCO₃⁻ + Aspartato → Urea excretable (CPS-I a Arginasa)</text>
             </g>
-            <g id="badge_leyenda_15" class="badge-via" data-via="15" transform="translate(0, 266)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#0284c7"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">15</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Biosíntesis de nucleótidos</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Purinas y Pirimidinas de novo / Salvamento</text>
+            <g id="badge_leyenda_15" class="badge-via" data-via="15" transform="translate(0, 294)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#0284c7"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">15</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Biosíntesis de nucleótidos</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Síntesis de novo y salvamento de Purinas (IMP/AMP/GMP) y Pirimidinas</text>
             </g>
-            <g id="badge_leyenda_16" class="badge-via" data-via="16" transform="translate(0, 304)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#475569"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">16</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Catabolismo de nucleótidos</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Purinas → Ácido Úrico (XOD); Pirimidinas → β-Ala</text>
+            <g id="badge_leyenda_16" class="badge-via" data-via="16" transform="translate(0, 336)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#475569"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">16</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Catabolismo de nucleótidos</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Purinas → Hipoxantina → Xantina → Ácido Úrico; Pirimidinas → β-Ala</text>
             </g>
         </g>
       
-        <g transform="translate(1220, 100)">
-          <text x="0" y="-12" fill="#0284c7" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">VÍAS DE INTEGRACIÓN Y ÓRGANOS (17–25):</text>
+        <g transform="translate(1175, 118)">
+          <text x="0" y="-16" fill="#0284c7" font-size="14" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.8">VÍAS DE INTEGRACIÓN Y ÓRGANOS (17–25):</text>
           
             <g id="badge_leyenda_17" class="badge-via" data-via="17" transform="translate(0, 0)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#9f1239"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">17</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Ciclo de Cori (Músculo ⇄ Hígado)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Lactato muscular anaeróbico ⇄ Glucosa hepática</text>
+              <circle cx="14" cy="4" r="13.5" fill="#9f1239"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">17</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Ciclo de Cori (Músculo ⇄ Hígado)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Lactato muscular anaeróbico reciclado a Glucosa hepática</text>
             </g>
-            <g id="badge_leyenda_18" class="badge-via" data-via="18" transform="translate(0, 38)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#0d9488"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">18</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Digestión de lípidos</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Micela mixta → Enterocito → Quilomicrón → Linfa</text>
+            <g id="badge_leyenda_18" class="badge-via" data-via="18" transform="translate(0, 42)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#0d9488"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">18</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Digestión y absorción de lípidos</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Sales biliares → Micela mixta → Enterocito (REL) → Quilomicrón</text>
             </g>
-            <g id="badge_leyenda_19" class="badge-via" data-via="19" transform="translate(0, 76)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#ea580c"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">19</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Tejido adiposo (lipólisis)</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">TAG → ATGL/HSL/MGL → 3 AG + Glicerol</text>
+            <g id="badge_leyenda_19" class="badge-via" data-via="19" transform="translate(0, 84)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#ea580c"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">19</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Tejido adiposo (lipólisis secuencial)</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">TAG → ATGL → DAG → HSL → 2-MAG → MGL → 3 AG libres + Glicerol</text>
             </g>
-            <g id="badge_leyenda_20" class="badge-via" data-via="20" transform="translate(0, 114)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#9f1239"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">20</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Músculo esquelético y sarcómero</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Contracción de actomiosina; Cori &amp; Cahill</text>
+            <g id="badge_leyenda_20" class="badge-via" data-via="20" transform="translate(0, 126)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#9f1239"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">20</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Músculo esquelético y sarcómero</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Contracción actina-miosina dependiente de ATP/Ca²⁺; Cori y Cahill</text>
             </g>
-            <g id="badge_leyenda_21" class="badge-via" data-via="21" transform="translate(0, 152)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#2563eb"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">21</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Cerebro y combustibles neuronales</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Glucosa (GLUT1/3) &amp; adaptación a cetonas (MCT)</text>
+            <g id="badge_leyenda_21" class="badge-via" data-via="21" transform="translate(0, 168)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#2563eb"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">21</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Cerebro y combustibles neuronales</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Barrera hematoencefálica: Glucosa (GLUT1/3) y cuerpos cetónicos (MCT)</text>
             </g>
-            <g id="badge_leyenda_22" class="badge-via" data-via="22" transform="translate(0, 190)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#2563eb"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">22</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Lipoproteínas plasmáticas</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">VLDL → IDL → LDL (ApoB100) y HDL (SR-B1)</text>
+            <g id="badge_leyenda_22" class="badge-via" data-via="22" transform="translate(0, 210)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#2563eb"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">22</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Lipoproteínas plasmáticas</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Transporte endógeno VLDL → IDL → LDL (ApoB-100) y reverso HDL</text>
             </g>
-            <g id="badge_leyenda_23" class="badge-via" data-via="23" transform="translate(0, 228)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#7c3aed"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">23</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Biosíntesis de TAG y fosfolípidos</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">G3P → LPA → PA → DAG → TAG / Fosfolípidos</text>
+            <g id="badge_leyenda_23" class="badge-via" data-via="23" transform="translate(0, 252)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#7c3aed"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">23</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Biosíntesis de TAG y fosfolípidos</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Vía de Kennedy: G3P → LPA → Ácido Fosfatídico → DAG → TAG / PC</text>
             </g>
-            <g id="badge_leyenda_24" class="badge-via" data-via="24" transform="translate(0, 266)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#059669"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">24</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Biosíntesis de AA no esenciales</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Ala, Ser, Gly, Cys, Asp, Asn, Glu, Gln, Pro, Tyr</text>
+            <g id="badge_leyenda_24" class="badge-via" data-via="24" transform="translate(0, 294)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#059669"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">24</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Biosíntesis de AA no esenciales</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Síntesis de Ala, Ser, Gly, Cys, Asp, Asn, Glu, Gln, Pro y Tyr</text>
             </g>
-            <g id="badge_leyenda_25" class="badge-via" data-via="25" transform="translate(0, 304)" style="cursor: pointer;">
-              <circle cx="11" cy="0" r="9" fill="#ea580c"/>
-              <text x="11" y="3.5" fill="#ffffff" font-size="8.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">25</text>
-              <text x="26" y="3" fill="#0f172a" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">Integración y conmutador</text>
-              <text x="26" y="15" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">Flujos de combustible: Posprandial vs Ayuno</text>
+            <g id="badge_leyenda_25" class="badge-via" data-via="25" transform="translate(0, 336)" style="cursor: pointer;">
+              <circle cx="14" cy="4" r="13.5" fill="#ea580c"/>
+              <text x="14" y="8" fill="#ffffff" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">25</text>
+              <text x="35" y="1" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Integración y conmutador hormonal</text>
+              <text x="35" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Coordinación intertisular: Estado Posprandial (Insulina) vs Ayuno</text>
             </g>
         </g>
-    
-      <line x1="1840" y1="85" x2="1840" y2="430" stroke="#f1f5f9" stroke-width="2" />
 
-      <!-- Columna 3: Símbolos -->
-      <g transform="translate(1870, 100)">
-        <text x="0" y="-12" fill="#0f766e" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">CONVENCIONES Y EFECTORES:</text>
+      <line x1="1765" y1="88" x2="1765" y2="485" stroke="#e2e8f0" stroke-width="2" />
+
+      <!-- Columna 4: Convenciones y Efectores -->
+      <g transform="translate(1790, 118)">
+        <text x="0" y="-16" fill="#0f766e" font-size="14" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.8">CONVENCIONES Y EFECTORES:</text>
         
         <g transform="translate(0, 0)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">(+)</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Activador alostérico (efector positivo)</text>
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#15803d" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">(+)</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Activador alostérico (+)</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Efector positivo que incrementa la afinidad o Vmáx enzimática</text>
         </g>
-        
-        <g transform="translate(0, 26)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">(-)</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Inhibidor alostérico (efector negativo / retroinhibición)</text>
+        <g transform="translate(0, 46)">
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#b91c1c" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">(-)</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Inhibidor alostérico (-)</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Efector negativo o retroinhibición por producto final</text>
         </g>
-        
-        <g transform="translate(0, 52)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">(P)</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Modificación covalente por fosforilación (forma activa)</text>
+        <g transform="translate(0, 92)">
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#b45309" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">(P)</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Modificación covalente (P)</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Regulación hormonal por fosforilación / desfosforilación</text>
         </g>
-        
-        <g transform="translate(0, 78)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">⇄</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Reacción reversible (doble flecha)</text>
+        <g transform="translate(0, 138)">
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#0f172a" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">⇄</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Reacción reversible (⇄)</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Etapa cercana al equilibrio termodinámico (ΔG ≈ 0)</text>
         </g>
-        
-        <g transform="translate(0, 104)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">→</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Reacción irreversible (flecha simple, punto de control)</text>
+        <g transform="translate(0, 184)">
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#c2410c" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">→</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Reacción irreversible (→)</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Paso limitante exergónico (ΔG ≪ 0 · punto de control)</text>
         </g>
-        
-        <g transform="translate(0, 130)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">- - →</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Conexión entre vías / transporte</text>
+        <g transform="translate(0, 230)">
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#0369a1" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">- - →</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Conexión inter-vía (- - →)</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Flujo de metabolitos entre compartimentos o rutas</text>
         </g>
-        
-        <g transform="translate(0, 156)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">▭</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Transportador de membrana (GLUT, MPC, CACT, AGC…)</text>
+        <g transform="translate(0, 276)">
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#6d28d9" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">▭</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Transportador de membrana</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Proteínas integrales: GLUT, MPC, CACT, AGC, OGC, MCT</text>
         </g>
-        
-        <g transform="translate(0, 182)">
-          <rect x="0" y="-10" width="40" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="20" y="3" fill="#0f172a" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">[nC]</text>
-          <text x="50" y="3" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Número de átomos de carbono del metabolito</text>
+        <g transform="translate(0, 322)">
+          <rect x="0" y="-12" width="56" height="30" rx="7" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+          <text x="28" y="8" fill="#ea580c" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">[nC]</text>
+          <text x="68" y="1" fill="#0f172a" font-size="13" font-weight="800" font-family="'Inter', sans-serif">Conteo de carbonos [nC]</text>
+          <text x="68" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Número de átomos de carbono del esqueleto metabólico</text>
         </g>
-        
       </g>
 
-      <line x1="2670" y1="85" x2="2670" y2="430" stroke="#f1f5f9" stroke-width="2" />
+      <line x1="2485" y1="88" x2="2485" y2="485" stroke="#e2e8f0" stroke-width="2" />
 
-      <!-- Columna 4: Código de Colores -->
-      <g transform="translate(2700, 100)">
-        <text x="0" y="-12" fill="#b45309" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">CÓDIGO DE COLORES:</text>
+      <!-- Columna 5: Código de Colores -->
+      <g transform="translate(2510, 118)">
+        <text x="0" y="-16" fill="#b45309" font-size="14" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.8">CÓDIGO DE COLORES:</text>
         
         <g transform="translate(0, 0)">
-          <circle cx="6" cy="0" r="5" fill="#ea580c"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Flujo principal de carbono</text>
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#ea580c"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">Flujo principal de carbono</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Ejes catabólicos centrales (Glucólisis, PDH, Krebs)</text>
         </g>
-        
-        <g transform="translate(0, 24)">
-          <circle cx="6" cy="0" r="5" fill="#7c3aed"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Reacciones de Gluconeogénesis (4 enzimas)</text>
+        <g transform="translate(0, 46)">
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#7c3aed"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">Gluconeogénesis y Fosfolípidos</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Rodeos anabólicos irreversibles y vía de Kennedy</text>
         </g>
-        
-        <g transform="translate(0, 48)">
-          <circle cx="6" cy="0" r="5" fill="#b45309"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Glucógeno (Síntesis y lisis)</text>
+        <g transform="translate(0, 92)">
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#b45309"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">Glucógeno y β-Oxidación</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Movilización de reservas energéticas y acil-CoA</text>
         </g>
-        
-        <g transform="translate(0, 72)">
-          <circle cx="6" cy="0" r="5" fill="#059669"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Pentosas fosfato &amp; Shunt</text>
+        <g transform="translate(0, 138)">
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#059669"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">Pentosas Fosfato y Biosíntesis AA</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Generación de poder reductor (NADPH) y anabolismo</text>
         </g>
-        
-        <g transform="translate(0, 96)">
-          <circle cx="6" cy="0" r="5" fill="#2563eb"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Aminoácidos &amp; Ciclo de la Urea</text>
+        <g transform="translate(0, 184)">
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#2563eb"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">Metabolismo Nitrogenado y SNC</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Transaminación, Ciclo de la Urea y lipoproteínas</text>
         </g>
-        
-        <g transform="translate(0, 120)">
-          <circle cx="6" cy="0" r="5" fill="#16a34a"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">(+) Activador alostérico</text>
+        <g transform="translate(0, 230)">
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#16a34a"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">(+) Activación / Síntesis de ATP</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Estimulación alostérica y fosforilación oxidativa</text>
         </g>
-        
-        <g transform="translate(0, 144)">
-          <circle cx="6" cy="0" r="5" fill="#dc2626"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">(-) Inhibidor alostérico / Gasto ATP</text>
+        <g transform="translate(0, 276)">
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#dc2626"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">(-) Inhibición / Consumo de ATP</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Freno alostérico, patologías y gasto energético</text>
         </g>
-        
-        <g transform="translate(0, 168)">
-          <circle cx="6" cy="0" r="5" fill="#ca8a04"/>
-          <text x="18" y="3.5" fill="#334155" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">(P) Modificación covalente activa/inactiva</text>
+        <g transform="translate(0, 322)">
+          <rect x="0" y="-10" width="26" height="26" rx="7" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+          <circle cx="13" cy="3" r="6.5" fill="#ca8a04"/>
+          <text x="38" y="1" fill="#0f172a" font-size="12.8" font-weight="800" font-family="'Inter', sans-serif">(P) Control Hormonal Covalente</text>
+          <text x="38" y="17" fill="#475569" font-size="10.2" font-weight="600" font-family="'Inter', sans-serif">Señalización Insulina (desfosforila) vs Glucagón (PKA)</text>
         </g>
-        
       </g>
 
-      <line x1="3050" y1="85" x2="3050" y2="430" stroke="#f1f5f9" stroke-width="2" />
+      <line x1="3020" y1="88" x2="3020" y2="485" stroke="#e2e8f0" stroke-width="2" />
 
-      <!-- Columna 5: Clasificación Enzimática EC -->
-      <g id="leyenda_col_ec" transform="translate(3080, 100)">
-        <text x="0" y="-12" fill="#7c3aed" font-size="12" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="1">NOMENCLATURA ENZIMÁTICA (EC):</text>
-        
+      <!-- Columna 6: Nomenclatura Enzimática (EC) -->
+      <g id="leyenda_col_ec" transform="translate(3045, 118)">
+        <text x="0" y="-16" fill="#7c3aed" font-size="14" font-weight="900" font-family="'Inter', sans-serif" letter-spacing="0.8">NOMENCLATURA ENZIMÁTICA (EC):</text>
+
         <!-- Header badge y título -->
-        <g transform="translate(0, -2)">
-          <rect x="0" y="-8" width="84" height="21" rx="5" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.2"/>
-          <text x="42" y="6.5" fill="#6d28d9" font-size="10.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC x.x.x.x</text>
-          <text x="96" y="6.5" fill="#0f172a" font-size="11" font-weight="800" font-family="'Inter', sans-serif">Comisión de Enzimas (Enzyme Commission)</text>
+        <g transform="translate(0, 4)">
+          <rect x="0" y="-12" width="106" height="28" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+          <text x="53" y="7" fill="#6d28d9" font-size="13" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">EC x.x.x.x</text>
+          <text x="118" y="7" fill="#0f172a" font-size="13.5" font-weight="800" font-family="'Inter', sans-serif">Comisión de Enzimas (Enzyme Commission)</text>
         </g>
-        
+
         <!-- Intro -->
-        <text x="0" y="34" fill="#475569" font-size="10" font-weight="600" font-family="'Inter', sans-serif">Código numérico de 4 cifras que identifica cada enzima por la reacción que cataliza:</text>
+        <text x="0" y="42" fill="#475569" font-size="11.5" font-weight="600" font-family="'Inter', sans-serif">Código internacional de 4 cifras que clasifica cada enzima según la reacción química catalizada:</text>
 
         <!-- 1.ª Cifra -->
-        <text x="0" y="58" fill="#1e293b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif"><tspan fill="#7c3aed" font-weight="900">1.ª cifra</tspan> · Clase principal de reacción (1 a 7):</text>
+        <text x="0" y="72" fill="#1e293b" font-size="12.5" font-weight="800" font-family="'Inter', sans-serif"><tspan fill="#7c3aed" font-weight="900">1.ª cifra</tspan> · Clase principal de reacción (clases 1 a 7):</text>
 
         <!-- 7 Clases en 2 columnas -->
-        <!-- Columna A (1-4) -->
-        <g transform="translate(0, 70)">
+        <g transform="translate(0, 96)">
           <g transform="translate(0, 0)">
-            <rect x="0" y="-8" width="17" height="17" rx="4" fill="#ede9fe" stroke="#a78bfa" stroke-width="1"/>
-            <text x="8.5" y="4.5" fill="#6d28d9" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">1</text>
-            <text x="24" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Oxidorreductasas</tspan> (redox / electrones)</text>
+            <rect x="0" y="-12" width="23" height="23" rx="5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.3"/>
+            <text x="11.5" y="4.5" fill="#6d28d9" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">1</text>
+            <text x="32" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Oxidorreductasas</tspan> (redox / e⁻)</text>
           </g>
-          <g transform="translate(0, 23)">
-            <rect x="0" y="-8" width="17" height="17" rx="4" fill="#ede9fe" stroke="#a78bfa" stroke-width="1"/>
-            <text x="8.5" y="4.5" fill="#6d28d9" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2</text>
-            <text x="24" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Transferasas</tspan> (transferencia de grupos)</text>
+          <g transform="translate(0, 32)">
+            <rect x="0" y="-12" width="23" height="23" rx="5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.3"/>
+            <text x="11.5" y="4.5" fill="#6d28d9" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2</text>
+            <text x="32" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Transferasas</tspan> (transfieren grupos)</text>
           </g>
-          <g transform="translate(0, 46)">
-            <rect x="0" y="-8" width="17" height="17" rx="4" fill="#ede9fe" stroke="#a78bfa" stroke-width="1"/>
-            <text x="8.5" y="4.5" fill="#6d28d9" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3</text>
-            <text x="24" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Hidrolasas</tspan> (ruptura de enlaces por H₂O)</text>
+          <g transform="translate(0, 64)">
+            <rect x="0" y="-12" width="23" height="23" rx="5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.3"/>
+            <text x="11.5" y="4.5" fill="#6d28d9" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">3</text>
+            <text x="32" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Hidrolasas</tspan> (ruptura con H₂O)</text>
           </g>
-          <g transform="translate(0, 69)">
-            <rect x="0" y="-8" width="17" height="17" rx="4" fill="#ede9fe" stroke="#a78bfa" stroke-width="1"/>
-            <text x="8.5" y="4.5" fill="#6d28d9" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4</text>
-            <text x="24" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Liasas</tspan> (ruptura/adición sin agua)</text>
+          <g transform="translate(0, 96)">
+            <rect x="0" y="-12" width="23" height="23" rx="5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.3"/>
+            <text x="11.5" y="4.5" fill="#6d28d9" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4</text>
+            <text x="32" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Liasas</tspan> (adición/ruptura sin H₂O)</text>
           </g>
         </g>
 
-        <!-- Columna B (5-7) -->
-        <g transform="translate(265, 70)">
+        <g transform="translate(290, 96)">
           <g transform="translate(0, 0)">
-            <rect x="0" y="-8" width="17" height="17" rx="4" fill="#ede9fe" stroke="#a78bfa" stroke-width="1"/>
-            <text x="8.5" y="4.5" fill="#6d28d9" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">5</text>
-            <text x="24" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Isomerasas</tspan> (isomerización estructural)</text>
+            <rect x="0" y="-12" width="23" height="23" rx="5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.3"/>
+            <text x="11.5" y="4.5" fill="#6d28d9" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">5</text>
+            <text x="32" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Isomerasas</tspan> (reordenamiento)</text>
           </g>
-          <g transform="translate(0, 23)">
-            <rect x="0" y="-8" width="17" height="17" rx="4" fill="#ede9fe" stroke="#a78bfa" stroke-width="1"/>
-            <text x="8.5" y="4.5" fill="#6d28d9" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6</text>
-            <text x="24" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Ligasas</tspan> (unión molecular + hidrólisis ATP)</text>
+          <g transform="translate(0, 32)">
+            <rect x="0" y="-12" width="23" height="23" rx="5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.3"/>
+            <text x="11.5" y="4.5" fill="#6d28d9" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">6</text>
+            <text x="32" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Ligasas</tspan> (unión con gasto de ATP)</text>
           </g>
-          <g transform="translate(0, 46)">
-            <rect x="0" y="-8" width="17" height="17" rx="4" fill="#ede9fe" stroke="#a78bfa" stroke-width="1"/>
-            <text x="8.5" y="4.5" fill="#6d28d9" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">7</text>
-            <text x="24" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Translocasas</tspan> (transporte de membrana)</text>
+          <g transform="translate(0, 64)">
+            <rect x="0" y="-12" width="23" height="23" rx="5" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.3"/>
+            <text x="11.5" y="4.5" fill="#6d28d9" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">7</text>
+            <text x="32" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Translocasas</tspan> (bombas/transporte)</text>
           </g>
         </g>
 
         <!-- 2.ª y 3.ª Cifras -->
-        <g transform="translate(0, 168)">
-          <rect x="0" y="-8" width="54" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="27" y="4.5" fill="#0f172a" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2.ª, 3.ª</text>
-          <text x="63" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Subclase y sub-subclase:</tspan> tipo de grupo funcional o sustrato donador/aceptor.</text>
+        <g transform="translate(0, 232)">
+          <rect x="0" y="-12" width="68" height="24" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.3"/>
+          <text x="34" y="4.5" fill="#0f172a" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">2.ª y 3.ª</text>
+          <text x="80" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Subclase y sub-subclase:</tspan> enlace químico, grupo donador y aceptor.</text>
         </g>
 
         <!-- 4.ª Cifra -->
-        <g transform="translate(0, 196)">
-          <rect x="0" y="-8" width="54" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="27" y="4.5" fill="#0f172a" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4.ª</text>
-          <text x="63" y="4.5" fill="#334155" font-size="9.5" font-family="'Inter', sans-serif"><tspan font-weight="800">Número de orden:</tspan> identificador secuencial de la enzima dentro de su sub-subclase.</text>
+        <g transform="translate(0, 268)">
+          <rect x="0" y="-12" width="68" height="24" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.3"/>
+          <text x="34" y="4.5" fill="#0f172a" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">4.ª cifra</text>
+          <text x="80" y="4.5" fill="#334155" font-size="11.5" font-family="'Inter', sans-serif"><tspan font-weight="800" fill="#0f172a">Número serie:</tspan> identificador específico de la enzima y su sustrato.</text>
         </g>
 
-        <!-- Micro-tarjeta de ejemplo -->
-        <g transform="translate(0, 226)">
-          <rect x="0" y="0" width="530" height="44" rx="7" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
-          <text x="12" y="18" fill="#64748b" font-size="9" font-weight="800" font-family="'JetBrains Mono', monospace">Ejemplo:</text>
-          <text x="74" y="18" fill="#0f172a" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace">EC 2.7.1.1 · Hexoquinasa</text>
-          <text x="12" y="33" fill="#64748b" font-size="8.5" font-family="'Inter', sans-serif">2: Transferasa ➔ 7: Fosfotransferasa ➔ 1: Aceptor grupo -OH ➔ 1: D-hexosa-6-fosfotransferasa</text>
+        <!-- Tarjeta de ejemplo ampliada -->
+        <g transform="translate(0, 298)">
+          <rect x="0" y="0" width="575" height="62" rx="9" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="16" y="24" fill="#7c3aed" font-size="11.5" font-weight="900" font-family="'JetBrains Mono', monospace">Ejemplo:</text>
+          <text x="88" y="24" fill="#0f172a" font-size="12.5" font-weight="900" font-family="'JetBrains Mono', monospace">EC 2.7.1.1 · Hexoquinasa / Glucoquinasa</text>
+          <text x="16" y="46" fill="#475569" font-size="10.5" font-weight="700" font-family="'Inter', sans-serif">2: Transferasa ➔ 7: Fosfotransferasa ➔ 1: Aceptor grupo hidroxilo (-OH) ➔ 1: D-hexosa-6-fosfotransferasa</text>
         </g>
       </g>
     </g>
+
     
     <!-- BLOQUE INSTITUCIONAL Y AUTORÍA DE CÓDIGO ABIERTO (ADOLFO MORALES TENA) - FORMATO AMPLIADO -->
     <g id="bloque_autoria" data-arrastrable="1" transform="translate(3800, 4220)" filter="url(#shadowCard)">
@@ -9524,37 +9616,37 @@
 <g id="cx_krebs_icdh_cte" class="conexion-inter-ruta"><path d="M 1382.0 3018.0 L 2476.8 3018.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1382.0 3018.0 L 2476.8 3018.0" fill="none" stroke="#059669" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha059669)"/></g>
 <g id="cx_krebs_akgdh_cte" class="conexion-inter-ruta"><path d="M 1427.0 3222.0 L 2476.8 3222.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1427.0 3222.0 L 2476.8 3222.0" fill="none" stroke="#059669" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha059669)"/></g>
 <g id="cx_krebs_cte" class="conexion-inter-ruta"><path d="M 1373.0 3522.0 L 2426.0 3522.0 Q 2442.0 3522.0 2453.3 3510.7 L 2462.2 3501.8 Q 2466.0 3498.0 2471.4 3498.0 L 2476.8 3498.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1373.0 3522.0 L 2426.0 3522.0 Q 2442.0 3522.0 2453.3 3510.7 L 2462.2 3501.8 Q 2466.0 3498.0 2471.4 3498.0 L 2476.8 3498.0" fill="none" stroke="#475569" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha475569)"/></g>
-<g id="cx_krebs_mdh_cte" class="conexion-inter-ruta"><path d="M 1350.0 3929.6 L 1350.0 4430.0 Q 1350.0 4446.0 1361.3 4457.3 L 1410.7 4506.7 Q 1422.0 4518.0 1438.0 4518.0 L 2390.0 4518.0 Q 2406.0 4518.0 2417.3 4506.7 L 2454.7 4469.3 Q 2466.0 4458.0 2466.0 4442.0 L 2466.0 3503.4 Q 2466.0 3498.0 2471.4 3498.0 L 2476.8 3498.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1350.0 3929.6 L 1350.0 4430.0 Q 1350.0 4446.0 1361.3 4457.3 L 1410.7 4506.7 Q 1422.0 4518.0 1438.0 4518.0 L 2390.0 4518.0 Q 2406.0 4518.0 2417.3 4506.7 L 2454.7 4469.3 Q 2466.0 4458.0 2466.0 4442.0 L 2466.0 3503.4 Q 2466.0 3498.0 2471.4 3498.0 L 2476.8 3498.0" fill="none" stroke="#059669" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha059669)"/></g>
-<g id="cx_lanz_malato_krebs" class="conexion-inter-ruta"><path d="M 774.0 2532.5 L 774.0 2541.5 Q 774.0 2550.0 768.0 2556.0 L 768.0 2556.0 Q 762.0 2562.0 753.5 2562.0 L 694.0 2562.0 Q 678.0 2562.0 666.7 2550.7 L 665.3 2549.3 Q 654.0 2538.0 654.0 2522.0 L 654.0 2474.5 Q 654.0 2466.0 648.0 2460.0 L 648.0 2460.0 Q 642.0 2454.0 633.5 2454.0 L 250.0 2454.0 Q 234.0 2454.0 222.7 2465.3 L 53.3 2634.7 Q 42.0 2646.0 42.0 2662.0 L 42.0 3369.5 Q 42.0 3378.0 48.0 3384.0 L 48.0 3384.0 Q 54.0 3390.0 54.0 3398.5 L 54.0 3513.5 Q 54.0 3522.0 60.0 3528.0 L 60.0 3528.0 Q 66.0 3534.0 74.5 3534.0 L 146.0 3534.0 Q 162.0 3534.0 173.3 3545.3 L 606.7 3978.7 Q 618.0 3990.0 634.0 3990.0 L 1305.5 3990.0 Q 1314.0 3990.0 1320.0 3984.0 L 1320.0 3984.0 Q 1326.0 3978.0 1326.0 3969.5 L 1326.0 3932.6" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 774.0 2532.5 L 774.0 2541.5 Q 774.0 2550.0 768.0 2556.0 L 768.0 2556.0 Q 762.0 2562.0 753.5 2562.0 L 694.0 2562.0 Q 678.0 2562.0 666.7 2550.7 L 665.3 2549.3 Q 654.0 2538.0 654.0 2522.0 L 654.0 2474.5 Q 654.0 2466.0 648.0 2460.0 L 648.0 2460.0 Q 642.0 2454.0 633.5 2454.0 L 250.0 2454.0 Q 234.0 2454.0 222.7 2465.3 L 53.3 2634.7 Q 42.0 2646.0 42.0 2662.0 L 42.0 3369.5 Q 42.0 3378.0 48.0 3384.0 L 48.0 3384.0 Q 54.0 3390.0 54.0 3398.5 L 54.0 3513.5 Q 54.0 3522.0 60.0 3528.0 L 60.0 3528.0 Q 66.0 3534.0 74.5 3534.0 L 146.0 3534.0 Q 162.0 3534.0 173.3 3545.3 L 606.7 3978.7 Q 618.0 3990.0 634.0 3990.0 L 1305.5 3990.0 Q 1314.0 3990.0 1320.0 3984.0 L 1320.0 3984.0 Q 1326.0 3978.0 1326.0 3969.5 L 1326.0 3932.6" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0284c7)"/></g>
+<g id="cx_krebs_mdh_cte" class="conexion-inter-ruta"><path d="M 1350.0 3864.0 L 1350.0 4430.0 Q 1350.0 4446.0 1361.3 4457.3 L 1410.7 4506.7 Q 1422.0 4518.0 1438.0 4518.0 L 2390.0 4518.0 Q 2406.0 4518.0 2417.3 4506.7 L 2454.7 4469.3 Q 2466.0 4458.0 2466.0 4442.0 L 2466.0 3503.4 Q 2466.0 3498.0 2471.4 3498.0 L 2476.8 3498.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1350.0 3864.0 L 1350.0 4430.0 Q 1350.0 4446.0 1361.3 4457.3 L 1410.7 4506.7 Q 1422.0 4518.0 1438.0 4518.0 L 2390.0 4518.0 Q 2406.0 4518.0 2417.3 4506.7 L 2454.7 4469.3 Q 2466.0 4458.0 2466.0 4442.0 L 2466.0 3503.4 Q 2466.0 3498.0 2471.4 3498.0 L 2476.8 3498.0" fill="none" stroke="#059669" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha059669)"/></g>
+<g id="cx_lanz_malato_krebs" class="conexion-inter-ruta"><path d="M 1256.0 2065.0 L 1256.0 2214.0 Q 1256.0 2228.0 1242.0 2228.0 L 668.0 2228.0 Q 654.0 2228.0 654.0 2242.0 L 654.0 2648.0 Q 654.0 2662.0 640.0 2662.0 L 526.0 2662.0 Q 512.0 2662.0 512.0 2676.0 L 512.0 2696.0 Q 512.0 2710.0 498.0 2710.0 L 56.0 2710.0 Q 42.0 2710.0 42.0 2724.0 L 42.0 3369.5 Q 42.0 3378.0 48.0 3384.0 L 48.0 3384.0 Q 54.0 3390.0 54.0 3398.5 L 54.0 3513.5 Q 54.0 3522.0 60.0 3528.0 L 60.0 3528.0 Q 66.0 3534.0 74.5 3534.0 L 146.0 3534.0 Q 162.0 3534.0 173.3 3545.3 L 606.7 3978.7 Q 618.0 3990.0 634.0 3990.0 L 1290.0 3990.0 Q 1304.0 3990.0 1304.0 3976.0 L 1304.0 3900.0 Q 1304.0 3886.0 1290.0 3886.0 L 1218.0 3886.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1256.0 2065.0 L 1256.0 2214.0 Q 1256.0 2228.0 1242.0 2228.0 L 668.0 2228.0 Q 654.0 2228.0 654.0 2242.0 L 654.0 2648.0 Q 654.0 2662.0 640.0 2662.0 L 526.0 2662.0 Q 512.0 2662.0 512.0 2676.0 L 512.0 2696.0 Q 512.0 2710.0 498.0 2710.0 L 56.0 2710.0 Q 42.0 2710.0 42.0 2724.0 L 42.0 3369.5 Q 42.0 3378.0 48.0 3384.0 L 48.0 3384.0 Q 54.0 3390.0 54.0 3398.5 L 54.0 3513.5 Q 54.0 3522.0 60.0 3528.0 L 60.0 3528.0 Q 66.0 3534.0 74.5 3534.0 L 146.0 3534.0 Q 162.0 3534.0 173.3 3545.3 L 606.7 3978.7 Q 618.0 3990.0 634.0 3990.0 L 1290.0 3990.0 Q 1304.0 3990.0 1304.0 3976.0 L 1304.0 3900.0 Q 1304.0 3886.0 1290.0 3886.0 L 1218.0 3886.0" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0284c7)"/></g>
 <g id="cx_palmitato_sangre_cito" class="conexion-inter-ruta"><path d="M 690.0 429.9 L 690.0 468.0 Q 690.0 474.0 684.0 474.0 L 684.0 474.0 Q 678.0 474.0 673.8 478.2 L 557.3 594.7 Q 546.0 606.0 530.0 606.0 L 430.0 606.0 Q 414.0 606.0 402.7 617.3 L 149.3 870.7 Q 138.0 882.0 138.0 898.0 L 138.0 1406.0 Q 138.0 1422.0 149.3 1433.3 L 167.3 1451.3 Q 174.0 1458.0 183.5 1458.0 L 193.0 1458.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 690.0 429.9 L 690.0 468.0 Q 690.0 474.0 684.0 474.0 L 684.0 474.0 Q 678.0 474.0 673.8 478.2 L 557.3 594.7 Q 546.0 606.0 530.0 606.0 L 430.0 606.0 Q 414.0 606.0 402.7 617.3 L 149.3 870.7 Q 138.0 882.0 138.0 898.0 L 138.0 1406.0 Q 138.0 1422.0 149.3 1433.3 L 167.3 1451.3 Q 174.0 1458.0 183.5 1458.0 L 193.0 1458.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
 <g id="cx_palmitato_pool" class="conexion-inter-ruta"><path d="M 3096.0 2118.0 L 3010.0 2118.0 Q 2994.0 2118.0 2982.7 2106.7 L 2981.3 2105.3 Q 2970.0 2094.0 2970.0 2078.0 L 2970.0 1954.0 Q 2970.0 1938.0 2981.3 1926.7 L 2982.7 1925.3 Q 2994.0 1914.0 2994.0 1898.0 L 2994.0 1654.0 Q 2994.0 1638.0 2982.7 1626.7 L 2873.3 1517.3 Q 2862.0 1506.0 2846.0 1506.0 L 2450.5 1506.0 Q 2442.0 1506.0 2436.0 1512.0 L 2436.0 1512.0 Q 2430.0 1518.0 2430.0 1526.5 L 2430.0 1562.0 Q 2430.0 1578.0 2418.7 1589.3 L 2381.3 1626.7 Q 2370.0 1638.0 2354.0 1638.0 L 1982.5 1638.0 Q 1974.0 1638.0 1968.0 1632.0 L 1968.0 1632.0 Q 1962.0 1626.0 1962.0 1617.5 L 1962.0 1574.5 Q 1962.0 1566.0 1956.0 1560.0 L 1956.0 1560.0 Q 1950.0 1554.0 1941.5 1554.0 L 1862.5 1554.0 Q 1854.0 1554.0 1848.0 1560.0 L 1848.0 1560.0 Q 1842.0 1566.0 1833.5 1566.0 L 1570.0 1566.0 Q 1554.0 1566.0 1542.7 1554.7 L 1433.3 1445.3 Q 1422.0 1434.0 1406.0 1434.0 L 648.0 1434.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 3096.0 2118.0 L 3010.0 2118.0 Q 2994.0 2118.0 2982.7 2106.7 L 2981.3 2105.3 Q 2970.0 2094.0 2970.0 2078.0 L 2970.0 1954.0 Q 2970.0 1938.0 2981.3 1926.7 L 2982.7 1925.3 Q 2994.0 1914.0 2994.0 1898.0 L 2994.0 1654.0 Q 2994.0 1638.0 2982.7 1626.7 L 2873.3 1517.3 Q 2862.0 1506.0 2846.0 1506.0 L 2450.5 1506.0 Q 2442.0 1506.0 2436.0 1512.0 L 2436.0 1512.0 Q 2430.0 1518.0 2430.0 1526.5 L 2430.0 1562.0 Q 2430.0 1578.0 2418.7 1589.3 L 2381.3 1626.7 Q 2370.0 1638.0 2354.0 1638.0 L 1982.5 1638.0 Q 1974.0 1638.0 1968.0 1632.0 L 1968.0 1632.0 Q 1962.0 1626.0 1962.0 1617.5 L 1962.0 1574.5 Q 1962.0 1566.0 1956.0 1560.0 L 1956.0 1560.0 Q 1950.0 1554.0 1941.5 1554.0 L 1862.5 1554.0 Q 1854.0 1554.0 1848.0 1560.0 L 1848.0 1560.0 Q 1842.0 1566.0 1833.5 1566.0 L 1570.0 1566.0 Q 1554.0 1566.0 1542.7 1554.7 L 1433.3 1445.3 Q 1422.0 1434.0 1406.0 1434.0 L 648.0 1434.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
 <g id="cx_colesterol_sangre" class="conexion-inter-ruta"><path d="M 3810.0 2034.1 L 3810.0 2028.1 Q 3810.0 2022.0 3816.1 2022.0 L 3890.0 2022.0 Q 3906.0 2022.0 3906.0 2006.0 L 3906.0 1966.0 Q 3906.0 1950.0 3894.7 1938.7 L 3821.3 1865.3 Q 3810.0 1854.0 3810.0 1838.0 L 3810.0 1750.0 Q 3810.0 1734.0 3798.7 1722.7 L 3785.3 1709.3 Q 3774.0 1698.0 3774.0 1682.0 L 3774.0 1526.5 Q 3774.0 1518.0 3780.0 1512.0 L 3780.0 1512.0 Q 3786.0 1506.0 3794.5 1506.0 L 3818.0 1506.0 Q 3834.0 1506.0 3845.3 1494.7 L 4146.7 1193.3 Q 4158.0 1182.0 4158.0 1166.0 L 4158.0 1078.0 Q 4158.0 1062.0 4146.7 1050.7 L 3761.3 665.3 Q 3750.0 654.0 3750.0 638.0 L 3750.0 550.0 Q 3750.0 534.0 3738.7 522.7 L 3683.3 467.3 Q 3678.0 462.0 3678.0 454.5 L 3678.0 447.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 3810.0 2034.1 L 3810.0 2028.1 Q 3810.0 2022.0 3816.1 2022.0 L 3890.0 2022.0 Q 3906.0 2022.0 3906.0 2006.0 L 3906.0 1966.0 Q 3906.0 1950.0 3894.7 1938.7 L 3821.3 1865.3 Q 3810.0 1854.0 3810.0 1838.0 L 3810.0 1750.0 Q 3810.0 1734.0 3798.7 1722.7 L 3785.3 1709.3 Q 3774.0 1698.0 3774.0 1682.0 L 3774.0 1526.5 Q 3774.0 1518.0 3780.0 1512.0 L 3780.0 1512.0 Q 3786.0 1506.0 3794.5 1506.0 L 3818.0 1506.0 Q 3834.0 1506.0 3845.3 1494.7 L 4146.7 1193.3 Q 4158.0 1182.0 4158.0 1166.0 L 4158.0 1078.0 Q 4158.0 1062.0 4146.7 1050.7 L 3761.3 665.3 Q 3750.0 654.0 3750.0 638.0 L 3750.0 550.0 Q 3750.0 534.0 3738.7 522.7 L 3683.3 467.3 Q 3678.0 462.0 3678.0 454.5 L 3678.0 447.0" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechab45309)"/></g>
-<g id="cx_cetonicos_sangre" class="conexion-inter-ruta"><path d="M 586.0 3630.0 L 370.0 3630.0 Q 354.0 3630.0 342.7 3618.7 L 326.5 3602.5 Q 318.0 3594.0 306.0 3594.0 L 306.0 3594.0 Q 294.0 3594.0 294.0 3582.0 L 294.0 3582.0 Q 294.0 3570.0 285.5 3561.5 L 233.3 3509.3 Q 222.0 3498.0 206.0 3498.0 L 98.5 3498.0 Q 90.0 3498.0 84.0 3492.0 L 84.0 3492.0 Q 78.0 3486.0 78.0 3477.5 L 78.0 3410.5 Q 78.0 3402.0 72.0 3396.0 L 72.0 3396.0 Q 66.0 3390.0 66.0 3381.5 L 66.0 2798.5 Q 66.0 2790.0 72.0 2784.0 L 72.0 2784.0 Q 78.0 2778.0 78.0 2769.5 L 78.0 2654.5 Q 78.0 2646.0 72.0 2640.0 L 70.2 2638.2 Q 66.0 2634.0 66.0 2628.0 L 66.0 2628.0 Q 66.0 2622.0 61.8 2617.8 L 60.0 2616.0 Q 54.0 2610.0 54.0 2601.5 L 54.0 447.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 586.0 3630.0 L 370.0 3630.0 Q 354.0 3630.0 342.7 3618.7 L 326.5 3602.5 Q 318.0 3594.0 306.0 3594.0 L 306.0 3594.0 Q 294.0 3594.0 294.0 3582.0 L 294.0 3582.0 Q 294.0 3570.0 285.5 3561.5 L 233.3 3509.3 Q 222.0 3498.0 206.0 3498.0 L 98.5 3498.0 Q 90.0 3498.0 84.0 3492.0 L 84.0 3492.0 Q 78.0 3486.0 78.0 3477.5 L 78.0 3410.5 Q 78.0 3402.0 72.0 3396.0 L 72.0 3396.0 Q 66.0 3390.0 66.0 3381.5 L 66.0 2798.5 Q 66.0 2790.0 72.0 2784.0 L 72.0 2784.0 Q 78.0 2778.0 78.0 2769.5 L 78.0 2654.5 Q 78.0 2646.0 72.0 2640.0 L 70.2 2638.2 Q 66.0 2634.0 66.0 2628.0 L 66.0 2628.0 Q 66.0 2622.0 61.8 2617.8 L 60.0 2616.0 Q 54.0 2610.0 54.0 2601.5 L 54.0 447.0" fill="none" stroke="#db2777" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechadb2777)"/></g>
-<g id="cx_acetoacetato_sangre" class="conexion-inter-ruta"><path d="M 880.0 3486.0 L 887.0 3486.0 Q 894.0 3486.0 898.9 3481.1 L 906.7 3473.3 Q 918.0 3462.0 918.0 3446.0 L 918.0 3146.5 Q 918.0 3138.0 924.0 3132.0 L 924.0 3132.0 Q 930.0 3126.0 930.0 3117.5 L 930.0 3086.5 Q 930.0 3078.0 924.0 3072.0 L 924.0 3072.0 Q 918.0 3066.0 918.0 3057.5 L 918.0 2830.0 Q 918.0 2814.0 906.7 2802.7 L 773.3 2669.3 Q 762.0 2658.0 746.0 2658.0 L 482.5 2658.0 Q 474.0 2658.0 468.0 2652.0 L 468.0 2652.0 Q 462.0 2646.0 462.0 2637.5 L 462.0 2446.0 Q 462.0 2430.0 473.3 2418.7 L 510.7 2381.3 Q 522.0 2370.0 522.0 2354.0 L 522.0 2326.0 Q 522.0 2310.0 510.7 2298.7 L 497.3 2285.3 Q 486.0 2274.0 470.0 2274.0 L 266.5 2274.0 Q 258.0 2274.0 252.0 2268.0 L 252.0 2268.0 Q 246.0 2262.0 237.5 2262.0 L 98.5 2262.0 Q 90.0 2262.0 84.0 2256.0 L 84.0 2256.0 Q 78.0 2250.0 78.0 2241.5 L 78.0 447.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 880.0 3486.0 L 887.0 3486.0 Q 894.0 3486.0 898.9 3481.1 L 906.7 3473.3 Q 918.0 3462.0 918.0 3446.0 L 918.0 3146.5 Q 918.0 3138.0 924.0 3132.0 L 924.0 3132.0 Q 930.0 3126.0 930.0 3117.5 L 930.0 3086.5 Q 930.0 3078.0 924.0 3072.0 L 924.0 3072.0 Q 918.0 3066.0 918.0 3057.5 L 918.0 2830.0 Q 918.0 2814.0 906.7 2802.7 L 773.3 2669.3 Q 762.0 2658.0 746.0 2658.0 L 482.5 2658.0 Q 474.0 2658.0 468.0 2652.0 L 468.0 2652.0 Q 462.0 2646.0 462.0 2637.5 L 462.0 2446.0 Q 462.0 2430.0 473.3 2418.7 L 510.7 2381.3 Q 522.0 2370.0 522.0 2354.0 L 522.0 2326.0 Q 522.0 2310.0 510.7 2298.7 L 497.3 2285.3 Q 486.0 2274.0 470.0 2274.0 L 266.5 2274.0 Q 258.0 2274.0 252.0 2268.0 L 252.0 2268.0 Q 246.0 2262.0 237.5 2262.0 L 98.5 2262.0 Q 90.0 2262.0 84.0 2256.0 L 84.0 2256.0 Q 78.0 2250.0 78.0 2241.5 L 78.0 447.0" fill="none" stroke="#db2777" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechadb2777)"/></g>
+<g id="cx_cetonicos_sangre" class="conexion-inter-ruta"><path d="M 566.0 3630.0 L 70.0 3630.0 Q 54.0 3630.0 54.0 3614.0 L 54.0 447.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 566.0 3630.0 L 70.0 3630.0 Q 54.0 3630.0 54.0 3614.0 L 54.0 447.0" fill="none" stroke="#db2777" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechadb2777)"/></g>
+<g id="cx_acetoacetato_sangre" class="conexion-inter-ruta"><path d="M 880.0 3486.0 L 954.0 3486.0 Q 968.0 3486.0 968.0 3500.0 L 968.0 3728.0 Q 968.0 3742.0 954.0 3742.0 L 90.0 3742.0 Q 74.0 3742.0 74.0 3726.0 L 74.0 447.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 880.0 3486.0 L 954.0 3486.0 Q 968.0 3486.0 968.0 3500.0 L 968.0 3728.0 Q 968.0 3742.0 954.0 3742.0 L 90.0 3742.0 Q 74.0 3742.0 74.0 3726.0 L 74.0 447.0" fill="none" stroke="#db2777" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechadb2777)"/></g>
 <g id="cx_glutamato_agc" class="conexion-inter-ruta"><path d="M 2399.8 1170.0 L 2582.0 1170.0 Q 2598.0 1170.0 2609.3 1181.3 L 2634.7 1206.7 Q 2646.0 1218.0 2662.0 1218.0 L 2817.5 1218.0 Q 2826.0 1218.0 2832.0 1224.0 L 2832.0 1224.0 Q 2838.0 1230.0 2838.0 1238.5 L 2838.0 1406.0 Q 2838.0 1422.0 2826.7 1433.3 L 2801.3 1458.7 Q 2790.0 1470.0 2774.0 1470.0 L 2474.5 1470.0 Q 2466.0 1470.0 2460.0 1476.0 L 2460.0 1476.0 Q 2454.0 1482.0 2454.0 1490.5 L 2454.0 1586.0 Q 2454.0 1602.0 2442.7 1613.3 L 2321.3 1734.7 Q 2310.0 1746.0 2294.0 1746.0 L 2290.0 1746.0 Q 2274.0 1746.0 2262.7 1757.3 L 2249.3 1770.7 Q 2238.0 1782.0 2238.0 1798.0 L 2238.0 2102.0 Q 2238.0 2118.0 2226.7 2129.3 L 2141.3 2214.7 Q 2130.0 2226.0 2130.0 2242.0 L 2130.0 2330.0 Q 2130.0 2346.0 2118.7 2357.3 L 2117.3 2358.7 Q 2106.0 2370.0 2106.0 2386.0 L 2106.0 2434.1 Q 2106.0 2442.0 2103.5 2449.5 L 2101.0 2457.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2399.8 1170.0 L 2582.0 1170.0 Q 2598.0 1170.0 2609.3 1181.3 L 2634.7 1206.7 Q 2646.0 1218.0 2662.0 1218.0 L 2817.5 1218.0 Q 2826.0 1218.0 2832.0 1224.0 L 2832.0 1224.0 Q 2838.0 1230.0 2838.0 1238.5 L 2838.0 1406.0 Q 2838.0 1422.0 2826.7 1433.3 L 2801.3 1458.7 Q 2790.0 1470.0 2774.0 1470.0 L 2474.5 1470.0 Q 2466.0 1470.0 2460.0 1476.0 L 2460.0 1476.0 Q 2454.0 1482.0 2454.0 1490.5 L 2454.0 1586.0 Q 2454.0 1602.0 2442.7 1613.3 L 2321.3 1734.7 Q 2310.0 1746.0 2294.0 1746.0 L 2290.0 1746.0 Q 2274.0 1746.0 2262.7 1757.3 L 2249.3 1770.7 Q 2238.0 1782.0 2238.0 1798.0 L 2238.0 2102.0 Q 2238.0 2118.0 2226.7 2129.3 L 2141.3 2214.7 Q 2130.0 2226.0 2130.0 2242.0 L 2130.0 2330.0 Q 2130.0 2346.0 2118.7 2357.3 L 2117.3 2358.7 Q 2106.0 2370.0 2106.0 2386.0 L 2106.0 2434.1 Q 2106.0 2442.0 2103.5 2449.5 L 2101.0 2457.0" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 2082.0 2517.0 L 2082.0 2620.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2082.0 2517.0 L 2082.0 2620.0" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
 <g id="cx_akg_gldh_krebs" class="conexion-inter-ruta"><path d="M 1633.0 2982.0 L 1430.5 2982.0 Q 1422.0 2982.0 1416.0 2988.0 L 1416.0 2988.0 Q 1410.0 2994.0 1401.5 2994.0 L 1370.5 2994.0 Q 1362.0 2994.0 1356.0 3000.0 L 1356.0 3000.0 Q 1350.0 3006.0 1350.0 3014.5 L 1350.0 3018.0 Q 1350.0 3030.0 1358.5 3038.5 L 1362.7 3042.7 Q 1374.0 3054.0 1390.0 3054.0 L 1401.5 3054.0 Q 1410.0 3054.0 1416.0 3060.0 L 1416.0 3060.0 Q 1422.0 3066.0 1422.0 3074.5 L 1422.0 3081.5 Q 1422.0 3090.0 1416.0 3096.0 L 1414.6 3097.4 Q 1410.0 3102.0 1410.0 3108.5 L 1410.0 3115.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1633.0 2982.0 L 1430.5 2982.0 Q 1422.0 2982.0 1416.0 2988.0 L 1416.0 2988.0 Q 1410.0 2994.0 1401.5 2994.0 L 1370.5 2994.0 Q 1362.0 2994.0 1356.0 3000.0 L 1356.0 3000.0 Q 1350.0 3006.0 1350.0 3014.5 L 1350.0 3018.0 Q 1350.0 3030.0 1358.5 3038.5 L 1362.7 3042.7 Q 1374.0 3054.0 1390.0 3054.0 L 1401.5 3054.0 Q 1410.0 3054.0 1416.0 3060.0 L 1416.0 3060.0 Q 1422.0 3066.0 1422.0 3074.5 L 1422.0 3081.5 Q 1422.0 3090.0 1416.0 3096.0 L 1414.6 3097.4 Q 1410.0 3102.0 1410.0 3108.5 L 1410.0 3115.0" fill="none" stroke="#b45309" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechab45309)"/></g>
 <g id="cx_nh4_urea" class="conexion-inter-ruta"><path d="M 2454.0 2854.0 L 2454.0 2510.5 Q 2454.0 2502.0 2460.0 2496.0 L 2460.0 2496.0 Q 2466.0 2490.0 2474.5 2490.0 L 2865.5 2490.0 Q 2874.0 2490.0 2880.0 2484.0 L 2880.0 2484.0 Q 2886.0 2478.0 2894.5 2478.0 L 3201.5 2478.0 Q 3210.0 2478.0 3216.0 2484.0 L 3216.0 2484.0 Q 3222.0 2490.0 3230.5 2490.0 L 3813.5 2490.0 Q 3822.0 2490.0 3828.0 2496.0 L 3828.0 2496.0 Q 3834.0 2502.0 3834.0 2510.5 L 3834.0 3410.0 Q 3834.0 3426.0 3845.3 3437.3 L 4032.0 3624.0 Q 4038.0 3630.0 4046.5 3630.0 L 4055.0 3630.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2454.0 2854.0 L 2454.0 2510.5 Q 2454.0 2502.0 2460.0 2496.0 L 2460.0 2496.0 Q 2466.0 2490.0 2474.5 2490.0 L 2865.5 2490.0 Q 2874.0 2490.0 2880.0 2484.0 L 2880.0 2484.0 Q 2886.0 2478.0 2894.5 2478.0 L 3201.5 2478.0 Q 3210.0 2478.0 3216.0 2484.0 L 3216.0 2484.0 Q 3222.0 2490.0 3230.5 2490.0 L 3813.5 2490.0 Q 3822.0 2490.0 3828.0 2496.0 L 3828.0 2496.0 Q 3834.0 2502.0 3834.0 2510.5 L 3834.0 3410.0 Q 3834.0 3426.0 3845.3 3437.3 L 4032.0 3624.0 Q 4038.0 3630.0 4046.5 3630.0 L 4055.0 3630.0" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha2563eb)"/></g>
 <g id="cx_gln_sangre" class="conexion-inter-ruta"><path d="M 2428.9 1326.0 L 2445.5 1326.0 Q 2454.0 1326.0 2460.0 1320.0 L 2460.0 1320.0 Q 2466.0 1314.0 2474.5 1314.0 L 2505.5 1314.0 Q 2514.0 1314.0 2520.0 1320.0 L 2520.0 1320.0 Q 2526.0 1326.0 2534.5 1326.0 L 2589.5 1326.0 Q 2598.0 1326.0 2604.0 1320.0 L 2604.0 1320.0 Q 2610.0 1314.0 2618.5 1314.0 L 2774.0 1314.0 Q 2790.0 1314.0 2801.3 1325.3 L 2802.7 1326.7 Q 2814.0 1338.0 2830.0 1338.0 L 3026.0 1338.0 Q 3042.0 1338.0 3053.3 1326.7 L 3054.7 1325.3 Q 3066.0 1314.0 3082.0 1314.0 L 3086.0 1314.0 Q 3102.0 1314.0 3113.3 1302.7 L 3129.5 1286.5 Q 3138.0 1278.0 3138.0 1266.0 L 3138.0 1262.5 Q 3138.0 1254.0 3144.0 1248.0 L 3144.0 1248.0 Q 3150.0 1242.0 3158.5 1242.0 L 3290.0 1242.0 Q 3306.0 1242.0 3317.3 1230.7 L 3318.7 1229.3 Q 3330.0 1218.0 3330.0 1202.0 L 3330.0 1106.5 Q 3330.0 1098.0 3324.0 1092.0 L 3322.2 1090.2 Q 3318.0 1086.0 3318.0 1080.0 L 3318.0 1080.0 Q 3318.0 1074.0 3312.0 1074.0 L 3262.0 1074.0 Q 3246.0 1074.0 3234.7 1062.7 L 3233.3 1061.3 Q 3222.0 1050.0 3222.0 1034.0 L 3222.0 938.5 Q 3222.0 930.0 3216.0 924.0 L 3216.0 924.0 Q 3210.0 918.0 3201.5 918.0 L 3118.0 918.0 Q 3102.0 918.0 3090.7 906.7 L 3082.2 898.2 Q 3078.0 894.0 3078.0 888.0 L 3078.0 888.0 Q 3078.0 882.0 3073.8 877.8 L 2993.3 797.3 Q 2982.0 786.0 2982.0 770.0 L 2982.0 482.5 Q 2982.0 474.0 2976.0 468.0 L 2976.0 468.0 Q 2970.0 462.0 2961.5 462.0 L 2582.5 462.0 Q 2574.0 462.0 2568.0 456.0 L 2568.0 456.0 Q 2562.0 450.0 2553.5 450.0 L 2390.5 450.0 Q 2382.0 450.0 2376.0 456.0 L 2374.2 457.8 Q 2370.0 462.0 2364.0 462.0 L 2364.0 462.0 Q 2358.0 462.0 2358.0 456.0 L 2358.0 447.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2428.9 1326.0 L 2445.5 1326.0 Q 2454.0 1326.0 2460.0 1320.0 L 2460.0 1320.0 Q 2466.0 1314.0 2474.5 1314.0 L 2505.5 1314.0 Q 2514.0 1314.0 2520.0 1320.0 L 2520.0 1320.0 Q 2526.0 1326.0 2534.5 1326.0 L 2589.5 1326.0 Q 2598.0 1326.0 2604.0 1320.0 L 2604.0 1320.0 Q 2610.0 1314.0 2618.5 1314.0 L 2774.0 1314.0 Q 2790.0 1314.0 2801.3 1325.3 L 2802.7 1326.7 Q 2814.0 1338.0 2830.0 1338.0 L 3026.0 1338.0 Q 3042.0 1338.0 3053.3 1326.7 L 3054.7 1325.3 Q 3066.0 1314.0 3082.0 1314.0 L 3086.0 1314.0 Q 3102.0 1314.0 3113.3 1302.7 L 3129.5 1286.5 Q 3138.0 1278.0 3138.0 1266.0 L 3138.0 1262.5 Q 3138.0 1254.0 3144.0 1248.0 L 3144.0 1248.0 Q 3150.0 1242.0 3158.5 1242.0 L 3290.0 1242.0 Q 3306.0 1242.0 3317.3 1230.7 L 3318.7 1229.3 Q 3330.0 1218.0 3330.0 1202.0 L 3330.0 1106.5 Q 3330.0 1098.0 3324.0 1092.0 L 3322.2 1090.2 Q 3318.0 1086.0 3318.0 1080.0 L 3318.0 1080.0 Q 3318.0 1074.0 3312.0 1074.0 L 3262.0 1074.0 Q 3246.0 1074.0 3234.7 1062.7 L 3233.3 1061.3 Q 3222.0 1050.0 3222.0 1034.0 L 3222.0 938.5 Q 3222.0 930.0 3216.0 924.0 L 3216.0 924.0 Q 3210.0 918.0 3201.5 918.0 L 3118.0 918.0 Q 3102.0 918.0 3090.7 906.7 L 3082.2 898.2 Q 3078.0 894.0 3078.0 888.0 L 3078.0 888.0 Q 3078.0 882.0 3073.8 877.8 L 2993.3 797.3 Q 2982.0 786.0 2982.0 770.0 L 2982.0 482.5 Q 2982.0 474.0 2976.0 468.0 L 2976.0 468.0 Q 2970.0 462.0 2961.5 462.0 L 2582.5 462.0 Q 2574.0 462.0 2568.0 456.0 L 2568.0 456.0 Q 2562.0 450.0 2553.5 450.0 L 2390.5 450.0 Q 2382.0 450.0 2376.0 456.0 L 2374.2 457.8 Q 2370.0 462.0 2364.0 462.0 L 2364.0 462.0 Q 2358.0 462.0 2358.0 456.0 L 2358.0 447.0" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
 <g id="cx_tyr_fumarato" class="conexion-inter-ruta"><path d="M 2506.0 2010.0 L 2282.5 2010.0 Q 2274.0 2010.0 2268.0 2016.0 L 2268.0 2016.0 Q 2262.0 2022.0 2262.0 2030.5 L 2262.0 2102.0 Q 2262.0 2118.0 2273.3 2129.3 L 2358.7 2214.7 Q 2370.0 2226.0 2370.0 2242.0 L 2370.0 2762.0 Q 2370.0 2778.0 2358.7 2789.3 L 2333.3 2814.7 Q 2322.0 2826.0 2306.0 2826.0 L 2282.5 2826.0 Q 2274.0 2826.0 2268.0 2832.0 L 2268.0 2832.0 Q 2262.0 2838.0 2253.5 2838.0 L 2242.0 2838.0 Q 2226.0 2838.0 2214.7 2849.3 L 2081.3 2982.7 Q 2070.0 2994.0 2070.0 3010.0 L 2070.0 3230.0 Q 2070.0 3246.0 2058.7 3257.3 L 1973.3 3342.7 Q 1962.0 3354.0 1946.0 3354.0 L 1414.0 3354.0 Q 1398.0 3354.0 1386.7 3365.3 L 1325.3 3426.7 Q 1314.0 3438.0 1298.0 3438.0 L 1262.5 3438.0 Q 1254.0 3438.0 1248.0 3444.0 L 1248.0 3444.0 Q 1242.0 3450.0 1242.0 3458.5 L 1242.0 3642.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2506.0 2010.0 L 2282.5 2010.0 Q 2274.0 2010.0 2268.0 2016.0 L 2268.0 2016.0 Q 2262.0 2022.0 2262.0 2030.5 L 2262.0 2102.0 Q 2262.0 2118.0 2273.3 2129.3 L 2358.7 2214.7 Q 2370.0 2226.0 2370.0 2242.0 L 2370.0 2762.0 Q 2370.0 2778.0 2358.7 2789.3 L 2333.3 2814.7 Q 2322.0 2826.0 2306.0 2826.0 L 2282.5 2826.0 Q 2274.0 2826.0 2268.0 2832.0 L 2268.0 2832.0 Q 2262.0 2838.0 2253.5 2838.0 L 2242.0 2838.0 Q 2226.0 2838.0 2214.7 2849.3 L 2081.3 2982.7 Q 2070.0 2994.0 2070.0 3010.0 L 2070.0 3230.0 Q 2070.0 3246.0 2058.7 3257.3 L 1973.3 3342.7 Q 1962.0 3354.0 1946.0 3354.0 L 1414.0 3354.0 Q 1398.0 3354.0 1386.7 3365.3 L 1325.3 3426.7 Q 1314.0 3438.0 1298.0 3438.0 L 1262.5 3438.0 Q 1254.0 3438.0 1248.0 3444.0 L 1248.0 3444.0 Q 1242.0 3450.0 1242.0 3458.5 L 1242.0 3642.0" fill="none" stroke="#059669" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha059669)"/></g>
 <g id="cx_tyr_acetoacetato" class="conexion-inter-ruta"><path d="M 2739.5 1962.0 L 2913.5 1962.0 Q 2922.0 1962.0 2928.0 1968.0 L 2928.0 1968.0 Q 2934.0 1974.0 2934.0 1982.5 L 2934.0 2258.0 Q 2934.0 2274.0 2945.3 2285.3 L 3042.7 2382.7 Q 3054.0 2394.0 3070.0 2394.0 L 3681.5 2394.0 Q 3690.0 2394.0 3696.0 2400.0 L 3696.0 2400.0 Q 3702.0 2406.0 3702.0 2414.5 L 3702.0 2445.5 Q 3702.0 2454.0 3708.0 2460.0 L 3708.0 2460.0 Q 3714.0 2466.0 3722.5 2466.0 L 4029.5 2466.0 Q 4038.0 2466.0 4044.0 2472.0 L 4044.0 2472.0 Q 4050.0 2478.0 4050.0 2486.5 L 4050.0 3134.0 Q 4050.0 3150.0 4038.7 3161.3 L 4037.3 3162.7 Q 4026.0 3174.0 4026.0 3190.0 L 4026.0 3278.0 Q 4026.0 3294.0 4037.3 3305.3 L 4098.7 3366.7 Q 4110.0 3378.0 4126.0 3378.0 L 4382.0 3378.0 Q 4398.0 3378.0 4409.3 3389.3 L 4470.7 3450.7 Q 4482.0 3462.0 4482.0 3478.0 L 4482.0 3657.5 Q 4482.0 3666.0 4476.0 3672.0 L 4476.0 3672.0 Q 4470.0 3678.0 4461.5 3678.0 L 1414.0 3678.0 Q 1398.0 3678.0 1386.7 3689.3 L 1313.3 3762.7 Q 1302.0 3774.0 1286.0 3774.0 L 1226.5 3774.0 Q 1218.0 3774.0 1212.0 3768.0 L 1212.0 3768.0 Q 1206.0 3762.0 1197.5 3762.0 L 1066.0 3762.0 Q 1050.0 3762.0 1038.7 3750.7 L 1025.3 3737.3 Q 1014.0 3726.0 998.0 3726.0 L 802.0 3726.0 Q 786.0 3726.0 774.7 3714.7 L 773.3 3713.3 Q 762.0 3702.0 762.0 3686.0 L 762.0 3638.5 Q 762.0 3630.0 768.0 3624.0 L 768.0 3624.0 Q 774.0 3618.0 782.5 3618.0 L 813.5 3618.0 Q 822.0 3618.0 828.0 3612.0 L 828.0 3612.0 Q 834.0 3606.0 834.0 3597.5 L 834.0 3549.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2739.5 1962.0 L 2913.5 1962.0 Q 2922.0 1962.0 2928.0 1968.0 L 2928.0 1968.0 Q 2934.0 1974.0 2934.0 1982.5 L 2934.0 2258.0 Q 2934.0 2274.0 2945.3 2285.3 L 3042.7 2382.7 Q 3054.0 2394.0 3070.0 2394.0 L 3681.5 2394.0 Q 3690.0 2394.0 3696.0 2400.0 L 3696.0 2400.0 Q 3702.0 2406.0 3702.0 2414.5 L 3702.0 2445.5 Q 3702.0 2454.0 3708.0 2460.0 L 3708.0 2460.0 Q 3714.0 2466.0 3722.5 2466.0 L 4029.5 2466.0 Q 4038.0 2466.0 4044.0 2472.0 L 4044.0 2472.0 Q 4050.0 2478.0 4050.0 2486.5 L 4050.0 3134.0 Q 4050.0 3150.0 4038.7 3161.3 L 4037.3 3162.7 Q 4026.0 3174.0 4026.0 3190.0 L 4026.0 3278.0 Q 4026.0 3294.0 4037.3 3305.3 L 4098.7 3366.7 Q 4110.0 3378.0 4126.0 3378.0 L 4382.0 3378.0 Q 4398.0 3378.0 4409.3 3389.3 L 4470.7 3450.7 Q 4482.0 3462.0 4482.0 3478.0 L 4482.0 3657.5 Q 4482.0 3666.0 4476.0 3672.0 L 4476.0 3672.0 Q 4470.0 3678.0 4461.5 3678.0 L 1414.0 3678.0 Q 1398.0 3678.0 1386.7 3689.3 L 1313.3 3762.7 Q 1302.0 3774.0 1286.0 3774.0 L 1226.5 3774.0 Q 1218.0 3774.0 1212.0 3768.0 L 1212.0 3768.0 Q 1206.0 3762.0 1197.5 3762.0 L 1066.0 3762.0 Q 1050.0 3762.0 1038.7 3750.7 L 1025.3 3737.3 Q 1014.0 3726.0 998.0 3726.0 L 802.0 3726.0 Q 786.0 3726.0 774.7 3714.7 L 773.3 3713.3 Q 762.0 3702.0 762.0 3686.0 L 762.0 3638.5 Q 762.0 3630.0 768.0 3624.0 L 768.0 3624.0 Q 774.0 3618.0 782.5 3618.0 L 813.5 3618.0 Q 822.0 3618.0 828.0 3612.0 L 828.0 3612.0 Q 834.0 3606.0 834.0 3597.5 L 834.0 3549.0" fill="none" stroke="#db2777" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechadb2777)"/></g>
-<g id="cx_cistat_propionil" class="conexion-inter-ruta"><path d="M 2778.5 2010.0 L 2638.0 2010.0 Q 2622.0 2010.0 2610.7 2021.3 L 2609.3 2022.7 Q 2598.0 2034.0 2582.0 2034.0 L 2498.5 2034.0 Q 2490.0 2034.0 2484.0 2028.0 L 2484.0 2028.0 Q 2478.0 2022.0 2478.0 2013.5 L 2478.0 1954.0 Q 2478.0 1938.0 2466.7 1926.7 L 2441.3 1901.3 Q 2430.0 1890.0 2414.0 1890.0 L 1946.5 1890.0 Q 1938.0 1890.0 1932.0 1896.0 L 1932.0 1896.0 Q 1926.0 1902.0 1917.5 1902.0 L 1898.5 1902.0 Q 1890.0 1902.0 1884.0 1896.0 L 1884.0 1896.0 Q 1878.0 1890.0 1869.5 1890.0 L 1846.0 1890.0 Q 1830.0 1890.0 1818.7 1878.7 L 1781.3 1841.3 Q 1770.0 1830.0 1754.0 1830.0 L 1654.0 1830.0 Q 1638.0 1830.0 1626.7 1818.7 L 1373.3 1565.3 Q 1362.0 1554.0 1346.0 1554.0 L 358.0 1554.0 Q 342.0 1554.0 330.7 1565.3 L 149.3 1746.7 Q 138.0 1758.0 122.0 1758.0 L 46.0 1758.0 Q 30.0 1758.0 30.0 1774.0 L 30.0 2606.0 Q 30.0 2622.0 46.0 2622.0 L 134.0 2622.0 Q 150.0 2622.0 161.3 2610.7 L 165.5 2606.5 Q 174.0 2598.0 186.0 2598.0 L 189.5 2598.0 Q 198.0 2598.0 204.0 2604.0 L 204.0 2604.0 Q 210.0 2610.0 218.5 2610.0 L 302.0 2610.0 Q 318.0 2610.0 329.3 2621.3 L 366.7 2658.7 Q 378.0 2670.0 394.0 2670.0 L 422.0 2670.0 Q 438.0 2670.0 449.3 2681.3 L 534.7 2766.7 Q 546.0 2778.0 546.0 2794.0 L 546.0 2841.5 Q 546.0 2850.0 552.0 2856.0 L 552.0 2856.0 Q 558.0 2862.0 566.5 2862.0 L 603.5 2862.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2778.5 2010.0 L 2638.0 2010.0 Q 2622.0 2010.0 2610.7 2021.3 L 2609.3 2022.7 Q 2598.0 2034.0 2582.0 2034.0 L 2498.5 2034.0 Q 2490.0 2034.0 2484.0 2028.0 L 2484.0 2028.0 Q 2478.0 2022.0 2478.0 2013.5 L 2478.0 1954.0 Q 2478.0 1938.0 2466.7 1926.7 L 2441.3 1901.3 Q 2430.0 1890.0 2414.0 1890.0 L 1946.5 1890.0 Q 1938.0 1890.0 1932.0 1896.0 L 1932.0 1896.0 Q 1926.0 1902.0 1917.5 1902.0 L 1898.5 1902.0 Q 1890.0 1902.0 1884.0 1896.0 L 1884.0 1896.0 Q 1878.0 1890.0 1869.5 1890.0 L 1846.0 1890.0 Q 1830.0 1890.0 1818.7 1878.7 L 1781.3 1841.3 Q 1770.0 1830.0 1754.0 1830.0 L 1654.0 1830.0 Q 1638.0 1830.0 1626.7 1818.7 L 1373.3 1565.3 Q 1362.0 1554.0 1346.0 1554.0 L 358.0 1554.0 Q 342.0 1554.0 330.7 1565.3 L 149.3 1746.7 Q 138.0 1758.0 122.0 1758.0 L 46.0 1758.0 Q 30.0 1758.0 30.0 1774.0 L 30.0 2606.0 Q 30.0 2622.0 46.0 2622.0 L 134.0 2622.0 Q 150.0 2622.0 161.3 2610.7 L 165.5 2606.5 Q 174.0 2598.0 186.0 2598.0 L 189.5 2598.0 Q 198.0 2598.0 204.0 2604.0 L 204.0 2604.0 Q 210.0 2610.0 218.5 2610.0 L 302.0 2610.0 Q 318.0 2610.0 329.3 2621.3 L 366.7 2658.7 Q 378.0 2670.0 394.0 2670.0 L 422.0 2670.0 Q 438.0 2670.0 449.3 2681.3 L 534.7 2766.7 Q 546.0 2778.0 546.0 2794.0 L 546.0 2841.5 Q 546.0 2850.0 552.0 2856.0 L 552.0 2856.0 Q 558.0 2862.0 566.5 2862.0 L 603.5 2862.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
+<g id="cx_cistat_propionil" class="conexion-inter-ruta"><path d="M 2778.5 2010.0 L 2638.0 2010.0 Q 2622.0 2010.0 2610.7 2021.3 L 2609.3 2022.7 Q 2598.0 2034.0 2582.0 2034.0 L 2498.5 2034.0 Q 2490.0 2034.0 2484.0 2028.0 L 2484.0 2028.0 Q 2478.0 2022.0 2478.0 2013.5 L 2478.0 1954.0 Q 2478.0 1938.0 2466.7 1926.7 L 2441.3 1901.3 Q 2430.0 1890.0 2414.0 1890.0 L 1946.5 1890.0 Q 1938.0 1890.0 1932.0 1896.0 L 1932.0 1896.0 Q 1926.0 1902.0 1917.5 1902.0 L 1898.5 1902.0 Q 1890.0 1902.0 1884.0 1896.0 L 1884.0 1896.0 Q 1878.0 1890.0 1869.5 1890.0 L 1846.0 1890.0 Q 1830.0 1890.0 1818.7 1878.7 L 1781.3 1841.3 Q 1770.0 1830.0 1754.0 1830.0 L 1654.0 1830.0 Q 1638.0 1830.0 1626.7 1818.7 L 1373.3 1565.3 Q 1362.0 1554.0 1346.0 1554.0 L 358.0 1554.0 Q 342.0 1554.0 330.7 1565.3 L 149.3 1746.7 Q 138.0 1758.0 122.0 1758.0 L 46.0 1758.0 Q 30.0 1758.0 30.0 1774.0 L 30.0 2846.0 Q 30.0 2862.0 46.0 2862.0 L 566.5 2862.0 L 603.5 2862.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2778.5 2010.0 L 2638.0 2010.0 Q 2622.0 2010.0 2610.7 2021.3 L 2609.3 2022.7 Q 2598.0 2034.0 2582.0 2034.0 L 2498.5 2034.0 Q 2490.0 2034.0 2484.0 2028.0 L 2484.0 2028.0 Q 2478.0 2022.0 2478.0 2013.5 L 2478.0 1954.0 Q 2478.0 1938.0 2466.7 1926.7 L 2441.3 1901.3 Q 2430.0 1890.0 2414.0 1890.0 L 1946.5 1890.0 Q 1938.0 1890.0 1932.0 1896.0 L 1932.0 1896.0 Q 1926.0 1902.0 1917.5 1902.0 L 1898.5 1902.0 Q 1890.0 1902.0 1884.0 1896.0 L 1884.0 1896.0 Q 1878.0 1890.0 1869.5 1890.0 L 1846.0 1890.0 Q 1830.0 1890.0 1818.7 1878.7 L 1781.3 1841.3 Q 1770.0 1830.0 1754.0 1830.0 L 1654.0 1830.0 Q 1638.0 1830.0 1626.7 1818.7 L 1373.3 1565.3 Q 1362.0 1554.0 1346.0 1554.0 L 358.0 1554.0 Q 342.0 1554.0 330.7 1565.3 L 149.3 1746.7 Q 138.0 1758.0 122.0 1758.0 L 46.0 1758.0 Q 30.0 1758.0 30.0 1774.0 L 30.0 2846.0 Q 30.0 2862.0 46.0 2862.0 L 566.5 2862.0 L 603.5 2862.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
 <g id="cx_citrulina_translocacion" class="conexion-inter-ruta"><path d="M 4446.0 2724.6 L 4446.0 2558.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 4446.0 2724.6 L 4446.0 2558.0" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 4446.0 2483.0 L 4446.0 2424.9" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 4446.0 2483.0 L 4446.0 2424.9" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
 <g id="cx_ornitina_retorno" class="conexion-inter-ruta"><path d="M 4734.0 1345.0 L 4734.0 1893.5 Q 4734.0 1902.0 4728.0 1908.0 L 4728.0 1908.0 Q 4722.0 1914.0 4722.0 1922.5 L 4722.0 2126.0 Q 4722.0 2142.0 4733.3 2153.3 L 4794.7 2214.7 Q 4806.0 2226.0 4806.0 2242.0 L 4806.0 2354.0 Q 4806.0 2370.0 4794.7 2381.3 L 4715.8 2460.2 Q 4710.0 2466.0 4708.0 2474.0 L 4706.0 2482.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 4734.0 1345.0 L 4734.0 1893.5 Q 4734.0 1902.0 4728.0 1908.0 L 4728.0 1908.0 Q 4722.0 1914.0 4722.0 1922.5 L 4722.0 2126.0 Q 4722.0 2142.0 4733.3 2153.3 L 4794.7 2214.7 Q 4806.0 2226.0 4806.0 2242.0 L 4806.0 2354.0 Q 4806.0 2370.0 4794.7 2381.3 L 4715.8 2460.2 Q 4710.0 2466.0 4708.0 2474.0 L 4706.0 2482.0" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 4698.0 2557.0 L 4698.0 2594.0 Q 4698.0 2610.0 4709.3 2621.3 L 4746.7 2658.7 Q 4758.0 2670.0 4758.0 2686.0 L 4758.0 2834.0 Q 4758.0 2850.0 4746.7 2861.3 L 4685.3 2922.7 Q 4674.0 2934.0 4674.0 2950.0 L 4674.0 3211.6" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 4698.0 2557.0 L 4698.0 2594.0 Q 4698.0 2610.0 4709.3 2621.3 L 4746.7 2658.7 Q 4758.0 2670.0 4758.0 2686.0 L 4758.0 2834.0 Q 4758.0 2850.0 4746.7 2861.3 L 4685.3 2922.7 Q 4674.0 2934.0 4674.0 2950.0 L 4674.0 3211.6" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha2563eb)"/></g>
-<g id="cx_oaa_got2_asp" class="conexion-inter-ruta"><path d="M 986.8 2622.0 L 1000.4 2622.0 Q 1014.0 2622.0 1023.6 2612.4 L 1026.7 2609.3 Q 1038.0 2598.0 1054.0 2598.0 L 1298.0 2598.0 Q 1314.0 2598.0 1325.3 2586.7 L 1338.7 2573.3 Q 1350.0 2562.0 1366.0 2562.0 L 1533.5 2562.0 Q 1542.0 2562.0 1548.0 2556.0 L 1548.0 2556.0 Q 1554.0 2550.0 1562.5 2550.0 L 1641.5 2550.0 Q 1650.0 2550.0 1656.0 2556.0 L 1656.0 2556.0 Q 1662.0 2562.0 1670.5 2562.0 L 2378.0 2562.0 Q 2394.0 2562.0 2405.3 2550.7 L 2418.7 2537.3 Q 2430.0 2526.0 2430.0 2510.0 L 2430.0 2486.5 Q 2430.0 2478.0 2436.0 2472.0 L 2436.0 2472.0 Q 2442.0 2466.0 2450.5 2466.0 L 2565.5 2466.0 Q 2574.0 2466.0 2580.0 2460.0 L 2580.0 2460.0 Q 2586.0 2454.0 2586.0 2445.5 L 2586.0 2422.0 Q 2586.0 2406.0 2597.3 2394.7 L 2706.7 2285.3 Q 2718.0 2274.0 2718.0 2258.0 L 2718.0 2242.0 Q 2718.0 2226.0 2729.3 2214.7 L 2742.7 2201.3 Q 2754.0 2190.0 2770.0 2190.0 L 3806.0 2190.0 Q 3822.0 2190.0 3833.3 2178.7 L 3888.3 2123.7 Q 3894.0 2118.0 3894.0 2109.9 L 3894.0 2101.8" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 986.8 2622.0 L 1000.4 2622.0 Q 1014.0 2622.0 1023.6 2612.4 L 1026.7 2609.3 Q 1038.0 2598.0 1054.0 2598.0 L 1298.0 2598.0 Q 1314.0 2598.0 1325.3 2586.7 L 1338.7 2573.3 Q 1350.0 2562.0 1366.0 2562.0 L 1533.5 2562.0 Q 1542.0 2562.0 1548.0 2556.0 L 1548.0 2556.0 Q 1554.0 2550.0 1562.5 2550.0 L 1641.5 2550.0 Q 1650.0 2550.0 1656.0 2556.0 L 1656.0 2556.0 Q 1662.0 2562.0 1670.5 2562.0 L 2378.0 2562.0 Q 2394.0 2562.0 2405.3 2550.7 L 2418.7 2537.3 Q 2430.0 2526.0 2430.0 2510.0 L 2430.0 2486.5 Q 2430.0 2478.0 2436.0 2472.0 L 2436.0 2472.0 Q 2442.0 2466.0 2450.5 2466.0 L 2565.5 2466.0 Q 2574.0 2466.0 2580.0 2460.0 L 2580.0 2460.0 Q 2586.0 2454.0 2586.0 2445.5 L 2586.0 2422.0 Q 2586.0 2406.0 2597.3 2394.7 L 2706.7 2285.3 Q 2718.0 2274.0 2718.0 2258.0 L 2718.0 2242.0 Q 2718.0 2226.0 2729.3 2214.7 L 2742.7 2201.3 Q 2754.0 2190.0 2770.0 2190.0 L 3806.0 2190.0 Q 3822.0 2190.0 3833.3 2178.7 L 3888.3 2123.7 Q 3894.0 2118.0 3894.0 2109.9 L 3894.0 2101.8" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
+<g id="cx_oaa_got2_asp" class="conexion-inter-ruta"><path d="M 830.0 2612.0 L 830.0 2250.0 Q 830.0 2236.0 817.5 2236.0 Q 805.0 2236.0 805.0 2222.0 L 805.0 2065.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 830.0 2612.0 L 830.0 2250.0 Q 830.0 2236.0 817.5 2236.0 Q 805.0 2236.0 805.0 2222.0 L 805.0 2065.0" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
 <g id="cx_urea_fumarato_krebs" class="conexion-inter-ruta"><path d="M 4187.0 1494.0 L 4202.5 1494.0 Q 4218.0 1494.0 4229.0 1483.0 L 4362.7 1349.3 Q 4374.0 1338.0 4390.0 1338.0 L 4526.0 1338.0 Q 4542.0 1338.0 4553.3 1349.3 L 4554.7 1350.7 Q 4566.0 1362.0 4582.0 1362.0 L 4610.0 1362.0 Q 4626.0 1362.0 4637.3 1373.3 L 4638.7 1374.7 Q 4650.0 1386.0 4666.0 1386.0 L 4689.5 1386.0 Q 4698.0 1386.0 4704.0 1380.0 L 4704.0 1380.0 Q 4710.0 1374.0 4710.0 1365.5 L 4710.0 1334.5 Q 4710.0 1326.0 4716.0 1320.0 L 4716.0 1320.0 Q 4722.0 1314.0 4730.5 1314.0 L 4734.0 1314.0 Q 4746.0 1314.0 4754.5 1322.5 L 4758.7 1326.7 Q 4770.0 1338.0 4770.0 1354.0 L 4770.0 1905.5 Q 4770.0 1914.0 4764.0 1920.0 L 4764.0 1920.0 Q 4758.0 1926.0 4749.5 1926.0 L 4746.0 1926.0 Q 4734.0 1926.0 4734.0 1938.0 L 4734.0 1965.5 Q 4734.0 1974.0 4740.0 1980.0 L 4740.0 1980.0 Q 4746.0 1986.0 4746.0 1994.5 L 4746.0 2078.0 Q 4746.0 2094.0 4757.3 2105.3 L 4866.7 2214.7 Q 4878.0 2226.0 4878.0 2242.0 L 4878.0 3273.5 Q 4878.0 3282.0 4872.0 3288.0 L 4872.0 3288.0 Q 4866.0 3294.0 4857.5 3294.0 L 4754.5 3294.0 Q 4746.0 3294.0 4740.0 3300.0 L 4740.0 3300.0 Q 4734.0 3306.0 4734.0 3314.5 L 4734.0 3446.0 Q 4734.0 3462.0 4722.7 3473.3 L 4481.3 3714.7 Q 4470.0 3726.0 4454.0 3726.0 L 1367.0 3726.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 4187.0 1494.0 L 4202.5 1494.0 Q 4218.0 1494.0 4229.0 1483.0 L 4362.7 1349.3 Q 4374.0 1338.0 4390.0 1338.0 L 4526.0 1338.0 Q 4542.0 1338.0 4553.3 1349.3 L 4554.7 1350.7 Q 4566.0 1362.0 4582.0 1362.0 L 4610.0 1362.0 Q 4626.0 1362.0 4637.3 1373.3 L 4638.7 1374.7 Q 4650.0 1386.0 4666.0 1386.0 L 4689.5 1386.0 Q 4698.0 1386.0 4704.0 1380.0 L 4704.0 1380.0 Q 4710.0 1374.0 4710.0 1365.5 L 4710.0 1334.5 Q 4710.0 1326.0 4716.0 1320.0 L 4716.0 1320.0 Q 4722.0 1314.0 4730.5 1314.0 L 4734.0 1314.0 Q 4746.0 1314.0 4754.5 1322.5 L 4758.7 1326.7 Q 4770.0 1338.0 4770.0 1354.0 L 4770.0 1905.5 Q 4770.0 1914.0 4764.0 1920.0 L 4764.0 1920.0 Q 4758.0 1926.0 4749.5 1926.0 L 4746.0 1926.0 Q 4734.0 1926.0 4734.0 1938.0 L 4734.0 1965.5 Q 4734.0 1974.0 4740.0 1980.0 L 4740.0 1980.0 Q 4746.0 1986.0 4746.0 1994.5 L 4746.0 2078.0 Q 4746.0 2094.0 4757.3 2105.3 L 4866.7 2214.7 Q 4878.0 2226.0 4878.0 2242.0 L 4878.0 3273.5 Q 4878.0 3282.0 4872.0 3288.0 L 4872.0 3288.0 Q 4866.0 3294.0 4857.5 3294.0 L 4754.5 3294.0 Q 4746.0 3294.0 4740.0 3300.0 L 4740.0 3300.0 Q 4734.0 3306.0 4734.0 3314.5 L 4734.0 3446.0 Q 4734.0 3462.0 4722.7 3473.3 L 4481.3 3714.7 Q 4470.0 3726.0 4454.0 3726.0 L 1367.0 3726.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
 <g id="cx_urea_sangre" class="conexion-inter-ruta"><path d="M 4530.0 983.5 L 4530.0 469.9 Q 4530.0 462.0 4532.2 454.5 L 4534.4 446.9" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 4530.0 983.5 L 4530.0 469.9 Q 4530.0 462.0 4532.2 454.5 L 4534.4 446.9" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechadc2626)"/></g>
 <g id="cx_glutamina_cps2" class="conexion-inter-ruta"><path d="M 2406.0 1508.0 L 2406.0 1557.5 Q 2406.0 1566.0 2412.0 1572.0 L 2412.0 1572.0 Q 2418.0 1578.0 2426.5 1578.0 L 2577.5 1578.0 Q 2586.0 1578.0 2592.0 1584.0 L 2592.0 1584.0 Q 2598.0 1590.0 2606.5 1590.0 L 2685.5 1590.0 Q 2694.0 1590.0 2700.0 1584.0 L 2700.0 1584.0 Q 2706.0 1578.0 2714.5 1578.0 L 2870.0 1578.0 Q 2886.0 1578.0 2897.3 1589.3 L 2946.7 1638.7 Q 2958.0 1650.0 2974.0 1650.0 L 3033.5 1650.0 Q 3042.0 1650.0 3048.0 1644.0 L 3048.0 1644.0 Q 3054.0 1638.0 3062.5 1638.0 L 3153.5 1638.0 Q 3162.0 1638.0 3168.0 1632.0 L 3168.0 1632.0 Q 3174.0 1626.0 3182.5 1626.0 L 3453.5 1626.0 Q 3462.0 1626.0 3468.0 1632.0 L 3468.0 1632.0 Q 3474.0 1638.0 3474.0 1646.5 L 3474.0 1761.5 Q 3474.0 1770.0 3468.0 1776.0 L 3468.0 1776.0 Q 3462.0 1782.0 3462.0 1790.5 L 3462.0 1929.5 Q 3462.0 1938.0 3456.0 1944.0 L 3456.0 1944.0 Q 3450.0 1950.0 3450.0 1958.5 L 3450.0 2054.0 Q 3450.0 2070.0 3461.3 2081.3 L 3522.7 2142.7 Q 3534.0 2154.0 3550.0 2154.0 L 3801.5 2154.0 Q 3810.0 2154.0 3816.0 2148.0 L 3816.0 2148.0 Q 3822.0 2142.0 3830.5 2142.0 L 3834.0 2142.0 Q 3846.0 2142.0 3846.0 2130.0 L 3846.0 2126.5 Q 3846.0 2118.0 3852.0 2112.0 L 3852.0 2112.0 Q 3858.0 2106.0 3858.0 2097.5 L 3858.0 2090.5 Q 3858.0 2082.0 3864.0 2076.0 L 3864.0 2076.0 Q 3870.0 2070.0 3878.5 2070.0 L 3926.0 2070.0 Q 3942.0 2070.0 3953.3 2081.3 L 3973.8 2101.8 Q 3978.0 2106.0 3984.0 2106.0 L 3984.0 2106.0 Q 3990.0 2106.0 3994.2 2110.2 L 4002.7 2118.7 Q 4014.0 2130.0 4030.0 2130.0 L 4502.0 2130.0 Q 4518.0 2130.0 4529.3 2118.7 L 4686.7 1961.3 Q 4698.0 1950.0 4698.0 1934.0 L 4698.0 1790.5 Q 4698.0 1782.0 4704.0 1776.0 L 4704.0 1776.0 Q 4710.0 1770.0 4718.5 1770.0 L 4778.0 1770.0 Q 4794.0 1770.0 4805.3 1758.7 L 4974.7 1589.3 Q 4986.0 1578.0 4986.0 1562.0 L 4986.0 1334.5 Q 4986.0 1326.0 4992.0 1320.0 L 4992.0 1320.0 Q 4998.0 1314.0 5006.5 1314.0 L 5065.0 1314.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 2406.0 1508.0 L 2406.0 1557.5 Q 2406.0 1566.0 2412.0 1572.0 L 2412.0 1572.0 Q 2418.0 1578.0 2426.5 1578.0 L 2577.5 1578.0 Q 2586.0 1578.0 2592.0 1584.0 L 2592.0 1584.0 Q 2598.0 1590.0 2606.5 1590.0 L 2685.5 1590.0 Q 2694.0 1590.0 2700.0 1584.0 L 2700.0 1584.0 Q 2706.0 1578.0 2714.5 1578.0 L 2870.0 1578.0 Q 2886.0 1578.0 2897.3 1589.3 L 2946.7 1638.7 Q 2958.0 1650.0 2974.0 1650.0 L 3033.5 1650.0 Q 3042.0 1650.0 3048.0 1644.0 L 3048.0 1644.0 Q 3054.0 1638.0 3062.5 1638.0 L 3153.5 1638.0 Q 3162.0 1638.0 3168.0 1632.0 L 3168.0 1632.0 Q 3174.0 1626.0 3182.5 1626.0 L 3453.5 1626.0 Q 3462.0 1626.0 3468.0 1632.0 L 3468.0 1632.0 Q 3474.0 1638.0 3474.0 1646.5 L 3474.0 1761.5 Q 3474.0 1770.0 3468.0 1776.0 L 3468.0 1776.0 Q 3462.0 1782.0 3462.0 1790.5 L 3462.0 1929.5 Q 3462.0 1938.0 3456.0 1944.0 L 3456.0 1944.0 Q 3450.0 1950.0 3450.0 1958.5 L 3450.0 2054.0 Q 3450.0 2070.0 3461.3 2081.3 L 3522.7 2142.7 Q 3534.0 2154.0 3550.0 2154.0 L 3801.5 2154.0 Q 3810.0 2154.0 3816.0 2148.0 L 3816.0 2148.0 Q 3822.0 2142.0 3830.5 2142.0 L 3834.0 2142.0 Q 3846.0 2142.0 3846.0 2130.0 L 3846.0 2126.5 Q 3846.0 2118.0 3852.0 2112.0 L 3852.0 2112.0 Q 3858.0 2106.0 3858.0 2097.5 L 3858.0 2090.5 Q 3858.0 2082.0 3864.0 2076.0 L 3864.0 2076.0 Q 3870.0 2070.0 3878.5 2070.0 L 3926.0 2070.0 Q 3942.0 2070.0 3953.3 2081.3 L 3973.8 2101.8 Q 3978.0 2106.0 3984.0 2106.0 L 3984.0 2106.0 Q 3990.0 2106.0 3994.2 2110.2 L 4002.7 2118.7 Q 4014.0 2130.0 4030.0 2130.0 L 4502.0 2130.0 Q 4518.0 2130.0 4529.3 2118.7 L 4686.7 1961.3 Q 4698.0 1950.0 4698.0 1934.0 L 4698.0 1790.5 Q 4698.0 1782.0 4704.0 1776.0 L 4704.0 1776.0 Q 4710.0 1770.0 4718.5 1770.0 L 4778.0 1770.0 Q 4794.0 1770.0 4805.3 1758.7 L 4974.7 1589.3 Q 4986.0 1578.0 4986.0 1562.0 L 4986.0 1334.5 Q 4986.0 1326.0 4992.0 1320.0 L 4992.0 1320.0 Q 4998.0 1314.0 5006.5 1314.0 L 5065.0 1314.0" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
 <g id="cx_dhodh_coq_cte" class="conexion-inter-ruta"><path d="M 5053.1 1554.0 L 5030.5 1554.0 Q 5022.0 1554.0 5016.0 1560.0 L 5016.0 1560.0 Q 5010.0 1566.0 5010.0 1574.5 L 5010.0 1590.0 Q 5010.0 1602.0 4998.0 1602.0 L 4998.0 1602.0 Q 4986.0 1602.0 4986.0 1614.0 L 4986.0 1706.0 Q 4986.0 1722.0 4974.7 1733.3 L 4805.3 1902.7 Q 4794.0 1914.0 4778.0 1914.0 L 4726.0 1914.0 Q 4710.0 1914.0 4710.0 1930.0 L 4710.0 1953.5 Q 4710.0 1962.0 4704.0 1968.0 L 4704.0 1968.0 Q 4698.0 1974.0 4698.0 1982.5 L 4698.0 1986.0 Q 4698.0 1998.0 4689.5 2006.5 L 4517.3 2178.7 Q 4506.0 2190.0 4490.0 2190.0 L 4402.0 2190.0 Q 4386.0 2190.0 4374.7 2201.3 L 4361.3 2214.7 Q 4350.0 2226.0 4350.0 2242.0 L 4350.0 2258.0 Q 4350.0 2274.0 4338.7 2285.3 L 4157.3 2466.7 Q 4146.0 2478.0 4146.0 2494.0 L 4146.0 2570.0 Q 4146.0 2586.0 4134.7 2597.3 L 4085.3 2646.7 Q 4074.0 2658.0 4058.0 2658.0 L 3813.0 2658.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5053.1 1554.0 L 5030.5 1554.0 Q 5022.0 1554.0 5016.0 1560.0 L 5016.0 1560.0 Q 5010.0 1566.0 5010.0 1574.5 L 5010.0 1590.0 Q 5010.0 1602.0 4998.0 1602.0 L 4998.0 1602.0 Q 4986.0 1602.0 4986.0 1614.0 L 4986.0 1706.0 Q 4986.0 1722.0 4974.7 1733.3 L 4805.3 1902.7 Q 4794.0 1914.0 4778.0 1914.0 L 4726.0 1914.0 Q 4710.0 1914.0 4710.0 1930.0 L 4710.0 1953.5 Q 4710.0 1962.0 4704.0 1968.0 L 4704.0 1968.0 Q 4698.0 1974.0 4698.0 1982.5 L 4698.0 1986.0 Q 4698.0 1998.0 4689.5 2006.5 L 4517.3 2178.7 Q 4506.0 2190.0 4490.0 2190.0 L 4402.0 2190.0 Q 4386.0 2190.0 4374.7 2201.3 L 4361.3 2214.7 Q 4350.0 2226.0 4350.0 2242.0 L 4350.0 2258.0 Q 4350.0 2274.0 4338.7 2285.3 L 4157.3 2466.7 Q 4146.0 2478.0 4146.0 2494.0 L 4146.0 2570.0 Q 4146.0 2586.0 4134.7 2597.3 L 4085.3 2646.7 Q 4074.0 2658.0 4058.0 2658.0 L 3813.0 2658.0" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0284c7)"/></g>
 <g id="cx_amp_hipoxantina" class="conexion-inter-ruta"><path d="M 5094.0 1194.0 L 5222.0 1194.0 Q 5238.0 1194.0 5249.3 1182.7 L 5286.7 1145.3 Q 5298.0 1134.0 5298.0 1118.0 L 5298.0 1106.5 Q 5298.0 1098.0 5304.0 1092.0 L 5304.0 1092.0 Q 5310.0 1086.0 5318.5 1086.0 L 5582.0 1086.0 Q 5598.0 1086.0 5609.3 1097.3 L 5646.7 1134.7 Q 5658.0 1146.0 5658.0 1162.0 L 5658.0 1305.5 Q 5658.0 1314.0 5664.0 1320.0 L 5664.0 1320.0 Q 5670.0 1326.0 5670.0 1334.5 L 5670.0 1365.5 Q 5670.0 1374.0 5664.0 1380.0 L 5664.0 1380.0 Q 5658.0 1386.0 5658.0 1394.5 L 5658.0 1437.5 Q 5658.0 1446.0 5664.0 1452.0 L 5664.0 1452.0 Q 5670.0 1458.0 5670.0 1466.5 L 5670.0 1478.0 Q 5670.0 1494.0 5658.7 1505.3 L 5645.3 1518.7 Q 5634.0 1530.0 5634.0 1546.0 L 5634.0 2145.5 Q 5634.0 2154.0 5628.0 2160.0 L 5628.0 2160.0 Q 5622.0 2166.0 5613.5 2166.0 L 5450.0 2166.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5094.0 1194.0 L 5222.0 1194.0 Q 5238.0 1194.0 5249.3 1182.7 L 5286.7 1145.3 Q 5298.0 1134.0 5298.0 1118.0 L 5298.0 1106.5 Q 5298.0 1098.0 5304.0 1092.0 L 5304.0 1092.0 Q 5310.0 1086.0 5318.5 1086.0 L 5582.0 1086.0 Q 5598.0 1086.0 5609.3 1097.3 L 5646.7 1134.7 Q 5658.0 1146.0 5658.0 1162.0 L 5658.0 1305.5 Q 5658.0 1314.0 5664.0 1320.0 L 5664.0 1320.0 Q 5670.0 1326.0 5670.0 1334.5 L 5670.0 1365.5 Q 5670.0 1374.0 5664.0 1380.0 L 5664.0 1380.0 Q 5658.0 1386.0 5658.0 1394.5 L 5658.0 1437.5 Q 5658.0 1446.0 5664.0 1452.0 L 5664.0 1452.0 Q 5670.0 1458.0 5670.0 1466.5 L 5670.0 1478.0 Q 5670.0 1494.0 5658.7 1505.3 L 5645.3 1518.7 Q 5634.0 1530.0 5634.0 1546.0 L 5634.0 2145.5 Q 5634.0 2154.0 5628.0 2160.0 L 5628.0 2160.0 Q 5622.0 2166.0 5613.5 2166.0 L 5450.0 2166.0" fill="none" stroke="#be123c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechabe123c)"/></g>
 <g id="cx_gmp_xantina" class="conexion-inter-ruta"><path d="M 5631.0 1289.1 L 5644.5 1289.5 Q 5658.0 1290.0 5671.5 1290.0 L 5697.5 1290.0 Q 5706.0 1290.0 5712.0 1296.0 L 5712.0 1296.0 Q 5718.0 1302.0 5718.0 1310.5 L 5718.0 2246.0 Q 5718.0 2262.0 5706.7 2273.3 L 5693.3 2286.7 Q 5682.0 2298.0 5666.0 2298.0 L 5515.1 2298.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5631.0 1289.1 L 5644.5 1289.5 Q 5658.0 1290.0 5671.5 1290.0 L 5697.5 1290.0 Q 5706.0 1290.0 5712.0 1296.0 L 5712.0 1296.0 Q 5718.0 1302.0 5718.0 1310.5 L 5718.0 2246.0 Q 5718.0 2262.0 5706.7 2273.3 L 5693.3 2286.7 Q 5682.0 2298.0 5666.0 2298.0 L 5515.1 2298.0" fill="none" stroke="#be123c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechabe123c)"/></g>
-<g id="cx_ctp_uracilo" class="conexion-inter-ruta"><path d="M 5034.0 2037.0 L 5034.0 2486.0 Q 5034.0 2502.0 5045.3 2513.3 L 5126.3 2594.3 Q 5130.0 2598.0 5135.2 2598.0 L 5140.4 2598.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5034.0 2037.0 L 5034.0 2486.0 Q 5034.0 2502.0 5045.3 2513.3 L 5126.3 2594.3 Q 5130.0 2598.0 5135.2 2598.0 L 5140.4 2598.0" fill="none" stroke="#be123c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechabe123c)"/></g>
+<g id="cx_ctp_uracilo" class="conexion-inter-ruta"><path d="M 5034.0 2060.0 L 5034.0 2486.0 Q 5034.0 2502.0 5045.3 2513.3 L 5126.3 2594.3 Q 5130.0 2598.0 5135.2 2598.0 L 5140.4 2598.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5034.0 2060.0 L 5034.0 2486.0 Q 5034.0 2502.0 5045.3 2513.3 L 5126.3 2594.3 Q 5130.0 2598.0 5135.2 2598.0 L 5140.4 2598.0" fill="none" stroke="#be123c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechabe123c)"/></g>
 <g id="cx_urato_sangre" class="conexion-inter-ruta"><path d="M 5449.4 2466.0 L 5726.0 2466.0 Q 5742.0 2466.0 5753.3 2454.7 L 5766.7 2441.3 Q 5778.0 2430.0 5778.0 2414.0 L 5778.0 550.0 Q 5778.0 534.0 5766.7 522.7 L 5717.3 473.3 Q 5706.0 462.0 5690.0 462.0 L 5533.9 462.0 Q 5526.0 462.0 5523.8 454.5 L 5521.6 446.9" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5449.4 2466.0 L 5726.0 2466.0 Q 5742.0 2466.0 5753.3 2454.7 L 5766.7 2441.3 Q 5778.0 2430.0 5778.0 2414.0 L 5778.0 550.0 Q 5778.0 534.0 5766.7 522.7 L 5717.3 473.3 Q 5706.0 462.0 5690.0 462.0 L 5533.9 462.0 Q 5526.0 462.0 5523.8 454.5 L 5521.6 446.9" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechadc2626)"/></g>
 <g id="cx_beta_ala_sangre" class="conexion-inter-ruta"><path d="M 5425.0 2994.0 L 5462.0 2994.0 Q 5478.0 2994.0 5489.3 2982.7 L 5766.7 2705.3 Q 5778.0 2694.0 5778.0 2678.0 L 5778.0 2470.0 Q 5778.0 2454.0 5766.7 2442.7 L 5657.3 2333.3 Q 5646.0 2322.0 5630.0 2322.0 L 5498.5 2322.0 Q 5490.0 2322.0 5484.0 2316.0 L 5484.0 2316.0 Q 5478.0 2310.0 5478.0 2301.5 L 5478.0 2294.5 Q 5478.0 2286.0 5484.0 2280.0 L 5484.0 2280.0 Q 5490.0 2274.0 5498.5 2274.0 L 5733.5 2274.0 Q 5742.0 2274.0 5748.0 2268.0 L 5748.0 2268.0 Q 5754.0 2262.0 5754.0 2253.5 L 5754.0 598.0 Q 5754.0 582.0 5742.7 570.7 L 5717.3 545.3 Q 5706.0 534.0 5690.0 534.0 L 5674.0 534.0 Q 5658.0 534.0 5646.7 522.7 L 5621.3 497.3 Q 5610.0 486.0 5594.0 486.0 L 5446.0 486.0 Q 5430.0 486.0 5418.7 474.7 L 5411.6 467.6 Q 5406.0 462.0 5403.8 454.5 L 5401.6 446.9" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5425.0 2994.0 L 5462.0 2994.0 Q 5478.0 2994.0 5489.3 2982.7 L 5766.7 2705.3 Q 5778.0 2694.0 5778.0 2678.0 L 5778.0 2470.0 Q 5778.0 2454.0 5766.7 2442.7 L 5657.3 2333.3 Q 5646.0 2322.0 5630.0 2322.0 L 5498.5 2322.0 Q 5490.0 2322.0 5484.0 2316.0 L 5484.0 2316.0 Q 5478.0 2310.0 5478.0 2301.5 L 5478.0 2294.5 Q 5478.0 2286.0 5484.0 2280.0 L 5484.0 2280.0 Q 5490.0 2274.0 5498.5 2274.0 L 5733.5 2274.0 Q 5742.0 2274.0 5748.0 2268.0 L 5748.0 2268.0 Q 5754.0 2262.0 5754.0 2253.5 L 5754.0 598.0 Q 5754.0 582.0 5742.7 570.7 L 5717.3 545.3 Q 5706.0 534.0 5690.0 534.0 L 5674.0 534.0 Q 5658.0 534.0 5646.7 522.7 L 5621.3 497.3 Q 5610.0 486.0 5594.0 486.0 L 5446.0 486.0 Q 5430.0 486.0 5418.7 474.7 L 5411.6 467.6 Q 5406.0 462.0 5403.8 454.5 L 5401.6 446.9" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0284c7)"/></g>
 <g id="cx_glucolisis_lanz_malato" class="conexion-inter-ruta"><path d="M 1849.7 1302.0 L 1738.0 1302.0 Q 1722.0 1302.0 1710.7 1313.3 L 1637.3 1386.7 Q 1626.0 1398.0 1610.0 1398.0 L 1286.5 1398.0 Q 1278.0 1398.0 1272.0 1404.0 L 1272.0 1404.0 Q 1266.0 1410.0 1266.0 1418.5 L 1266.0 1569.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1849.7 1302.0 L 1738.0 1302.0 Q 1722.0 1302.0 1710.7 1313.3 L 1637.3 1386.7 Q 1626.0 1398.0 1610.0 1398.0 L 1286.5 1398.0 Q 1278.0 1398.0 1272.0 1404.0 L 1272.0 1404.0 Q 1266.0 1410.0 1266.0 1418.5 L 1266.0 1569.0" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0284c7)"/></g>
-<g id="cx_lanz_malato_cte_comp1" class="conexion-inter-ruta"><path d="M 1278.0 2532.5 L 1278.0 2553.5 Q 1278.0 2562.0 1284.0 2568.0 L 1285.8 2569.8 Q 1290.0 2574.0 1296.0 2574.0 L 1296.0 2574.0 Q 1302.0 2574.0 1306.2 2578.2 L 1309.8 2581.8 Q 1314.0 2586.0 1314.0 2592.0 L 1314.0 2592.0 Q 1314.0 2598.0 1318.2 2602.2 L 1326.7 2610.7 Q 1338.0 2622.0 1338.0 2638.0 L 1338.0 2649.5 Q 1338.0 2658.0 1344.0 2664.0 L 1344.0 2664.0 Q 1350.0 2670.0 1358.5 2670.0 L 1478.0 2670.0 Q 1494.0 2670.0 1494.0 2686.0 L 1494.0 2793.5 Q 1494.0 2802.0 1500.0 2808.0 L 1500.0 2808.0 Q 1506.0 2814.0 1514.5 2814.0 L 1838.0 2814.0 Q 1854.0 2814.0 1865.3 2825.3 L 1869.5 2829.5 Q 1878.0 2838.0 1890.0 2838.0 L 1890.0 2838.0 Q 1902.0 2838.0 1902.0 2850.0 L 1902.0 2870.0 Q 1902.0 2886.0 1913.3 2897.3 L 1998.7 2982.7 Q 2010.0 2994.0 2026.0 2994.0 L 2476.8 2994.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1278.0 2532.5 L 1278.0 2553.5 Q 1278.0 2562.0 1284.0 2568.0 L 1285.8 2569.8 Q 1290.0 2574.0 1296.0 2574.0 L 1296.0 2574.0 Q 1302.0 2574.0 1306.2 2578.2 L 1309.8 2581.8 Q 1314.0 2586.0 1314.0 2592.0 L 1314.0 2592.0 Q 1314.0 2598.0 1318.2 2602.2 L 1326.7 2610.7 Q 1338.0 2622.0 1338.0 2638.0 L 1338.0 2649.5 Q 1338.0 2658.0 1344.0 2664.0 L 1344.0 2664.0 Q 1350.0 2670.0 1358.5 2670.0 L 1478.0 2670.0 Q 1494.0 2670.0 1494.0 2686.0 L 1494.0 2793.5 Q 1494.0 2802.0 1500.0 2808.0 L 1500.0 2808.0 Q 1506.0 2814.0 1514.5 2814.0 L 1838.0 2814.0 Q 1854.0 2814.0 1865.3 2825.3 L 1869.5 2829.5 Q 1878.0 2838.0 1890.0 2838.0 L 1890.0 2838.0 Q 1902.0 2838.0 1902.0 2850.0 L 1902.0 2870.0 Q 1902.0 2886.0 1913.3 2897.3 L 1998.7 2982.7 Q 2010.0 2994.0 2026.0 2994.0 L 2476.8 2994.0" fill="none" stroke="#059669" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha059669)"/></g>
-<g id="cx_lanz_asp_urea" class="conexion-inter-ruta"><path d="M 1348.0 2214.0 L 1509.5 2214.0 Q 1518.0 2214.0 1524.0 2220.0 L 1524.0 2220.0 Q 1530.0 2226.0 1530.0 2234.5 L 1530.0 2265.5 Q 1530.0 2274.0 1536.0 2280.0 L 1536.0 2280.0 Q 1542.0 2286.0 1550.5 2286.0 L 1622.0 2286.0 Q 1638.0 2286.0 1649.3 2297.3 L 1662.7 2310.7 Q 1674.0 2322.0 1690.0 2322.0 L 1778.0 2322.0 Q 1794.0 2322.0 1805.3 2310.7 L 1830.7 2285.3 Q 1842.0 2274.0 1858.0 2274.0 L 2649.5 2274.0 Q 2658.0 2274.0 2664.0 2268.0 L 2664.0 2268.0 Q 2670.0 2262.0 2670.0 2253.5 L 2670.0 2242.0 Q 2670.0 2226.0 2681.3 2214.7 L 2730.7 2165.3 Q 2742.0 2154.0 2758.0 2154.0 L 3045.5 2154.0 Q 3054.0 2154.0 3060.0 2160.0 L 3060.0 2160.0 Q 3066.0 2166.0 3066.0 2174.5 L 3066.0 2205.5 Q 3066.0 2214.0 3072.0 2220.0 L 3072.0 2220.0 Q 3078.0 2226.0 3086.5 2226.0 L 3825.5 2226.0 Q 3834.0 2226.0 3840.0 2220.0 L 3841.8 2218.2 Q 3846.0 2214.0 3846.0 2208.0 L 3846.0 2208.0 Q 3846.0 2202.0 3850.2 2197.8 L 3853.8 2194.2 Q 3858.0 2190.0 3864.0 2190.0 L 3864.0 2190.0 Q 3870.0 2190.0 3874.2 2185.8 L 3877.8 2182.2 Q 3882.0 2178.0 3882.0 2172.0 L 3882.0 2172.0 Q 3882.0 2166.0 3886.2 2161.8 L 3889.8 2158.2 Q 3894.0 2154.0 3900.0 2154.0 L 3900.0 2154.0 Q 3906.0 2154.0 3910.2 2149.8 L 3912.0 2148.0 Q 3918.0 2142.0 3918.0 2133.5 L 3918.0 2101.8" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1348.0 2214.0 L 1509.5 2214.0 Q 1518.0 2214.0 1524.0 2220.0 L 1524.0 2220.0 Q 1530.0 2226.0 1530.0 2234.5 L 1530.0 2265.5 Q 1530.0 2274.0 1536.0 2280.0 L 1536.0 2280.0 Q 1542.0 2286.0 1550.5 2286.0 L 1622.0 2286.0 Q 1638.0 2286.0 1649.3 2297.3 L 1662.7 2310.7 Q 1674.0 2322.0 1690.0 2322.0 L 1778.0 2322.0 Q 1794.0 2322.0 1805.3 2310.7 L 1830.7 2285.3 Q 1842.0 2274.0 1858.0 2274.0 L 2649.5 2274.0 Q 2658.0 2274.0 2664.0 2268.0 L 2664.0 2268.0 Q 2670.0 2262.0 2670.0 2253.5 L 2670.0 2242.0 Q 2670.0 2226.0 2681.3 2214.7 L 2730.7 2165.3 Q 2742.0 2154.0 2758.0 2154.0 L 3045.5 2154.0 Q 3054.0 2154.0 3060.0 2160.0 L 3060.0 2160.0 Q 3066.0 2166.0 3066.0 2174.5 L 3066.0 2205.5 Q 3066.0 2214.0 3072.0 2220.0 L 3072.0 2220.0 Q 3078.0 2226.0 3086.5 2226.0 L 3825.5 2226.0 Q 3834.0 2226.0 3840.0 2220.0 L 3841.8 2218.2 Q 3846.0 2214.0 3846.0 2208.0 L 3846.0 2208.0 Q 3846.0 2202.0 3850.2 2197.8 L 3853.8 2194.2 Q 3858.0 2190.0 3864.0 2190.0 L 3864.0 2190.0 Q 3870.0 2190.0 3874.2 2185.8 L 3877.8 2182.2 Q 3882.0 2178.0 3882.0 2172.0 L 3882.0 2172.0 Q 3882.0 2166.0 3886.2 2161.8 L 3889.8 2158.2 Q 3894.0 2154.0 3900.0 2154.0 L 3900.0 2154.0 Q 3906.0 2154.0 3910.2 2149.8 L 3912.0 2148.0 Q 3918.0 2142.0 3918.0 2133.5 L 3918.0 2101.8" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
+<g id="cx_lanz_malato_cte_comp1" class="conexion-inter-ruta"><path d="M 1278.0 2492.0 L 1278.0 2553.5 Q 1278.0 2562.0 1284.0 2568.0 L 1285.8 2569.8 Q 1290.0 2574.0 1296.0 2574.0 L 1296.0 2574.0 Q 1302.0 2574.0 1306.2 2578.2 L 1309.8 2581.8 Q 1314.0 2586.0 1314.0 2592.0 L 1314.0 2592.0 Q 1314.0 2598.0 1318.2 2602.2 L 1326.7 2610.7 Q 1338.0 2622.0 1338.0 2638.0 L 1338.0 2649.5 Q 1338.0 2658.0 1344.0 2664.0 L 1344.0 2664.0 Q 1350.0 2670.0 1358.5 2670.0 L 1478.0 2670.0 Q 1494.0 2670.0 1494.0 2686.0 L 1494.0 2793.5 Q 1494.0 2802.0 1500.0 2808.0 L 1500.0 2808.0 Q 1506.0 2814.0 1514.5 2814.0 L 1838.0 2814.0 Q 1854.0 2814.0 1865.3 2825.3 L 1869.5 2829.5 Q 1878.0 2838.0 1890.0 2838.0 L 1890.0 2838.0 Q 1902.0 2838.0 1902.0 2850.0 L 1902.0 2870.0 Q 1902.0 2886.0 1913.3 2897.3 L 1998.7 2982.7 Q 2010.0 2994.0 2026.0 2994.0 L 2476.8 2994.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1278.0 2492.0 L 1278.0 2553.5 Q 1278.0 2562.0 1284.0 2568.0 L 1285.8 2569.8 Q 1290.0 2574.0 1296.0 2574.0 L 1296.0 2574.0 Q 1302.0 2574.0 1306.2 2578.2 L 1309.8 2581.8 Q 1314.0 2586.0 1314.0 2592.0 L 1314.0 2592.0 Q 1314.0 2598.0 1318.2 2602.2 L 1326.7 2610.7 Q 1338.0 2622.0 1338.0 2638.0 L 1338.0 2649.5 Q 1338.0 2658.0 1344.0 2664.0 L 1344.0 2664.0 Q 1350.0 2670.0 1358.5 2670.0 L 1478.0 2670.0 Q 1494.0 2670.0 1494.0 2686.0 L 1494.0 2793.5 Q 1494.0 2802.0 1500.0 2808.0 L 1500.0 2808.0 Q 1506.0 2814.0 1514.5 2814.0 L 1838.0 2814.0 Q 1854.0 2814.0 1865.3 2825.3 L 1869.5 2829.5 Q 1878.0 2838.0 1890.0 2838.0 L 1890.0 2838.0 Q 1902.0 2838.0 1902.0 2850.0 L 1902.0 2870.0 Q 1902.0 2886.0 1913.3 2897.3 L 1998.7 2982.7 Q 2010.0 2994.0 2026.0 2994.0 L 2476.8 2994.0" fill="none" stroke="#059669" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha059669)"/></g>
+<g id="cx_lanz_asp_urea" class="conexion-inter-ruta"><path d="M 792.0 1642.0 L 792.0 1607.0 Q 792.0 1595.0 804.0 1595.0 L 1314.0 1595.0 Q 1326.0 1595.0 1326.0 1607.0 L 1326.0 2202.0 Q 1326.0 2214.0 1338.0 2214.0 L 1509.5 2214.0 Q 1518.0 2214.0 1524.0 2220.0 L 1524.0 2220.0 Q 1530.0 2226.0 1530.0 2234.5 L 1530.0 2265.5 Q 1530.0 2274.0 1536.0 2280.0 L 1536.0 2280.0 Q 1542.0 2286.0 1550.5 2286.0 L 1622.0 2286.0 Q 1638.0 2286.0 1649.3 2297.3 L 1662.7 2310.7 Q 1674.0 2322.0 1690.0 2322.0 L 1778.0 2322.0 Q 1794.0 2322.0 1805.3 2310.7 L 1830.7 2285.3 Q 1842.0 2274.0 1858.0 2274.0 L 2649.5 2274.0 Q 2658.0 2274.0 2664.0 2268.0 L 2664.0 2268.0 Q 2670.0 2262.0 2670.0 2253.5 L 2670.0 2242.0 Q 2670.0 2226.0 2681.3 2214.7 L 2730.7 2165.3 Q 2742.0 2154.0 2758.0 2154.0 L 3045.5 2154.0 Q 3054.0 2154.0 3060.0 2160.0 L 3060.0 2160.0 Q 3066.0 2166.0 3066.0 2174.5 L 3066.0 2205.5 Q 3066.0 2214.0 3072.0 2220.0 L 3072.0 2220.0 Q 3078.0 2226.0 3086.5 2226.0 L 3825.5 2226.0 Q 3834.0 2226.0 3840.0 2220.0 L 3841.8 2218.2 Q 3846.0 2214.0 3846.0 2208.0 L 3846.0 2208.0 Q 3846.0 2202.0 3850.2 2197.8 L 3853.8 2194.2 Q 3858.0 2190.0 3864.0 2190.0 L 3864.0 2190.0 Q 3870.0 2190.0 3874.2 2185.8 L 3877.8 2182.2 Q 3882.0 2178.0 3882.0 2172.0 L 3882.0 2172.0 Q 3882.0 2166.0 3886.2 2161.8 L 3889.8 2158.2 Q 3894.0 2154.0 3900.0 2154.0 L 3900.0 2154.0 Q 3906.0 2154.0 3910.2 2149.8 L 3912.0 2148.0 Q 3918.0 2142.0 3918.0 2133.5 L 3918.0 2101.8" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 792.0 1642.0 L 792.0 1607.0 Q 792.0 1595.0 804.0 1595.0 L 1314.0 1595.0 Q 1326.0 1595.0 1326.0 1607.0 L 1326.0 2202.0 Q 1326.0 2214.0 1338.0 2214.0 L 1509.5 2214.0 Q 1518.0 2214.0 1524.0 2220.0 L 1524.0 2220.0 Q 1530.0 2226.0 1530.0 2234.5 L 1530.0 2265.5 Q 1530.0 2274.0 1536.0 2280.0 L 1536.0 2280.0 Q 1542.0 2286.0 1550.5 2286.0 L 1622.0 2286.0 Q 1638.0 2286.0 1649.3 2297.3 L 1662.7 2310.7 Q 1674.0 2322.0 1690.0 2322.0 L 1778.0 2322.0 Q 1794.0 2322.0 1805.3 2310.7 L 1830.7 2285.3 Q 1842.0 2274.0 1858.0 2274.0 L 2649.5 2274.0 Q 2658.0 2274.0 2664.0 2268.0 L 2664.0 2268.0 Q 2670.0 2262.0 2670.0 2253.5 L 2670.0 2242.0 Q 2670.0 2226.0 2681.3 2214.7 L 2730.7 2165.3 Q 2742.0 2154.0 2758.0 2154.0 L 3045.5 2154.0 Q 3054.0 2154.0 3060.0 2160.0 L 3060.0 2160.0 Q 3066.0 2166.0 3066.0 2174.5 L 3066.0 2205.5 Q 3066.0 2214.0 3072.0 2220.0 L 3072.0 2220.0 Q 3078.0 2226.0 3086.5 2226.0 L 3825.5 2226.0 Q 3834.0 2226.0 3840.0 2220.0 L 3841.8 2218.2 Q 3846.0 2214.0 3846.0 2208.0 L 3846.0 2208.0 Q 3846.0 2202.0 3850.2 2197.8 L 3853.8 2194.2 Q 3858.0 2190.0 3864.0 2190.0 L 3864.0 2190.0 Q 3870.0 2190.0 3874.2 2185.8 L 3877.8 2182.2 Q 3882.0 2178.0 3882.0 2172.0 L 3882.0 2172.0 Q 3882.0 2166.0 3886.2 2161.8 L 3889.8 2158.2 Q 3894.0 2154.0 3900.0 2154.0 L 3900.0 2154.0 Q 3906.0 2154.0 3910.2 2149.8 L 3912.0 2148.0 Q 3918.0 2142.0 3918.0 2133.5 L 3918.0 2101.8" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlecha0d9488)"/></g>
 <g id="cx_betaox_etf_cte" class="conexion-inter-ruta"><path d="M 431.8 2790.0 L 554.0 2790.0 Q 570.0 2790.0 570.0 2774.0 L 570.0 2702.5 Q 570.0 2694.0 576.0 2688.0 L 576.0 2688.0 Q 582.0 2682.0 590.5 2682.0 L 722.0 2682.0 Q 738.0 2682.0 749.3 2693.3 L 829.8 2773.8 Q 834.0 2778.0 840.0 2778.0 L 840.0 2778.0 Q 846.0 2778.0 850.2 2773.8 L 853.8 2770.2 Q 858.0 2766.0 864.0 2766.0 L 864.0 2766.0 Q 870.0 2766.0 874.2 2761.8 L 876.0 2760.0 Q 882.0 2754.0 890.5 2754.0 L 1281.5 2754.0 Q 1290.0 2754.0 1296.0 2760.0 L 1296.0 2760.0 Q 1302.0 2766.0 1310.5 2766.0 L 1358.0 2766.0 Q 1374.0 2766.0 1374.0 2782.0 L 1374.0 2786.0 Q 1374.0 2802.0 1385.3 2813.3 L 1494.7 2922.7 Q 1506.0 2934.0 1522.0 2934.0 L 1706.0 2934.0 Q 1722.0 2934.0 1733.3 2945.3 L 1770.7 2982.7 Q 1782.0 2994.0 1782.0 3010.0 L 1782.0 3026.0 Q 1782.0 3042.0 1793.3 3053.3 L 1806.7 3066.7 Q 1818.0 3078.0 1834.0 3078.0 L 2476.8 3078.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 431.8 2790.0 L 554.0 2790.0 Q 570.0 2790.0 570.0 2774.0 L 570.0 2702.5 Q 570.0 2694.0 576.0 2688.0 L 576.0 2688.0 Q 582.0 2682.0 590.5 2682.0 L 722.0 2682.0 Q 738.0 2682.0 749.3 2693.3 L 829.8 2773.8 Q 834.0 2778.0 840.0 2778.0 L 840.0 2778.0 Q 846.0 2778.0 850.2 2773.8 L 853.8 2770.2 Q 858.0 2766.0 864.0 2766.0 L 864.0 2766.0 Q 870.0 2766.0 874.2 2761.8 L 876.0 2760.0 Q 882.0 2754.0 890.5 2754.0 L 1281.5 2754.0 Q 1290.0 2754.0 1296.0 2760.0 L 1296.0 2760.0 Q 1302.0 2766.0 1310.5 2766.0 L 1358.0 2766.0 Q 1374.0 2766.0 1374.0 2782.0 L 1374.0 2786.0 Q 1374.0 2802.0 1385.3 2813.3 L 1494.7 2922.7 Q 1506.0 2934.0 1522.0 2934.0 L 1706.0 2934.0 Q 1722.0 2934.0 1733.3 2945.3 L 1770.7 2982.7 Q 1782.0 2994.0 1782.0 3010.0 L 1782.0 3026.0 Q 1782.0 3042.0 1793.3 3053.3 L 1806.7 3066.7 Q 1818.0 3078.0 1834.0 3078.0 L 2476.8 3078.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
-<g id="cx_dhap_lanzadera_g3p" class="conexion-inter-ruta"><path d="M 1419.7 1326.0 L 1198.0 1326.0 Q 1182.0 1326.0 1170.7 1337.3 L 1121.3 1386.7 Q 1110.0 1398.0 1094.0 1398.0 L 698.5 1398.0 Q 690.0 1398.0 684.0 1404.0 L 684.0 1404.0 Q 678.0 1410.0 678.0 1418.5 L 678.0 1442.0 Q 678.0 1458.0 666.7 1469.3 L 629.3 1506.7 Q 618.0 1518.0 602.0 1518.0 L 470.5 1518.0 Q 462.0 1518.0 456.0 1524.0 L 456.0 1524.0 Q 450.0 1530.0 450.0 1538.5 L 450.0 1562.0 Q 450.0 1578.0 438.7 1589.3 L 293.3 1734.7 Q 282.0 1746.0 266.0 1746.0 L 206.5 1746.0 Q 198.0 1746.0 192.0 1752.0 L 192.0 1752.0 Q 186.0 1758.0 177.5 1758.0 L 174.0 1758.0 Q 162.0 1758.0 162.0 1770.0 L 162.0 1773.5 Q 162.0 1782.0 156.0 1788.0 L 156.0 1788.0 Q 150.0 1794.0 150.0 1802.5 L 150.0 1845.5 Q 150.0 1854.0 144.0 1860.0 L 144.0 1860.0 Q 138.0 1866.0 129.5 1866.0 L 110.5 1866.0 Q 102.0 1866.0 96.0 1872.0 L 96.0 1872.0 Q 90.0 1878.0 90.0 1886.5 L 90.0 1905.5 Q 90.0 1914.0 96.0 1920.0 L 96.0 1920.0 Q 102.0 1926.0 102.0 1934.5 L 102.0 1938.0 Q 102.0 1950.0 114.0 1950.0 L 122.0 1950.0 Q 138.0 1950.0 149.3 1961.3 L 150.7 1962.7 Q 162.0 1974.0 162.0 1990.0 L 162.0 2126.0 Q 162.0 2142.0 173.3 2153.3 L 234.7 2214.7 Q 246.0 2226.0 246.0 2242.0 L 246.0 2294.0 Q 246.0 2310.0 230.0 2310.0 L 142.0 2310.0 Q 126.0 2310.0 114.7 2321.3 L 89.3 2346.7 Q 78.0 2358.0 78.0 2374.0 L 78.0 2565.5 Q 78.0 2574.0 84.0 2580.0 L 85.8 2581.8 Q 90.0 2586.0 90.0 2592.0 L 90.0 2592.0 Q 90.0 2598.0 94.2 2602.2 L 96.0 2604.0 Q 102.0 2610.0 102.0 2618.5 L 102.0 2673.5 Q 102.0 2682.0 96.0 2688.0 L 96.0 2688.0 Q 90.0 2694.0 90.0 2702.5 L 90.0 2718.0 Q 90.0 2730.0 102.0 2730.0 L 105.5 2730.0 Q 114.0 2730.0 120.0 2736.0 L 120.0 2736.0 Q 126.0 2742.0 126.0 2750.5 L 126.0 2786.0 Q 126.0 2802.0 114.7 2813.3 L 113.3 2814.7 Q 102.0 2826.0 102.0 2842.0 L 102.0 3081.5 Q 102.0 3090.0 96.0 3096.0 L 96.0 3096.0 Q 90.0 3102.0 90.0 3110.5 L 90.0 3141.5 Q 90.0 3150.0 96.0 3156.0 L 96.0 3156.0 Q 102.0 3162.0 102.0 3170.5 L 102.0 3285.5 Q 102.0 3294.0 96.0 3300.0 L 96.0 3300.0 Q 90.0 3306.0 81.5 3306.0 L 46.0 3306.0 Q 30.0 3306.0 30.0 3322.0 L 30.0 5006.0 Q 30.0 5022.0 41.3 5033.3 L 78.7 5070.7 Q 90.0 5082.0 106.0 5082.0 L 3753.5 5082.0 Q 3762.0 5082.0 3768.0 5076.0 L 3768.0 5076.0 Q 3774.0 5070.0 3774.0 5061.5 L 3774.0 4558.0 Q 3774.0 4542.0 3785.3 4530.7 L 3834.7 4481.3 Q 3846.0 4470.0 3862.0 4470.0 L 4466.0 4470.0 Q 4482.0 4470.0 4493.3 4458.7 L 4938.7 4013.3 Q 4950.0 4002.0 4950.0 3986.0 L 4950.0 3254.5 Q 4950.0 3246.0 4956.0 3240.0 L 4956.0 3240.0 Q 4962.0 3234.0 4970.5 3234.0 L 5037.5 3234.0 Q 5046.0 3234.0 5052.0 3240.0 L 5052.0 3240.0 Q 5058.0 3246.0 5058.0 3254.5 L 5058.0 3265.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1419.7 1326.0 L 1198.0 1326.0 Q 1182.0 1326.0 1170.7 1337.3 L 1121.3 1386.7 Q 1110.0 1398.0 1094.0 1398.0 L 698.5 1398.0 Q 690.0 1398.0 684.0 1404.0 L 684.0 1404.0 Q 678.0 1410.0 678.0 1418.5 L 678.0 1442.0 Q 678.0 1458.0 666.7 1469.3 L 629.3 1506.7 Q 618.0 1518.0 602.0 1518.0 L 470.5 1518.0 Q 462.0 1518.0 456.0 1524.0 L 456.0 1524.0 Q 450.0 1530.0 450.0 1538.5 L 450.0 1562.0 Q 450.0 1578.0 438.7 1589.3 L 293.3 1734.7 Q 282.0 1746.0 266.0 1746.0 L 206.5 1746.0 Q 198.0 1746.0 192.0 1752.0 L 192.0 1752.0 Q 186.0 1758.0 177.5 1758.0 L 174.0 1758.0 Q 162.0 1758.0 162.0 1770.0 L 162.0 1773.5 Q 162.0 1782.0 156.0 1788.0 L 156.0 1788.0 Q 150.0 1794.0 150.0 1802.5 L 150.0 1845.5 Q 150.0 1854.0 144.0 1860.0 L 144.0 1860.0 Q 138.0 1866.0 129.5 1866.0 L 110.5 1866.0 Q 102.0 1866.0 96.0 1872.0 L 96.0 1872.0 Q 90.0 1878.0 90.0 1886.5 L 90.0 1905.5 Q 90.0 1914.0 96.0 1920.0 L 96.0 1920.0 Q 102.0 1926.0 102.0 1934.5 L 102.0 1938.0 Q 102.0 1950.0 114.0 1950.0 L 122.0 1950.0 Q 138.0 1950.0 149.3 1961.3 L 150.7 1962.7 Q 162.0 1974.0 162.0 1990.0 L 162.0 2126.0 Q 162.0 2142.0 173.3 2153.3 L 234.7 2214.7 Q 246.0 2226.0 246.0 2242.0 L 246.0 2294.0 Q 246.0 2310.0 230.0 2310.0 L 142.0 2310.0 Q 126.0 2310.0 114.7 2321.3 L 89.3 2346.7 Q 78.0 2358.0 78.0 2374.0 L 78.0 2565.5 Q 78.0 2574.0 84.0 2580.0 L 85.8 2581.8 Q 90.0 2586.0 90.0 2592.0 L 90.0 2592.0 Q 90.0 2598.0 94.2 2602.2 L 96.0 2604.0 Q 102.0 2610.0 102.0 2618.5 L 102.0 2673.5 Q 102.0 2682.0 96.0 2688.0 L 96.0 2688.0 Q 90.0 2694.0 90.0 2702.5 L 90.0 2718.0 Q 90.0 2730.0 102.0 2730.0 L 105.5 2730.0 Q 114.0 2730.0 120.0 2736.0 L 120.0 2736.0 Q 126.0 2742.0 126.0 2750.5 L 126.0 2786.0 Q 126.0 2802.0 114.7 2813.3 L 113.3 2814.7 Q 102.0 2826.0 102.0 2842.0 L 102.0 3081.5 Q 102.0 3090.0 96.0 3096.0 L 96.0 3096.0 Q 90.0 3102.0 90.0 3110.5 L 90.0 3141.5 Q 90.0 3150.0 96.0 3156.0 L 96.0 3156.0 Q 102.0 3162.0 102.0 3170.5 L 102.0 3285.5 Q 102.0 3294.0 96.0 3300.0 L 96.0 3300.0 Q 90.0 3306.0 81.5 3306.0 L 46.0 3306.0 Q 30.0 3306.0 30.0 3322.0 L 30.0 5006.0 Q 30.0 5022.0 41.3 5033.3 L 78.7 5070.7 Q 90.0 5082.0 106.0 5082.0 L 3753.5 5082.0 Q 3762.0 5082.0 3768.0 5076.0 L 3768.0 5076.0 Q 3774.0 5070.0 3774.0 5061.5 L 3774.0 4558.0 Q 3774.0 4542.0 3785.3 4530.7 L 3834.7 4481.3 Q 3846.0 4470.0 3862.0 4470.0 L 4466.0 4470.0 Q 4482.0 4470.0 4493.3 4458.7 L 4938.7 4013.3 Q 4950.0 4002.0 4950.0 3986.0 L 4950.0 3254.5 Q 4950.0 3246.0 4956.0 3240.0 L 4956.0 3240.0 Q 4962.0 3234.0 4970.5 3234.0 L 5037.5 3234.0 Q 5046.0 3234.0 5052.0 3240.0 L 5052.0 3240.0 Q 5058.0 3246.0 5058.0 3254.5 L 5058.0 3265.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
+<g id="cx_dhap_lanzadera_g3p" class="conexion-inter-ruta"><path d="M 1419.7 1326.0 L 1198.0 1326.0 Q 1182.0 1326.0 1170.7 1337.3 L 1121.3 1386.7 Q 1110.0 1398.0 1094.0 1398.0 L 698.5 1398.0 Q 690.0 1398.0 684.0 1404.0 L 684.0 1404.0 Q 678.0 1410.0 678.0 1418.5 L 678.0 1442.0 Q 678.0 1458.0 666.7 1469.3 L 629.3 1506.7 Q 618.0 1518.0 602.0 1518.0 L 470.5 1518.0 Q 462.0 1518.0 456.0 1524.0 L 456.0 1524.0 Q 450.0 1530.0 450.0 1538.5 L 450.0 1562.0 Q 450.0 1578.0 438.7 1589.3 L 293.3 1734.7 Q 282.0 1746.0 266.0 1746.0 L 206.5 1746.0 Q 198.0 1746.0 192.0 1752.0 L 192.0 1752.0 Q 186.0 1758.0 177.5 1758.0 L 174.0 1758.0 Q 162.0 1758.0 162.0 1770.0 L 162.0 1773.5 Q 162.0 1782.0 156.0 1788.0 L 156.0 1788.0 Q 150.0 1794.0 150.0 1802.5 L 150.0 1845.5 Q 150.0 1854.0 144.0 1860.0 L 144.0 1860.0 Q 138.0 1866.0 129.5 1866.0 L 110.5 1866.0 Q 102.0 1866.0 96.0 1872.0 L 96.0 1872.0 Q 90.0 1878.0 90.0 1886.5 L 90.0 2702.5 L 90.0 2718.0 Q 90.0 2730.0 102.0 2730.0 L 105.5 2730.0 Q 114.0 2730.0 120.0 2736.0 L 120.0 2736.0 Q 126.0 2742.0 126.0 2750.5 L 126.0 2786.0 Q 126.0 2802.0 114.7 2813.3 L 113.3 2814.7 Q 102.0 2826.0 102.0 2842.0 L 102.0 3081.5 Q 102.0 3090.0 96.0 3096.0 L 96.0 3096.0 Q 90.0 3102.0 90.0 3110.5 L 90.0 3141.5 Q 90.0 3150.0 96.0 3156.0 L 96.0 3156.0 Q 102.0 3162.0 102.0 3170.5 L 102.0 3285.5 Q 102.0 3294.0 96.0 3300.0 L 96.0 3300.0 Q 90.0 3306.0 81.5 3306.0 L 46.0 3306.0 Q 30.0 3306.0 30.0 3322.0 L 30.0 4549.0 Q 30.0 4565.0 46.0 4565.0 L 3758.0 4565.0 Q 3774.0 4565.0 3774.0 4549.0 L 3774.0 4486.0 Q 3774.0 4470.0 3790.0 4470.0 L 3862.0 4470.0 L 4466.0 4470.0 Q 4482.0 4470.0 4493.3 4458.7 L 4938.7 4013.3 Q 4950.0 4002.0 4950.0 3986.0 L 4950.0 3254.5 Q 4950.0 3246.0 4956.0 3240.0 L 4956.0 3240.0 Q 4962.0 3234.0 4970.5 3234.0 L 5037.5 3234.0 Q 5046.0 3234.0 5052.0 3240.0 L 5052.0 3240.0 Q 5058.0 3246.0 5058.0 3254.5 L 5058.0 3265.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 1419.7 1326.0 L 1198.0 1326.0 Q 1182.0 1326.0 1170.7 1337.3 L 1121.3 1386.7 Q 1110.0 1398.0 1094.0 1398.0 L 698.5 1398.0 Q 690.0 1398.0 684.0 1404.0 L 684.0 1404.0 Q 678.0 1410.0 678.0 1418.5 L 678.0 1442.0 Q 678.0 1458.0 666.7 1469.3 L 629.3 1506.7 Q 618.0 1518.0 602.0 1518.0 L 470.5 1518.0 Q 462.0 1518.0 456.0 1524.0 L 456.0 1524.0 Q 450.0 1530.0 450.0 1538.5 L 450.0 1562.0 Q 450.0 1578.0 438.7 1589.3 L 293.3 1734.7 Q 282.0 1746.0 266.0 1746.0 L 206.5 1746.0 Q 198.0 1746.0 192.0 1752.0 L 192.0 1752.0 Q 186.0 1758.0 177.5 1758.0 L 174.0 1758.0 Q 162.0 1758.0 162.0 1770.0 L 162.0 1773.5 Q 162.0 1782.0 156.0 1788.0 L 156.0 1788.0 Q 150.0 1794.0 150.0 1802.5 L 150.0 1845.5 Q 150.0 1854.0 144.0 1860.0 L 144.0 1860.0 Q 138.0 1866.0 129.5 1866.0 L 110.5 1866.0 Q 102.0 1866.0 96.0 1872.0 L 96.0 1872.0 Q 90.0 1878.0 90.0 1886.5 L 90.0 2702.5 L 90.0 2718.0 Q 90.0 2730.0 102.0 2730.0 L 105.5 2730.0 Q 114.0 2730.0 120.0 2736.0 L 120.0 2736.0 Q 126.0 2742.0 126.0 2750.5 L 126.0 2786.0 Q 126.0 2802.0 114.7 2813.3 L 113.3 2814.7 Q 102.0 2826.0 102.0 2842.0 L 102.0 3081.5 Q 102.0 3090.0 96.0 3096.0 L 96.0 3096.0 Q 90.0 3102.0 90.0 3110.5 L 90.0 3141.5 Q 90.0 3150.0 96.0 3156.0 L 96.0 3156.0 Q 102.0 3162.0 102.0 3170.5 L 102.0 3285.5 Q 102.0 3294.0 96.0 3300.0 L 96.0 3300.0 Q 90.0 3306.0 81.5 3306.0 L 46.0 3306.0 Q 30.0 3306.0 30.0 3322.0 L 30.0 4549.0 Q 30.0 4565.0 46.0 4565.0 L 3758.0 4565.0 Q 3774.0 4565.0 3774.0 4549.0 L 3774.0 4486.0 Q 3774.0 4470.0 3790.0 4470.0 L 3862.0 4470.0 L 4466.0 4470.0 Q 4482.0 4470.0 4493.3 4458.7 L 4938.7 4013.3 Q 4950.0 4002.0 4950.0 3986.0 L 4950.0 3254.5 Q 4950.0 3246.0 4956.0 3240.0 L 4956.0 3240.0 Q 4962.0 3234.0 4970.5 3234.0 L 5037.5 3234.0 Q 5046.0 3234.0 5052.0 3240.0 L 5052.0 3240.0 Q 5058.0 3246.0 5058.0 3254.5 L 5058.0 3265.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g>
 <g id="cx_lanz_g3p_coq" class="conexion-inter-ruta"><path d="M 5166.0 3671.0 L 5166.0 3722.0 Q 5166.0 3738.0 5154.7 3749.3 L 5153.3 3750.7 Q 5142.0 3762.0 5126.0 3762.0 L 3854.5 3762.0 Q 3846.0 3762.0 3840.0 3756.0 L 3840.0 3756.0 Q 3834.0 3750.0 3834.0 3741.5 L 3834.0 3508.5 Q 3834.0 3498.0 3823.5 3498.0 L 3813.0 3498.0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M 5166.0 3671.0 L 5166.0 3722.0 Q 5166.0 3738.0 5154.7 3749.3 L 5153.3 3750.7 Q 5142.0 3762.0 5126.0 3762.0 L 3854.5 3762.0 Q 3846.0 3762.0 3840.0 3756.0 L 3840.0 3756.0 Q 3834.0 3750.0 3834.0 3741.5 L 3834.0 3508.5 Q 3834.0 3498.0 3823.5 3498.0 L 3813.0 3498.0" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-dasharray="10 6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#cxFlechaea580c)"/></g></g><g id="cx_rotulos"><text x="1406.0" y="1423.3" text-anchor="start" fill="#5929aa" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Lactato (Ciclo de Cori) ➔</text>
 <text x="503.4" y="1149.5" text-anchor="middle" fill="#5929aa" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Glicerol (Lipólisis TAG) ➔</text>
 <text x="1393.8" y="755.0" text-anchor="middle" fill="#813b06" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">PGM: G6P ⇄ G1P (Glucógeno)</text>
@@ -9574,14 +9666,14 @@
 <text x="722.4" y="4005.5" text-anchor="middle" fill="#015f8f" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Malato mitocondrial (NADH) ➔ Krebs</text>
 <text x="2064.2" y="1653.5" text-anchor="middle" fill="#a83f08" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Palmitato de novo ➔ Pool citosólico</text>
 <text x="4150.0" y="1167.7" text-anchor="end" fill="#813b06" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">VLDL / HDL: Colesterol ➔ Sangre</text>
-<text x="62.0" y="2288.9" text-anchor="start" fill="#9d1c55" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Cuerpos cetónicos ➔ Sangre</text>
-<text x="324.1" y="2289.5" text-anchor="middle" fill="#9d1c55" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Acetoacetato ➔ Sangre</text>
+<text x="82.0" y="1635.0" text-anchor="start" fill="#9d1c55" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Cuerpos cetónicos ➔ Sangre</text>
+<text x="82.0" y="1662.0" text-anchor="start" fill="#9d1c55" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Acetoacetato ➔ Sangre</text>
 <text x="3842.0" y="2644.3" text-anchor="start" fill="#1a47a9" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">NH₄⁺ ➔ CPS-1 (Ciclo de la Urea)</text>
 <text x="3338.0" y="1175.7" text-anchor="start" fill="#096a61" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Glutamina ➔ Sangre</text>
 <text x="2078.0" y="3064.9" text-anchor="start" fill="#036c4b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">FAH: Fumarato ➔ Krebs</text>
 <text x="4009.2" y="3671.0" text-anchor="middle" fill="#9d1c55" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">FAH: Acetoacetato ➔ Cuerpos Cetónicos</text>
 <text x="694.9" y="1547.0" text-anchor="middle" fill="#a83f08" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">CTH: Cistationina ➔ Propionil-CoA</text>
-<text x="2255.7" y="2555.0" text-anchor="middle" fill="#096a61" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">GOT2: OAA ➔ Aspartato</text>
+<text x="842.0" y="2385.0" text-anchor="start" fill="#096a61" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">GOT2: OAA ➔ L-Aspartato (Matriz)</text>
 <text x="4726.0" y="3442.3" text-anchor="end" fill="#a83f08" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Fumarato (ASL) ➔ Krebs</text>
 <text x="4538.0" y="712.4" text-anchor="start" fill="#9e1b1b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Urea ➔ Sangre (Riñón)</text>
 <text x="4089.6" y="2145.5" text-anchor="middle" fill="#096a61" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">Gln ➔ CPS-II (Pirimidinas)</text>
@@ -9945,16 +10037,16 @@
 
     <!-- 1. POOL COLECTOR DE LOS 3 ÁCIDOS GRASOS LIBRES -->
     <g id="colector_3ag_adipocito">
-      <!-- Colector lateral limpio por el canal izquierdo (sin cruzar sobre textos de DAG/MAG/MGL) -->
-      <!-- Entrada 1 (ATGL): sale a la izquierda hacia el canal X=-650 -->
-      <path d="M -586 1590 L -650 1590" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
-      <!-- Entrada 2 (HSL): sale a la izquierda hacia el canal X=-650 -->
-      <path d="M -586 1810 L -650 1810" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
-      <!-- Entrada 3 (MGL): sale a la izquierda hacia el canal X=-650 -->
-      <path d="M -586 2030 L -650 2030" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
-      <!-- Tronco colector vertical por el margen izquierdo despejado hasta el fondo -->
-      <path d="M -650 1590 L -650 2195 Q -650 2210 -635 2210 L -280 2210 Q -260 2210 -260 2190 L -260 1775" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="7 4" marker-end="url(#arrowOrange)"/>
-      <text x="-655" y="1900" fill="#059669" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="end" transform="rotate(-90 -655 1900)">Canal Colector de Ácidos Grasos Libres (1º, 2º y 3º AG)</text>
+      <!-- Colector lateral limpio por el canal izquierdo y cruce horizontal en Y=1638 (0 solapamientos) -->
+      <!-- Entrada 1 (ATGL): nace a la izquierda de «+ 1º AG libre» (X=-666) hacia el canal X=-680 -->
+      <path d="M -666 1590 L -680 1590" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+      <!-- Entrada 2 (HSL): nace a la izquierda de «+ 2º AG libre» (X=-666) hacia el canal X=-680 -->
+      <path d="M -666 1810 L -680 1810" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+      <!-- Entrada 3 (MGL): nace a la izquierda de «+ 3º AG libre» (X=-666) hacia el canal X=-680 -->
+      <path d="M -666 2030 L -680 2030" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+      <!-- Tronco colector vertical por X=-680 (de MGL a ATGL) y cruce libre en Y=1638 hacia el borde superior del Pool -->
+      <path d="M -680 2030 L -680 1590 M -680 1638 L -199 1638 Q -185 1638 -185 1652 L -185 1680" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="7 4" marker-end="url(#arrowOrange)"/>
+      <text x="-692" y="1820" fill="#059669" font-size="8.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle" transform="rotate(-90 -692 1820)">Canal Colector de Ácidos Grasos Libres (1º, 2º y 3º AG)</text>
 
       <!-- Caja del Pool de 3 AG libres -->
       <rect x="-280" y="1680" width="190" height="92" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
@@ -9968,7 +10060,7 @@
     <!-- Salida y transporte vascular de 3 AG + Albúmina con línea y flechas punteadas ascendentes -->
     <g id="salida_vascular_adipocito">
       <path d="M -90 1726 L -40 1726 L -40 425" fill="none" stroke="#ea580c" stroke-width="2.8" stroke-dasharray="8 5" marker-end="url(#arrowOrange)"/>
-      <g transform="translate(-40, 1080)">
+      <g transform="translate(-145, 1080)">
         <rect x="-85" y="-14" width="170" height="28" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.6"/>
         <text x="0" y="4" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#c2410c" text-anchor="middle">3 AG + Albúmina ➔ Sangre</text>
       </g>
@@ -9991,7 +10083,7 @@
     <!-- Salida y transporte vascular de Glicerol con línea y flechas punteadas ascendentes -->
     <g id="salida_vascular_glicerol">
       <path d="M -90 2120 L -15 2120 L -15 425" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="8 5" marker-end="url(#arrowBlue)"/>
-      <g transform="translate(-15, 1220)">
+      <g transform="translate(-140, 1220)">
         <rect x="-80" y="-14" width="160" height="28" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.6"/>
         <text x="0" y="4" font-family="'Inter', sans-serif" font-size="9" font-weight="900" fill="#0369a1" text-anchor="middle">Glicerol ➔ Hígado (GNG)</text>
       </g>
@@ -10525,19 +10617,19 @@
     
 
     <g transform="translate(6020, 2010)">
-      <path d="M -40 0 C -120 40, -140 70, -140 100" fill="none" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowOrange)"/>
-      <rect x="-240" y="30" width="150" height="40" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.8"/>
-      <text x="-165" y="48" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#c2410c" text-anchor="middle">DGAT + Acil-CoA</text>
-      <text x="-165" y="62" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#ea580c" text-anchor="middle">EC 2.3.1.20 (- CoA-SH)</text>
+      <path d="M -30 0 C -65 35, -80 65, -80 100" fill="none" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowOrange)"/>
+      <rect x="-250" y="25" width="150" height="40" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.8"/>
+      <text x="-175" y="43" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#c2410c" text-anchor="middle">DGAT + Acil-CoA</text>
+      <text x="-175" y="57" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#ea580c" text-anchor="middle">EC 2.3.1.20 (- CoA-SH)</text>
 
-      <path d="M 40 0 C 50 40, 60 70, 70 100" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrowBlue)"/>
-      <rect x="135" y="30" width="160" height="40" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
-      <text x="215" y="48" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0369a1" text-anchor="middle">CPT + CDP-Colina</text>
-      <text x="215" y="62" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#0284c7" text-anchor="middle">Vía de Kennedy (Bicapas)</text>
+      <path d="M 40 0 C 60 35, 75 65, 75 100" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrowBlue)"/>
+      <rect x="135" y="25" width="160" height="40" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
+      <text x="215" y="43" font-family="'Inter', sans-serif" font-size="10.5" font-weight="900" fill="#0369a1" text-anchor="middle">CPT + CDP-Colina</text>
+      <text x="215" y="57" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#0284c7" text-anchor="middle">Vía de Kennedy (Bicapas)</text>
     </g>
     
 
-    <g id="m_der_tag_reserva" class="nodo-metabolito-libre" transform="translate(5850, 2150)">
+    <g id="m_der_tag_reserva" class="nodo-metabolito-libre" transform="translate(5840, 2120)">
       <g>
 <g class="mol-tag" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <!-- C1 (superior) -->
@@ -10586,13 +10678,13 @@
   <text x="178" y="68" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#ea580c" stroke="none">R₃</text>
 </g>
 </g>
-      <text x="190" y="20" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif">Triacilglicerol (TAG)</text>
-      <text x="190" y="37" fill="#ea580c" font-size="11" font-weight="700" font-family="'JetBrains Mono', monospace">[Reserva] </text>
-      <text x="190" y="54" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Almacenamiento energético en gotas</text>
+      <text x="10" y="118" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif">Triacilglicerol (TAG)</text>
+      <text x="10" y="135" fill="#ea580c" font-size="11" font-weight="700" font-family="'JetBrains Mono', monospace">[Reserva] </text>
+      <text x="10" y="152" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Almacenamiento energético en gotas</text>
     </g>
     
 
-    <g id="m_der_pc_membrana" class="nodo-metabolito-libre" transform="translate(6140, 2150)">
+    <g id="m_der_pc_membrana" class="nodo-metabolito-libre" transform="translate(6160, 2120)">
       <g>
 <g class="mol-pc" stroke="#0f172a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <text x="32" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#2563eb" stroke="none" text-anchor="end">H₂C</text>
@@ -10627,9 +10719,9 @@
   <text x="98" y="112" font-family="'Inter', sans-serif" font-size="10" font-weight="800" fill="#2563eb" stroke="none" text-anchor="middle">O–CH₂CH₂–N⁺(CH₃)₃</text>
 </g>
 </g>
-      <text x="175" y="20" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif">Fosfatidilcolina (PC)</text>
-      <text x="175" y="37" fill="#ea580c" font-size="11" font-weight="700" font-family="'JetBrains Mono', monospace">[Membrana] </text>
-      <text x="175" y="54" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Fosfolípido mayoritario de bicapas</text>
+      <text x="10" y="126" fill="#0f172a" font-size="14.5" font-weight="800" font-family="'Inter', sans-serif">Fosfatidilcolina (PC)</text>
+      <text x="10" y="143" fill="#ea580c" font-size="11" font-weight="700" font-family="'JetBrains Mono', monospace">[Membrana] </text>
+      <text x="10" y="160" fill="#64748b" font-size="9.5" font-weight="600" font-family="'Inter', sans-serif">Fosfolípido mayoritario de bicapas</text>
     </g>
     
 </g>
