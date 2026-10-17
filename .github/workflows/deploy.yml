@@ -48,6 +48,9 @@ jobs:
           cp -r capturas_y_pruebas/* _site/capturas_y_pruebas/
           # 4. Asegurar vista previa ampliada disponible
           cp 07_AMPLIACION_TEMARIO/mapa_cartulina_ampliado_preview.png _site/ || true
+          # 5. Copiar repositorio de versiones históricas
+          mkdir -p _site/versiones
+          cp -rL versiones/* _site/versiones/ || true
 
       - name: Subir artefacto de GitHub Pages
         uses: actions/upload-pages-artifact@v3

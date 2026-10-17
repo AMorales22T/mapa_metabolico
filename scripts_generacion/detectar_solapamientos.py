@@ -485,10 +485,19 @@ def analizar(ruta_svg):
                 problemas.append(("FLECHA-ESTRUCTURA", mb, f"flecha {f.ruta or f.tipo} atraviesa {gm}"))
 
     # Fuera del lienzo
-    W = float(root.get("width", 0))
-    H = float(root.get("height", 0))
+    vb = root.get("viewBox")
+    if vb:
+        vx, vy, vw, vh = [float(x) for x in vb.split()]
+        min_x, max_x = vx, vx + vw
+        min_y, max_y = vy, vy + vh
+    else:
+        min_x = 0.0
+        min_y = 0.0
+        max_x = float(root.get("width", 0))
+        max_y = float(root.get("height", 0))
+
     for t in textos_libres + textos_mol:
-        if t.bbox[2] > W + 2 or t.bbox[0] < -2 or t.bbox[3] > H + 2:
+        if t.bbox[2] > max_x + 2 or t.bbox[0] < min_x - 2 or t.bbox[3] > max_y + 2 or t.bbox[1] < min_y - 2:
             problemas.append(("FUERA-LIENZO", t.bbox, f"«{t.texto[:40]}»"))
 
     # Deduplicar

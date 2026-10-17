@@ -45,12 +45,13 @@ Un atlas visual y didáctico de bioquímica celular que integra **25 vías metab
 
 | Formato | Recurso | Descripción |
 | :---: | :--- | :--- |
-| 🌐 **Web** | **[Visor Interactivo Principal (25 Vías)](https://amorales22t.github.io/mapa_metabolico/)** | El mapa ampliado a pantalla completa listo para estudiar |
+| 🌐 **Web** | **[Visor Interactivo Principal (25 Vías)](https://amorales22t.github.io/mapa_metabolico/)** | El mapa oficial ampliado y auditado listo para estudiar |
 | 🌐 **Web** | [Ampliación Vías 18 a 25](versiones_html/02_ampliacion_rutas_18_25.html) | Visor enfocado exclusivamente en vías periféricas |
 | 🌐 **Web** | [Cuadro Temario (Bloques A–E)](versiones_html/04_cuadro_temario_bloques_A_E.html) | Cuadro de estudio con tablas de cofactores y regulación |
 | 🌐 **Web** | [Centro de Visores / Hub](versiones_html/centro_visores.html) | Portal con tarjetas de selección y descargas |
-| 🖨️ **PDF** | [Póster Completo 120×84 cm (Sin recortes)](versiones_impresion/01_mapa_ampliado_completo_120x84cm.pdf) | PDF vectorial Ultra-HD de 25 vías ajustado al aspect ratio exacto |
-| 🖨️ **PDF** | [Póster Completo 120×90 cm](versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf) | PDF vectorial Ultra-HD de 25 vías en formato póster estándar |
+| 🗂️ **Historial** | **[Subcarpeta de Versiones (v1, v2, Final)](versiones/README.md)** | Archivo histórico con entregables SVG/PDF/HTML por versión |
+| 🖨️ **PDF** | [Póster Completo 120×84 cm (Sin recortes)](versiones_impresion/01_mapa_ampliado_completo_120x84cm.pdf) | PDF vectorial Ultra-HD oficial de 25 vías ajustado al aspect ratio |
+| 🖨️ **PDF** | [Póster Completo 120×90 cm](versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf) | PDF vectorial Ultra-HD oficial en formato póster estándar |
 | 🖨️ **PDF** | [Póster Central 120×90 cm](versiones_impresion/03_mapa_central_original_120x90cm.pdf) | PDF del hepatocito central (17 vías troncales) |
 
 ---
@@ -58,27 +59,31 @@ Un atlas visual y didáctico de bioquímica celular que integra **25 vías metab
 ## 📂 Estructura del Repositorio
 
 ```text
-├── scripts_generacion/    # Generadores Python 3 (motor SVG, A* pathfinding, CLI)
+├── versiones/             # Repositorio organizado de versiones (version_1, version_2, version_final)
+├── scripts_generacion/    # Generadores Python 3 (motor SVG, A* pathfinding, detector de solapamientos)
 ├── versiones_html/        # Entregables interactivos HTML5/SVG (desplegados en GitHub Pages)
 ├── versiones_impresion/   # PDFs vectoriales Ultra-HD (1200 × 900 mm) listos para imprenta
 ├── capturas_y_pruebas/    # Capturas de pantalla, validaciones visuales y comprobaciones
 ├── 01 a 05 (Módulos)/     # Código fuente por familia bioquímica (Carbohidratos, Lípidos, etc.)
 ├── 06_REGULACION_Y_LEYENDA/ # Catálogo de efectores ⊕/⊖, fosforilaciones y números EC
-└── 07_AMPLIACION_TEMARIO/ # Ensamblador del mapa ampliado (7320 × 5490 px) y vías 18 a 25
+└── 07_AMPLIACION_TEMARIO/ # Ensamblador del mapa ampliado (7320 × 5490 px) y calibración
 ```
 
 ---
 
-## 🛠️ Generación desde Código Fuente
+## 🛠️ Generación y Validación desde Código Fuente
 
 El proyecto solo requiere **Python 3** (sin librerías complejas):
 
 ```bash
-# 1. Regenerar el mapa ampliado completo de 25 vías (HTML y PDF)
+# 1. Regenerar el mapa ampliado oficial completo de 25 vías (HTML, PDF y SVG depurado)
 python3 07_AMPLIACION_TEMARIO/generar_ampliacion.py
 
-# 2. O recalcular el trazado A* de las 45 conexiones inter-ruta
+# 2. Recalcular el trazado A* de las 45 conexiones inter-ruta
 python3 scripts_generacion/conectar_rutas.py
+
+# 3. Detectar solapamientos y verificar colisiones en el SVG
+python3 scripts_generacion/detectar_solapamientos.py 07_AMPLIACION_TEMARIO/mapa_cartulina_ampliado.svg
 ```
 
 ---

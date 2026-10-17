@@ -839,7 +839,11 @@ def ensamblar_mapa_ampliado():
     {banda_der}
 </svg>"""
 
-    print(f"2. Escribiendo SVG ampliado en: {RUTA_OUT_SVG}")
+    print("2. Aplicando calibraciones y correcciones biológicas validadas...")
+    from correcciones_mapa import aplicar_correcciones_mapa
+    svg_final = aplicar_correcciones_mapa(svg_final)
+
+    print(f"   Escribiendo SVG ampliado en: {RUTA_OUT_SVG}")
     with open(RUTA_OUT_SVG, "w", encoding="utf-8") as f:
         f.write(svg_final)
 
