@@ -1236,6 +1236,7 @@ def construir_mapa_alternativo():
           </optgroup>
         </select>
         <button id="ui_btn_isolate" class="ui_state_btn" onclick="toggleModoAislar()" title="Oculta por completo las vias atenuadas para ver unicamente la via seleccionada">Aislar</button>
+        <button id="ui_btn_open_svg" class="ui_state_btn" onclick="abrirSvgViaActual()" style="background:#0284c7; color:#ffffff; font-weight:700;" title="Abrir el diagrama SVG vectorial individual de esta ruta en una pestaña nueva">Ver SVG</button>
       </div>
 
       <div style="width: 1px; height: 20px; background: #475569; margin: 0 4px;"></div>
@@ -1253,6 +1254,20 @@ def construir_mapa_alternativo():
 
       <!-- Selector de Vistas / Descargas -->"""
     html_content = html_content.replace('      <!-- Selector de Vistas / Descargas -->', botones_extra, 1)
+
+    # Inyectar boton de Ver SVG Individual en el banner flotante
+    banner_viejo = """  <!-- BANNER FLOTANTE DE VÍA RESALTADA -->
+  <div id="ui_highlight_banner">
+    <span id="ui_highlight_title">Vía resaltada</span>
+    <button onclick="clearPathwayHighlight()" title="Quitar resaltado (Esc)">✕ Quitar</button>
+  </div>"""
+    banner_nuevo = """  <!-- BANNER FLOTANTE DE VÍA RESALTADA -->
+  <div id="ui_highlight_banner">
+    <span id="ui_highlight_title">Vía resaltada</span>
+    <button id="ui_btn_banner_svg" onclick="abrirSvgViaActual()" style="background:#0284c7; color:#ffffff; border:none; padding:4px 10px; border-radius:4px; font-weight:700; cursor:pointer; font-size:0.75rem; margin-right:4px;">Abrir Diagrama SVG</button>
+    <button onclick="clearPathwayHighlight()" title="Quitar resaltado (Esc)">✕ Quitar</button>
+  </div>"""
+    html_content = html_content.replace(banner_viejo, banner_nuevo, 1)
 
     # Actualizar menu de vistas y descargas
     menu_vistas_nuevo = """        <div id="ui_menu_views" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 6px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-width: 280px; z-index: 1000; padding: 6px 0; text-align: left;">
@@ -2430,6 +2445,57 @@ def construir_mapa_alternativo():
       }
     }
 
+    // Catalogo de diagramas SVG individuales de cada ruta
+    const MAPA_VIAS_SVG = {
+      "1": "01_CARBOHIDRATOS/via_01_glucolisis/Glucolisis.svg",
+      "2": "01_CARBOHIDRATOS/via_02_gluconeogenesis/Gluconeogenesis.svg",
+      "3": "01_CARBOHIDRATOS/via_03_glucogenogenesis_y_glucogenolisis/Glucogenesis.svg",
+      "4": "01_CARBOHIDRATOS/via_04_pentosas_fosfato/Pentosas.svg",
+      "5": "02_RESPIRACION_Y_ENERGIA/via_05_complejo_pdh/Piruvato_Deshidrogenasa.svg",
+      "6": "02_RESPIRACION_Y_ENERGIA/via_06_ciclo_de_krebs/Ciclo_de_Krebs.svg",
+      "7": "02_RESPIRACION_Y_ENERGIA/via_07_cadena_respiratoria_atp_sintasa/Cadena_Transporte_Electrones.svg",
+      "8": "02_RESPIRACION_Y_ENERGIA/via_08_lanzaderas/Lanzadera_Malato_Aspartato.svg",
+      "8B": "02_RESPIRACION_Y_ENERGIA/via_08_lanzaderas/Lanzadera_Glicerol_3_Fosfato.svg",
+      "9": "03_LIPIDOS/via_09_beta_oxidacion/Beta_Oxidacion.svg",
+      "10": "03_LIPIDOS/via_10_lipogenesis/Lipogenesis.svg",
+      "11": "03_LIPIDOS/via_11_cetogenesis_y_cetolisis/Cetogenesis_y_Cetolisis.svg",
+      "12": "03_LIPIDOS/via_12_colesterol_y_lipoproteinas/Colesterol.svg",
+      "12B": "04_NITROGENO_Y_AMINOACIDOS/via_12b_destinos_esqueletos_carbonados/Destinos_Esqueletos_Carbonados.svg",
+      "13": "04_NITROGENO_Y_AMINOACIDOS/via_13_transaminacion_y_desaminacion/Transaminacion_y_Desaminacion.svg",
+      "14": "04_NITROGENO_Y_AMINOACIDOS/via_14_ciclo_de_la_urea/Ciclo_de_la_Urea.svg",
+      "15": "05_NUCLEOTIDOS_Y_OTRAS/via_15_sintesis_purinas_y_pirimidinas/Sintesis_Purinas_y_Pirimidinas.svg",
+      "16": "05_NUCLEOTIDOS_Y_OTRAS/via_16_degradacion_y_acido_urico/Degradacion_Nucleotidos_y_Acido_Urico.svg",
+      "17": "01_CARBOHIDRATOS/via_17_ciclo_de_cori/Ciclo_de_Cori.svg",
+      "18": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg",
+      "19": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg",
+      "20": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg",
+      "21": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg",
+      "22": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg",
+      "23": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg",
+      "24": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg",
+      "25": "07_AMPLIACION_TEMARIO/ampliacion_rutas_18_25_interactiva.svg"
+    };
+
+    function getSvgUrlDeVia(viaId) {
+      const rel = MAPA_VIAS_SVG[viaId];
+      if (!rel) return null;
+      const isSubdir = window.location.pathname.includes('/versiones_html') || window.location.pathname.includes('/mapa_metabolico_alternativo');
+      return (isSubdir ? '../' : '') + rel;
+    }
+
+    function abrirSvgViaActual() {
+      const sel = document.getElementById('ui_select_quick_via');
+      const viaId = (sel && sel.value) ? sel.value : (typeof viaResaltadaActual !== 'undefined' ? viaResaltadaActual : null);
+      if (!viaId) {
+        alert('Por favor selecciona primero una vía en el selector o en el mapa.');
+        return;
+      }
+      const url = getSvgUrlDeVia(viaId);
+      if (url) {
+        window.open(url, '_blank');
+      }
+    }
+
     // Navegacion entre versiones del mapa preservando parametros URL
     function irAMapaAlternativo() {
       try {
@@ -2508,6 +2574,10 @@ def construir_mapa_alternativo():
         }
         actualizarParametroURL('via', viaId);
 
+        // Mostrar boton de SVG individual en banner
+        const bannerBtn = document.getElementById('ui_btn_banner_svg');
+        if (bannerBtn) bannerBtn.style.display = MAPA_VIAS_SVG[viaId] ? 'inline-block' : 'none';
+
         // Resaltar partículas de la vía seleccionada
         document.querySelectorAll('.ui_grupo_flujo_via').forEach(g => {
           if (g.id === `anim_flujo_via_${viaId}`) {
@@ -2543,6 +2613,9 @@ def construir_mapa_alternativo():
         }
         actualizarParametroURL('via', null);
 
+        const bannerBtn = document.getElementById('ui_btn_banner_svg');
+        if (bannerBtn) bannerBtn.style.display = 'none';
+
         document.querySelectorAll('#capa_conexiones_inter_ruta .conexion-inter-ruta').forEach(el => {
           el.classList.remove('ui_highlighted');
         });
@@ -2551,6 +2624,29 @@ def construir_mapa_alternativo():
         });
         actualizarEstadoFlujo();
         cerrarPanelTransformacion();
+      };
+    }
+
+    // Inyectar boton [SVG] en cada elemento del indice lateral
+    const fnOrigPoblar = window.poblarSidebarVias;
+    if (typeof fnOrigPoblar === 'function') {
+      window.poblarSidebarVias = function() {
+        fnOrigPoblar();
+        document.querySelectorAll('.ui_sidebar_item').forEach(it => {
+          const vid = it.getAttribute('data-via');
+          const svgUrl = getSvgUrlDeVia(vid);
+          if (svgUrl && !it.querySelector('.ui_sidebar_svg_btn')) {
+            const btn = document.createElement('a');
+            btn.className = 'ui_sidebar_svg_btn';
+            btn.href = svgUrl;
+            btn.target = '_blank';
+            btn.title = 'Abrir diagrama SVG individual';
+            btn.textContent = 'SVG';
+            btn.onclick = (e) => e.stopPropagation();
+            btn.style.cssText = 'margin-left:auto; background:rgba(56,189,248,0.15); border:1px solid #0284c7; color:#38bdf8; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; text-decoration:none; white-space:nowrap;';
+            it.appendChild(btn);
+          }
+        });
       };
     }
 
@@ -2588,6 +2684,20 @@ def construir_mapa_alternativo():
         if (mapParam === 'original' && !window.location.pathname.includes('01_mapa_ampliado')) {
           irAMapaOriginal();
           return;
+        }
+
+        const svgParam = params.get('svg') || params.get('img');
+        if (svgParam) {
+          const raw = svgParam.trim();
+          const upper = raw.toUpperCase();
+          const target = MAPA_VIAS_SVG[upper] ? upper : (MAPA_VIAS_SVG[raw] ? raw : null);
+          if (target) {
+            const url = getSvgUrlDeVia(target);
+            if (url) {
+              window.location.href = url;
+              return;
+            }
+          }
         }
 
         const viaParam = params.get('via');

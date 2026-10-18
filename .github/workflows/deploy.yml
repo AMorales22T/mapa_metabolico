@@ -40,21 +40,34 @@ jobs:
           # 2. Copiar carpeta del mapa alternativo (SVG, HTML, PDF y preview PNG)
           mkdir -p _site/mapa_metabolico_alternativo
           cp -r mapa_metabolico_alternativo/* _site/mapa_metabolico_alternativo/
-          # 3. Portada principal interactiva: index.html (Mapa Alternativo con Flujo Vivo 60 FPS y Selector Dual)
+          # 3. Copiar carpetas tematicas con diagramas SVG individuales de cada ruta
+          mkdir -p _site/01_CARBOHIDRATOS
+          cp -r 01_CARBOHIDRATOS/* _site/01_CARBOHIDRATOS/
+          mkdir -p _site/02_RESPIRACION_Y_ENERGIA
+          cp -r 02_RESPIRACION_Y_ENERGIA/* _site/02_RESPIRACION_Y_ENERGIA/
+          mkdir -p _site/03_LIPIDOS
+          cp -r 03_LIPIDOS/* _site/03_LIPIDOS/
+          mkdir -p _site/04_NITROGENO_Y_AMINOACIDOS
+          cp -r 04_NITROGENO_Y_AMINOACIDOS/* _site/04_NITROGENO_Y_AMINOACIDOS/
+          mkdir -p _site/05_NUCLEOTIDOS_Y_OTRAS
+          cp -r 05_NUCLEOTIDOS_Y_OTRAS/* _site/05_NUCLEOTIDOS_Y_OTRAS/
+          mkdir -p _site/07_AMPLIACION_TEMARIO
+          cp -r 07_AMPLIACION_TEMARIO/* _site/07_AMPLIACION_TEMARIO/
+          # 4. Portada principal interactiva: index.html (Mapa Alternativo con Flujo Vivo 60 FPS y Selector Dual)
           cp index.html _site/index.html
-          # 4. Asegurar que versiones_html/ exista tambien como subcarpeta para compatibilidad absoluta
+          # 5. Asegurar que versiones_html/ exista tambien como subcarpeta para compatibilidad absoluta
           mkdir -p _site/versiones_html
           cp -r versiones_html/* _site/versiones_html/
-          # 5. Copiar PDFs tanto en _site/versiones_impresion/ como en la raiz para compatibilidad absoluta
+          # 6. Copiar PDFs tanto en _site/versiones_impresion/ como en la raiz para compatibilidad absoluta
           mkdir -p _site/versiones_impresion
           cp -r versiones_impresion/* _site/versiones_impresion/
           cp -r versiones_impresion/* _site/
-          # 6. Copiar capturas y vistas previas
+          # 7. Copiar capturas y vistas previas
           mkdir -p _site/capturas_y_pruebas
           cp -r capturas_y_pruebas/* _site/capturas_y_pruebas/
-          # 7. Asegurar vista previa ampliada disponible
+          # 8. Asegurar vista previa ampliada disponible
           cp 07_AMPLIACION_TEMARIO/mapa_cartulina_ampliado_preview.png _site/ || true
-          # 8. Copiar repositorio de versiones historicas
+          # 9. Copiar repositorio de versiones historicas
           mkdir -p _site/versiones
           cp -rL versiones/* _site/versiones/ || true
 
