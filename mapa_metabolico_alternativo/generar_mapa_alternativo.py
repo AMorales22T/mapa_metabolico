@@ -900,6 +900,10 @@ def construir_mapa_alternativo():
       stroke-linejoin: round;
       font-weight: 900 !important;
     }
+    /* Modo lectura: ocultar las bolitas (particulas SMIL) para poder leer sin distracciones */
+    .ui_particula_oculta_lectura {
+      display: none !important;
+    }
     body.ui_isolate_mode .ui_dimmed {
       display: none !important;
     }
@@ -1190,7 +1194,7 @@ def construir_mapa_alternativo():
         <a href="index.html" class="ui_ver_link active" onclick="irAMapaAlternativo(); return false;" title="Mapa interactivo con flujo animado continuo a 60 FPS, lanzaderas y monitor CTE">
           <span class="ui_live_dot"></span> Mapa Alternativo
         </a>
-        <a href="01_mapa_ampliado_completo_25_vias.html" class="ui_ver_link" onclick="irAMapaOriginal(); return false;" title="Mapa cartulina base clasico ampliado de 25 vias">
+        <a href="../versiones_html/01_mapa_ampliado_completo_25_vias.html" class="ui_ver_link" onclick="irAMapaOriginal(); return false;" title="Mapa cartulina base clasico ampliado de 25 vias">
           Mapa Original
         </a>
       </div>
@@ -1272,11 +1276,11 @@ def construir_mapa_alternativo():
     # Actualizar menu de vistas y descargas
     menu_vistas_nuevo = """        <div id="ui_menu_views" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 6px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-width: 280px; z-index: 1000; padding: 6px 0; text-align: left;">
           <a href="index.html" onclick="irAMapaAlternativo(); return false;" style="display: block; padding: 8px 14px; color: #38bdf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">* Mapa Alternativo (Flujo Vivo 60 FPS)</a>
-          <a href="01_mapa_ampliado_completo_25_vias.html" onclick="irAMapaOriginal(); return false;" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem; font-weight: 700;">* Mapa Original Base (25 Vias)</a>
+          <a href="../versiones_html/01_mapa_ampliado_completo_25_vias.html" onclick="irAMapaOriginal(); return false;" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem; font-weight: 700;">* Mapa Original Base (25 Vias)</a>
           <div style="height: 1px; background: #334155; margin: 4px 0;"></div>
-          <a href="02_ampliacion_rutas_18_25.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">02. Ampliacion Vias 18–25 (Standalone)</a>
-          <a href="03_mapa_central_interactivo_17_vias.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">03. Mapa Central (17 Vias)</a>
-          <a href="04_cuadro_temario_bloques_A_E.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">04. Temario A–E (Metabolismo Intermediario)</a>
+          <a href="../versiones_html/02_ampliacion_rutas_18_25.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">02. Ampliacion Vias 18–25 (Standalone)</a>
+          <a href="../versiones_html/03_mapa_central_interactivo_17_vias.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">03. Mapa Central (17 Vias)</a>
+          <a href="../versiones_html/04_cuadro_temario_bloques_A_E.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">04. Temario A–E (Metabolismo Intermediario)</a>
           <div style="height: 1px; background: #334155; margin: 4px 0;"></div>
           <a href="mapa_metabolico_alternativo_120x90cm.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #38bdf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">Descargar PDF Alternativo (120×90 cm)</a>
           <a href="../versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem; font-weight: 700;">Descargar PDF Original (120×90 cm)</a>
@@ -1891,6 +1895,10 @@ def construir_mapa_alternativo():
       const cfg = CONFIG_LANZADERAS[lanzId];
       if (!cfg) return;
 
+      // Salir del monitor CTE si estaba activo (la lanzadera de carnitina no llama a highlightPathway)
+      modoCTEActivo = false;
+      detenerLoopCTE();
+
       modoLanzaderaActivo = true;
       lanzaderaActualId = lanzId;
       faseLanzaderaIdx = faseIdx;
@@ -2403,6 +2411,10 @@ def construir_mapa_alternativo():
       document.body.classList.toggle('ui_reading_mode', modoLecturaActivo);
       const btn = document.getElementById('ui_btn_reading');
       if (btn) btn.classList.toggle('ui_btn_active_custom', modoLecturaActivo);
+      // Las bolitas son <circle>/<ellipse> con <animateMotion>: se ocultan / muestran todas a la vez
+      document.querySelectorAll('animateMotion').forEach(a => {
+        if (a.parentElement) a.parentElement.classList.toggle('ui_particula_oculta_lectura', modoLecturaActivo);
+      });
     }
 
     function toggleModoAislar() {
@@ -2511,16 +2523,18 @@ def construir_mapa_alternativo():
     function irAMapaOriginal() {
       try {
         const params = window.location.search;
-        const isSubdir = window.location.pathname.includes('/versiones_html') || window.location.pathname.includes('/mapa_metabolico_alternativo');
-        let target = '01_mapa_ampliado_completo_25_vias.html';
-        if (isSubdir) {
-          target = window.location.pathname.includes('/versiones_html') ? '01_mapa_ampliado_completo_25_vias.html' : '../versiones_html/01_mapa_ampliado_completo_25_vias.html';
-        } else if (window.location.protocol === 'file:') {
-          target = 'versiones_html/01_mapa_ampliado_completo_25_vias.html';
+        const path = window.location.pathname;
+        // El mapa original vive siempre en versiones_html/. Desde la raiz (GitHub Pages, file://, etc.)
+        // hay que anteponer esa carpeta; si ya estamos dentro de ella basta el nombre del archivo.
+        let target = 'versiones_html/01_mapa_ampliado_completo_25_vias.html';
+        if (path.includes('/versiones_html/')) {
+          target = '01_mapa_ampliado_completo_25_vias.html';
+        } else if (path.includes('/mapa_metabolico_alternativo/')) {
+          target = '../versiones_html/01_mapa_ampliado_completo_25_vias.html';
         }
         window.location.href = target + params;
       } catch (e) {
-        window.location.href = '01_mapa_ampliado_completo_25_vias.html';
+        window.location.href = 'versiones_html/01_mapa_ampliado_completo_25_vias.html';
       }
     }
 
@@ -2555,6 +2569,19 @@ def construir_mapa_alternativo():
     const fnOrigHighlight = window.highlightPathway;
     if (typeof fnOrigHighlight === 'function') {
       window.highlightPathway = function(viaId, shouldZoom = false) {
+        // Al cambiar a otra via hay que parar el monitor CTE / lanzadera que siguiera activo:
+        // si no, su temporizador seguia cambiando de fase y pisando la nueva seleccion.
+        const mantieneCTE = viaId === "7" && modoCTEActivo;
+        const mantieneLanzadera = (viaId === "8" || viaId === "8B") && modoLanzaderaActivo && lanzaderaActualId === viaId;
+        if (modoCTEActivo && !mantieneCTE) {
+          modoCTEActivo = false;
+          detenerLoopCTE();
+        }
+        if (modoLanzaderaActivo && !mantieneLanzadera) {
+          modoLanzaderaActivo = false;
+          detenerLoopLanzadera();
+        }
+
         fnOrigHighlight(viaId, shouldZoom);
         const v = TABLA_VIAS[viaId];
         if (v && v.conexiones) {
@@ -2589,14 +2616,17 @@ def construir_mapa_alternativo():
 
         actualizarEstadoFlujo();
 
-        // Si el usuario selecciona la vía 7 (CTE), activar su monitor
-        if (viaId === "7") {
+        // Si el usuario selecciona la vía 7 (CTE) o una lanzadera, activar su monitor.
+        // Importante: iniciarModoCTE/iniciarModoLanzadera vuelven a llamar a highlightPathway,
+        // asi que solo se arrancan si el modo todavia no esta activo (antes esto era un bucle
+        // infinito cada 150 ms que dejaba el mapa colgado).
+        if (viaId === "7" && !modoCTEActivo) {
           setTimeout(() => {
-            iniciarModoCTE(0);
+            if (viaResaltadaActual === "7" && !modoCTEActivo) iniciarModoCTE(0);
           }, 150);
-        } else if (viaId === "8" || viaId === "8B") {
+        } else if ((viaId === "8" || viaId === "8B") && !(modoLanzaderaActivo && lanzaderaActualId === viaId)) {
           setTimeout(() => {
-            iniciarModoLanzadera(viaId, 0);
+            if (viaResaltadaActual === viaId && !(modoLanzaderaActivo && lanzaderaActualId === viaId)) iniciarModoLanzadera(viaId, 0);
           }, 150);
         }
       };
@@ -2781,6 +2811,9 @@ def construir_mapa_alternativo():
     ).replace(
         'href="../versiones_impresion/02_ampliacion_rutas_18_25.pdf"',
         'href="versiones_impresion/02_ampliacion_rutas_18_25.pdf"'
+    ).replace(
+        'href="../versiones_html/',
+        'href="versiones_html/'
     )
     with open(ruta_root_index, "w", encoding="utf-8") as f:
         f.write(root_html)
