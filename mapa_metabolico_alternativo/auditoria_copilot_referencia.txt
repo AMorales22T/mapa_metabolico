@@ -1,0 +1,541 @@
+INFORME DE AUDITORIA DEL MAPA METABOLICO INTEGRADO
+Fecha de auditoria: 2026-10-17
+
+ALCANCE Y METODO
+=================
+Se audito en modo solo lectura el visor ampliado de 25 vias:
+versiones_html/mapa_ampliado_interactivo.html
+y el SVG integrado incrustado en ese visor (viewBox -760 0 7320 5120).
+No se modifico ningun archivo original. El seguimiento se hizo primero como
+lector sin conocimiento previo de la organizacion del lienzo y despues se
+contrastaron las reacciones dudosas con los modulos fuente de
+revision_metabolismo/ y con fuentes bioquimicas externas indicadas al final.
+
+La auditoria distingue:
+- problema visual: la conexion puede ser bioquimicamente valida pero no se
+  puede seguir inequívocamente con la vista;
+- problema bioquimico: la identidad, direccion, transportador o intermediario
+  representado es incorrecto o incompleto;
+- pendiente: la evidencia del SVG no permite resolver la duda sin una fuente
+  adicional o una version ampliada del elemento.
+
+El mapa anuncia 25 vias y contiene 23 grupos SVG llamados ruta_*, porque
+algunas vias se integran en grupos compartidos y la lanzadera G3P aparece como
+lupa 8B. El catalogo de conexiones denominado "45 conexiones" contiene en
+realidad 50 entradas.
+
+INVENTARIO DE VIAS ANALIZADAS
+=============================
+1. Glucolisis.
+2. Gluconeogenesis.
+3. Glucogeno: sintesis y glucogenolisis.
+4. Via de las pentosas fosfato.
+5. Complejo piruvato deshidrogenasa (PDH).
+6. Ciclo de Krebs.
+7. Cadena respiratoria y ATP sintasa.
+8. Lanzadera malato-aspartato.
+8B. Lanzadera de glicerol-3-fosfato.
+9. Beta-oxidacion y lanzadera de carnitina.
+10. Lipogenesis de novo.
+11. Cetogenesis y salida de cuerpos cetonicos; la cetolisis no queda
+    desarrollada paso a paso en el lienzo integrado principal.
+12. Sintesis de colesterol.
+12B. Destinos de los esqueletos carbonados de aminoacidos.
+13. Transaminacion y desaminacion.
+14. Ciclo de la urea y biciclo de Krebs-Henseleit.
+15. Biosintesis de purinas y pirimidinas.
+16. Degradacion de nucleotidos y acido urico.
+17. Ciclo de Cori.
+18. Digestion y absorcion de lipidos.
+19. Lipolisis del tejido adiposo.
+20. Musculo esqueletico y sarcomero.
+21. Cerebro, barrera hematoencefalica y combustibles.
+22. Lipoproteinas plasmaticas y transporte reverso.
+23. Via de Kennedy: TAG y fosfolipidos.
+24. Biosintesis de aminoacidos no esenciales.
+25. Integracion por estados metabolicos y hormonales.
+
+CRITERIO DE LECTURA GLOBAL
+===========================
+La composicion es legible como un atlas cuando se usa zoom y se conoce ya la
+distribucion de las vias. A escala completa de poster, el seguimiento de un
+estudiante nuevo falla repetidamente: la mediana tipografica estimada en el
+informe geometrico previo es aproximadamente 4.9 pt y alrededor del 99 % de
+los textos queda por debajo de 7 pt. Las lineas discontinuas de integracion
+son distinguibles por color, pero varias recorren cientos o miles de unidades,
+entran en lupas y pasan junto a otras rutas. "No colisiona" geometricamente
+no equivale a "se entiende" visualmente.
+
+AUDITORIA INDIVIDUAL DE VIAS
+============================
+
+1. GLUCOLISIS
+-------------
+Inicio: glucosa procedente de sangre y GLUT-4 superior.
+Final: piruvato citosolico.
+Seguimiento visual: la columna glucosa-G6P-F6P-F1,6BP-DHAP/GAP-1,3BPG-
+3PG-2PG-PEP-piruvato se reconoce, pero la aldolasa no bifurca de forma
+inequivoca hacia DHAP y GAP: la flecha central termina en el espacio entre
+ambas triosas. DHAP queda ademas como callejon visual hasta TPI. Las salidas
+desde G6P, piruvato, NADH y DHAP se cruzan con la columna principal y obligan
+a usar el color y el texto de los conectores.
+Problemas bioquimicos: el transportador hepatico de entrada esta rotulado
+GLUT-4. En hepatocitos debe representarse GLUT-2; GLUT-4 corresponde
+principalmente a musculo y adipocito. La fuente del mapa si muestra GLUT-2
+para exportacion, por lo que la entrada y salida no son coherentes.
+Solucion propuesta: sustituir solo el nodo/rotulo de entrada hepatica por
+GLUT-2 y conservar GLUT-4 en musculo/adipocito; dibujar dos ramas explicitas
+F1,6BP -> DHAP y F1,6BP -> GAP.
+Estado final: PROBLEMA VISUAL Y BIOQUIMICO CONFIRMADO.
+
+2. GLUCONEOGENESIS
+-------------------
+Inicio: lactato, glicerol, alanina y piruvato; final: glucosa libre exportada.
+Seguimiento visual: los tres rodeos se localizan: PC/PEPCK, FBPasa-1 y
+G6Pasa en lumen del RE. El trayecto citosol-matriz-RE se puede reconstruir
+con zoom, pero el carril MPC/OGC esta rodeado por textos de anaplerosis,
+cataplerosis y lanzadera malato-aspartato; un lector nuevo puede confundir
+la ruta de GNG con un transporte redox.
+Bioquimica: los rodeos, NADH de LDH/MDH y G6Pasa del RE son coherentes.
+Estado final: PROBLEMA VISUAL; BIOQUIMICA CORRECTA.
+
+3. GLUCOGENO
+-------------
+Inicio: G6P; finales: glucogeno de reserva o G1P/G6P durante glucogenolisis.
+Seguimiento visual: G6P-G1P-UDP-glucosa-glucogeno se identifica, y las
+direcciones de sintesis/lisis estan diferenciadas por flechas y regulacion.
+La conexion G6P/G1P queda cerca de la glucolisis y requiere leer la leyenda.
+Estado final: Correcto.
+
+4. PENTOSAS FOSFATO
+--------------------
+Inicio: G6P; finales: NADPH/Ru5P/R5P y retorno a F6P/GAP.
+Seguimiento visual: la fase oxidativa vertical es clara. La fase no oxidativa
+se vuelve dificil en las convergencias S7P, Xu5P, E4P y F6P; los conectores
+largos a glucolisis y PRPP se reconocen por verde, no por una secuencia lineal
+continua.
+Bioquimica: G6PDH usa NADP+, la fase oxidativa produce CO2 y NADPH, y las
+transcetolasas muestran TPP. No se confirma un error de reaccion.
+Estado final: PROBLEMA VISUAL MENOR; BIOQUIMICA CORRECTA.
+
+5. COMPLEJO PDH
+----------------
+Inicio: piruvato en matriz; final: acetil-CoA, CO2 y NADH.
+Seguimiento visual: la lupa separa E1/E2/E3 y los cinco cofactores, pero el
+tamano de TPP, lipoamida, FAD y Lys-E2 es demasiado pequeno a escala impresa.
+La conexion piruvato-MPC-PDH se entiende solo al ampliar.
+Bioquimica: TPP, lipoamida, CoA-SH, FAD y NAD+ estan en el orden correcto;
+PDH es irreversible en animales.
+Estado final: PROBLEMA VISUAL; BIOQUIMICA CORRECTA.
+
+6. CICLO DE KREBS
+-----------------
+Inicio: oxalacetato + acetil-CoA; final: oxalacetato regenerado.
+Seguimiento visual: el anillo completo citrato-isocitrato-alfa-cetoglutarato-
+succinil-CoA-succinato-fumarato-malato-OAA existe y puede seguirse. Cinco
+salidas de NADH/FADH2 hacia la cadena respiratoria atraviesan la zona del
+anillo y parecen rutas adicionales; faltan anclas individuales dentro de la
+lupa de CTE.
+Bioquimica: secuencia y balance por vuelta son coherentes. El mapa comprime
+las entradas de propionil-CoA y aminoacidos, pero las rotula.
+Estado final: PROBLEMA VISUAL; BIOQUIMICA CORRECTA.
+
+7. CADENA RESPIRATORIA Y ATP SINTASA
+-------------------------------------
+Inicio: NADH/FADH2 y CoQ; final: H2O y ATP.
+Seguimiento visual: la bicapa, el espacio intermembrana, complejos I-IV,
+CoQ, citocromo c y ATP sintasa estan en una lupa central. El sentido global
+de electrones es comprensible; el sentido de protones y el acoplamiento al
+rotor gamma requieren leer el inserto.
+Bioquimica: el esquema es didactico y correcto a nivel de complejos. El
+rendimiento de ATP y la estequiometria de protones son valores simplificados,
+no una medida universal; queda pendiente verificar si se pretende exactitud
+por tejido/estado.
+Estado final: Correcto en nivel didactico; rendimiento cuantitativo PENDIENTE.
+
+8. LANZADERA MALATO-ASPARTATO
+-----------------------------
+Inicio: NADH citosolico de GAPDH; final: NADH matricial/Complejo I.
+Seguimiento visual: el ciclo GOT1/GOT2, malato, OAA, glutamato y alfa-KG se
+entiende dentro de la lupa, pero sus flechas de entrada/salida conectan con
+GAP, CTE y ciclo de urea en zonas alejadas.
+Bioquimica: el intercambio redox y los pares OAA/malato y glutamato/aspartato
+son coherentes. La identificacion de "Aralar" debe mantenerse distinguida de
+Citrina para evitar una lectura falsa del transportador.
+Estado final: PROBLEMA VISUAL; BIOQUIMICA CORRECTA.
+
+8B. LANZADERA DE GLICEROL-3-FOSFATO
+-----------------------------------
+Inicio: DHAP citosolico; final: CoQ/Complejo III mediante FAD.
+Seguimiento visual: la lupa muestra cGPDH, VDAC, mGPDH, CoQ y retorno de DHAP.
+El texto "Retorno DHAP -> citosol" queda cerca del marco y el conector externo
+DHAP-lupa recorre gran parte del lienzo.
+Bioquimica: el par DHAP/G3P y la transferencia a FAD/CoQ son correctos. La
+lanzadera es reversible a nivel de sus enzimas; el mapa la lee como flujo
+neto unidireccional bajo respiracion.
+Estado final: PROBLEMA VISUAL; simplificacion bioquimica PENDIENTE.
+
+9. BETA-OXIDACION Y CARNITINA
+-----------------------------
+Inicio: acido graso activado/acil-CoA; final: acetil-CoA, NADH y FADH2.
+Seguimiento visual: CPT-I/CACT/CPT-II y los cuatro pasos repetidos se localizan
+en la matriz. La salida de acetil-CoA hacia Krebs y cetogenesis esta clara por
+los dos conectores coloreados; ETF hacia CTE se pierde entre lineas largas.
+Bioquimica: activacion ATP->AMP, carnitina, FAD/ETF, NAD+ y tiolisis estan
+representados de forma coherente.
+Estado final: PROBLEMA VISUAL MENOR; BIOQUIMICA CORRECTA.
+
+10. LIPOGENESIS DE NOVO
+------------------------
+Inicio: citrato exportado y acetil-CoA citosolico; final: palmitato.
+Seguimiento visual: CIC, ACLY, ACC y FAS se pueden seguir, pero citrato,
+acetil-CoA, NADPH y palmitato comparten corredores con colesterol y
+Kennedy.
+Bioquimica: malonil-CoA, NADPH de pentosas/enzima malica y palmitato son
+coherentes. No se ve explicitamente la inhibicion de CPT-I por malonil-CoA
+como conexion con beta-oxidacion.
+Estado final: PROBLEMA VISUAL MENOR; BIOQUIMICA CORRECTA.
+
+11. CETOGENESIS Y CETOLISIS
+----------------------------
+Inicio: acetil-CoA hepatico; final visible: acetoacetato, beta-hidroxibutirato,
+acetona y sangre.
+Seguimiento visual: tiolasa-HMGCS2-HMG-CoA liasa y la rama espontanea a
+acetona se siguen. El recorrido de cetolisis extrahepatica no aparece paso a
+paso en el mapa integrado, aunque el inventario y la leyenda presentan la
+via como cetogenesis y cetolisis.
+Bioquimica: la cetogenesis representada es correcta; falta SCOT/thiophorase,
+succinil-CoA y acetoacetil-CoA de la cetolisis.
+Solucion propuesta: declarar la via como cetogenesis en el lienzo principal
+o incluir una rama de cetolisis con compartimento extrahepatico.
+Estado final: COBERTURA INCOMPLETA; CETOGENESIS CORRECTA.
+
+12. SINTESIS DE COLESTEROL
+---------------------------
+Inicio: acetil-CoA citosolico; final: colesterol.
+Seguimiento visual: acetoacetil-CoA-HMG-CoA-mevalonato-IPP-FPP-escualeno-
+lanosterol-colesterol es una columna continua. "Bloch & Kandutsch (19 pasos)"
+comprime demasiados intermediarios para un lector que intenta seguir cada
+reaccion.
+Bioquimica: HMGCR usa NADPH y es el control principal; la compresion de
+intermediarios es declarada. No se confirma una conexion incorrecta.
+Estado final: Correcto en el nivel de compresion declarado.
+
+12B. DESTINOS DE ESQUELETOS CARBONADOS
+---------------------------------------
+Inicio: los 20 aminoacidos; finales: piruvato, OAA, alfa-KG, fumarato,
+succinil-CoA, acetil-CoA/acetoacetato.
+Seguimiento visual: las agrupaciones por destino son claras, pero la
+transulfuracion se dirige desde cistationina directamente a propionil-CoA.
+Bioquimica: CTH produce cisteina + alfa-cetobutirato + NH4+, y el
+alfa-cetobutirato se convierte despues en propionil-CoA. El mapa omite y
+conecta directamente el intermediario.
+Solucion propuesta: insertar alfa-cetobutirato y la conversion a propionil-CoA,
+con su salida nitrogenada.
+Estado final: PROBLEMA BIOQUIMICO CONFIRMADO Y VISUAL.
+
+13. TRANSAMINACION Y DESAMINACION
+----------------------------------
+Inicio: aminoacidos + alfa-KG; finales: glutamato, NH4+ y esqueletos
+carbonados.
+Seguimiento visual: ALT/AST y GLDH convergen en piruvato, OAA y alfa-KG,
+pero varias flechas de afluentes se superponen con destinos 12B.
+Bioquimica: PLP en aminotransferasas y NAD(P)H en GLDH se representan de
+forma coherente. No se declara "Correcto" por la densidad visual.
+Estado final: PROBLEMA VISUAL; BIOQUIMICA CORRECTA.
+
+14. CICLO DE LA UREA
+---------------------
+Inicio: NH4+ + HCO3- + 2 ATP en matriz; final: urea y regeneracion de
+ornitina.
+Seguimiento visual: CPS-1 y OTC aparecen en matriz, citrulina cruza la MMI,
+ASS1/ASL/arginasa quedan en citosol y fumarato conecta con Krebs. El lector
+puede seguirlo con zoom, pero los dos transportadores estan rotulados de
+manera confusa.
+Problema bioquimico confirmado: SLC25A13/citrina es el carrier
+aspartato-glutamato (AGC2), no el exportador de citrulina. El intercambio
+citrulina-citosol/ornitina-matriz corresponde a ORNT1/SLC25A15. El mapa
+invierte funcionalmente ambos papeles al usar "Citrina (Exportador
+Citrulina)" y ORNT1 solo como retorno de ornitina.
+Solucion propuesta: asignar citrulina/ornitina a ORNT1 y representar a
+Citrina como intercambio de aspartato/glutamato hacia ASS1.
+Estado final: PROBLEMA BIOQUIMICO CONFIRMADO Y VISUAL.
+
+15. BIOSINTESIS DE NUCLEOTIDOS
+------------------------------
+Inicio: R5P->PRPP para purinas; HCO3-/glutamina/aspartato para pirimidinas.
+Finales: IMP/AMP/GMP y UMP/CTP/dTMP.
+Seguimiento visual: PRPP y purinas son una columna con bifurcacion IMP; la
+via de orotato es otra columna. UMP tiene salidas curvas muy proximas al
+anillo y al texto de CTP/dTMP; a escala completa las puntas parecen nacer
+del dibujo molecular.
+Problema bioquimico confirmado: UMP no pasa directamente a dTMP. Deben
+aparecer UDP/UTP, ribonucleotido reductasa, dUDP/dUTP/dUMP y timidilato
+sintasa (dUMP->dTMP). La etiqueta actual "UMP -> RNR -> Timidilato
+Sintasa" salta el sustrato dUMP y hace parecer directa la conversion.
+El salto IMP->GMP tambien comprime el intermediario XMP, aunque el rótulo
+IMPDH permite inferirlo.
+Solucion propuesta: insertar al menos UDP/dUDP/dUMP o rotular explicitamente
+la compresion como "UMP/UDP -> dUMP -> dTMP".
+Estado final: PROBLEMA BIOQUIMICO Y VISUAL CONFIRMADO.
+
+16. DEGRADACION DE NUCLEOTIDOS Y ACIDO URICO
+---------------------------------------------
+Inicio: AMP/GMP y uracilo/citosina; finales: urato y beta-alanina.
+Seguimiento visual: las dos ramas purina/pirimidina son claras, XOD y la
+apertura de DHU se siguen. La ruta renal termina en un marcador vascular
+superior que puede confundirse con excrecion.
+Problema bioquimico confirmado: URAT1/SLC22A12 es un transportador apical
+de reabsorcion de urato en tubulo proximal, no una flecha de "acido urico ->
+sangre" para excrecion renal. La secrecion/excrecion requiere otros
+transportadores y la reabsorcion por URAT1 reduce urato urinario.
+Solucion propuesta: separar filtracion, secrecion y reabsorcion; no usar
+URAT1 como flecha de excrecion a sangre.
+Estado final: PROBLEMA BIOQUIMICO CONFIRMADO.
+
+17. CICLO DE CORI
+------------------
+Inicio: glucosa sanguinea->musculo; final: lactato muscular->higado->glucosa.
+Seguimiento visual: banda superior y flechas de lactato sangre/higado se
+reconocen. La banda es muy estrecha y el texto de la contraccion y LDH se
+lee mal al tamaño del poster.
+Bioquimica: glucolisis anaerobia muscular, LDH y gluconeogenesis hepatica
+son coherentes. GLUT-4 queda correctamente asociado al musculo en esta
+zona, pero entra en conflicto con el GLUT-4 del hepatocito central.
+Estado final: PROBLEMA VISUAL Y DE INTEGRACION CON VIA 1.
+
+18. DIGESTION Y ABSORCION DE LIPIDOS
+-------------------------------------
+Inicio: TAG dietario; final: 2-MAG, acidos grasos, micela y absorcion.
+Seguimiento visual: sales biliares, lipasa pancreatica, micelas y enterocito
+se identifican en la banda izquierda. La salida a quilomicron y sangre queda
+separada del hepatocito por una ruta larga.
+Bioquimica: hidrolisis a 2-MAG + 2 AG y reesterificacion son coherentes en
+nivel didactico.
+Estado final: Correcto.
+
+19. LIPOLISIS ADIPOSA
+----------------------
+Inicio: TAG de gota lipidica; final: glicerol y tres AG libres a sangre.
+Seguimiento visual: ATGL->DAG->MAG->glicerol existe, pero el colector de
+acidos grasos cruza los rótulos DAG, MAG y las enzimas; se confunde con
+la flecha vertical de salida de glicerol.
+Bioquimica: ATGL/HSL/MGL y ausencia de glicerol quinasa adiposa son
+coherentes. No se confunde la dificultad grafica con un error de reaccion.
+Estado final: PROBLEMA VISUAL CONFIRMADO; BIOQUIMICA CORRECTA.
+
+20. MUSCULO ESQUELETICO Y SARCOMERO
+------------------------------------
+Inicio: glucosa/glucogeno, fosfocreatina y Ca2+; final: ATP y lactato o
+contraccion mecanica.
+Seguimiento visual: el sarcomero y el ciclo de puentes cruzados se entienden
+como modulo anatomico; las conexiones metabolicas entran por arriba y se
+mezclan con Cori.
+Bioquimica: GLUT-4, glucogeno muscular, CK, Ca2+ y LDH-M son coherentes.
+El exceso de texto en la banda superior impide seguir todos los pasos.
+Estado final: PROBLEMA VISUAL; BIOQUIMICA CORRECTA.
+
+21. CEREBRO Y BARRERA HEMATOENCEFALICA
+----------------------------------------
+Inicio: glucosa y cuerpos cetonicos sanguineos; final: ATP neuronal y
+adaptacion al ayuno.
+Seguimiento visual: BHE, neurona, glucolisis y entrada de cuerpos cetonicos
+estan en una caja lateral; la flecha desde sangre y la salida a lactato no
+se distinguen inmediatamente de las de musculo.
+Bioquimica: uso de glucosa y beta-hidroxibutirato durante ayuno es correcto.
+No se muestra una secuencia completa de cetolisis neuronal con SCOT.
+Estado final: COBERTURA PARCIAL Y PROBLEMA VISUAL; bioquimica de combustibles correcta.
+
+22. LIPOPROTEINAS PLASMATICAS
+-----------------------------
+Inicio: TAG de quilomicron/VLDL y colesterol; final: LDL, HDL y transporte
+reverso.
+Seguimiento visual: VLDL->IDL->LDL, LDLR, HDL/LCAT y SR-B1 se distinguen,
+pero las flechas de colesterol y sangre atraviesan el mismo corredor que
+cetona y urea.
+Bioquimica: LPL, LDLR, ApoA-I/LCAT y transporte reverso estan representados
+de modo coherente. La ecuacion global de LPL comprime productos y no debe
+interpretarse como una estequiometria de una sola reaccion.
+Estado final: PROBLEMA VISUAL MENOR; bioquimica didactica correcta.
+
+23. VIA DE KENNEDY
+------------------
+Inicio: glicerol-3-P; final: LPA->PA->DAG->TAG o fosfolipidos.
+Seguimiento visual: columna derecha continua y con bifurcacion final clara;
+los rótulos LPA/PA/DAG son pequenos.
+Bioquimica: GPAT, AGPAT, PAP y acilacion final estan en el orden correcto.
+Estado final: Correcto.
+
+24. BIOSINTESIS DE AMINOACIDOS NO ESENCIALES
+--------------------------------------------
+Inicio: piruvato, OAA, alfa-KG y 3PG; final: alanina, aspartato,
+glutamina, serina, glicina, cisteina y tirosina.
+Seguimiento visual: se reconocen las columnas de serina/glicina y
+fenilalanina/tirosina; las flechas de conexion con 12B y transaminacion
+son largas y se cruzan con Krebs.
+Bioquimica: ALT, AST, glutamina sintetasa, SHMT y PAH estan bien orientadas
+en nivel resumido. La cisteina queda vinculada a transulfuracion, pero el
+mapa central no desarrolla todos sus sustratos.
+Estado final: PROBLEMA VISUAL; BIOQUIMICA PRINCIPAL CORRECTA.
+
+25. ESTADOS METABOLICOS Y HORMONALES
+-------------------------------------
+Inicio: estado normoalimentado/posprandial o ayuno; final: cambios de flujo
+en higado, adipocito, musculo y cerebro.
+Seguimiento visual: es una leyenda de integracion, no una ruta lineal. Las
+flechas de insulina/glucagon y los estados se entienden despues de leer las
+vias, no antes.
+Bioquimica: las tendencias generales son coherentes. El texto "cerebro:
+consume beta-hidroxibutirato (60%)" debe considerarse valor aproximado y
+dependiente del estado de ayuno, no constante universal.
+Estado final: Correcto como resumen cualitativo; cifras PENDIENTES.
+
+AUDITORIA DE CONEXIONES ENTRE RUTAS
+====================================
+Se siguieron las 50 entradas reales del catalogo
+revision_metabolismo/04_algoritmos_trazado_y_validacion/01_conector_45_conexiones_y_carriers.py.
+"Correcto" aqui significa que origen, destino y flecha se pueden identificar;
+no significa que el trazo sea comodo a escala completa.
+
+1  piruvato_mpc — Piruvato -> MPC (Matriz): Correcto con zoom.
+2  sangre_lactato — Lactato (Cori) -> higado: Correcto.
+3  sangre_glicerol — Glicerol de lipolisis -> GNG: Correcto.
+4  g6p_g1p — G6P <-> G1P: Correcto.
+5  g1p_g6p — G1P -> G6P: Correcto.
+6  piruvato_ala_pool — pool de piruvato ALT -> piruvato: Correcto.
+7  s7p_f6p — S7P -> F6P: Correcto, pero el punto de llegada queda pequeno.
+8  xu5p_gap — Xu5P -> GAP: Correcto, visualmente proximo a otras ramas.
+9  e4p_f6p — E4P -> F6P: Correcto, visualmente ambiguo junto a S7P.
+10 r5p_prpp — R5P -> PRPP: Correcto.
+11 citrato_cic — citrato -> CIC -> acetil-CoA citosolico: Correcto con zoom.
+12 acetilcoa_colesterol — acetil-CoA -> acetoacetil-CoA: Correcto; el rotulo
+   "Tiolasa -> Colesterol" es una abreviatura, no una reaccion directa a colesterol.
+13 betaox_krebs — acetil-CoA beta-oxidativo -> Krebs: Correcto.
+14 betaox_cetogenesis — acetil-CoA beta-oxidativo -> cetogenesis: Correcto.
+15 propionil_succinil — propionil-CoA -> succinil-CoA: Correcto como conexion
+   final; depende de que se corrija el salto CTH de la via 12B.
+16 krebs_icdh_cte — isocitrato DH -> Complejo I: Correcto, pero termina en
+   el borde de la lupa y no en un punto individual del complejo I.
+17 krebs_akgdh_cte — alfa-KG DH -> Complejo I: Correcto con la misma ambigüedad.
+18 krebs_cte — succinato DH -> Complejo II: Correcto con zoom.
+19 krebs_mdh_cte — malato DH -> Complejo I: Correcto, llegada compartida.
+20 lanz_malato_krebs — malato mitocondrial -> Krebs: Correcto.
+21 palmitato_sangre_cito — captacion por CD36/FATP: Correcto como transporte
+   didactico, aunque no especifica tejido ni activacion a acil-CoA.
+22 palmitato_pool — palmitato de novo -> pool citosolico: Correcto.
+23 colesterol_sangre — colesterol -> VLDL/HDL/sangre: Correcto como salida
+   integrada, pero mezcla secrecion hepatica y transporte reverso periferico.
+24 cetonicos_sangre — cuerpos cetonicos -> sangre: Correcto.
+25 acetoacetato_sangre — acetoacetato -> sangre: Correcto.
+26 glutamato_agc — glutamato -> AGC/matriz: Correcto si se entiende como
+   lanzadera malato-aspartato; el rotulo debe distinguir AGC1/AGC2.
+27 akg_gldh_krebs — alfa-KG -> Krebs: Correcto.
+28 nh4_urea — NH4+ -> CPS-1: Correcto.
+29 gln_sangre — glutamina -> sangre: Correcto como salida sistémica.
+30 tyr_fumarato — tirosina -> fumarato: Correcto como destino final resumido.
+31 tyr_acetoacetato — tirosina -> acetoacetato: Correcto como destino final.
+32 cistat_propionil — cistationina -> propionil-CoA: PROBLEMA BIOQUIMICO.
+   Falta alfa-cetobutirato y NH4+; la flecha visual hace parecer que CTH
+   produce propionil-CoA directamente.
+33 citrulina_translocacion — citrulina -> citosol por SLC25A13: PROBLEMA
+   BIOQUIMICO. Debe ser ORNT1/SLC25A15; citrina exporta aspartato e importa
+   glutamato/protones.
+34 ornitina_retorno — ornitina -> matriz por ORNT1: Parcialmente correcto,
+   pero representa solo una mitad del antiporte y deja citrulina sin su
+   transportador correcto.
+35 oaa_got2_asp — OAA -> aspartato: Correcto como transaminacion GOT2.
+36 urea_fumarato_krebs — fumarato de ASL -> Krebs: Correcto.
+37 urea_sangre — urea -> sangre/riñon: Correcto como destino excretor general;
+   no especifica transporte renal.
+38 glutamina_cps2 — glutamina -> CPS-II: Correcto.
+39 dhodh_coq_cte — DHODH -> CoQ/Complejo III: Correcto en direccion redox:
+   dihidroorotato reduce CoQ a CoQH2. La llegada visual al borde de CTE es
+   compartida, no un punto de complejo III individual.
+40 amp_hipoxantina — AMP -> IMP -> hipoxantina: Correcto; IMP esta incluido
+   en el rotulo aunque comprimido.
+41 gmp_xantina — GMP -> guanina -> xantina: Correcto como resumen.
+42 ctp_uracilo — CMP/UMP -> citosina/uracilo: Correcto como degradacion
+   resumida, no como una sola reaccion.
+43 urato_sangre — urato -> sangre por URAT1: PROBLEMA BIOQUIMICO. URAT1
+   reabsorbe urato desde el lumen renal hacia la celula y favorece retorno
+   sanguineo; no es una via de excrecion de urato a sangre.
+44 beta_ala_sangre — beta-alanina -> sangre: Correcto como salida sistémica,
+   aunque la excrecion renal final no se dibuja.
+45 glucolisis_lanz_malato — NADH de GAPDH -> lanzadera malato-aspartato:
+   Correcto; el origen es NADH, no una molecula de GAP que se transporte.
+46 lanz_malato_cte_comp1 — NADH mitocondrial -> Complejo I: Correcto.
+47 lanz_asp_urea — aspartato citosolico -> ASS1: Correcto; la flecha termina
+   en el nodo de aspartato, no directamente en la enzima.
+48 betaox_etf_cte — acil-CoA DH/FADH2/ETF -> CoQ: Correcto.
+49 dhap_lanzadera_g3p — DHAP -> lanzadera G3P: Correcto.
+50 lanz_g3p_coq — mGPDH/FAD -> CoQ: Correcto.
+
+Problemas globales de las conexiones:
+1. El catalogo declara 45 pero contiene 50; esto impide validar cobertura
+   usando solo la cifra del README.
+2. Las conexiones 16-20, 39, 46 y 50 terminan en el borde de una lupa de
+   CTE. El lector sabe que llegan a la cadena, pero no siempre puede decidir
+   que complejo concreto corresponde a cada flecha.
+3. Las conexiones 7-10, 30-32 y 40-44 comparten corredores estrechos y
+   colores cercanos; el cruce no siempre se distingue de una bifurcacion.
+4. Las conexiones 23-25 y 37, 43-44 llegan al torrente sanguineo superior;
+   el punto de entrada es repetido y no existe una clave espacial suficiente
+   para diferenciar sangre, filtrado renal y secrecion.
+5. La ausencia de un simbolo uniforme para "llega al borde de una lupa" hace
+   parecer que varias lineas se conectan directamente a un metabolito que no
+   esta en ese borde.
+
+RESUMEN FINAL
+=============
+Rutas correctas o bioquimicamente correctas con problemas visuales:
+2, 4, 5, 6, 8, 8B, 9, 10, 13, 17, 19, 20, 21, 22 y 24.
+
+Rutas correctas en el nivel de compresion declarado:
+3, 7, 12, 18, 23 y 25.
+
+Rutas con problemas bioquimicos confirmados:
+1 (GLUT-4 hepatocitario), 12B (CTH salta alfa-cetobutirato), 14
+(Citrina/ORNT1), 15 (UMP->dTMP incompleto) y 16 (URAT1 como excrecion).
+
+Rutas con cobertura incompleta o pendiente:
+11 (cetolisis no desarrollada en el lienzo principal), 7 y 8B (rendimientos
+de protones/ATP simplificados), 21 (cetolisis neuronal no desplegada) y 25
+(cifras cuantitativas dependientes del estado).
+
+Conexiones:
+45 de las 50 entradas son correctas o correctas con compresion visual;
+3 tienen problema bioquimico confirmado (cistat_propionil,
+citrulina_translocacion y urato_sangre); las restantes presentan ambiguedad
+de llegada a lupas, corredores compartidos o escala tipografica. Por tanto,
+la auditoria de conexiones no puede declararse completamente limpia aunque
+si cubre las 50 conexiones inventariadas.
+
+PRIORIDAD DE CORRECCION POSTERIOR
+==================================
+1. Corregir los cuatro transportes/reacciones con error bioquimico:
+   GLUT-2 hepatocitario, ORNT1/citrina, CTH y URAT1.
+2. Hacer explicitos DHAP/GAP en aldolasa y UDP/dUMP en la rama a dTMP.
+3. Separar visualmente las llegadas a la lupa de CTE y los destinos de sangre.
+4. Resolver los colectores que cruzan rotulos en lipolisis y UMP.
+5. Revisar la escala de impresion antes de declarar el poster legible sin zoom.
+
+REFERENCIAS DE CONTRASTE
+=========================
+- MedlinePlus Genetics, SLC25A13:
+  https://medlineplus.gov/genetics/gene/slc25a13/
+- UniProtKB, CTH humano (P32929):
+  https://www.uniprot.org/uniprotkb/P32929/entry
+- Revision sobre URAT1 y reabsorcion proximal:
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC13527437/
+- Revision de transportadores GLUT2/GLUT4:
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC7462842/
+- LibreTexts, biosintesis de desoxirribonucleotidos:
+  https://bio.libretexts.org/Bookshelves/Biochemistry/Book%3A_Biochemistry_Free_and_Easy_(Ahern_and_Rajagopal)/07%3A_Metabolism_II/7.12%3A_Deoxyribonucleotide_de_novo_Biosynthesis
+- Evidencia interna de implementacion:
+  revision_metabolismo/02_mapa_central_integrado/04_entorno_celular_y_vascular.py
+  revision_metabolismo/02_mapa_central_integrado/06_eje_central_glucolisis.py
+  revision_metabolismo/02_mapa_central_integrado/19_destinos_esqueletos_carbonados_aa.py
+  revision_metabolismo/02_mapa_central_integrado/20_ciclo_de_la_urea_y_biciclo.py
+  revision_metabolismo/02_mapa_central_integrado/21_biosintesis_de_nucleotidos.py
+  revision_metabolismo/02_mapa_central_integrado/22_catabolismo_nucleotidos_acido_urico.py
+  revision_metabolismo/04_algoritmos_trazado_y_validacion/01_conector_45_conexiones_y_carriers.py

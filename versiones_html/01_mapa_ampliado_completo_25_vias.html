@@ -584,6 +584,91 @@
       }
       .ui_dimmed { opacity: 1 !important; filter: none !important; }
     }
+
+    /* Selector de Version del Mapa y Selector Rapido de Vias */
+    .ui_map_version_group {
+      display: inline-flex;
+      align-items: center;
+      background: #090d16;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 2px;
+      gap: 2px;
+    }
+    .ui_ver_link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #94a3b8;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .ui_ver_link:hover {
+      color: #f8fafc;
+      background: #1e293b;
+    }
+    .ui_ver_link.active {
+      color: #38bdf8;
+      background: #1e293b;
+      border: 1px solid #0284c7;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+    .ui_live_dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 6px #38bdf8;
+      display: inline-block;
+    }
+    .ui_quick_via_wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    #ui_select_quick_via {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #f8fafc;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 8px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      max-width: 260px;
+      transition: border-color 0.15s ease;
+    }
+    #ui_select_quick_via:hover, #ui_select_quick_via:focus {
+      border-color: #38bdf8;
+    }
+    #ui_select_quick_via optgroup {
+      background: #0f172a;
+      color: #94a3b8;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+    #ui_select_quick_via option {
+      background: #1e293b;
+      color: #f8fafc;
+      font-weight: 500;
+      font-size: 0.8rem;
+      padding: 3px 6px;
+    }
+    body.ui_isolate_mode .ui_dimmed {
+      display: none !important;
+    }
+    .ui_state_btn.ui_btn_active_custom {
+      background: #0284c7 !important;
+      color: #ffffff !important;
+    }
   </style>
 </head>
 <body>
@@ -595,19 +680,74 @@
     </div>
 
     <div class="controls">
+      <!-- Selector de Version del Mapa -->
+      <div class="ui_map_version_group">
+        <a href="../index.html" class="ui_ver_link" onclick="irAMapaAlternativo(); return false;" title="Mapa interactivo con flujo animado continuo a 60 FPS, lanzaderas y monitor CTE">
+          <span class="ui_live_dot"></span> Mapa Alternativo (Vivo)
+        </a>
+        <a href="01_mapa_ampliado_completo_25_vias.html" class="ui_ver_link active" onclick="irAMapaOriginal(); return false;" title="Mapa cartulina base clasico ampliado de 25 vias">
+          Mapa Original (Base)
+        </a>
+      </div>
+
+      <!-- Selector Rapido de Vias (1 a 25) y Aislamiento -->
+      <div class="ui_quick_via_wrapper">
+        <select id="ui_select_quick_via" onchange="seleccionarViaRapida(this.value)" title="Seleccionar via metabolica individual">
+          <option value="">-- Ver Via Individual (1 a 25) --</option>
+          <optgroup label="Carbohidratos y Respiracion Celular">
+            <option value="1">Via 1: Glucolisis (Citosol)</option>
+            <option value="2">Via 2: Gluconeogenesis (Matriz / Citosol / RE)</option>
+            <option value="3">Via 3: Glucogeno (Genesis y Lisis)</option>
+            <option value="4">Via 4: Via de las Pentosas Fosfato</option>
+            <option value="5">Via 5: Complejo Piruvato Deshidrogenasa (PDH)</option>
+            <option value="6">Via 6: Ciclo de Krebs (ATC)</option>
+            <option value="7">Via 7: Cadena Respiratoria y ATP Sintasa</option>
+            <option value="8">Via 8: Lanzadera Malato-Aspartato</option>
+            <option value="8B">Via 8B: Lanzadera Glicerol-3-Fosfato</option>
+          </optgroup>
+          <optgroup label="Lipidos y Cuerpos Cetonicos">
+            <option value="9">Via 9: Beta-Oxidacion y Lanzadera de Carnitina</option>
+            <option value="10">Via 10: Lipogenesis de Novo y Lanzadera de Citrato</option>
+            <option value="11">Via 11: Cetogenesis Hepatica</option>
+            <option value="12">Via 12: Biosintesis de Colesterol</option>
+          </optgroup>
+          <optgroup label="Nitrogeno, Aminoacidos y Nucleotidos">
+            <option value="12B">Via 12B: Transulfuracion y Destino Carbonado AA</option>
+            <option value="13">Via 13: Transaminacion y Ciclo Glucosa-Alanina</option>
+            <option value="14">Via 14: Ciclo de la Urea y Biciclo Krebs-Henseleit</option>
+            <option value="15">Via 15: Biosintesis de Purinas y Pirimidinas</option>
+            <option value="16">Via 16: Catabolismo Nucleotidos y Acido Urico (URAT1)</option>
+          </optgroup>
+          <optgroup label="Ampliacion Fisiologica Intertisular">
+            <option value="17">Via 17: Ciclo de Cori y Ciclo de Cahill (Vascular)</option>
+            <option value="18">Via 18: Digestion y Absorcion de Lipidos (Enterocito)</option>
+            <option value="19">Via 19: Lipolisis Adipocitaria (ATGL/HSL/MGL)</option>
+            <option value="20">Via 20: Musculo Esqueletico y Sarcomero</option>
+            <option value="21">Via 21: Cerebro, Barrera Hematoencefalica y Cetolisis</option>
+            <option value="22">Via 22: Metabolismo Lipoproteinas Plasmaticas</option>
+            <option value="23">Via 23: Via de Kennedy (Fosfolipidos Membrana)</option>
+            <option value="24">Via 24: Biosintesis Aminoacidos No Esenciales</option>
+            <option value="25">Via 25: Conmutador Hormonal Pancreatico</option>
+          </optgroup>
+        </select>
+        <button id="ui_btn_isolate" class="ui_state_btn" onclick="toggleModoAislar()" title="Oculta por completo las vias atenuadas para ver unicamente la via seleccionada">Aislar</button>
+      </div>
+
+      <div style="width: 1px; height: 20px; background: #475569; margin: 0 4px;"></div>
+
       <!-- Botón de Índice -->
-      <button id="ui_btn_toggle_sidebar" onclick="toggleSidebar()" title="Índice de Vías (25)">📑 Vías (25)</button>
+      <button id="ui_btn_toggle_sidebar" onclick="toggleSidebar()" title="Índice de Vías (25)">Vias (25)</button>
       
       <!-- Modos de Estado Metabólico -->
       <div class="ui_state_group">
         <button class="ui_state_btn ui_active" id="ui_btn_state_normal" onclick="setMetabolicState('normal')" title="Mapa completo sin atenuación">Normal</button>
-        <button class="ui_state_btn" id="ui_btn_state_fed" onclick="setMetabolicState('posprandial')" title="Insulina alta ↑ • Glucagón bajo ↓">🍽️ Posprandial</button>
-        <button class="ui_state_btn" id="ui_btn_state_fasting" onclick="setMetabolicState('ayuno')" title="Glucagón alto ↑ • Insulina baja ↓">⚡ Ayuno</button>
+        <button class="ui_state_btn" id="ui_btn_state_fed" onclick="setMetabolicState('posprandial')" title="Insulina alta ↑ • Glucagón bajo ↓">Posprandial</button>
+        <button class="ui_state_btn" id="ui_btn_state_fasting" onclick="setMetabolicState('ayuno')" title="Glucagón alto ↑ • Insulina baja ↓">Ayuno</button>
       </div>
 
       <!-- Buscador Global -->
       <div id="ui_search_container">
-        <span class="ui_search_icon">🔍</span>
+        <span class="ui_search_icon" style="font-size:10px; font-weight:800; color:#94a3b8; margin-right:4px;">BUSCAR</span>
         <input type="text" id="ui_search_input" placeholder="Buscar metabolito / enzima... [/]" autocomplete="off" spellcheck="false">
         <span id="ui_search_counter"></span>
         <button class="ui_search_btn" id="ui_search_prev" onclick="searchPrev()" title="Anterior (Shift+Enter)">▲</button>
@@ -625,16 +765,19 @@
       <!-- Selector de Vistas / Descargas -->
       <div class="ui_dropdown_wrapper" style="position: relative; display: inline-block;">
         <button id="ui_btn_menu_views" onclick="toggleMenuViews(event)" title="Cambiar de vista o descargar" style="background: #1e293b; border: 1px solid #475569; color: #f8fafc; font-weight: 700; border-radius: 6px; padding: 6px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem;">
-          <span>🌐 Vistas / PDF</span> <span style="font-size: 9px;">▼</span>
+          <span>Vistas / PDF</span> <span style="font-size: 9px;">▼</span>
         </button>
-        <div id="ui_menu_views" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 6px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-width: 260px; z-index: 1000; padding: 6px 0; text-align: left;">
-          <a href="01_mapa_ampliado_completo_25_vias.html" style="display: block; padding: 8px 14px; color: #38bdf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">🌟 01. Mapa Ampliado (25 Vías)</a>
-          <a href="02_ampliacion_rutas_18_25.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">🧩 02. Ampliación Vías 18–25 (Standalone)</a>
-          <a href="03_mapa_central_interactivo_17_vias.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">🗺️ 03. Mapa Central (17 Vías)</a>
-          <a href="04_cuadro_temario_bloques_A_E.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">📋 04. Temario A–E (Metabolismo Intermediario)</a>
+        <div id="ui_menu_views" style="display: none; position: absolute; right: 0; top: 100%; margin-top: 6px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-width: 280px; z-index: 1000; padding: 6px 0; text-align: left;">
+          <a href="../index.html" onclick="irAMapaAlternativo(); return false;" style="display: block; padding: 8px 14px; color: #38bdf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">* Mapa Alternativo (Flujo Vivo 60 FPS)</a>
+          <a href="01_mapa_ampliado_completo_25_vias.html" onclick="irAMapaOriginal(); return false;" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem; font-weight: 700;">* Mapa Original Base (25 Vias)</a>
           <div style="height: 1px; background: #334155; margin: 4px 0;"></div>
-          <a href="../versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem; font-weight: 700;">📥 Descargar PDF 25 Vías (120×90 cm)</a>
-          <a href="../versiones_impresion/02_ampliacion_rutas_18_25.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem;">📥 Descargar PDF Standalone Vías 18–25</a>
+          <a href="02_ampliacion_rutas_18_25.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">02. Ampliacion Vias 18–25 (Standalone)</a>
+          <a href="03_mapa_central_interactivo_17_vias.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">03. Mapa Central (17 Vias)</a>
+          <a href="04_cuadro_temario_bloques_A_E.html" style="display: block; padding: 8px 14px; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;">04. Temario A–E (Metabolismo Intermediario)</a>
+          <div style="height: 1px; background: #334155; margin: 4px 0;"></div>
+          <a href="../versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem; font-weight: 700;">Descargar PDF 25 Vias Base (120×90 cm)</a>
+          <a href="../mapa_metabolico_alternativo/mapa_metabolico_alternativo_120x90cm.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #38bdf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">Descargar PDF Alternativo (120×90 cm)</a>
+          <a href="../versiones_impresion/02_ampliacion_rutas_18_25.pdf" target="_blank" style="display: block; padding: 8px 14px; color: #4ade80; text-decoration: none; font-size: 0.8rem;">Descargar PDF Standalone Vias 18–25</a>
         </div>
       </div>
     </div>
@@ -659,7 +802,7 @@
 
   <!-- BOTÓN FLOTANTE PARA ÍNDICE (CUANDO ESTÁ REPLEGADO) -->
   <button id="ui_btn_sidebar_floating" onclick="toggleSidebar()">
-    <span>📑</span>
+    <span>[Vias]</span>
     <span>Índice de Vías</span>
   </button>
 
@@ -11666,7 +11809,7 @@
 
       const btnToggle = document.getElementById('ui_btn_toggle_sidebar');
       if (btnToggle) {
-        btnToggle.textContent = `📑 Vías (${viasCount})`;
+        btnToggle.textContent = `Vias (${viasCount})`;
         btnToggle.title = `Índice de Vías (${viasCount})`;
       }
     }
@@ -12250,6 +12393,141 @@
       poblarSidebarVias();
       construirIndiceBusqueda();
       fitView();
+    }
+
+    let modoAislarActivo = false;
+    function toggleModoAislar() {
+      modoAislarActivo = !modoAislarActivo;
+      document.body.classList.toggle('ui_isolate_mode', modoAislarActivo);
+      const btn = document.getElementById('ui_btn_isolate');
+      if (btn) btn.classList.toggle('ui_btn_active_custom', modoAislarActivo);
+    }
+
+    function irAMapaAlternativo() {
+      try {
+        const params = window.location.search;
+        const isSubdir = window.location.pathname.includes('/versiones_html') || window.location.pathname.includes('/mapa_metabolico_alternativo');
+        const target = isSubdir ? '../index.html' : 'index.html';
+        window.location.href = target + params;
+      } catch (e) {
+        window.location.href = '../index.html';
+      }
+    }
+
+    function irAMapaOriginal() {
+      try {
+        const params = window.location.search;
+        const isSubdir = window.location.pathname.includes('/versiones_html') || window.location.pathname.includes('/mapa_metabolico_alternativo');
+        let target = '01_mapa_ampliado_completo_25_vias.html';
+        if (isSubdir) {
+          target = window.location.pathname.includes('/versiones_html') ? '01_mapa_ampliado_completo_25_vias.html' : '../versiones_html/01_mapa_ampliado_completo_25_vias.html';
+        } else if (window.location.protocol === 'file:') {
+          target = 'versiones_html/01_mapa_ampliado_completo_25_vias.html';
+        }
+        window.location.href = target + params;
+      } catch (e) {
+        window.location.href = '01_mapa_ampliado_completo_25_vias.html';
+      }
+    }
+
+    function seleccionarViaRapida(val) {
+      if (!val) {
+        if (typeof clearPathwayHighlight === 'function') clearPathwayHighlight();
+        actualizarParametroURL('via', null);
+        return;
+      }
+      if (typeof highlightPathway === 'function') {
+        highlightPathway(val, true);
+        actualizarParametroURL('via', val);
+      }
+    }
+
+    function actualizarParametroURL(clave, valor) {
+      try {
+        const url = new URL(window.location.href);
+        if (valor) {
+          url.searchParams.set(clave, valor);
+        } else {
+          url.searchParams.delete(clave);
+        }
+        window.history.replaceState(null, '', url.toString());
+      } catch (e) {
+        // Fallback silencioso
+      }
+    }
+
+    // Enganches para mantener sincronizado el selector rapido y la URL
+    if (typeof highlightPathway === 'function') {
+      const origHighlightPathway = highlightPathway;
+      highlightPathway = function(viaId, shouldZoom = false) {
+        origHighlightPathway(viaId, shouldZoom);
+        const sel = document.getElementById('ui_select_quick_via');
+        if (sel && sel.value !== String(viaId)) {
+          sel.value = String(viaId);
+        }
+        actualizarParametroURL('via', viaId);
+      };
+    }
+
+    if (typeof clearPathwayHighlight === 'function') {
+      const origClearPathwayHighlight = clearPathwayHighlight;
+      clearPathwayHighlight = function() {
+        origClearPathwayHighlight();
+        const sel = document.getElementById('ui_select_quick_via');
+        if (sel) {
+          sel.value = '';
+        }
+        actualizarParametroURL('via', null);
+      };
+    }
+
+    function procesarParametrosURL() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const viaParam = params.get('via');
+        if (viaParam) {
+          const raw = viaParam.trim();
+          const upper = raw.toUpperCase();
+          const targetVia = (typeof TABLA_VIAS !== 'undefined' && TABLA_VIAS[upper]) ? upper : ((typeof TABLA_VIAS !== 'undefined' && TABLA_VIAS[raw]) ? raw : null);
+          if (targetVia) {
+            setTimeout(() => {
+              if (typeof highlightPathway === 'function') highlightPathway(targetVia, true);
+            }, 300);
+          } else {
+            const vNum = parseInt(raw, 10);
+            if (!isNaN(vNum) && vNum >= 1 && vNum <= 25) {
+              setTimeout(() => {
+                if (typeof highlightPathway === 'function') highlightPathway(String(vNum), true);
+              }, 300);
+            }
+          }
+        }
+        const searchParam = params.get('search') || params.get('q');
+        if (searchParam) {
+          setTimeout(() => {
+            const input = document.getElementById('ui_search_input');
+            if (input) {
+              input.value = searchParam;
+              if (typeof ejecutarBusqueda === 'function') ejecutarBusqueda();
+            }
+          }, 300);
+        }
+        const stateParam = params.get('state');
+        if (stateParam) {
+          setTimeout(() => {
+            if (typeof setMetabolicState === 'function') setMetabolicState(stateParam);
+          }, 300);
+        }
+      } catch (err) {
+        console.warn('Error al procesar parametros URL:', err);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      procesarParametrosURL();
+    });
+    if (document.readyState !== 'loading') {
+      procesarParametrosURL();
     }
   </script>
 </body>

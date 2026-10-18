@@ -1,0 +1,519 @@
+RECORRIDO Y AUDITORÍA AUTOMÁTICA DEL MAPA METABÓLICO
+============================================================
+SVG: mapa_metabolico_alternativo/mapa_metabolico_alternativo.svg
+Lienzo: viewBox (-760.0, 0.0, 7320.0, 5120.0)  ·  impresión 1200 mm de ancho → 1 px = 0.164 mm = 0.465 pt
+Fecha: 2026-10-18 11:47
+
+AVISO: es un análisis geométrico aproximado (cajas de texto estimadas).
+Cada hallazgo debe confirmarse en la captura correspondiente. No valida la
+bioquímica: el «recorrido textual» del final está pensado para revisarla.
+
+INVENTARIO
+------------------------------------------------------------
+Grupos ruta_*: 23   Metabolitos m_*: 151   Reacciones rx_*: 105
+Conexiones inter-ruta cx_*: 50   Flechas totales: 438   Textos: 2625
+
+HALLAZGOS CRÍTICOS (0)
+------------------------------------------------------------
+ (ninguno)
+
+HALLAZGOS IMPORTANTES (21)
+------------------------------------------------------------
+ - cx_acetoacetato_sangre: la punta de flecha (74,447) queda a 89 px del nodo más cercano (salida_vascular_glicerol); el lector no sabe a dónde llega.
+ - cx_betaox_etf_cte: la punta de flecha (2477,3078) queda a 161 px del nodo más cercano (m_nh4_integ); el lector no sabe a dónde llega.
+ - cx_cetonicos_sangre: la punta de flecha (54,447) queda a 69 px del nodo más cercano (salida_vascular_glicerol); el lector no sabe a dónde llega.
+ - cx_dhodh_coq_cte: la punta de flecha (3813,2658) queda a 491 px del nodo más cercano (rx_u_otc); el lector no sabe a dónde llega.
+ - cx_krebs_akgdh_cte: la punta de flecha (2477,3222) queda a 305 px del nodo más cercano (m_nh4_integ); el lector no sabe a dónde llega.
+ - cx_krebs_cte: la punta de flecha (2477,3498) queda a 355 px del nodo más cercano (lupa_piruvato_deshidrogenasa); el lector no sabe a dónde llega.
+ - cx_krebs_icdh_cte: la punta de flecha (2477,3018) queda a 101 px del nodo más cercano (m_nh4_integ); el lector no sabe a dónde llega.
+ - cx_krebs_mdh_cte: la punta de flecha (2477,3498) queda a 355 px del nodo más cercano (lupa_piruvato_deshidrogenasa); el lector no sabe a dónde llega.
+ - cx_lanz_g3p_coq: la punta de flecha (3813,3498) queda a 125 px del nodo más cercano (rx_u_cps1); el lector no sabe a dónde llega.
+ - cx_lanz_malato_cte_comp1: la punta de flecha (2477,2994) queda a 77 px del nodo más cercano (m_nh4_integ); el lector no sabe a dónde llega.
+ - m_gap_pnt («Gliceraldehído-3-P», ruta_pentosas): ninguna flecha llega ni sale a menos de 30 px.
+ - m_u_citrulina_mito («L-Citrulina (Matriz)», ruta_ciclo_urea): ninguna flecha llega ni sale a menos de 30 px.
+ - m_u_argininosuccinato («L-Argininosuccinato», ruta_ciclo_urea): ninguna flecha llega ni sale a menos de 30 px.
+ - m_adipo_dag («1,2-Diacilglicerol (DAG)», ruta_tejido_adiposo): ninguna flecha llega ni sale a menos de 30 px.
+ - m_adipo_mag («2-Monoacilglicerol (2-MAG)», ruta_tejido_adiposo): ninguna flecha llega ni sale a menos de 30 px.
+ - m_der_g3p («Glicerol-3-Fosfato», ruta_sintesis_tag_fosfolipidos): ninguna flecha llega ni sale a menos de 30 px.
+ - m_der_pc_membrana («Fosfatidilcolina (PC)», ruta_sintesis_tag_fosfolipidos): ninguna flecha llega ni sale a menos de 30 px.
+ - m_aa_pro («L-Prolina», ruta_biosintesis_aminoacidos): ninguna flecha llega ni sale a menos de 30 px.
+ - m_aa_3pg («3-Fosfoglicerato (Glucólisis)», ruta_biosintesis_aminoacidos): ninguna flecha llega ni sale a menos de 30 px.
+ - m_aa_cys («L-Cisteína», ruta_biosintesis_aminoacidos): ninguna flecha llega ni sale a menos de 30 px.
+ - 430 textos por debajo de 4.0 pt impresos (ej.: «INSERCIÓN TENDINOSA (FASCIA)» 3.7 pt; «INSERCIÓN TENDINOSA (FASCIA)» 3.7 pt; «Núcleo subsarcolémico S1» 3.5 pt; «Núcleo subsarcolémico S2» 3.5 pt; «Núcleo subsarcolémico S3» 3.5 pt).
+
+HALLAZGOS MENORES (31)
+------------------------------------------------------------
+ - cx_urea_fumarato_krebs: el inicio (4187,1494) queda a 38 px del nodo más cercano (rx_u_asl); no se ve de dónde sale.
+ - cx_acetilcoa_colesterol: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_acetoacetato_sangre: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_akg_gldh_krebs: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_amp_hipoxantina: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_beta_ala_sangre: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_cetonicos_sangre: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_citrulina_translocacion: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_colesterol_sangre: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_ctp_uracilo: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_dhap_lanzadera_g3p: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_glutamato_agc: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_nh4_urea: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_oaa_got2_asp: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_ornitina_retorno: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_palmitato_sangre_cito: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_piruvato_ala_pool: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_piruvato_mpc: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_propionil_succinil: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_s7p_f6p: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_sangre_lactato: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_tyr_fumarato: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_urea_fumarato_krebs: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_urea_sangre: sin rótulo cercano; el lector debe adivinar qué transporta.
+ - cx_beta_ala_sangre: cruza el texto «β-Alanina Soluble».
+ - cx_cistat_propionil: cruza el texto «Acil-CoA DH».
+ - cx_citrato_cic: cruza el texto «Citrato».
+ - cx_dhap_lanzadera_g3p: cruza el texto «+ L-Carnitina ↑».
+ - cx_palmitato_pool: cruza el texto «Palmitato (Citosólico)», «[3C]».
+ - cx_sangre_lactato: cruza el texto «SLC16A1 (Lactato)».
+ - cx_tyr_acetoacetato: cruza el texto «+ NH₄⁺ liberado».
+
+TIPOGRAFÍA A ESCALA DE IMPRESIÓN
+------------------------------------------------------------
+Mediana 5.1 pt · percentil 5 3.3 pt · 430 textos < 4.0 pt · 1885 textos entre 4.0 y 6.0 pt
+
+CONEXIONES INTER-RUTA: ORIGEN ➔ DESTINO REAL DE LA FLECHA
+------------------------------------------------------------
+cx_acetilcoa_colesterol
+    rótulo : (sin rótulo)
+    sale de: Acetil-CoA (Citosólico) [m_acetil_coa_cito]
+    llega a: Acetoacetil-CoA (Citosol) [m_acetoac_col]
+    longitud 819 px (13 cm impresos)
+cx_acetoacetato_sangre
+    rótulo : (sin rótulo)
+    sale de: Acetoacetato [m_acetoacetato]
+    llega a: ¿? (cerca de salida_vascular_glicerol)
+    longitud 4507 px (74 cm impresos)
+cx_akg_gldh_krebs
+    rótulo : (sin rótulo)
+    sale de: α-Cetoglutarato [m_akg_gldh_integ]
+    llega a: α-Cetoglutarato [m_akg]
+    longitud 444 px (7 cm impresos)
+cx_amp_hipoxantina
+    rótulo : (sin rótulo)
+    sale de: AMP (Adenosina-5'-P) [m_nuc_amp]
+    llega a: Hipoxantina (de AMP) [m_deg_hipo]
+    longitud 1854 px (30 cm impresos)
+cx_beta_ala_sangre
+    rótulo : (sin rótulo)
+    sale de: β-Alanina Soluble [m_deg_beta_ala]
+    llega a: eritrocitos_torrente [eritrocitos_torrente]
+    longitud 3450 px (57 cm impresos) · cruza: β-Alanina Soluble
+cx_betaox_cetogenesis
+    rótulo : Tiolasa ➔ Cetogénesis
+    sale de: Acetil-CoA [m_acetil_coa_beta]
+    llega a: Acetoacetil-CoA [m_acetoac_coa]
+    longitud 483 px (8 cm impresos)
+cx_betaox_etf_cte
+    rótulo : FAH: Fumarato ➔ Krebs
+    sale de: Palmitoil-CoA (Matriz) [m_palmitoil]
+    llega a: ¿? (cerca de m_nh4_integ)
+    longitud 2333 px (38 cm impresos)
+cx_betaox_krebs
+    rótulo : Acetil-CoA (β-ox) ➔ Krebs
+    sale de: Acetil-CoA [m_acetil_coa_beta]
+    llega a: Acetil-CoA [m_accoa]
+    longitud 2973 px (49 cm impresos)
+cx_cetonicos_sangre
+    rótulo : (sin rótulo)
+    sale de: D-β-Hidroxibutirato [m_betahidroxi]
+    llega a: ¿? (cerca de salida_vascular_glicerol)
+    longitud 3686 px (60 cm impresos)
+cx_cistat_propionil
+    rótulo : CTH: α-Cetobutirato ➔ Propionil-CoA
+    sale de: L-Cistationina [m_cistat_aa]
+    llega a: Propionil-CoA [m_prop_aa_matriz]
+    longitud 4728 px (78 cm impresos) · cruza: Acil-CoA DH
+cx_citrato_cic
+    rótulo : Lanzadera de Citrato (CIC)
+    sale de: Citrato [m_citrato]
+    llega a: Citrato (Citosólico) [m_citrato_cito]
+    longitud 4564 px (75 cm impresos) · cruza: Citrato
+cx_citrulina_translocacion
+    rótulo : (sin rótulo)
+    sale de: L-Citrulina (Matriz) [m_u_citrulina_mito]
+    llega a: L-Citrulina (Citosol) [m_u_citrulina_cito]
+    longitud 225 px (4 cm impresos)
+cx_colesterol_sangre
+    rótulo : (sin rótulo)
+    sale de: COLESTEROL [m_colesterol_integ]
+    llega a: eritrocitos_torrente [eritrocitos_torrente]
+    longitud 2085 px (34 cm impresos)
+cx_ctp_uracilo
+    rótulo : (sin rótulo)
+    sale de: CTP (Citidina-5'-P) [m_nuc_ctp]
+    llega a: Uracilo / Citosina [m_deg_uracilo]
+    longitud 585 px (10 cm impresos)
+cx_dhap_lanzadera_g3p
+    rótulo : (sin rótulo)
+    sale de: Dihidroxiacetona-P [m_dhap]
+    llega a: LANZADERA DE GLICEROL-3-FOSFATO (VÍA 8B) [lupa_lanzadera_glicerol_p]
+    longitud 10459 px (171 cm impresos) · cruza: + L-Carnitina ↑
+cx_dhodh_coq_cte
+    rótulo : NH₄⁺ ➔ CPS-1 (Ciclo de la Urea)
+    sale de: L-Dihidroorotato (DHO) [m_nuc_dho]
+    llega a: ¿? (cerca de rx_u_otc)
+    longitud 1870 px (31 cm impresos)
+cx_e4p_f6p
+    rótulo : Transaldolasa ➔ F6P
+    sale de: Eritrosa-4-P [m_e4p]
+    llega a: Fructosa-6-Fosfato [m_f6p]
+    longitud 1468 px (24 cm impresos)
+cx_g1p_g6p
+    rótulo : Glucogenólisis ➔ G6P
+    sale de: Glucosa-1-Fosfato [m_g1p]
+    llega a: Glucosa-6-Fosfato [m_g6p]
+    longitud 530 px (9 cm impresos)
+cx_g6p_g1p
+    rótulo : PGM: G6P ⇄ G1P (Glucógeno)
+    sale de: Glucosa-6-Fosfato [m_g6p]
+    llega a: Glucosa-1-Fosfato [m_g1p]
+    longitud 453 px (7 cm impresos)
+cx_gln_sangre
+    rótulo : Tiolasa ➔ Colesterol
+    sale de: L-Glutamina [m_gln_integ]
+    llega a: eritrocitos_torrente [eritrocitos_torrente]
+    longitud 2577 px (42 cm impresos)
+cx_glucolisis_lanz_malato
+    rótulo : Lactato (Ciclo de Cori) ➔ Piruvato
+    sale de: Gliceraldehído-3-P [m_gap]
+    llega a: OGC / AGC [lupa_lanzadera_malato_aspartato]
+    longitud 780 px (13 cm impresos)
+cx_glutamato_agc
+    rótulo : (sin rótulo)
+    sale de: L-Glutamato [m_glu_integ]
+    llega a: L-Glutamato (Matriz) [m_glu_mito_integ]
+    longitud 2273 px (37 cm impresos)
+cx_glutamina_cps2
+    rótulo : Gln ➔ CPS-II (Pirimidinas)
+    sale de: L-Glutamina [m_gln_integ]
+    llega a: HCO₃⁻ + L-Glutamina + 2 ATP (Citosol) [m_nuc_pir_sustratos]
+    longitud 3882 px (64 cm impresos)
+cx_gmp_xantina
+    rótulo : GMP ➔ Guanina ➔ Xantina
+    sale de: GMP (Guanosina-5'-P) [m_nuc_gmp]
+    llega a: Xantina [m_deg_xantina]
+    longitud 1262 px (21 cm impresos)
+cx_krebs_akgdh_cte
+    rótulo : α-KG DH (NADH) ➔ Complejo I
+    sale de: α-Cetoglutarato [m_akg]
+    llega a: ¿? (cerca de m_nh4_integ)
+    longitud 1050 px (17 cm impresos)
+cx_krebs_cte
+    rótulo : Succinato DH (FADH₂) ➔ Complejo II
+    sale de: Succinato [m_succinato]
+    llega a: ¿? (cerca de lupa_piruvato_deshidrogenasa)
+    longitud 1110 px (18 cm impresos)
+cx_krebs_icdh_cte
+    rótulo : Isocitrato DH (NADH) ➔ Complejo I
+    sale de: Isocitrato [m_isocitrato]
+    llega a: ¿? (cerca de m_nh4_integ)
+    longitud 1095 px (18 cm impresos)
+cx_krebs_mdh_cte
+    rótulo : Malato DH (NADH) ➔ Complejo I
+    sale de: L-Malato [m_malato]
+    llega a: ¿? (cerca de lupa_piruvato_deshidrogenasa)
+    longitud 2711 px (44 cm impresos)
+cx_lanz_asp_urea
+    rótulo : Aspartato citosólico (Aralar) ➔ Ciclo de la Urea (ASS1)
+    sale de: OGC / AGC [lupa_lanzadera_malato_aspartato]
+    llega a: L-Aspartato [m_u_aspartato]
+    longitud 4044 px (66 cm impresos)
+cx_lanz_g3p_coq
+    rótulo : mGPDH (FAD) ➔ CoQ
+    sale de: L-Glicerol-3-Fosfato [m_lanz_g3p]
+    llega a: ¿? (cerca de rx_u_cps1)
+    longitud 1673 px (27 cm impresos)
+cx_lanz_malato_cte_comp1
+    rótulo : NADH mitocondrial (mMDH) ➔ Complejo I
+    sale de: RODEO 1 [rodeo1_matriz_pc]
+    llega a: ¿? (cerca de m_nh4_integ)
+    longitud 1543 px (25 cm impresos)
+cx_lanz_malato_krebs
+    rótulo : Malato mitocondrial (NADH) ➔ Krebs
+    sale de: OGC / AGC [lupa_lanzadera_malato_aspartato]
+    llega a: L-Malato [m_malato]
+    longitud 4234 px (69 cm impresos)
+cx_nh4_urea
+    rótulo : (sin rótulo)
+    sale de: Ion Amonio (NH₄⁺) [m_nh4_integ]
+    llega a: Sustratos de Nitrógeno [m_u_sustratos_inicio]
+    longitud 2967 px (49 cm impresos)
+cx_oaa_got2_asp
+    rótulo : (sin rótulo)
+    sale de: Oxalacetato [m_oaa]
+    llega a: OGC / AGC [lupa_lanzadera_malato_aspartato]
+    longitud 557 px (9 cm impresos)
+cx_ornitina_retorno
+    rótulo : (sin rótulo)
+    sale de: L-Ornitina (Citosol) [m_u_ornitina_cito]
+    llega a: L-Ornitina (Matriz) [m_u_ornitina_mito]
+    longitud 1911 px (31 cm impresos)
+cx_palmitato_pool
+    rótulo : Pool de Piruvato (ALT)
+    sale de: L-Cisteína [m_cisteina_cth]
+    llega a: Palmitato (Citosólico) [m_palmitato_cito]
+    longitud 3187 px (52 cm impresos) · cruza: Palmitato (Citosólico); [3C]
+cx_palmitato_sangre_cito
+    rótulo : (sin rótulo)
+    sale de: Palmitato (Sanguíneo / Albúmina) [m_palmitato_sangre]
+    llega a: Palmitato (Citosólico) [m_palmitato_cito]
+    longitud 1359 px (22 cm impresos)
+cx_piruvato_ala_pool
+    rótulo : (sin rótulo)
+    sale de: Piruvato (de Alanina) [m_pyr_ala_integ]
+    llega a: Piruvato [m_pyr_cito]
+    longitud 1242 px (20 cm impresos)
+cx_piruvato_mpc
+    rótulo : (sin rótulo)
+    sale de: Piruvato [m_pyr_cito]
+    llega a: Piruvato (Matriz) [m_pyr_mito]
+    longitud 378 px (6 cm impresos)
+cx_propionil_succinil
+    rótulo : (sin rótulo)
+    sale de: Acetoacetil-CoA [m_acetoac_coa]
+    llega a: Succinil-CoA [m_succoa]
+    longitud 520 px (9 cm impresos)
+cx_r5p_prpp
+    rótulo : Ribosa-5-P ➔ PRPP Sintetasa (Nucleótidos)
+    sale de: Ribosa-5-P [m_r5p]
+    llega a: Ribosa-5-Fosfato [5C] (de Vía Pentosas) [m_nuc_r5p_in]
+    longitud 2363 px (39 cm impresos)
+cx_s7p_f6p
+    rótulo : (sin rótulo)
+    sale de: Sedoheptulosa-7-P [m_s7p]
+    llega a: Fructosa-6-Fosfato [m_f6p]
+    longitud 839 px (14 cm impresos)
+cx_sangre_glicerol
+    rótulo : Glicerol (Lipólisis TAG) ➔ Glicerol-3-P
+    sale de: Palmitato (Sanguíneo / Albúmina) [m_palmitato_sangre]
+    llega a: Glicerol [m_glicerol]
+    longitud 1142 px (19 cm impresos)
+cx_sangre_lactato
+    rótulo : (sin rótulo)
+    sale de: MCT1 [carrier_mct1_gng]
+    llega a: L-Malato (Citosol) [m_malato_gng_cito]
+    longitud 2144 px (35 cm impresos) · cruza: SLC16A1 (Lactato)
+cx_tyr_acetoacetato
+    rótulo : FAH: Acetoacetato ➔ Cuerpos Cetónicos
+    sale de: L-Tirosina [m_tyr_aa]
+    llega a: Acetoacetato [m_acetoacetato]
+    longitud 7234 px (119 cm impresos) · cruza: + NH₄⁺ liberado
+cx_tyr_fumarato
+    rótulo : (sin rótulo)
+    sale de: L-Tirosina [m_tyr_aa]
+    llega a: Fumarato [m_fumarato]
+    longitud 2764 px (45 cm impresos)
+cx_urato_sangre
+    rótulo : URAT1: reabsorción de urato desde lumen
+    sale de: URAT1: reabsorción lumen → túbulo proximal [indicador_urato_reabsorcion]
+    llega a: ÁCIDO ÚRICO (URATO) [m_deg_urato]
+    longitud 210 px (3 cm impresos)
+cx_urea_fumarato_krebs
+    rótulo : (sin rótulo)
+    sale de: ¿? (cerca de rx_u_asl)
+    llega a: Fumarato [m_fumarato]
+    longitud 6503 px (107 cm impresos)
+cx_urea_sangre
+    rótulo : (sin rótulo)
+    sale de: UREA (Carbamida) [m_u_urea]
+    llega a: eritrocitos_torrente [eritrocitos_torrente]
+    longitud 537 px (9 cm impresos)
+cx_xu5p_gap
+    rótulo : Transcetolasa ➔ GAP
+    sale de: Xilulosa-5-P [m_xu5p]
+    llega a: Gliceraldehído-3-P [m_gap]
+    longitud 1293 px (21 cm impresos)
+
+POSIBLES SOLAPAMIENTOS DE TEXTO (top 40 de 2)
+------------------------------------------------------------
+ - 57%  «URAT1: reabsorción lumen → túbulo proxim»  ×  «URATO»  en (5440,2431)
+ - 52%  «COO⁻»  ×  «Producto azufrado de CTH»  en (3098,2123)
+
+METABOLITOS SÓLO CON ENTRADA (productos finales o callejones; revisar)
+------------------------------------------------------------
+Glucógeno (n+1) [m_glucogeno_cadena], Escualeno [m_escualeno_integ], Acetona [m_acetona_ceto], α-Cetobutirato [m_akb_aa], Sustratos de Nitrógeno [m_u_sustratos_inicio], L-Ornitina (Matriz) [m_u_ornitina_mito], L-Arginina [m_u_arginina], L-Ornitina (Citosol) [m_u_ornitina_cito], Hipoxantina (de AMP) [m_deg_hipo], Lisofosfatidato (LPA) [m_der_lpa], ÁCIDO FOSFATÍDICO (PA) [m_der_pa], 1,2-Diacilglicerol (DAG) [m_der_dag], Triacilglicerol (TAG) [m_der_tag_reserva], L-Asparagina [m_aa_asn], L-Glutamina [m_aa_gln], L-Tirosina [m_aa_tyr]
+
+METABOLITOS SÓLO CON SALIDA (sustratos iniciales o entradas sin flecha; revisar)
+------------------------------------------------------------
+D-Glucosa [m_cori_glc_musc], Glicerol-3-P [m_g3p], L-Alanina [m_alanina_cahill], Sedoheptulosa-7-P [m_s7p], Fructosa-6-P (x2) [m_f6p_pnt], Piruvato (Matriz) [m_pyr_mito], Malonil-CoA [m_malonil], D-β-Hidroxiacil-ACP [m_hidroxi_acp], Palmitato [m_palmitato_libre], Palmitato (Sanguíneo / Albúmina) [m_palmitato_sangre], HMG-CoA [m_hmg_coa], Ion Amonio (NH₄⁺) [m_nh4_integ], L-Fenilalanina [m_phe_aa], Carbamoil Fosfato [m_u_carbamoil_p], Fumarato [m_u_fumarato], UREA (Carbamida) [m_u_urea], Triacilglicerol de Reserva [m_adipo_tag], L-Fenilalanina (Esencial) [m_aa_phe]
+
+RECORRIDO TEXTUAL POR VÍA (metabolitos en orden de lectura arriba→abajo)
+------------------------------------------------------------
+[(fuera de ruta_*)]
+   · Dihidroxiacetona-P (DHAP)   (m_lanz_dhap)
+   · L-Glicerol-3-Fosfato   (m_lanz_g3p)
+[ruta_beta_ox]  zona x=79..1073  y=378..3404
+   · Palmitato (Sanguíneo / Albúmina)   (m_palmitato_sangre)
+   · Palmitato (Citosólico)   (m_palmitato_cito)
+   · Palmitoil-CoA (Citosólico)   (m_palmitoil_cito)
+   · Palmitoil-Carnitina   (m_palm_carnitina)
+   · COO⁻   (m_carnitina_libre)
+   · Palmitoil-CoA (Matriz)   (m_palmitoil)
+   · trans-Δ²-Enoil-CoA   (m_trans_enoil)
+   · L-β-Hidroxiacil-CoA   (m_hidroxi_coa)
+   · β-Cetoacil-CoA   (m_cetoacil_coa)
+   · Miristoil-CoA   (m_miristoil_coa)
+   · Acetil-CoA   (m_acetil_coa_beta)
+[ruta_biosintesis_aminoacidos]  zona x=5842..6531  y=2338..4252
+   · Piruvato (Glucólisis)   (m_aa_pyr)
+   · Oxalacetato (Krebs)   (m_aa_oaa)
+   · L-Alanina   (m_aa_ala)
+   · L-Aspartato   (m_aa_asp)
+   · α-Cetoglutarato (Krebs)   (m_aa_akg)
+   · L-Asparagina   (m_aa_asn)
+   · L-Glutamato   (m_aa_glu)
+   · L-Glutamina   (m_aa_gln)
+   · L-Prolina   (m_aa_pro)
+   · 3-Fosfoglicerato (Glucólisis)   (m_aa_3pg)
+   · L-Serina   (m_aa_ser)
+   · Glicina   (m_aa_gly)
+   · L-Cisteína   (m_aa_cys)
+   · L-Fenilalanina (Esencial)   (m_aa_phe)
+   · L-Tirosina   (m_aa_tyr)
+[ruta_ceto]  zona x=316..967  y=3177..3675
+   · Acetoacetil-CoA   (m_acetoac_coa)
+   · HMG-CoA   (m_hmg_coa)
+   · Acetona   (m_acetona_ceto)
+   · Acetoacetato   (m_acetoacetato)
+   · D-β-Hidroxibutirato   (m_betahidroxi)
+[ruta_ciclo_cori]  zona x=0..5800  y=12..415
+   · Glucosa-6-P   (m_cori_g6p_musc)
+   · D-Glucosa   (m_cori_glc_musc)
+   · Piruvato (x2)   (m_cori_pyr_musc)
+   · COO⁻   (m_cori_lac_musc)
+   · COO⁻   (m_cori_lac_sangre)
+[ruta_ciclo_urea]  zona x=3825..4866  y=566..3648
+   · UREA (Carbamida)   (m_u_urea)
+   · L-Ornitina (Citosol)   (m_u_ornitina_cito)
+   · L-Arginina   (m_u_arginina)
+   · Fumarato   (m_u_fumarato)
+   · L-Malato (Biciclo)   (m_u_malato_biciclo)
+   · L-Argininosuccinato   (m_u_argininosuccinato)
+   · Oxalacetato (Biciclo)   (m_u_oaa_biciclo)
+   · L-Aspartato   (m_u_aspartato)
+   · L-Citrulina (Citosol)   (m_u_citrulina_cito)
+   · L-Citrulina (Matriz)   (m_u_citrulina_mito)
+   · Carbamoil Fosfato   (m_u_carbamoil_p)
+   · L-Ornitina (Matriz)   (m_u_ornitina_mito)
+   · Sustratos de Nitrógeno   (m_u_sustratos_inicio)
+[ruta_colesterol]  zona x=3245..4145  y=791..2127
+   · Acetoacetil-CoA (Citosol)   (m_acetoac_col)
+   · HMG-CoA (Citosol)   (m_hmg_col)
+   · Mevalonato   (m_mevalonato_integ)
+   · Isopentenil-PP (IPP)   (m_ipp_integ)
+   · Farnesil-PP (FPP)   (m_fpp_integ)
+   · Escualeno   (m_escualeno_integ)
+   · Lanosterol   (m_lanosterol_integ)
+   · COLESTEROL   (m_colesterol_integ)
+[ruta_degradacion_nucleotidos]  zona x=5052..5713  y=2102..3038
+   · Hipoxantina (de AMP)   (m_deg_hipo)
+   · Xantina   (m_deg_xantina)
+   · ÁCIDO ÚRICO (URATO)   (m_deg_urato)
+   · Uracilo / Citosina   (m_deg_uracilo)
+   · Dihidrouracilo (DHU)   (m_deg_dhu)
+   · β-Ureidopropionato   (m_deg_ureido)
+   · β-Alanina Soluble   (m_deg_beta_ala)
+[ruta_destinos_aa]  zona x=298..3201  y=808..3630
+   · L-Fenilalanina   (m_phe_aa)
+   · L-Homocisteína   (m_hcy_aa)
+   · L-Tirosina   (m_tyr_aa)
+   · L-Cistationina   (m_cistat_aa)
+   · L-Cisteína   (m_cisteina_cth)
+   · α-Cetobutirato   (m_akb_aa)
+   · Propionil-CoA   (m_prop_aa_matriz)
+   · D/L-Metilmalonil-CoA   (m_metilmalonil_aa)
+[ruta_glucogeno]  zona x=403..1605  y=556..1088
+   · UDP-Glucosa   (m_udpg)
+   · Glucosa-1-Fosfato   (m_g1p)
+   · Glucógeno (n+1)   (m_glucogeno_cadena)
+[ruta_glucolisis]  zona x=1260..2195  y=508..2174
+   · D-Glucosa   (m_glucosa)
+   · Glucosa-6-Fosfato   (m_g6p)
+   · Fructosa-6-Fosfato   (m_f6p)
+   · Fructosa-1,6-Bisfosfato   (m_fbp)
+   · Dihidroxiacetona-P   (m_dhap)
+   · Gliceraldehído-3-P   (m_gap)
+   · 1,3-Bisfosfoglicerato   (m_bpg)
+   · 3-Fosfoglicerato   (m_3pg)
+   · 2-Fosfoglicerato   (m_2pg)
+   · Fosfoenolpiruvato   (m_pep)
+   · Piruvato   (m_pyr_cito)
+[ruta_gluconeogenesis]  zona x=741..1830  y=370..2580
+   · Glicerol   (m_glicerol)
+   · Glicerol-3-P   (m_g3p)
+   · Oxalacetato (Citosol)   (m_oaa_gng_cito)
+   · L-Malato (Citosol)   (m_malato_gng_cito)
+   · L-Lactato   (m_lactato)
+   · L-Alanina   (m_alanina_cahill)
+[ruta_krebs]  zona x=778..2028  y=2482..3928
+   · Piruvato (Matriz)   (m_pyr_mito)
+   · Acetil-CoA   (m_accoa)
+   · Oxalacetato   (m_oaa)
+   · Citrato   (m_citrato)
+   · Isocitrato   (m_isocitrato)
+   · α-Cetoglutarato   (m_akg)
+   · Succinil-CoA   (m_succoa)
+   · Succinato   (m_succinato)
+   · Fumarato   (m_fumarato)
+   · L-Malato   (m_malato)
+[ruta_lipogenesis]  zona x=1915..3531  y=945..2493
+   · Citrato (Citosólico)   (m_citrato_cito)
+   · Acetil-CoA (Citosólico)   (m_acetil_coa_cito)
+   · Malonil-CoA   (m_malonil)
+   · Acetoacetil-ACP   (m_acetoac_acp)
+   · D-β-Hidroxiacil-ACP   (m_hidroxi_acp)
+   · trans-Δ²-Enoil-ACP   (m_enoil_acp)
+   · Butiril-ACP   (m_butiril_acp)
+   · Palmitato   (m_palmitato_libre)
+[ruta_pentosas]  zona x=1945..3115  y=481..1464
+   · 6-P-Gluconolactona   (m_lactona)
+   · 6-Fosfogluconato   (m_6pg)
+   · Ribulosa-5-P   (m_ru5p)
+   · Ribosa-5-P   (m_r5p)
+   · Xilulosa-5-P   (m_xu5p)
+   · Sedoheptulosa-7-P   (m_s7p)
+   · Eritrosa-4-P   (m_e4p)
+   · Fructosa-6-P (x2)   (m_f6p_pnt)
+   · Gliceraldehído-3-P   (m_gap_pnt)
+[ruta_sintesis_nucleotidos]  zona x=4748..5701  y=522..2057
+   · Ribosa-5-Fosfato [5C] (de Vía Pentosas)   (m_nuc_r5p_in)
+   · PRPP   (m_nuc_prpp)
+   · 5-Fosforribosilamina (5-PRA)   (m_nuc_5pra)
+   · Inosina Monofosfato (IMP)   (m_nuc_imp)
+   · GMP (Guanosina-5'-P)   (m_nuc_gmp)
+   · AMP (Adenosina-5'-P)   (m_nuc_amp)
+   · HCO₃⁻ + L-Glutamina + 2 ATP (Citosol)   (m_nuc_pir_sustratos)
+   · Carbamoil-Fosfato   (m_nuc_cp)
+   · L-Dihidroorotato (DHO)   (m_nuc_dho)
+   · Ácido Orotato   (m_nuc_orotato)
+   · UMP (Uridina Monofosfato)   (m_nuc_ump)
+   · CTP (Citidina-5'-P)   (m_nuc_ctp)
+   · dTMP (Timidilato)   (m_nuc_dtmp)
+[ruta_sintesis_tag_fosfolipidos]  zona x=5770..6411  y=1118..2282
+   · Glicerol-3-Fosfato   (m_der_g3p)
+   · Lisofosfatidato (LPA)   (m_der_lpa)
+   · ÁCIDO FOSFATÍDICO (PA)   (m_der_pa)
+   · 1,2-Diacilglicerol (DAG)   (m_der_dag)
+   · Triacilglicerol (TAG)   (m_der_tag_reserva)
+   · Fosfatidilcolina (PC)   (m_der_pc_membrana)
+[ruta_tejido_adiposo]  zona x=-710..-15  y=425..2300
+   · Triacilglicerol de Reserva   (m_adipo_tag)
+   · 1,2-Diacilglicerol (DAG)   (m_adipo_dag)
+   · 2-Monoacilglicerol (2-MAG)   (m_adipo_mag)
+   · Glicerol Libre   (m_adipo_glicerol)
+[ruta_transaminacion_desaminacion]  zona x=1630..2473  y=405..2984
+   · L-Alanina   (m_ala_integ)
+   · Piruvato (de Alanina)   (m_pyr_ala_integ)
+   · L-Glutamato   (m_glu_integ)
+   · L-Glutamina   (m_gln_integ)
+   · L-Glutamato (Matriz)   (m_glu_mito_integ)
+   · α-Cetoglutarato   (m_akg_gldh_integ)
+   · Ion Amonio (NH₄⁺)   (m_nh4_integ)

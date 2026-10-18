@@ -1,0 +1,51 @@
+id	rotulo	origen	nombre_origen	destino	nombre_destino	d_destino_px	cruces
+cx_acetilcoa_colesterol		m_acetil_coa_cito	Acetil-CoA (Citosólico)	m_acetoac_col	Acetoacetil-CoA (Citosol)	5	
+cx_acetoacetato_sangre		m_acetoacetato	Acetoacetato			89	
+cx_akg_gldh_krebs		m_akg_gldh_integ	α-Cetoglutarato	m_akg	α-Cetoglutarato	5	
+cx_amp_hipoxantina		m_nuc_amp	AMP (Adenosina-5'-P)	m_deg_hipo	Hipoxantina (de AMP)	0	
+cx_beta_ala_sangre		m_deg_beta_ala	β-Alanina Soluble	eritrocitos_torrente	eritrocitos_torrente	29	β-Alanina Soluble
+cx_betaox_cetogenesis	Tiolasa ➔ Cetogénesis	m_acetil_coa_beta	Acetil-CoA	m_acetoac_coa	Acetoacetil-CoA	5	
+cx_betaox_etf_cte	FAH: Fumarato ➔ Krebs	m_palmitoil	Palmitoil-CoA (Matriz)			161	
+cx_betaox_krebs	Acetil-CoA (β-ox) ➔ Krebs	m_acetil_coa_beta	Acetil-CoA	m_accoa	Acetil-CoA	5	
+cx_cetonicos_sangre		m_betahidroxi	D-β-Hidroxibutirato			69	
+cx_cistat_propionil	CTH: α-Cetobutirato ➔ Propionil-CoA	m_cistat_aa	L-Cistationina	m_prop_aa_matriz	Propionil-CoA	3	Acil-CoA DH
+cx_citrato_cic	Lanzadera de Citrato (CIC)	m_citrato	Citrato	m_citrato_cito	Citrato (Citosólico)	5	Citrato
+cx_citrulina_translocacion		m_u_citrulina_mito	L-Citrulina (Matriz)	m_u_citrulina_cito	L-Citrulina (Citosol)	5	
+cx_colesterol_sangre		m_colesterol_integ	COLESTEROL	eritrocitos_torrente	eritrocitos_torrente	29	
+cx_ctp_uracilo		m_nuc_ctp	CTP (Citidina-5'-P)	m_deg_uracilo	Uracilo / Citosina	5	
+cx_dhap_lanzadera_g3p		m_dhap	Dihidroxiacetona-P	lupa_lanzadera_glicerol_p	LANZADERA DE GLICEROL-3-FOSFATO (VÍA 8B)	5	+ L-Carnitina ↑
+cx_dhodh_coq_cte	NH₄⁺ ➔ CPS-1 (Ciclo de la Urea)	m_nuc_dho	L-Dihidroorotato (DHO)			491	
+cx_e4p_f6p	Transaldolasa ➔ F6P	m_e4p	Eritrosa-4-P	m_f6p	Fructosa-6-Fosfato	5	
+cx_g1p_g6p	Glucogenólisis ➔ G6P	m_g1p	Glucosa-1-Fosfato	m_g6p	Glucosa-6-Fosfato	5	
+cx_g6p_g1p	PGM: G6P ⇄ G1P (Glucógeno)	m_g6p	Glucosa-6-Fosfato	m_g1p	Glucosa-1-Fosfato	4	
+cx_gln_sangre	Tiolasa ➔ Colesterol	m_gln_integ	L-Glutamina	eritrocitos_torrente	eritrocitos_torrente	29	
+cx_glucolisis_lanz_malato	Lactato (Ciclo de Cori) ➔ Piruvato	m_gap	Gliceraldehído-3-P	lupa_lanzadera_malato_aspartato	OGC / AGC	5	
+cx_glutamato_agc		m_glu_integ	L-Glutamato	m_glu_mito_integ	L-Glutamato (Matriz)	5	
+cx_glutamina_cps2	Gln ➔ CPS-II (Pirimidinas)	m_gln_integ	L-Glutamina	m_nuc_pir_sustratos	HCO₃⁻ + L-Glutamina + 2 ATP (Citosol)	5	
+cx_gmp_xantina	GMP ➔ Guanina ➔ Xantina	m_nuc_gmp	GMP (Guanosina-5'-P)	m_deg_xantina	Xantina	21	
+cx_krebs_akgdh_cte	α-KG DH (NADH) ➔ Complejo I	m_akg	α-Cetoglutarato			305	
+cx_krebs_cte	Succinato DH (FADH₂) ➔ Complejo II	m_succinato	Succinato			355	
+cx_krebs_icdh_cte	Isocitrato DH (NADH) ➔ Complejo I	m_isocitrato	Isocitrato			101	
+cx_krebs_mdh_cte	Malato DH (NADH) ➔ Complejo I	m_malato	L-Malato			355	
+cx_lanz_asp_urea	Aspartato citosólico (Aralar) ➔ Ciclo de la Urea (ASS1)	lupa_lanzadera_malato_aspartato	OGC / AGC	m_u_aspartato	L-Aspartato	5	
+cx_lanz_g3p_coq	mGPDH (FAD) ➔ CoQ	m_lanz_g3p	L-Glicerol-3-Fosfato			125	
+cx_lanz_malato_cte_comp1	NADH mitocondrial (mMDH) ➔ Complejo I	rodeo1_matriz_pc	RODEO 1			77	
+cx_lanz_malato_krebs	Malato mitocondrial (NADH) ➔ Krebs	lupa_lanzadera_malato_aspartato	OGC / AGC	m_malato	L-Malato	0	
+cx_nh4_urea		m_nh4_integ	Ion Amonio (NH₄⁺)	m_u_sustratos_inicio	Sustratos de Nitrógeno	5	
+cx_oaa_got2_asp		m_oaa	Oxalacetato	lupa_lanzadera_malato_aspartato	OGC / AGC	0	
+cx_ornitina_retorno		m_u_ornitina_cito	L-Ornitina (Citosol)	m_u_ornitina_mito	L-Ornitina (Matriz)	5	
+cx_palmitato_pool	Pool de Piruvato (ALT)	m_cisteina_cth	L-Cisteína	m_palmitato_cito	Palmitato (Citosólico)	0	Palmitato (Citosólico); [3C]
+cx_palmitato_sangre_cito		m_palmitato_sangre	Palmitato (Sanguíneo / Albúmina)	m_palmitato_cito	Palmitato (Citosólico)	5	
+cx_piruvato_ala_pool		m_pyr_ala_integ	Piruvato (de Alanina)	m_pyr_cito	Piruvato	3	
+cx_piruvato_mpc		m_pyr_cito	Piruvato	m_pyr_mito	Piruvato (Matriz)	32	
+cx_propionil_succinil		m_acetoac_coa	Acetoacetil-CoA	m_succoa	Succinil-CoA	5	
+cx_r5p_prpp	Ribosa-5-P ➔ PRPP Sintetasa (Nucleótidos)	m_r5p	Ribosa-5-P	m_nuc_r5p_in	Ribosa-5-Fosfato [5C] (de Vía Pentosas)	5	
+cx_s7p_f6p		m_s7p	Sedoheptulosa-7-P	m_f6p	Fructosa-6-Fosfato	0	
+cx_sangre_glicerol	Glicerol (Lipólisis TAG) ➔ Glicerol-3-P	m_palmitato_sangre	Palmitato (Sanguíneo / Albúmina)	m_glicerol	Glicerol	5	
+cx_sangre_lactato		carrier_mct1_gng	MCT1	m_malato_gng_cito	L-Malato (Citosol)	0	SLC16A1 (Lactato)
+cx_tyr_acetoacetato	FAH: Acetoacetato ➔ Cuerpos Cetónicos	m_tyr_aa	L-Tirosina	m_acetoacetato	Acetoacetato	1	+ NH₄⁺ liberado
+cx_tyr_fumarato		m_tyr_aa	L-Tirosina	m_fumarato	Fumarato	3	
+cx_urato_sangre	URAT1: reabsorción de urato desde lumen	indicador_urato_reabsorcion	URAT1: reabsorción lumen → túbulo proximal	m_deg_urato	ÁCIDO ÚRICO (URATO)	11	
+cx_urea_fumarato_krebs				m_fumarato	Fumarato	3	
+cx_urea_sangre		m_u_urea	UREA (Carbamida)	eritrocitos_torrente	eritrocitos_torrente	29	
+cx_xu5p_gap	Transcetolasa ➔ GAP	m_xu5p	Xilulosa-5-P	m_gap	Gliceraldehído-3-P	5	
