@@ -11516,7 +11516,12 @@
     }
 
     function zoomIn() { scale = Math.min(scale * 1.25, 4.0); updateTransform(); }
-    function zoomOut() { scale = Math.max(scale / 1.25, 0.08); updateTransform(); }
+    // Zoom minimo: nunca por encima del ajuste a pantalla, para poder alejar tambien en moviles/pantallas pequenas
+    function escalaMinima() {
+      const vw = viewport.clientWidth, vh = viewport.clientHeight;
+      return Math.min(0.08, Math.min(vw / W_CANVAS, vh / H_CANVAS) * 0.5);
+    }
+    function zoomOut() { scale = Math.max(scale / 1.25, escalaMinima()); updateTransform(); }
     function resetView() { scale = 1; pointX = 0; pointY = 0; updateTransform(); }
     function fitView() {
       const vw = viewport.clientWidth;
@@ -12244,7 +12249,7 @@
       const ys = (e.clientY - pointY) / scale;
       const delta = -e.deltaY;
       const factor = delta > 0 ? 1.15 : 0.85;
-      scale = Math.min(Math.max(scale * factor, 0.08), 5.0);
+      scale = Math.min(Math.max(scale * factor, escalaMinima()), 5.0);
       pointX = e.clientX - xs * scale;
       pointY = e.clientY - ys * scale;
       updateTransform();
@@ -12312,7 +12317,7 @@
         );
         const xs = (touchMidX - pointX) / scale;
         const ys = (touchMidY - pointY) / scale;
-        const newScale = Math.min(Math.max(touchStartScale * (curDist / touchStartDist), 0.08), 5.0);
+        const newScale = Math.min(Math.max(touchStartScale * (curDist / touchStartDist), escalaMinima()), 5.0);
         scale = newScale;
         pointX = touchMidX - xs * scale;
         pointY = touchMidY - ys * scale;
@@ -12395,141 +12400,6 @@
       poblarSidebarVias();
       construirIndiceBusqueda();
       fitView();
-    }
-
-    let modoAislarActivo = false;
-    function toggleModoAislar() {
-      modoAislarActivo = !modoAislarActivo;
-      document.body.classList.toggle('ui_isolate_mode', modoAislarActivo);
-      const btn = document.getElementById('ui_btn_isolate');
-      if (btn) btn.classList.toggle('ui_btn_active_custom', modoAislarActivo);
-    }
-
-    function irAMapaAlternativo() {
-      try {
-        const params = window.location.search;
-        const isSubdir = window.location.pathname.includes('/versiones_html') || window.location.pathname.includes('/mapa_metabolico_alternativo');
-        const target = isSubdir ? '../index.html' : 'index.html';
-        window.location.href = target + params;
-      } catch (e) {
-        window.location.href = '../index.html';
-      }
-    }
-
-    function irAMapaOriginal() {
-      try {
-        const params = window.location.search;
-        const isSubdir = window.location.pathname.includes('/versiones_html') || window.location.pathname.includes('/mapa_metabolico_alternativo');
-        let target = '01_mapa_ampliado_completo_25_vias.html';
-        if (isSubdir) {
-          target = window.location.pathname.includes('/versiones_html') ? '01_mapa_ampliado_completo_25_vias.html' : '../versiones_html/01_mapa_ampliado_completo_25_vias.html';
-        } else if (window.location.protocol === 'file:') {
-          target = 'versiones_html/01_mapa_ampliado_completo_25_vias.html';
-        }
-        window.location.href = target + params;
-      } catch (e) {
-        window.location.href = '01_mapa_ampliado_completo_25_vias.html';
-      }
-    }
-
-    function seleccionarViaRapida(val) {
-      if (!val) {
-        if (typeof clearPathwayHighlight === 'function') clearPathwayHighlight();
-        actualizarParametroURL('via', null);
-        return;
-      }
-      if (typeof highlightPathway === 'function') {
-        highlightPathway(val, true);
-        actualizarParametroURL('via', val);
-      }
-    }
-
-    function actualizarParametroURL(clave, valor) {
-      try {
-        const url = new URL(window.location.href);
-        if (valor) {
-          url.searchParams.set(clave, valor);
-        } else {
-          url.searchParams.delete(clave);
-        }
-        window.history.replaceState(null, '', url.toString());
-      } catch (e) {
-        // Fallback silencioso
-      }
-    }
-
-    // Enganches para mantener sincronizado el selector rapido y la URL
-    if (typeof highlightPathway === 'function') {
-      const origHighlightPathway = highlightPathway;
-      highlightPathway = function(viaId, shouldZoom = false) {
-        origHighlightPathway(viaId, shouldZoom);
-        const sel = document.getElementById('ui_select_quick_via');
-        if (sel && sel.value !== String(viaId)) {
-          sel.value = String(viaId);
-        }
-        actualizarParametroURL('via', viaId);
-      };
-    }
-
-    if (typeof clearPathwayHighlight === 'function') {
-      const origClearPathwayHighlight = clearPathwayHighlight;
-      clearPathwayHighlight = function() {
-        origClearPathwayHighlight();
-        const sel = document.getElementById('ui_select_quick_via');
-        if (sel) {
-          sel.value = '';
-        }
-        actualizarParametroURL('via', null);
-      };
-    }
-
-    function procesarParametrosURL() {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const viaParam = params.get('via');
-        if (viaParam) {
-          const raw = viaParam.trim();
-          const upper = raw.toUpperCase();
-          const targetVia = (typeof TABLA_VIAS !== 'undefined' && TABLA_VIAS[upper]) ? upper : ((typeof TABLA_VIAS !== 'undefined' && TABLA_VIAS[raw]) ? raw : null);
-          if (targetVia) {
-            setTimeout(() => {
-              if (typeof highlightPathway === 'function') highlightPathway(targetVia, true);
-            }, 300);
-          } else {
-            const vNum = parseInt(raw, 10);
-            if (!isNaN(vNum) && vNum >= 1 && vNum <= 25) {
-              setTimeout(() => {
-                if (typeof highlightPathway === 'function') highlightPathway(String(vNum), true);
-              }, 300);
-            }
-          }
-        }
-        const searchParam = params.get('search') || params.get('q');
-        if (searchParam) {
-          setTimeout(() => {
-            const input = document.getElementById('ui_search_input');
-            if (input) {
-              input.value = searchParam;
-              if (typeof ejecutarBusqueda === 'function') ejecutarBusqueda();
-            }
-          }, 300);
-        }
-        const stateParam = params.get('state');
-        if (stateParam) {
-          setTimeout(() => {
-            if (typeof setMetabolicState === 'function') setMetabolicState(stateParam);
-          }, 300);
-        }
-      } catch (err) {
-        console.warn('Error al procesar parametros URL:', err);
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      procesarParametrosURL();
-    });
-    if (document.readyState !== 'loading') {
-      procesarParametrosURL();
     }
 
     const MAPA_VIAS_SVG = {
