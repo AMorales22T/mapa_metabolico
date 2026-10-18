@@ -457,7 +457,9 @@ def main():
       procesarParametrosURL();
     }
   </script>"""
-    if 'MAPA_VIAS_SVG' not in content:
+    # Solo inyectar si el JS no esta ya (ni MAPA_VIAS_SVG ni una version previa con
+    # "let modoAislarActivo"): declarar dos veces ese 'let' rompe TODO el script de la pagina.
+    if 'MAPA_VIAS_SVG' not in content and 'let modoAislarActivo' not in content:
         content = content.replace('  </script>', js_original, 1)
 
     with open(RUTA_HTML, "w", encoding="utf-8") as f:
