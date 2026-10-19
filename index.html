@@ -14134,6 +14134,8 @@
     window.addEventListener('click', (e) => {
       const target = e.target;
       if (!target) return;
+      // Un arrastre (pan) tambien genera 'click' al soltar: no debe recentrar la camara
+      if (Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY) > 4) return;
 
       // Clic en lupa de cadena respiratoria (CTE)
       if (target.closest('#lupa_cadena_respiratoria')) {
