@@ -966,7 +966,7 @@
     }
   </style>
 </head>
-<body>
+<body class="pausar-animaciones">
   <!-- HEADER BAR -->
   <div class="header-bar">
     <div class="header-title-box">
@@ -1061,7 +1061,7 @@
       <!-- Botones Didacticos: Lectura, Flujo Animado y Paso a Paso -->
       <div class="ui_state_group">
         <button id="ui_btn_reading" class="ui_state_btn" onclick="toggleModoLectura()" title="Aumenta grosor y contraste de conexiones inter-ruta y rotulos">Lectura</button>
-        <button id="ui_btn_flow" class="ui_state_btn ui_btn_active_custom" onclick="toggleFlujoAnimado()" title="Activa o pausa la corriente bioluminiscente en las rutas activas">Flujo Animado</button>
+        <button id="ui_btn_flow" class="ui_state_btn" onclick="toggleFlujoAnimado()" title="Activa o pausa la corriente bioluminiscente en las rutas activas">Flujo: Pausado</button>
         <button id="ui_btn_step" class="ui_state_btn" onclick="iniciarPasoAPaso()" title="Inicia la navegacion guiada de cambios quimicos paso a paso">Paso a Paso</button>
       </div>
 
@@ -13145,7 +13145,7 @@
     // =========================================================================
     let modoLecturaActivo = false;
     let modoAislarActivo = false;
-    let flujoAnimadoHabilitado = true;
+    let flujoAnimadoHabilitado = false;
     let seguirCamaraActivo = true;
     let reproduccionAutoInterval = null;
 
@@ -14555,12 +14555,10 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       procesarParametrosURL();
-      flujoAnimadoHabilitado = true;
       actualizarEstadoFlujo();
     });
     if (document.readyState !== 'loading') {
       procesarParametrosURL();
-      flujoAnimadoHabilitado = true;
       actualizarEstadoFlujo();
     }
   </script>
