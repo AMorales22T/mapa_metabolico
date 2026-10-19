@@ -2,7 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mapa Metabólico Alternativo — Herramienta Interactiva Ampliada (25 Vías)</title>
+  <meta name="author" content="Adolfo Morales Tena (AMorales22T)">
+  <meta name="creator" content="Adolfo Morales Tena — Universidad de Navarra">
+  <meta name="copyright" content="Copyright 2026 Adolfo Morales Tena. Licencia CC BY-NC-ND 4.0">
+  <meta name="description" content="Atlas metabolico interactivo y vectorial (1200 x 900 mm) con 25 vias integradas. Material didactico de bioquimica por Adolfo Morales Tena (Universidad de Navarra).">
+  <meta property="og:title" content="Atlas Metabolico Interactivo — Adolfo Morales Tena">
+  <meta property="og:description" content="25 vias integradas en SVG nativo interactivo con navegacion paso a paso y simuladores redox.">
+  <meta property="og:url" content="https://amorales22t.github.io/mapa_metabolico/">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
@@ -971,7 +978,7 @@
   <div class="header-bar">
     <div class="header-title-box">
       <h2>Mapa Metabólico Alternativo — Versión Ampliada (1200 × 900 mm)</h2>
-      <p>25 Vías Integradas • Digestión • Adipocito • Sarcómero • Cerebro • Lipoproteínas • Membrana • Aminoácidos • Hepatocito Central</p>
+      <p>Por <strong style="color: #f8fafc;">Adolfo Morales Tena</strong> (Universidad de Navarra) • 25 Vías Integradas • <a href="LICENSE" style="color: #38bdf8; text-decoration: none;">CC BY-NC-ND 4.0</a></p>
     </div>
 
     <div class="controls">
@@ -1127,8 +1134,23 @@
 
   <!-- VIEWPORT & LIENZO VECTORIAL -->
   <div class="viewport" id="viewport">
-    <div id="panLayer">
-      <svg xmlns="http://www.w3.org/2000/svg" width="7320" height="5120" viewBox="-760 0 7320 5120">
+    <div id="panLayer" data-author="Adolfo Morales Tena" data-institution="Universidad de Navarra" data-license="CC BY-NC-ND 4.0" data-provenance="https://github.com/AMorales22T/mapa_metabolico">
+      <svg xmlns="http://www.w3.org/2000/svg" width="7320" height="5120" viewBox="-760 0 7320 5120" data-author="Adolfo Morales Tena" data-license="CC BY-NC-ND 4.0">
+    <metadata id="provenance_metadata">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+               xmlns:dc="http://purl.org/dc/elements/1.1/"
+               xmlns:cc="http://creativecommons.org/ns#">
+        <rdf:Description rdf:about="https://github.com/AMorales22T/mapa_metabolico">
+          <dc:title>Atlas Metabolico Interactivo y Vectorial (1200 x 900 mm)</dc:title>
+          <dc:creator>Adolfo Morales Tena (AMorales22T)</dc:creator>
+          <dc:publisher>Universidad de Navarra — Grado en Biologia</dc:publisher>
+          <dc:date>2026-10</dc:date>
+          <dc:rights>Creative Commons Atribucion-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0)</dc:rights>
+          <dc:identifier>urn:sha256:amt-unav-mapa-metabolico-7f552eb</dc:identifier>
+          <cc:license rdf:resource="https://creativecommons.org/licenses/by-nc-nd/4.0/"/>
+        </rdf:Description>
+      </rdf:RDF>
+    </metadata>
     <style>
       
       text { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -10314,12 +10336,12 @@
           </a>
         </g>
 
-        <!-- Bloque de licencia MIT -->
+        <!-- Bloque de licencia CC BY-NC-ND 4.0 -->
         <g transform="translate(0, 226)">
           <rect x="0" y="0" width="465" height="42" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
-          <rect x="12" y="10" width="95" height="22" rx="5" fill="#e2e8f0" />
-          <text x="59.5" y="25" fill="#334155" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MIT LICENSE</text>
-          <text x="120" y="26" fill="#475569" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Libre distribución, estudio y docencia biomédica</text>
+          <rect x="12" y="10" width="125" height="22" rx="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1" />
+          <text x="74.5" y="25" fill="#0369a1" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CC BY-NC-ND 4.0</text>
+          <text x="148" y="26" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Uso académico personal, no comercial, sin derivadas</text>
         </g>
         
         <text x="0" y="302" fill="#64748b" font-size="10" font-weight="600" font-family="'Inter', sans-serif">Contribuciones, issues y sugerencias bienvenidas en GitHub.</text>
@@ -14600,6 +14622,29 @@
       procesarParametrosURL();
       actualizarEstadoFlujo();
     }
+
+    // Comprobacion de integridad y autoria (Adolfo Morales Tena - UNAV)
+    (function verificarIntegridadAutoria() {
+      const firmaEsperada = "Adolfo Morales Tena";
+      const repoEsperado = "AMorales22T/mapa_metabolico";
+      function validar() {
+        const bloque = document.getElementById('bloque_autoria');
+        const header = document.querySelector('.header-title-box');
+        const valido = bloque && bloque.textContent.includes(firmaEsperada) && header && header.textContent.includes(firmaEsperada);
+        if (!valido) {
+          let water = document.getElementById('ui_watermark_provenance');
+          if (!water) {
+            water = document.createElement('div');
+            water.id = 'ui_watermark_provenance';
+            water.style.cssText = 'position:fixed;bottom:14px;right:16px;z-index:999999;background:rgba(15,23,42,0.95);border:1px solid #38bdf8;padding:8px 14px;border-radius:8px;font-family:Inter,sans-serif;font-size:11px;color:#f8fafc;box-shadow:0 4px 16px rgba(0,0,0,0.6);pointer-events:auto;';
+            water.innerHTML = '<strong>Atlas Metabolico Integrado</strong> &bull; Obra original de <a href="https://github.com/' + repoEsperado + '" target="_blank" style="color:#38bdf8;text-decoration:underline;font-weight:700;">Adolfo Morales Tena (UNAV)</a> &bull; Licencia CC BY-NC-ND 4.0';
+            document.body.appendChild(water);
+          }
+        }
+      }
+      window.addEventListener('DOMContentLoaded', validar);
+      setInterval(validar, 5000);
+    })();
   </script>
 
   <!-- PANEL DIDACTICO DE TRANSFORMACION QUIMICA Y SIMULADOR DE LANZADERAS -->
