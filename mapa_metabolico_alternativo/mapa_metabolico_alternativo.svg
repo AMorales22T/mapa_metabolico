@@ -9141,11 +9141,11 @@
       <g transform="translate(35, 82)">
         <text x="0" y="16" fill="#64748b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" letter-spacing="1.2">AUTOR &amp; DESARROLLO:</text>
         <text x="0" y="48" fill="#0f172a" font-size="24" font-weight="900" font-family="'Inter', sans-serif">Adolfo Morales Tena</text>
-        <text x="0" y="72" fill="#0284c7" font-size="13" font-weight="700" font-family="'Inter', sans-serif">Estudiante de Bioquímica y Biología Molecular</text>
+        <text x="0" y="72" fill="#0284c7" font-size="13" font-weight="700" font-family="'Inter', sans-serif">Estudiante de Biología — Universidad de Navarra</text>
         
         <rect x="0" y="94" width="465" height="42" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2" />
-        <text x="16" y="112" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">PROYECTO UNIVERSITARIO DE BIOQUÍMICA MÉDICA</text>
-        <text x="16" y="126" fill="#64748b" font-size="9.5" font-family="'Inter', sans-serif">Mapas Metabólicos Integrados • Redes Bioquímicas de Alta Fidelidad</text>
+        <text x="16" y="112" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">INVESTIGACIÓN &amp; BIOINFORMÁTICA COMPUTACIONAL</text>
+        <text x="16" y="126" fill="#64748b" font-size="9.5" font-family="'Inter', sans-serif">Modelado computacional, bioinformática y modelos de Machine Learning</text>
 
         <!-- Botón interactivo de GitHub -->
         <g transform="translate(0, 155)">
@@ -9159,16 +9159,16 @@
           </a>
         </g>
 
-        <!-- Bloque de licencia MIT -->
+        <!-- Bloque de licencia CC BY-NC-ND 4.0 -->
         <g transform="translate(0, 226)">
           <rect x="0" y="0" width="465" height="42" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
-          <rect x="12" y="10" width="95" height="22" rx="5" fill="#e2e8f0" />
-          <text x="59.5" y="25" fill="#334155" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">MIT LICENSE</text>
-          <text x="120" y="26" fill="#475569" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Libre distribución, estudio y docencia biomédica</text>
+          <rect x="12" y="10" width="125" height="22" rx="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1" />
+          <text x="74.5" y="25" fill="#0369a1" font-size="10" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">CC BY-NC-ND 4.0</text>
+          <text x="148" y="26" fill="#334155" font-size="10" font-weight="700" font-family="'Inter', sans-serif">Uso académico personal, no comercial, sin derivadas</text>
         </g>
         
         <text x="0" y="302" fill="#64748b" font-size="10" font-weight="600" font-family="'Inter', sans-serif">Contribuciones, issues y sugerencias bienvenidas en GitHub.</text>
-        <text x="0" y="320" fill="#94a3b8" font-size="9" font-family="'Inter', sans-serif">Diseñado y validado según estándares docentes internacionales.</text>
+        <text x="0" y="320" fill="#94a3b8" font-size="9" font-family="'Inter', sans-serif">Especializado en modelos de Machine Learning aplicados a redes biológicas.</text>
       </g>
 
       <!-- Divisor vertical 1 -->
