@@ -481,29 +481,29 @@ def construir_mapa_alternativo():
         <!-- Y GRADIENTE QUIMIOSMÓTICO DE ATP SINTASA                         -->
         <!-- ================================================================= -->
         <g id="anim_cte_dinamica_viva" class="ui_cte_anim_group">
-          <!-- 1. Flujo Electrónico desde Complejo I (NADH) hacia CoQ -->
+          <!-- 1. Flujo Electrónico desde Complejo I (NADH) hacia CoQ (arco sobre MMI sin pasar por Complejo II) -->
           <g id="cte_e_comp1">
             <circle r="6" fill="#38bdf8" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="2.4s" repeatCount="indefinite" path="M 120 520 L 120 440 L 120 380 L 405 380" />
+              <animateMotion dur="2.4s" repeatCount="indefinite" path="M 120 520 L 120 440 L 120 380 L 195 352 C 220 326, 370 326, 395 365 L 405 380" />
             </circle>
             <circle r="3.5" fill="#ffffff">
-              <animateMotion dur="2.4s" repeatCount="indefinite" path="M 120 520 L 120 440 L 120 380 L 405 380" />
+              <animateMotion dur="2.4s" repeatCount="indefinite" path="M 120 520 L 120 440 L 120 380 L 195 352 C 220 326, 370 326, 395 365 L 405 380" />
             </circle>
             <circle r="6" fill="#38bdf8" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 120 520 L 120 440 L 120 380 L 405 380" />
+              <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 120 520 L 120 440 L 120 380 L 195 352 C 220 326, 370 326, 395 365 L 405 380" />
             </circle>
           </g>
 
-          <!-- 2. Flujo Electrónico desde Complejo II (Succinato / FAD) hacia CoQ -->
+          <!-- 2. Flujo Electrónico independiente desde Complejo II (Succinato / FAD) hacia CoQ -->
           <g id="cte_e_comp2">
             <circle r="5.5" fill="#fbbf24" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 300 520 L 300 440 L 300 380 L 405 380" />
+              <animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 300 520 L 300 450 L 300 380 L 405 380" />
             </circle>
             <circle r="3" fill="#ffffff">
-              <animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 300 520 L 300 440 L 300 380 L 405 380" />
+              <animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 300 520 L 300 450 L 300 380 L 405 380" />
             </circle>
             <circle r="5.5" fill="#fbbf24" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M 300 520 L 300 440 L 300 380 L 405 380" />
+              <animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M 300 520 L 300 450 L 300 380 L 405 380" />
             </circle>
           </g>
 
