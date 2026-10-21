@@ -240,29 +240,29 @@ def generar_bloque_autoria(x=3800, y=4220):
     <!-- BLOQUE INSTITUCIONAL Y AUTORÍA DE CÓDIGO ABIERTO (ADOLFO MORALES TENA) - FORMATO AMPLIADO -->
     <g id="bloque_autoria" data-arrastrable="1" transform="translate({x}, {y})" filter="url(#shadowCard)">
       <!-- Fondo de la tarjeta -->
-      <rect width="1860" height="505" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8" />
+      <rect width="1860" height="561" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8" />
       
       <!-- Barra superior de acento degradado -->
       <path d="M 0 22 Q 0 0 22 0 L 1838 0 Q 1860 0 1860 22 L 1860 10 L 0 10 Z" fill="url(#gradHeaderAutoria)" />
 
       <!-- Encabezado superior -->
       <g transform="translate(35, 26)">
-        <rect x="0" y="0" width="310" height="24" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
-        <text x="155" y="16" fill="#0369a1" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="1">METABOLISMO Y SU REGULACIÓN</text>
+        <rect x="0" y="23" width="310" height="24" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
+        <text x="155" y="39" fill="#0369a1" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="1">METABOLISMO Y SU REGULACIÓN</text>
         <!-- Título en Arte ASCII: Mapa Metabólico -->
-        <text x="340" y="1" fill="#0f172a" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" xml:space="preserve" style="white-space: pre; line-height: 8.5px;">
-          <tspan x="340" y="1"> __  __   _   ___  _     __  __ ___ _____ _   ___  ___  _    ___ ___ ___  </tspan>
-          <tspan x="340" y="9.5">|  \/  | /_\ | _ \/_\   |  \/  | __|_   _/_\ | _ )/ _ \| |  |_ _/ __/ _ \ </tspan>
-          <tspan x="340" y="18">| |\/| |/ _ \|  _/ _ \  | |\/| | _|  | |/ _ \| _ \ (_) | |__ | | (__ (_) |</tspan>
-          <tspan x="340" y="26.5">|_|  |_/_/ \_\_|/_/ \_\ |_|  |_|___| |_/_/ \_\___/\___/|____|___\___\___/ </tspan>
+        <text x="340" y="10" fill="#0f172a" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" xml:space="preserve" style="font-family: 'JetBrains Mono', 'DejaVu Sans Mono', Menlo, Consolas, monospace; font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'calt' 0; white-space: pre; line-height: 20px;">
+          <tspan x="340" y="10"> __  __   _   ___  _     __  __ ___ _____ _   ___  ___  _    ___ ___ ___  </tspan>
+          <tspan x="340" y="30">|  \/  | /_\ | _ \/_\   |  \/  | __|_   _/_\ | _ )/ _ \| |  |_ _/ __/ _ \ </tspan>
+          <tspan x="340" y="50">| |\/| |/ _ \|  _/ _ \  | |\/| | _|  | |/ _ \| _ \ (_) | |__ | | (__ (_) |</tspan>
+          <tspan x="340" y="70">|_|  |_/_/ \_\_|/_/ \_\ |_|  |_|___| |_/_/ \_\___/\___/|____|___\___\___/ </tspan>
         </text>
-        <rect x="1330" y="-2" width="490" height="26" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
-        <text x="1575" y="15" fill="#475569" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle">ARQUITECTURA DE CÓDIGO ABIERTO • FORMATO ULTRA-HD</text>
+        <rect x="1330" y="21" width="490" height="26" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+        <text x="1575" y="38" fill="#475569" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle">ARQUITECTURA DE CÓDIGO ABIERTO • FORMATO ULTRA-HD</text>
       </g>
-      <line x1="35" y1="64" x2="1825" y2="64" stroke="#e2e8f0" stroke-width="1.5" />
+      <line x1="35" y1="120" x2="1825" y2="120" stroke="#e2e8f0" stroke-width="1.5" />
 
       <!-- ================= COLUMNA 1: AUTORÍA Y PROYECTO ================= -->
-      <g transform="translate(35, 82)">
+      <g transform="translate(35, 138)">
         <text x="0" y="16" fill="#64748b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" letter-spacing="1.2">AUTOR &amp; DESARROLLO:</text>
         <text x="0" y="48" fill="#0f172a" font-size="24" font-weight="900" font-family="'Inter', sans-serif">Adolfo Morales Tena</text>
         <text x="0" y="72" fill="#0284c7" font-size="13" font-weight="700" font-family="'Inter', sans-serif">Estudiante de Bioquímica y Biología Molecular</text>
@@ -296,10 +296,10 @@ def generar_bloque_autoria(x=3800, y=4220):
       </g>
 
       <!-- Divisor vertical 1 -->
-      <line x1="535" y1="80" x2="535" y2="480" stroke="#e2e8f0" stroke-width="1.5" />
+      <line x1="535" y1="136" x2="535" y2="536" stroke="#e2e8f0" stroke-width="1.5" />
 
       <!-- ================= COLUMNA 2: FUENTES CIENTÍFICAS Y HERRAMIENTAS ================= -->
-      <g transform="translate(565, 82)">
+      <g transform="translate(565, 138)">
         <text x="0" y="16" fill="#64748b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" letter-spacing="1.2">FUENTES CIENTÍFICAS &amp; BIBLIOGRAFÍA DE REFERENCIA:</text>
         
         <g transform="translate(0, 32)">
@@ -326,10 +326,10 @@ def generar_bloque_autoria(x=3800, y=4220):
       </g>
 
       <!-- Divisor vertical 2 -->
-      <line x1="1470" y1="80" x2="1470" y2="480" stroke="#e2e8f0" stroke-width="1.5" />
+      <line x1="1470" y1="136" x2="1470" y2="536" stroke="#e2e8f0" stroke-width="1.5" />
 
       <!-- ================= COLUMNA 3: CÓDIGO QR Y ESCANEO DIRECTO ================= -->
-      <g transform="translate(1495, 82)">
+      <g transform="translate(1495, 138)">
         <text x="165" y="16" fill="#64748b" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" letter-spacing="1.2" text-anchor="middle">ACCESO MÓVIL DIRECTO:</text>
 
         <!-- Contenedor QR estilizado -->
