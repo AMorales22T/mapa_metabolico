@@ -580,7 +580,16 @@ def generar_bloque_autoria(x=3800, y=4220):
       <g transform="translate(35, 26)">
         <rect x="0" y="0" width="310" height="24" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
         <text x="155" y="16" fill="#0369a1" font-size="11" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="1">METABOLISMO Y SU REGULACIÓN</text>
-        <text x="330" y="18" fill="#0f172a" font-size="19" font-weight="900" font-family="'Inter', sans-serif">MAPA METABÓLICO INTEGRADO • ARQUITECTURA DE CÓDIGO ABIERTO</text>
+        <!-- Título en Arte ASCII: Mapa Metabólico -->
+        <text x="330" y="2" fill="#0f172a" font-family="'JetBrains Mono', monospace" font-size="5.4" font-weight="800" xml:space="preserve" style="white-space: pre; line-height: 5.6px;">
+          <tspan x="330" y="2"> __  __                         __  __      _        _           _ _           </tspan>
+          <tspan x="330" y="7.6">|  \/  | __ _ _ __   __ _      |  \/  | ___| |_ __ _| |__   ___ | (_) ___ ___  </tspan>
+          <tspan x="330" y="13.2">| |\/| |/ _` | '_ \ / _` |_____| |\/| |/ _ \ __/ _` | '_ \ / _ \| | |/ __/ _ \ </tspan>
+          <tspan x="330" y="18.8">| |  | | (_| | |_) | (_| |_____| |  | |  __/ || (_| | |_) | (_) | | | (_| (_) |</tspan>
+          <tspan x="330" y="24.4">|_|  |_|\__,_| .__/ \__,_|     |_|  |_|\___|\__\__,_|_.__/ \___/|_|_|\___\___/ </tspan>
+          <tspan x="330" y="30.0">             |_|                                                               </tspan>
+        </text>
+        <text x="635" y="19" fill="#0f172a" font-size="16.5" font-weight="900" font-family="'Inter', sans-serif">• ARQUITECTURA DE CÓDIGO ABIERTO</text>
         <rect x="1330" y="-2" width="490" height="26" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
         <text x="1575" y="15" fill="#475569" font-size="10.5" font-weight="800" font-family="'JetBrains Mono', monospace" text-anchor="middle">ARQUITECTURA DE CÓDIGO ABIERTO • FORMATO ULTRA-HD</text>
       </g>
