@@ -708,8 +708,33 @@ def construir_mapa_alternativo():
 
       <!-- Vía 11: Cetogénesis (Acetil-CoA ➔ Cuerpos Cetónicos) -->
       <g id="anim_flujo_via_11" class="ui_grupo_flujo_via">
-        <circle r="5.5" fill="#c084fc" filter="url(#glowShuttleParticle)">
-          <animateMotion dur="5.5s" repeatCount="indefinite" path="M 630 2930 L 630 3070 L 630 3210 L 630 3380" />
+        <!-- Flujo principal: Tiolasa ➔ Acetoacetil-CoA ➔ HMG-CoA ➔ Acetoacetato ➔ D-β-Hidroxibutirato -->
+        <circle r="5.5" fill="#be123c" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="6.0s" repeatCount="indefinite" path="M 662 3185 L 662 3240 L 630 3280 L 630 3380 L 630 3460 L 630 3515 L 630 3600 L 630 3655" />
+        </circle>
+        <circle r="3.2" fill="#ffffff">
+          <animateMotion dur="6.0s" repeatCount="indefinite" path="M 662 3185 L 662 3240 L 630 3280 L 630 3380 L 630 3460 L 630 3515 L 630 3600 L 630 3655" />
+        </circle>
+        <circle r="5.5" fill="#be123c" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="6.0s" begin="3.0s" repeatCount="indefinite" path="M 662 3185 L 662 3240 L 630 3280 L 630 3380 L 630 3460 L 630 3515 L 630 3600 L 630 3655" />
+        </circle>
+        <!-- Descarboxilación espontánea: Acetoacetato ➔ Acetona -->
+        <circle r="4.5" fill="#db2777" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="3.0s" begin="1.5s" repeatCount="indefinite" path="M 630 3515 L 440 3515" />
+        </circle>
+      </g>
+
+      <!-- Vía 21: Cerebro y Combustibles Neuronales (Cetólisis) -->
+      <g id="anim_flujo_via_21" class="ui_grupo_flujo_via">
+        <!-- Entrada MCT1 ➔ BDH1 ➔ SCOT ➔ Tiolasa ➔ 2 Acetil-CoA ➔ Krebs Neuronal -->
+        <circle r="5.5" fill="#a855f7" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="6.5s" repeatCount="indefinite" path="M -220 3500 L -365 3545 Q -505 3545 -505 3570 L -505 3700 L -505 3860 L -505 4015 L -505 4110" />
+        </circle>
+        <circle r="3.2" fill="#ffffff">
+          <animateMotion dur="6.5s" repeatCount="indefinite" path="M -220 3500 L -365 3545 Q -505 3545 -505 3570 L -505 3700 L -505 3860 L -505 4015 L -505 4110" />
+        </circle>
+        <circle r="5.5" fill="#a855f7" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="6.5s" begin="3.25s" repeatCount="indefinite" path="M -220 3500 L -365 3545 Q -505 3545 -505 3570 L -505 3700 L -505 3860 L -505 4015 L -505 4110" />
         </circle>
       </g>
 
@@ -738,9 +763,19 @@ def construir_mapa_alternativo():
         <circle r="5" fill="#38bdf8" filter="url(#glowShuttleParticle)">
           <animateMotion dur="4.0s" repeatCount="indefinite" path="M 1278.0 2492.0 L 1278.0 2553.5 Q 1278.0 2562.0 1284.0 2568.0 L 1285.8 2569.8 Q 1290.0 2574.0 1296.0 2574.0 L 1296.0 2574.0 Q 1302.0 2574.0 1306.2 2578.2 L 1309.8 2581.8 Q 1314.0 2586.0 1314.0 2592.0 L 1314.0 2592.0 Q 1314.0 2598.0 1318.2 2602.2 L 1326.7 2610.7 Q 1338.0 2622.0 1338.0 2638.0 L 1338.0 2649.5 Q 1338.0 2658.0 1344.0 2664.0 L 1344.0 2664.0 Q 1350.0 2670.0 1358.5 2670.0 L 1478.0 2670.0 Q 1494.0 2670.0 1494.0 2686.0 L 1494.0 2793.5 Q 1494.0 2802.0 1500.0 2808.0 L 1500.0 2808.0 Q 1506.0 2814.0 1514.5 2814.0 L 1838.0 2814.0 Q 1854.0 2814.0 1865.3 2825.3 L 1869.5 2829.5 Q 1878.0 2838.0 1890.0 2838.0 L 1890.0 2838.0 Q 1902.0 2838.0 1902.0 2850.0 L 1902.0 2870.0 Q 1902.0 2886.0 1913.3 2897.3 L 1998.7 2982.7 Q 2010.0 2994.0 2026.0 2994.0 L 2476.8 2994.0" />
         </circle>
-        <!-- cx_cetonicos_sangre: Cuerpos cetónicos ➔ Sangre -->
-        <circle r="4.8" fill="#c084fc" filter="url(#glowShuttleParticle)">
-          <animateMotion dur="4.5s" repeatCount="indefinite" path="M 566.0 3630.0 L 70.0 3630.0 Q 54.0 3630.0 54.0 3614.0 L 54.0 447.0" />
+        <!-- cx_betaox_cetogenesis: Acetil-CoA de β-oxidación ➔ Cetogénesis -->
+        <circle r="4.8" fill="#ea580c" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="4.2s" repeatCount="indefinite" path="M 200.6 3402.0 L 213.5 3402.0 Q 222.0 3402.0 228.0 3408.0 L 228.0 3408.0 Q 234.0 3414.0 242.5 3414.0 L 458.0 3414.0 Q 474.0 3414.0 485.3 3402.7 L 546.7 3341.3 Q 558.0 3330.0 574.0 3330.0 L 585.5 3330.0 Q 594.0 3330.0 600.0 3324.0 L 600.0 3324.0 Q 606.0 3318.0 606.0 3309.5 L 606.0 3275.0" />
+        </circle>
+        <!-- cx_cetogenesis_bhe_cerebro: Cuerpos cetónicos (D-β-Hidroxibutirato) ➔ BHE (MCT1 cerebral) -->
+        <circle r="5.5" fill="#be123c" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="5.0s" repeatCount="indefinite" path="M 570.0 3655.0 L 40.0 3655.0 Q 10.0 3655.0 -15.0 3630.0 L -15.0 3525.0 Q -15.0 3500.0 -40.0 3500.0 L -65.0 3500.0" />
+        </circle>
+        <circle r="3.2" fill="#ffffff">
+          <animateMotion dur="5.0s" repeatCount="indefinite" path="M 570.0 3655.0 L 40.0 3655.0 Q 10.0 3655.0 -15.0 3630.0 L -15.0 3525.0 Q -15.0 3500.0 -40.0 3500.0 L -65.0 3500.0" />
+        </circle>
+        <circle r="5.5" fill="#be123c" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="5.0s" begin="2.5s" repeatCount="indefinite" path="M 570.0 3655.0 L 40.0 3655.0 Q 10.0 3655.0 -15.0 3630.0 L -15.0 3525.0 Q -15.0 3500.0 -40.0 3500.0 L -65.0 3500.0" />
         </circle>
         <!-- cx_urea_sangre: Urea ➔ Sangre -->
         <circle r="4.8" fill="#818cf8" filter="url(#glowShuttleParticle)">
