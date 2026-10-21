@@ -293,9 +293,9 @@
       <!-- Flecha vertical hacia UREA -->
       <line x1="0" y1="120" x2="0" y2="-90" stroke="#dc2626" stroke-width="2.8" marker-end="url(#arrowRed)"/>
 
-      <!-- Flecha curva hacia la derecha hacia Ornitina citosólica (X=4700) -->
-      <path d="M 0 50 Q 75 50 140 25" fill="none" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowTeal)"/>
-      <text x="45" y="24" fill="#0f766e" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif">➔ Retorno Ornitina</text>
+      <!-- Flecha horizontal hacia L-Ornitina citosólica (X=4570) -->
+      <path d="M 0 50 L 148 50" fill="none" stroke="#0d9488" stroke-width="2.6" marker-end="url(#arrowTeal)"/>
+      <text x="74" y="40" fill="#0f766e" font-size="10.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">+ L-Ornitina</text>
 
       <!-- Metadatos de ARG1 (lado izquierdo) -->
       <g transform="translate(-20, -10)">

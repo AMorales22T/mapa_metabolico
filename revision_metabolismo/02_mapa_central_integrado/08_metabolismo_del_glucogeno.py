@@ -39,7 +39,7 @@
     partes.append(f"""
     <g id="rx_sintesis_degradacion_glucogeno" data-arrastrable="1">
       <!-- Síntesis -->
-      <path d="M {x_glc + 120} {y_udpg + 65} Q {x_glc + 40} {y_glc + 170} {x_glc + 40} {y_glc + 265}" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
+      <path d="M {x_glc + 120} {y_udpg + 65} Q {x_glc + 45} {y_glc + 140} {x_glc + 45} {y_glc + 232}" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arrowFlow)"/>
       <text x="{x_glc + 140}" y="{y_glc + 145}" fill="#b45309" font-size="11.5" font-weight="800" font-family="'Inter', sans-serif">Glucógeno Sintasa</text>
       <g transform="translate({x_glc + 140}, {y_glc + 160})">
         <text x="0" y="0" fill="#16a34a" font-size="9" font-weight="800">(+) G6P</text>

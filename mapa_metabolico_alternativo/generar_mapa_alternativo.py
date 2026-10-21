@@ -236,14 +236,15 @@ def construir_mapa_alternativo():
     </g>'''
 
     urato_new = '''    <g id="indicador_urato_reabsorcion" transform="translate(5280, 2115)">
-      <path d="M 130 -10 Q 70 -10 0 0" fill="none" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrowBlueAmino)"/>
-      <text x="65" y="-18" fill="#1e40af" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">URAT1: reabsorción apical</text>
+      <path d="M 168 -10 Q 80 -10 0 0" fill="none" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrowBlueAmino)"/>
+      <text x="80" y="-18" fill="#1e40af" font-size="9.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">URAT1: reabsorción apical</text>
     </g>
-    <!-- Ancla anatómica renal: Lumen tubular (filtrado glomerular previo a reabsorción) -->
+    <!-- Ancla anatómica renal: Luz tubular renal (filtrado glomerular previo a reabsorción apical) -->
     <g id="renal_lumen_urato" transform="translate(5480, 2105)">
-      <ellipse cx="0" cy="0" rx="28" ry="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
-      <text x="0" y="4" fill="#1e40af" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">URATO</text>
-      <text x="0" y="19" fill="#3b82f6" font-size="7" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">Lumen renal</text>
+      <ellipse cx="0" cy="0" rx="32" ry="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+      <text x="0" y="3" fill="#1e40af" font-size="9" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">URATO</text>
+      <text x="0" y="15" fill="#2563eb" font-size="6.5" font-weight="800" font-family="'Inter', sans-serif" text-anchor="middle">Luz tubular renal</text>
+      <text x="0" y="24" fill="#64748b" font-size="6" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">(Túbulo proximal)</text>
     </g>'''
 
     rotulo_urato_old = '<text x="5668.8" y="2481.5" text-anchor="middle" fill="#9e1b1b" font-size="10.5" font-weight="800" font-family="\'Inter\', sans-serif" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">URAT1: Ácido Úrico ➔ Sangre</text>'
@@ -255,6 +256,8 @@ def construir_mapa_alternativo():
     if urato_old in svg:
         svg = svg.replace(urato_old, urato_new)
         print("   ✓ URAT1 redefinido como reabsorción tubular apical (lumen ➔ célula proximal)")
+    elif "renal_lumen_urato" in svg:
+        print("   ✓ URAT1 ya presente como reabsorción tubular apical en base SVG")
     if rotulo_urato_old in svg:
         svg = svg.replace(rotulo_urato_old, rotulo_urato_new)
     if cx_urato_old in svg:
@@ -2802,6 +2805,38 @@ def construir_mapa_alternativo():
 
     # Guardar portal raíz index.html para despliegue en GitHub Pages
     ruta_root_index = os.path.join(DIR_PROYECTO, "index.html")
+    meta_autor = """  <meta name="author" content="Adolfo Morales Tena (AMorales22T)">
+  <meta name="creator" content="Adolfo Morales Tena — Universidad de Navarra">
+  <meta name="copyright" content="Copyright 2026 Adolfo Morales Tena. Licencia CC BY-NC-ND 4.0">
+  <meta name="description" content="Atlas metabolico interactivo y vectorial (1200 x 900 mm) con 25 vias integradas. Material didactico de bioquimica por Adolfo Morales Tena (Universidad de Navarra).">
+  <meta property="og:title" content="Atlas Metabolico Interactivo — Adolfo Morales Tena">
+  <meta property="og:description" content="25 vias integradas en SVG nativo interactivo con navegacion paso a paso y simuladores redox.">
+  <meta property="og:url" content="https://amorales22t.github.io/mapa_metabolico/">
+  <meta property="og:type" content="website">"""
+
+    script_autoria = """    // Comprobacion de integridad y autoria (Adolfo Morales Tena - UNAV)
+    (function verificarIntegridadAutoria() {
+      const firmaEsperada = "Adolfo Morales Tena";
+      const repoEsperado = "AMorales22T/mapa_metabolico";
+      function validar() {
+        const bloque = document.getElementById('bloque_autoria');
+        const header = document.querySelector('.header-title-box');
+        const valido = bloque && bloque.textContent.includes(firmaEsperada) && header && header.textContent.includes(firmaEsperada);
+        if (!valido) {
+          let water = document.getElementById('ui_watermark_provenance');
+          if (!water) {
+            water = document.createElement('div');
+            water.id = 'ui_watermark_provenance';
+            water.style.cssText = 'position:fixed;bottom:14px;right:16px;z-index:999999;background:rgba(15,23,42,0.95);border:1px solid #38bdf8;padding:8px 14px;border-radius:8px;font-family:Inter,sans-serif;font-size:11px;color:#f8fafc;box-shadow:0 4px 16px rgba(0,0,0,0.6);pointer-events:auto;';
+            water.innerHTML = '<strong>Atlas Metabolico Integrado</strong> &bull; Obra original de <a href="https://github.com/' + repoEsperado + '" target="_blank" style="color:#38bdf8;text-decoration:underline;font-weight:700;">Adolfo Morales Tena (UNAV)</a> &bull; Licencia CC BY-NC-ND 4.0';
+            document.body.appendChild(water);
+          }
+        }
+      }
+      window.addEventListener('DOMContentLoaded', validar);
+      setInterval(validar, 5000);
+    })();"""
+
     root_html = html_content.replace(
         'href="mapa_metabolico_alternativo_120x90cm.pdf"',
         'href="mapa_metabolico_alternativo/mapa_metabolico_alternativo_120x90cm.pdf"'
@@ -2814,6 +2849,15 @@ def construir_mapa_alternativo():
     ).replace(
         'href="../versiones_html/',
         'href="versiones_html/'
+    ).replace(
+        '<meta charset="UTF-8">',
+        '<meta charset="UTF-8">\n' + meta_autor
+    ).replace(
+        '<p>25 Vías Integradas • Digestión • Adipocito • Sarcómero • Cerebro • Lipoproteínas • Membrana • Aminoácidos • Hepatocito Central</p>',
+        '<p>Por <strong style="color: #f8fafc;">Adolfo Morales Tena</strong> (Universidad de Navarra) • 25 Vías Integradas • <a href="LICENSE" style="color: #38bdf8; text-decoration: none;">CC BY-NC-ND 4.0</a></p>'
+    ).replace(
+        '</script>\n\n  <!-- PANEL DIDACTICO',
+        script_autoria + '\n  </script>\n\n  <!-- PANEL DIDACTICO'
     )
     with open(ruta_root_index, "w", encoding="utf-8") as f:
         f.write(root_html)
