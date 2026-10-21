@@ -18,11 +18,13 @@ import sys
 DIR_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 DIR_PROYECTO = os.path.dirname(DIR_SCRIPT)
 
+DIR_DESTINO = os.path.join(DIR_PROYECTO, "mapa_metabolico_alternativo")
+
 RUTA_BASE_SVG = os.path.join(DIR_PROYECTO, "07_AMPLIACION_TEMARIO", "mapa_cartulina_ampliado.svg")
-RUTA_OUT_SVG = os.path.join(DIR_SCRIPT, "mapa_metabolico_alternativo.svg")
-RUTA_OUT_HTML = os.path.join(DIR_SCRIPT, "mapa_metabolico_alternativo.html")
-RUTA_OUT_PDF = os.path.join(DIR_SCRIPT, "mapa_metabolico_alternativo_120x90cm.pdf")
-RUTA_OUT_PNG = os.path.join(DIR_SCRIPT, "mapa_metabolico_alternativo_preview.png")
+RUTA_OUT_SVG = os.path.join(DIR_DESTINO, "mapa_metabolico_alternativo.svg")
+RUTA_OUT_HTML = os.path.join(DIR_DESTINO, "mapa_metabolico_alternativo.html")
+RUTA_OUT_PDF = os.path.join(DIR_DESTINO, "mapa_metabolico_alternativo_120x90cm.pdf")
+RUTA_OUT_PNG = os.path.join(DIR_DESTINO, "mapa_metabolico_alternativo_preview.png")
 
 def construir_mapa_alternativo():
     print("1. Leyendo mapa base original inmutable:")
@@ -155,6 +157,10 @@ def construir_mapa_alternativo():
     if cx_citrulina_old in svg:
         svg = svg.replace(cx_citrulina_old, cx_citrulina_new)
         print("   ✓ Conexión citrulina_translocacion reubicada a través de ORNT1")
+
+    if "Recibida por SLC25A13 para condensación" in svg:
+        svg = svg.replace("Recibida por SLC25A13 para condensación", "Exportada por ORNT1 (SLC25A15) hacia ASS1")
+        print("   ✓ Corrección de texto: Citrulina citosólica anotada como exportada por ORNT1 (SLC25A15)")
 
     # -------------------------------------------------------------------------
     # C. CORRECCIÓN BIOQUÍMICA: CATABOLISMO DE CISTATIONINA (CTH)
@@ -548,53 +554,73 @@ def construir_mapa_alternativo():
             </circle>
           </g>
 
-          <!-- 7. Bombeo Transmembrana de Protones (H⁺) al Espacio Intermembrana -->
+          <!-- 7. Bombeo Transmembrana de Protones (H⁺) al Espacio Intermembrana siguiendo las flechas curvas reales -->
           <g id="cte_protones_bombeo">
-            <!-- C-I: 4 H⁺ bombeados -->
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 95 440 L 95 180" />
+            <!-- C-I: 4 H⁺ bombeados por la curva real hacia EIM -->
+            <circle r="5.2" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 182 434 Q 235 392 235 330 Q 235 262 190 226" />
             </circle>
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M 95 440 L 95 180" />
+            <circle r="2.8" fill="#ffffff">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 182 434 Q 235 392 235 330 Q 235 262 190 226" />
             </circle>
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="1.8s" begin="0.45s" repeatCount="indefinite" path="M 145 440 L 145 180" />
+            <circle r="5.2" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M 182 434 Q 235 392 235 330 Q 235 262 190 226" />
             </circle>
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="1.8s" begin="1.35s" repeatCount="indefinite" path="M 145 440 L 145 180" />
+            <circle r="2.8" fill="#ffffff">
+              <animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M 182 434 Q 235 392 235 330 Q 235 262 190 226" />
             </circle>
-            <!-- C-III: 4 H⁺ bombeados -->
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 495 400 L 495 180" />
+
+            <!-- C-III: 4 H⁺ bombeados por la curva real hacia EIM -->
+            <circle r="5.2" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="1.8s" begin="0.3s" repeatCount="indefinite" path="M 578 434 Q 630 392 630 330 Q 630 264 590 230" />
             </circle>
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M 495 400 L 495 180" />
+            <circle r="2.8" fill="#ffffff">
+              <animateMotion dur="1.8s" begin="0.3s" repeatCount="indefinite" path="M 578 434 Q 630 392 630 330 Q 630 264 590 230" />
             </circle>
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="1.8s" begin="0.45s" repeatCount="indefinite" path="M 545 400 L 545 180" />
+            <circle r="5.2" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="1.8s" begin="1.2s" repeatCount="indefinite" path="M 578 434 Q 630 392 630 330 Q 630 264 590 230" />
             </circle>
-            <!-- C-IV: 2 H⁺ bombeados -->
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="2.0s" repeatCount="indefinite" path="M 710 420 L 710 180" />
+            <circle r="2.8" fill="#ffffff">
+              <animateMotion dur="1.8s" begin="1.2s" repeatCount="indefinite" path="M 578 434 Q 630 392 630 330 Q 630 264 590 230" />
             </circle>
-            <circle r="4.5" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="2.0s" begin="1.0s" repeatCount="indefinite" path="M 750 420 L 750 180" />
+
+            <!-- C-IV: 2 H⁺ bombeados por la curva real hacia EIM -->
+            <circle r="5.2" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="2.0s" begin="0.5s" repeatCount="indefinite" path="M 792 434 Q 830 392 830 330 Q 830 268 806 240" />
+            </circle>
+            <circle r="2.8" fill="#ffffff">
+              <animateMotion dur="2.0s" begin="0.5s" repeatCount="indefinite" path="M 792 434 Q 830 392 830 330 Q 830 268 806 240" />
+            </circle>
+            <circle r="5.2" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="2.0s" begin="1.5s" repeatCount="indefinite" path="M 792 434 Q 830 392 830 330 Q 830 268 806 240" />
+            </circle>
+            <circle r="2.8" fill="#ffffff">
+              <animateMotion dur="2.0s" begin="1.5s" repeatCount="indefinite" path="M 792 434 Q 830 392 830 330 Q 830 268 806 240" />
             </circle>
           </g>
 
-          <!-- 8. Cascada Quimiosmótica de H⁺ hacia el Rotor F₀ de ATP Sintasa -->
+          <!-- 8. Cascada Quimiosmótica de H⁺ en EIM y Retorno por ATP Sintasa -->
           <g id="cte_cascada_atp_sintasa">
+            <!-- Desplazamiento por el EIM hacia ATP Sintasa -->
             <circle r="4.8" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="3.2s" begin="0s" repeatCount="indefinite" path="M 250 180 Q 600 150 945 170 L 945 340 L 945 440 L 945 520" />
+              <animateMotion dur="3.2s" begin="0s" repeatCount="indefinite" path="M 220 200 L 980 200" />
             </circle>
             <circle r="4.8" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="3.2s" begin="0.8s" repeatCount="indefinite" path="M 250 180 Q 600 150 945 170 L 945 340 L 945 440 L 945 520" />
+              <animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" path="M 220 200 L 980 200" />
             </circle>
-            <circle r="4.8" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" path="M 250 180 Q 600 150 945 170 L 945 340 L 945 440 L 945 520" />
+
+            <!-- Retorno de protones H⁺ por la turbina F₀ de la ATP Sintasa (EIM ➔ Matriz) -->
+            <circle r="5.4" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="2.2s" begin="0s" repeatCount="indefinite" path="M 1020 236 Q 1090 290 1085 346 Q 1080 398 1010 424 Q 972 440 950 462" />
             </circle>
-            <circle r="4.8" fill="#ea580c" filter="url(#glowShuttleParticle)">
-              <animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite" path="M 250 180 Q 600 150 945 170 L 945 340 L 945 440 L 945 520" />
+            <circle r="3" fill="#ffffff">
+              <animateMotion dur="2.2s" begin="0s" repeatCount="indefinite" path="M 1020 236 Q 1090 290 1085 346 Q 1080 398 1010 424 Q 972 440 950 462" />
+            </circle>
+            <circle r="5.4" fill="#ea580c" filter="url(#glowShuttleParticle)">
+              <animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite" path="M 1020 236 Q 1090 290 1085 346 Q 1080 398 1010 424 Q 972 440 950 462" />
+            </circle>
+            <circle r="3" fill="#ffffff">
+              <animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite" path="M 1020 236 Q 1090 290 1085 346 Q 1080 398 1010 424 Q 972 440 950 462" />
             </circle>
           </g>
 
@@ -615,10 +641,14 @@ def construir_mapa_alternativo():
           </g>
         </g>
 '''
-    target_cte = '<!-- Badge Identificador Inferior -->'
+    target_cte = '          </g>\n        </g>\n\n        <!-- Badge Identificador Inferior -->'
     if 'id="anim_cte_dinamica_viva"' not in svg and target_cte in svg:
-        svg = svg.replace(target_cte, anim_cte + '\n        ' + target_cte, 1)
-        print("   ✓ Lupa Cadena Respiratoria enriquecida con simulación viva de electrones, protones y ATP Sintasa")
+        svg = svg.replace(
+            target_cte,
+            '          </g>\n\n' + anim_cte + '\n        </g>\n\n        <!-- Badge Identificador Inferior -->',
+            1
+        )
+        print("   ✓ Lupa Cadena Respiratoria enriquecida con simulación viva de electrones, protones y ATP Sintasa dentro de transform")
 
     # 5. Capa Global de Flujo Metabólico de Rutas y Conexiones Inter-Ruta
     anim_rutas = '''</g></g>
@@ -679,13 +709,33 @@ def construir_mapa_alternativo():
         </circle>
       </g>
 
-      <!-- Vía 14: Ciclo de la Urea (Bucle Intercompartimental) -->
+      <!-- Vía 14: Ciclo de la Urea (Bucle Intercompartimental Real vía ORNT1 y Citrulina/Ornitina) -->
       <g id="anim_flujo_via_14" class="ui_grupo_flujo_via">
-        <circle r="6" fill="#818cf8" filter="url(#glowShuttleParticle)">
-          <animateMotion dur="8.0s" repeatCount="indefinite" path="M 4100 3060 L 4420 2670 L 4420 2400 L 4420 2100 L 4420 1800 L 4100 1800 L 4100 2100 L 4100 2500 L 4420 2670 Z" />
+        <!-- Bucle principal: OTC ➔ Citrulina (MMI vía ORNT1) ➔ ASS ➔ Argininosuccinato ➔ ASL ➔ Arginina ➔ ARG1 ➔ Ornitina ➔ Retorno ORNT1 ➔ OTC -->
+        <circle r="6" fill="#06b6d4" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="9.0s" repeatCount="indefinite" path="M 4420 2670 L 4420 2370 Q 4420 2260 4565 2195 Q 4550 2160 4565 2125 Q 4565 2000 4420 1950 L 4420 1610 L 4420 1330 L 4420 1190 L 4420 1010 L 4420 830 L 4570 810 L 4640 1200 L 4640 1800 Q 4640 2000 4715 2125 Q 4730 2160 4715 2195 Q 4715 2280 4640 2360 L 4640 2860 L 4420 2670 Z" />
         </circle>
-        <circle r="6" fill="#818cf8" filter="url(#glowShuttleParticle)">
-          <animateMotion dur="8.0s" begin="4.0s" repeatCount="indefinite" path="M 4100 3060 L 4420 2670 L 4420 2400 L 4420 2100 L 4420 1800 L 4100 1800 L 4100 2100 L 4100 2500 L 4420 2670 Z" />
+        <circle r="3.5" fill="#ffffff">
+          <animateMotion dur="9.0s" repeatCount="indefinite" path="M 4420 2670 L 4420 2370 Q 4420 2260 4565 2195 Q 4550 2160 4565 2125 Q 4565 2000 4420 1950 L 4420 1610 L 4420 1330 L 4420 1190 L 4420 1010 L 4420 830 L 4570 810 L 4640 1200 L 4640 1800 Q 4640 2000 4715 2125 Q 4730 2160 4715 2195 Q 4715 2280 4640 2360 L 4640 2860 L 4420 2670 Z" />
+        </circle>
+        <circle r="6" fill="#06b6d4" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="9.0s" begin="4.5s" repeatCount="indefinite" path="M 4420 2670 L 4420 2370 Q 4420 2260 4565 2195 Q 4550 2160 4565 2125 Q 4565 2000 4420 1950 L 4420 1610 L 4420 1330 L 4420 1190 L 4420 1010 L 4420 830 L 4570 810 L 4640 1200 L 4640 1800 Q 4640 2000 4715 2125 Q 4730 2160 4715 2195 Q 4715 2280 4640 2360 L 4640 2860 L 4420 2670 Z" />
+        </circle>
+        <circle r="3.5" fill="#ffffff">
+          <animateMotion dur="9.0s" begin="4.5s" repeatCount="indefinite" path="M 4420 2670 L 4420 2370 Q 4420 2260 4565 2195 Q 4550 2160 4565 2125 Q 4565 2000 4420 1950 L 4420 1610 L 4420 1330 L 4420 1190 L 4420 1010 L 4420 830 L 4570 810 L 4640 1200 L 4640 1800 Q 4640 2000 4715 2125 Q 4730 2160 4715 2195 Q 4715 2280 4640 2360 L 4640 2860 L 4420 2670 Z" />
+        </circle>
+
+        <!-- Salida terminal de Urea en Citosol (ARG1 ➔ Urea libre hacia Sangre/Riñón) -->
+        <circle r="5.5" fill="#10b981" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="2.8s" repeatCount="indefinite" path="M 4420 830 L 4420 630" />
+        </circle>
+        <circle r="3" fill="#ffffff">
+          <animateMotion dur="2.8s" repeatCount="indefinite" path="M 4420 830 L 4420 630" />
+        </circle>
+
+        <!-- Entrada de Carbamoil-Fosfato matricial hacia OTC -->
+        <circle r="4.8" fill="#f59e0b" filter="url(#glowShuttleParticle)">
+          <animateMotion dur="3.2s" repeatCount="indefinite" path="M 4100 3060 L 4060 2860 Q 4180 2780 4420 2670" />
         </circle>
       </g>
 
@@ -2837,6 +2887,38 @@ def construir_mapa_alternativo():
 
     # Guardar portal raíz index.html para despliegue en GitHub Pages
     ruta_root_index = os.path.join(DIR_PROYECTO, "index.html")
+    meta_autor = """  <meta name="author" content="Adolfo Morales Tena (AMorales22T)">
+  <meta name="creator" content="Adolfo Morales Tena — Universidad de Navarra">
+  <meta name="copyright" content="Copyright 2026 Adolfo Morales Tena. Licencia CC BY-NC-ND 4.0">
+  <meta name="description" content="Atlas metabolico interactivo y vectorial (1200 x 900 mm) con 25 vias integradas. Material didactico de bioquimica por Adolfo Morales Tena (Universidad de Navarra).">
+  <meta property="og:title" content="Atlas Metabolico Interactivo — Adolfo Morales Tena">
+  <meta property="og:description" content="25 vias integradas en SVG nativo interactivo con navegacion paso a paso y simuladores redox.">
+  <meta property="og:url" content="https://amorales22t.github.io/mapa_metabolico/">
+  <meta property="og:type" content="website">"""
+
+    script_autoria = """    // Comprobacion de integridad y autoria (Adolfo Morales Tena - UNAV)
+    (function verificarIntegridadAutoria() {
+      const firmaEsperada = "Adolfo Morales Tena";
+      const repoEsperado = "AMorales22T/mapa_metabolico";
+      function validar() {
+        const bloque = document.getElementById('bloque_autoria');
+        const header = document.querySelector('.header-title-box');
+        const valido = bloque && bloque.textContent.includes(firmaEsperada) && header && header.textContent.includes(firmaEsperada);
+        if (!valido) {
+          let water = document.getElementById('ui_watermark_provenance');
+          if (!water) {
+            water = document.createElement('div');
+            water.id = 'ui_watermark_provenance';
+            water.style.cssText = 'position:fixed;bottom:14px;right:16px;z-index:999999;background:rgba(15,23,42,0.95);border:1px solid #38bdf8;padding:8px 14px;border-radius:8px;font-family:Inter,sans-serif;font-size:11px;color:#f8fafc;box-shadow:0 4px 16px rgba(0,0,0,0.6);pointer-events:auto;';
+            water.innerHTML = '<strong>Atlas Metabolico Integrado</strong> &bull; Obra original de <a href="https://github.com/' + repoEsperado + '" target="_blank" style="color:#38bdf8;text-decoration:underline;font-weight:700;">Adolfo Morales Tena (UNAV)</a> &bull; Licencia CC BY-NC-ND 4.0';
+            document.body.appendChild(water);
+          }
+        }
+      }
+      window.addEventListener('DOMContentLoaded', validar);
+      setInterval(validar, 5000);
+    })();"""
+
     root_html = html_content.replace(
         'href="mapa_metabolico_alternativo_120x90cm.pdf"',
         'href="mapa_metabolico_alternativo/mapa_metabolico_alternativo_120x90cm.pdf"'
@@ -2849,6 +2931,15 @@ def construir_mapa_alternativo():
     ).replace(
         'href="../versiones_html/',
         'href="versiones_html/'
+    ).replace(
+        '<meta charset="UTF-8">',
+        '<meta charset="UTF-8">\n' + meta_autor
+    ).replace(
+        '<p>25 Vías Integradas • Digestión • Adipocito • Sarcómero • Cerebro • Lipoproteínas • Membrana • Aminoácidos • Hepatocito Central</p>',
+        '<p>Por <strong style="color: #f8fafc;">Adolfo Morales Tena</strong> (Universidad de Navarra) • 25 Vías Integradas • <a href="LICENSE" style="color: #38bdf8; text-decoration: none;">CC BY-NC-ND 4.0</a></p>'
+    ).replace(
+        '</script>\n\n  <!-- PANEL DIDACTICO',
+        script_autoria + '\n  </script>\n\n  <!-- PANEL DIDACTICO'
     )
     with open(ruta_root_index, "w", encoding="utf-8") as f:
         f.write(root_html)
