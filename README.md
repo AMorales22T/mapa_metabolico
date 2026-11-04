@@ -1,260 +1,248 @@
-```
- __  __                         __  __      _        _           _ _           
-|  \/  | __ _ _ __   __ _      |  \/  | ___| |_ __ _| |__   ___ | (_) ___ ___  
-| |\/| |/ _` | '_ \ / _` |_____| |\/| |/ _ \ __/ _` | '_ \ / _ \| | |/ __/ _ \ 
-| |  | | (_| | |_) | (_| |_____| |  | |  __/ || (_| | |_) | (_) | | | (_| (_) |
-|_|  |_|\__,_| .__/ \__,_|     |_|  |_|\___|\__\__,_|_.__/ \___/|_|_|\___\___/ 
-             |_|                                                               
-```
+<div align="center">
 
-```
-+------------------------------------------------------------------------------+
-|                                                                              |
-|   Mapa de Metabolismo y su Regulacion  (1200 x 900 mm)                       |
-|   Asignatura de Biologia  -  Universidad de Navarra                         |
-|   25 vias metabolicas integradas  -  100% SVG nativo  -  GitHub Pages       |
-|                                                                              |
-+------------------------------------------------------------------------------+
-```
+<img src="asiic_readme/rotulo_xmen_enzimas.svg" alt="MAPA METABÓLICO" width="100%" />
 
-[![GitHub Pages](https://img.shields.io/badge/Demo-GitHub%20Pages-0284c7?style=flat&logo=github)](https://amorales22t.github.io/mapa_metabolico/)
-[![Licencia](https://img.shields.io/badge/Licencia-CC%20BY--NC--ND%204.0-38bdf8?style=flat)](LICENSE)
-[![Vias Integradas](https://img.shields.io/badge/Vias%20Metabolicas-25%20Integradas-10b981?style=flat)](#vias-incluidas-25)
-[![SVG Nativo](https://img.shields.io/badge/Motor-100%25%20SVG%20Nativo-f59e0b?style=flat)](#arquitectura-y-motor-tecnico)
+<br/>
 
-> Material didactico para la asignatura *Metabolismo y su regulacion* del Grado en Biologia (Universidad de Navarra). Mapa visual interactivo con veinticinco vias metabolicas integradas, navegacion guiada paso a paso y simuladores de lanzaderas mitocondriales y cadena respiratoria, todo renderizado en SVG nativo sin dependencias externas.
+[![Demostración en Vivo](https://img.shields.io/badge/DEMO%20EN%20VIVO-GitHub%20Pages-0284c7?style=for-the-badge&logo=github&logoColor=white)](https://amorales22t.github.io/mapa_metabolico/)
+[![Licencia](https://img.shields.io/badge/LICENCIA-CC%20BY--NC--ND%204.0-38bdf8?style=for-the-badge)](LICENSE)
+[![Vías Integradas](https://img.shields.io/badge/V%C3%8DAS%20INTEGRADAS-25%20Rutas-10b981?style=for-the-badge)](#vias-incluidas-25)
+[![Motor Técnico](https://img.shields.io/badge/MOTOR-100%25%20SVG%20Nativo-f59e0b?style=for-the-badge)](#arquitectura-y-motor-tecnico)
+[![Flujo Animado](https://img.shields.io/badge/FLUJO-SMIL%2060%20FPS-ec4899?style=for-the-badge)](#caracteristicas-principales)
+[![Formatos Poster](https://img.shields.io/badge/P%C3%93STER-120x90%20%7C%20100x70%20cm-8b5cf6?style=for-the-badge)](#contenido-y-formatos-disponibles)
+
+**Material didáctico integral e interactivo para la asignatura *Metabolismo y su regulación***  
+*Grado en Biología • Universidad de Navarra*
+
+[🌐 Abrir Aplicación Web](https://amorales22t.github.io/mapa_metabolico/) • [📄 Descargar PDF (120×90 cm)](mapa_metabolico_alternativo/mapa_metabolico_alternativo_120x90cm.pdf) • [📄 Descargar PDF (100×70 cm)](versiones_impresion/01_mapa_ampliado_completo_100x70cm.pdf)
+
+</div>
 
 ---
 
 ## Tabla de Contenidos
 
-- [Introduccion](#introduccion)
-- [Demostracion en Vivo](#demostracion-en-vivo)
-- [Caracteristicas Principales](#caracteristicas-principales)
-- [Guia Rapida de Uso](#guia-rapida-de-uso)
-- [Vias Incluidas (25)](#vias-incluidas-25)
+- [Introducción](#introduccion)
+- [Demostración en Vivo](#demostracion-en-vivo)
+- [Características Principales](#caracteristicas-principales)
+- [Guía Rápida de Uso](#guia-rapida-de-uso)
+- [Vías Incluidas (25)](#vias-incluidas-25)
 - [Contenido y Formatos Disponibles](#contenido-y-formatos-disponibles)
-- [Arquitectura y Motor Tecnico](#arquitectura-y-motor-tecnico)
-- [Ejecucion Local](#ejecucion-local)
-- [Autoria y Licencia](#autoria-y-licencia)
+- [Arquitectura y Motor Técnico](#arquitectura-y-motor-tecnico)
+- [Ejecución Local](#ejecucion-local)
+- [Autoría y Licencia](#autoria-y-licencia)
 
 ---
 
-## Introduccion
+## Introducción
 
-Este proyecto es un trabajo desarrollado para la asignatura de *Metabolismo y su regulacion* dentro del Grado en Biologia de la Universidad de Navarra. Se trata de una aplicacion web autonoma, construida integramente sobre SVG nativo y JavaScript vanilla, que recoge veinticinco vias metabolicas en un unico lienzo vectorial de formato cartel (1200 x 900 mm, pensado tambien para impresion en plotter). El objetivo es ofrecer a los companeros de segundo curso una herramienta de estudio que permita situar cada via en su contexto celular, seguir paso a paso sus reacciones enzimaticas y explorar la regulacion alosterica y hormonal que controla el metabolismo intermediario.
+Este proyecto es una plataforma didáctica visual y computacional desarrollada para la asignatura de **Metabolismo y su regulación** dentro del Grado en Biología de la Universidad de Navarra. Se trata de un atlas metabólico interactivo y autónomo, programado íntegramente sobre **SVG nativo** y **JavaScript vanilla** sin dependencias externas ni frameworks pesados. 
 
-La herramienta se organiza en torno a tres niveles de uso. El primero es una vista panoramica del mapa completo, que permite localizar cada via dentro de su compartimento celular y de su tejido de referencia. El segundo es una navegacion guiada paso a paso que descompone cada reaccion en sus elementos basicos: enzima, numero EC, cofactores, balance termodinamico y mecanismos de regulacion. El tercero agrupa una serie de simuladores que permiten explorar sistemas que en un libro de texto aparecen estaticos, como las lanzaderas mitocondriales de malato-aspartato y glicerol-3-fosfato o la cadena de transporte de electrones con su gradiente quimiosmotico y la rotacion del rotor F0F1 de la ATP sintasa.
+El atlas integra **veinticinco vías metabólicas** en un único lienzo vectorial de escala mural (1200 × 900 mm y versión estándar 1000 × 700 mm), situando cada reacción enzimática dentro de su compartimento celular específico (citosol, matriz mitocondrial, membrana interna, retículo endoplásmico, torrente vascular y tejidos periféricos).
 
-| Metrica | Valor |
+Permite recorrer el metabolismo intermediario a tres niveles complementarios:
+1. **Visión Panorámica Celular:** Localización espacial de intermediarios, lanzaderas y transportadores de membrana.
+2. **Navegación Bioquímica Guiada:** Análisis reacción por reacción con códigos EC, cofactores, balances termodinámicos ($\Delta G^{\circ\prime}$) y control alostérico/covalente.
+3. **Simulación Dinámica de Flujos:** Monitores especializados para la Cadena Respiratoria (Complejos I–IV y rotor $F_0F_1$), lanzaderas mitocondriales redox (malato-aspartato y glicerol-3-P) y conmutación de estados fisiológicos (normal, posprandial y ayuno).
+
+| Métrica | Especificación |
 | :--- | :--- |
-| Vias metabolicas integradas | 25 |
-| Resolucion del lienzo | 1200 x 900 mm |
-| Formato de renderizado | 100% SVG nativo |
-| Dependencias externas | 0 (sin frameworks pesados) |
-| Frecuencia de animacion | 60 FPS optimizados |
-| Despliegue continuo | GitHub Actions a GitHub Pages |
-| Licencia | CC BY-NC-ND 4.0 Internacional |
+| **Vías metabólicas integradas** | 25 completas e interconectadas |
+| **Resolución del lienzo maestro** | 7320 × 5120 px (1200 × 900 mm a 150 ppp) |
+| **Formatos listos para imprenta** | 120 × 90 cm y 100 × 70 cm (PDF vectorial CMYK/RGB) |
+| **Tecnología de renderizado** | 100% SVG nativo W3C DOM |
+| **Dependencias externas** | 0 (Vanilla JS puro, sin bibliotecas externas) |
+| **Rendimiento de animación** | 60 FPS estables vía SMIL (`<animateMotion>`) y CSS GPU |
+| **Despliegue y CI/CD** | GitHub Actions automatizado a GitHub Pages |
+| **Licencia académica** | Creative Commons Atribución-NoComercial-SinDerivadas 4.0 |
 
 ---
 
-## Demostracion en Vivo
+## Demostración en Vivo
 
-[![Demostracion del Mapa Metabolico](capturas_y_pruebas/mapa_metabolico_demo.gif)](https://amorales22t.github.io/mapa_metabolico/)
+<div align="center">
 
-**Acceso directo en la web:** https://amorales22t.github.io/mapa_metabolico/
+[![Demostración Interactiva del Mapa Metabólico](capturas_y_pruebas/mapa_metabolico_demo.gif)](https://amorales22t.github.io/mapa_metabolico/)
 
-La version en linea permite explorar el mapa completo sin necesidad de descarga local. La interfaz funciona en cualquier navegador moderno (Chrome, Firefox, Edge o Safari en sus versiones recientes) y aprovecha la aceleracion hardware del renderizado SVG del navegador, lo que mantiene una frecuencia de actualizacion fluida incluso en dispositivos modestos. El lienzo vectorial no pierde calidad al hacer zoom, lo que resulta especialmente util para inspeccionar estructuras moleculares detalladas o para proyectar el mapa en clase o en el laboratorio sin perdida de nitidez.
+*Animación interactiva del mapa: vista celular, aislamiento del Ciclo de Krebs, monitor de CTE y rotor ATP sintasa, lanzadera malato-aspartato, fichas enzimáticas y corriente bioluminiscente.*
+
+👉 **Explorar online sin instalación:** [https://amorales22t.github.io/mapa_metabolico/](https://amorales22t.github.io/mapa_metabolico/)
+
+</div>
+
+### Escenas Destacadas en la Demostración:
+* **01. Arquitectura Celular Panorámica:** Distribución integrada citosol-mitocondria con membranas lipídicas bicapa y torrente vascular superior.
+* **02. Aislamiento y Resplandor de Vías:** Foco selectivo con atenuación inteligente del fondo (resaltado ámbar del Ciclo de Krebs).
+* **03. Cadena Respiratoria y Rotor $F_0F_1$:** Monitor detallado de los Complejos I, II, III y IV, bombeo de protones ($H^+$) y síntesis quimiosmótica de ATP.
+* **04. Lanzaderas Redox Mitocondriales:** Lanzadera de malato-aspartato con transportadores SLC25A11 (OGC) y SLC25A12 (Aralar).
+* **05. Regulación Enzimática Alostérica y Hormonal:** Fichas modulares con efectores positivos (+), negativos (-), fosforilaciones y ratio insulina/glucagón.
+* **06. Corriente Bioluminiscente a 60 FPS:** Partículas SMIL vectoriales que trazan el sentido real del flujo metabólico sin sobrecargar la CPU.
 
 ---
 
-## Caracteristicas Principales
+## Características Principales
 
-| Modulo | Descripcion |
+| Módulo | Funcionalidad y Valor Didáctico |
 | :--- | :--- |
-| **Indice lateral de vias** | Panel plegable con las veinticinco rutas metabolicas. Al pulsar sobre una via, la vista se centra suavemente, se atenuan las rutas no seleccionadas y se resaltan sus metabolitos e interconexiones con otras vias. |
-| **Navegacion espacial pan-zoom** | Arrastre libre del lienzo y zoom dinamico mediante rueda de raton o gestos tactiles, conservando en todo momento la nitidez vectorial caracteristica del formato SVG. |
-| **Modo didactico Paso a Paso** | Inspeccion secuencial de cada reaccion de la via activa, mostrando enzima, codigo EC, cofactores, variacion de energia libre y mecanismos de regulacion alosterica y hormonal. |
-| **Simulador de Lanzaderas Mitocondriales** | Al pulsar sobre las lupas de la Cadena de Transporte de Electrones o de las lanzaderas, se activa un monitor especializado por fases (Complejos I-IV, ATP sintasa, malato-aspartato, glicerol-3-fosfato y carnitina). |
-| **Estados metabolicos fisiologicos** | Conmutacion instantanea entre estado normal, posprandial (insulina alta, glucagon bajo) y ayuno (glucagon alto, insulina baja), con resaltado dinamico de las vias activas en cada contexto. |
-| **Flujo biologico animado** | Particulas bioluminiscentes con motor de animacion SMIL (`<animateMotion>`) y flujos CSS de bajo impacto, pausadas por defecto para optimizar el rendimiento y activables a voluntad. |
+| **Índice Lateral de Vías (25)** | Panel desplegable con buscador en tiempo real. Al hacer clic en cualquier ruta, la cámara centra suavemente la vista, atenúa las rutas ajenas y enciende los metabolitos e interconexiones activas. |
+| **Navegación Pan-Zoom Vectorial** | Desplazamiento libre mediante puntero o gestos táctiles, con zoom dinámico infinito que conserva la nitidez cristalina en fórmulas químicas y textos. |
+| **Modo Didáctico Paso a Paso** | Desglose secuencial de las reacciones de la ruta activa: ecuación química estequiométrica, enzima, código EC, cofactores y mecanismo de control. |
+| **Modo Lectura de Alto Contraste** | Optimiza el grosor tipográfico, amplía las conexiones inter-ruta y añade siluetas de contraste a los rótulos para proyecciones en clase o pantallas con luz ambiente. |
+| **Modo Aislar Vía** | Oculta completamente los elementos secundarios para un estudio limpio y focalizado de una ruta individual. |
+| **Simulador de Lanzaderas y Monitor CTE** | Acceso interactivo por lupas vectoriales a monitores ampliados: Complejos I–IV, rotación $\gamma$ de la ATP sintasa, malato-aspartato, glicerol-3-P y carnitina. |
+| **Conmutador de Estados Fisiológicos** | Cambio instantáneo entre estado **Normal**, **Posprandial** (insulina alta, glucagón bajo) y **Ayuno** (glucagón alto, lipólisis y gluconeogénesis activas). |
+| **Flujo Bioluminiscente Activado** | Trazado cinético de electrones y carbonos mediante partículas bioluminiscentes SMIL (`<animateMotion>`), pausables con un clic para lectura en reposo. |
 
 ---
 
-## Guia Rapida de Uso
+## Guía Rápida de Uso
 
-Para sacar provecho del mapa, conviene familiarizarse con los controles principales descritos a continuacion. Cada uno de ellos esta accesible desde la barra superior o desde los botones flotantes del lienzo.
-
-1. **Indice lateral de vias.** Pulsa el boton **Vias (25)** situado en la barra superior para desplegar el panel con la lista completa de rutas metabolicas. Al hacer clic en una ruta, la vista se centra suavemente sobre ella y se atenuan el resto. Un buscador interno permite filtrar por nombre (por ejemplo, Krebs, Lipolisis o Kennedy).
-2. **Navegacion espacial.** Arrastra el lienzo con el puntero para desplazarte libremente por el mapa. Utiliza la rueda del raton o los gestos tactiles para hacer zoom in o zoom out sin perdida de resolucion vectorial. Los botones de la barra superior permiten ajustar el zoom a un valor concreto, restablecer la vista o ajustar a pantalla.
-3. **Modo Paso a Paso.** Activa el boton **Paso a Paso** para iniciar la navegacion guiada. El panel inferior mostrara secuencialmente cada reaccion de la via activa con su ecuacion quimica, enzima, cofactores y regulacion. Las flechas del panel permiten avanzar o retroceder en la secuencia.
-4. **Cadena Respiratoria y Lanzaderas.** Situate sobre las lupas marcadas como CTE o Lanzaderas y pulsa para abrir el simulador especializado. En el caso de la cadena respiratoria se accede a un monitor por fases con los Complejos I-IV y la ATP sintasa. En las lanzaderas, un monitor especifico muestra malato-aspartato, glicerol-3-fosfato o carnitina segun el caso.
-5. **Estados metabolicos.** Utiliza los botones Normal / Posprandial / Ayuno para visualizar como cambia el patron de actividad metabolica en funcion del contexto hormonal. El rastreo visual de los flujos activos facilita la comprension integrada del metabolismo intertisular.
-6. **Flujo biologico.** Las particulas bioluminiscentes estan pausadas por defecto para optimizar el rendimiento en sesiones largas. Activalas con el boton **Flujo Animado** cuando desees visualizar dinamicamente el sentido de las reacciones y el transporte de equivalentes reducidos.
-7. **Acceso directo por URL.** Puedes enlazar a una ruta concreta añadiendo el parametro `?via=N` a la URL, donde N va de 1 a 25. Esto resulta especialmente util para compartir una via concreta en foros academicos, aulas virtuales o presentaciones.
+1. **Selección rápida o Índice lateral:** Pulsa el botón **Vías (25)** en la barra superior o despliega el selector rápido para navegar directamente a cualquiera de las 25 rutas.
+2. **Navegación espacial:** Arrastra el lienzo con el ratón o trackpad. Usa la rueda o los botones `+` / `−` para hacer zoom; pulsa `Reset` o `Ajustar` (tecla `F`) para restablecer la vista completa.
+3. **Búsqueda instantánea:** Presiona la tecla `/` o escribe en el cajetín **BUSCAR** para localizar cualquier metabolito o enzima (ej. *Citrato*, *PFK-1*, *Malonil-CoA*). Usa `Enter` o las flechas para saltar entre coincidencias.
+4. **Ficha de regulación:** Haz clic sobre cualquier enzima o reacción para desplegar su ficha interactiva con balance libre ($\Delta G^{\circ\prime}$), efectores alostéricos ($+$ / $-$) y cascada hormonal.
+5. **Simuladores de Transporte y CTE:** Pulsa sobre las lupas rotuladas como **CTE** o **Lanzaderas** para abrir los paneles de respiración celular y transporte redox.
+6. **Estados fisiológicos:** Conmuta entre **Normal**, **Posprandial** y **Ayuno** para observar cómo se reorganiza el tráfico metabólico entre hígado, músculo, tejido adiposo y cerebro.
+7. **Acceso directo por URL:** Puedes compartir o enlazar cualquier ruta añadiendo `?via=N` (de 1 a 25) o `?state=ayuno` a la dirección web (ej. `?via=6` para el Ciclo de Krebs).
 
 ---
 
-## Vias Incluidas (25)
+## Vías Incluidas (25)
 
-Las veinticinco vias metabolicas se organizan en siete bloques tematicos, siguiendo la estructura pedagogica clasica del metabolismo intermediario. Cada via conserva su numeracion original y es accesible de forma individual tanto desde el indice lateral como desde el selector rapido de la barra superior o por parametro URL.
+Las veinticinco rutas metabólicas cubren el programa completo de la asignatura estructuradas en siete bloques temáticos integrados:
 
-### Bloque I. Carbohidratos
+### Bloque I. Metabolismo de Carbohidratos
+* **1. Glucólisis:** 10 reacciones citosólicas, hexocinasa, PFK-1, piruvato quinasa, balance ATP/NADH.
+* **2. Gluconeogénesis:** Rodeos enzimáticos (piruvato carboxilasa, PEPCK, FBPasa-1, glucosa-6-fosfatasa).
+* **3. Glucogenogénesis y Glucogenólisis:** Regulación recíproca por glucógeno sintasa y glucógeno fosforilasa.
+* **4. Vía de las Pentosas Fosfato:** Fase oxidativa generadora de NADPH (G6PDH) y fase no oxidativa (transcetolasa/transaldolasa).
 
-| # | Via | Compartimento | Puntos clave |
-| :---: | :--- | :--- | :--- |
-| 1 | Glucolisis | Citosol | Hexocinasa, PFK-1, Piruvato quinasa, regulacion alosterica y hormonal |
-| 2 | Gluconeogenesis | Matriz / Citosol / RE | Tres rodeos enzimaticos (PC, PEPCK, FBPasa-1, G6Pasa) |
-| 3 | Glucogenogenesis / Glucogenolisis | Citosol | Glucogeno sintasa y glucogeno fosforilasa, fosforilacion reversible |
-| 4 | Via de las Pentosas Fosfato | Citosol | Fase oxidativa (G6PDH), fase no oxidativa (TK, TA), NADPH y ribosa-5-P |
+### Bloque II. Respiración Celular y Bioenergética
+* **5. Complejo Piruvato Deshidrogenasa (PDH):** E1, E2, E3, cofactores (TPP, lipoamida, CoA, FAD, NAD⁺) y control por PDK/PDP.
+* **6. Ciclo de Krebs (ATC):** 8 etapas matriciales, citrato sintasa, isocitrato DH, α-cetoglutarato DH, balance redox.
+* **7. Cadena Respiratoria y ATP Sintasa:** Complejos I–IV, coenzima Q, citocromo c, bombeo de $H^+$ y rotor $F_0F_1$.
 
-### Bloque II. Respiracion y Bioenergetica
+### Bloque III. Lanzaderas Mitocondriales
+* **8. Lanzadera Malato-Aspartato:** Transportadores OGC (SLC25A11) y Aralar/AGC (SLC25A12), rescate de NADH citosólico.
+* **8B. Lanzadera Glicerol-3-Fosfato:** g3pDH citosólica y mitocondrial con flavoproteína de membrana interna.
+* **9. Lanzadera de Carnitina:** CPT-1 (inhibida por malonil-CoA), translocasa CACT y CPT-2.
 
-| # | Via | Compartimento | Puntos clave |
-| :---: | :--- | :--- | :--- |
-| 5 | Complejo Piruvato Deshidrogenasa (PDH) | Matriz mitocondrial | Descarboxilacion oxidativa, cinco cofactores (TPP, lipoamida, CoA, FAD, NAD+), regulacion por PDK/PDP |
-| 6 | Ciclo de Krebs | Matriz mitocondrial | Ocho pasos, tres NADH, un FADH2, un GTP, dos CO2 por vuelta |
-| 7 | Cadena Respiratoria y ATP Sintasa | Membrana mitocondrial interna | Complejos I-IV, CoQ, citocromo c, F0F1, gradiente quimiosmotico de Mitchell |
+### Bloque IV. Metabolismo Lipídico y Cuerpos Cetónicos
+* **9. $\beta$-Oxidación de Ácidos Grasos:** Espiral de Lynen en matriz mitocondrial (deshidrogenación, hidratación, tiólisis).
+* **10. Lipogénesis de Novo:** ATP citrato liasa, acetil-CoA carboxilasa (ACC) y complejo ácido graso sintasa (FAS).
+* **11. Cetogénesis y Cetólisis:** Síntesis hepática de acetoacetato y $\beta$-hidroxibutirato; destino oxidativo cerebral.
+* **12. Biosíntesis de Colesterol:** Vía del mevalonato, HMG-CoA reductasa (diana de estatinas), escualeno y cascada cicladora.
 
-### Bloque III. Lanzaderas Redox Mitocondriales
+### Bloque V. Nitrógeno y Aminoácidos
+* **12B. Vía de Transulfuracion (CTH):** Metabolismo de metionina y homocisteína hacia cisteína.
+* **13. Transaminación y Ciclo Glucosa-Alanina:** Acoplamiento aminotransferasa (ALT, AST) entre músculo e hígado.
+* **14. Ciclo de la Urea:** Biciclo de Krebs-Henseleit compartimentado (matriz y citosol) con excreción nitrogenada.
 
-| # | Via | Compartimento | Puntos clave |
-| :---: | :--- | :--- | :--- |
-| 8 | Lanzadera Malato-Aspartato | Membrana mitocondrial interna | Transportadores OGC y AGC (Aralar), transferencia citosol-matriz de equivalentes |
-| 8B | Lanzadera Glicerol-3-Fosfato | MME / MMI | g3pDH citosolica y mitocondrial, transferencia de electrones a CoQ via FAD |
-| 9 | Lanzadera de Carnitina | MME y MMI | CPT-1 (limitante, inhibida por malonil-CoA), CACT (antipuerto), CPT-2 |
+### Bloque VI. Metabolismo de Nucleótidos
+* **15. Biosíntesis de Purinas y Pirimidinas:** Rutas de novo y vías de salvamento dependientes de PRPP.
+* **16. Catabolismo de Nucleótidos y Ácido Úrico:** Degradación oxidativa a urato y transporte renal (URAT1).
 
-### Bloque IV. Lipidos
-
-| # | Via | Compartimento | Puntos clave |
-| :---: | :--- | :--- | :--- |
-| 9 | Beta-Oxidacion de acidos grasos | Matriz mitocondrial | Cuatro pasos (deshidrogenacion, hidratacion, deshidrogenacion, tiolisis), rendimientos energeticamente relevantes |
-| 10 | Lipogenesis de novo | Citosol | ATP citrato liasa, ACC, FAS (siete ciclos condensacion-reduccion), palmitato final |
-| 11 | Cetogenesis / Cetolisis | Matriz hepatica / Citosol extrahepatico | HMG-CoA sintasa mitocondrial, HMG-CoA liasa, acetoacetato y beta-hidroxibutirato |
-| 12 | Biosintesis de Colesterol | Reticulo endoplasmico | Via del mevalonato, HMG-CoA reductasa (limitante, diana de estatinas), Bloch y Kandutsch |
-
-### Bloque V. Nitrogeno y Aminoacidos
-
-| # | Via | Compartimento | Puntos clave |
-| :---: | :--- | :--- | :--- |
-| 12B | Via de Transulfuracion (CTH) | Citosol | Cistationina beta-sintasa y cistationina gamma-liasa, destino del carbon esqueletico |
-| 13 | Transaminacion y Ciclo Glucosa-Alanina | Citosol / Sangre | ALT, AST, ciclo glucosa-alanina (Cahill), transportador de nitrogeno muscular |
-| 14 | Ciclo de la Urea | Mitochondria / Citosol hepatico | Biciclo Krebs-Henseleit, cinco enzimas, dos compartimentos, excrecion nitrogenada |
-
-### Bloque VI. Nucleotidos
-
-| # | Via | Compartimento | Puntos clave |
-| :---: | :--- | :--- | :--- |
-| 15 | Biosintesis de Purinas y Pirimidinas | Citosol | Sintesis de novo y de salvamento, PRPP como donador, regulacion alosterica |
-| 16 | Catabolismo de Nucleotidos | Citosol / Renal | Degradacion de purinas a acido urico, transportador URAT1, diana farmacologica en gota |
-
-### Bloque VII. Integracion Tisular e Interorganos
-
-| # | Via | Compartimento | Puntos clave |
-| :---: | :--- | :--- | :--- |
-| 17 | Ciclo de Cori y Ciclo de Cahill | Vascular | Acoplamiento musculo-higado y adipocito-higado durante el ayuno |
-| 18 | Digestion y Absorcion de Lipidos | Enterocito | Quilomicrones, enterocito, transporte linfatico |
-| 19 | Lipolisis Adipocitaria | Adipocito | ATGL, HSL y MGL, regulacion hormonal por insulina y catecolaminas |
-| 20 | Musculo Esqueletico y Sarcomero | Sarcomero | GLUT-4 insulina-dependiente, fosfagenos, tipos de fibra |
-| 21 | Cerebro y Barrera Hematoencefalica | Endotelio capilar / Neurona | BHE, cetolisis neuronal, dependencia glucosada fisiologica |
-| 22 | Metabolismo de Lipoproteinas | Plasma | VLDL, LDL, HDL, LPL, LCAT, receptores hepaticos |
-| 23 | Via de Kennedy | Reticulo endoplasmico | Sintesis de fosfolipidos de membrana, CDP-colina y CDP-etanolamina |
-| 24 | Biosintesis de Aminoacidos No Esenciales | Citosol | Transaminacion, reacciones de un carbon (folato, B12) |
-| 25 | Conmutador Hormonal Pancreatico | Celulas beta y alfa | Insulina, glucagon, amilina, regulacion integrada |
+### Bloque VII. Integración Tisular e Interórganos
+* **17. Ciclo de Cori y Ciclo de Cahill:** Integración lactato/glucosa y alanina/glucosa en esfuerzo y ayuno.
+* **18. Digestión y Absorción de Lípidos:** Formación enterocítica de micelas y quilomicrones linfáticos.
+* **19. Lipólisis Adipocitaria:** Cascada lipolítica regulada por ATGL, HSL y MGL bajo control adrenérgico.
+* **20. Músculo Esquelético y Sarcómero:** Entrada de glucosa dependiente de GLUT-4, creatina fosfato y tipos de fibra.
+* **21. Cerebro y Barrera Hematoencefálica:** Transporte de metabolitos por GLUT-1 y MCT1, adaptación cetolítica en ayuno.
+* **22. Metabolismo de Lipoproteínas Plasmáticas:** VLDL, IDL, LDL, HDL, lipoproteína lipasa (LPL) y aclaramiento hepático.
+* **23. Vía de Kennedy:** Biosíntesis de novo de fosfolípidos de membrana celular.
+* **24. Biosíntesis de Aminoácidos No Esenciales:** Rutas anfibólicas derivadas de intermediarios glucolíticos y de Krebs.
+* **25. Conmutador Hormonal Pancreático:** Células $\alpha$ y $\beta$, secreción coordinada de insulina, glucagón y somatostatina.
 
 ---
 
 ## Contenido y Formatos Disponibles
 
-El repositorio ofrece el mapa en varios formatos complementarios, cada uno pensado para un caso de uso distinto (estudio personal, sesion en clase, impresion o modificacion del codigo). La siguiente tabla resume los recursos disponibles y su ubicacion dentro del repositorio.
-
-| Recurso | Descripcion | Ubicacion |
+| Recurso | Formato / Escala | Ubicación |
 | :--- | :--- | :--- |
-| **Mapa Interactivo (Portal)** | Aplicacion web completa y autonoma con motor SVG y JavaScript vanilla | [`index.html`](index.html) |
-| **Mapa Alternativo (Entregables)** | Version vectorial con flujo animado continuo y visualizacion limpia | [`mapa_metabolico_alternativo/`](mapa_metabolico_alternativo/) |
-| **Mapa Base (Cartulina)** | Diagrama maestro ampliado completo con las 25 vias | [`versiones_html/01_mapa_ampliado_completo_25_vias.html`](versiones_html/01_mapa_ampliado_completo_25_vias.html) |
-| **Ampliacion Rutas 18-25** | Vista aislada de vias intertisulares y de integracion | [`versiones_html/02_ampliacion_rutas_18_25.html`](versiones_html/02_ampliacion_rutas_18_25.html) |
-| **Poster de Impresion (PDF)** | Formato poster gigante listo para imprenta (1200 x 900 mm) | [`versiones_impresion/`](versiones_impresion/) |
-| **Vias Individuales (SVG)** | Diagramas vectoriales modulares clasificados por bloque | [`01_CARBOHIDRATOS/`](01_CARBOHIDRATOS/) a [`05_NUCLEOTIDOS_Y_OTRAS/`](05_NUCLEOTIDOS_Y_OTRAS/) |
+| **Mapa Interactivo Principal** | Aplicación web SVG + JS Vanilla | [`index.html`](index.html) |
+| **Mapa Alternativo (Flujo Continuo)** | Visor alternativo con SMIL en vivo | [`mapa_metabolico_alternativo/`](mapa_metabolico_alternativo/) |
+| **Póster de Imprenta (120 × 90 cm)** | PDF vectorial gigante para plotter | [`versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf`](versiones_impresion/01_mapa_ampliado_completo_120x90cm.pdf) |
+| **Póster de Imprenta (100 × 70 cm)** | PDF vectorial estándar B1 / imprenta | [`versiones_impresion/01_mapa_ampliado_completo_100x70cm.pdf`](versiones_impresion/01_mapa_ampliado_completo_100x70cm.pdf) |
+| **Diagrama Vectorial 100×70 cm** | Archivo SVG editable a escala | [`versiones_impresion/mapa_metabolico_100x70cm.svg`](versiones_impresion/mapa_metabolico_100x70cm.svg) |
+| **Imágenes en Ultra-HD (10000 px)** | PNG / JPG de máxima definición | [`versiones_impresion/`](versiones_impresion/) |
+| **Vías Individuales Modulares** | Diagramas SVG aislados por bloque | [`01_CARBOHIDRATOS/`](01_CARBOHIDRATOS/) a [`05_NUCLEOTIDOS_Y_OTRAS/`](05_NUCLEOTIDOS_Y_OTRAS/) |
 
 ---
 
-## Arquitectura y Motor Tecnico
-
-El proyecto se ha concebido como una aplicacion ligera y autosuficiente, sin dependencias de frameworks externos. Toda la interactividad se implementa en JavaScript vanilla y todo el renderizado se apoya en el formato SVG nativo del navegador, lo que garantiza escalabilidad vectorial sin perdida de calidad, independencia de plugins y un consumo minimo de recursos. Esta decision permite que el codigo fuente sea legible y modificable tambien por companeros sin experiencia previa en frameworks web.
+## Arquitectura y Motor Técnico
 
 ```
 +--------------------------------------------------------------------------+
-|                        ARQUITECTURA DEL MAPA                            |
+|                        ARQUITECTURA DEL ATLAS                            |
 +--------------------------------------------------------------------------+
 |                                                                          |
-|   [ NAVEGADOR ]                                                          |
-|        |                                                                 |
-|        v                                                                 |
-|   +-------------------+        +-------------------+                     |
-|   |   index.html      |  <-->  |  SVG Nativo       |                    |
-|   |   (estructura)    |        |  (lienzo 7320 px) |                    |
-|   +-------------------+        +-------------------+                     |
-|        |                          ^                                     |
-|        v                          |                                     |
-|   +-------------------+        +-------------------+                    |
-|   |  Motor JS Vanilla |  --->  |  SMIL + CSS       |                    |
-|   |  (pan, zoom,        |       |  (animaciones      |                   |
-|   |   step, sidebar)   |       |   bioluminiscentes)|                   |
-|   +-------------------+        +-------------------+                    |
-|        |                                                                 |
-|        v                                                                 |
-|   +-------------------+                                                  |
-|   |  GitHub Actions   |  -->  push a rama main  -->  GitHub Pages       |
-|   |  deploy.yml       |                        despliegue automatico     |
-|   +-------------------+                                                  |
+|   [ NAVEGADOR WEB MODERNO ]                                              |
+|        │                                                                 |
+|        ▼                                                                 |
+|   ┌───────────────────┐        ┌───────────────────┐                     |
+|   │   index.html      │  <──>  │  SVG Nativo W3C   │                     |
+|   │   (UI DOM)        │        │  (7320 × 5120 px) │                     |
+|   └───────────────────┘        └───────────────────┘                     |
+|        │                          ▲                                      |
+|        ▼                          │                                      |
+|   ┌───────────────────┐        ┌───────────────────┐                     |
+|   │  Motor JS Vanilla │  ────> │  SMIL + CSS GPU   │                     |
+|   │  (pan-zoom, step, │        │  (partículas 60fps│                     |
+|   │   tooltip alost.) │        │   bioluminiscentes│                     |
+|   └───────────────────┘        └───────────────────┘                     |
+|        │                                                                 |
+|        ▼                                                                 |
+|   ┌───────────────────┐                                                  |
+|   │  GitHub Actions   │  ────> push main ────> Despliegue automático     |
+|   │  deploy.yml       │                        en GitHub Pages           |
+|   └───────────────────┘                                                  |
 |                                                                          |
 +--------------------------------------------------------------------------+
 ```
 
-Los principios arquitectonicos clave son tres. En primer lugar, el uso exclusivo de SVG nativo permite que el lienzo se renderice como un arbol DOM manipulable directamente desde JavaScript, evitando el coste de un canvas raster o de un motor WebGL. En segundo lugar, las micro-animaciones se declaran mediante `<animateMotion>` de SMIL y transiciones CSS de bajo impacto, lo que permite mantener una frecuencia estable de 60 FPS sin sacrificar la legibilidad del codigo fuente. En tercer lugar, el despliegue continuo se automatiza mediante GitHub Actions: cada push a la rama `main` dispara el flujo de trabajo definido en `.github/workflows/deploy.yml` y publica la nueva version en GitHub Pages en cuestion de segundos.
+1. **SVG Nativo como Grafo DOM:** Todas las vías, metabolitos y enzimas son nodos SVG estándar consultables y modificables mediante la API DOM de JavaScript (`document.getElementById`), permitiendo resaltados instantáneos sin el sobrecoste de WebGL ni repintados masivos de Canvas raster.
+2. **Animación Bioluminiscente Eficiente:** Las partículas se mueven siguiendo rutas `<path>` mediante `<animateMotion>` de SMIL combinadas con transiciones CSS aceleradas por GPU, manteniendo 60 FPS estables y con opción de pausa instantánea para optimizar el consumo de batería.
+3. **Cero Dependencias y Despliegue Continuo:** El repositorio no requiere `npm install`, frameworks pesados ni compiladores. Un flujo de GitHub Actions despliega cualquier actualización en GitHub Pages en segundos.
 
 ---
 
-## Ejecucion Local
+## Ejecución Local
 
-Para visualizar el mapa localmente en cualquier navegador, basta con servir el contenido del repositorio mediante un servidor HTTP estatico. La siguiente instruccion utiliza el modulo integrado de Python 3, que no requiere instalacion adicional:
+Para ejecutar el atlas localmente basta con servir los archivos mediante cualquier servidor HTTP estático (necesario para permitir la resolución correcta de recursos SVG por las políticas de seguridad del navegador):
 
 ```bash
-# Servir desde la raiz del repositorio
+# Servir con Python 3 (incorporado en Linux, macOS y Windows):
 python3 -m http.server 8000
 ```
 
-Una vez ejecutado, abre tu navegador en `http://localhost:8000/`. El mapa se cargara integramente desde tu maquina, sin dependencia de conexion externa. Esta opcion resulta util para sesiones en clase sin acceso a internet o para revisar y modificar el codigo fuente en tiempo real durante el desarrollo.
+Abre tu navegador en:
+```
+http://localhost:8000/
+```
 
-Alternativamente, puede emplearse cualquier otro servidor HTTP estatico equivalente, como `npx serve`, `php -S localhost:8000` o una extension de servidor local del propio navegador. La unica condicion tecnica es que los archivos se sirvan bajo el mismo origen, dado que el navegador impone restricciones a la carga de SVG como archivo (`file://`) por razones de seguridad del modelo CORS.
-
----
-
-## Autoria y Licencia
-
-**Autor:** [AMorales22T](https://github.com/AMorales22T) - Estudiante de Grado en Biologia, Universidad de Navarra. Repositorio: [AMorales22T/mapa_metabolico](https://github.com/AMorales22T/mapa_metabolico)
-
-**Asignatura:** Metabolismo y su regulacion (segundo curso del Grado en Biologia).
-
-**Agradecimientos:** Al profesorado de la asignatura por la orientacion bibliografica y por la sugerencia de integrar en un unico mapa las vias vistas de forma aislada a lo largo del curso.
-
-Este proyecto se distribuye bajo la licencia **Creative Commons Atribucion-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0)**. La licencia completa puede consultarse en https://creativecommons.org/licenses/by-nc-nd/4.0/.
-
-**Se permite** compartir, visualizar y utilizar este material con fines academicos y de estudio personal, conservando siempre la atribucion original al autor y el enlace al repositorio oficial. Esto incluye su proyeccion en aulas, su inclusion en plataformas educativas no comerciales y su uso como material de referencia en trabajos de investigacion.
-
-**No comercial.** No esta permitido el uso comercial del material ni su venta en ninguna plataforma, ni siquiera de forma modificada o integrada en productos de pago. Cualquier uso que genere ingresos directos o indirectos requiere autorizacion expresa y previa del autor.
-
-**Sin obras derivadas.** No se autoriza la redistribucion de versiones modificadas, adaptadas o desprovistas del credito original de autoria. Las traducciones, adaptaciones a otros idiomas o reorganizaciones sustanciales del contenido requieren permiso explicito del autor.
+*Alternativas equivalentes:* `npx serve`, `php -S localhost:8000` o la extensión *Live Server* de VS Code / IDE.
 
 ---
+
+## Autoría y Licencia
+
+**Autor:** **Adolfo Morales Tena** ([AMorales22T](https://github.com/AMorales22T))  
+*Estudiante del Grado en Biología • Universidad de Navarra*  
+Repositorio oficial: [https://github.com/AMorales22T/mapa_metabolico](https://github.com/AMorales22T/mapa_metabolico)
+
+**Asignatura:** Metabolismo y su regulación (segundo curso, Grado en Biología).  
+**Agradecimientos:** Al profesorado y departamento de Bioquímica de la Universidad de Navarra por la orientación académica y el apoyo en la integración intertisular de las rutas metabólicas.
+
+Este proyecto se distribuye bajo la licencia internacional **Creative Commons Atribución-NoComercial-SinDerivadas 4.0 (CC BY-NC-ND 4.0)**.  
+Consulta el texto legal íntegro en [LICENSE](LICENSE) o en [creativecommons.org](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+* **Permitido:** Compartir, proyectar y utilizar con fines de estudio personal, docencia académica y divulgación científica no comercial, manteniendo la atribución original.
+* **No comercial:** Prohibida su venta o uso en plataformas de pago sin consentimiento expreso por escrito.
+* **Sin obras derivadas:** Prohibida la redistribución de copias alteradas o sin la acreditación correspondiente.
 
 ```
 +--------------------------------------------------------------------------+
-|                                                                          |
-|   © AMorales22T  -  Mapa de Metabolismo y su Regulacion                  |
-|   Grado en Biologia  -  Universidad de Navarra                           |
-|   Licencia: CC BY-NC-ND 4.0  -  https://github.com/AMorales22T           |
-|                                                                          |
+|   © Adolfo Morales Tena (AMorales22T)  •  Universidad de Navarra         |
+|   Atlas de Metabolismo y su Regulación  •  Licencia CC BY-NC-ND 4.0       |
 +--------------------------------------------------------------------------+
 ```
