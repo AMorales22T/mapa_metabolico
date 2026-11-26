@@ -26,10 +26,13 @@
 
     /* Atenuación y resaltado de vías de alto rendimiento */
     .ui_dimmed {
-      opacity: 0.12 !important;
-      transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-      filter: grayscale(45%);
+      opacity: 0.14 !important;
+      filter: none !important;
+      transition: none !important;
     }
+    #capa_conexiones_inter_ruta { pointer-events: none !important; }
+    [id^="rx_"], [id^="m_"], .badge-via { pointer-events: bounding-box; }
+    #panLayer { will-change: transform; backface-visibility: hidden; }
     .ui_highlighted {
       opacity: 1 !important;
       transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1);
@@ -12394,31 +12397,22 @@
         }
       }
 
-      // Clic en ruta o sección
-      const ruta = target.closest('[id^="ruta_"], [id^="lupa_"]');
-      if (ruta) {
-        const viaEntry = Object.values(TABLA_VIAS).find(v => v.grupos.includes(ruta.id));
-        if (viaEntry) {
-          highlightPathway(viaEntry.id, false);
-          return;
-        }
-      }
-
-      // Clic en enzima o metabolito -> FIJAR FICHA ESTEQUIOMÉTRICA
+      // Clic en enzima o metabolito -> FIJAR O CERRAR FICHA ESTEQUIOMÉTRICA
       const targetRx = target.closest('[id^="rx_"], [id^="m_"]');
       if (targetRx) {
-        pinTooltip(targetRx, clickX, clickY);
+        if (isTooltipPinned && pinnedElement === targetRx) unpinTooltip();
+        else pinTooltip(targetRx, clientX, clientY);
         return;
       }
 
-      // Clic fuera de reacción y fuera de tooltip -> desanclar ficha
-      if (!target.closest('#ui_tooltip_card')) {
+      // Clic fuera de ficha o en espacio vacío -> cerrar ficha y quitar selección activa
+      if (isTooltipPinned && !target.closest('#ui_tooltip_card')) {
         unpinTooltip();
+        return;
       }
-
-      // Clic en fondo o espacio vacío
-      if (target.tagName === 'svg' || target.id === 'viewport' || target.id === 'panLayer' || target.id === 'print_fondo_base' || target.id === 'print_fondo_izq' || target.id === 'print_fondo_der' || target.tagName === 'rect') {
+      if (!target.closest('#ui_tooltip_card')) {
         clearPathwayHighlight();
+        if (estadoMetabolicoActual !== 'normal') setMetabolicState('normal');
       }
     }
 
