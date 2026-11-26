@@ -417,9 +417,6 @@
       transform-origin: 0 0;
       width: 7320px;
       height: 5120px;
-      will-change: transform;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
     }
     svg { display: block; width: 100%; height: 100%; }
 
@@ -12599,7 +12596,7 @@
 
     function applyTransformImmediate() {
       rafTransformId = 0;
-      panLayer.style.transform = `translate3d(${pointX}px, ${pointY}px, 0) scale(${scale})`;
+      panLayer.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
       const pct = Math.round(scale * 100);
       if (pct !== lastZoomPct && zoomLevelEl) {
         lastZoomPct = pct;
